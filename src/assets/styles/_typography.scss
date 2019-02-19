@@ -1,0 +1,57 @@
+@import '_mixins';
+
+.t-paragraph {
+	&Light {
+		@include paragraph(24px, 28px, 200);
+	}
+	
+	&Normal {
+		@include paragraph(24px, 28px, 400);
+	}
+
+	&Bold {
+		@include paragraph(24px, 28px, 700);
+	}
+}
+
+.t-paragraph1 {
+	&Light {
+		@include paragraph(28px, 32px, 200);
+	}
+	
+	&Normal {
+		@include paragraph(28px, 32px, 400);
+	}
+
+	&Bold {
+		@include paragraph(28px, 32px, 700);
+	}
+}
+
+.t-paragraph2 {
+	&Light {
+		@include paragraph(14px, 18px, 200);
+	}
+	
+	&Normal {
+		@include paragraph(14px, 18px, 400);
+	}
+
+	&Bold {
+		@include paragraph(14px, 18px, 700);
+	}
+}
+
+.t-paragraph3 {
+	&Light {
+		@include paragraph(20px, 24px, 200);
+	}
+	
+	&Normal {
+		@include paragraph(20px, 24px, 400);
+	}
+
+	&Bold {
+		@include paragraph(20px, 24px, 700);
+	}
+}

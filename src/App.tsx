@@ -1,25 +1,55 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+//Import styles
+import './assets/styles/index.scss';
+
+//Import other components
+import CreditsFooter from './components/CreditsFooter';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <div className="container">
+        <header className="sectionTitle">
+          <h1>
+            angotia map creator
+          </h1>
         </header>
+        <div role="presentation" className="wrapper">
+          <ul className="controlPanel">
+            <li>
+              <a href="#" className="t-paragraph1Light controlPanel__createBoard">
+               {/* tabindex="1" */}
+                <span>
+                  create new map
+                </span>
+                <div role="presentation" className="controlPanel__sizeBoard">
+                  <input type="text" name="input" value="x-axis" id="xMapSize" />
+                  <span className="t-paragraph3Normal">x</span>
+                  <input type="text" name="input" value="y-axis" id="yMapSize" />
+                  <button id="startMapCreation">start</button>
+                </div>
+                <span id="validationInfo" className="t-paragraph2Bold controlPanel__validationInfo"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="t-paragraph1Light">
+                  edit existing map
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" id="closeBtn">
+                <span className="t-paragraphLight">
+                  exit
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <CreditsFooter />
       </div>
     );
   }

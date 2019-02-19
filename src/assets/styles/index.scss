@@ -3,9 +3,10 @@
 @import '_global.scss';
 @import '_mixins.scss';
 @import '_typography.scss';
+@import '_fonts.scss';
 
 //Import components styles
 @import './components/_buttons.scss';
+@import './components/_creditsFooter.scss';
 
-@import './components/mainPanel/controlPanel.scss';
-@import './components/controlPanel/header.scss';
+@import './components/mainMenu/mainMenu.scss';

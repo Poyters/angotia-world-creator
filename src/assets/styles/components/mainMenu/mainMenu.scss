@@ -1,0 +1,141 @@
+.controlPanel {
+  display: block;
+  flex: 1;
+  margin: 30px 0;
+  padding: 15px 0;
+  transform: translateY(-50px);
+
+  background: rgba(0, 0, 0, 0.2);
+  & li {
+    display: block;
+    margin: 16px 15px;
+    text-align: center;
+
+    & a {
+      display: block; 
+      outline: none; 
+    }
+
+    &:last-child {
+      margin-top: 30px;	
+    }
+  }
+
+  &__createBoard {
+    display: block;
+    transition: 0.3s;
+    outline: none;
+
+    &:focus-within {
+      .controlPanel__sizeBoard {
+        height: 35px;
+        opacity: 1;
+        font-size: 12px;
+
+        & button {
+          font-size: inherit;
+          &:before {
+            border-width: 0 4px 35px 0;
+          }
+
+          &:after {
+            border-width: 35px 0 0 4px;
+          }
+        }
+      }
+
+      .controlPanel__validationInfo {
+        display: block;  
+      }
+    }
+  }
+
+  &__sizeBoard {
+    display: flex;
+    margin: 20px 0;
+    justify-content: center;
+    height: 0;
+    opacity: 0;
+    transition: 0.3s;
+
+    font-size: 0px;
+    word-spacing: 3px;
+
+    & span {
+      margin: 3px 10px;
+    }
+
+    & input, & button {
+      color: $fontColor1;
+      border: none;
+      background: $decorationColor;
+      outline: none;
+    }
+
+    & input {
+      flex: 0 1 auto;
+      max-width: 35px;
+      padding: 10px 20px;
+
+      text-align: center;
+    }
+
+    & button {
+      flex: 0 1 auto;
+      position: relative;
+      margin: 0 40px;
+      padding: 10px 20px;
+      
+      font-size: 0px;
+      text-transform: uppercase;
+      transition-duration: 0.3s;
+      font-weight: 700;
+      letter-spacing: 1px;
+
+      &:hover {
+        cursor: pointer;  
+        background: $decorationColor1;
+        color: $backgroundColor;
+
+        &:before {
+          border-color: transparent $decorationColor1 transparent transparent;
+        }
+
+        &:after {
+          border-color: transparent transparent transparent $decorationColor1;
+        }
+      }
+
+      &:before, &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        transition-duration: 0.3s;
+      }
+
+      &:before {
+        left: -3px;
+        border-width: 0 4px 0px 0;
+        border-color: transparent $decorationColor transparent transparent;
+      }
+
+      &:after {
+        right: -3px;
+        border-width: 0px 0 0 4px;
+        border-color: transparent transparent transparent $decorationColor;
+      }
+    }
+  }
+
+  &__validationInfo {
+    display: none;
+    height: 14px;
+    margin-top: -14px;
+    
+    transition: 0.3s;
+    color: $warningColor;
+  }
+}
