@@ -3,7 +3,7 @@ import React from 'react';
 //Import other components
 import CreditsFooter from '../CreditsFooter';
 import SectionHeader from '../SectionHeader';
-
+import Input from '../Input';
 
 
 const Home: React.SFC = () => {
@@ -21,9 +21,15 @@ const Home: React.SFC = () => {
                   create new map
                 </span>
                 <div role="presentation" className="controlPanel__sizeBoard">
-                  <input type="text" name="input" value="x-axis" id="xMapSize" />
+                  <Input
+                    value="x-axis"
+                    id="xMapSize"
+                  />
                   <span className="t-paragraph3Normal">x</span>
-                  <input type="text" name="input" value="y-axis" id="yMapSize" />
+                  <Input
+                    value="y-axis"
+                    id="yMapSize"
+                  />
                   <button id="startMapCreation">start</button>
                 </div>
                 <span id="validationInfo" className="t-paragraph2Bold controlPanel__validationInfo"></span>
