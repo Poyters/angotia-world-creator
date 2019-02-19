@@ -5,17 +5,16 @@ import './assets/styles/index.scss';
 
 //Import other components
 import CreditsFooter from './components/CreditsFooter';
+import SectionHeader from './components/SectionHeader';
 
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        <header className="sectionTitle">
-          <h1>
-            angotia map creator
-          </h1>
-        </header>
+        <SectionHeader 
+          headerTxt="Angotia Map Creator"
+        />
         <div role="presentation" className="wrapper">
           <ul className="controlPanel">
             <li>

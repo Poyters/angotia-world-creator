@@ -41,18 +41,3 @@ a {
 	width: 100%;
 	align-items: center;
 }
-
-.sectionTitle {
-	display: flex;
-	width: 100%;
-	padding-top: 10vh;
-
-	border-top: 10px solid rgba(0, 0, 0, 0.5);
-	text-transform: capitalize;
-
-	& h1 {
-		display: block;	
-		width: 100%;
-		text-align: center;
-	}
-}
