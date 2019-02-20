@@ -1,12 +1,19 @@
-import React from 'react';
+import React , { useState } from 'react';
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
 
+interface IMapSize {
+  size: number | string
+}
 
 const EntryPanel: React.SFC = () => {
-  const mapSizeValidation = () => {
+  const [mapX, setMapX] = useState<IMapSize>({size: 30});
+  const [mapY, setMapY] = useState<IMapSize>({size: 30});
 
+  const mapSizeValidation = () => {
+    console.log('mapX', mapX);
+    console.log('mapY', mapY);
   }
 
   return (
@@ -19,12 +26,14 @@ const EntryPanel: React.SFC = () => {
           </span>
           <div role="presentation" className="entryPanel__sizeBoard">
             <MapSizeInput
-              value="x-axis"
-              id="xMapSize"
+              currValue={mapX.size}
+              changeValue={setMapX}
+              id="yMapSize"
             />
             <span className="t-paragraph3Normal">x</span>
             <MapSizeInput
-              value="y-axis"
+              currValue={mapY.size}
+              changeValue={setMapY}
               id="yMapSize"
             />
             <button onClick={mapSizeValidation}>start</button>

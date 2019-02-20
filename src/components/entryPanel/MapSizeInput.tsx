@@ -3,19 +3,18 @@ import React, { useState } from 'react';
 
 interface IMapSizeInput {
     id: string,
-    value: string
+    currValue: number | string,
+    changeValue(value: any): void
 }
 
-const MapSizeInput: React.SFC<IMapSizeInput> = ({id, value}) => {
-  const [currValue, setCurrValue] = useState(value);
-
+const MapSizeInput: React.SFC<IMapSizeInput> = ({id, currValue, changeValue}) => {
   const clickHandler= () => {
-    setCurrValue('');
+    changeValue({size: ''});
   }
 
 
   return (
-    <input type="text" name="input" value={currValue} id={id} onChange={e => setCurrValue(e.target.value)} onClick={clickHandler}/>
+    <input type="text" name="input" value={currValue} id={id} onChange={e => changeValue({size: e.target.value})} onClick={clickHandler}/>
   );
 }
 
