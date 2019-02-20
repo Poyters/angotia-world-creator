@@ -1,24 +1,21 @@
 import React, { useState } from 'react';
 
-//Import state logic
-import useInputChange from '../stateLogic/useInputChange';
 
 interface IMapSizeInput {
-    id: string
-    value: any
+    id: string,
+    value: string
 }
 
 const MapSizeInput: React.SFC<IMapSizeInput> = ({id, value}) => {
-  const clickHandler = () => {
-    //setCurrValue('');
+  const [currValue, setCurrValue] = useState(value);
+
+  const clickHandler= () => {
+    setCurrValue('');
   }
 
-  const changeHandler = e => {
-    useInputChange(value, e);
-  }
 
   return (
-    <input type="text" name="input" value={useInputChange(value)} id={id} onChange={e => changeHandler(e)} onClick={clickHandler}/>
+    <input type="text" name="input" value={currValue} id={id} onChange={e => setCurrValue(e.target.value)} onClick={clickHandler}/>
   );
 }
 
