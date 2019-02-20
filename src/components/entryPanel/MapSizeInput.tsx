@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 interface IMapSizeInput {
@@ -14,7 +14,14 @@ const MapSizeInput: React.SFC<IMapSizeInput> = ({id, currValue, changeValue}) =>
 
 
   return (
-    <input type="text" name="input" value={currValue} id={id} onChange={e => changeValue({size: e.target.value})} onClick={clickHandler}/>
+    <input 
+      type="text"
+      name="input"
+      value={currValue}
+      id={id}
+      onChange={e => changeValue({size: e.target.value})}
+      onClick={clickHandler}
+    />
   );
 }
 

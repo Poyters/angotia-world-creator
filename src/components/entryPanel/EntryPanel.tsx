@@ -3,19 +3,45 @@ import React , { useState } from 'react';
 //Import other components
 import MapSizeInput from './MapSizeInput';
 
+
+export let mapSizes = {
+  x: 0,
+  y: 0
+}
+
 interface IMapSize {
   size: number | string
 }
 
-const EntryPanel: React.SFC = () => {
+export const EntryPanel: React.SFC = () => {
   const [mapX, setMapX] = useState<IMapSize>({size: 30});
   const [mapY, setMapY] = useState<IMapSize>({size: 30});
+  const [valMess, setValMess] = useState('');
 
   const mapSizeValidation = () => {
-    console.log('mapX', mapX);
-    console.log('mapY', mapY);
+    const mapSizeX:number = typeof mapX.size === "number" ? mapX.size : parseInt(mapX.size);
+    const mapSizeY:number = typeof mapY.size === "number" ? mapY.size : parseInt(mapY.size);
+    
+    if ((typeof mapSizeX !== "number" || isNaN(mapSizeX)) || 
+    (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
+      setValMess("Value need to be number");
+    }
+    else if ((mapSizeX >= 100 || mapSizeX < 5) || (mapSizeY >= 100 || mapSizeY < 5)) {
+      setValMess("Value need to be bigger or equal to five and smaller than 100");
+    }
+    else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
+      setValMess("Value need to be integer, not float type.");
+    }
+    else { //Redirect to map.html
+      setValMess("");
+      mapSizes.x = mapSizeX
+      mapSizes.y = mapSizeY;
+      console.log(mapSizes);
+    }
+
   }
 
+  console.log(valMess)
   return (
     <ul className="entryPanel">
       <li>
@@ -38,7 +64,9 @@ const EntryPanel: React.SFC = () => {
             />
             <button onClick={mapSizeValidation}>start</button>
           </div>
-          <span id="validationInfo" className="t-paragraph2Bold entryPanel__validationInfo"></span>
+          <span id="validationInfo" className="t-paragraph2Bold entryPanel__validationInfo">
+            {valMess}
+          </span>
         </a>
       </li>
       <li>
@@ -58,5 +86,3 @@ const EntryPanel: React.SFC = () => {
     </ul>
   );
 }
-
-export default EntryPanel;
