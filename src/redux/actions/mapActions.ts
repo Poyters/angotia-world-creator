@@ -3,7 +3,7 @@ interface ISetMapSizes {
     y: number
 }
 
-export const setMapSizes = sizes<ISetMapSizes> => {
+export const setMapSizes = sizes => {
     return {
         type: 'CHANGE_CURRENT_CHAR',
         sizes
