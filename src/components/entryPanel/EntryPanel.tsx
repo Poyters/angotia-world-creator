@@ -1,10 +1,12 @@
 import React , { useState } from 'react';
+import { connect } from 'react-redux';
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
+import { checkPropTypes } from 'prop-types';
 
 
-export let mapSizes = {
+let mapSizes = {
   x: 0,
   y: 0
 }
@@ -13,7 +15,12 @@ interface IMapSize {
   size: number | string
 }
 
-export const EntryPanel: React.SFC = () => {
+interface IEntryPanel {
+  mapSize: Object
+}
+
+const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize }) => {
+  console.log(mapSize);
   const [mapX, setMapX] = useState<IMapSize>({size: 30});
   const [mapY, setMapY] = useState<IMapSize>({size: 30});
   const [valMess, setValMess] = useState('');
@@ -36,12 +43,10 @@ export const EntryPanel: React.SFC = () => {
       setValMess("");
       mapSizes.x = mapSizeX
       mapSizes.y = mapSizeY;
-      console.log(mapSizes);
     }
 
   }
 
-  console.log(valMess)
   return (
     <ul className="entryPanel">
       <li>
@@ -86,3 +91,12 @@ export const EntryPanel: React.SFC = () => {
     </ul>
   );
 }
+
+
+const mapStateToProps = state => {
+  return {
+    mapSize: state.map.size
+  }
+}
+
+export default connect(mapStateToProps)(EntryPanel);
