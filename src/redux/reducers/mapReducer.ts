@@ -7,7 +7,16 @@ const initState = {
 
 
 const mapReducer = (state = initState, action) => {
-    return state;
+    console.log(action)
+    switch(action.type) {
+        case 'CHANGE_MAP_SIZES':
+            return {
+                ...state,
+                size: action.sizes
+            }
+        default:
+            return state;
+    }
 }
 
 export default mapReducer;

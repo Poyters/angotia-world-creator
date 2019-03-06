@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
-import { checkPropTypes } from 'prop-types';
+
+//Import actions
+import { setMapSizes } from '../../redux/actions/mapActions';
 
 
 let mapSizes = {
@@ -16,13 +18,13 @@ interface IMapSize {
 }
 
 interface IEntryPanel {
-  mapSize: Object
+  mapSize: Object,
+  setMapSizes: Function
 }
 
-const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize }) => {
-  console.log(mapSize);
-  const [mapX, setMapX] = useState<IMapSize>({size: 30});
-  const [mapY, setMapY] = useState<IMapSize>({size: 30});
+const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
+  const [mapX, setMapX] = useState<IMapSize>({size: mapSize['x']});
+  const [mapY, setMapY] = useState<IMapSize>({size: mapSize['y']});
   const [valMess, setValMess] = useState('');
 
   const mapSizeValidation = () => {
@@ -43,6 +45,8 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize }) => {
       setValMess("");
       mapSizes.x = mapSizeX
       mapSizes.y = mapSizeY;
+
+      setMapSizes(mapSizes);
     }
 
   }
@@ -51,7 +55,6 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize }) => {
     <ul className="entryPanel">
       <li>
         <a href="#" className="t-paragraph1Light entryPanel__createBoard">
-          {/* tabindex="1" */}
           <span>
             create new map
           </span>
@@ -99,4 +102,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(EntryPanel);
+const mapDispatchToProps = dispatch => {
+  return {
+    setMapSizes: sizes => {dispatch(setMapSizes(sizes))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EntryPanel);

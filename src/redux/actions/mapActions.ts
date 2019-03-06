@@ -5,7 +5,7 @@ interface ISetMapSizes {
 
 export const setMapSizes = sizes => {
     return {
-        type: 'CHANGE_CURRENT_CHAR',
+        type: 'CHANGE_MAP_SIZES',
         sizes
     }
 }
