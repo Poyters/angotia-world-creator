@@ -19,8 +19,10 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <Route exact path="/" component={Home} />
-          <Route path="/creator" component={Creator} />
+          <React.Fragment>
+            <Route exact path="/" component={Home} />
+            <Route path="/creator" component={Creator} />
+          </React.Fragment>
         </Router>
       </Provider>
     );
