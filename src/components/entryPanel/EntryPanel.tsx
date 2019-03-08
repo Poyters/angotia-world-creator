@@ -1,5 +1,6 @@
 import React , { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router'
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
@@ -26,6 +27,7 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
   const [mapX, setMapX] = useState<IMapSize>({size: mapSize['x']});
   const [mapY, setMapY] = useState<IMapSize>({size: mapSize['y']});
   const [valMess, setValMess] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const mapSizeValidation = () => {
     const mapSizeX:number = typeof mapX.size === "number" ? mapX.size : parseInt(mapX.size);
@@ -47,11 +49,14 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
       mapSizes.y = mapSizeY;
 
       setMapSizes(mapSizes);
+      setRedirect(true)
     }
 
   }
 
-  return (
+  const content = redirect ? (
+    <Redirect to='/creator'/>
+  ) : (
     <ul className="entryPanel">
       <li>
         <a href="#" className="t-paragraph1Light entryPanel__createBoard">
@@ -92,6 +97,10 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
         </a>
       </li>
     </ul>
+  );
+
+  return (
+    content
   );
 }
 
