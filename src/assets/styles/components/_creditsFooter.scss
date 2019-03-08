@@ -8,7 +8,7 @@
 	justify-content: center;
 	padding-bottom: 17px;
 	
-	border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+	border-bottom: 10px solid $decorationColor2;
 	text-align: right;
 	text-transform: lowercase;
 	letter-spacing: 1px;
@@ -18,7 +18,7 @@
 		position: relative;
 		padding: 8px 25px;
 
-		background:rgba(0, 0, 0, 0.4); 
+		background: $decorationColor2; 
 
 		&:before, &:after {
 			position: absolute;
@@ -32,13 +32,13 @@
 		&:before {
 			left: -8px;
 			border-width: 0 8px 34px 0;
-			border-color: transparent rgba(0, 0, 0, 0.4) transparent transparent;
+			border-color: transparent $decorationColor2 transparent transparent;
 		}
 
 		&:after {
 			right: -8px;
 			border-width: 34px 0 0 8px;
-			border-color: transparent transparent transparent rgba(0, 0, 0, 0.4);
+			border-color: transparent transparent transparent $decorationColor2;
 		}
 	}
 }
