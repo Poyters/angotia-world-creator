@@ -1,5 +1,8 @@
 .map {
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     z-index: 1;
 
     background: red;

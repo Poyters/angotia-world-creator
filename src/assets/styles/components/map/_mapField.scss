@@ -1,0 +1,12 @@
+.mapField {
+    display: flex;
+    box-sizing: border-box;
+
+    border: 1px solid #fff;
+
+    &__square {
+        flex: 1;
+        max-width: 25%;
+        border: 1px dotted #ccc;
+    }
+}
