@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
