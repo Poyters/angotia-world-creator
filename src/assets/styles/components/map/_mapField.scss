@@ -3,12 +3,12 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    border: 1px solid #bbb;
+    border: 1px solid $boardColor1;
 
     &__square {
         flex: 1;
         box-sizing: border-box;
 
-        border: 1px dotted #777;
+        border: 1px dotted $boardColor2;
     }
 }

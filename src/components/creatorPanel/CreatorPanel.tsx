@@ -7,7 +7,9 @@ const CreatorPanel: React.SFC = () => {
       <header className="creatorPanel__title">
         <span> AMC </span>
       </header>
-      CreatorPanel component works!
+      <div role="presentation" className="creatorPanel__options">
+          creator options
+      </div>
     </nav>
   );
 }
