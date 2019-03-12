@@ -1,5 +1,8 @@
 import React from 'react';
 
+//Import other components
+import NetOption from './NetOption';
+
 
 const CreatorPanel: React.SFC = () => {
   return (
@@ -7,9 +10,12 @@ const CreatorPanel: React.SFC = () => {
       <header className="creatorPanel__title">
         <span> AMC </span>
       </header>
-      <div role="presentation" className="creatorPanel__options">
-          creator options
-      </div>
+      <ul className="creatorPanel__options">
+        <li>
+          <NetOption viewTypeQuantity={2} />
+        </li>
+        <li>warstwy</li>
+      </ul>
     </nav>
   );
 }
