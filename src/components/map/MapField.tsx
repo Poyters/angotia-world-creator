@@ -13,9 +13,13 @@ const MapField: React.SFC = () => {
     height: `${fieldSize}px`
   }
 
+  const fieldSquares = [...Array(4)].map((el, index) => {
+    return <MapSquare key={index}/>
+  })
+
   return (
     <div className="mapField" style={mapFieldStyles}>
-      x
+      {fieldSquares}
     </div>
   );
 }
