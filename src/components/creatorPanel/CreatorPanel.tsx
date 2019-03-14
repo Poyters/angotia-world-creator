@@ -1,6 +1,7 @@
 import React from 'react';
 
 //Import other components
+import ComeBackOption from './ComeBackOption';
 import NetOption from './NetOption';
 
 
@@ -11,6 +12,9 @@ const CreatorPanel: React.SFC = () => {
         <span> AMC </span>
       </header>
       <ul className="creatorPanel__options">
+        <li>
+          <ComeBackOption />
+        </li>
         <li>
           <NetOption viewTypeQuantity={3} />
         </li>

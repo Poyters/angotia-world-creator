@@ -1,8 +1,25 @@
 .option {
     position: relative;
     flex: 1;
-    width: 18px;
-    height: 18px;
+
+    &--net {
+        width: 18px;
+        height: 18px;
+    }
+
+    &--textOption {
+        display: flex;
+        width: auto;
+        height: 18px;
+        padding: 0 4px;
+        justify-content: center;
+        align-items: center;
+
+        border: 1px solid $decorationColor1;
+        cursor: pointer;
+        font-size: 10px;
+        text-transform: uppercase;
+    }
 
     &__viewType {
         position: absolute;
