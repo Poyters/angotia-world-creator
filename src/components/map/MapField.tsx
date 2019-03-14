@@ -7,12 +7,13 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 //Import other components
 import MapSquare from './MapSquare';
 
+
 interface IMapField {
   mapFieldNet: boolean
 }
 
+
 const MapField: React.SFC<IMapField> = ({ mapFieldNet }) => {
-  console.log(mapFieldNet)
   const fieldSize = creatorConfig.map.fieldSize;
   const border = mapFieldNet ? '1px' : '0';
 
