@@ -1,6 +1,8 @@
 .option {
     position: relative;
     flex: 1;
+    
+    cursor: pointer;
 
     &--net {
         width: 18px;
@@ -23,7 +25,6 @@
         border-width: 1px;
         border-style: solid;
         border-color: inherit;
-        cursor: pointer;
 
         &:after {
             position: absolute;
@@ -62,7 +63,6 @@
         align-items: center;
 
         border: 1px solid $decorationColor1;
-        cursor: pointer;
         font-size: 11px;
         text-transform: uppercase;
 
@@ -92,7 +92,6 @@
     width: 100%;
     height: 100%;
 
-    cursor: pointer;
     border-width: 1px;
     border-style: solid;
 
@@ -105,5 +104,51 @@
         border-width: 1px;
         border-style: dotted;
         border-color: inherit;
+    }
+}
+
+.selectOption {
+    width: 6px;
+    height: 12px;
+    margin-top: 4px;
+    margin-left: 2px;
+
+    border: 0;
+    border-right: 1px;
+    border-left: 1px;
+    border-style: solid;
+    border-color: $decorationColor1;
+    transform: rotate(45deg);
+
+    & .option__viewType {
+        top: 9px;
+        left: -2px;
+        transform: rotate(-45deg);
+    }
+
+    &:before, &:after {
+        position: absolute;
+        content: '';
+
+        width: 10px;
+        height: 0px;
+
+        border-width: 1px;
+        border-style: solid;
+        border-color: inherit;
+    }
+
+    &:before {
+        top: -2px;
+        left: -7px;
+
+        transform: rotate(-45deg);
+    }
+
+    &:after {
+        top: -2px;
+        right: -7px;
+
+        transform: rotate(45deg);
     }
 }

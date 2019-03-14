@@ -5,6 +5,7 @@ import ExportOption from './ExportOption';
 import ComeBackOption from './ComeBackOption';
 import FullScreenOption from './FullScreenOption';
 import NetOption from './NetOption';
+import SelectOption from './SelectOption';
 
 
 const CreatorPanel: React.SFC = () => {
@@ -26,7 +27,9 @@ const CreatorPanel: React.SFC = () => {
         <li>
           <NetOption viewTypeQuantity={3} />
         </li>
-        <li>warstwy</li>
+        <li>
+          <SelectOption selectTypeQuantity={2} />
+        </li>
       </ul>
     </nav>
   );
