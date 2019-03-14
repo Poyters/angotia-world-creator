@@ -12,7 +12,7 @@ const CreatorPanel: React.SFC = () => {
       </header>
       <ul className="creatorPanel__options">
         <li>
-          <NetOption viewTypeQuantity={2} />
+          <NetOption viewTypeQuantity={3} />
         </li>
         <li>warstwy</li>
       </ul>

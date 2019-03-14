@@ -9,3 +9,10 @@ export const setMapSizes = sizes => {
         sizes
     }
 }
+
+export const setMapNets = values => {
+    return {
+        type: 'CHANGE_MAP_NETS',
+        values
+    }
+}

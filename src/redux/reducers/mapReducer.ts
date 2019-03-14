@@ -17,6 +17,11 @@ const mapReducer = (state = initState, action) => {
                 ...state,
                 size: action.sizes
             }
+        case 'CHANGE_MAP_NETS':
+            return {
+                ...state,
+                net: action.values
+            }
         default:
             return state;
     }

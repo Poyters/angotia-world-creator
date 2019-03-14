@@ -22,7 +22,8 @@
     height: 100%;
 
     cursor: pointer;
-    border: 1px solid $decorationColor1;
+    border-width: 1px;
+    border-style: solid;
 
     &__square {
         flex: 1;
@@ -30,6 +31,16 @@
         height: 9px;
         box-sizing: border-box;
 
-        border: 1px dotted $decorationColor1;
+        border-width: 1px;
+        border-style: dotted;
+        border-color: inherit;
+    }
+
+    &--on {
+        border-color: $decorationColor1;
+    }
+
+    &--off {
+        border-color: $boardColor2;
     }
 }
