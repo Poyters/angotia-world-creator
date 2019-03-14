@@ -17,8 +17,12 @@
 
         border: 1px solid $decorationColor1;
         cursor: pointer;
-        font-size: 10px;
+        font-size: 11px;
         text-transform: uppercase;
+
+        &:hover {
+            color: $decorationColor1;
+        }
     }
 
     &__viewType {
