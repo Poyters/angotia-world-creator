@@ -1,16 +1,25 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+//Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 //Import other components
 import MapSquare from './MapSquare';
 
+interface IMapField {
+  mapFieldNet: boolean
+}
 
-const MapField: React.SFC = () => {
+const MapField: React.SFC<IMapField> = ({ mapFieldNet }) => {
+  console.log(mapFieldNet)
   const fieldSize = creatorConfig.map.fieldSize;
+  const border = mapFieldNet ? '1px' : '0';
 
   const mapFieldStyles = {
     width: `${fieldSize}px`,
-    height: `${fieldSize}px`
+    height: `${fieldSize}px`,
+    borderWidth: `${border}`
   }
 
   const fieldSquares = [...Array(4)].map((el, index) => {
@@ -24,4 +33,11 @@ const MapField: React.SFC = () => {
   );
 }
 
-export default MapField;
+
+const mapStateToProps = state => {
+  return {
+    mapFieldNet: state.map.net.field
+  }
+}
+
+export default connect(mapStateToProps)(MapField);

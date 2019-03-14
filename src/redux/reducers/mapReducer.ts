@@ -2,6 +2,10 @@ const initState = {
     size: {
         x: 30,
         y: 30
+    },
+    net: {
+        field: true,
+        square: true
     }
 };
 
