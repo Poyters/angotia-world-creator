@@ -1,8 +1,9 @@
 import React from 'react';
 
 //Import other components
-import ComeBackOption from './ComeBackOption';
 import ExportOption from './ExportOption';
+import ComeBackOption from './ComeBackOption';
+import FullScreenOption from './FullScreenOption';
 import NetOption from './NetOption';
 
 
@@ -18,6 +19,9 @@ const CreatorPanel: React.SFC = () => {
         </li>
         <li>
           <ComeBackOption />
+        </li>
+        <li>
+          <FullScreenOption />
         </li>
         <li>
           <NetOption viewTypeQuantity={3} />

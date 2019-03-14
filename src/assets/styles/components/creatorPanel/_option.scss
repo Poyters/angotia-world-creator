@@ -7,6 +7,52 @@
         height: 18px;
     }
 
+    &--on {
+        border-color: $decorationColor1 !important;
+    }
+
+    &--off {
+        border-color: $boardColor2 !important;
+    }
+
+    &--fullScreen {
+        width: 16px;
+        height: 14px;
+        margin: 0 2px 4px 0;
+
+        border-width: 1px;
+        border-style: solid;
+        border-color: inherit;
+        cursor: pointer;
+
+        &:after {
+            position: absolute;
+            content: '';
+            right: -5px;
+            bottom: -6px;
+            width: 15px;
+            height: 11px;
+
+            border-width: 1px;
+            border-style: solid;
+            border-color: inherit;
+        }
+
+        &:hover {
+            width: 14px;
+            height: 12px;
+            border-width: 2px;
+
+            &:after {
+                width: 13px;
+                height: 9px;
+                right: -6px;
+                bottom: -7px;
+                border-width: 2px;
+            }
+        }
+    }
+
     &--textOption {
         display: flex;
         width: auto;
@@ -19,6 +65,10 @@
         cursor: pointer;
         font-size: 11px;
         text-transform: uppercase;
+
+        & a, a:hover {
+            color: inherit;
+        }
 
         &:hover {
             color: $decorationColor1;
@@ -55,13 +105,5 @@
         border-width: 1px;
         border-style: dotted;
         border-color: inherit;
-    }
-
-    &--on {
-        border-color: $decorationColor1;
-    }
-
-    &--off {
-        border-color: $boardColor2;
     }
 }

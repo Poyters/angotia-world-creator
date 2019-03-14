@@ -55,7 +55,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
     setMapNets(values);
   })
 
-  const netOnOff = optionViewType === 3 ? 'netGraphic--off' : 'netGraphic--on'; //It determines icon color
+  const netOnOff = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
 
   return (
     <div className="option option--net" onClick={changeViewType}>
