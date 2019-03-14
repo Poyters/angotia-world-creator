@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 const ComeBackOption: React.SFC = () => {
 
   return (
-    <div className="option option--textOption">
-      <span>Come back</span>
+    <div role="button" className="option option--textOption">
+      <Link to='/'>Come back</Link>
     </div>
   );
 }
