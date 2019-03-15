@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+
+//Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
+
+//Import scripts
+import dragElement from '../../assets/scripts/dragElement';
 
 //Import other components
 import MapField from './MapField';
@@ -25,8 +30,12 @@ const Map: React.SFC<IMap> = ({ mapSize }) => {
     return <MapField key={index}/>
   })
 
+  useEffect(() => {
+    dragElement(document.getElementById("map"));
+  })
+
   return (
-    <main className="map" style={mapStyles}>
+    <main className="map" style={mapStyles} id="map">
         {mapFields}
     </main>
   );
