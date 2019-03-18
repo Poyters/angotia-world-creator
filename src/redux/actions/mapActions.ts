@@ -16,3 +16,10 @@ export const setMapNets = values => {
         values
     }
 }
+
+export const setMapBg = path => {
+    return {
+        type: 'SET_MAP_BACKGROUND',
+        path
+    }
+}

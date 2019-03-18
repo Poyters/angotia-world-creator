@@ -6,7 +6,9 @@ const initState = {
     net: {
         field: true,
         square: true
-    }
+    },
+    mapPic: "",
+    click: "none" // none/filed/square
 };
 
 
@@ -21,6 +23,11 @@ const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 net: action.values
+            }
+        case 'SET_MAP_BACKGROUND':
+            return {
+                ...state,
+                mapPic: action.path
             }
         default:
             return state;

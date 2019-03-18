@@ -15,15 +15,17 @@ interface IMap {
   mapSize: {
     x: number,
     y: number
-  }
+  },
+  mapPic: string
 }
 
-const Map: React.SFC<IMap> = ({ mapSize }) => {
+const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
   const fieldSize = creatorConfig.map.fieldSize;
 
   const mapStyles = {
     width: `${mapSize.x * fieldSize}px`,
-    height: `${mapSize.y * fieldSize}px`
+    height: `${mapSize.y * fieldSize}px`,
+    backgroundImage: `url('${mapPic}')`
   }
 
   const mapFields = [...Array(mapSize.x*mapSize.y)].map((el, index) => {
@@ -44,7 +46,8 @@ const Map: React.SFC<IMap> = ({ mapSize }) => {
 
 const mapStateToProps = state => {
   return {
-    mapSize: state.map.size
+    mapSize: state.map.size,
+    mapPic: state.map.mapPic
   }
 }
 

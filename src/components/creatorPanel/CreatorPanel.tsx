@@ -6,6 +6,7 @@ import ComeBackOption from './ComeBackOption';
 import FullScreenOption from './FullScreenOption';
 import NetOption from './NetOption';
 import SelectOption from './SelectOption';
+import AddFileOption from './AddFileOption';
 
 
 const CreatorPanel: React.SFC = () => {
@@ -20,6 +21,9 @@ const CreatorPanel: React.SFC = () => {
         </li>
         <li>
           <ComeBackOption />
+        </li>
+        <li>
+          <AddFileOption />
         </li>
         <li>
           <FullScreenOption />
