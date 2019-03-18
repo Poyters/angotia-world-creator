@@ -6,6 +6,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: $boardColor1;
+    box-sizing: border-box;
 
     &__square {
         flex: 1;

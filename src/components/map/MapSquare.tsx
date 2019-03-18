@@ -15,9 +15,9 @@ const MapSquare: React.SFC<IMapSquare> = ({ mapSquareNet }) => {
   const border = mapSquareNet ? '1px' : '0';
 
   const mapSquareStyles = {
-    maxWidth: `${fieldSize/2}px`,
-    minWidth: `${fieldSize/2}px`,
-    height: `${fieldSize/2}px`,
+    maxWidth: `${(fieldSize/2) - 1}px`,
+    minWidth: `${(fieldSize/2) - 1}px`,
+    height: `${(fieldSize/2) - 1}px`,
     borderWidth: `${border}`
   }
   return (
