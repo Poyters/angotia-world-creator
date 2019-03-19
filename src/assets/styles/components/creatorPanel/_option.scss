@@ -9,6 +9,31 @@
         height: 18px;
     }
 
+    &--addFile {
+        width: 0.1px;
+	    height: 0.1px;
+	    opacity: 0;
+	    overflow: hidden;
+	    position: absolute;
+        z-index: -1;
+        
+        & + label {
+            width: 18px;
+            height: 18px;
+            box-sizing: border-box;
+
+            color: transparent;
+            border-width: 1px;
+            border-style: solid;
+            cursor: pointer;
+        }
+        
+        &:focus + label,
+        & + label:hover {
+            background-color: red;
+        }
+    }
+
     &--on {
         border-color: $decorationColor1 !important;
     }
@@ -151,4 +176,8 @@
 
         transform: rotate(45deg);
     }
+}
+
+.addFileLabel {
+
 }

@@ -6,10 +6,11 @@ import { setMapBg } from '../../redux/actions/mapActions';
 
 
 interface IAddFileOption {
-  setMapBg: Function
+  setMapBg: Function,
+  mapPic: string
 }
 
-const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg }) => {
+const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg, mapPic }) => {
   const handleFileSelect = evt => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();
@@ -25,11 +26,22 @@ const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg }) => {
     reader.readAsDataURL(f);
   }
 
+  const optionOnOff = mapPic === "" ? 'option--off' : 'option--on';
+
   return (
-    <input type="file" id="files" name="files[]" onChange={evt => handleFileSelect(evt)}/>
+    <React.Fragment>
+      <input className="option option--addFile" type="file" id="file" name="files[]" onChange={evt => handleFileSelect(evt)}/>
+      <label className={optionOnOff} htmlFor="file">bg</label>
+    </React.Fragment>
   );
 }
 
+
+const mapStateToProps = state => {
+  return {
+    mapPic: state.map.mapPic
+  }
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -37,4 +49,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddFileOption);
+export default connect(mapStateToProps, mapDispatchToProps)(AddFileOption);
