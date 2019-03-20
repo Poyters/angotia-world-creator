@@ -18,24 +18,47 @@
         z-index: -1;
         
         & + label {
-            width: 18px;
-            height: 18px;
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 20px;
             box-sizing: border-box;
 
             color: transparent;
             border-width: 1px;
             border-style: solid;
             cursor: pointer;
+
+            &:before {
+                position: absolute;
+                content: '';
+                top: 3px;
+                left: 3px;
+                width: 12px;
+                height: 12px;
+                background: $boardColor2;
+
+                border-radius: 50%;
+            }
         }
         
         &:focus + label,
         & + label:hover {
-            background-color: red;
+            border-width: 2px;
+
+            &:before {
+                top: 2px;
+                left: 2px;
+            }
         }
     }
 
     &--on {
         border-color: $decorationColor1 !important;
+
+        &:before {
+            background: $decorationColor1 !important;
+        }
     }
 
     &--off {
