@@ -6,6 +6,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 //Import scripts
 import dragElement from '../../assets/scripts/dragElement';
+import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
 
 //Import other components
 import MapField from './MapField';
@@ -22,7 +23,7 @@ interface IMap {
 const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
   const fieldSize = creatorConfig.map.fieldSize;
 
-  const mapStyles = {
+  const mapStyles: object = {
     width: `${mapSize.x * fieldSize}px`,
     height: `${mapSize.y * fieldSize}px`,
     backgroundImage: `url('${mapPic}')`
@@ -34,11 +35,17 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
 
   useEffect(() => {
     dragElement(document.getElementById("map"));
+
+    const canvas: any = document.getElementById("mapCanvas");
+    const ctx = canvas.getContext("2d");
+
+    drawFields(ctx, mapSize);
+    drawSquares(ctx, mapSize);
   })
 
   return (
     <main className="map" style={mapStyles} id="map">
-        {mapFields}
+      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas"> </canvas>
     </main>
   );
 }

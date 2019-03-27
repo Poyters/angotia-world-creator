@@ -15,7 +15,7 @@ const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg, mapPic }) => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();
 
-    reader.onload = (() => {
+    reader.onload = (():any => {
       return e => {
         const path = e.target.result;
         setMapBg(path)
