@@ -8,7 +8,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import dragElement from '../../assets/scripts/dragElement';
 import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
 
-//Import other components
+//Import components
 import MapField from './MapField';
 
 

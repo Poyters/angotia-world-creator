@@ -4,14 +4,24 @@ import { connect } from 'react-redux';
 //Import actions
 import { setMapNets } from '../../redux/actions/mapActions';
 
+//Import scripts
+import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
+
+//Import configs
+import creatorConfig from '../../assets/configs/creatorConfig.json';
+
 
 interface INetOption {
   viewTypeQuantity: number,
-  setMapNets: Function
+  setMapNets: Function,
+  mapSize: {
+    x: number,
+    y: number
+  }
 }
 
 
-const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
+const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets, mapSize }) => {
   const [optionViewType, setOptionViewType] = useState(0);
 
   const changeViewType = () => {
@@ -20,39 +30,27 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   }
 
   useEffect(() => {
-    let values = {
-      field: true,
-      square: true
-    }
+    const fieldSize: number = creatorConfig.map.fieldSize;
+    const canvas: any = document.getElementById("mapCanvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
 
     switch(optionViewType) {
       case 0: //all nets
-        values = {
-          field: true,
-          square: true
-        }
+        drawFields(ctx, mapSize);
+        drawSquares(ctx, mapSize);
       break;
       case 1: //field net
-        values = {
-          field: true,
-          square: false
-        }
+        drawFields(ctx, mapSize);
       break;
-      case 2: //square net
-        values = {
-          field: false,
-          square: true
-        }
+      case 2: //square net;
+        drawSquares(ctx, mapSize);
       break;
       case 3: //no nets
-        values = {
-          field: false,
-          square: false
-        }
+        return;
       break;
     }
-
-    setMapNets(values);
   })
 
   const netOnOff = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
@@ -70,10 +68,17 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   );
 }
 
+
+const mapStateToProps = state => {
+  return {
+    mapSize: state.map.size
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     setMapNets: value => {dispatch(setMapNets(value))}
   }
 }
 
-export default connect(null, mapDispatchToProps)(NetOption);
+export default connect(mapStateToProps, mapDispatchToProps)(NetOption);

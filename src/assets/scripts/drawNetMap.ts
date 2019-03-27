@@ -1,3 +1,4 @@
+//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
 
@@ -7,6 +8,7 @@ export const drawFields = (ctx, mapSize) => {
     const mapSizeY: number = mapSize.y*fieldSize;
   
     ctx.beginPath();
+    ctx.setLineDash([]);
     ctx.strokeStyle = "#bbb";
     ctx.lineWidth = 1;
   
@@ -27,11 +29,12 @@ export const drawFields = (ctx, mapSize) => {
 
 
 export const drawSquares = (ctx, mapSize) => {
-    const fieldSize: number = creatorConfig.map.fieldSize
+    const fieldSize: number = creatorConfig.map.fieldSize;
     const mapSizeX: number = mapSize.x*fieldSize;
     const mapSizeY: number = mapSize.y*fieldSize;
   
     ctx.beginPath();
+    ctx.setLineDash([5, 3]);
     ctx.strokeStyle = "#666";
     ctx.lineWidth = 1;
     
