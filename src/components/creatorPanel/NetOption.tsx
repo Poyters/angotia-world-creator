@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-//Import actions
-import { setMapNets } from '../../redux/actions/mapActions';
-
 //Import scripts
 import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
 
@@ -13,7 +10,6 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 interface INetOption {
   viewTypeQuantity: number,
-  setMapNets: Function,
   mapSize: {
     x: number,
     y: number
@@ -21,7 +17,7 @@ interface INetOption {
 }
 
 
-const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets, mapSize }) => {
+const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
   const [optionViewType, setOptionViewType] = useState(0);
 
   const changeViewType = () => {
@@ -75,10 +71,5 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setMapNets: value => {dispatch(setMapNets(value))}
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(NetOption);
+export default connect(mapStateToProps)(NetOption);

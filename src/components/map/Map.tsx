@@ -8,8 +8,6 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import dragElement from '../../assets/scripts/dragElement';
 import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
 
-//Import components
-import MapField from './MapField';
 
 
 interface IMap {
@@ -29,9 +27,6 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
     backgroundImage: `url('${mapPic}')`
   }
 
-  const mapFields = [...Array(mapSize.x*mapSize.y)].map((el, index) => {
-    return <MapField key={index}/>
-  })
 
   useEffect(() => {
     dragElement(document.getElementById("map"));
