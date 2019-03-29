@@ -23,3 +23,11 @@ test('FullScreenOption change class name to on', () => {
   fullScreenOption.simulate('click');
   expect(fullScreenOption.hasClass('option--on')).toEqual(true);
 });
+
+
+test('FullScreenOption full screen running', () => {
+  const fullScreenOption = shallow(<FullScreenOption/>);
+
+  fullScreenOption.simulate('click');
+  expect(!window.screenTop && !window.screenY).toEqual(true);
+});
