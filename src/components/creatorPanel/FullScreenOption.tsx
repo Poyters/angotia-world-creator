@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 
-const runFullScreen = element => {
+
+const runFullScreen = (element: HTMLElement): void => {
 	if(element.requestFullscreen)
 		element.requestFullscreen();
 }
 
-const closeFullScreen = () => {
+const closeFullScreen = (): void => {
   if(document.exitFullscreen)
 		document.exitFullscreen();
 }
 
 
 const FullScreenOption: React.SFC = () => {
-  const [ fs, setFs ] = useState(false);
-  const body = document.getElementsByTagName('body');
+  const [ fs, setFs ] = useState<boolean>(false);
+  const body: HTMLElement = document.getElementsByTagName('body')[0];
 
-  const clickHandler = () => {
+  const clickHandler = (): void => {
     if (fs) {
       closeFullScreen();
       setFs(false);
     }
     else {
-      runFullScreen(body[0]);
+      runFullScreen(body);
       setFs(true);
     }
   }
 
-  const fsOnOff = fs ? 'option--on' : 'option--off'; //It determines icon color
+  const fsOnOff: string = fs ? 'option--on' : 'option--off'; //It determines icon color
 
   return (
     <div role="button" className={`option option--fullScreen ${fsOnOff}`} onClick={clickHandler}>
