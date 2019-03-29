@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './App';
+import FullScreenOption from './FullScreenOption';
 
 
-it('App component renders without crashing', () => {
+it('FullScreenOption component renders without crashing', () => {
   const div: HTMLElement = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<FullScreenOption />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
