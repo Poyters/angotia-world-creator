@@ -12,9 +12,9 @@ import Home from './components/views/Home';
 import Creator from './components/views/Creator';
 
 
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -28,5 +28,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 //Import scripts
-import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
+import { drawMapNet } from '../../assets/scripts/drawNetMap';
 
 //Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
@@ -34,14 +34,14 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
 
     switch(optionViewType) {
       case 0: //all nets
-        drawFields(ctx, mapSize);
-        drawSquares(ctx, mapSize);
+        drawMapNet(ctx, 0);
+        drawMapNet(ctx, 1);
       break;
       case 1: //field net
-        drawFields(ctx, mapSize);
+        drawMapNet(ctx, 0);
       break;
       case 2: //square net;
-        drawSquares(ctx, mapSize);
+        drawMapNet(ctx, 1);
       break;
       case 3: //no nets
         return;

@@ -6,8 +6,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 //Import scripts
 import dragElement from '../../assets/scripts/dragElement';
-import { drawFields, drawSquares } from '../../assets/scripts/drawNetMap';
-
+import { drawMapNet } from '../../assets/scripts/drawNetMap';
 
 
 interface IMap {
@@ -34,8 +33,8 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
     const canvas: any = document.getElementById("mapCanvas");
     const ctx = canvas.getContext("2d");
 
-    drawFields(ctx, mapSize);
-    drawSquares(ctx, mapSize);
+    drawMapNet(ctx, 0); //draw fields
+    drawMapNet(ctx, 1); //draw squares
   })
 
   return (
