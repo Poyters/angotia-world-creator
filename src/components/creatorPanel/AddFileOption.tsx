@@ -11,14 +11,14 @@ interface IAddFileOption {
 }
 
 const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg, mapPic }) => {
-  const handleFileSelect = evt => {
+  const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();
 
     reader.onload = (():any => {
       return e => {
-        const path = e.target.result;
-        setMapBg(path)
+        const path: string = e.target.result;
+        setMapBg(path);
       };
 
     })();
@@ -26,7 +26,7 @@ const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg, mapPic }) => {
     reader.readAsDataURL(f);
   }
 
-  const optionOnOff = mapPic === "" ? 'option--off' : 'option--on';
+  const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
 
   return (
     <React.Fragment>

@@ -18,14 +18,14 @@ interface INetOption {
 
 
 const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
-  const [optionViewType, setOptionViewType] = useState(0);
+  const [optionViewType, setOptionViewType] = useState<number>(0);
 
-  const changeViewType = () => {
+  const changeViewType = (): void => {
     if (optionViewType === viewTypeQuantity) setOptionViewType(0);
     else setOptionViewType(optionViewType + 1);
   }
 
-  useEffect(() => {
+  useEffect((): void => {
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById("mapCanvas");
     const ctx = canvas.getContext("2d");
@@ -49,7 +49,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
     }
   })
 
-  const netOnOff = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
+  const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
 
   return (
     <div className="option option--net" onClick={changeViewType}>
