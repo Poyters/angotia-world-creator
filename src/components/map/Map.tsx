@@ -18,16 +18,22 @@ interface IMap {
 }
 
 const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
-  const fieldSize = creatorConfig.map.fieldSize;
+  const fieldSize: number = creatorConfig.map.fieldSize;
 
-  const mapStyles: object = {
+  interface ImapStyles {
+    width: string,
+    height: string,
+    backgroundImage: string
+  }
+
+  const mapStyles: ImapStyles = {
     width: `${mapSize.x * fieldSize}px`,
     height: `${mapSize.y * fieldSize}px`,
     backgroundImage: `url('${mapPic}')`
   }
 
 
-  useEffect(() => {
+  useEffect((): void => {
     dragElement(document.getElementById("map"));
 
     const canvas: any = document.getElementById("mapCanvas");
