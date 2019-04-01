@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 
 
 const runFullScreen = (element: HTMLElement): void => {
-	if(element.requestFullscreen)
+	if (element.requestFullscreen)
 		element.requestFullscreen();
 }
 
 const closeFullScreen = (): void => {
-  if(document.exitFullscreen)
+  if (document.exitFullscreen)
 		document.exitFullscreen();
 }
 
