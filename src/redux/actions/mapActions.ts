@@ -23,3 +23,10 @@ export const setMapBg = path => {
         path
     }
 }
+
+export const setMapSelectType = selectType => {
+    return {
+        type: 'SET_MAP_SELECT_TYPE',
+        selectType
+    }
+}

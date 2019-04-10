@@ -9,7 +9,7 @@ export const initState = {
     },
     mapPic: "",
     select: {
-        type: "square", //none, square, field
+        type: "none", //none, square, field
         matrix: [] // board matrix, set for each 0 and for selected 1
     }
 };
@@ -31,6 +31,14 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 mapPic: action.path
+            }
+        case 'SET_MAP_SELECT_TYPE':
+            return {
+                ...state,
+                select: {
+                    ...state.select,
+                    type: action.selectType
+                }
             }
         default:
             return state;

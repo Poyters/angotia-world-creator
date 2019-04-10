@@ -1,13 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+
+//Import actions
+import { setMapSelectType } from '../../redux/actions/mapActions';
 
 
 interface ISelectOption {
-    selectTypeQuantity: number
+    selectTypeQuantity: number,
+    setMapSelectType: Function
 }
 
 
-const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity }) => {
+const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType }) => {
   const [ selectType, setSelectType ] = useState(0);
+
+  useEffect(() => {
+    switch(selectType) {
+      case 0:
+        setMapSelectType('none');
+      break;
+      case 1:
+        setMapSelectType('square');
+      break;
+      case 2: 
+        setMapSelectType('field');
+      break;
+      default:
+        throw new Error('invalid selectType');
+    }
+  });
 
   const changeSelectType = () => {
     if (selectType < selectTypeQuantity) setSelectType(selectType + 1);
@@ -24,4 +45,12 @@ const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity }) => {
 }
 
 
-export default SelectOption;
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))}
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SelectOption);
