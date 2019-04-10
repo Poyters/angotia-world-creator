@@ -7,6 +7,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 //Import scripts
 import dragElement from '../../assets/scripts/dragElement';
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
+import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 
 
 interface IMap {
@@ -43,26 +44,10 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
     drawMapNet(ctx, 1); //draw squares
   })
 
-  const handleSquareCheck = (event) => {
-    const map: any = document.getElementById("map");
-    let mapLeft: number = parseInt(map.style.left);
-    let mapTop: number = parseInt(map.style.top);
-
-    if (isNaN(mapLeft)) mapLeft = 0;
-    if (isNaN(mapTop)) mapTop = 0;
-
-    const cursorPosition: Array<number> = [
-      event.clientX - mapLeft, 
-      event.clientY - mapTop
-    ];
-
-    console.log(cursorPosition);
-    return cursorPosition;
-  }
 
   return (
     <main className="map" style={mapStyles} id="map">
-      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => handleSquareCheck(e)}> </canvas>
+      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => selectFieldsHandler(e)}> </canvas>
     </main>
   );
 }

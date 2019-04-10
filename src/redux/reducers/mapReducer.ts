@@ -8,7 +8,10 @@ export const initState = {
         square: true
     },
     mapPic: "",
-    click: "none" // none/filed/square
+    select: {
+        type: "square", //none, square, field
+        matrix: [] // board matrix, set for each 0 and for selected 1
+    }
 };
 
 
