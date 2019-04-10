@@ -43,8 +43,18 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
     drawMapNet(ctx, 1); //draw squares
   })
 
-  const handleClick = (event) => {
-    const cursorPosition = [event.clientX, event.clientY]
+  const handleSquareCheck = (event) => {
+    const map: any = document.getElementById("map");
+    let mapLeft: number = parseInt(map.style.left);
+    let mapTop: number = parseInt(map.style.top);
+
+    if (isNaN(mapLeft)) mapLeft = 0;
+    if (isNaN(mapTop)) mapTop = 0;
+
+    const cursorPosition: Array<number> = [
+      event.clientX - mapLeft, 
+      event.clientY - mapTop
+    ];
 
     console.log(cursorPosition);
     return cursorPosition;
@@ -52,7 +62,7 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
 
   return (
     <main className="map" style={mapStyles} id="map">
-      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => handleClick(e)}> </canvas>
+      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => handleSquareCheck(e)}> </canvas>
     </main>
   );
 }
