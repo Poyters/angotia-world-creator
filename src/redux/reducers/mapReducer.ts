@@ -1,4 +1,4 @@
-const initState = {
+export const initState = {
     size: {
         x: 30,
         y: 30
@@ -12,7 +12,7 @@ const initState = {
 };
 
 
-const mapReducer = (state = initState, action) => {
+export const mapReducer = (state = initState, action) => {
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {

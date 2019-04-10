@@ -43,9 +43,16 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
     drawMapNet(ctx, 1); //draw squares
   })
 
+  const handleClick = (event) => {
+    const cursorPosition = [event.clientX, event.clientY]
+
+    console.log(cursorPosition);
+    return cursorPosition;
+  }
+
   return (
     <main className="map" style={mapStyles} id="map">
-      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas"> </canvas>
+      <canvas width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => handleClick(e)}> </canvas>
     </main>
   );
 }

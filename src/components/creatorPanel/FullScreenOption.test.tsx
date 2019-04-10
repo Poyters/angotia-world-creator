@@ -17,7 +17,7 @@ it('FullScreenOption component renders without crashing', () => {
 
 
 test('FullScreenOption change class name to on', () => {
-  const fullScreenOption = shallow(<FullScreenOption/>);
+  const fullScreenOption: any = shallow(<FullScreenOption/>);
 
   expect(fullScreenOption.hasClass('option--off')).toEqual(true);
   fullScreenOption.simulate('click');
@@ -26,7 +26,7 @@ test('FullScreenOption change class name to on', () => {
 
 
 test('FullScreenOption full screen running', () => {
-  const fullScreenOption = shallow(<FullScreenOption/>);
+  const fullScreenOption: any = shallow(<FullScreenOption/>);
 
   fullScreenOption.simulate('click');
   expect(!window.screenTop && !window.screenY).toEqual(true);
