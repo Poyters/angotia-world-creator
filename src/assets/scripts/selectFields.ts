@@ -7,7 +7,7 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 
-export const selectFieldsHandler = (event: MouseEvent) => {
+export const selectFieldsHandler = (event: any) => {
   const map: any = document.getElementById("map");
   let mapLeft: number = parseInt(map.style.left);
   let mapTop: number = parseInt(map.style.top);
@@ -35,7 +35,7 @@ const selectField = (cursorPosition: Array<number>) => {
   switch(selectType) {
     case "none": 
       return;
-    case "square":
+    case "field":
       positionDelta = [
         Math.floor(cursorPosition[0] / fieldSize),
         Math.floor(cursorPosition[1] / fieldSize)
@@ -44,9 +44,9 @@ const selectField = (cursorPosition: Array<number>) => {
       selectMatrix[positionDelta[1]][positionDelta[0]] = [
         [1, 1],
         [1, 1]
-      ]; //Select whole square
+      ]; //Select whole field
     break;
-    case "field":
+    case "square":
       positionDelta = [
         Math.floor(cursorPosition[0] / (fieldSize / 2)),
         Math.floor(cursorPosition[1] / (fieldSize / 2))
@@ -63,11 +63,19 @@ const selectField = (cursorPosition: Array<number>) => {
 
 
 const colorChecked = (positionDelta: Array<number>, type: string) => {
-  const storeData = store.getState();
-  const selectMatrix = [...storeData.map.select.matrix];
+  const canvas: any = document.getElementById("mapCanvas");
+  const ctx = canvas.getContext("2d");
+  let fieldSize: number = creatorConfig.map.fieldSize;
 
+  if (type === 'square') fieldSize = fieldSize / 2;
   
-  
+  const posX: number = positionDelta[0] * fieldSize;
+  const posY: number = positionDelta[1] * fieldSize;
+
+
+  ctx.fillRect(posX, posY, fieldSize, fieldSize);
+  ctx.stroke();
+
   console.log(positionDelta);
 
 }
