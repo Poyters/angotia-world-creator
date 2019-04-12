@@ -7,7 +7,7 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 
-export const selectFieldsHandler = (event) => {
+export const selectFieldsHandler = (event: MouseEvent) => {
   const map: any = document.getElementById("map");
   let mapLeft: number = parseInt(map.style.left);
   let mapTop: number = parseInt(map.style.top);
@@ -58,12 +58,16 @@ const selectField = (cursorPosition: Array<number>) => {
 
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
-  colorChecked();
+  colorChecked(positionDelta, selectType);
 }
 
 
-const colorChecked = () => {
+const colorChecked = (positionDelta: Array<number>, type: string) => {
   const storeData = store.getState();
-  const selectMatrix: Array<number> = storeData.map.select.matrix;
+  const selectMatrix = [...storeData.map.select.matrix];
+
   
+  
+  console.log(positionDelta);
+
 }
