@@ -1,7 +1,7 @@
 export const initState = {
     size: {
-        x: 30,
-        y: 30
+        x: 6,
+        y: 6
     },
     net: {
         field: true,

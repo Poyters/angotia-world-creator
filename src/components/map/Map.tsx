@@ -42,6 +42,7 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
 
     drawMapNet(ctx, 0); //draw fields
     drawMapNet(ctx, 1); //draw squares
+    console.log('here')
   })
 
 

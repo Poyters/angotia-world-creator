@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 //Import scripts
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
+import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
 
 //Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
@@ -43,10 +44,12 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
       case 2: //square net;
         drawMapNet(ctx, 1);
       break;
-      case 3: //no nets
+      case 3:
         return;
       break;
     }
+
+    colorBasedOnMatrix();
   })
 
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color

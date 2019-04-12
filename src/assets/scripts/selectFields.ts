@@ -51,6 +51,7 @@ const selectField = (cursorPosition: Array<number>) => {
         Math.floor(cursorPosition[0] / (fieldSize / 2)),
         Math.floor(cursorPosition[1] / (fieldSize / 2))
       ];  
+      //todo update matrix by square
     break;
     default:
       throw new Error('Invalid select map type.');
@@ -75,7 +76,37 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.stroke();
+}
 
-  console.log(positionDelta);
 
+export const colorBasedOnMatrix = () => {
+  const storeData = store.getState();
+  const selectMatrix: Array<any> = [...storeData.map.select.matrix];
+  const fieldSize: number = creatorConfig.map.fieldSize;
+  const canvas: any = document.getElementById("mapCanvas");
+  const ctx = canvas.getContext("2d");
+
+  selectMatrix.map((yAxis, y) => {
+    yAxis.map((field, x) => {
+      const squareMatrix: Array<number> = [
+        field[0][0],
+        field[0][1],
+        field[1][0],
+        field[1][1]
+      ];
+     // console.log(squareMatrix)
+
+      squareMatrix.map((square, index) => {
+        if (square === 1) {
+          const xDelta = index === 1 || index === 3 ?  25 : 0;
+          const yDelta = index === 2 || index === 3 ? 25 : 0;
+          ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
+          ctx.stroke();
+
+          //console.log("id: " + x + "," + y, squareMatrix);
+        }
+      });
+
+    })
+  })
 }
