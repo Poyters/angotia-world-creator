@@ -49,7 +49,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
       break;
     }
 
-    colorBasedOnMatrix();
+    //colorBasedOnMatrix();
   })
 
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color

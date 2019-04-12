@@ -30,19 +30,22 @@ export const drawMapNet = (ctx: any, type: number) => {
     ctx.strokeStyle = "#bbb";
   } 
   else { //square
-    ctx.setLineDash([5, 3]);
+    ctx.setLineDash([2, 6]);
     ctx.strokeStyle = "#666";
   } 
   ctx.lineWidth = 1;
 
+
   for (let x: number = fieldSize/divider; x<mapSizeX; x+=fieldSize/divider) {
     ctx.moveTo(x, 0);
     ctx.lineTo(x, mapSizeY);
+    ctx.closePath();
   }
 
   for (let y:number = fieldSize/divider; y<mapSizeY; y+=fieldSize/divider) {
     ctx.moveTo(0, y);
     ctx.lineTo(mapSizeX, y);
+    ctx.closePath();
   }
 
   ctx.closePath();
