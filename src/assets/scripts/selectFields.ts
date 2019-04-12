@@ -3,6 +3,9 @@ import { store } from '../../App';
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
+//Import actions
+import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+
 
 export const selectFieldsHandler = (event) => {
   const map: any = document.getElementById("map");
@@ -23,7 +26,7 @@ export const selectFieldsHandler = (event) => {
 
 const selectField = (cursorPosition: Array<number>) => {
   const storeData = store.getState();
-  const selectMatrix: Array<number> = storeData.map.select.matrix;
+  const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const selectType: string = storeData.map.select.type;
   const fieldSize: number = creatorConfig.map.fieldSize;
   let positionDelta: Array<number> = [];
@@ -37,6 +40,11 @@ const selectField = (cursorPosition: Array<number>) => {
         Math.floor(cursorPosition[0] / fieldSize),
         Math.floor(cursorPosition[1] / fieldSize)
       ];
+
+      selectMatrix[positionDelta[1]][positionDelta[0]] = [
+        [1, 1],
+        [1, 1]
+      ]; //Select whole square
     break;
     case "field":
       positionDelta = [
@@ -48,5 +56,14 @@ const selectField = (cursorPosition: Array<number>) => {
       throw new Error('Invalid select map type.');
   }
 
-  console.log(cursorPosition, positionDelta);
+  store.dispatch(changeMapSelectMatrix(selectMatrix));
+
+  colorChecked();
+}
+
+
+const colorChecked = () => {
+  const storeData = store.getState();
+  const selectMatrix: Array<number> = storeData.map.select.matrix;
+  
 }

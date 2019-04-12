@@ -45,8 +45,6 @@ const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity, setMapSele
 }
 
 
-
-
 const mapDispatchToProps = dispatch => {
   return {
     setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))}

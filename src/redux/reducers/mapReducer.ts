@@ -10,7 +10,7 @@ export const initState = {
     mapPic: "",
     select: {
         type: "none", //none, square, field
-        matrix: [] // board matrix, set for each 0 and for selected 1
+        matrix: [],
     }
 };
 
@@ -38,6 +38,14 @@ export const mapReducer = (state = initState, action) => {
                 select: {
                     ...state.select,
                     type: action.selectType
+                }
+            }
+        case 'CHANGE_MAP_SELECT_MATRIX':
+            return {
+                ...state,
+                select: {
+                    ...state.select,
+                    matrix: action.newMatrix
                 }
             }
         default:

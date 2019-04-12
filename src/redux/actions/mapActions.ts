@@ -30,3 +30,10 @@ export const setMapSelectType = selectType => {
         selectType
     }
 }
+
+export const changeMapSelectMatrix = newMatrix => {
+    return {
+        type: 'CHANGE_MAP_SELECT_MATRIX',
+        newMatrix
+    }
+}
