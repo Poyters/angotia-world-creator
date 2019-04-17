@@ -24,12 +24,17 @@ export const selectFieldsHandler = (event: any) => {
 }
 
 
+
+interface IsquareDelta {
+  x: number,
+  y: number
+}
+
 const selectField = (cursorPosition: Array<number>) => {
   const storeData = store.getState();
   const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const selectType: string = storeData.map.select.type;
   const fieldSize: number = creatorConfig.map.fieldSize;
-  const mapSize: any = storeData.map.size;
   let positionDelta: Array<number> = [];
 
 
@@ -53,24 +58,17 @@ const selectField = (cursorPosition: Array<number>) => {
         Math.floor(cursorPosition[1] / (fieldSize / 2))
       ];  
       
-      const posField = [
+      const posField: Array<number> = [
         Math.floor(positionDelta[0] / 2),
         Math.floor(positionDelta[1] / 2)
       ];
 
-      const squareDelta = {
+      const squareDelta: IsquareDelta = {
         x: Math.floor(positionDelta[0] % 2),
         y: Math.floor(positionDelta[1] % 2)
       };
-
-
-      console.log(posField, squareDelta);
-      console.log(selectMatrix[posField[1]][posField[0]])
-      
+  
       selectMatrix[posField[1]][posField[0]][squareDelta.y][squareDelta.x] = 1;
-
-      console.log(selectMatrix[posField[1]][posField[0]])
-      //todo update matrix by square
     break;
     default:
       throw new Error('Invalid select map type.');
@@ -84,7 +82,7 @@ const selectField = (cursorPosition: Array<number>) => {
 
 const colorChecked = (positionDelta: Array<number>, type: string) => {
   const canvas: any = document.getElementById("mapCanvas");
-  const ctx = canvas.getContext("2d");
+  const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 
   if (type === 'square') fieldSize = fieldSize / 2;
@@ -106,8 +104,8 @@ export const colorBasedOnMatrix = () => {
   const canvas: any = document.getElementById("mapCanvas");
   const ctx = canvas.getContext("2d");
 
-  selectMatrix.map((yAxis, y) => {
-    yAxis.map((field, x) => {
+  selectMatrix.map((yAxis: Array<number>, y:number) => {
+    yAxis.map((field: number, x: number) => {
       const squareMatrix: Array<number> = [
         field[0][0],
         field[0][1],
@@ -115,10 +113,10 @@ export const colorBasedOnMatrix = () => {
         field[1][1]
       ];
 
-      squareMatrix.map((square, index) => {
+      squareMatrix.map((square: number, index: number) => {
         if (square === 1) {
-          const xDelta = index === 1 || index === 3 ?  25 : 0;
-          const yDelta = index === 2 || index === 3 ? 25 : 0;
+          const xDelta: number = index === 1 || index === 3 ?  25 : 0;
+          const yDelta: number = index === 2 || index === 3 ? 25 : 0;
           ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
           ctx.closePath();
           ctx.stroke();
