@@ -33,6 +33,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
 
     ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
 
+
     switch(optionViewType) {
       case 0: //all nets
         drawMapNet(ctx, 0);
@@ -49,7 +50,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
       break;
     }
 
-    //colorBasedOnMatrix();
+    colorBasedOnMatrix();
   })
 
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color

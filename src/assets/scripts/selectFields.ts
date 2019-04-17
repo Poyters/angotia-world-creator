@@ -29,6 +29,7 @@ const selectField = (cursorPosition: Array<number>) => {
   const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const selectType: string = storeData.map.select.type;
   const fieldSize: number = creatorConfig.map.fieldSize;
+  const mapSize: any = storeData.map.size;
   let positionDelta: Array<number> = [];
 
 
@@ -51,6 +52,24 @@ const selectField = (cursorPosition: Array<number>) => {
         Math.floor(cursorPosition[0] / (fieldSize / 2)),
         Math.floor(cursorPosition[1] / (fieldSize / 2))
       ];  
+      
+      const posField = [
+        Math.floor(positionDelta[0] / 2),
+        Math.floor(positionDelta[1] / 2)
+      ];
+
+      const squareDelta = {
+        x: Math.floor(positionDelta[0] % 2),
+        y: Math.floor(positionDelta[1] % 2)
+      };
+
+
+      console.log(posField, squareDelta);
+      console.log(selectMatrix[posField[1]][posField[0]])
+      
+      selectMatrix[posField[1]][posField[0]][squareDelta.y][squareDelta.x] = 1;
+
+      console.log(selectMatrix[posField[1]][posField[0]])
       //todo update matrix by square
     break;
     default:
@@ -75,6 +94,7 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 
 
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
+  ctx.closePath();
   ctx.stroke();
 }
 
@@ -94,16 +114,14 @@ export const colorBasedOnMatrix = () => {
         field[1][0],
         field[1][1]
       ];
-     // console.log(squareMatrix)
 
       squareMatrix.map((square, index) => {
         if (square === 1) {
           const xDelta = index === 1 || index === 3 ?  25 : 0;
           const yDelta = index === 2 || index === 3 ? 25 : 0;
           ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
+          ctx.closePath();
           ctx.stroke();
-
-          //console.log("id: " + x + "," + y, squareMatrix);
         }
       });
 
