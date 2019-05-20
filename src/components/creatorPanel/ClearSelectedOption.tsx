@@ -23,8 +23,8 @@ const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ changeMapSelectM
 	}
 
   return (
-    <div role="button" className='option clearSelectedOption' onClick={clearSelected}>
-      
+    <div role="button" className="clearSelectedOption" onClick={clearSelected}>
+      <div className="clearSelectedOption__ereaser"> </div>
     </div>
   );
 }

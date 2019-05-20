@@ -3,7 +3,7 @@ import React from 'react';
 //Import other components
 import CreatorPanel from '../creatorPanel/CreatorPanel';
 import CreditsFooter from '../CreditsFooter';
-import Map from '../map/Map';
+import Map from '../Map';
 
 
 const Creator: React.SFC = () => {

@@ -36,7 +36,7 @@
                 left: 3px;
                 width: 12px;
                 height: 12px;
-                background: $boardColor2;
+                background: $decorationColor4;
 
                 border-radius: 50%;
             }
@@ -62,7 +62,7 @@
     }
 
     &--off {
-        border-color: $boardColor2 !important;
+        border-color: $decorationColor4 !important;
     }
 
     &--fullScreen {
@@ -202,9 +202,28 @@
 }
 
 .clearSelectedOption {
+    position: relative;
     display: flex;
     width: 18px;
     height: 18px;
 
-    background-color: red;
+    &__ereaser {
+        position: absolute;
+        top: 4px;
+        left: 2px;
+        width: 14px;
+        height: 9px;
+
+        transform: rotate(30deg);
+        transition: 200ms ease-in-out;
+        border-radius: 2px;
+        background-color: $decorationColor4;
+        box-shadow: 0 0 2px $decorationColor4;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $decorationColor1;
+            box-shadow: 0 0 2px $decorationColor1;
+        }
+    }
 }

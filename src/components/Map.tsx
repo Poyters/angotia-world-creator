@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 //Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../assets/configs/creatorConfig.json';
 
 //Import scripts
-import dragElement from '../../assets/scripts/dragElement';
-import { drawMapNet } from '../../assets/scripts/drawNetMap';
-import { selectFieldsHandler } from '../../assets/scripts/selectFields';
+import dragElement from '../assets/scripts/dragElement';
+import { drawMapNet } from '../assets/scripts/drawNetMap';
+import { selectFieldsHandler } from '../assets/scripts/selectFields';
 
 
 interface IMap {
@@ -42,7 +42,6 @@ const Map: React.SFC<IMap> = ({ mapSize, mapPic }) => {
 
     drawMapNet(ctx, 0); //draw fields
     drawMapNet(ctx, 1); //draw squares
-    console.log('here')
   }, [])
 
 
