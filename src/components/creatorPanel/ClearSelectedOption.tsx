@@ -2,18 +2,24 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Import actions
-import { setMapSelectType } from '../../redux/actions/mapActions';
+import { setMapSelectType, changeMapSelectMatrix } from '../../redux/actions/mapActions';
+
+//Import scripts 
+import { generateEmptyMapMatrix } from '../../assets/scripts/map';
 
 
 interface IClearSelectedOption {
-	setMapSelectType: Function
+	changeMapSelectMatrix: Function
 }
 
-const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ setMapSelectType, }) => {
+
+const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ changeMapSelectMatrix }) => {
 
   const clearSelected = () => {
-		console.log('clear slected');
-		setMapSelectType('none'); //clear selectType
+		const newMatrix = generateEmptyMapMatrix();
+		
+		changeMapSelectMatrix(newMatrix);
+		//refreszowac cała mape tutaj
 	}
 
   return (
@@ -26,7 +32,7 @@ const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ setMapSelectType
 
 const mapDispatchToProps = dispatch => {
   return {
-    setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))}
+		changeMapSelectMatrix: newMatrix => {dispatch(changeMapSelectMatrix(newMatrix))}
   }
 }
 

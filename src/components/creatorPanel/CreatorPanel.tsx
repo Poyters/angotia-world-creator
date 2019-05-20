@@ -8,6 +8,7 @@ import FullScreenOption from './FullScreenOption';
 import NetOption from './NetOption';
 import SelectOption from './SelectOption';
 import AddFileOption from './AddFileOption';
+import ClearSelectedOption from './ClearSelectedOption';
 
 //Import actions
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
@@ -52,6 +53,9 @@ const CreatorPanel: React.SFC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
         </li>
         <li>
           <SelectOption selectTypeQuantity={2} />
+        </li>
+        <li>
+          <ClearSelectedOption />
         </li>
       </ul>
     </nav>
