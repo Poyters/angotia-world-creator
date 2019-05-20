@@ -12,26 +12,19 @@ import AddFileOption from './AddFileOption';
 //Import actions
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
+//Import scripts 
+import { generateEmptyMapMatrix } from '../../assets/scripts/map';
+
 
 interface ICreatorPanel {
-  changeMapSelectMatrix: Function,
-  mapSize: {
-    x: number,
-    y: number
-  }
+  changeMapSelectMatrix: Function
 }
 
-const CreatorPanel: React.SFC<ICreatorPanel> = ({ changeMapSelectMatrix, mapSize }) => {
+
+const CreatorPanel: React.SFC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
   
   useEffect(() => {
-    const newMatrix = [...Array(mapSize.y)].map((field) => {
-      return [...Array(mapSize.x)].map((square) => {
-        return [
-          [0, 0],
-          [0, 0]
-        ]
-      })
-    })
+    const newMatrix = generateEmptyMapMatrix();
 
     changeMapSelectMatrix(newMatrix);
   }, []);
@@ -66,16 +59,10 @@ const CreatorPanel: React.SFC<ICreatorPanel> = ({ changeMapSelectMatrix, mapSize
 }
 
 
-const mapStateToProps = state => {
-  return {
-    mapSize: state.map.size
-  }
-}
-
 const mapDispatchToProps = dispatch => {
   return {
     changeMapSelectMatrix: newMatrix => {dispatch(changeMapSelectMatrix(newMatrix))}
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreatorPanel);
+export default connect(null, mapDispatchToProps)(CreatorPanel);

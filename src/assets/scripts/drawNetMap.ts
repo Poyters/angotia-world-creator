@@ -13,7 +13,7 @@ interface IStoreData {
   }
 };
 
-const fieldSize: number = creatorConfig.map.fieldSize
+const fieldSize: number = creatorConfig.map.fieldSize;
 
 export const drawMapNet = (ctx: any, type: number) => {
   const storeData: IStoreData = store.getState();
