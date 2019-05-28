@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
 import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
 
+//Import actions
+import { setMapNets } from '../../redux/actions/mapActions';
+
 //Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 
@@ -14,11 +17,12 @@ interface INetOption {
   mapSize: {
     x: number,
     y: number
-  }
+  },
+  setMapNets: Function
 }
 
 
-const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
+const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize, setMapNets }) => {
   const [optionViewType, setOptionViewType] = useState<number>(0);
 
   const changeViewType = (): void => {
@@ -38,16 +42,19 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, mapSize }) => {
       case 0: //all nets
         drawMapNet(ctx, 0);
         drawMapNet(ctx, 1);
+        setMapNets({field: true, square: true})
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
+        setMapNets({field: true, square: false})
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
+        setMapNets({field: false, square: true})
       break;
       case 3:
+        setMapNets({field: false, square: false})
         return;
-      break;
     }
 
     colorBasedOnMatrix();
@@ -75,5 +82,11 @@ const mapStateToProps = state => {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+		setMapNets: netStatus => {dispatch(setMapNets(netStatus))}
+  }
+}
 
-export default connect(mapStateToProps)(NetOption);
+
+export default connect(mapStateToProps, mapDispatchToProps)(NetOption);
