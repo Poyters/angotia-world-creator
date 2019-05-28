@@ -10,17 +10,17 @@ import NetOption from './NetOption';
 
 configure({adapter: new Adapter()});
 
-it('NetOption component renders without crashing', () => {
+it('NetOption component renders without crashing', (): void => {
   const div: HTMLElement = document.createElement('div');
   ReactDOM.render(<NetOption />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
-describe('NetOption component option on/off', () => {
+describe('NetOption component option on/off', (): void => {
   const mapSize: object = {...initState.size};
   let netOption: any = shallow(<NetOption mapSize={mapSize} viewTypeQuantity={3}/> )  
 
-  it('check start class option--on of NetOption Component', () => {
+  it('check start class option--on of NetOption Component', (): void => {
     expect(netOption.hasClass('option--on')).toEqual(true);
   })
   
@@ -28,7 +28,7 @@ describe('NetOption component option on/off', () => {
   netOption.simulate('click');
   netOption.simulate('click');
 
-  it('check end class option--off of NetOption Component after all', () => {
+  it('check end class option--off of NetOption Component after all', (): void => {
     expect(netOption.hasClass('option--off')).toEqual(true);
   })
 });
