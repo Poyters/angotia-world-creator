@@ -1,22 +1,21 @@
 import { store } from '../../App';
 
-
-interface IStoreData {
-  map: {
-    size: {
-      x: number,
-      y: number
-    }
-  }
-};
+//Import configs
+import creatorConfig from '../configs/creatorConfig.json';
 
 
-export const generateEmptyMapMatrix = () => {
-	const storeData: IStoreData = store.getState();
-	const mapSize = storeData.map.size;
+interface IMapSize {
+	x: number,
+	y: number
+}
 
-	const newMatrix = [...Array(mapSize.y)].map((field) => {
-		return [...Array(mapSize.x)].map((square) => {
+
+export const generateEmptyMapMatrix = ():Array<any> => {
+	const storeData = store.getState();
+	const mapSize: IMapSize = storeData.map.size;
+
+	const newMatrix: Array<any> = [...Array(mapSize.y)].map(() => {
+		return [...Array(mapSize.x)].map(() => {
 			return [
 				[0, 0],
 				[0, 0]
@@ -25,4 +24,17 @@ export const generateEmptyMapMatrix = () => {
 	})
 
 	return newMatrix;
+}
+
+
+export const emptyMapCanvasCtx = () => {
+	const storeData = store.getState();
+	const mapSize: IMapSize = storeData.map.size;
+	const fieldSize: number = creatorConfig.map.fieldSize;
+	const canvas: any = document.getElementById("mapCanvas");
+	const ctx = canvas.getContext("2d");
+
+	ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
+
+	return ctx;
 }

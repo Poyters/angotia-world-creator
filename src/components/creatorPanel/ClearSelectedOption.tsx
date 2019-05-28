@@ -5,12 +5,9 @@ import { connect } from 'react-redux';
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 //Import scripts 
-import { generateEmptyMapMatrix } from '../../assets/scripts/map';
+import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../assets/scripts/map';
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
 import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
-
-//Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 
 interface IClearSelectedOption {
@@ -26,17 +23,13 @@ interface IClearSelectedOption {
 }
 
 
-const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ mapNetStatus, mapSize, changeMapSelectMatrix }) => {
+const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ mapNetStatus, changeMapSelectMatrix }) => {
 
   const clearSelected = () => {
     const newMatrix = generateEmptyMapMatrix();
-    const fieldSize: number = creatorConfig.map.fieldSize;
-    const canvas: any = document.getElementById("mapCanvas");
-    const ctx = canvas.getContext("2d");
+    const ctx = emptyMapCanvasCtx();
 		
     changeMapSelectMatrix(newMatrix);
-  
-    ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
 
     const netStatus = ():number => {
       if (mapNetStatus.square && mapNetStatus.field) return 0;
@@ -74,7 +67,6 @@ const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ mapNetStatus, ma
 const mapStateToProps = state => {
   return {
     mapNetStatus: state.map.net,
-    mapSize: state.map.size
   }
 }
 

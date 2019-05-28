@@ -1,6 +1,6 @@
 {
   "name": "angotia-map-creator",
-  "version": "0.1.0",
+  "version": "0.1.13",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.6",
