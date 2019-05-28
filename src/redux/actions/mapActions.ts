@@ -1,37 +1,36 @@
-interface ISetMapSizes {
-    x: number,
-    y: number
-}
+//Import interfaces
+import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
 
-export const setMapSizes = sizes => {
+
+export const setMapSizes = (sizes: IMapSize) => {
     return {
         type: 'CHANGE_MAP_SIZES',
         sizes
     }
 }
 
-export const setMapNets = values => {
+export const setMapNets = (values: IMapNetStatus) => {
     return {
         type: 'CHANGE_MAP_NETS',
         values
     }
 }
 
-export const setMapBg = path => {
+export const setMapBg = (path: string) => {
     return {
         type: 'SET_MAP_BACKGROUND',
         path
     }
 }
 
-export const setMapSelectType = selectType => {
+export const setMapSelectType = (selectType: string) => {
     return {
         type: 'SET_MAP_SELECT_TYPE',
         selectType
     }
 }
 
-export const changeMapSelectMatrix = newMatrix => {
+export const changeMapSelectMatrix = (newMatrix: Array<any>) => {
     return {
         type: 'CHANGE_MAP_SELECT_MATRIX',
         newMatrix

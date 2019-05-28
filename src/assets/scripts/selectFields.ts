@@ -97,12 +97,12 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 }
 
 
-export const colorBasedOnMatrix = () => {
+export const colorBasedOnMatrix = ():void => {
   const storeData = store.getState();
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
   const canvas: any = document.getElementById("mapCanvas");
-  const ctx = canvas.getContext("2d");
+  const ctx: any = canvas.getContext("2d");
 
   selectMatrix.map((yAxis: Array<number>, y:number) => {
     yAxis.map((field: number, x: number) => {

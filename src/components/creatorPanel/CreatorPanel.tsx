@@ -22,9 +22,9 @@ interface ICreatorPanel {
 }
 
 
-const CreatorPanel: React.SFC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
+const CreatorPanel: React.FC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
   
-  useEffect(() => {
+  useEffect((): void => {
     const newMatrix = generateEmptyMapMatrix();
 
     changeMapSelectMatrix(newMatrix);

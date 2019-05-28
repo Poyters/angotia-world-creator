@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 
-const ComeBackOption: React.SFC = () => {
+const ComeBackOption: React.FC = () => {
 
   return (
     <div role="button" className="option option--textOption">

@@ -10,7 +10,7 @@ interface IAddFileOption {
   mapPic: string
 }
 
-const AddFileOption: React.SFC<IAddFileOption> = ({ setMapBg, mapPic }) => {
+const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
   const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();

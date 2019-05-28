@@ -6,7 +6,7 @@ import SectionHeader from '../SectionHeader';
 import EntryPanel from '../entryPanel/EntryPanel';
 
 
-const Home: React.SFC = () => {
+const Home: React.FC = () => {
   return (
     <div role="presentation" className="container">
         <SectionHeader 

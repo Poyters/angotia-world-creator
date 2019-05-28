@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const ExportOption: React.SFC = () => {
+const ExportOption: React.FC = () => {
 
   return (
     <div role="button" className="option option--textOption">

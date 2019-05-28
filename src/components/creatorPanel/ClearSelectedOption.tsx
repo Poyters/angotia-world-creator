@@ -9,25 +9,22 @@ import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../assets/scripts/
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
 import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
 
+//Import interfaces
+import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+
 
 interface IClearSelectedOption {
-  mapNetStatus: {
-    field: boolean,
-    square: boolean
-  },
+  mapNetStatus: IMapNetStatus,
   changeMapSelectMatrix: Function,
-  mapSize: {
-    x: number,
-    y: number
-  }
+  mapSize: IMapSize
 }
 
 
-const ClearSelectedOption: React.SFC<IClearSelectedOption> = ({ mapNetStatus, changeMapSelectMatrix }) => {
+const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ mapNetStatus, changeMapSelectMatrix }) => {
 
-  const clearSelected = () => {
-    const newMatrix = generateEmptyMapMatrix();
-    const ctx = emptyMapCanvasCtx();
+  const clearSelected = ():void => {
+    const newMatrix: Array<any> = generateEmptyMapMatrix();
+    const ctx: any = emptyMapCanvasCtx();
 		
     changeMapSelectMatrix(newMatrix);
 

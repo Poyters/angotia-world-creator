@@ -29,7 +29,7 @@ export const emptyMapCanvasCtx = () => {
 	const mapSize: IMapSize = storeData.map.size;
 	const fieldSize: number = creatorConfig.map.fieldSize;
 	const canvas: any = document.getElementById("mapCanvas");
-	const ctx = canvas.getContext("2d");
+	const ctx: any = canvas.getContext("2d");
 
 	ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
 

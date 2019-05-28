@@ -7,7 +7,7 @@ interface IMapSizeInput {
     changeValue(value: any): void
 }
 
-const MapSizeInput: React.SFC<IMapSizeInput> = ({id, currValue, changeValue}) => {
+const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => {
 
   return (
     <input 

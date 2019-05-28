@@ -11,10 +11,10 @@ interface ISelectOption {
 }
 
 
-const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType }) => {
-  const [ selectType, setSelectType ] = useState(0);
+const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType }) => {
+  const [selectType, setSelectType] = useState<number>(0);
 
-  useEffect(() => {
+  useEffect((): void => {
     switch(selectType) {
       case 0:
         setMapSelectType('none');
@@ -30,12 +30,12 @@ const SelectOption: React.SFC<ISelectOption> = ({ selectTypeQuantity, setMapSele
     }
   });
 
-  const changeSelectType = () => {
+  const changeSelectType = (): void => {
     if (selectType < selectTypeQuantity) setSelectType(selectType + 1);
     else setSelectType(0);
   }
 
-  const selectOnOff = selectType !== 0 ? 'option--on' : 'option--off'; //It determines icon color
+  const selectOnOff: string = selectType !== 0 ? 'option--on' : 'option--off'; //It determines icon color
 
   return (
     <div role="button" className={`option selectOption ${selectOnOff}`} onClick={changeSelectType}>

@@ -4,7 +4,7 @@ interface ISectionHeader {
     headerTxt: string
 }
 
-const SectionHeader: React.SFC<ISectionHeader> = ({headerTxt}) => {
+const SectionHeader: React.FC<ISectionHeader> = ({headerTxt}) => {
   return (
     <header className="sectionHeader">
         <h1>

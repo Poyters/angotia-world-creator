@@ -23,13 +23,13 @@ interface IEntryPanel {
   setMapSizes: Function
 }
 
-const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
-  const [mapX, setMapX] = useState<any>(mapSize.x);
-  const [mapY, setMapY] = useState<any>(mapSize.y);
-  const [valMess, setValMess] = useState('');
-  const [redirect, setRedirect] = useState(false);
+const EntryPanel: React.FC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
+  const [mapX, setMapX] = useState<number>(mapSize.x);
+  const [mapY, setMapY] = useState<number>(mapSize.y);
+  const [valMess, setValMess] = useState<string>('');
+  const [redirect, setRedirect] = useState<boolean>(false);
 
-  const mapSizeValidation = () => {
+  const mapSizeValidation = ():void => {
     const mapSizeX:number = typeof mapX === "number" ? mapX : parseInt(mapX);
     const mapSizeY:number = typeof mapY === "number" ? mapY : parseInt(mapY);
     

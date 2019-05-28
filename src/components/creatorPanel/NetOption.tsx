@@ -20,7 +20,7 @@ interface INetOption {
 }
 
 
-const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
+const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   const [optionViewType, setOptionViewType] = useState<number>(0);
 
   const changeViewType = (): void => {
@@ -29,7 +29,7 @@ const NetOption: React.SFC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   }
 
   useEffect((): void => {
-    const ctx = emptyMapCanvasCtx();
+    const ctx: any = emptyMapCanvasCtx();
 
     switch(optionViewType) {
       case 0: //all nets

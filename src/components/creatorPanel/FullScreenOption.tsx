@@ -12,8 +12,8 @@ const closeFullScreen = (): void => {
 }
 
 
-const FullScreenOption: React.SFC = () => {
-  const [ fs, setFs ] = useState<boolean>(false);
+const FullScreenOption: React.FC = () => {
+  const [fs, setFs] = useState<boolean>(false);
   const body: HTMLElement = document.getElementsByTagName('body')[0];
 
   const clickHandler = (): void => {

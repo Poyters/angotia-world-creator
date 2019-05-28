@@ -6,7 +6,7 @@ import CreditsFooter from '../CreditsFooter';
 import Map from '../Map';
 
 
-const Creator: React.SFC = () => {
+const Creator: React.FC = () => {
   return (
     <article className="creator">
       <CreatorPanel />

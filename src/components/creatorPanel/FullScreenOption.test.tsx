@@ -9,14 +9,14 @@ import FullScreenOption from './FullScreenOption';
 
 configure({adapter: new Adapter()});
 
-it('FullScreenOption component renders without crashing', () => {
+it('FullScreenOption component renders without crashing', (): void => {
   const div: HTMLElement = document.createElement('div');
   ReactDOM.render(<FullScreenOption />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 
 
-test('FullScreenOption change class name to on', () => {
+test('FullScreenOption change class name to on', (): void => {
   const fullScreenOption: any = shallow(<FullScreenOption/>);
 
   expect(fullScreenOption.hasClass('option--off')).toEqual(true);
@@ -25,7 +25,7 @@ test('FullScreenOption change class name to on', () => {
 });
 
 
-test('FullScreenOption full screen running', () => {
+test('FullScreenOption full screen running', (): void => {
   const fullScreenOption: any = shallow(<FullScreenOption/>);
 
   fullScreenOption.simulate('click');
