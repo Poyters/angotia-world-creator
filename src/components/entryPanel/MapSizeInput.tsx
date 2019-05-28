@@ -8,10 +8,6 @@ interface IMapSizeInput {
 }
 
 const MapSizeInput: React.SFC<IMapSizeInput> = ({id, currValue, changeValue}) => {
-  const clickHandler= () => {
-    changeValue({size: ''});
-  }
-
 
   return (
     <input 
@@ -19,8 +15,8 @@ const MapSizeInput: React.SFC<IMapSizeInput> = ({id, currValue, changeValue}) =>
       name="input"
       value={currValue}
       id={id}
-      onChange={e => changeValue({size: e.target.value})}
-      onClick={clickHandler}
+      onChange={e => changeValue(e.target.value)}
+      onClick={() => changeValue('')}
     />
   );
 }

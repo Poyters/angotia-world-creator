@@ -3,21 +3,15 @@ import { store } from '../../App';
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
+//Import interfaces
+import { IMapSize } from '../interfaces/mapInterfaces';
 
-interface IStoreData {
-  map: {
-    size: {
-      x: number,
-      y: number
-    }
-  }
-};
 
 const fieldSize: number = creatorConfig.map.fieldSize;
 
 export const drawMapNet = (ctx: any, type: number) => {
-  const storeData: IStoreData = store.getState();
-  const mapSize = storeData.map.size;
+  const storeData = store.getState();
+  const mapSize: IMapSize = storeData.map.size;
 
   const mapSizeX: number = mapSize.x*fieldSize;
   const mapSizeY: number = mapSize.y*fieldSize;

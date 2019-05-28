@@ -8,30 +8,30 @@ import MapSizeInput from './MapSizeInput';
 //Import actions
 import { setMapSizes } from '../../redux/actions/mapActions';
 
+//Import interfaces
+import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+
 
 let mapSizes = {
   x: 0,
   y: 0
 }
 
-interface IMapSize {
-  size: number | string
-}
 
 interface IEntryPanel {
-  mapSize: Object,
+  mapSize: IMapSize,
   setMapSizes: Function
 }
 
 const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
-  const [mapX, setMapX] = useState<IMapSize>({size: mapSize['x']});
-  const [mapY, setMapY] = useState<IMapSize>({size: mapSize['y']});
+  const [mapX, setMapX] = useState<any>(mapSize.x);
+  const [mapY, setMapY] = useState<any>(mapSize.y);
   const [valMess, setValMess] = useState('');
   const [redirect, setRedirect] = useState(false);
 
   const mapSizeValidation = () => {
-    const mapSizeX:number = typeof mapX.size === "number" ? mapX.size : parseInt(mapX.size);
-    const mapSizeY:number = typeof mapY.size === "number" ? mapY.size : parseInt(mapY.size);
+    const mapSizeX:number = typeof mapX === "number" ? mapX : parseInt(mapX);
+    const mapSizeY:number = typeof mapY === "number" ? mapY : parseInt(mapY);
     
     if ((typeof mapSizeX !== "number" || isNaN(mapSizeX)) || 
     (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
@@ -65,13 +65,13 @@ const EntryPanel: React.SFC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
           </span>
           <div role="presentation" className="entryPanel__sizeBoard">
             <MapSizeInput
-              currValue={mapX.size}
+              currValue={mapX}
               changeValue={setMapX}
               id="yMapSize"
             />
             <span className="t-paragraph3Normal">x</span>
             <MapSizeInput
-              currValue={mapY.size}
+              currValue={mapY}
               changeValue={setMapY}
               id="yMapSize"
             />

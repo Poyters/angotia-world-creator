@@ -3,11 +3,8 @@ import { store } from '../../App';
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
-
-interface IMapSize {
-	x: number,
-	y: number
-}
+//Import interfaces
+import { IMapSize } from '../interfaces/mapInterfaces';
 
 
 export const generateEmptyMapMatrix = ():Array<any> => {
