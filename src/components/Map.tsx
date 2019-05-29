@@ -35,13 +35,13 @@ const Map: React.FC<IMap> = ({ mapSize, mapPic }) => {
 
 
   useEffect((): void => {
-    dragElement(document.getElementById("map"));
-
     const canvas: any = document.getElementById("mapCanvas");
     const ctx: any = canvas.getContext("2d");
 
     drawMapNet(ctx, 1); //draw squares
     drawMapNet(ctx, 0); //draw fields
+
+    dragElement(document.getElementById("map"));
   }, [])
 
 

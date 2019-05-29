@@ -1,3 +1,6 @@
+import { store } from '../../App';
+
+
 const dragElement = (element:any) => {
   let positions:Array<number> = [0, 0, 0, 0];
   
@@ -11,6 +14,11 @@ const dragElement = (element:any) => {
   }
 
   const elementDrag = (e: MouseEvent): void => {
+    const storeData = store.getState();
+    const selectType = storeData.map.select.type;
+
+    if (selectType === 'mouse') return;
+    
     e.preventDefault();
 
     positions[0] = positions[2] - e.clientX;

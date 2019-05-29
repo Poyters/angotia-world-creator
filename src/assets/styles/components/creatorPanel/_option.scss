@@ -3,6 +3,7 @@
     flex: 1;
     
     cursor: pointer;
+    user-select: none;
 
     &--net {
         width: 18px;
@@ -142,6 +143,7 @@
 
     border-width: 1px;
     border-style: solid;
+    user-select: none;
 
     &__square {
         flex: 1;
@@ -167,6 +169,7 @@
     border-style: solid;
     border-color: $decorationColor1;
     transform: rotate(45deg);
+    user-select: none;
 
     & .option__viewType {
         top: 9px;

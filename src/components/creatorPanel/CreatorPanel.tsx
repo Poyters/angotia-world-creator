@@ -52,7 +52,7 @@ const CreatorPanel: React.FC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
           <NetOption viewTypeQuantity={3} />
         </li>
         <li>
-          <SelectOption selectTypeQuantity={2} />
+          <SelectOption selectTypeQuantity={3} />
         </li>
         <li>
           <ClearSelectedOption />

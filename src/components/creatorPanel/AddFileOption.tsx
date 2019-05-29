@@ -31,7 +31,7 @@ const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
   return (
     <React.Fragment>
       <input className="option option--addFile" type="file" id="file" name="files[]" onChange={evt => handleFileSelect(evt)}/>
-      <label className={optionOnOff} htmlFor="file">bg</label>
+      <label className={optionOnOff} htmlFor="file"></label>
     </React.Fragment>
   );
 }

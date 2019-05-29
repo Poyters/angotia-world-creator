@@ -25,6 +25,9 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelec
       case 2: 
         setMapSelectType('field');
       break;
+      case 3:
+        setMapSelectType('mouse');
+      break;
       default:
         throw new Error('invalid selectType');
     }

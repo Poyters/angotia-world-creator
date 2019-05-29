@@ -6,6 +6,9 @@ import creatorConfig from '../configs/creatorConfig.json';
 //Import actions
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
+//Import scripts
+import { mouseSelectFields } from './mouseSelectFields';
+
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   const map: any = document.getElementById("map");
@@ -38,12 +41,10 @@ const selectField = (cursorPosition: Array<number>) => {
   const mapNetsStatus = storeData.map.net;
   let positionDelta: Array<number> = [];
 
-  if (!mapNetsStatus.field && !mapNetsStatus.square) return; //no nets, no select
+  if (!mapNetsStatus.field && !mapNetsStatus.square || selectType === 'none') return; //no nets, no select
 
 
   switch(selectType) {
-    case "none": 
-      return;
     case "field":
       positionDelta = [
         Math.floor(cursorPosition[0] / fieldSize),
@@ -72,6 +73,9 @@ const selectField = (cursorPosition: Array<number>) => {
       };
   
       selectMatrix[posField[1]][posField[0]][squareDelta.y][squareDelta.x] = 1;
+    break;
+    case "mouse":
+      mouseSelectFields();
     break;
     default:
       throw new Error('Invalid select map type.');

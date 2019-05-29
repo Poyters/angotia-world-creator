@@ -9,7 +9,7 @@ export const initState = {
     },
     mapPic: "",
     select: {
-        type: "none", //none, square, field
+        type: "none", //none, square, field, mouse
         matrix: [],
     }
 };
