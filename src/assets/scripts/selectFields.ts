@@ -7,7 +7,7 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 
-export const selectFieldsHandler = (event: any) => {
+export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   const map: any = document.getElementById("map");
   let mapLeft: number = parseInt(map.style.left);
   let mapTop: number = parseInt(map.style.top);
@@ -24,18 +24,21 @@ export const selectFieldsHandler = (event: any) => {
 }
 
 
-
 interface IsquareDelta {
   x: number,
   y: number
 }
+
 
 const selectField = (cursorPosition: Array<number>) => {
   const storeData = store.getState();
   const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const selectType: string = storeData.map.select.type;
   const fieldSize: number = creatorConfig.map.fieldSize;
+  const mapNetsStatus = storeData.map.net;
   let positionDelta: Array<number> = [];
+
+  if (!mapNetsStatus.field && !mapNetsStatus.square) return; //no nets, no select
 
 
   switch(selectType) {
@@ -89,7 +92,6 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
   
   const posX: number = positionDelta[0] * fieldSize;
   const posY: number = positionDelta[1] * fieldSize;
-
 
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
