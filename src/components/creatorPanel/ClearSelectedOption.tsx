@@ -37,8 +37,8 @@ const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ mapNetStatus, cha
 
     switch(netStatus()) {
       case 0: //all nets
-        drawMapNet(ctx, 0);
         drawMapNet(ctx, 1);
+        drawMapNet(ctx, 0);
       break;
       case 1: //field net
         drawMapNet(ctx, 0);

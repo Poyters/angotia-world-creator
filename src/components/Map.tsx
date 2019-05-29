@@ -40,8 +40,8 @@ const Map: React.FC<IMap> = ({ mapSize, mapPic }) => {
     const canvas: any = document.getElementById("mapCanvas");
     const ctx: any = canvas.getContext("2d");
 
-    drawMapNet(ctx, 0); //draw fields
     drawMapNet(ctx, 1); //draw squares
+    drawMapNet(ctx, 0); //draw fields
   }, [])
 
 

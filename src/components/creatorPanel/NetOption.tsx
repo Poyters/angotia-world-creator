@@ -33,8 +33,8 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
 
     switch(optionViewType) {
       case 0: //all nets
-        drawMapNet(ctx, 0);
         drawMapNet(ctx, 1);
+        drawMapNet(ctx, 0);
         setMapNets({field: true, square: true})
       break;
       case 1: //field net
