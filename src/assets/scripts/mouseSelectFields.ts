@@ -1,4 +1,5 @@
 import { store } from '../../App';
+import { colorBasedOnMatrix } from './selectFields';
 
 
 let canvas: any;
@@ -56,4 +57,6 @@ function mouseMove(event: React.MouseEvent<HTMLElement>) {
 const draw = () => {
   ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
   ctx.fillRect(rect.startX, rect.startY, rect.w, rect.h);
+
+  colorBasedOnMatrix();
 }

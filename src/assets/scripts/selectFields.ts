@@ -104,7 +104,7 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 }
 
 
-const colorBasedOnMatrix = ():void => {
+export const colorBasedOnMatrix = ():void => {
   const storeData = store.getState();
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
