@@ -30,6 +30,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
 
   useEffect((): void => {
     const ctx: any = emptyMapCanvasCtx();
+    console.log(optionViewType);
 
     switch(optionViewType) {
       case 0: //all nets

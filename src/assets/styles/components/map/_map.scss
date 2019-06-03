@@ -7,4 +7,18 @@
 
     cursor: move;
     border: 1px dotted $warningColor;
+    
+    &__mainCanvas {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    &__selectCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
 }

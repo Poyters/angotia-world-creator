@@ -35,8 +35,8 @@ interface IsquareDelta {
 
 const selectField = (cursorPosition: Array<number>) => {
   const storeData = store.getState();
-  const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const selectType: string = storeData.map.select.type;
+  const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
   const mapNetsStatus = storeData.map.net;
   let positionDelta: Array<number> = [];
@@ -97,6 +97,7 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
   const posX: number = positionDelta[0] * fieldSize;
   const posY: number = positionDelta[1] * fieldSize;
 
+  ctx.fillStyle ="rgba(0, 0, 0, 0.7)";
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
   ctx.stroke();
@@ -123,6 +124,7 @@ export const colorBasedOnMatrix = ():void => {
         if (square === 1) {
           const xDelta: number = index === 1 || index === 3 ?  25 : 0;
           const yDelta: number = index === 2 || index === 3 ? 25 : 0;
+          ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
           ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
           ctx.closePath();
           ctx.stroke();
