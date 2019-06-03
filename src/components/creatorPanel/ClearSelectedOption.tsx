@@ -6,8 +6,6 @@ import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../assets/scripts/map';
-import { drawMapNet } from '../../assets/scripts/drawNetMap';
-import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
 
 //Import interfaces
 import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
@@ -20,39 +18,13 @@ interface IClearSelectedOption {
 }
 
 
-const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ mapNetStatus, changeMapSelectMatrix }) => {
+const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ changeMapSelectMatrix }) => {
 
   const clearSelected = ():void => {
     const newMatrix: Array<any> = generateEmptyMapMatrix();
-    const ctx: any = emptyMapCanvasCtx();
+    emptyMapCanvasCtx("mapSelectCanvas"); //clear select canvas
 		
     changeMapSelectMatrix(newMatrix);
-
-    const netStatus = ():number => {
-      if (mapNetStatus.square && mapNetStatus.field) return 0;
-      else if (mapNetStatus.field && !mapNetStatus.square) return 1;
-      else if (!mapNetStatus.field && mapNetStatus.square) return 2;
-      else return 3;
-    }
-
-    console.log(netStatus());
-
-    switch(netStatus()) {
-      case 0: //all nets
-        drawMapNet(ctx, 1);
-        drawMapNet(ctx, 0);
-      break;
-      case 1: //field net
-        drawMapNet(ctx, 0);
-      break;
-      case 2: //square net;
-        drawMapNet(ctx, 1);
-      break;
-      case 3:
-        return;
-    }
-
-    colorBasedOnMatrix();
 	}
 
   return (
@@ -63,17 +35,10 @@ const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ mapNetStatus, cha
 }
 
 
-const mapStateToProps = state => {
-  return {
-    mapNetStatus: state.map.net,
-  }
-}
-
-
 const mapDispatchToProps = dispatch => {
   return {
 		changeMapSelectMatrix: newMatrix => {dispatch(changeMapSelectMatrix(newMatrix))}
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClearSelectedOption);
+export default connect(null, mapDispatchToProps)(ClearSelectedOption);

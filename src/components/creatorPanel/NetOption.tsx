@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 //Import scripts
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
-import { colorBasedOnMatrix } from '../../assets/scripts/selectFields';
 import { emptyMapCanvasCtx } from '../../assets/scripts/map';
 
 //Import actions
@@ -29,8 +28,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   }
 
   useEffect((): void => {
-    const ctx: any = emptyMapCanvasCtx();
-    console.log(optionViewType);
+    const ctx: any = emptyMapCanvasCtx("mapCanvas");
 
     switch(optionViewType) {
       case 0: //all nets
@@ -50,8 +48,6 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
         setMapNets({field: false, square: false})
         return;
     }
-
-    colorBasedOnMatrix();
   })
 
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color

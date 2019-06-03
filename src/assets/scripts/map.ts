@@ -24,11 +24,11 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 }
 
 
-export const emptyMapCanvasCtx = () => {
+export const emptyMapCanvasCtx = (canvasId: string) => {
 	const storeData = store.getState();
 	const mapSize: IMapSize = storeData.map.size;
 	const fieldSize: number = creatorConfig.map.fieldSize;
-	const canvas: any = document.getElementById("mapCanvas");
+	const canvas: any = document.getElementById(canvasId);
 	const ctx: any = canvas.getContext("2d");
 
 	ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);

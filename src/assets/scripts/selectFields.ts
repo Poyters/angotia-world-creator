@@ -88,7 +88,7 @@ const selectField = (cursorPosition: Array<number>) => {
 
 
 const colorChecked = (positionDelta: Array<number>, type: string) => {
-  const canvas: any = document.getElementById("mapCanvas");
+  const canvas: any = document.getElementById("mapSelectCanvas");
   const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 
@@ -104,7 +104,7 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 }
 
 
-export const colorBasedOnMatrix = ():void => {
+const colorBasedOnMatrix = ():void => {
   const storeData = store.getState();
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
