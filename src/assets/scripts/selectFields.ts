@@ -27,7 +27,7 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
 }
 
 
-interface IsquareDelta {
+interface IPoint {
   x: number,
   y: number
 }
@@ -39,40 +39,30 @@ const selectField = (cursorPosition: Array<number>) => {
   const selectMatrix: Array<number> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
   const mapNetsStatus = storeData.map.net;
-  let positionDelta: Array<number> = [];
+  let positionDelta: IPoint = {
+    x: -1,
+    y: -1
+  }
 
   if (!mapNetsStatus.field && !mapNetsStatus.square || selectType === 'none') return; //no nets, no select
 
 
   switch(selectType) {
     case "field":
-      positionDelta = [
-        Math.floor(cursorPosition[0] / fieldSize),
-        Math.floor(cursorPosition[1] / fieldSize)
-      ];
+      positionDelta = {
+        x: Math.floor(cursorPosition[0] / fieldSize),
+        y: Math.floor(cursorPosition[1] / fieldSize)
+      };
 
-      selectMatrix[positionDelta[1]][positionDelta[0]] = [
-        [1, 1],
-        [1, 1]
-      ]; //Select whole field
+      selectCanvasField(selectMatrix, positionDelta);
     break;
     case "square":
-      positionDelta = [
-        Math.floor(cursorPosition[0] / (fieldSize / 2)),
-        Math.floor(cursorPosition[1] / (fieldSize / 2))
-      ];  
-      
-      const posField: Array<number> = [
-        Math.floor(positionDelta[0] / 2),
-        Math.floor(positionDelta[1] / 2)
-      ];
-
-      const squareDelta: IsquareDelta = {
-        x: Math.floor(positionDelta[0] % 2),
-        y: Math.floor(positionDelta[1] % 2)
+      positionDelta = {
+        x: Math.floor(cursorPosition[0] / (fieldSize / 2)),
+        y: Math.floor(cursorPosition[1] / (fieldSize / 2))
       };
-  
-      selectMatrix[posField[1]][posField[0]][squareDelta.y][squareDelta.x] = 1;
+
+      selectCanvasSquare(selectMatrix, positionDelta);
     break;
     case "mouse":
       mouseSelectFields();
@@ -87,15 +77,15 @@ const selectField = (cursorPosition: Array<number>) => {
 }
 
 
-const colorChecked = (positionDelta: Array<number>, type: string) => {
+const colorChecked = (positionDelta: IPoint, type: string) => {
   const canvas: any = document.getElementById("mapSelectCanvas");
   const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 
   if (type === 'square') fieldSize = fieldSize / 2;
   
-  const posX: number = positionDelta[0] * fieldSize;
-  const posY: number = positionDelta[1] * fieldSize;
+  const posX: number = positionDelta.x * fieldSize;
+  const posY: number = positionDelta.y * fieldSize;
 
   ctx.fillStyle ="rgba(0, 0, 0, 0.7)";
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
@@ -104,7 +94,7 @@ const colorChecked = (positionDelta: Array<number>, type: string) => {
 }
 
 
-export const colorBasedOnMatrix = ():void => {
+export const colorBasedOnMatrix = (): void => {
   const storeData = store.getState();
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
@@ -133,4 +123,29 @@ export const colorBasedOnMatrix = ():void => {
 
     })
   })
+}
+
+
+export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPoint): void => {
+  //squarePosition determines x and y axis of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
+  
+  const fieldPosition: IPoint = {
+    x: Math.floor(squarePosition.x / 2),
+    y: Math.floor(squarePosition.y / 2)
+  }
+
+  const squareDelta: IPoint = {
+    x: Math.floor(squarePosition.x % 2),
+    y: Math.floor(squarePosition.y % 2)
+  };
+
+  selectMatrix[fieldPosition.y][fieldPosition.x][squareDelta.y][squareDelta.x] = 1;
+}
+
+
+const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint): void => {
+  selectMatrix[fieldPosition.y][fieldPosition.x] = [
+    [1, 1],
+    [1, 1]
+  ]; //Select whole field
 }

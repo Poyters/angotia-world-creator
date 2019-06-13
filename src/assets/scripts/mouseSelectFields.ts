@@ -1,13 +1,19 @@
 import { store } from '../../App';
 import { colorBasedOnMatrix } from './selectFields';
 
+//Import configs
+import creatorConfig from '../configs/creatorConfig.json';
+
+//Import actions
+import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+
 
 let canvas: any;
 let ctx: any;
 let rect: any = {};
 let drag: boolean = false;
 
-interface ITrianglePosition {
+interface IRectanglePosition {
   topLeft: {
     x: number,
     y: number
@@ -15,18 +21,6 @@ interface ITrianglePosition {
   bottomRight: {
     x: number,
     y: number
-  }
-}
-
-
-let trianglePosition: ITrianglePosition = {
-  topLeft: {
-    x: 0,
-    y: 0
-  },
-  bottomRight: {
-    x: 0,
-    y: 0
   }
 }
 
@@ -41,7 +35,7 @@ export const mouseSelectFields = () => {
 }
 
 
-function mouseDown(event: React.MouseEvent<HTMLElement>, map: any) {
+const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 	const storeData = store.getState();
   const selectType: string = storeData.map.select.type;
   const mapLeft = parseInt(map.style.left) || 0;
@@ -57,11 +51,11 @@ function mouseDown(event: React.MouseEvent<HTMLElement>, map: any) {
 
 const mouseUp = () => {
 	const storeData = store.getState();
-	const selectType: string = storeData.map.select.type;
+  const selectType: string = storeData.map.select.type;
 	
   if (selectType !== "mouse") return;
   
-  trianglePosition = {
+  const rectanglePosition: IRectanglePosition = {
     topLeft: {
       x: rect.startX,
       y: rect.startY
@@ -72,14 +66,14 @@ const mouseUp = () => {
     }
   }
 
-  console.log(trianglePosition);
-
+  colorSquares(rectanglePosition);
+  
   drag = false;
   ctx.clearRect(0,0,canvas.width,canvas.height);
 }
 
 
-function mouseMove(event: React.MouseEvent<HTMLElement>, map: any) {
+const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 	const storeData = store.getState();
   const selectType: string = storeData.map.select.type;
   const mapLeft = parseInt(map.style.left) || 0;
@@ -100,4 +94,49 @@ const draw = () => {
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 
   colorBasedOnMatrix();
+}
+
+
+const colorSquares = (rectanglePosition) => {
+  const storeData = store.getState();
+  const selectMatrix: Array<any> = [...storeData.map.select.matrix];
+  const fieldSize = creatorConfig.map.fieldSize;
+
+
+  const rectangleSquarePoints: IRectanglePosition = {
+    topLeft: {
+      x: Math.floor(rectanglePosition.topLeft.x / (fieldSize / 2)),
+      y: Math.floor(rectanglePosition.topLeft.y / (fieldSize / 2))
+    },
+    bottomRight: {
+      x: Math.floor(rectanglePosition.bottomRight.x / (fieldSize / 2)),
+      y: Math.floor(rectanglePosition.bottomRight.y / (fieldSize / 2))
+    }
+  }
+
+  const rectangleFieldPoints: IRectanglePosition = {
+    topLeft: {
+      x: Math.floor(rectanglePosition.topLeft.x / fieldSize),
+      y: Math.floor(rectanglePosition.topLeft.y / fieldSize)
+    },
+    bottomRight: {
+      x: Math.floor(rectanglePosition.bottomRight.x / fieldSize),
+      y: Math.floor(rectanglePosition.bottomRight.y / fieldSize)
+    }
+  }
+
+  const squareDelta = {
+    topLeft: {
+      x: Math.floor(rectangleSquarePoints.topLeft.x % 2),
+      y: Math.floor(rectangleSquarePoints.topLeft.y % 2)
+    }
+  };
+
+  console.log(selectMatrix);
+  console.log(rectangleFieldPoints.topLeft, rectangleFieldPoints.bottomRight);
+  console.log(rectangleSquarePoints.topLeft, rectangleSquarePoints.bottomRight);
+
+  selectMatrix[rectangleFieldPoints.topLeft.y][rectangleFieldPoints.topLeft.x][rectangleSquarePoints.topLeft.y % 2][rectangleSquarePoints.topLeft.x % 2] = 1;
+
+  console.log(selectMatrix);
 }
