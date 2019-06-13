@@ -7,6 +7,12 @@ import creatorConfig from '../configs/creatorConfig.json';
 //Import actions
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
+//Import interfaces
+import { IPoint } from '../interfaces/pointInterfaces';
+
+//Import scripts
+import { selectCanvasSquare } from './selectFields';
+
 
 let canvas: any;
 let ctx: any;
@@ -14,14 +20,8 @@ let rect: any = {};
 let drag: boolean = false;
 
 interface IRectanglePosition {
-  topLeft: {
-    x: number,
-    y: number
-  },
-  bottomRight: {
-    x: number,
-    y: number
-  }
+  topLeft: IPoint,
+  bottomRight: IPoint
 }
 
 export const mouseSelectFields = () => {
@@ -125,18 +125,11 @@ const colorSquares = (rectanglePosition) => {
     }
   }
 
-  const squareDelta = {
-    topLeft: {
-      x: Math.floor(rectangleSquarePoints.topLeft.x % 2),
-      y: Math.floor(rectangleSquarePoints.topLeft.y % 2)
-    }
-  };
-
   console.log(selectMatrix);
   console.log(rectangleFieldPoints.topLeft, rectangleFieldPoints.bottomRight);
   console.log(rectangleSquarePoints.topLeft, rectangleSquarePoints.bottomRight);
 
-  selectMatrix[rectangleFieldPoints.topLeft.y][rectangleFieldPoints.topLeft.x][rectangleSquarePoints.topLeft.y % 2][rectangleSquarePoints.topLeft.x % 2] = 1;
+  selectCanvasSquare(selectMatrix, rectangleSquarePoints.topLeft);
 
   console.log(selectMatrix);
 }

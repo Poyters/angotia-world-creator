@@ -9,6 +9,9 @@ import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 //Import scripts
 import { mouseSelectFields } from './mouseSelectFields';
 
+//Import interfaces
+import { IPoint } from '../interfaces/pointInterfaces';
+
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   const map: any = document.getElementById("map");
@@ -24,12 +27,6 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   ];
 
   selectField(cursorPosition);
-}
-
-
-interface IPoint {
-  x: number,
-  y: number
 }
 
 

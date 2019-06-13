@@ -8,13 +8,13 @@ import { emptyMapCanvasCtx } from '../../assets/scripts/map';
 //Import actions
 import { setMapNets } from '../../redux/actions/mapActions';
 
+//Import interfaces
+import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+
 
 interface INetOption {
   viewTypeQuantity: number,
-  mapSize: {
-    x: number,
-    y: number
-  },
+  mapSize: IMapSize,
   setMapNets: Function
 }
 
