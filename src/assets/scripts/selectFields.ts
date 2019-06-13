@@ -21,16 +21,16 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   if (isNaN(mapLeft)) mapLeft = 0;
   if (isNaN(mapTop)) mapTop = 0;
 
-  const cursorPosition: Array<number> = [
-    event.clientX - mapLeft, 
-    event.clientY - mapTop
-  ];
+  const cursorPosition: IPoint = {
+    x: event.clientX - mapLeft, 
+    y: event.clientY - mapTop
+  };
 
   selectField(cursorPosition);
 }
 
 
-const selectField = (cursorPosition: Array<number>) => {
+const selectField = (cursorPosition: IPoint) => {
   const storeData = store.getState();
   const selectType: string = storeData.map.select.type;
   const selectMatrix: Array<number> = [...storeData.map.select.matrix];
@@ -47,16 +47,16 @@ const selectField = (cursorPosition: Array<number>) => {
   switch(selectType) {
     case "field":
       positionDelta = {
-        x: Math.floor(cursorPosition[0] / fieldSize),
-        y: Math.floor(cursorPosition[1] / fieldSize)
+        x: Math.floor(cursorPosition.x / fieldSize),
+        y: Math.floor(cursorPosition.y / fieldSize)
       };
 
       selectCanvasField(selectMatrix, positionDelta);
     break;
     case "square":
       positionDelta = {
-        x: Math.floor(cursorPosition[0] / (fieldSize / 2)),
-        y: Math.floor(cursorPosition[1] / (fieldSize / 2))
+        x: Math.floor(cursorPosition.x / (fieldSize / 2)),
+        y: Math.floor(cursorPosition.y / (fieldSize / 2))
       };
 
       selectCanvasSquare(selectMatrix, positionDelta);
