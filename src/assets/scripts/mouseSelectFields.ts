@@ -129,7 +129,20 @@ const colorSquares = (rectanglePosition) => {
   console.log(rectangleFieldPoints.topLeft, rectangleFieldPoints.bottomRight);
   console.log(rectangleSquarePoints.topLeft, rectangleSquarePoints.bottomRight);
 
+  for (let x = rectangleSquarePoints.topLeft.x; x < rectangleSquarePoints.bottomRight.x + 1; x++) {
+    for (let y = rectangleSquarePoints.topLeft.y; y < rectangleSquarePoints.bottomRight.y + 1; y++) {
+
+      const recSquarePoints: IPoint = {
+        x: x,
+        y: y
+      }
+
+      selectCanvasSquare(selectMatrix, recSquarePoints);
+    }
+  }
+
   selectCanvasSquare(selectMatrix, rectangleSquarePoints.topLeft);
+  colorBasedOnMatrix();
 
   console.log(selectMatrix);
 }
