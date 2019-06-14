@@ -68,8 +68,7 @@ const selectField = (cursorPosition: IPoint) => {
       throw new Error('Invalid select map type.');
   }
 
-  //store.dispatch(changeMapSelectMatrix(selectMatrix));
-
+  store.dispatch(changeMapSelectMatrix(selectMatrix));
   colorChecked(positionDelta, selectType);
 }
 

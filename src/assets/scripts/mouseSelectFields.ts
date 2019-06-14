@@ -112,19 +112,6 @@ const colorSquares = (rectanglePosition) => {
     }
   }
 
-  const rectangleFieldPoints: IRectanglePosition = {
-    topLeft: {
-      x: Math.floor(rectanglePosition.topLeft.x / fieldSize),
-      y: Math.floor(rectanglePosition.topLeft.y / fieldSize)
-    },
-    bottomRight: {
-      x: Math.floor(rectanglePosition.bottomRight.x / fieldSize),
-      y: Math.floor(rectanglePosition.bottomRight.y / fieldSize)
-    }
-  }
-
-  console.log("current selectMatrix" + selectMatrix);
-
   for (let x = rectangleSquarePoints.topLeft.x; x < rectangleSquarePoints.bottomRight.x + 1; x++) {
     for (let y = rectangleSquarePoints.topLeft.y; y < rectangleSquarePoints.bottomRight.y + 1; y++) {
 
@@ -141,7 +128,6 @@ const colorSquares = (rectanglePosition) => {
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
   setTimeout(() => {
-    colorBasedOnMatrix();
-  }, 100)
-  console.log("selectmatrix after change: " + storeData.map.select.matrix);
+    colorBasedOnMatrix(); //TODO: make it async
+  }, 100);
 }
