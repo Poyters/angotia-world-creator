@@ -134,5 +134,5 @@ const colorSquares = (rectanglePosition) => {
 
   setTimeout(() => {
     colorBasedOnMatrix(); //TODO: make it async
-  }, 100);
+  }, 20);
 }

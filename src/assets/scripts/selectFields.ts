@@ -83,7 +83,7 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
   const posX: number = positionDelta.x * fieldSize;
   const posY: number = positionDelta.y * fieldSize;
 
-  ctx.fillStyle ="rgba(0, 0, 0, 0.7)";
+  ctx.fillStyle ="rgba(0, 0, 0, 0.5)";
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
   ctx.stroke();
@@ -110,7 +110,7 @@ export const colorBasedOnMatrix = (): void => {
         if (square === 1) {
           const xDelta: number = index === 1 || index === 3 ?  25 : 0;
           const yDelta: number = index === 2 || index === 3 ? 25 : 0;
-          ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+          ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
           ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
           ctx.closePath();
           ctx.stroke();
