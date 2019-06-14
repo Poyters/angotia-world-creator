@@ -100,7 +100,6 @@ const colorSquares = (rectanglePosition) => {
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize = creatorConfig.map.fieldSize;
 
-
   const rectangleSquarePoints: IRectanglePosition = {
     topLeft: {
       x: Math.floor(rectanglePosition.topLeft.x / (fieldSize / 2)),
@@ -112,8 +111,14 @@ const colorSquares = (rectanglePosition) => {
     }
   }
 
-  for (let x = rectangleSquarePoints.topLeft.x; x < rectangleSquarePoints.bottomRight.x + 1; x++) {
-    for (let y = rectangleSquarePoints.topLeft.y; y < rectangleSquarePoints.bottomRight.y + 1; y++) {
+  //We need to find out real topLeft and bottomRight corner (due to reverse drawing)
+  const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
+  const xBigger = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
+  const ySmaller = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
+  const yBigger = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
+
+  for (let x = xSmaller; x < xBigger + 1; x++) {
+    for (let y = ySmaller; y < yBigger + 1; y++) {
 
       const recSquarePoints: IPoint = {
         x: x,
