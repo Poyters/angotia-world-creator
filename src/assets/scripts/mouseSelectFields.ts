@@ -79,13 +79,11 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const mapLeft = parseInt(map.style.left) || 0;
   const mapTop = parseInt(map.style.top) || 0;
 	
-	if (selectType !== "mouse") return;
-
-  if (!drag) return;
+	if (selectType !== "mouse" || !drag) return;
 
   rect.width = (event.clientX - mapLeft) - rect.startX;
   rect.height = (event.clientY - mapTop) - rect.startY;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw();
 }
 
@@ -125,9 +123,7 @@ const colorSquares = (rectanglePosition) => {
     }
   }
 
-  console.log(selectMatrix);
-  console.log(rectangleFieldPoints.topLeft, rectangleFieldPoints.bottomRight);
-  console.log(rectangleSquarePoints.topLeft, rectangleSquarePoints.bottomRight);
+  console.log("current selectMatrix" + selectMatrix);
 
   for (let x = rectangleSquarePoints.topLeft.x; x < rectangleSquarePoints.bottomRight.x + 1; x++) {
     for (let y = rectangleSquarePoints.topLeft.y; y < rectangleSquarePoints.bottomRight.y + 1; y++) {
@@ -142,7 +138,10 @@ const colorSquares = (rectanglePosition) => {
   }
 
   selectCanvasSquare(selectMatrix, rectangleSquarePoints.topLeft);
-  colorBasedOnMatrix();
+  store.dispatch(changeMapSelectMatrix(selectMatrix));
 
-  console.log(selectMatrix);
+  setTimeout(() => {
+    colorBasedOnMatrix();
+  }, 100)
+  console.log("selectmatrix after change: " + storeData.map.select.matrix);
 }

@@ -68,7 +68,7 @@ const selectField = (cursorPosition: IPoint) => {
       throw new Error('Invalid select map type.');
   }
 
-  store.dispatch(changeMapSelectMatrix(selectMatrix));
+  //store.dispatch(changeMapSelectMatrix(selectMatrix));
 
   colorChecked(positionDelta, selectType);
 }
@@ -95,7 +95,7 @@ export const colorBasedOnMatrix = (): void => {
   const storeData = store.getState();
   const selectMatrix: Array<any> = [...storeData.map.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
-  const canvas: any = document.getElementById("mapCanvas");
+  const canvas: any = document.getElementById("mapSelectCanvas");
   const ctx: any = canvas.getContext("2d");
 
   selectMatrix.map((yAxis: Array<number>, y:number) => {

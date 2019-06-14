@@ -25,13 +25,20 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 
 
 export const emptyMapCanvasCtx = (canvasId: string) => {
-	const storeData = store.getState();
-	const mapSize: IMapSize = storeData.map.size;
-	const fieldSize: number = creatorConfig.map.fieldSize;
 	const canvas: any = document.getElementById(canvasId);
-	const ctx: any = canvas.getContext("2d");
+	const context: any = canvas.getContext("2d");
 
-	ctx.clearRect(0, 0, mapSize.x*fieldSize, mapSize.y*fieldSize);
+	// Store the current transformation matrix
+	context.save();
 
-	return ctx;
+	// Use the identity matrix while clearing the canvas
+	context.setTransform(1, 0, 0, 1, 0, 0);
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	// Restore the transform
+	context.restore();
+
+	console.log(`Canvas ${canvasId} context has been cleared.`);
+
+	return context;
 }
