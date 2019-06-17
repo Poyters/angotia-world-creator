@@ -88,7 +88,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 }
 
 const draw = () => {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
+  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 
   colorBasedOnMatrix();

@@ -1,0 +1,10 @@
+.notifications {
+    position: absolute;
+    display: flex;
+    width: auto;
+    left: 10px;
+    bottom: 10px;
+
+    transition: 300ms ease-in-out;
+    background-color: rgba(0, 0, 0, 0.2);
+}

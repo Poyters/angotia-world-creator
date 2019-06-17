@@ -4,6 +4,7 @@ import React from 'react';
 import CreatorPanel from '../creatorPanel/CreatorPanel';
 import CreditsFooter from '../CreditsFooter';
 import Map from '../Map';
+import Notifications from '../Notifications';
 
 
 const Creator: React.FC = () => {
@@ -12,6 +13,7 @@ const Creator: React.FC = () => {
       <CreatorPanel />
       <Map />
       <CreditsFooter />
+      <Notifications />
     </article>
   );
 }
