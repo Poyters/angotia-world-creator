@@ -7,6 +7,7 @@ import { emptyMapCanvasCtx } from '../../assets/scripts/map';
 
 //Import actions
 import { setMapNets } from '../../redux/actions/mapActions';
+import { setNotification } from '../../redux/actions/uiActions';
 
 //Import interfaces
 import { IMapSize } from '../../assets/interfaces/mapInterfaces';
@@ -15,11 +16,12 @@ import { IMapSize } from '../../assets/interfaces/mapInterfaces';
 interface INetOption {
   viewTypeQuantity: number,
   mapSize: IMapSize,
-  setMapNets: Function
+  setMapNets: Function,
+  setNotification: Function
 }
 
 
-const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
+const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets, setNotification }) => {
   const [optionViewType, setOptionViewType] = useState<number>(0);
 
   const changeViewType = (): void => {
@@ -35,17 +37,21 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         setMapNets({field: true, square: true})
+        setNotification("Square and field nets are visible now");
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
         setMapNets({field: true, square: false})
+        setNotification("Only field nets are visible");
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
         setMapNets({field: false, square: true})
+        setNotification("Only square nets are visible");
       break;
       case 3:
         setMapNets({field: false, square: false})
+        setNotification("Disable all nets");
         return;
     }
   })
@@ -68,7 +74,8 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-		setMapNets: netStatus => {dispatch(setMapNets(netStatus))}
+    setMapNets: netStatus => {dispatch(setMapNets(netStatus))},
+    setNotification: actionNote => {dispatch(setNotification(actionNote))}
   }
 }
 

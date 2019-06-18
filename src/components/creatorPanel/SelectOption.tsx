@@ -3,30 +3,36 @@ import { connect } from 'react-redux';
 
 //Import actions
 import { setMapSelectType } from '../../redux/actions/mapActions';
+import { setNotification } from '../../redux/actions/uiActions';
 
 
 interface ISelectOption {
     selectTypeQuantity: number,
-    setMapSelectType: Function
+    setMapSelectType: Function,
+    setNotification: Function
 }
 
 
-const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType }) => {
+const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType, setNotification }) => {
   const [selectType, setSelectType] = useState<number>(0);
 
   useEffect((): void => {
     switch(selectType) {
       case 0:
         setMapSelectType('none');
+        setNotification('Select option is disable')
       break;
       case 1:
         setMapSelectType('square');
+        setNotification('Select square type is enable')
       break;
       case 2: 
         setMapSelectType('field');
+        setNotification('Select field type is enable')
       break;
       case 3:
         setMapSelectType('mouse');
+        setNotification('Select mouse type is enable')
       break;
       default:
         throw new Error('invalid selectType');
@@ -50,7 +56,8 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelec
 
 const mapDispatchToProps = dispatch => {
   return {
-    setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))}
+    setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))},
+    setNotification: actionNote => {dispatch(setNotification(actionNote))}
   }
 }
 
