@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
+//Import configs
+import creatorConfig from '../assets/configs/creatorConfig.json';
+
 
 interface INotifications {
 	actionNote: string
@@ -9,27 +12,28 @@ interface INotifications {
 
 let timer;
 const Notifications: React.FC<INotifications> = ({ actionNote }) => {
-	console.log(actionNote)
 	const [note, setNote] = useState<string>(actionNote);
-	const [isVisible, setIsVisible] = useState<boolean>(true);
-	
+	const [opacityCSS, setOpacityCSS] = useState<number>(1);
+
 
 	useEffect(() => {
 		clearTimeout(timer);
 
-		if (!isVisible && note !== actionNote) {
+		if (opacityCSS === 0 && note !== actionNote) {
 			setNote(actionNote);
-			setIsVisible(true);
+			//setIsVisible(true);
+			setOpacityCSS(1);
 		}
 
 		timer = setTimeout(() => {
-			setIsVisible(false);
-		}, 2000)
+			setOpacityCSS(0);
+			//setIsVisible(false);	
+		}, creatorConfig.actionNoteDelay)
 	});
 
 	return (
-		<div className="notifications">
-			{ isVisible ? note : null }
+		<div className="notifications" style={{opacity : opacityCSS}}>
+			{ note }
 		</div>
 	)
 }

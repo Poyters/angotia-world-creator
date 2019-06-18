@@ -1,5 +1,6 @@
 {
     "map": {
         "fieldSize": 50
-    }
+    },
+    "actionNoteDelay": 1800
 }

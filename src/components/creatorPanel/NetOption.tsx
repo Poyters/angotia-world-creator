@@ -8,7 +8,6 @@ import { setActionNote } from '../../assets/scripts/notifications';
 
 //Import actions
 import { setMapNets } from '../../redux/actions/mapActions';
-import { setNotification } from '../../redux/actions/uiActions';
 
 //Import interfaces
 import { IMapSize } from '../../assets/interfaces/mapInterfaces';
