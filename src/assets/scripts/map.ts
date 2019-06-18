@@ -1,8 +1,5 @@
 import { store } from '../../App';
 
-//Import configs
-import creatorConfig from '../configs/creatorConfig.json';
-
 //Import interfaces
 import { IMapSize } from '../interfaces/mapInterfaces';
 

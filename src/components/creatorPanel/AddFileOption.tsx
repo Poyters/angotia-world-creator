@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 
 //Import actions
 import { setMapBg } from '../../redux/actions/mapActions';
-import { setNotification } from '../../redux/actions/uiActions';
+
+//Import scripts
+import { setActionNote } from '../../assets/scripts/notifications';
 
 
 interface IAddFileOption {
   setMapBg: Function,
-  mapPic: string,
-  setNotification: Function
+  mapPic: string
 }
 
-const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic, setNotification }) => {
+
+const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
   const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();
@@ -26,7 +28,7 @@ const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic, setNotifica
     })();
 
     reader.readAsDataURL(f);
-    setNotification("Added background image");
+    setActionNote("Added background image");
   }
 
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
@@ -48,8 +50,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setMapBg: path => {dispatch(setMapBg(path))},
-    setNotification: actionNote => {dispatch(setNotification(actionNote))}
+    setMapBg: path => {dispatch(setMapBg(path))}
   }
 }
 

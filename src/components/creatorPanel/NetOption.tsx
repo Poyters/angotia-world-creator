@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 //Import scripts
 import { drawMapNet } from '../../assets/scripts/drawNetMap';
 import { emptyMapCanvasCtx } from '../../assets/scripts/map';
+import { setActionNote } from '../../assets/scripts/notifications';
 
 //Import actions
 import { setMapNets } from '../../redux/actions/mapActions';
@@ -16,12 +17,11 @@ import { IMapSize } from '../../assets/interfaces/mapInterfaces';
 interface INetOption {
   viewTypeQuantity: number,
   mapSize: IMapSize,
-  setMapNets: Function,
-  setNotification: Function
+  setMapNets: Function
 }
 
 
-const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets, setNotification }) => {
+const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets }) => {
   const [optionViewType, setOptionViewType] = useState<number>(0);
 
   const changeViewType = (): void => {
@@ -37,21 +37,21 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets, setNoti
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         setMapNets({field: true, square: true})
-        setNotification("Square and field nets are visible now");
+        setActionNote("Square and field nets are visible now");
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
         setMapNets({field: true, square: false})
-        setNotification("Only field nets are visible");
+        setActionNote("Only field nets are visible");
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
         setMapNets({field: false, square: true})
-        setNotification("Only square nets are visible");
+        setActionNote("Only square nets are visible");
       break;
       case 3:
         setMapNets({field: false, square: false})
-        setNotification("Disable all nets");
+        setActionNote("Disable all nets");
         return;
     }
   })
@@ -74,8 +74,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity, setMapNets, setNoti
 
 const mapDispatchToProps = dispatch => {
   return {
-    setMapNets: netStatus => {dispatch(setMapNets(netStatus))},
-    setNotification: actionNote => {dispatch(setNotification(actionNote))}
+    setMapNets: netStatus => {dispatch(setMapNets(netStatus))}
   }
 }
 

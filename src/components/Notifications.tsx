@@ -7,18 +7,22 @@ interface INotifications {
 }
 
 
+let timer;
 const Notifications: React.FC<INotifications> = ({ actionNote }) => {
 	console.log(actionNote)
 	const [note, setNote] = useState<string>(actionNote);
 	const [isVisible, setIsVisible] = useState<boolean>(true);
+	
 
 	useEffect(() => {
+		clearTimeout(timer);
+
 		if (!isVisible && note !== actionNote) {
 			setNote(actionNote);
 			setIsVisible(true);
 		}
 
-		setTimeout(() => {
+		timer = setTimeout(() => {
 			setIsVisible(false);
 		}, 2000)
 	});
