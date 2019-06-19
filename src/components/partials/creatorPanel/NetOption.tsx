@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 //Import scripts
-import { drawMapNet } from '../../assets/scripts/drawNetMap';
-import { emptyMapCanvasCtx } from '../../assets/scripts/map';
-import { setActionNote } from '../../assets/scripts/notifications';
+import { drawMapNet } from '../../../assets/scripts/drawNetMap';
+import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
+import { setActionNote } from '../../../assets/scripts/notifications';
 
 //Import actions
-import { setMapNets } from '../../redux/actions/mapActions';
+import { setMapNets } from '../../../redux/actions/mapActions';
 
 //Import interfaces
-import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../../assets/interfaces/mapInterfaces';
 
 
 interface INetOption {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 //Import configs
-import creatorConfig from '../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 
 interface INotifications {

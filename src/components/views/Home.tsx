@@ -1,9 +1,9 @@
 import React from 'react';
 
 //Import other components
-import CreditsFooter from '../CreditsFooter';
-import SectionHeader from '../SectionHeader';
-import EntryPanel from '../entryPanel/EntryPanel';
+import CreditsFooter from '../partials/CreditsFooter';
+import SectionHeader from '../partials/SectionHeader';
+import EntryPanel from '../partials/entryPanel/EntryPanel';
 
 
 const Home: React.FC = () => {

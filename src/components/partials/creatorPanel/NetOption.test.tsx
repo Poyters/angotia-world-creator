@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
-import { initState } from '../../redux/reducers/mapReducer';
+import { initState } from '../../../redux/reducers/mapReducer';
 
 //Import component
 import NetOption from './NetOption';

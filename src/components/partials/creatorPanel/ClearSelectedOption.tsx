@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
-import { setNotification } from '../../redux/actions/uiActions';
+import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
+import { setNotification } from '../../../redux/actions/uiActions';
 
 //Import scripts 
-import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../assets/scripts/map';
+import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../../assets/scripts/map';
 
 //Import interfaces
-import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize, IMapNetStatus } from '../../../assets/interfaces/mapInterfaces';
 
 
 interface IClearSelectedOption {

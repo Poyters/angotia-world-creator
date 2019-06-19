@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 //Import configs
-import creatorConfig from '../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 //Import scripts
-import dragElement from '../assets/scripts/dragElement';
-import { selectFieldsHandler } from '../assets/scripts/selectFields';
+import dragElement from '../../assets/scripts/dragElement';
+import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 
 //Import interfaces
-import { IMapSize } from '../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../assets/interfaces/mapInterfaces';
 
 
 interface IMap {

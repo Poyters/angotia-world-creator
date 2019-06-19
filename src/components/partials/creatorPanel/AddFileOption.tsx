@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 //Import actions
-import { setMapBg } from '../../redux/actions/mapActions';
+import { setMapBg } from '../../../redux/actions/mapActions';
 
 //Import scripts
-import { setActionNote } from '../../assets/scripts/notifications';
+import { setActionNote } from '../../../assets/scripts/notifications';
 
 
 interface IAddFileOption {

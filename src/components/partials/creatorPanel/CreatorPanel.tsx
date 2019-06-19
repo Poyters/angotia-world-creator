@@ -11,10 +11,10 @@ import AddFileOption from './AddFileOption';
 import ClearSelectedOption from './ClearSelectedOption';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
 
 //Import scripts 
-import { generateEmptyMapMatrix } from '../../assets/scripts/map';
+import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 
 
 interface ICreatorPanel {

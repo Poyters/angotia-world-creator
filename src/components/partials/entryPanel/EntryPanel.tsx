@@ -6,10 +6,10 @@ import { Redirect } from 'react-router';
 import MapSizeInput from './MapSizeInput';
 
 //Import actions
-import { setMapSizes } from '../../redux/actions/mapActions';
+import { setMapSizes } from '../../../redux/actions/mapActions';
 
 //Import interfaces
-import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../../assets/interfaces/mapInterfaces';
 
 
 let mapSizes = {

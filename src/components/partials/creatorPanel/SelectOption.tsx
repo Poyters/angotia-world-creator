@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 //Import actions
-import { setMapSelectType } from '../../redux/actions/mapActions';
+import { setMapSelectType } from '../../../redux/actions/mapActions';
 
 //Import scripts
-import { setActionNote } from '../../assets/scripts/notifications';
+import { setActionNote } from '../../../assets/scripts/notifications';
 
 
 interface ISelectOption {
