@@ -1,0 +1,32 @@
+.filesPanel {
+    display: flex;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 210px;
+    height: calc(100vh - 95px);
+    z-index: 10;
+    
+    background: $decorationColor2;
+
+    &:before, &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        left: 0;
+        border-style: solid;
+    }
+
+    &:before {
+        top: -15px;
+        border-width: 0 0 15px 210px;
+        border-color: transparent transparent $decorationColor2 transparent;
+    }
+
+    &:after {
+        bottom: -15px;
+        border-width: 0 210px 15px 0;
+        border-color: transparent $decorationColor2 transparent transparent;
+    } 
+}
