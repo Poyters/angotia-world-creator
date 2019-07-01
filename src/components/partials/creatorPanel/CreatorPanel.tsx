@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 //Import other components
 import ExportOption from './ExportOption';
@@ -17,17 +17,13 @@ import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 
 
-interface ICreatorPanel {
-  changeMapSelectMatrix: Function
-}
-
-
-const CreatorPanel: React.FC<ICreatorPanel> = ({ changeMapSelectMatrix }) => {
+const CreatorPanel: React.FC = () => {
+  const dispatch = useDispatch();
   
   useEffect((): void => {
     const newMatrix = generateEmptyMapMatrix();
 
-    changeMapSelectMatrix(newMatrix);
+    dispatch(changeMapSelectMatrix(newMatrix));
   }, []);
 
   return (
@@ -69,4 +65,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreatorPanel);
+export default CreatorPanel;

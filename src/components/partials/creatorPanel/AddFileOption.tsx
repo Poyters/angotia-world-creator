@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import actions
@@ -10,6 +10,7 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 
 const AddFileOption: React.FC = () => {
   const mapPic = useSelector(state => state.map.mapPic);
+  const dispatch = useDispatch();
 
   const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
@@ -18,7 +19,7 @@ const AddFileOption: React.FC = () => {
     reader.onload = (():any => {
       return e => {
         const path: string = e.target.result;
-        useDispatch(setMapBg(path));
+        dispatch(setMapBg(path));
       };
 
     })();
