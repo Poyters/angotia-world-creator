@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 //Import actions
 import { setMapSelectType } from '../../../redux/actions/mapActions';
@@ -9,30 +9,30 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 
 
 interface ISelectOption {
-    selectTypeQuantity: number,
-    setMapSelectType: Function
+  selectTypeQuantity: number
 }
 
 
-const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelectType }) => {
+const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   const [selectType, setSelectType] = useState<number>(0);
+  const dispatch = useDispatch();
 
   useEffect((): void => {
     switch(selectType) {
       case 0:
-        setMapSelectType('none');
+        dispatch(setMapSelectType('none'));
         setActionNote('Select option is disable')
       break;
       case 1:
-        setMapSelectType('square');
+        dispatch(setMapSelectType('square'));
         setActionNote('Select square type is enable')
       break;
       case 2: 
-        setMapSelectType('field');
+      dispatch(setMapSelectType('field'));
         setActionNote('Select field type is enable')
       break;
       case 3:
-        setMapSelectType('mouse');
+        dispatch(setMapSelectType('mouse'));
         setActionNote('Select mouse type is enable')
       break;
       default:
@@ -55,10 +55,4 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity, setMapSelec
 }
 
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setMapSelectType: selectType => {dispatch(setMapSelectType(selectType))}
-  }
-}
-
-export default connect(null, mapDispatchToProps)(SelectOption);
+export default SelectOption;
