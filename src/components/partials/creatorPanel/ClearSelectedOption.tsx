@@ -10,13 +10,14 @@ import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../../assets/scrip
 
 
 const ClearSelectedOption: React.FC = () => {
+  const dispatch = useDispatch();
 
   const clearSelected = ():void => {
     const newMatrix: Array<any> = generateEmptyMapMatrix();
     emptyMapCanvasCtx("mapSelectCanvas"); //clear select canvas
 		
-    useDispatch(changeMapSelectMatrix(newMatrix));
-    useDispatch(setNotification("Selected fields has been cleared"));
+    dispatch(changeMapSelectMatrix(newMatrix));
+    dispatch(setNotification("Selected fields has been cleared"));
 	}
 
   return (
