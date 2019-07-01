@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import actions
 import { setMapBg } from '../../../redux/actions/mapActions';
@@ -8,13 +8,9 @@ import { setMapBg } from '../../../redux/actions/mapActions';
 import { setActionNote } from '../../../assets/scripts/notifications';
 
 
-interface IAddFileOption {
-  setMapBg: Function,
-  mapPic: string
-}
+const AddFileOption: React.FC = () => {
+  const mapPic = useSelector(state => state.map.mapPic);
 
-
-const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
   const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
     const reader = new FileReader();
@@ -22,7 +18,7 @@ const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
     reader.onload = (():any => {
       return e => {
         const path: string = e.target.result;
-        setMapBg(path);
+        useDispatch(setMapBg(path));
       };
 
     })();
@@ -42,16 +38,4 @@ const AddFileOption: React.FC<IAddFileOption> = ({ setMapBg, mapPic }) => {
 }
 
 
-const mapStateToProps = state => {
-  return {
-    mapPic: state.map.mapPic
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setMapBg: path => {dispatch(setMapBg(path))}
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddFileOption);
+export default AddFileOption;
