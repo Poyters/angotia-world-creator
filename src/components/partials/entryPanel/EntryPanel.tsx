@@ -1,5 +1,5 @@
 import React , { useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 
 //Import other components
@@ -8,9 +8,6 @@ import MapSizeInput from './MapSizeInput';
 //Import actions
 import { setMapSizes } from '../../../redux/actions/mapActions';
 
-//Import interfaces
-import { IMapSize } from '../../../assets/interfaces/mapInterfaces';
-
 
 let mapSizes = {
   x: 0,
@@ -18,16 +15,13 @@ let mapSizes = {
 }
 
 
-interface IEntryPanel {
-  mapSize: IMapSize,
-  setMapSizes: Function
-}
-
-const EntryPanel: React.FC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
+const EntryPanel: React.FC = () => {
+  const mapSize = useSelector(state => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');
   const [redirect, setRedirect] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   const mapSizeValidation = ():void => {
     const mapSizeX:number = typeof mapX === "number" ? mapX : parseInt(mapX);
@@ -48,7 +42,7 @@ const EntryPanel: React.FC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
       mapSizes.x = mapSizeX
       mapSizes.y = mapSizeY;
 
-      setMapSizes(mapSizes);
+      dispatch(setMapSizes(mapSizes))
       setRedirect(true);
     }
 
@@ -105,16 +99,4 @@ const EntryPanel: React.FC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
 }
 
 
-const mapStateToProps = state => {
-  return {
-    mapSize: state.map.size
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    setMapSizes: sizes => {dispatch(setMapSizes(sizes))}
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(EntryPanel);
+export default EntryPanel;
