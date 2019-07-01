@@ -49,7 +49,7 @@ const EntryPanel: React.FC<IEntryPanel> = ({ mapSize, setMapSizes }) => {
       mapSizes.y = mapSizeY;
 
       setMapSizes(mapSizes);
-      setRedirect(true)
+      setRedirect(true);
     }
 
   }

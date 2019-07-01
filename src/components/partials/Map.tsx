@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
@@ -8,16 +8,11 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import dragElement from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 
-//Import interfaces
-import { IMapSize } from '../../assets/interfaces/mapInterfaces';
 
+const Map: React.FC = () => {
+  const mapSize = useSelector(state => state.map.size);
+  const mapPic = useSelector(state => state.map.mapPic);
 
-interface IMap {
-  mapSize: IMapSize,
-  mapPic: string
-}
-
-const Map: React.FC<IMap> = ({ mapSize, mapPic }) => {
   const fieldSize: number = creatorConfig.map.fieldSize;
 
   interface IMapStyles {
@@ -46,12 +41,4 @@ const Map: React.FC<IMap> = ({ mapSize, mapPic }) => {
 }
 
 
-const mapStateToProps = state => {
-  return {
-    mapSize: state.map.size,
-    mapPic: state.map.mapPic
-  }
-}
-
-
-export default connect(mapStateToProps)(Map);
+export default Map;
