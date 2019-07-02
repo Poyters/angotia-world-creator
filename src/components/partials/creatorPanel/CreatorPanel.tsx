@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 //Import other components
 import ExportOption from './ExportOption';

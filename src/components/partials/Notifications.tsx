@@ -16,13 +16,11 @@ const Notifications: React.FC = () => {
 
 		if (opacityCSS === 0 && note !== actionNote) {
 			setNote(actionNote);
-			//setIsVisible(true);
 			setOpacityCSS(1);
 		}
 
 		timer = setTimeout(() => {
-			setOpacityCSS(0);
-			//setIsVisible(false);	
+			setOpacityCSS(0);	
 		}, creatorConfig.actionNoteDelay)
 	});
 
