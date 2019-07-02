@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 
-interface INotifications {
-	actionNote: string
-}
-
-
 let timer;
-const Notifications: React.FC<INotifications> = ({ actionNote }) => {
+const Notifications: React.FC = () => {
+	const actionNote = useSelector(state => state.ui.actionNote);
 	const [note, setNote] = useState<string>(actionNote);
 	const [opacityCSS, setOpacityCSS] = useState<number>(1);
-
 
 	useEffect(() => {
 		clearTimeout(timer);
@@ -39,11 +34,4 @@ const Notifications: React.FC<INotifications> = ({ actionNote }) => {
 }
 
 
-const mapStateToProps = state => {
-    return {
-      actionNote: state.ui.actionNote
-    }
-  }
-
-
-export default connect(mapStateToProps)(Notifications);
+export default Notifications;
