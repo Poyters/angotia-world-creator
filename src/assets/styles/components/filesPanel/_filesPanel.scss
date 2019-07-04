@@ -1,4 +1,6 @@
-.filesPanel {
+$filesPanelWrapperPadding: 7;
+
+.filesPanelWrapper, .filesPanel {
     display: flex;
     position: absolute;
     top: 55px;
@@ -6,6 +8,8 @@
     width: 210px;
     height: calc(100vh - 95px);
     z-index: 10;
+    padding: $filesPanelWrapperPadding + px;
+    box-sizing: border-box;
     
     background: $decorationColor2;
 
@@ -30,3 +34,26 @@
         border-color: transparent $decorationColor2 transparent transparent;
     } 
 }
+
+.filesPanel {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    padding: 2px;
+
+    background-color: $decorationColor5;
+
+    &:before {
+        border-width: 0 0 15px (210 - $filesPanelWrapperPadding*2 + px);
+        border-color: transparent transparent $decorationColor5 transparent;
+    }
+
+    &:after {
+        border-width: 0 (210 - $filesPanelWrapperPadding*2 + px) 15px 0;
+        border-color: transparent $decorationColor5 transparent transparent;
+    } 
+}
+
