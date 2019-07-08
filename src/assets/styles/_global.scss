@@ -41,3 +41,36 @@ a {
 	width: 100%;
 	align-items: center;
 }
+
+.exitBtn {
+	display: flex;
+	position: relative;
+	width: 18px;
+	height: 18px;
+
+	&:hover {
+		&:before, &:after {
+			background-color: $decorationColor1;
+		}
+	}
+
+	&:before, &:after {
+		position: absolute;
+		content: '';
+		top: 50%;
+		left: 0;
+		width: calc(100% + 2px);
+		height: 2px;
+
+		transition: 200ms ease-in-out;
+		background-color: $decorationColor3;
+	}
+
+	&:before {
+		transform: rotate(-45deg);
+	}
+
+	&:after {
+		transform: rotate(45deg);
+	}
+}
