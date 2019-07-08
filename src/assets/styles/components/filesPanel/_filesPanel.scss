@@ -11,7 +11,7 @@ $filesPanelWrapperPadding: 7;
     padding: $filesPanelWrapperPadding + px;
     box-sizing: border-box;
     
-    background: $decorationColor2;
+    background-color: $decorationColor2;
 
     &:before, &:after {
         position: absolute;

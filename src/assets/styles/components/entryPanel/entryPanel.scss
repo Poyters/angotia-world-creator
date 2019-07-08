@@ -5,7 +5,7 @@
   padding: 15px 0;
   transform: translateY(-50px);
 
-  background: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   & li {
     display: block;
     margin: 16px 15px;
@@ -68,7 +68,7 @@
     & input, & button {
       color: $fontColor1;
       border: none;
-      background: $decorationColor;
+      background-color: $decorationColor;
       outline: none;
     }
 
@@ -94,7 +94,7 @@
 
       &:hover {
         cursor: pointer;  
-        background: $decorationColor1;
+        background-color: $decorationColor1;
         color: $backgroundColor;
 
         &:before {

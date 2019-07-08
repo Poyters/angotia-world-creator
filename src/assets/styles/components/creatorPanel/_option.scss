@@ -37,7 +37,7 @@
                 left: 3px;
                 width: 12px;
                 height: 12px;
-                background: $decorationColor4;
+                background-color: $decorationColor4;
 
                 border-radius: 50%;
             }
@@ -58,7 +58,7 @@
         border-color: $decorationColor1 !important;
 
         &:before {
-            background: $decorationColor1 !important;
+            background-color: $decorationColor1 !important;
         }
     }
 
