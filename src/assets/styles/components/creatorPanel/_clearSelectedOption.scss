@@ -1,0 +1,26 @@
+.clearSelectedOption {
+    position: relative;
+    display: flex;
+    width: 18px;
+    height: 18px;
+
+    &__ereaser {
+        position: absolute;
+        top: 5px;
+        left: 2px;
+        width: 14px;
+        height: 9px;
+
+        transform: rotate(30deg);
+        transition: 200ms ease-in-out;
+        border-radius: 2px;
+        background-color: $decorationColor4;
+        box-shadow: 0 0 2px $decorationColor4;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $decorationColor1;
+            box-shadow: 0 0 2px $decorationColor1;
+        }
+    }
+}
