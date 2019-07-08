@@ -90,38 +90,6 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
 }
 
 
-export const colorBasedOnMatrix = (): void => {
-  const storeData = store.getState();
-  const selectMatrix: Array<any> = [...storeData.map.select.matrix];
-  const fieldSize: number = creatorConfig.map.fieldSize;
-  const canvas: any = document.getElementById("mapSelectCanvas");
-  const ctx: any = canvas.getContext("2d");
-
-  selectMatrix.map((yAxis: Array<number>, y:number) => {
-    yAxis.map((field: number, x: number) => {
-      const squareMatrix: Array<number> = [
-        field[0][0],
-        field[0][1],
-        field[1][0],
-        field[1][1]
-      ];
-
-      squareMatrix.map((square: number, index: number) => {
-        if (square === 1) {
-          const xDelta: number = index === 1 || index === 3 ?  25 : 0;
-          const yDelta: number = index === 2 || index === 3 ? 25 : 0;
-          ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-          ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
-          ctx.closePath();
-          ctx.stroke();
-        }
-      });
-
-    })
-  })
-}
-
-
 export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPoint): void => {
   //squarePosition determines x and y axis of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
   

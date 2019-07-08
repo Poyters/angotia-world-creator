@@ -1,5 +1,4 @@
 import { store } from '../../App';
-import { colorBasedOnMatrix } from './selectFields';
 
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
@@ -12,6 +11,7 @@ import { IPoint } from '../interfaces/pointInterfaces';
 
 //Import scripts
 import { selectCanvasSquare } from './selectFields';
+import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 
 
 let canvas: any;
@@ -74,7 +74,7 @@ const mouseUp = () => {
 
 
 const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
-	const storeData = store.getState();
+  const storeData = store.getState();
   const selectType: string = storeData.map.select.type;
   const mapLeft = parseInt(map.style.left) || 0;
   const mapTop = parseInt(map.style.top) || 0;
@@ -88,16 +88,19 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 }
 
 const draw = () => {
+  const storeData = store.getState();
+  const selectMatrix: any[] = [...storeData.map.select.matrix];
+
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 
-  colorBasedOnMatrix();
+  colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas');
 }
 
 
 const colorSquares = (rectanglePosition) => {
   const storeData = store.getState();
-  const selectMatrix: Array<any> = [...storeData.map.select.matrix];
+  const selectMatrix: any[] = [...storeData.map.select.matrix];
   const fieldSize = creatorConfig.map.fieldSize;
 
   const rectangleSquarePoints: IRectanglePosition = {
@@ -133,6 +136,6 @@ const colorSquares = (rectanglePosition) => {
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
   setTimeout(() => {
-    colorBasedOnMatrix(); //TODO: make it async
+    colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas'); //TODO: make it async
   }, 20);
 }
