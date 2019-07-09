@@ -91,10 +91,10 @@ const draw = () => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
 
-  ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+  ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 
-  colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas');
+  colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor);
 }
 
 
@@ -136,6 +136,6 @@ const colorSquares = (rectanglePosition) => {
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
   setTimeout(() => {
-    colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas'); //TODO: make it async
+    colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor); //TODO: make it async
   }, 20);
 }

@@ -2,5 +2,6 @@
     "map": {
         "fieldSize": 50
     },
-    "actionNoteDelay": 1800
+    "actionNoteDelay": 1800,
+    "selectColor": "rgba(0, 0, 0, 0.5)"
 }

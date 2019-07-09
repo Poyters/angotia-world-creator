@@ -2,7 +2,7 @@
 import creatorConfig from '../configs/creatorConfig.json';
 
 
-export const colorBasedOnMatrix = (matrix: any[], canvasId: string): void => {
+export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color): void => {
     const copyOfmatrix: Array<any> = [...matrix];
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);
@@ -21,7 +21,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string): void => {
           if (square === 1) {
             const xDelta: number = index === 1 || index === 3 ?  25 : 0;
             const yDelta: number = index === 2 || index === 3 ? 25 : 0;
-            ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+            ctx.fillStyle = "#fff";
             ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
             ctx.closePath();
             ctx.stroke();

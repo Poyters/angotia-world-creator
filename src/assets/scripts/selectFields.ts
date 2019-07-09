@@ -83,7 +83,7 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
   const posX: number = positionDelta.x * fieldSize;
   const posY: number = positionDelta.y * fieldSize;
 
-  ctx.fillStyle ="rgba(0, 0, 0, 0.5)";
+  ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
   ctx.stroke();

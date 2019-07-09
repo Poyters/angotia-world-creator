@@ -36,6 +36,7 @@ const Map: React.FC = () => {
     <main className="map" style={mapStyles} id="map">
       <canvas className="map__mainCanvas" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapCanvas" onClick={e => selectFieldsHandler(e)}> </canvas>
       <canvas className="map__selectCanvas" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapSelectCanvas" onClick={e => selectFieldsHandler(e)}> </canvas>
+      <canvas className="map__selectCanvas" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapBlockCanvas"> </canvas>
     </main>
   );
 }
