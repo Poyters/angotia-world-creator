@@ -1,23 +1,13 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-
-//Import actions
-import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
-import { setNotification } from '../../../redux/actions/uiActions';
 
 //Import scripts 
-import { generateEmptyMapMatrix, emptyMapCanvasCtx } from '../../../assets/scripts/map';
+import { clearCanvas } from '../../../assets/scripts/clearCanvas';
 
 
 const ClearSelectedOption: React.FC = () => {
-  const dispatch = useDispatch();
 
   const clearSelected = ():void => {
-    const newMatrix: Array<any> = generateEmptyMapMatrix();
-    emptyMapCanvasCtx("mapSelectCanvas"); //clear select canvas
-		
-    dispatch(changeMapSelectMatrix(newMatrix));
-    dispatch(setNotification("Selected fields has been cleared"));
+    clearCanvas("mapSelectCanvas");
 	}
 
   return (
