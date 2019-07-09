@@ -13,7 +13,7 @@ export const setBlockSquares = () => {
   const selectMatrix: any[] = [...storeData.map.select.matrix];
   clearCanvas("mapSelectCanvas");
 
-  colorBasedOnMatrix(selectMatrix, 'mapBlockCanvas', creatorConfig.blockSquareColor);
+  colorBasedOnMatrix(selectMatrix, 'mapBlockCanvas', creatorConfig.blockSquareColor, 'barrier');
 
   //TODO: create and update blockMapMatrix
 }
