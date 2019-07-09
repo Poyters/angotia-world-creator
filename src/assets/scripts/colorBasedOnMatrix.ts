@@ -21,7 +21,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color): void
           if (square === 1) {
             const xDelta: number = index === 1 || index === 3 ?  25 : 0;
             const yDelta: number = index === 2 || index === 3 ? 25 : 0;
-            ctx.fillStyle = "#fff";
+            ctx.fillStyle = color;
             ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
             ctx.closePath();
             ctx.stroke();

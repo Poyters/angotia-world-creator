@@ -8,6 +8,7 @@ import creatorConfig from '../configs/creatorConfig.json';
 
 
 export const setBlockSquares = () => {
+	return;
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
 
