@@ -1,17 +1,14 @@
 import { store } from '../../App';
 
-//Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
-
 //Import scripts
 import { setActionNote } from './notifications';
 import { generateEmptyMapMatrix, emptyMapCanvasCtx } from './map';
 
 
-export const clearCanvas = (canvasId: string) => {
+export const clearCanvas = (canvasId: string, changeMapFunc: Function) => {
     const newMatrix: Array<any> = generateEmptyMapMatrix();
     emptyMapCanvasCtx(canvasId); //clear select canvas
 		
-    store.dispatch(changeMapSelectMatrix(newMatrix));
+    store.dispatch(changeMapFunc(newMatrix));
     setActionNote(`${canvasId} has been cleared`);
 }

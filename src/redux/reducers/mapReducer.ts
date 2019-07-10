@@ -11,7 +11,8 @@ export const initState = {
     select: {
         type: "none", //none, square, field, mouse
         matrix: [],
-    }
+    },
+    blockMatrix: []
 };
 
 
