@@ -49,6 +49,11 @@ export const mapReducer = (state = initState, action) => {
                     matrix: action.newMatrix
                 }
             }
+        case 'CHANGE_MAP_BLOCK_MATRIX':
+            return {
+                ...state,
+                blockMatrix: action.newMatrix
+            }
         default:
             return state;
     }
