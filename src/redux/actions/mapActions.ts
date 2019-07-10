@@ -36,3 +36,10 @@ export const changeMapSelectMatrix = (newMatrix: Array<any>) => {
         newMatrix
     }
 }
+
+export const changeMapBlockMatrix = (newMatrix: Array<any>) => {
+    return {
+        type: 'CHANGE_MAP_BLOCK_MATRIX',
+        newMatrix
+    }
+}
