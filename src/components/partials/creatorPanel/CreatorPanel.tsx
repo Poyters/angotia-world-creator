@@ -12,7 +12,7 @@ import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix, changeMapBlockMatrix } from '../../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
@@ -21,10 +21,11 @@ import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 const CreatorPanel: React.FC = () => {
   const dispatch = useDispatch();
   
-  useEffect((): void => {
-    const newMatrix = generateEmptyMapMatrix();
+  useEffect((): void => { //Create necessary empty matrix at the beginning
+    const newEmptyMatrix = generateEmptyMapMatrix();
 
-    dispatch(changeMapSelectMatrix(newMatrix));
+    dispatch(changeMapSelectMatrix(newEmptyMatrix));
+    dispatch(changeMapBlockMatrix(newEmptyMatrix));
   }, []);
 
   return (
