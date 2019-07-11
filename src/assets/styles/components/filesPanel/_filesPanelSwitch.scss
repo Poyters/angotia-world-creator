@@ -1,0 +1,19 @@
+.filesPanelSwitch {
+    position: absolute;
+    display: flex;
+    top: calc(50% - 20px);
+    right: 0;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+
+    background-color: $decorationColor2;
+    transition: 200ms ease-in-out;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+}

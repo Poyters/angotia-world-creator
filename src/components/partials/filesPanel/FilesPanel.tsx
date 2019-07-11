@@ -1,7 +1,10 @@
 import React, { Fragment, useState } from 'react';
 
+//Import components
+import Arrow from '../Arrow';
 
-const FilesPanel = () => {
+
+const FilesPanel: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const filesPanelStyles = {
@@ -17,7 +20,10 @@ const FilesPanel = () => {
                 <div className="filesPanel">
                     FilesPanel component
 
-                    <div className="filesPanel__switch t-paragraph4Normal" onClick={() => setIsOpen(false)}>Hide files panel</div>
+                    <div className="filesPanel__switch t-paragraph4Normal" onClick={() => setIsOpen(false)}>
+                        <span>Hide files panel</span>
+                        <Arrow additionalClass="arrow--filesPanel"/>
+                    </div>
                 </div>
             </aside>
         </Fragment>

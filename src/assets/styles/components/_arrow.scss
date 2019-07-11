@@ -1,0 +1,32 @@
+.arrow {
+    position: relative;
+    display: flex;
+    width: 13px;
+    height: 2px;
+
+    background-color: $decorationColor6;
+
+    &:before, &:after {
+        position: absolute;
+        content: '';
+        right: -2px;
+        width: 8px;
+        height: 2px;
+
+        background-color: $decorationColor6;
+    }
+
+    &:before {
+        top: -2px;
+        transform: rotate(45deg);
+    }
+
+    &:after {
+        top: 2px;
+        transform: rotate(-45deg);
+    }
+
+    &--filesPanel {
+        margin-top: 3px;
+    }
+}

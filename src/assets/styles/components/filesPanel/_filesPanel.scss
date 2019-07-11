@@ -58,32 +58,23 @@ $filesPanelWrapperPadding: 7;
 
     &__switch {
         position: absolute;
+        display: flex;
         bottom: 6px;
         right: 10px;
 
         text-transform: uppercase;
+        transition: 200ms ease-in-out;
+        color: $decorationColor4;
 
         &:hover {
             cursor: pointer;
+            color: $fontColor;
+        }
+
+        & span {
+            margin-right: 5px;
+            float: left;
         }
     }
 }
 
-.filesPanelSwitch {
-    position: absolute;
-    display: flex;
-    top: calc(50% - 20px);
-    right: 0;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-
-    background-color: $decorationColor2;
-    transition: 200ms ease-in-out;
-    text-align: center;
-    text-transform: uppercase;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
