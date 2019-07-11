@@ -4,14 +4,14 @@ $filesPanelWrapperPadding: 7;
     display: flex;
     position: absolute;
     top: 57px;
-    right: 0;
     width: 210px;
     height: calc(100vh - 95px);
-    z-index: 10;
+    z-index: 12;
     padding: $filesPanelWrapperPadding + px;
     box-sizing: border-box;
     
     background-color: $decorationColor2;
+    transition: 400ms ease-in-out;
 
     &:before, &:after {
         position: absolute;
@@ -41,7 +41,7 @@ $filesPanelWrapperPadding: 7;
     right: auto;
     width: 100%;
     height: 100%;
-    z-index: 11;
+    z-index: 13;
     padding: 2px;
 
     background-color: $decorationColor5;
@@ -55,5 +55,35 @@ $filesPanelWrapperPadding: 7;
         border-width: 0 (210 - $filesPanelWrapperPadding*2 + px) 15px 0;
         border-color: transparent $decorationColor5 transparent transparent;
     } 
+
+    &__switch {
+        position: absolute;
+        bottom: 6px;
+        right: 10px;
+
+        text-transform: uppercase;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
+.filesPanelSwitch {
+    position: absolute;
+    display: flex;
+    top: calc(50% - 20px);
+    right: 0;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+
+    background-color: $decorationColor2;
+    transition: 200ms ease-in-out;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
