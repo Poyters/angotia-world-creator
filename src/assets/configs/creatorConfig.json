@@ -4,5 +4,6 @@
     },
     "actionNoteDelay": 1800,
     "selectColor": "rgba(0, 0, 0, 0.5)",
-    "blockSquareColor": "#7d190b"
+    "blockSquareColor": "#7d190b",
+    "secondOptionKeyCode": 17
 }
