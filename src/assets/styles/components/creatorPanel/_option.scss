@@ -114,6 +114,7 @@
         border: 1px solid $decorationColor1;
         font-size: 11px;
         text-transform: uppercase;
+        transition: 200ms ease-in-out;
 
         & a, a:hover {
             color: inherit;

@@ -12,7 +12,8 @@ export const initState = {
         type: "none", //none, square, field, mouse
         matrix: [],
     },
-    blockMatrix: []
+    blockMatrix: [],
+    mapIsLoaded: false
 };
 
 
@@ -53,6 +54,11 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 blockMatrix: action.newMatrix
+            }
+        case 'SET_MAP_LOADING_STATE':
+            return {
+                ...state,
+                mapIsLoaded: action.loadingState
             }
         default:
             return state;

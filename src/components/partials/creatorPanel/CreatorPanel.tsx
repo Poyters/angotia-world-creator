@@ -10,6 +10,7 @@ import SelectOption from './SelectOption';
 import AddFileOption from './AddFileOption';
 import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
+import LayersOption from './LayersOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix } from '../../../redux/actions/mapActions';
@@ -57,6 +58,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <BlockOption />
+        </li>
+        <li>
+          <LayersOption />
         </li>
       </ul>
     </nav>
