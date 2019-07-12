@@ -9,18 +9,35 @@ const LayersOption: React.FC = () => {
         opacity: isOpen ? 1 : 0
     }
 
-    useEffect(() => {
+    useEffect((): void => {
         const layers = document.getElementsByClassName('js-mapLayer');
 
         const ltr = Array.from(layers).map((layer: any, id: number) => {
+            const layerName = layer.dataset.layername;
             return (
-                <li key={id}>{layer.dataset.layername}</li>
+                <li key={id} onClick={() => toggleLayer(layerName)}>{layerName}</li>
             )
         })
 
         setLayersToRender(ltr);
 
     }, [])
+
+    const toggleLayer = (layerName: string): void => {
+        const layers = document.getElementsByClassName('js-mapLayer');
+
+        Array.from(layers).forEach((layer: any) => {
+            const name = layer.dataset.layername;
+  
+            if (name === layerName) {
+                const computedDisplay = getComputedStyle(layer).display;
+                const display = layer.style.display === '' ? computedDisplay : layer.style.display;
+
+                if (display === 'block') layer.style.display = "none";
+                else layer.style.display = "block";
+            }
+        })
+    }
 
     return (
         <Fragment>
