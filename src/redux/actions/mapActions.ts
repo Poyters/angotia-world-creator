@@ -43,10 +43,3 @@ export const changeMapBlockMatrix = (newMatrix: Array<any>) => {
         newMatrix
     }
 }
-
-export const setLoadingMapState = (loadingState: boolean) => {
-    return {
-        type: 'SET_LOADING_MAP_STATE',
-        loadingState
-    }
-}
