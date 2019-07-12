@@ -13,9 +13,7 @@ const FilesPanel: React.FC = () => {
 
     return (
         <Fragment>
-            { !isOpen ? (
-                <div className="filesPanelSwitch t-paragraph4Normal" onClick={() => setIsOpen(true)}> Open files panel</div>
-            ) : null}
+            <div className="filesPanelSwitch t-paragraph4Normal" onClick={() => setIsOpen(true)}> Open files panel</div>
             <aside className="filesPanelWrapper" style={filesPanelStyles}>
                 <div className="filesPanel">
                     FilesPanel component
