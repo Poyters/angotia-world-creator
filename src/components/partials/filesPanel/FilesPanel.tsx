@@ -16,7 +16,7 @@ const FilesPanel: React.FC = () => {
             <div className="filesPanelSwitch t-paragraph4Normal" onClick={() => setIsOpen(true)}> Open files panel</div>
             <aside className="filesPanelWrapper" style={filesPanelStyles}>
                 <div className="filesPanel">
-                    <div className="filesPanel__bookmarks t-paragraph5Normal">
+                    <nav className="filesPanel__bookmarks t-paragraph5Normal">
                         <ul>
                             <li>
                                 Building
@@ -34,6 +34,10 @@ const FilesPanel: React.FC = () => {
                                 NPC
                             </li>
                         </ul>
+                    </nav>
+
+                    <div className="filesPanel__imagesContainer">
+                    
                     </div>
 
                     <div className="filesPanel__switch t-paragraph4Normal" onClick={() => setIsOpen(false)}>
