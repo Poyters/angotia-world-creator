@@ -16,7 +16,25 @@ const FilesPanel: React.FC = () => {
             <div className="filesPanelSwitch t-paragraph4Normal" onClick={() => setIsOpen(true)}> Open files panel</div>
             <aside className="filesPanelWrapper" style={filesPanelStyles}>
                 <div className="filesPanel">
-                    FilesPanel component
+                    <div className="filesPanel__bookmarks t-paragraph5Normal">
+                        <ul>
+                            <li>
+                                Building
+                            </li>
+                            <li>
+                                Decoration
+                            </li>
+                            <li>
+                                Subsoil
+                            </li>
+                            <li>
+                                MOB
+                            </li>
+                            <li>
+                                NPC
+                            </li>
+                        </ul>
+                    </div>
 
                     <div className="filesPanel__switch t-paragraph4Normal" onClick={() => setIsOpen(false)}>
                         <span>Hide files panel</span>

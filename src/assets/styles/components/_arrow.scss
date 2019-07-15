@@ -5,6 +5,7 @@
     height: 2px;
 
     background-color: $decorationColor6;
+    transition: 200ms ease-in-out;
 
     &:before, &:after {
         position: absolute;
@@ -14,6 +15,7 @@
         height: 2px;
 
         background-color: $decorationColor6;
+        transition: 200ms ease-in-out;
     }
 
     &:before {

@@ -69,3 +69,17 @@
 		@include paragraph(8px, 11px, 700);
 	}
 }
+
+.t-paragraph5 {
+	&Light {
+		@include paragraph(10px, 13px, 200);
+	}
+	
+	&Normal {
+		@include paragraph(10px, 13px, 400);
+	}
+
+	&Bold {
+		@include paragraph(10px, 13px, 700);
+	}
+}
