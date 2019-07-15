@@ -6,12 +6,24 @@
     background-color: $decorationColor2;
     transition: 200ms ease-in-out;
 
-    & li {
+    &__layer {
         display: list-item !important;
         padding: 0;
         margin: 0;
 
         font-size: 12px;
         text-transform: lowercase;
+        cursor: pointer;
+        color: $fontColor1;
+        transition: 200ms ease-in-out;
+
+        &:hover {
+            color: $fontColor;
+        }
+
+        &--active {
+            list-style-type: disc;
+            color: $fontColor;
+        }
     }
 }
