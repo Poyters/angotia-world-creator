@@ -43,3 +43,10 @@ export const changeMapBlockMatrix = (newMatrix: Array<any>) => {
         newMatrix
     }
 }
+
+export const changeMapPassageMatrix = (newMatrix: Array<any>) => {
+    return {
+        type: 'CHANGE_MAP_PASSAGE_MATRIX',
+        newMatrix
+    }
+}

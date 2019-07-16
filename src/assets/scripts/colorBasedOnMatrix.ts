@@ -41,16 +41,16 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
   }
 
 
-  const drawCross = (ctx: any, x: number, y: number): void => {
-    ctx.setLineDash([]);
-    ctx.strokeStyle = creatorConfig.blockSquareColor;
+const drawCross = (ctx: any, x: number, y: number): void => {
+  ctx.setLineDash([]);
+  ctx.strokeStyle = creatorConfig.blockSquareColor;
 
-    ctx.beginPath();
+  ctx.beginPath();
 
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + 25, y + 25);
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + 25, y + 25);
 
-    ctx.moveTo(x, y + 25);
-    ctx.lineTo(x + 25, y);
-    ctx.stroke();
+  ctx.moveTo(x, y + 25);
+  ctx.lineTo(x + 25, y);
+  ctx.stroke();
 }

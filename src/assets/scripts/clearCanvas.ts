@@ -6,9 +6,10 @@ import { generateEmptyMapMatrix, emptyMapCanvasCtx } from './map';
 
 
 export const clearCanvas = (canvasId: string, changeMapFunc: Function) => {
-    const newMatrix: Array<any> = generateEmptyMapMatrix();
+    const emptyMatrix: Array<any> = generateEmptyMapMatrix();
     emptyMapCanvasCtx(canvasId); //clear select canvas
 		
-    store.dispatch(changeMapFunc(newMatrix));
+    store.dispatch(changeMapFunc(emptyMatrix));
     setActionNote(`${canvasId} has been cleared`);
+    console.log(store.getState().map.select.matrix)
 }

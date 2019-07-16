@@ -1,5 +1,8 @@
 import React from 'react';
 
+//Import scripts
+import { addPassage } from '../../../assets/scripts/addPassage';
+
 
 const PassageOption = () => {
     const addRemovePassage = () => {
@@ -7,7 +10,7 @@ const PassageOption = () => {
     }
 
     return (
-        <div className="passageOption" onClick={addRemovePassage}></div>
+        <div className="passageOption" onClick={addPassage}></div>
     )
 }
 

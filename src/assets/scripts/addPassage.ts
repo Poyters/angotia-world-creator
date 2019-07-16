@@ -5,7 +5,7 @@ import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from './clearCanvas';
 import { emptyMapCanvasCtx } from './map';
 import { setActionNote } from './notifications';
-import { updateMatrixByTheOther } from './updateMatrixByTheOther';
+import { updateMatrixByTheOther } from './matrix';
 
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
@@ -30,7 +30,7 @@ export const addPassage = () => {
   clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 
   emptyMapCanvasCtx('mapPassageCanvas');
-  colorBasedOnMatrix(newPassageMatrix, 'mapPassageCanvas', creatorConfig.blockSquareColor, 'barrier');
+  colorBasedOnMatrix(newPassageMatrix, 'mapPassageCanvas', '#fff');
   setActionNote('Selected fields had been blocked');
 
   setTimeout(() => pressedKey = -1, 500) //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares

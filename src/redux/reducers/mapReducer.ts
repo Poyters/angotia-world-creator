@@ -12,7 +12,8 @@ export const initState = {
         type: "none", //none, square, field, mouse
         matrix: [],
     },
-    blockMatrix: []
+    blockMatrix: [],
+    passageMatrix: []
 };
 
 
@@ -53,6 +54,11 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 blockMatrix: action.newMatrix
+            }
+        case 'CHANGE_MAP_PASSAGE_MATRIX':
+            return {
+                ...state,
+                passageMatrix: action.newMatrix
             }
         default:
             return state;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Import scripts
-import { setBlockSquares } from '../../../assets/scripts/blockSquares'
+import { setBlockSquares } from '../../../assets/scripts/blockSquares';
 
 
 const BlockOption = () => {

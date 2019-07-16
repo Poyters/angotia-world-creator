@@ -14,7 +14,7 @@ import LayersOption from './LayersOption';
 import PassageOption from './PassageOption';
 
 //Import actions
-import { changeMapSelectMatrix, changeMapBlockMatrix } from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix } from '../../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
@@ -28,6 +28,7 @@ const CreatorPanel: React.FC = () => {
 
     dispatch(changeMapSelectMatrix(newEmptyMatrix));
     dispatch(changeMapBlockMatrix(newEmptyMatrix));
+    dispatch(changeMapPassageMatrix(newEmptyMatrix));
   }, []);
 
   return (
