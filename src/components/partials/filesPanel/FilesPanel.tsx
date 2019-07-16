@@ -15,18 +15,16 @@ const FilesPanel: React.FC = () => {
     }
 
     const imageStyle = {
-        minWidth: `${creatorConfig.map.fieldSize}px`,
-        minHeight: `${creatorConfig.map.fieldSize}px`
+        width: `${creatorConfig.map.fieldSize}px`,
+        height: `${creatorConfig.map.fieldSize}px`
     }
     
     const generateImages = () => {
         const images: any = [];
 
         for (let i = 0; i < 50; i++) {
-            images.push(<li key={i} style={imageStyle}> el {i} </li>)
+            images.push(<li key={i} style={imageStyle}> </li>)
         }
-
-        console.log(images)
 
         return images;
     }

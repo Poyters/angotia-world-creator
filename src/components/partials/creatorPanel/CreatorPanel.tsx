@@ -11,6 +11,7 @@ import AddFileOption from './AddFileOption';
 import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
 import LayersOption from './LayersOption';
+import PassageOption from './PassageOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix } from '../../../redux/actions/mapActions';
@@ -42,6 +43,9 @@ const CreatorPanel: React.FC = () => {
           <ComeBackOption />
         </li>
         <li>
+          <LayersOption />
+        </li>
+        <li>
           <AddFileOption />
         </li>
         <li>
@@ -60,7 +64,7 @@ const CreatorPanel: React.FC = () => {
           <BlockOption />
         </li>
         <li>
-          <LayersOption />
+          <PassageOption />
         </li>
       </ul>
     </nav>

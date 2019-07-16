@@ -69,14 +69,14 @@
             flex-wrap: wrap;
             width: 100%;
             justify-content: flex-start;
-            margin: 1px 0 0 0;
+            margin: 1px 0 0 -1px;
             padding: 0;
 
             & li {
                 display: inline-block;
                 margin: 1px;
 
-                background-color: blue;
+                background-color: $decorationColor2;
             }
         }
     }
