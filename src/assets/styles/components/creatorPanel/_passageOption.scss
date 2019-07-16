@@ -1,0 +1,27 @@
+.passageOption {
+    position: relative;
+    display: flex;
+    width: 12px;
+    height: 19px;
+    margin: 1px 0 0 0;
+
+    background-color: $decorationColor4;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $decorationColor1;
+    }
+
+    &:before {
+        position: absolute;
+        content: '';
+        top: 9px;
+        right: 2px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+
+        background-color: $decorationColor7;
+    }
+}
