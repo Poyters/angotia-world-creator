@@ -8,11 +8,11 @@ import EntryPanel from '../partials/entryPanel/EntryPanel';
 
 const Home: React.FC = () => {
   return (
-    <div role="presentation" className="container">
+    <div role="presentation" className="g-container">
         <SectionHeader 
           headerTxt="Angotia Map Creator"
         />
-        <div role="presentation" className="wrapper">
+        <div role="presentation" className="g-wrapper">
           <EntryPanel />
         </div>
         <CreditsFooter />

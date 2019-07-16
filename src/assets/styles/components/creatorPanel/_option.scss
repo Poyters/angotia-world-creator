@@ -5,6 +5,15 @@
     cursor: pointer;
     user-select: none;
 
+    &__viewType {
+        position: absolute;
+        display: block;
+        bottom: -7px;
+        left: -4px;
+
+        font-size: 13px;
+    }
+
     &--net {
         width: 18px;
         height: 18px;
@@ -123,15 +132,6 @@
         &:hover {
             color: $decorationColor1;
         }
-    }
-
-    &__viewType {
-        position: absolute;
-        display: block;
-        bottom: -7px;
-        left: -4px;
-
-        font-size: 13px;
     }
 
 }

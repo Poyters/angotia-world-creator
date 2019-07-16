@@ -8,7 +8,7 @@ const BlockOption = () => {
 
 	return (
 		<div role="button" className="option option--block" onClick={setBlockSquares}>
-			<div className="exitBtn"></div>
+			<div className="g-exitBtn"></div>
 		</div>
 	)
 }

@@ -18,14 +18,20 @@
             z-index: 2;
         }
 
-        &--select {
+        &--select, &--block, &--passage {
             position: absolute;
+        }
+
+        &--select {
             z-index: 10;
         }
 
         &--block {
-            position: absolute;
-            z-index: 3;
+            z-index: 9;
+        }
+
+        &--passage {
+            z-index: 8;
         }
     }
 
