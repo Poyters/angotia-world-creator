@@ -26,9 +26,9 @@ const CreatorPanel: React.FC = () => {
   useEffect((): void => { //Create necessary empty matrix at the beginning
     const newEmptyMatrix = generateEmptyMapMatrix();
 
-    dispatch(changeMapSelectMatrix(newEmptyMatrix));
-    dispatch(changeMapBlockMatrix(newEmptyMatrix));
-    dispatch(changeMapPassageMatrix(newEmptyMatrix));
+    dispatch(changeMapSelectMatrix([...newEmptyMatrix]));
+    dispatch(changeMapBlockMatrix([...newEmptyMatrix]));
+    dispatch(changeMapPassageMatrix([...newEmptyMatrix]));
   }, []);
 
   return (

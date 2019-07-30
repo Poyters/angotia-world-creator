@@ -7,7 +7,8 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
-  
+    console.log('colorBasedOnMatrix', matrix)
+
     copyOfmatrix.map((yAxis: Array<number>, y:number) => {
       yAxis.map((field: number, x: number) => {
         const squareMatrix: Array<number> = [

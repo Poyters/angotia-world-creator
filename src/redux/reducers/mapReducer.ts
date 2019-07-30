@@ -16,7 +16,6 @@ export const initState = {
     passageMatrix: []
 };
 
-
 export const mapReducer = (state = initState, action) => {
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':

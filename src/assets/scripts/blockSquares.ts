@@ -23,14 +23,14 @@ export const setBlockSquares = () => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
   const blockMatrix: any[] = [...storeData.map.blockMatrix];
-  const typeOfAction = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can set block square, but when you press key wich has the same code as secondOptionKeyCode, you unblock selected fields
-  const newBlockMatrix = updateMatrixByTheOther(blockMatrix, selectMatrix, typeOfAction);
+  const typeOfAction: number = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can set block square, but when you press key wich has the same code as secondOptionKeyCode, you unblock selected fields
+  const newBlockMatrix: any[] = updateMatrixByTheOther([...blockMatrix], [...selectMatrix], typeOfAction);
 
-  store.dispatch(changeMapBlockMatrix(newBlockMatrix));
+  store.dispatch(changeMapBlockMatrix([...newBlockMatrix]));
   clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 
   emptyMapCanvasCtx('mapBlockCanvas');
-  colorBasedOnMatrix(newBlockMatrix, 'mapBlockCanvas', creatorConfig.blockSquareColor, 'barrier');
+  colorBasedOnMatrix([...newBlockMatrix], 'mapBlockCanvas', creatorConfig.blockSquareColor, 'barrier');
   setActionNote('Selected fields had been blocked');
 
   setTimeout(() => pressedKey = -1, 500) //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
