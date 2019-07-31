@@ -22,7 +22,8 @@ document.addEventListener('keydown', event => pressedKey = event.keyCode);
 export const addPassage = () => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
-  const passageMatrix: any[] = [...storeData.map.passageMatrix];
+  Object.freeze(selectMatrix);
+  const passageMatrix: any[] = [...storeData.map.passage.matrix];
   console.log(selectMatrix, passageMatrix)
   const typeOfAction: number = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can add passage, but when you press key wich has the same code as secondOptionKeyCode, you delete selected passage
   console.log('passageMatrix', passageMatrix)

@@ -22,6 +22,7 @@ document.addEventListener('keydown', event => pressedKey = event.keyCode);
 export const setBlockSquares = () => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
+  Object.freeze(selectMatrix);
   const blockMatrix: any[] = [...storeData.map.blockMatrix];
   const typeOfAction: number = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can set block square, but when you press key wich has the same code as secondOptionKeyCode, you unblock selected fields
   const newBlockMatrix: any[] = updateMatrixByTheOther([...blockMatrix], [...selectMatrix], typeOfAction);

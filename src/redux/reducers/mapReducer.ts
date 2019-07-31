@@ -13,7 +13,10 @@ export const initState = {
         matrix: [],
     },
     blockMatrix: [],
-    passageMatrix: []
+    passage: {
+        locations: {}, //map id from passage
+        matrix: []
+    }
 };
 
 export const mapReducer = (state = initState, action) => {
@@ -57,7 +60,10 @@ export const mapReducer = (state = initState, action) => {
         case 'CHANGE_MAP_PASSAGE_MATRIX':
             return {
                 ...state,
-                passageMatrix: action.newMatrix
+                passage: {
+                    ...state.passage,
+                    matrix: action.newMatrix
+                }
             }
         default:
             return state;
