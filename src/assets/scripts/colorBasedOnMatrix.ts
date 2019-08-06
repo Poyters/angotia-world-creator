@@ -1,9 +1,12 @@
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
+//Import scripts
+import { deepCopy } from '../scripts/matrix';
+
 
 export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, specialView?: string): void => {
-    const copyOfmatrix: Array<any> = [...matrix];
+    const copyOfmatrix: Array<any> = deepCopy(matrix);
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");

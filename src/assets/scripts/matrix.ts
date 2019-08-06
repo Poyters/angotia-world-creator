@@ -1,6 +1,6 @@
 export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number): any[] => {
-	const copyOfRootMatrix = [...rootMatrix];
-	const copyOfUpgradeMatrix = [...upgradeMatrix];
+	const copyOfRootMatrix = deepCopy(rootMatrix);
+	const copyOfUpgradeMatrix = deepCopy(upgradeMatrix);
 	console.log('rootMatrix', rootMatrix);
 	console.log('upgradeMatrix', upgradeMatrix)
 	copyOfUpgradeMatrix.forEach((yAxis: Array<number>, y:number) => {
@@ -24,5 +24,12 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 		})
 	})
 
-	return [...copyOfRootMatrix];
+	return deepCopy(copyOfRootMatrix);
+}
+
+
+export const deepCopy = item => {
+	const copy = JSON.parse(JSON.stringify(item));
+
+	return copy;
 }
