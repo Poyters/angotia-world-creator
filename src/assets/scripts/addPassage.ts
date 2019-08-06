@@ -23,18 +23,14 @@ export const addPassage = () => {
   const storeData = store.getState();
   const selectMatrix: any[] = deepCopy(storeData.map.select.matrix);
   const passageMatrix: any[] = deepCopy(storeData.map.passage.matrix);
-  console.log(selectMatrix, passageMatrix)
   const typeOfAction: number = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can add passage, but when you press key wich has the same code as secondOptionKeyCode, you delete selected passage
-  console.log('passageMatrix', passageMatrix)
-  console.log('selectMatrix', selectMatrix)
-  const newPassageMatrix: any[] = updateMatrixByTheOther(passageMatrix, selectMatrix, typeOfAction);
+  const newPassageMatrix: any[] = deepCopy(updateMatrixByTheOther(passageMatrix, selectMatrix, typeOfAction));
   
-  store.dispatch(changeMapPassageMatrix(deepCopy(newPassageMatrix)));
+  store.dispatch(changeMapPassageMatrix(newPassageMatrix));
   clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 
   emptyMapCanvasCtx('mapPassageCanvas');
-  //console.log('newPassageMatrix', newPassageMatrix)
-  colorBasedOnMatrix(deepCopy(newPassageMatrix), 'mapPassageCanvas', '#fff');
+  colorBasedOnMatrix(newPassageMatrix, 'mapPassageCanvas', '#fff');
   setActionNote('Selected fields had been blocked');
 
   setTimeout(() => pressedKey = -1, 500) //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares

@@ -38,6 +38,8 @@ const LayersOption: React.FC = () => {
     }
 
     const toggleLayer = (layerName: string): void => {
+        if (!isOpen) return;
+
         const layers = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {

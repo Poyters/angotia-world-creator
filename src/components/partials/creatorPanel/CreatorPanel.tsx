@@ -18,6 +18,7 @@ import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix } f
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
+import { deepCopy } from '../../../assets/scripts/matrix';
 
 
 const CreatorPanel: React.FC = () => {
@@ -26,9 +27,9 @@ const CreatorPanel: React.FC = () => {
   useEffect((): void => { //Create necessary empty matrix at the beginning
     const newEmptyMatrix = generateEmptyMapMatrix();
 
-    dispatch(changeMapSelectMatrix([...newEmptyMatrix]));
-    dispatch(changeMapBlockMatrix([...newEmptyMatrix]));
-    dispatch(changeMapPassageMatrix([...newEmptyMatrix]));
+    dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
   }, []);
 
   return (

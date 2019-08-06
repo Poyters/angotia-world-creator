@@ -1,8 +1,7 @@
 export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number): any[] => {
 	const copyOfRootMatrix = deepCopy(rootMatrix);
 	const copyOfUpgradeMatrix = deepCopy(upgradeMatrix);
-	console.log('rootMatrix', rootMatrix);
-	console.log('upgradeMatrix', upgradeMatrix)
+
 	copyOfUpgradeMatrix.forEach((yAxis: Array<number>, y:number) => {
 		yAxis.forEach((field: number, x: number) => {
 			const squareMatrix: Array<number> = [
