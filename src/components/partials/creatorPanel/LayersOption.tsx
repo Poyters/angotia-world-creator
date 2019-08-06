@@ -8,7 +8,7 @@ const LayersOption: React.FC = () => {
     const mapBackgorund = useSelector(state =>  state.map.mapPic);
 
     const layersListStyles = {
-        opacity: isOpen ? 1 : 0
+        display: isOpen ? 'block' : 'none'
     }
 
     useEffect((): void => {
@@ -38,8 +38,6 @@ const LayersOption: React.FC = () => {
     }
 
     const toggleLayer = (layerName: string): void => {
-        if (!isOpen) return;
-
         const layers = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {
@@ -61,7 +59,7 @@ const LayersOption: React.FC = () => {
 
     return (
         <Fragment>
-            <div role="button" className="option option--textOption" onClick={() => setIsOpen(!isOpen)}> 
+            <div role="button" className="option option--textOption option--layers" onClick={() => setIsOpen(!isOpen)}> 
                 <span>Layers</span>
             </div>
             <ul className="layersList" style={layersListStyles}>

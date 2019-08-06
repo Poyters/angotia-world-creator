@@ -1,6 +1,7 @@
 .layersList {
     margin: 0;
     padding: 6px 6px 6px 20px;
+    width: 75px;
 
     border: 1px solid $decorationColor1;
     background-color: $decorationColor2;
@@ -15,6 +16,7 @@
         text-transform: lowercase;
         color: $fontColor1;
         transition: 200ms ease-in-out;
+        cursor: pointer;
 
         &:hover {
             color: $decorationColor1;
