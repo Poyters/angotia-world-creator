@@ -7,6 +7,8 @@ import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import Arrow from '../Arrow';
 
 
+const bookmarks: string[] = ['Building', 'decorations', 'subsoil', 'npc', 'mob'];
+
 const FilesPanel: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -28,6 +30,9 @@ const FilesPanel: React.FC = () => {
 
         return images;
     }
+
+
+    const 
 
     return (
         <Fragment>
