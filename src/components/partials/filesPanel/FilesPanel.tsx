@@ -90,7 +90,7 @@ const FilesPanel: React.FC = () => {
 
         const imagesToRender: any[] = bookmarkImages.map((img, index) => {
             return (
-                <li key={index} style={imageStyle} onClick={() => markSquare(sourceMatrix, `map${currBookmark}Canvas`, matrixTransformationMethod, 'Selected fields have been blocked', '#666', '')}>
+                <li key={index} style={imageStyle} onClick={() => markSquare(sourceMatrix, `map${currBookmark}Canvas`, matrixTransformationMethod, note, '#666', '')}>
                     <img src={img}></img>
                 </li>
             )
