@@ -29,6 +29,11 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
               case 'barrier':
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
+              case 'image':
+                const image = makeImage(color);
+
+                ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+              break;
               default:
                 ctx.fillStyle = color;
                 ctx.fillRect(x*fieldSize + xDelta, y*fieldSize + yDelta, fieldSize / 2 , fieldSize / 2);
@@ -56,4 +61,12 @@ const drawCross = (ctx: any, x: number, y: number): void => {
   ctx.moveTo(x, y + 25);
   ctx.lineTo(x + 25, y);
   ctx.stroke();
+}
+
+
+const makeImage = imgPath => {
+  const image = new Image();
+  image.src = imgPath;
+  
+  return image;
 }
