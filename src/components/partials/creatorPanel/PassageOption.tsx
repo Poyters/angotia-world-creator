@@ -1,16 +1,18 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 //Import scripts
-import { addPassage } from '../../../assets/scripts/addPassage';
+import { markSquare } from '../../../assets/scripts/markSquare';
+
+//Import actions
+import { changeMapPassageMatrix } from '../../../redux/actions/mapActions';
 
 
-const PassageOption = () => {
-    const addRemovePassage = () => {
-
-    }
+const PassageOption: React.FC = () => {
+    const passageMatrix = useSelector(state => state.map.passage.matrix);
 
     return (
-        <div className="passageOption" onClick={addPassage}></div>
+        <div className="passageOption" onClick={() => markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')}></div>
     )
 }
 
