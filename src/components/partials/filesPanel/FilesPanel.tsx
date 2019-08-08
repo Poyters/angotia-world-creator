@@ -1,16 +1,21 @@
 import React, { Fragment, useState } from 'react';
+import { readdirSync } from 'fs';
 
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
+
+//Import scripts
+import { importAll } from '../../../assets/scripts/files';
 
 //Import components
 import Arrow from '../Arrow';
 
 
-const bookmarks: string[] = ['Building', 'decorations', 'subsoil', 'npc', 'mob'];
+const bookmarks: string[] = ['building', 'decoration', 'subsoil', 'npc', 'mob'];
 
 const FilesPanel: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 
     const filesPanelStyles = {
         right: isOpen ? "0" : "-300px"
@@ -21,8 +26,11 @@ const FilesPanel: React.FC = () => {
         height: `${creatorConfig.map.fieldSize}px`
     }
     
-    const generateImages = () => {
-        const images: any = [];
+    const generateImages = (): any[] => {
+        const test = importAll(require.context(`/assets/images/mapSource/${currBookmark}`, false, /\.(png|jpe?g|svg)$/));
+        console.log(test)
+
+        const images: any[] = [];
 
         for (let i = 0; i < 50; i++) {
             images.push(<li key={i} style={imageStyle}> </li>)
@@ -31,8 +39,17 @@ const FilesPanel: React.FC = () => {
         return images;
     }
 
+    const generateBookmarks = (): any[] => {
+        const bookmarksToRender: any[] = bookmarks.map((bookmark, index) => {
+            return <li 
+                        key={index} 
+                        onClick={() => setCurrBookmark(bookmark)} 
+                        style={{color: currBookmark === bookmark ? '#27427c' : 'inherit'}}
+                    > {bookmark} </li>
+        });
 
-    const 
+        return bookmarksToRender;
+    }
 
     return (
         <Fragment>
@@ -41,21 +58,7 @@ const FilesPanel: React.FC = () => {
                 <div className="filesPanel">
                     <nav className="filesPanel__bookmarks t-paragraph5Normal">
                         <ul>
-                            <li>
-                                Building
-                            </li>
-                            <li>
-                                Decoration
-                            </li>
-                            <li>
-                                Subsoil
-                            </li>
-                            <li>
-                                MOB
-                            </li>
-                            <li>
-                                NPC
-                            </li>
+                            { generateBookmarks() }
                         </ul>
                     </nav>
 
