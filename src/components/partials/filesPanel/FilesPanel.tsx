@@ -43,6 +43,11 @@ const FilesPanel: React.FC = () => {
                 bookmarkImages.push(test2);
                 bookmarkImages.push(test2);
                 bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
             break;
             case 'decoration':
                 bookmarkImages.push(test2);
