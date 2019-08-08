@@ -79,7 +79,7 @@ const EntryPanel: React.FC = () => {
       <li>
         <a href="#">
           <span className="t-paragraph1Light">
-            edit existing map
+            load map
           </span>
         </a>
       </li>

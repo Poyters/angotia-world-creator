@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import { readdirSync } from 'fs';
 
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
@@ -9,6 +8,13 @@ import { importAll } from '../../../assets/scripts/files';
 
 //Import components
 import Arrow from '../Arrow';
+
+//Import images
+import test1 from '../../../assets/images/mapSources/building/test1.png';
+import test2 from '../../../assets/images/mapSources/decoration/test2.png';
+import test3 from '../../../assets/images/mapSources/mob/test3.png';
+import test4 from '../../../assets/images/mapSources/npc/test4.png';
+import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
 
 
 const bookmarks: string[] = ['building', 'decoration', 'subsoil', 'npc', 'mob'];
@@ -27,16 +33,40 @@ const FilesPanel: React.FC = () => {
     }
     
     const generateImages = (): any[] => {
-        const test = importAll(require.context(`/assets/images/mapSource/${currBookmark}`, false, /\.(png|jpe?g|svg)$/));
-        console.log(test)
+        const bookmarkImages: any = []
 
-        const images: any[] = [];
-
-        for (let i = 0; i < 50; i++) {
-            images.push(<li key={i} style={imageStyle}> </li>)
+        switch(currBookmark) { //TODO: replace with api and database
+            case 'building':
+                bookmarkImages.push(test1);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+            break;
+            case 'decoration':
+                bookmarkImages.push(test2);
+            break;
+            case 'subsoil':
+                bookmarkImages.push(test3);
+            break;
+            case 'mob':
+                bookmarkImages.push(test4);
+            break;
+            case 'npc':
+                bookmarkImages.push(test5);
+            break;
         }
 
-        return images;
+        const imagesToRender: any[] = bookmarkImages.map((img, index) => {
+            return (
+                <li key={index} style={imageStyle}> 
+                    <img src={img}></img>
+                </li>
+            )
+        })
+
+        return imagesToRender;
     }
 
     const generateBookmarks = (): any[] => {

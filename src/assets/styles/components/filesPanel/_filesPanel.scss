@@ -64,11 +64,11 @@
         @include scrollBar();
 
         & ul {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+            // display: flex;
+            // flex-direction: row;
+            // flex-wrap: wrap;
             width: 100%;
-            justify-content: flex-start;
+            //justify-content: flex-start;
             margin: 1px 0 0 -1px;
             padding: 0;
 
@@ -76,7 +76,7 @@
                 display: inline-block;
                 margin: 1px;
 
-                background-color: $decorationColor2;
+                background-color: $decorationColor8;
             }
         }
     }
