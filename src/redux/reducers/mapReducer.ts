@@ -16,6 +16,23 @@ export const initState = {
     passage: {
         locations: {}, //map id from passage
         matrix: []
+    },
+    building: {
+        matrix: []
+    },
+    decoration: {
+        matrix: []
+    },
+    subsoil: {
+        matrix: []
+    },
+    npc: {
+        matrix: [],
+        dialogs: {}
+    },
+    mob: {
+        matrix: [],
+        types: {}
     }
 };
 

@@ -14,7 +14,7 @@ import LayersOption from './LayersOption';
 import PassageOption from './PassageOption';
 
 //Import actions
-import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix } from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix} from '../../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
