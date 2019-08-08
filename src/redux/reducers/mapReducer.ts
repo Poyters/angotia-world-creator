@@ -82,6 +82,46 @@ export const mapReducer = (state = initState, action) => {
                     matrix: action.newMatrix
                 }
             }
+        case 'CHANGE_MAP_BUILDING_MATRIX':
+            return {
+                ...state,
+                building: {
+                    ...state.building,
+                    matrix: action.newMatrix
+                }
+            }
+        case 'CHANGE_MAP_DECORATION_MATRIX':
+            return {
+                ...state,
+                decoration: {
+                    ...state.passage,
+                    matrix: action.newMatrix
+                }
+            }
+        case 'CHANGE_MAP_SUBSOIL_MATRIX':
+            return {
+                ...state,
+                subsoil: {
+                    ...state.subsoil,
+                    matrix: action.newMatrix
+                }
+            }
+        case 'CHANGE_MAP_MOB_MATRIX':
+            return {
+                ...state,
+                mob: {
+                    ...state.mob,
+                    matrix: action.newMatrix
+                }
+            }
+        case 'CHANGE_MAP_NPC_MATRIX':
+            return {
+                ...state,
+                npc: {
+                    ...state.npc,
+                    matrix: action.newMatrix
+                }
+            }
         default:
             return state;
     }
