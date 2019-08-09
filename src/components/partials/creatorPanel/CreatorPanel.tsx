@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 //Import other components
 import ExportOption from './ExportOption';
-import ComeBackOption from './ComeBackOption';
 import FullScreenOption from './FullScreenOption';
 import NetOption from './NetOption';
 import SelectOption from './SelectOption';
@@ -12,6 +11,7 @@ import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
 import LayersOption from './LayersOption';
 import PassageOption from './PassageOption';
+import LinkButton from './LinkButton';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix} from '../../../redux/actions/mapActions';
@@ -39,10 +39,13 @@ const CreatorPanel: React.FC = () => {
       </header>
       <ul className="creatorPanel__options">
         <li>
-          <ExportOption />
+          <LinkButton link='/' buttonText='come back' />
         </li>
         <li>
-          <ComeBackOption />
+          <LinkButton link='/help' buttonText='help' />
+        </li>
+        <li>
+          <ExportOption />
         </li>
         <li>
           <LayersOption />

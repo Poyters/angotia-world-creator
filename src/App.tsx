@@ -10,6 +10,7 @@ import './assets/styles/index.scss';
 //Import views
 import Home from './components/views/Home';
 import Creator from './components/views/Creator';
+import Help from './components/views/Help';
 
 
 export const store = createStore(rootReducer);
@@ -22,6 +23,7 @@ export class App extends Component {
           <React.Fragment>
             <Route exact path="/" component={Home} />
             <Route path="/creator" component={Creator} />
+            <Route path="/help" component={Help} />
           </React.Fragment>
         </Router>
       </Provider>

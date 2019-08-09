@@ -112,11 +112,15 @@
         }
     }
 
+    &--smallerMargin {
+        margin: 0 -3px;
+    }
+
     &--textOption {
         display: flex;
         width: auto;
         height: 18px;
-        padding: 0 4px;
+        padding: 0 6px;
         justify-content: center;
         align-items: center;
 
