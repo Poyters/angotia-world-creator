@@ -1,0 +1,56 @@
+.passagePopup {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 25px 20px;
+
+    background-color: $decorationColor2;
+
+    &__header {
+        margin-bottom: 25px;
+    }
+
+    &__label {
+        margin-top: 10px;
+
+        text-transform: uppercase;
+
+        &:first-child {
+            margin-top: 5px;
+        }
+    }
+
+    &__submit {
+        margin-top: 20px;
+        padding: 4px 0;
+
+        background-color: transparent;
+        color: $decorationColor4;
+        border: 2px solid $decorationColor1;
+        transition: 200ms ease-in-out;
+        cursor: pointer;
+        letter-spacing: 1px;
+        outline: none;
+
+        &:hover {
+            color: $decorationColor1;
+        }
+    }
+
+    & input {
+        height: 30px;
+        padding: 4px 8px;
+        margin: 5px 0;
+
+        background-color: $decorationColor1;
+        border: 1px solid transparent;
+        outline: none;
+        color: $decorationColor6;
+        transition: 200ms ease-in-out;
+
+        &:active, &:focus {
+            border: 1px solid $decorationColor6;
+        }
+    }
+}
