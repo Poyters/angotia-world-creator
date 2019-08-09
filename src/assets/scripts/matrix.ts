@@ -1,3 +1,7 @@
+//import configs
+import creatorConfig from '../configs/creatorConfig.json';
+
+
 export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number): any[] => {
 	const copyOfRootMatrix = deepCopy(rootMatrix);
 	const copyOfUpgradeMatrix = deepCopy(upgradeMatrix);
@@ -32,3 +36,39 @@ export const deepCopy = item => {
 
 	return copy;
 }
+
+
+export const matrixToIds = (matrix: any[]): any[] => {
+	const copyOfmatrix: Array<any> = deepCopy(matrix);
+	const squareIds: any = [];
+  
+	copyOfmatrix.map((yAxis: Array<number>, y:number) => {
+	  yAxis.map((field: number, x: number) => {
+		const squareMatrix: Array<number> = [
+		  field[0][0],
+		  field[0][1],
+		  field[1][0],
+		  field[1][1]
+		];
+  
+		squareMatrix.map((square: number, index: number) => {
+		  if (square === 1) {
+			const xDelta: number = index === 1 || index === 3 ? 1 : 0;
+			const yDelta: number = index === 2 || index === 3 ? 1 : 0;
+			const squareId = {
+				x: x,
+				y: y,
+				xDelta,
+				yDelta,
+				id: `${x}.${xDelta}, ${y}.${yDelta}`
+			}
+  
+			squareIds.push(squareId)
+		  }
+		});
+  
+	  })
+	})
+
+	return squareIds;
+  }
