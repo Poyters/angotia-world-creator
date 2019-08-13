@@ -1,10 +1,10 @@
-//import configs
-import creatorConfig from '../configs/creatorConfig.json';
+//Import interfaces
+import { ISquareData } from '../interfaces/squareInterfaces';
 
 
 export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number): any[] => {
-	const copyOfRootMatrix = deepCopy(rootMatrix);
-	const copyOfUpgradeMatrix = deepCopy(upgradeMatrix);
+	const copyOfRootMatrix: any[] = deepCopy(rootMatrix);
+	const copyOfUpgradeMatrix: any[] = deepCopy(upgradeMatrix);
 
 	copyOfUpgradeMatrix.forEach((yAxis: Array<number>, y:number) => {
 		yAxis.forEach((field: number, x: number) => {
@@ -31,14 +31,15 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 }
 
 
-export const deepCopy = item => {
+export const deepCopy = (item): any[] => {
 	const copy = JSON.parse(JSON.stringify(item));
 
 	return copy;
 }
 
 
-export const matrixToIds = (matrix: any[]): any[] => {
+
+export const matrixToIds = (matrix: any[]): ISquareData[] => {
 	const copyOfmatrix: Array<any> = deepCopy(matrix);
 	const squareIds: any = [];
   
@@ -55,7 +56,7 @@ export const matrixToIds = (matrix: any[]): any[] => {
 		  if (square === 1) {
 			const xDelta: number = index === 1 || index === 3 ? 1 : 0;
 			const yDelta: number = index === 2 || index === 3 ? 1 : 0;
-			const squareId = {
+			const squareId: ISquareData = {
 				x: x,
 				y: y,
 				xDelta,

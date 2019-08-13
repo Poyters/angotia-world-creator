@@ -1,12 +1,12 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
 import { deepCopy, matrixToIds } from '../../../assets/scripts/matrix';
 import { markSquare } from '../../../assets/scripts/markSquare';
 
 //Import actions
-import { changeMapPassageMatrix } from '../../../redux/actions/mapActions';
+import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../redux/actions/mapActions';
 
 
 interface IPassageOption {
@@ -17,13 +17,23 @@ interface IPassageOption {
 const PassageOption: React.FC<IPassageOption> = ({ closePopup }) => {
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
     const passageMatrix = useSelector(state => state.map.passage.matrix);
+    const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const dispatch = useDispatch();
+    const xd = useSelector(state => state.map.passage.locations);
 
     const insertPassage = () => {
-        console.log(selectMatrix)
-        console.log(matrixToIds(selectMatrix));
-        closePopup(false)
+        const potentialLocations = matrixToIds(selectMatrix);
+        potentialLocations.forEach(location => {
+            if (!passageLocations.some(e => e.id === location.id)) {
+                passageLocations.push(location);
+              }
+        })
 
+        closePopup(false);
+        console.log(passageLocations)
+        dispatch(changeMapPassageLocations(passageLocations));
         markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')
+        console.log(xd)
     }
 
     return (

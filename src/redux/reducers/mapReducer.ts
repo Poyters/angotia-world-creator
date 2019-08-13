@@ -14,7 +14,7 @@ export const initState = {
     },
     blockMatrix: [],
     passage: {
-        locations: {}, //map id from passage
+        locations: [],
         matrix: []
     },
     building: {
@@ -121,6 +121,14 @@ export const mapReducer = (state = initState, action) => {
                     ...state.npc,
                     matrix: action.newMatrix
                 }
+            }
+        case 'CHANGE_MAP_PASSAGE_LOCATIONS':
+            return {
+                ...state,
+                passage: {
+                    ...state.passage,
+                    locations: action.locations,
+                },
             }
         default:
             return state;

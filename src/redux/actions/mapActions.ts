@@ -1,5 +1,6 @@
 //Import interfaces
 import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+import { ISquareData } from '../../assets/interfaces/squareInterfaces';
 
 
 export const setMapSizes = (sizes: IMapSize) => {
@@ -83,5 +84,12 @@ export const changeMapMobMatrix = (newMatrix: Array<any>) => {
     return {
         type: 'CHANGE_MAP_MOB_MATRIX',
         newMatrix
+    }
+}
+
+export const changeMapPassageLocations = (locations: ISquareData[]) => {
+    return {
+        type: 'CHANGE_MAP_PASSAGE_LOCATIONS',
+        locations
     }
 }
