@@ -87,7 +87,7 @@ export const changeMapMobMatrix = (newMatrix: Array<any>) => {
     }
 }
 
-export const changeMapPassageLocations = (locations: ISquareData[]) => {
+export const changeMapPassageLocations = (locations) => {
     return {
         type: 'CHANGE_MAP_PASSAGE_LOCATIONS',
         locations
