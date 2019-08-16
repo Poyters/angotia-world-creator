@@ -19,7 +19,6 @@ let pressedKey: number = -1;
 document.addEventListener('keydown', event => pressedKey = event.keyCode);
 
 export const markSquare = (sourceMatrix: any[], sourceMatrixCanvas: string, changeMatrixMethod: Function, note: string, fillColor: string, fillStyle?: string) => {
-  console.log(sourceMatrix);
   const storeData = store.getState();
   const selectMatrix: any[] = deepCopy(storeData.map.select.matrix);
   const sourceMatrixCopy: any[] = deepCopy(sourceMatrix);
