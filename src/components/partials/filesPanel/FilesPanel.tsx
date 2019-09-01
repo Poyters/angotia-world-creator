@@ -14,6 +14,7 @@ import Arrow from '../Arrow';
 
 //Import images
 import test1 from '../../../assets/images/mapSources/building/test1.png';
+import test1min from '../../../assets/images/mapSources/building/test1min.png';
 import test2 from '../../../assets/images/mapSources/decoration/test2.png';
 import test3 from '../../../assets/images/mapSources/mob/test3.png';
 import test4 from '../../../assets/images/mapSources/npc/test4.png';
@@ -58,11 +59,25 @@ const FilesPanel: React.FC = () => {
         switch(currBookmark) { 
             case 'building':
                 bookmarkImages.push(test1); //TODO: get images from database
+                bookmarkImages.push(test1min); //TODO: get images from database
                 matrixTransformationMethod = changeMapBuildingMatrix;
                 sourceMatrix = deepCopy(useSelector(state => state.map.building.matrix));
                 note ='Added building images';
             break;
             case 'decoration':
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
+                bookmarkImages.push(test2);
                 bookmarkImages.push(test2);
                 matrixTransformationMethod = changeMapDecorationMatrix;
                 sourceMatrix = deepCopy(useSelector(state => state.map.decoration.matrix));

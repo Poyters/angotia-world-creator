@@ -64,15 +64,22 @@
         @include scrollBar();
 
         & ul {
+            display: flex;
+            align-content: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
             width: 100%;
             margin: 1px 0 0 -1px;
             padding: 0;
 
             & li {
-                display: inline-block;
+                display: flex;
                 margin: 1px;
+                justify-content: center;
+                align-items: center;
 
                 background-color: $decorationColor8;
+                cursor: pointer;
             }
         }
     }

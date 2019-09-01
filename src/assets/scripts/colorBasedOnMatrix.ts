@@ -32,7 +32,14 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
               case 'image':
                 const image = makeImage(color);
 
-                ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+                if (image.width <= (fieldSize / 2) && image.height <= (fieldSize / 2)) { //square size
+                  ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+                }
+                else { //field size
+                  if (index === 0) {
+                    ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+                  }
+                }
               break;
               default:
                 ctx.fillStyle = color;
