@@ -21,6 +21,7 @@ document.addEventListener('keydown', event => pressedKey = event.keyCode);
 export const markSquare = (sourceMatrix: any[], sourceMatrixCanvas: string, changeMatrixMethod: Function, note: string, fillColor: string, fillStyle?: string) => {
   const storeData = store.getState();
   const selectMatrix: any[] = deepCopy(storeData.map.select.matrix);
+  const copyOfSelectMatrix: any[] = deepCopy(selectMatrix);
   const sourceMatrixCopy: any[] = deepCopy(sourceMatrix);
   const typeOfAction: number = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can add passage, but when you press key wich has the same code as secondOptionKeyCode, you delete selected passage
   const newMatrix: any[] = deepCopy(updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction));
@@ -28,8 +29,14 @@ export const markSquare = (sourceMatrix: any[], sourceMatrixCanvas: string, chan
   store.dispatch(changeMatrixMethod(newMatrix));
   clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 
-  emptyMapCanvasCtx(sourceMatrixCanvas);
-  colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
+  if (fillStyle === 'image') {
+    colorBasedOnMatrix(copyOfSelectMatrix, sourceMatrixCanvas, fillColor, fillStyle);
+  }
+  else {
+    emptyMapCanvasCtx(sourceMatrixCanvas);
+    colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
+  }
+
   setActionNote(note);
 
   setTimeout(() => pressedKey = -1, 500) //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
