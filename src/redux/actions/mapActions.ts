@@ -87,6 +87,13 @@ export const changeMapMobMatrix = (newMatrix: Array<any>) => {
     }
 }
 
+export const changeMapVertexWeightMatrix = (newMatrix: Array<any>) => {
+    return {
+        type: 'CHANGE_MAP_VERTEX_WEIGHT_MATRIX',
+        newMatrix
+    }
+}
+
 export const changeMapPassageLocations = (locations) => {
     return {
         type: 'CHANGE_MAP_PASSAGE_LOCATIONS',

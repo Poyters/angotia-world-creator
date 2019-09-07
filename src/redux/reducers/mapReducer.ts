@@ -33,6 +33,9 @@ export const initState = {
     mob: {
         matrix: [],
         types: {}
+    },
+    vertex: {
+        matrix: []
     }
 };
 
@@ -119,6 +122,14 @@ export const mapReducer = (state = initState, action) => {
                 ...state,
                 npc: {
                     ...state.npc,
+                    matrix: action.newMatrix
+                }
+            }
+        case 'CHANGE_MAP_VERTEX_WEIGHT_MATRIX':
+            return {
+                ...state,
+                vertex: {
+                    ...state.vertex,
                     matrix: action.newMatrix
                 }
             }
