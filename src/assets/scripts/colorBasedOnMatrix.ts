@@ -6,6 +6,7 @@ import { deepCopy } from '../scripts/matrix';
 
 
 export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, specialView?: string): void => {
+  console.log(matrix)
     const copyOfmatrix: Array<any> = deepCopy(matrix);
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);
@@ -21,7 +22,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
         ];
   
         squareMatrix.map((square: number, index: number) => {
-          if (square === 1) {
+          if (square !== 0 && square) {
             const xDelta: number = index === 1 || index === 3 ?  25 : 0;
             const yDelta: number = index === 2 || index === 3 ? 25 : 0;
 
@@ -30,7 +31,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
               case 'image':
-                const image = makeImage(color);
+                const image = makeImage(square); //square is path to image
 
                 if (image.width <= (fieldSize / 2) && image.height <= (fieldSize / 2)) { //square size
                   ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);

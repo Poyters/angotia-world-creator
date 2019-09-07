@@ -2,7 +2,7 @@
 import { ISquareData } from '../interfaces/squareInterfaces';
 
 
-export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number): any[] => {
+export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number | string): any[] => {
 	const copyOfRootMatrix: any[] = deepCopy(rootMatrix);
 	const copyOfUpgradeMatrix: any[] = deepCopy(upgradeMatrix);
 
@@ -16,7 +16,7 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 			];
 
 			squareMatrix.forEach((square: number, squareIndex: number) => {
-				if (square === 1) {
+				if (square && square !== 0) {
 					const fieldArray = squareIndex >= 2 ? 1 : 0;
 					const squarePos = fieldArray === 0 ? squareIndex : squareIndex - 2;
 

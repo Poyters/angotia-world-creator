@@ -42,7 +42,7 @@ const Map: React.FC = () => {
 
       <canvas className="map__canvas map__canvas--passage js-mapLayer" data-layername="passage" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapPassageCanvas"> </canvas>
 
-      <canvas className="map__canvas map__canvas--passage js-mapLayer" data-layername="buildings" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapbuildingCanvas"> </canvas>
+      <canvas className="map__canvas map__canvas--building js-mapLayer" data-layername="buildings" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapbuildingCanvas"> </canvas>
 
       <canvas className="map__canvas map__canvas--decoration js-mapLayer" data-layername="decorations" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapdecorationCanvas"> </canvas>
 
