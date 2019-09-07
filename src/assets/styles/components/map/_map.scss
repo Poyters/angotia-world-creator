@@ -23,11 +23,15 @@
         }
 
         &--select {
-            z-index: 20;
+            z-index: 30;
         }
 
         &--block {
-            z-index: 19;
+            z-index: 29;
+        }
+
+        &--vertexWeight {
+            z-index: 28;
         }
 
         &--passage {
