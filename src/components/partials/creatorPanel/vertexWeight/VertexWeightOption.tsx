@@ -53,7 +53,7 @@ const VertexWeightOption: React.FC = () => {
             <div role="button" className="option" onClick={() => vertexHandler()}>
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
-						5
+                        { creatorConfig.vertexWeight.max }
 					</div>
 				</div>
 			</div>

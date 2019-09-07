@@ -23,7 +23,7 @@ export const markSquare = (sourceMatrix: any[], sourceMatrixCanvas: string, chan
   const selectMatrix: any[] = deepCopy(storeData.map.select.matrix);
   const sourceMatrixCopy: any[] = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1; //secondOptionKeyCode determines second type of used action, eg at this example, you can add passage, but when you press key wich has the same code as secondOptionKeyCode, you delete selected passage
-  if (fillStyle === 'image' && pressedKey !== creatorConfig.secondOptionKeyCode) typeOfAction = fillColor;
+  if ((fillStyle === 'image' || fillStyle === 'vertexWeight') && pressedKey !== creatorConfig.secondOptionKeyCode) typeOfAction = fillColor;
 
   const newMatrix: any[] = deepCopy(updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction));
 

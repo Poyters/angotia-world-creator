@@ -7,7 +7,7 @@
     "selectColor": "rgba(0, 0, 0, 0.5)",
     "blockSquareColor": "#7d190b",
     "vertexWeight": {
-        "min": 0,
+        "min": 1,
         "max": 5,
         "color": "#27427c"
     },

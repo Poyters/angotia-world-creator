@@ -40,7 +40,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
                 
                 drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
                 ctx.fillStyle = '#fff';
-                ctx.fillText(color, drawStartX + 10, drawStartY + 18);
+                ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
               case 'image':
                 const image = makeImage(square); //square is path to image
