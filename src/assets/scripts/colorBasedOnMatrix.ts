@@ -5,9 +5,11 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { deepCopy } from '../scripts/matrix';
 
 
+const fieldSize: number = creatorConfig.map.fieldSize;
+const squareSize: number = creatorConfig.map.fieldSize / 2 ;
+
 export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, specialView?: string): void => {
     const copyOfmatrix: Array<any> = deepCopy(matrix);
-    const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
 
@@ -22,8 +24,8 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
   
         squareMatrix.map((square: number, index: number) => {
           if (square !== 0 && square) {
-            const xDelta: number = index === 1 || index === 3 ?  25 : 0;
-            const yDelta: number = index === 2 || index === 3 ? 25 : 0;
+            const xDelta: number = index === 1 || index === 3 ?  squareSize : 0;
+            const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
             const drawStartX = x*fieldSize + xDelta;
             const drawStartY = y*fieldSize + yDelta;
 
@@ -72,10 +74,10 @@ const drawCross = (ctx: any, x: number, y: number): void => {
   ctx.beginPath();
 
   ctx.moveTo(x, y);
-  ctx.lineTo(x + 25, y + 25);
+  ctx.lineTo(x + squareSize, y + squareSize);
 
-  ctx.moveTo(x, y + 25);
-  ctx.lineTo(x + 25, y);
+  ctx.moveTo(x, y + squareSize);
+  ctx.lineTo(x + squareSize, y);
   ctx.stroke();
 }
 
@@ -95,10 +97,10 @@ const drawTriangle = (ctx: any, x: number, y: number, fillColor: string): void =
 
   ctx.beginPath();
   ctx.beginPath();
-  ctx.moveTo(x + 12.5 + 2, y + 4);
-  ctx.lineTo(x + 25 - 2, y + 25 - 4);
-  ctx.lineTo(x + 4, y + 25 - 4);
-  ctx.lineTo(x + 12.5 + 2 , y + 4);
+  ctx.moveTo(x + (squareSize/2) + 2, y + 4);
+  ctx.lineTo(x + squareSize - 2, y + squareSize - 4);
+  ctx.lineTo(x + 4, y + squareSize - 4);
+  ctx.lineTo(x + (squareSize/2) + 2 , y + 4);
   
   ctx.fill();
   ctx.stroke();
