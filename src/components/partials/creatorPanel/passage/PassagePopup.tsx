@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
-import { deepCopy, matrixToIds } from '../../../assets/scripts/matrix';
-import { markSquare } from '../../../assets/scripts/markSquare';
+import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
+import { markSquare } from '../../../../assets/scripts/markSquare';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../redux/actions/mapActions';
+import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
 
 
 interface IPassageOption {

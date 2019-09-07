@@ -10,9 +10,9 @@ import AddFileOption from './AddFileOption';
 import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
 import LayersOption from './LayersOption';
-import PassageOption from './PassageOption';
+import PassageOption from './passage/PassageOption';
 import LinkButton from './LinkButton';
-import VertexWeightOption from './VertexWeightOption';
+import VertexWeightOption from './vertexWeight/VertexWeightOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix} from '../../../redux/actions/mapActions';

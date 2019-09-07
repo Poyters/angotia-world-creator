@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import configs
-import creatorConfig from '../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
 //Import scripts
-import { deepCopy, matrixToIds } from '../../../assets/scripts/matrix';
-import { markSquare } from '../../../assets/scripts/markSquare';
+import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
+import { markSquare } from '../../../../assets/scripts/markSquare';
 
 //Import components
 import PassagePopup from './PassagePopup';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../redux/actions/mapActions';
+import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
 
 
 let pressedKey: number = -1;
