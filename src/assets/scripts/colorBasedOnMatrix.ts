@@ -36,7 +36,7 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
               case 'vertexWeight':
-                const vertexWeightColor: string = creatorConfig.vertexWeightColor;
+                const vertexWeightColor: string = creatorConfig.vertexWeight.color;
                 
                 drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
                 ctx.fillStyle = '#fff';

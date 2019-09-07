@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deepCopy, matrixToIds } from '../../../assets/scripts/matrix';
 import { markSquare } from '../../../assets/scripts/markSquare';
 
+//Import configs
+import creatorConfig from '../../../assets/configs/creatorConfig.json';
+
 //Import actions
 import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../redux/actions/mapActions';
 
@@ -44,7 +47,9 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
                 <header className="insertPopup__header t-paragraph3Light">Add weight</header>
-                <label className="insertPopup__label t-paragraph6Light">Weight of vertex (0-5)</label>
+                <label className="insertPopup__label t-paragraph6Light">
+                    Weight of vertex ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                </label>
                 <input type='text' value={vertexWeightValue} onChange={e => setVertexWeightValue(e.target.value)}/>
 
                 <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertVertexWeight()}> submit </button>
