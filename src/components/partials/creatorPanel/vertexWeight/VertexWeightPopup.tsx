@@ -9,7 +9,7 @@ import { markSquare } from '../../../../assets/scripts/markSquare';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
+import { changeMapVertexWeightMatrix, changeMapVertexWeights } from '../../../../redux/actions/mapActions';
 
 
 interface IPassageOption {
@@ -19,14 +19,15 @@ interface IPassageOption {
 const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
+    const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
+
     const insertVertexWeight = () => {
-        const potentialLocations = matrixToIds(selectMatrix);
-        potentialLocations.forEach(location => {
-            if (!passageLocations.some(e => e.id === location.id)) {
+        const potentialWeights = matrixToIds(selectMatrix);
+        potentialWeights.forEach(location => {
+            if (!vertexWeights.some(e => e.id === location.id)) {
                 const newLocation = {
                     ...location,
                     destination: {
@@ -34,13 +35,13 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                     }
                 }
 
-                passageLocations.push(newLocation);
+                vertexWeights.push(newLocation);
               }
         })
 
         closePopup(false);
-        dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Vertex weight added', vertexWeightValue, 'vertexWeight')
+        dispatch(changeMapVertexWeights(vertexWeights));
+        markSquare(vertexWeightMatrix, 'mapVertexWeightCanvas', changeMapVertexWeightMatrix, 'Vertex weight added', vertexWeightValue, 'vertexWeight')
     }
 
     return (

@@ -52,7 +52,7 @@ const Map: React.FC = () => {
 
       <canvas className="map__canvas map__canvas--mob js-mapLayer" data-layername="mobs" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapmobCanvas"> </canvas>
 
-      <canvas className="map__canvas map__canvas--vertexWeight js-mapLayer" data-layername="vertex weight" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapVertexWeight"> </canvas>
+      <canvas className="map__canvas map__canvas--vertexWeight js-mapLayer" data-layername="vertex weight" width={`${mapSize.x * fieldSize}`} height={`${mapSize.y * fieldSize}`} id="mapVertexWeightCanvas"> </canvas>
     </main>
   );
 }

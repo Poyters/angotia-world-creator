@@ -15,7 +15,7 @@ import LinkButton from './LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
 
 //Import actions
-import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix} from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix, changeMapVertexWeightMatrix } from '../../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
@@ -31,6 +31,7 @@ const CreatorPanel: React.FC = () => {
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
     dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
     dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
   }, []);
 
   return (

@@ -100,3 +100,10 @@ export const changeMapPassageLocations = (locations) => {
         locations
     }
 }
+
+export const changeMapVertexWeights = (weights) => {
+    return {
+        type: 'CHANGE_MAP_VERTEX_WEIGHTS',
+        weights
+    }
+}

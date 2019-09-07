@@ -35,7 +35,8 @@ export const initState = {
         types: {}
     },
     vertex: {
-        matrix: []
+        matrix: [],
+        weights: []
     }
 };
 
@@ -141,6 +142,14 @@ export const mapReducer = (state = initState, action) => {
                     locations: action.locations,
                 },
             }
+        case 'CHANGE_MAP_VERTEX_WEIGHTS':
+                return {
+                    ...state,
+                    vertex: {
+                        ...state.vertex,
+                        weights: action.weights,
+                    },
+                }
         default:
             return state;
     }
