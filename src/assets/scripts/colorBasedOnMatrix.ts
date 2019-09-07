@@ -6,7 +6,6 @@ import { deepCopy } from '../scripts/matrix';
 
 
 export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, specialView?: string): void => {
-  console.log(matrix)
     const copyOfmatrix: Array<any> = deepCopy(matrix);
     const fieldSize: number = creatorConfig.map.fieldSize;
     const canvas: any = document.getElementById(canvasId);

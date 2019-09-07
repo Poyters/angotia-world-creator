@@ -6,6 +6,7 @@ import FilesPanel from '../partials/filesPanel/FilesPanel';
 import CreditsFooter from '../partials/CreditsFooter';
 import Map from '../partials/Map';
 import Notifications from '../partials/Notifications';
+import VersionMark from '../partials/VersionMark';
 
 
 const Creator: React.FC = () => {
@@ -16,6 +17,7 @@ const Creator: React.FC = () => {
       <Map />
       <CreditsFooter />
       <Notifications />
+      <VersionMark />
     </article>
   );
 }
