@@ -50,7 +50,7 @@ const PassageOption: React.FC = () => {
     return (
         <Fragment>
             { isPopup ? ReactDOM.createPortal(<PassagePopup closePopup={setIsPopup}/>, document.body) : null}
-            <div className="passageOption" onClick={() => passageHandler()}></div>
+            <div className="passageOption" onClick={() => passageHandler()} data-title="add/delete passage"></div>
         </Fragment>
     )
 }

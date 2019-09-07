@@ -50,7 +50,7 @@ const VertexWeightOption: React.FC = () => {
     return (
         <Fragment>
             { isPopup ? ReactDOM.createPortal(<VertexWeightPopup closePopup={setIsPopup}/>, document.body) : null}
-            <div role="button" className="option" onClick={() => vertexHandler()}>
+            <div role="button" className="option" onClick={() => vertexHandler()} data-title="add/delete vertex weight">
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
                         { creatorConfig.vertexWeight.max }

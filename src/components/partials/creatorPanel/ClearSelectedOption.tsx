@@ -14,7 +14,7 @@ const ClearSelectedOption: React.FC = () => {
 	}
 
   return (
-    <div role="button" className="clearSelectedOption" onClick={clearSelected}>
+    <div role="button" className="clearSelectedOption" onClick={clearSelected} data-title="clear celected fields">
       <div className="clearSelectedOption__ereaser"> </div>
     </div>
   );

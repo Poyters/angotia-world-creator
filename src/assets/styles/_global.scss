@@ -20,6 +20,38 @@ a {
 	}
 }
 
+
+
+[data-title] {
+	position: relative;
+
+	&:after {
+		content: attr(data-title);
+		position: absolute;
+		z-index: 99;
+		visibility: hidden;
+		opacity: 0;
+	
+		background-color: $decorationColor9;
+		color: $fontColor1;
+		font-size: 10px;
+	
+		padding: 3px 5px;
+		bottom: -15px;
+		left: 100%;
+		white-space: nowrap;
+		box-shadow: 0 0 2px $decorationColor1;
+	}
+
+	&:hover {
+		&:after {
+			opacity: 1;
+			transition: all 200ms ease-in-out;
+			visibility: visible;
+		}
+	}
+}
+
 //Global classes
 .g-container {
   	display: flex;

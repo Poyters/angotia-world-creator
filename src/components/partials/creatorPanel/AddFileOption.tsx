@@ -32,7 +32,7 @@ const AddFileOption: React.FC = () => {
 
   return (
     <React.Fragment>
-      <input className="option option--addFile" type="file" id="file" name="files[]" onChange={evt => handleFileSelect(evt)}/>
+      <input className="option option--addFile" type="file" id="file" name="files[]" onChange={evt => handleFileSelect(evt)} data-title="add background image"/>
       <label className={optionOnOff} htmlFor="file"></label>
     </React.Fragment>
   );
