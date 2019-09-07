@@ -37,7 +37,7 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
         closePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Vertex weight added', '#780606', '')
+        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Vertex weight added', vertexWeightValue, 'vertexWeight')
     }
 
     return (

@@ -24,20 +24,29 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
           if (square !== 0 && square) {
             const xDelta: number = index === 1 || index === 3 ?  25 : 0;
             const yDelta: number = index === 2 || index === 3 ? 25 : 0;
+            const drawStartX = x*fieldSize + xDelta;
+            const drawStartY = y*fieldSize + yDelta;
 
             switch(specialView) {
               case 'barrier':
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
+              case 'vertexWeight':
+                const vertexWeightColor: string = creatorConfig.vertexWeightColor;
+                
+                drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
+                ctx.fillStyle = '#fff';
+                ctx.fillText(color, drawStartX + 11, drawStartY + 18);
+              break;
               case 'image':
                 const image = makeImage(square); //square is path to image
 
                 if (image.width <= (fieldSize / 2) && image.height <= (fieldSize / 2)) { //square size
-                  ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+                  ctx.drawImage(image, drawStartX, drawStartY);
                 }
                 else { //field size
                   if (index === 0) {
-                    ctx.drawImage(image, x*fieldSize + xDelta, y*fieldSize + yDelta);
+                    ctx.drawImage(image, drawStartX, drawStartY);
                   }
                 }
               break;
@@ -76,4 +85,21 @@ const makeImage = imgPath => {
   image.src = imgPath;
   
   return image;
+}
+
+
+const drawTriangle = (ctx: any, x: number, y: number, fillColor: string): void => {
+  ctx.setLineDash([]);
+  ctx.strokeStyle = fillColor;
+  ctx.fillStyle = fillColor;
+
+  ctx.beginPath();
+  ctx.beginPath();
+  ctx.moveTo(x + 12.5 + 2, y + 4);
+  ctx.lineTo(x + 25 - 2, y + 25 - 4);
+  ctx.lineTo(x + 4, y + 25 - 4);
+  ctx.lineTo(x + 12.5 + 2 , y + 4);
+  
+  ctx.fill();
+  ctx.stroke();
 }
