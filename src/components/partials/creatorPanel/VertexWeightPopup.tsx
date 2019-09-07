@@ -13,23 +13,21 @@ interface IPassageOption {
     closePopup: Function
 }
 
-const PassageOption: React.FC<IPassageOption> = ({ closePopup }) => {
-    const [mapTargetId, setMapTargetId] = useState<string>("");
-    const [mapTargetCords, setMapTargetCords] = useState<string>("");
+const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
+    const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
     const passageMatrix = useSelector(state => state.map.passage.matrix);
     const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
-    const insertPassage = () => {
+    const insertVertexWeight = () => {
         const potentialLocations = matrixToIds(selectMatrix);
         potentialLocations.forEach(location => {
             if (!passageLocations.some(e => e.id === location.id)) {
                 const newLocation = {
                     ...location,
                     destination: {
-                        mapTargetId,
-                        mapTargetCords
+                        vertexWeightValue,
                     }
                 }
 
@@ -39,23 +37,21 @@ const PassageOption: React.FC<IPassageOption> = ({ closePopup }) => {
 
         closePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')
+        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Vertex weight added', '#780606', '')
     }
 
     return (
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
-                <header className="insertPopup__header t-paragraph3Light"> Add passage </header>
-                <label className="insertPopup__label t-paragraph6Light">Target map id </label>
-                <input type='text' value={mapTargetId} onChange={e => setMapTargetId(e.target.value)}/>
-                <label className="insertPopup__label t-paragraph6Light">Target map coordinations </label>
-                <input type='text' value={mapTargetCords} onChange={e => setMapTargetCords(e.target.value)}/>
+                <header className="insertPopup__header t-paragraph3Light">Add weight</header>
+                <label className="insertPopup__label t-paragraph6Light">Weight of vertex (0-5)</label>
+                <input type='text' value={vertexWeightValue} onChange={e => setVertexWeightValue(e.target.value)}/>
 
-                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertPassage()}> submit </button>
+                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertVertexWeight()}> submit </button>
             </div>
         </div>
     )
 }
 
 
-export default PassageOption;
+export default VertexWeightPopup;
