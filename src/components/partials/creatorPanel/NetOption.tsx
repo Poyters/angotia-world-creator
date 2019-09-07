@@ -54,7 +54,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
 
   return (
-    <div className="option option--net" onClick={changeViewType}>
+    <div className="option option--net" onClick={changeViewType} data-title="click to change nets mode">
       <span className="option__viewType">{optionViewType}</span>
       <div className={`netGraphic ${netOnOff}`}>
         <div className="netGraphic__square"></div>

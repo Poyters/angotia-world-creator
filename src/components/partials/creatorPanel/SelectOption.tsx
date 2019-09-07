@@ -50,6 +50,7 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   return (
     <div role="button" className={`option selectOption ${selectOnOff}`} onClick={changeSelectType}>
         <span className="option__viewType">{selectType}</span>
+        <div className="titleContainer" data-title="turn on/off full screen mode"></div>
     </div>
   );
 }

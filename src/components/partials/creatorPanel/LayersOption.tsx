@@ -17,7 +17,7 @@ const LayersOption: React.FC = () => {
         const ltr = Array.from(layers).map((layer: any, id: number) => {
             const layerName = layer.dataset.layername;
             return (
-                <li id={`${layerName}Btn`} className="layersList__layer layersList__layer--active" key={id} onClick={() => toggleLayer(layerName)}>{layerName}</li>
+                <li id={`${layerName}Btn`} className="layersList__layer layersList__layer--active" key={id} onClick={() => toggleLayer(layerName)} data-title={`click to toggle ${layerName} layer`}>{layerName}</li>
             )
         })
 

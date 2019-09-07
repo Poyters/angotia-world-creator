@@ -31,7 +31,7 @@ const FullScreenOption: React.FC = () => {
 
   return (
     <div role="button" className={`option option--fullScreen ${fsOnOff}`} onClick={clickHandler}>
-        
+      <div className="titleContainer" data-title="turn on/off full screen mode"></div>
     </div>
   );
 }

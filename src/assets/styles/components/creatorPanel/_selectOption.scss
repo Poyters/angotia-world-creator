@@ -44,4 +44,13 @@
 
         transform: rotate(45deg);
     }
+
+    & .titleContainer {
+        position: absolute;
+        z-index: 99;
+        width: 100%;
+        height: 100%;
+        
+        transform: rotate(-45deg);
+    }
 }
