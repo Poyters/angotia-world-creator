@@ -13,7 +13,7 @@ import { markSquare } from '../../../../assets/scripts/markSquare';
 import VertexWeightPopup from './VertexWeightPopup';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
+import { changeMapVertexWeightMatrix, changeMapVertexWeights } from '../../../../redux/actions/mapActions';
 
 
 let pressedKey: number = -1;
@@ -22,8 +22,8 @@ document.addEventListener('keydown', event => pressedKey = event.keyCode);
 const VertexWeightOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    let passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
+    let vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
     const vertexHandler = () => {
@@ -36,15 +36,15 @@ const VertexWeightOption: React.FC = () => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {
-            if (passageLocations.some(e => e.id === location.id)) {
-                const index = passageLocations.findIndex(x => x.id === location.id);
+            if (vertexWeights.some(e => e.id === location.id)) {
+                const index = vertexWeights.findIndex(x => x.id === location.id);
 
-                passageLocations.splice(index, 1);
+                vertexWeights.splice(index, 1);
               }
         })
 
-        dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')
+        dispatch(changeMapVertexWeights(vertexWeights));
+        markSquare(vertexWeightMatrix, 'mapVertexWeightCanvas', changeMapVertexWeightMatrix, 'Vertex weight added', '', 'vertexWeight')
     }
 
     return (
