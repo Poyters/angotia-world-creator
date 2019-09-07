@@ -1,0 +1,29 @@
+.vertexWeightOption {
+    display: flex;
+    position: relative;
+    width: 0;
+    height: 0;
+    justify-content: center;
+
+    transition: 200ms ease-in-out;
+    border-style: solid;
+    border-width: 0 9px 20px 9px;
+    border-color: transparent transparent $decorationColor4 transparent;
+
+    &:hover {
+        border-color: transparent transparent $decorationColor1 transparent;
+
+        & .vertexWeightOption__number {
+            color: $decorationColor4;
+        }
+    }
+
+    &__number {
+        margin-top: 7px;
+
+        font-weight: 700;
+        font-size: 12px;
+        color: $decorationColor1;
+        transition: 200ms ease-in-out;
+    }
+}

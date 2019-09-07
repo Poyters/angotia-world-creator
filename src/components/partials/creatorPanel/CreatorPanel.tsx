@@ -12,6 +12,7 @@ import BlockOption from './BlockOption';
 import LayersOption from './LayersOption';
 import PassageOption from './PassageOption';
 import LinkButton from './LinkButton';
+import VertexWeightOption from './VertexWeightOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix} from '../../../redux/actions/mapActions';
@@ -70,6 +71,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <PassageOption />
+        </li>
+        <li>
+          <VertexWeightOption />
         </li>
       </ul>
     </nav>
