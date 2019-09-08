@@ -8,6 +8,7 @@ import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 //Import scripts
 import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
 import { markSquare } from '../../../../assets/scripts/markSquare';
+import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
 
 //Import components
 import VertexWeightPopup from './VertexWeightPopup';
@@ -27,6 +28,8 @@ const VertexWeightOption: React.FC = () => {
     const dispatch = useDispatch(); 
 
     const vertexHandler = () => {
+        if (isEmptyMatrix(selectMatrix)) return;
+        
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
         setTimeout(() => pressedKey = -1, 500) 
