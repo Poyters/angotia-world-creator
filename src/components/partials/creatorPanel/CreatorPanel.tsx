@@ -13,6 +13,7 @@ import LayersOption from './LayersOption';
 import PassageOption from './passage/PassageOption';
 import LinkButton from './LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
+import SaveOption from './SaveOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix, changeMapVertexWeightMatrix } from '../../../redux/actions/mapActions';
@@ -47,7 +48,13 @@ const CreatorPanel: React.FC = () => {
           <LinkButton link='/help' buttonText='help' />
         </li>
         <li>
+          <LinkButton link='/license' buttonText='license' />
+        </li>
+        <li>
           <ExportOption />
+        </li>
+        <li>
+          <SaveOption />
         </li>
         <li>
           <LayersOption />
@@ -81,11 +88,5 @@ const CreatorPanel: React.FC = () => {
   );
 }
 
-
-const mapDispatchToProps = dispatch => {
-  return {
-    changeMapSelectMatrix: newMatrix => {dispatch(changeMapSelectMatrix(newMatrix))}
-  }
-}
 
 export default CreatorPanel;
