@@ -3,7 +3,7 @@
     "map": {
         "fieldSize": 50
     },
-    "actionNoteDelay": 1800,
+    "actionNoteDelay": 1500,
     "selectColor": "rgba(0, 0, 0, 0.5)",
     "blockSquareColor": "#7d190b",
     "vertexWeight": {

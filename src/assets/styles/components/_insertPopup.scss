@@ -38,14 +38,14 @@
         }
 
         &:disabled {
-            color: #7d190b;
+            color: $warningColor;
             cursor: default;
         }
     }
 
     &--error {
         font-size: 10px;
-        color: #7d190b;
+        color: $warningColor;
     }
 
     & input {

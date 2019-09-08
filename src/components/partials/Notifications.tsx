@@ -25,7 +25,7 @@ const Notifications: React.FC = () => {
 	});
 
 	return (
-		<div className="notifications" style={{opacity : opacityCSS}}>
+		<div id="notifications" className="notifications" style={{opacity : opacityCSS}}>
 			{ note }
 		</div>
 	)

@@ -8,6 +8,8 @@ import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 //Import scripts
 import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
 import { markSquare } from '../../../../assets/scripts/markSquare';
+import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
+import { setActionNote } from '../../../../assets/scripts/notifications';
 
 //Import components
 import PassagePopup from './PassagePopup';
@@ -27,6 +29,11 @@ const PassageOption: React.FC = () => {
     const dispatch = useDispatch(); 
 
     const passageHandler = () => {
+        if (isEmptyMatrix(selectMatrix)) {
+            setActionNote('Need to select fields', 'warning');
+            return;
+        }
+
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
         setTimeout(() => pressedKey = -1, 500) 
