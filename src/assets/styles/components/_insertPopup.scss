@@ -36,6 +36,16 @@
         &:hover {
             color: $decorationColor1;
         }
+
+        &:disabled {
+            color: #7d190b;
+            cursor: default;
+        }
+    }
+
+    &--error {
+        font-size: 10px;
+        color: #7d190b;
     }
 
     & input {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
@@ -16,12 +16,23 @@ interface IPassageOption {
     closePopup: Function
 }
 
+
 const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
+    const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
     const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 
+
+
+    useEffect(() => {
+        if (parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || !vertexWeightMatrix || !Number(vertexWeightValue)) {
+            setError(true);
+        }
+        else setError(false);
+
+    }, [vertexWeightValue])
 
 
     const insertVertexWeight = () => {
@@ -52,8 +63,13 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                     Weight of vertex ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
                 </label>
                 <input type='text' value={vertexWeightValue} onChange={e => setVertexWeightValue(e.target.value)}/>
+                {
+                    (error) ? (
+                        <span className="insertPopup--error">Type proper value (number)</span>
+                    ) : null
+                }
 
-                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertVertexWeight()}> submit </button>
+                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertVertexWeight()} disabled={error}> submit </button>
             </div>
         </div>
     )
