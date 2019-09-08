@@ -13,7 +13,7 @@ interface IPassageOption {
     closePopup: Function
 }
 
-const PassageOption: React.FC<IPassageOption> = ({ closePopup }) => {
+const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
@@ -70,4 +70,4 @@ const PassageOption: React.FC<IPassageOption> = ({ closePopup }) => {
 }
 
 
-export default PassageOption;
+export default PassagePopup;

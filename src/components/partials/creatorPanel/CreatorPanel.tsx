@@ -13,7 +13,7 @@ import LayersOption from './LayersOption';
 import PassageOption from './passage/PassageOption';
 import LinkButton from './LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
-import SaveOption from './SaveOption';
+import SaveOption from './saveMap/SaveOption';
 import DeleteBgOption from './DeleteBgOption';
 
 //Import actions
