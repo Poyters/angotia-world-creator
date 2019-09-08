@@ -14,6 +14,7 @@ import PassageOption from './passage/PassageOption';
 import LinkButton from './LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
 import SaveOption from './SaveOption';
+import DeleteBgOption from './DeleteBgOption';
 
 //Import actions
 import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix, changeMapVertexWeightMatrix } from '../../../redux/actions/mapActions';
@@ -61,6 +62,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <AddFileOption />
+        </li>
+        <li>
+          <DeleteBgOption />
         </li>
         <li>
           <FullScreenOption />

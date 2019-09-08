@@ -1,6 +1,6 @@
 export const initState = {
     size: {
-        x: 6,
+        x: 9,
         y: 6
     },
     net: {
