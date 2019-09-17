@@ -6,9 +6,15 @@
   "dependencies": {
     "express": "^4.17.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0"
+  },
   "scripts": {
-    "start": "nodemon index",
+    "build": "babel src -d dist",
+    "start": "npm run build && nodemon dist/server.js",
+    "serve": "npm run build && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
