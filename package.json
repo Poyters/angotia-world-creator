@@ -1,0 +1,25 @@
+{
+  "name": "angotia-map-creator",
+  "version": "1.0.0",
+  "description": "Angotia Map Craetor (AMC) is tool for game developers or Map Creators to creating fully functionally boards for Angotia game. AMC provides professional UI and rapid work. User can easly create board that is compress to svg (all graphic of board) and json file which contains all actions like, mobs, npcs, passage to another locations, blocked fields etc.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafalKostecki/angotia-map-creator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RafalKostecki/angotia-map-creator/issues"
+  },
+  "homepage": "https://github.com/RafalKostecki/angotia-map-creator#readme"
+}
