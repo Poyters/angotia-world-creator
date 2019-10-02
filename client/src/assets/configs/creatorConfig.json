@@ -1,7 +1,9 @@
 {
     "version": "pre-alpha 1.1.3",
     "map": {
-        "fieldSize": 50
+        "fieldSize": 50,
+        "minSize": 8,
+        "maxSize": 100
     },
     "actionNoteDelay": 1500,
     "selectColor": "rgba(0, 0, 0, 0.5)",

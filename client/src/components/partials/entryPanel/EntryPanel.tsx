@@ -8,6 +8,9 @@ import MapSizeInput from './MapSizeInput';
 //Import actions
 import { setMapSizes } from '../../../redux/actions/mapActions';
 
+//Import configs
+import creatorConfig from '../../../assets/configs/creatorConfig.json';
+
 
 let mapSizes = {
   x: 0,
@@ -31,8 +34,8 @@ const EntryPanel: React.FC = () => {
     (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
       setValMess("Value need to be number");
     }
-    else if ((mapSizeX >= 100 || mapSizeX < 5) || (mapSizeY >= 100 || mapSizeY < 5)) {
-      setValMess("Value need to be bigger or equal to five and smaller than 100");
+    else if ((mapSizeX >= creatorConfig.map.maxSize || mapSizeX < creatorConfig.map.minSize) || (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)) {
+      setValMess(`Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`);
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
       setValMess("Value need to be integer, not float type.");
