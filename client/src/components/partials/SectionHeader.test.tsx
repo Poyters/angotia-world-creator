@@ -16,7 +16,7 @@ describe("SectionHeader component", () => {
     expect(sectionHeader.exists()).toBe(true);
   });
 
-  it("Header text", () => {
+  it("Check proper header text", () => {
 		expect(sectionHeader.find('h1').text()).toEqual(exampleHeader);
   });
 });
