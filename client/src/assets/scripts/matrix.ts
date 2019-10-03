@@ -1,5 +1,6 @@
 //Import interfaces
 import { ISquareData } from '../interfaces/squareInterfaces';
+import { deepCopy } from './utils/deepCopy';
 
 
 export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number | string): any[] => {
@@ -29,14 +30,6 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 
 	return deepCopy(copyOfRootMatrix);
 }
-
-
-export const deepCopy = (item): any[] => {
-	const copy = JSON.parse(JSON.stringify(item));
-
-	return copy;
-}
-
 
 
 export const matrixToIds = (matrix: any[]): ISquareData[] => {

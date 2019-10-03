@@ -7,7 +7,7 @@ import creatorConfig from '../../../assets/configs/creatorConfig.json';
 //Import scripts
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
-import { deepCopy } from '../../../assets/scripts/matrix';
+import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 
 //Import components
 import Arrow from '../Arrow';

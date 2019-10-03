@@ -2,7 +2,7 @@
 import creatorConfig from '../configs/creatorConfig.json';
 
 //Import scripts
-import { deepCopy } from './matrix';
+import { deepCopy } from './utils/deepCopy';
 import { drawCross, drawTriangle } from './draw/drawShape';
 import { makeImage } from './draw/makeImage';
 

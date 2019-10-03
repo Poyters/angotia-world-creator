@@ -6,7 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
 //Import scripts
-import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
+import { matrixToIds } from '../../../../assets/scripts/matrix';
+import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../../assets/scripts/notifications';

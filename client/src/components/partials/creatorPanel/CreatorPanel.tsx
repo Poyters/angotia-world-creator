@@ -21,7 +21,7 @@ import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix, ch
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
-import { deepCopy } from '../../../assets/scripts/matrix';
+import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 
 
 const CreatorPanel: React.FC = () => {

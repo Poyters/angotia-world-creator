@@ -5,7 +5,8 @@ import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from './clearCanvas';
 import { emptyMapCanvasCtx } from './map';
 import { setActionNote } from './notifications';
-import { updateMatrixByTheOther, deepCopy } from './matrix';
+import { updateMatrixByTheOther } from './matrix';
+import { deepCopy } from './utils/deepCopy';
 
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';

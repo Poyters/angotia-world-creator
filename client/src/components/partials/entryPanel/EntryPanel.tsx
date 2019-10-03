@@ -11,8 +11,11 @@ import { setMapSizes } from '../../../redux/actions/mapActions';
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 
+//Import interfaces
+import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 
-let mapSizes = {
+
+let mapSizes: IPoint = {
   x: 0,
   y: 0
 }
@@ -27,14 +30,17 @@ const EntryPanel: React.FC = () => {
   const dispatch = useDispatch();
 
   const mapSizeValidation = ():void => {
-    const mapSizeX:number = typeof mapX === "number" ? mapX : parseInt(mapX);
-    const mapSizeY:number = typeof mapY === "number" ? mapY : parseInt(mapY);
+    const mapSizeX: number = typeof mapX === "number" ? mapX : parseInt(mapX);
+    const mapSizeY: number = typeof mapY === "number" ? mapY : parseInt(mapY);
     
     if ((typeof mapSizeX !== "number" || isNaN(mapSizeX)) || 
     (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
       setValMess("Value need to be number");
     }
-    else if ((mapSizeX >= creatorConfig.map.maxSize || mapSizeX < creatorConfig.map.minSize) || (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)) {
+    else if (
+      (mapSizeX >= creatorConfig.map.maxSize || mapSizeX < creatorConfig.map.minSize) || 
+      (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)
+    ) {
       setValMess(`Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`);
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {

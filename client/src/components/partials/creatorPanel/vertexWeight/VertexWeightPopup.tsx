@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
-import { deepCopy, matrixToIds } from '../../../../assets/scripts/matrix';
+import { matrixToIds } from '../../../../assets/scripts/matrix';
+import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 
 //Import configs
