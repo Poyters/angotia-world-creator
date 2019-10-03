@@ -1,21 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Adapter from 'enzyme-adapter-react-16';
-// import { shallow, configure } from 'enzyme';
-
-// //Import component
-// import SelectOption from './SelectOption';
-
-
-// configure({adapter: new Adapter()});
-
-// it('SelectOption component renders without crashing', (): void => {
-//   const div: HTMLElement = document.createElement('div');
-//   const selectOption = shallow(<SelectOption selectTypeQuantity={3} />).dive();
-//   ReactDOM.render(selectOption, div);
-//   ReactDOM.unmountComponentAtNode(div);
-// });
-
 import React from "react";
 import { shallow, configure } from "enzyme";
 import { Provider } from "react-redux";

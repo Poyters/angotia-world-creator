@@ -1,34 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
-import { initState } from '../../../redux/reducers/mapReducer';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import Adapter from 'enzyme-adapter-react-16';
+// import { shallow, configure } from 'enzyme';
+// import { initState } from '../../../redux/reducers/mapReducer';
 
-//Import component
-import NetOption from './NetOption';
+// //Import component
+// import NetOption from './NetOption';
 
 
-configure({adapter: new Adapter()});
+// configure({adapter: new Adapter()});
 
-it('NetOption component renders without crashing', (): void => {
-  const div: HTMLElement = document.createElement('div');
-  ReactDOM.render(<NetOption />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// it('NetOption component renders without crashing', (): void => {
+//   const div: HTMLElement = document.createElement('div');
+//   ReactDOM.render(<NetOption />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
-describe('NetOption component option on/off', (): void => {
-  const mapSize: object = {...initState.size};
-  let netOption: any = shallow(<NetOption mapSize={mapSize} viewTypeQuantity={3}/> )  
+// describe('NetOption component option on/off', (): void => {
+//   const mapSize: object = {...initState.size};
+//   let netOption: any = shallow(<NetOption mapSize={mapSize} viewTypeQuantity={3}/> )  
 
-  it('check start class option--on of NetOption Component', (): void => {
-    expect(netOption.hasClass('option--on')).toEqual(true);
-  })
+//   it('check start class option--on of NetOption Component', (): void => {
+//     expect(netOption.hasClass('option--on')).toEqual(true);
+//   })
   
-  netOption.simulate('click');
-  netOption.simulate('click');
-  netOption.simulate('click');
+//   netOption.simulate('click');
+//   netOption.simulate('click');
+//   netOption.simulate('click');
 
-  it('check end class option--off of NetOption Component after all', (): void => {
-    expect(netOption.hasClass('option--off')).toEqual(true);
-  })
-});
+//   it('check end class option--off of NetOption Component after all', (): void => {
+//     expect(netOption.hasClass('option--off')).toEqual(true);
+//   })
+// });

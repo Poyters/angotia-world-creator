@@ -1,18 +1,36 @@
+import React from "react";
+import { shallow, configure } from "enzyme";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import Adapter from 'enzyme-adapter-react-16';
+import { store } from '../../App';
+
+//Import component
+import Notifications from '../../components/partials/Notifications';
+
 //Import scripts
 import { setActionNote } from './notifications';
 
+const mockStore = configureMockStore();
+const mockedStore = mockStore(store);
+
+configure({adapter: new Adapter()});
 
 describe("setActionNote script", () => {
-  it("Create note", () => {
-    const exmapleMess = 'Example notification message';
-    
-    expect(
-      setActionNote("Example notification message")
-      .exists(
-        <div id="notifications" className="notifications">
-          { exmapleMess }
-        </div>
-      )
-    ).toBe(true);
+  const notifications: any = shallow(
+    <Provider store={mockedStore}>
+      <Notifications />
+    </Provider>
+	);
+	
+	it("Render notifications component without errors", () => {
+    expect(notifications.exists()).toBe(true);
+  });
+
+  it("Create new note", () => {
+		const exmapleMess = 'Example notification message';
+
+		setActionNote(exmapleMess);
+		expect(notifications.text().includes(exmapleMess)).toEqual(true);
   });
 });

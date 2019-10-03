@@ -1,16 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import { shallow, configure } from "enzyme";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
-import { shallow, configure } from 'enzyme';
+import { store } from '../../App';
 
 //Import component
 import Notifications from './Notifications';
 
 
+const mockStore = configureMockStore();
+const mockedStore = mockStore(store);
+
 configure({adapter: new Adapter()});
 
-it('Notifications component renders without crashing', (): void => {
-  const div: HTMLElement = document.createElement('div');
-  ReactDOM.render(<Notifications />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe("Notifications component", () => {
+  const notifications: any = shallow(
+    <Provider store={mockedStore}>
+      <Notifications />
+    </Provider>
+	);
+	
+	it("Render notifications component without errors", () => {
+    expect(notifications.exists()).toBe(true);
+  });
 });
