@@ -11,8 +11,10 @@ import Notifications from '../../components/partials/Notifications';
 //Import scripts
 import { setActionNote } from './notifications';
 
+
 const mockStore = configureMockStore();
 const mockedStore = mockStore(store);
+console.log(mockedStore.getState());
 
 configure({adapter: new Adapter()});
 
@@ -22,15 +24,17 @@ describe("setActionNote script", () => {
       <Notifications />
     </Provider>
 	);
+	const noteTextNode = notifications.render().find('#noteText');
 	
-	it("Render notifications component without errors", () => {
+	it("Render Notifications component without errors", () => {
     expect(notifications.exists()).toBe(true);
   });
 
   it("Create new note", () => {
 		const exmapleMess = 'Example notification message';
 
+		console.log(mockedStore.getState());
 		setActionNote(exmapleMess);
-		expect(notifications.text().includes(exmapleMess)).toEqual(true);
+		expect(noteTextNode.text()).toEqual(true);
   });
 });

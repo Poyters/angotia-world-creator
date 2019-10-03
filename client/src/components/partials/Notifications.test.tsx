@@ -21,7 +21,7 @@ describe("Notifications component", () => {
     </Provider>
 	);
 	
-	it("Render notifications component without errors", () => {
+	it("Render Notifications component without errors", () => {
     expect(notifications.exists()).toBe(true);
   });
 });

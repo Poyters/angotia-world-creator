@@ -1,34 +1,42 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import Adapter from 'enzyme-adapter-react-16';
-// import { shallow, configure } from 'enzyme';
-// import { initState } from '../../../redux/reducers/mapReducer';
+import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import { store } from '../../../App';
 
-// //Import component
-// import NetOption from './NetOption';
+//Import component
+import NetOption from './NetOption';
 
 
-// configure({adapter: new Adapter()});
+const mockStore = configureMockStore();
+const mockedStore = mockStore(store);
 
-// it('NetOption component renders without crashing', (): void => {
-//   const div: HTMLElement = document.createElement('div');
-//   ReactDOM.render(<NetOption />, div);
-//   ReactDOM.unmountComponentAtNode(div);
-// });
+configure({adapter: new Adapter()});
 
-// describe('NetOption component option on/off', (): void => {
-//   const mapSize: object = {...initState.size};
-//   let netOption: any = shallow(<NetOption mapSize={mapSize} viewTypeQuantity={3}/> )  
+describe('NetOption component', (): void => {
+  const netOption: any = shallow(
+    <Provider store={mockedStore}>
+      <NetOption viewTypeQuantity={3}/>
+    </Provider>
+  );
+  const netGraphicNode = netOption.render().find('.netGraphic');
 
-//   it('check start class option--on of NetOption Component', (): void => {
-//     expect(netOption.hasClass('option--on')).toEqual(true);
-//   })
+  expect(netGraphicNode.length).toBe(1);
+	
+	it("Render NetOption component without errors", () => {
+    expect(netOption.exists()).toBe(true);
+  });
+
+  it('check start class option--on of NetOption Component', (): void => {
+    expect(netGraphicNode.hasClass('option--on')).toEqual(true);
+  })
   
-//   netOption.simulate('click');
-//   netOption.simulate('click');
-//   netOption.simulate('click');
+  netOption.simulate('click');
+  netOption.simulate('click');
+  netOption.simulate('click');
 
-//   it('check end class option--off of NetOption Component after all', (): void => {
-//     expect(netOption.hasClass('option--off')).toEqual(true);
-//   })
-// });
+  it('check end class option--off of NetOption Component after all', (): void => {
+    expect(netGraphicNode).toEqual(true);
+  })
+});
