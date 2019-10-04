@@ -21,4 +21,4 @@ export const setActionNote = (note: string, messageType?: string) => {
         break;
     }
     
-}
+};

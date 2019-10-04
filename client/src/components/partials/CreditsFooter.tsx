@@ -13,6 +13,6 @@ const CreditsFooter = () => {
       </div>
     </footer>
   );
-}
+};
 
 export default CreditsFooter;

@@ -21,19 +21,19 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
     switch(selectType) {
       case 0:
         dispatch(setMapSelectType('none'));
-        setActionNote('Select option is disable')
+        setActionNote('Select option is disable');
       break;
       case 1:
         dispatch(setMapSelectType('square'));
-        setActionNote('Select square type is enable')
+        setActionNote('Select square type is enable');
       break;
       case 2: 
       dispatch(setMapSelectType('field'));
-        setActionNote('Select field type is enable')
+        setActionNote('Select field type is enable');
       break;
       case 3:
         dispatch(setMapSelectType('mouse'));
-        setActionNote('Select mouse type is enable')
+        setActionNote('Select mouse type is enable');
       break;
       default:
         throw new Error('invalid selectType');
@@ -43,7 +43,7 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   const changeSelectType = (): void => {
     if (selectType < selectTypeQuantity) setSelectType(selectType + 1);
     else setSelectType(0);
-  }
+  };
 
   const selectOnOff: string = selectType !== 0 ? 'option--on' : 'option--off'; //It determines icon color
 
@@ -53,7 +53,7 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
         <div className="titleContainer" data-title="turn on/off full screen mode"></div>
     </div>
   );
-}
+};
 
 
 export default SelectOption;

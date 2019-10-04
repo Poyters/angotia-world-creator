@@ -12,6 +12,6 @@ const SectionHeader: React.FC<ISectionHeader> = ({headerTxt}) => {
       </h1>
     </header>
   );
-}
+};
 
 export default SectionHeader;

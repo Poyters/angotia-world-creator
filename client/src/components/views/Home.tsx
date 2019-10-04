@@ -18,6 +18,6 @@ const Home: React.FC = () => {
         <CreditsFooter />
       </div>
   );
-}
+};
 
 export default Home;

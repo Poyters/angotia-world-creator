@@ -44,4 +44,4 @@ export const drawMapNet = (ctx: any, type: number) => {
 
   ctx.closePath();
   ctx.stroke();
-}
+};

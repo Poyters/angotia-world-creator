@@ -9,4 +9,4 @@ export const clearCanvas = (canvasId: string, changeMapFunc: Function) => {
     emptyMapCanvasCtx(canvasId); //clear select canvas
 		
     store.dispatch(changeMapFunc([...emptyMatrix]));
-}
+};

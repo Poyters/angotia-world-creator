@@ -18,7 +18,7 @@ import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 let mapSizes: IPoint = {
   x: 0,
   y: 0
-}
+};
 
 
 const EntryPanel: React.FC = () => {
@@ -50,14 +50,14 @@ const EntryPanel: React.FC = () => {
     }
     else { //Redirect to map.html
       setValMess("");
-      mapSizes.x = mapSizeX
+      mapSizes.x = mapSizeX;
       mapSizes.y = mapSizeY;
 
-      dispatch(setMapSizes(mapSizes))
+      dispatch(setMapSizes(mapSizes));
       setRedirect(true);
     }
 
-  }
+  };
 
   const content = redirect ? (
     <Redirect to='/creator'/>
@@ -107,7 +107,7 @@ const EntryPanel: React.FC = () => {
   return (
     content
   );
-}
+};
 
 
 export default EntryPanel;

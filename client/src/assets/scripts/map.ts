@@ -13,12 +13,12 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 			return [
 				[0, 0],
 				[0, 0]
-			]
-		})
-	})
+			];
+		});
+	});
 
 	return newMatrix;
-}
+};
 
 
 export const emptyMapCanvasCtx = (canvasId: string) => {
@@ -31,4 +31,4 @@ export const emptyMapCanvasCtx = (canvasId: string) => {
 	context.restore();
 	
 	return context;
-}
+};

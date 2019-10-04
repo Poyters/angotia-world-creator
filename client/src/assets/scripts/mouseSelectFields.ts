@@ -32,7 +32,7 @@ export const mouseSelectFields = () => {
 	canvas.addEventListener('mousedown', event => mouseDown(event, map), false);
   canvas.addEventListener('mouseup', mouseUp, false);
   canvas.addEventListener('mousemove', event => mouseMove(event, map), false);
-}
+};
 
 
 const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
@@ -46,7 +46,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
   rect.startX = event.clientX - mapLeft;
   rect.startY = event.clientY - mapTop;
   drag = true;
-}
+};
 
 
 const mouseUp = () => {
@@ -64,13 +64,13 @@ const mouseUp = () => {
       x: rect.startX + rect.width,
       y: rect.startY + rect.height
     }
-  }
+  };
 
   colorSquares(rectanglePosition);
   
   drag = false;
   ctx.clearRect(0,0,canvas.width,canvas.height);
-}
+};
 
 
 const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
@@ -85,7 +85,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   rect.height = (event.clientY - mapTop) - rect.startY;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   draw();
-}
+};
 
 const draw = () => {
   const storeData = store.getState();
@@ -95,7 +95,7 @@ const draw = () => {
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 
   colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor);
-}
+};
 
 
 const colorSquares = (rectanglePosition) => {
@@ -112,7 +112,7 @@ const colorSquares = (rectanglePosition) => {
       x: Math.floor(rectanglePosition.bottomRight.x / (fieldSize / 2)),
       y: Math.floor(rectanglePosition.bottomRight.y / (fieldSize / 2))
     }
-  }
+  };
 
   //We need to find out real topLeft and bottomRight corner (due to reverse drawing)
   const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
@@ -130,7 +130,7 @@ const colorSquares = (rectanglePosition) => {
       const recSquarePoints: IPoint = {
         x: x,
         y: y
-      }
+      };
 
       selectCanvasSquare(selectMatrix, recSquarePoints);
     }
@@ -142,4 +142,4 @@ const colorSquares = (rectanglePosition) => {
   setTimeout(() => {
     colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor); //TODO: make it async
   }, 20);
-}
+};

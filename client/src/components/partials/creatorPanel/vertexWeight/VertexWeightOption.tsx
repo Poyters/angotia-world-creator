@@ -37,8 +37,8 @@ const VertexWeightOption: React.FC = () => {
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
-        setTimeout(() => pressedKey = -1, 500) 
-    }
+        setTimeout(() => pressedKey = -1, 500); 
+    };
     
     const deletePassage = () => {
         const deleteLocations = matrixToIds(selectMatrix);
@@ -49,7 +49,7 @@ const VertexWeightOption: React.FC = () => {
 
                 vertexWeights.splice(index, 1);
               }
-        })
+        });
 
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
@@ -60,7 +60,7 @@ const VertexWeightOption: React.FC = () => {
             '', 
             'vertexWeight'
         );
-    }
+    };
 
     return (
         <Fragment>
@@ -73,8 +73,8 @@ const VertexWeightOption: React.FC = () => {
 				</div>
 			</div>
         </Fragment>
-    )
-}
+    );
+};
 
 
 export default VertexWeightOption;

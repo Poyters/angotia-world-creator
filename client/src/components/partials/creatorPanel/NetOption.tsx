@@ -22,7 +22,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
   const changeViewType = (): void => {
     if (optionViewType === viewTypeQuantity) setOptionViewType(0);
     else setOptionViewType(optionViewType + 1);
-  }
+  };
 
   useEffect((): void => {
     const ctx: any = emptyMapCanvasCtx("mapCanvas");
@@ -49,7 +49,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
         setActionNote("Disable all nets");
         return;
     }
-  })
+  });
 
   const netOnOff: string = optionViewType === 3 ? 'option--off' : 'option--on'; //It determines icon color
 
@@ -64,7 +64,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
       </div>
     </div>
   );
-}
+};
 
 
 export default NetOption;

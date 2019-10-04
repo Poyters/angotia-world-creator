@@ -25,11 +25,11 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 				}
 			});
 
-		})
-	})
+		});
+	});
 
 	return deepCopy(copyOfRootMatrix);
-}
+};
 
 
 export const matrixToIds = (matrix: any[]): ISquareData[] => {
@@ -55,14 +55,14 @@ export const matrixToIds = (matrix: any[]): ISquareData[] => {
 				xDelta,
 				yDelta,
 				id: `${x}.${xDelta}, ${y}.${yDelta}`
-			}
+			};
   
-			squareIds.push(squareId)
+			squareIds.push(squareId);
 		  }
 		});
   
-	  })
-	})
+	  });
+	});
 
 	return squareIds;
-  }
+  };

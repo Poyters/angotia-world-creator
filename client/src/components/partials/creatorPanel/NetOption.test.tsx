@@ -30,7 +30,7 @@ describe('NetOption component', (): void => {
 
   it('check start class option--on of NetOption Component', (): void => {
     expect(netGraphicNode.hasClass('option--on')).toEqual(true);
-  })
+  });
   
   netOption.simulate('click');
   netOption.simulate('click');

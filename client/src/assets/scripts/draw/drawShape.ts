@@ -19,7 +19,7 @@ export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string):
     
     ctx.fill();
     ctx.stroke();
-}
+};
 
 
 export const drawCross = (ctx: any, x: number, y: number): void => {
@@ -34,4 +34,4 @@ export const drawCross = (ctx: any, x: number, y: number): void => {
     ctx.moveTo(x, y + squareSize);
     ctx.lineTo(x + squareSize, y);
     ctx.stroke();
-}
+};

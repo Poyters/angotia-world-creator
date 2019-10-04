@@ -15,7 +15,7 @@ describe("selectCanvasSquare script", () => {
 	const examplePoint: IPoint = {
 		x: 2,
 		y: 4
-	}
+	};
 
 	it("Check select square", () => {
 		selectCanvasSquare(exampleMatrix, examplePoint);
@@ -40,7 +40,7 @@ describe("selectCanvasField script", () => {
 	const examplePoint: IPoint = {
 		x: 2,
 		y: 4
-	}
+	};
 
 	it("Check select filed", () => {
 		selectCanvasField(exampleMatrix, examplePoint);

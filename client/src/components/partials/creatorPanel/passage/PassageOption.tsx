@@ -37,8 +37,8 @@ const PassageOption: React.FC = () => {
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
-        setTimeout(() => pressedKey = -1, 500) 
-    }
+        setTimeout(() => pressedKey = -1, 500); 
+    };
     
     const deletePassage = () => {
         const deleteLocations = matrixToIds(selectMatrix);
@@ -49,19 +49,19 @@ const PassageOption: React.FC = () => {
 
                 passageLocations.splice(index, 1);
               }
-        })
+        });
 
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')
-    }
+        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '');
+    };
 
     return (
         <Fragment>
             { isPopup ? ReactDOM.createPortal(<PassagePopup closePopup={setIsPopup}/>, document.body) : null}
             <div className="passageOption" onClick={() => passageHandler()} data-title="add/delete passage"></div>
         </Fragment>
-    )
-}
+    );
+};
 
 
 export default PassageOption;

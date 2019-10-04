@@ -20,6 +20,6 @@ const Creator: React.FC = () => {
       <VersionMark />
     </article>
   );
-}
+};
 
 export default Creator;

@@ -10,6 +10,6 @@ const VersionMark: React.FC = () => {
       {creatorConfig.version}
     </aside>
   );
-}
+};
 
 export default VersionMark;

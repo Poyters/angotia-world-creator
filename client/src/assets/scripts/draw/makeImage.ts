@@ -3,4 +3,4 @@ export const makeImage = imgPath => {
     image.src = imgPath;
     
     return image;
-}
+};

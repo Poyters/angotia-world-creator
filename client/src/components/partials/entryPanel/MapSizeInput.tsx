@@ -19,6 +19,6 @@ const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => 
       onClick={() => changeValue('')}
     />
   );
-}
+};
 
 export default MapSizeInput;

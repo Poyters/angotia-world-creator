@@ -49,12 +49,12 @@ const FilesPanel: React.FC = () => {
 
     const filesPanelStyles = {
         right: isOpen ? "0" : "-300px"
-    }
+    };
 
     const imageStyle = {
         width: `${creatorConfig.map.fieldSize}px`,
         height: `${creatorConfig.map.fieldSize}px`
-    }
+    };
     
     const generateImages = (): any[] => {
         const bookmarkImages: string[] = [];
@@ -125,11 +125,11 @@ const FilesPanel: React.FC = () => {
                 >
                     <img src={img}></img>
                 </li>
-            )
-        })
+            );
+        });
 
         return imagesToRender;
-    }
+    };
 
     const generateBookmarks = (): any[] => {
         const bookmarksToRender: any[] = bookmarks.map((bookmark, index) => {
@@ -137,11 +137,11 @@ const FilesPanel: React.FC = () => {
                         key={index} 
                         onClick={() => setCurrBookmark(bookmark)} 
                         style={{color: currBookmark === bookmark ? '#27427c' : 'inherit'}}
-                    > {bookmark} </li>
+                    > {bookmark} </li>;
         });
 
         return bookmarksToRender;
-    }
+    };
 
     return (
         <Fragment>
@@ -167,8 +167,8 @@ const FilesPanel: React.FC = () => {
                 </div>
             </aside>
         </Fragment>
-    )
-}
+    );
+};
 
 
 export default FilesPanel;

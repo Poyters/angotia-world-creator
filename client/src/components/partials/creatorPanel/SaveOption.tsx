@@ -11,7 +11,7 @@ const SaveOption: React.FC = () => {
 
   const saveMap = () => {
     saveFile(JSON.stringify(mapData), 'boardName.json', 'text/json');
-  }
+  };
 
   return (
     <div 
@@ -23,7 +23,7 @@ const SaveOption: React.FC = () => {
       <span> Save </span>
     </div>
   );
-}
+};
 
 
 export default SaveOption;

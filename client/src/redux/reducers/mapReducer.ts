@@ -46,17 +46,17 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 size: action.sizes
-            }
+            };
         case 'CHANGE_MAP_NETS':
             return {
                 ...state,
                 net: action.values
-            }
+            };
         case 'SET_MAP_BACKGROUND':
             return {
                 ...state,
                 mapPic: action.path
-            }
+            };
         case 'SET_MAP_SELECT_TYPE':
             return {
                 ...state,
@@ -64,7 +64,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.select,
                     type: action.selectType
                 }
-            }
+            };
         case 'CHANGE_MAP_SELECT_MATRIX':
             return {
                 ...state,
@@ -72,12 +72,12 @@ export const mapReducer = (state = initState, action) => {
                     ...state.select,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_BLOCK_MATRIX':
             return {
                 ...state,
                 blockMatrix: action.newMatrix
-            }
+            };
         case 'CHANGE_MAP_PASSAGE_MATRIX':
             return {
                 ...state,
@@ -85,7 +85,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.passage,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_BUILDING_MATRIX':
             return {
                 ...state,
@@ -93,7 +93,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.building,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_DECORATION_MATRIX':
             return {
                 ...state,
@@ -101,7 +101,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.passage,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_SUBSOIL_MATRIX':
             return {
                 ...state,
@@ -109,7 +109,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.subsoil,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_MOB_MATRIX':
             return {
                 ...state,
@@ -117,7 +117,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.mob,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_NPC_MATRIX':
             return {
                 ...state,
@@ -125,7 +125,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.npc,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_VERTEX_WEIGHT_MATRIX':
             return {
                 ...state,
@@ -133,7 +133,7 @@ export const mapReducer = (state = initState, action) => {
                     ...state.vertex,
                     matrix: action.newMatrix
                 }
-            }
+            };
         case 'CHANGE_MAP_PASSAGE_LOCATIONS':
             return {
                 ...state,
@@ -141,18 +141,18 @@ export const mapReducer = (state = initState, action) => {
                     ...state.passage,
                     locations: action.locations,
                 },
-            }
+            };
         case 'CHANGE_MAP_VERTEX_WEIGHTS':
-                return {
-                    ...state,
-                    vertex: {
-                        ...state.vertex,
-                        weights: action.weights,
-                    },
-                }
+            return {
+                ...state,
+                vertex: {
+                    ...state.vertex,
+                    weights: action.weights,
+                },
+            };
         default:
             return state;
     }
-}
+};
 
 export default mapReducer;

@@ -9,7 +9,7 @@ const LayersOption: React.FC = () => {
 
     const layersListStyles = {
         display: isOpen ? 'block' : 'none'
-    }
+    };
 
     useEffect((): void => {
         const layers = document.getElementsByClassName('js-mapLayer');
@@ -26,12 +26,12 @@ const LayersOption: React.FC = () => {
                 >
                     {layerName}
                 </li>
-            )
-        })
+            );
+        });
 
         setLayersToRender(ltr);
 
-    }, [])
+    }, []);
 
     let isBackgroundVisible: boolean = true;
     const toggleBackground = () => {
@@ -39,11 +39,11 @@ const LayersOption: React.FC = () => {
         const button: any = document.getElementById(`backgroundBtn`);
 
         if (isBackgroundVisible) map.style.backgroundImage = '';
-        else map.style.backgroundImage = `url('${mapBackgorund}')`
+        else map.style.backgroundImage = `url('${mapBackgorund}')`;
 
         button.classList.toggle('layersList__layer--active');
         isBackgroundVisible = !isBackgroundVisible;
-    }
+    };
 
     const toggleLayer = (layerName: string): void => {
         const layers = document.getElementsByClassName('js-mapLayer');
@@ -62,8 +62,8 @@ const LayersOption: React.FC = () => {
                 button.classList.toggle('layersList__layer--active');
  
             }
-        })
-    }
+        });
+    };
 
     return (
         <Fragment>
@@ -81,8 +81,8 @@ const LayersOption: React.FC = () => {
                 { layersToRender }
             </ul>
         </Fragment>
-    )
-}
+    );
+};
 
 
 export default LayersOption;

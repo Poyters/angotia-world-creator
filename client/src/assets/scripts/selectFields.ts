@@ -27,7 +27,7 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   };
 
   selectField(cursorPosition);
-}
+};
 
 
 const selectField = (cursorPosition: IPoint) => {
@@ -70,7 +70,7 @@ const selectField = (cursorPosition: IPoint) => {
 
   store.dispatch(changeMapSelectMatrix(selectMatrix));
   colorChecked(positionDelta, selectType);
-}
+};
 
 
 const colorChecked = (positionDelta: IPoint, type: string) => {
@@ -87,7 +87,7 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
   ctx.stroke();
-}
+};
 
 
 export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPoint): void => {
@@ -96,7 +96,7 @@ export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPo
   const fieldPosition: IPoint = {
     x: Math.floor(squarePosition.x / 2),
     y: Math.floor(squarePosition.y / 2)
-  }
+  };
 
   const squareDelta: IPoint = {
     x: Math.floor(squarePosition.x % 2),
@@ -104,7 +104,7 @@ export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPo
   };
 
   selectMatrix[fieldPosition.y][fieldPosition.x][squareDelta.y][squareDelta.x] = 1;
-}
+};
 
 
 export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint): void => {
@@ -112,4 +112,4 @@ export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoin
     [1, 1],
     [1, 1]
   ]; //Select whole field
-}
+};

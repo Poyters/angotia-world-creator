@@ -26,7 +26,7 @@ const AddFileOption: React.FC = () => {
 
     reader.readAsDataURL(f);
     setActionNote("Added background image");
-  }
+  };
 
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
 
@@ -42,7 +42,7 @@ const AddFileOption: React.FC = () => {
       <label className={optionOnOff} htmlFor="file" data-title="set background image"></label>
     </React.Fragment>
   );
-}
+};
 
 
 export default AddFileOption;

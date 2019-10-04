@@ -95,7 +95,7 @@ const CreatorPanel: React.FC = () => {
       </ul>
     </nav>
   );
-}
+};
 
 
 export default CreatorPanel;

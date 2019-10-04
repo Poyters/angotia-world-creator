@@ -12,9 +12,9 @@ export const isEmptyMatrix = (matrix: any[]): boolean => {
     
           squareMatrix.forEach((square: number) => {
             if (square || square !== 0) result = false;
-          })
-        })
-    })
+          });
+        });
+    });
         
     return result;
-}
+};

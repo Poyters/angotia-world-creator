@@ -14,14 +14,14 @@ const DeleteBgOption: React.FC = () => {
   const deleteBg = (): void => {
     dispatch(setMapBg(''));
     setActionNote('Deleted background image');
-  }
+  };
 
   return (
     <div className="option option--deleteBg" onClick={() => deleteBg()}>
         <div className="g-exitBtn" data-tile="delete background image"></div>
     </div>
   );
-}
+};
 
 
 export default DeleteBgOption;

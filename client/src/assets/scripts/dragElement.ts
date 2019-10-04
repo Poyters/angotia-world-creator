@@ -11,7 +11,7 @@ const dragElement = (element:any) => {
     positions[3] = e.clientY;
     document.onmouseup = closeDragElement;
     document.onmousemove = elementDrag;
-  }
+  };
 
   const elementDrag = (e: MouseEvent): void => {
     const storeData = store.getState();
@@ -28,15 +28,15 @@ const dragElement = (element:any) => {
 
     element.style.top = (element.offsetTop - positions[1]) + "px";
     element.style.left = (element.offsetLeft - positions[0]) + "px";
-  }
+  };
 
   const closeDragElement = (): void => {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
-  }
+  };
 
   element.onmousedown = dragMouseDown;
-}
+};
 
 export default dragElement;

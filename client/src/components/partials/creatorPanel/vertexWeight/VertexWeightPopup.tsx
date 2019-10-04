@@ -38,7 +38,7 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
         }
         else setError(false);
 
-    }, [vertexWeightValue])
+    }, [vertexWeightValue]);
 
 
     const insertVertexWeight = () => {
@@ -50,11 +50,11 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                     destination: {
                         vertexWeightValue,
                     }
-                }
+                };
 
                 vertexWeights.push(newLocation);
               }
-        })
+        });
 
         closePopup(false);
         dispatch(changeMapVertexWeights(vertexWeights));
@@ -66,7 +66,7 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
             vertexWeightValue, 
             'vertexWeight'
         );
-    }
+    };
 
     return (
         <div className="g-container g-container--popup">
@@ -91,8 +91,8 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 
 export default VertexWeightPopup;

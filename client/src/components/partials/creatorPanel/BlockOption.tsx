@@ -32,7 +32,7 @@ const BlockOption = () => {
 			fillColor, 
 			'barrier'
 		);
-	}
+	};
 
 	return (
 		<div 
@@ -43,8 +43,8 @@ const BlockOption = () => {
 		>
 			<div className="g-exitBtn"></div>
 		</div>
-	)
-}
+	);
+};
 
 
-export default BlockOption
+export default BlockOption;

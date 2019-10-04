@@ -7,6 +7,6 @@ const Help: React.FC = () => {
         Help component works!
     </article>
   );
-}
+};
 
 export default Help;

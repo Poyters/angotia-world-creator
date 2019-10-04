@@ -9,10 +9,10 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 actionNote: action.notification
-            }
+            };
         default:
             return state;
     }
-}
+};
 
 export default mapReducer;

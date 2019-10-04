@@ -48,4 +48,4 @@ export const markSquare = (
 
   //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
   setTimeout(() => pressedKey = -1, 500);
-}
+};

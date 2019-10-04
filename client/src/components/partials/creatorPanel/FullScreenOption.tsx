@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 const runFullScreen = (element: HTMLElement): void => {
 	if (element.requestFullscreen)
 		element.requestFullscreen();
-}
+};
 
 const closeFullScreen = (): void => {
   if (document.exitFullscreen)
 		document.exitFullscreen();
-}
+};
 
 
 const FullScreenOption: React.FC = () => {
@@ -25,7 +25,7 @@ const FullScreenOption: React.FC = () => {
       runFullScreen(body);
       setFs(true);
     }
-  }
+  };
 
   const fsOnOff: string = fs ? 'option--on' : 'option--off'; //It determines icon color
 
@@ -34,7 +34,7 @@ const FullScreenOption: React.FC = () => {
       <div className="titleContainer" data-title="turn on/off full screen mode"></div>
     </div>
   );
-}
+};
 
 
 export default FullScreenOption;

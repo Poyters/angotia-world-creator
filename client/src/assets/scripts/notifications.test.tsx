@@ -8,8 +8,8 @@ import { store } from '../../App';
 //Import component
 import Notifications from '../../components/partials/Notifications';
 
-//Import scripts
-import { setActionNote } from './notifications';
+// //Import scripts
+// import { setActionNote } from './notifications';
 
 
 const mockStore = configureMockStore();

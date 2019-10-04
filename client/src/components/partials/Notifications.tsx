@@ -21,15 +21,15 @@ const Notifications: React.FC = () => {
 
 		timer = setTimeout(() => {
 			setOpacityCSS(0);	
-		}, creatorConfig.actionNoteDelay)
+		}, creatorConfig.actionNoteDelay);
 	});
 
 	return (
 		<div id="notifications" className="notifications" style={{opacity : opacityCSS}}>
 			<span id="noteText"> { note } </span>
 		</div>
-	)
-}
+	);
+};
 
 
 export default Notifications;

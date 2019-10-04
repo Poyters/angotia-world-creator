@@ -14,7 +14,7 @@ const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {
       <Link to={link}> {buttonText}</Link>
     </div>
   );
-}
+};
 
 
 export default LinkButton;

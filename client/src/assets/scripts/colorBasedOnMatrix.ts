@@ -64,6 +64,6 @@ export const colorBasedOnMatrix = (matrix: any[], canvasId: string, color, speci
           }
         });
   
-      })
-    })
-  }
+      });
+    });
+  };

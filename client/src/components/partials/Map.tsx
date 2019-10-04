@@ -25,11 +25,11 @@ const Map: React.FC = () => {
     width: `${mapSize.x * fieldSize}px`,
     height: `${mapSize.y * fieldSize}px`,
     backgroundImage: `url('${mapPic}')`
-  }
+  };
 
   useEffect((): void => {
     dragElement(document.getElementById("map"));
-  }, [])
+  }, []);
 
 
   return (
@@ -115,7 +115,7 @@ const Map: React.FC = () => {
       > </canvas>
     </main>
   );
-}
+};
 
 
 export default Map;

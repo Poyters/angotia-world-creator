@@ -15,4 +15,4 @@ export const saveFile = (data: any, filename: string, type: string): void => {
             window.URL.revokeObjectURL(url);  
         }, 0); 
     }
-}
+};

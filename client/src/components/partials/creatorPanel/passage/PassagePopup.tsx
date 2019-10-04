@@ -27,7 +27,7 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
         if (!mapTargetId || !mapTargetCords) setError(true);
         else setError(false);
 
-    }, [mapTargetId, mapTargetCords])
+    }, [mapTargetId, mapTargetCords]);
 
     const insertPassage = () => {
         const potentialLocations = matrixToIds(selectMatrix);
@@ -39,16 +39,16 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
                         mapTargetId,
                         mapTargetCords
                     }
-                }
+                };
 
                 passageLocations.push(newLocation);
               }
-        })
+        });
 
         closePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '')
-    }
+        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '');
+    };
 
     return (
         <div className="g-container g-container--popup">
@@ -74,8 +74,8 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
                 </button>
             </div>
         </div>
-    )
-}
+    );
+};
 
 
 export default PassagePopup;

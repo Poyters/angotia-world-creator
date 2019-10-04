@@ -12,7 +12,7 @@ const ExportOption: React.FC = () => {
       <span>Export</span>
     </div>
   );
-}
+};
 
 
 export default ExportOption;
