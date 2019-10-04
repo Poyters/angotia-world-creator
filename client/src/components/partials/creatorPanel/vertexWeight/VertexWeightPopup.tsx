@@ -28,7 +28,12 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
 
     useEffect(() => {
-        if (parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || !vertexWeightMatrix || !Number(vertexWeightValue)) {
+        if (
+            parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
+            parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
+            !vertexWeightMatrix || 
+            !Number(vertexWeightValue)
+        ) {
             setError(true);
         }
         else setError(false);
@@ -53,7 +58,14 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
         closePopup(false);
         dispatch(changeMapVertexWeights(vertexWeights));
-        markSquare(vertexWeightMatrix, 'mapVertexWeightCanvas', changeMapVertexWeightMatrix, 'Vertex weight added', vertexWeightValue, 'vertexWeight')
+        markSquare(
+            vertexWeightMatrix, 
+            'mapVertexWeightCanvas', 
+            changeMapVertexWeightMatrix, 
+            'Vertex weight added', 
+            vertexWeightValue, 
+            'vertexWeight'
+        );
     }
 
     return (
@@ -70,7 +82,13 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                     ) : null
                 }
 
-                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertVertexWeight()} disabled={error}> submit </button>
+                <button 
+                    type="submit" 
+                    className="insertPopup__submit t-paragraphLight" 
+                    onClick={() => insertVertexWeight()} disabled={error}
+                > 
+                    submit 
+                </button>
             </div>
         </div>
     )

@@ -52,7 +52,14 @@ const VertexWeightOption: React.FC = () => {
         })
 
         dispatch(changeMapVertexWeights(vertexWeights));
-        markSquare(vertexWeightMatrix, 'mapVertexWeightCanvas', changeMapVertexWeightMatrix, 'Vertex weight added', '', 'vertexWeight')
+        markSquare(
+            vertexWeightMatrix, 
+            'mapVertexWeightCanvas', 
+            changeMapVertexWeightMatrix, 
+            'Vertex weight added', 
+            '', 
+            'vertexWeight'
+        );
     }
 
     return (

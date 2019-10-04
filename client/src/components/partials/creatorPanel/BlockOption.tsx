@@ -24,11 +24,23 @@ const BlockOption = () => {
             return;
         }
 		
-		markSquare(blockMatrix, 'mapBlockCanvas', changeMapBlockMatrix, 'Selected fields have been blocked', fillColor, 'barrier');
+		markSquare(
+			blockMatrix, 
+			'mapBlockCanvas', 
+			changeMapBlockMatrix, 
+			'Selected fields have been blocked', 
+			fillColor, 
+			'barrier'
+		);
 	}
 
 	return (
-		<div role="button" className="option option--block" onClick={() => blockHandler()} data-title="add/delete block squares">
+		<div 
+			role="button" 
+			className="option option--block" 
+			onClick={() => blockHandler()} 
+			data-title="add/delete block squares"
+		>
 			<div className="g-exitBtn"></div>
 		</div>
 	)

@@ -64,7 +64,14 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
                     ) : null
                 }
 
-                <button type="submit" className="insertPopup__submit t-paragraphLight" onClick={() => insertPassage()} disabled={error}> submit </button>
+                <button 
+                    type="submit" 
+                    className="insertPopup__submit t-paragraphLight" 
+                    onClick={() => insertPassage()} 
+                    disabled={error}
+                > 
+                    submit 
+                </button>
             </div>
         </div>
     )

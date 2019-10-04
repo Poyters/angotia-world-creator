@@ -115,10 +115,14 @@ const colorSquares = (rectanglePosition) => {
   }
 
   //We need to find out real topLeft and bottomRight corner (due to reverse drawing)
-  const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const xBigger = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const ySmaller = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
-  const yBigger = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
+  const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
+    rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
+  const xBigger = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 
+    rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
+  const ySmaller = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? 
+    rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
+  const yBigger = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? 
+    rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
 
   for (let x = xSmaller; x < xBigger + 1; x++) {
     for (let y = ySmaller; y < yBigger + 1; y++) {

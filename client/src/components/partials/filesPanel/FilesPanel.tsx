@@ -21,7 +21,13 @@ import test4 from '../../../assets/images/mapSources/npc/test4.png';
 import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
 
 //Import actions
-import { changeMapBuildingMatrix, changeMapDecorationMatrix, changeMapSubsoilMatrix, changeMapNpcMatrix, changeMapMobMatrix } from '../../../redux/actions/mapActions';
+import { 
+    changeMapBuildingMatrix, 
+    changeMapDecorationMatrix, 
+    changeMapSubsoilMatrix, 
+    changeMapNpcMatrix, 
+    changeMapMobMatrix 
+} from '../../../redux/actions/mapActions';
 
 
 const bookmarks: string[] = ['building', 'decoration', 'subsoil', 'npc', 'mob'];
@@ -105,7 +111,18 @@ const FilesPanel: React.FC = () => {
 
         const imagesToRender: any[] = bookmarkImages.map((img, index) => {
             return (
-                <li key={index} style={imageStyle} onClick={() => markSquare(sourceMatrix, `map${currBookmark}Canvas`, matrixTransformationMethod, note, img, 'image')}>
+                <li 
+                    key={index} 
+                    style={imageStyle} 
+                    onClick={() => markSquare(
+                                sourceMatrix, 
+                                `map${currBookmark}Canvas`, 
+                                matrixTransformationMethod, 
+                                note, 
+                                img, 
+                                'image'
+                            )}
+                >
                     <img src={img}></img>
                 </li>
             )

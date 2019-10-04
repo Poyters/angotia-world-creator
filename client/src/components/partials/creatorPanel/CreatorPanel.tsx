@@ -17,7 +17,12 @@ import SaveOption from './SaveOption';
 import DeleteBgOption from './DeleteBgOption';
 
 //Import actions
-import { changeMapSelectMatrix, changeMapBlockMatrix, changeMapPassageMatrix, changeMapVertexWeightMatrix } from '../../../redux/actions/mapActions';
+import { 
+  changeMapSelectMatrix, 
+  changeMapBlockMatrix, 
+  changeMapPassageMatrix, 
+  changeMapVertexWeightMatrix 
+} from '../../../redux/actions/mapActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';

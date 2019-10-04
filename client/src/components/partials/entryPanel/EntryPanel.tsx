@@ -41,7 +41,9 @@ const EntryPanel: React.FC = () => {
       (mapSizeX >= creatorConfig.map.maxSize || mapSizeX < creatorConfig.map.minSize) || 
       (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)
     ) {
-      setValMess(`Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`);
+      setValMess(
+        `Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`
+      );
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
       setValMess("Value need to be integer, not float type.");
