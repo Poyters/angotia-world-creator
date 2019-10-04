@@ -7,17 +7,28 @@ describe("updateMatrixByTheOther script", () => {
 		[[[1, 0], [0, 1]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[1, 0], [0, 1]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[1, 0], [0, 1]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
-    ];
+  ];
     
-    const rootMatrix: any[] = [
+  const emptyootMatrix: any[] = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
 	];
 
+	const notEmptyRootMatrix: any[] = [
+		[[[0, 1], [1, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
+		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
+		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
+	];
+
 	it("Update empty matrix by the other", () => {
-		const updatedMatrix = updateMatrixByTheOther(rootMatrix, updateMatrix, 1);
+		const updatedMatrix = updateMatrixByTheOther(emptyootMatrix, updateMatrix, 1);
     expect(updatedMatrix).toEqual(updateMatrix);
+	});
+
+	it("Update not empty matrix by the other", () => {
+		const updatedMatrix = updateMatrixByTheOther(notEmptyRootMatrix, updateMatrix, 1);
+    expect(updatedMatrix[0][0]).toEqual([[1, 1], [1, 1]]);
 	});
 	
 });
