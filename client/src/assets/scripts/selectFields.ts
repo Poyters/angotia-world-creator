@@ -39,7 +39,7 @@ const selectField = (cursorPosition: IPoint) => {
   let positionDelta: IPoint = {
     x: -1,
     y: -1
-  }
+  };
 
   if (!mapNetsStatus.field && !mapNetsStatus.square || selectType === 'none') return; //no nets, no select
 
@@ -107,7 +107,7 @@ export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPo
 }
 
 
-const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint): void => {
+export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint): void => {
   selectMatrix[fieldPosition.y][fieldPosition.x] = [
     [1, 1],
     [1, 1]

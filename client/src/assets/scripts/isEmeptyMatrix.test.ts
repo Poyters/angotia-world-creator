@@ -1,6 +1,7 @@
 //Import component
 import { isEmptyMatrix } from './isEmptyMatrix';
 
+
 describe("isEmptyMatrix script", () => {
 	const emptyMatrix: any[] = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
