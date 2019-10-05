@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 
-const runFullScreen = (element: HTMLElement): void => {
+const runFullScreen = (): void => {
   if (isFullScreen()) return;
 
-	if (element.requestFullscreen)
-		element.requestFullscreen();
+	if (document.body.requestFullscreen)
+		document.body.requestFullscreen();
 };
 
 const closeFullScreen = (): void => {
@@ -16,7 +16,6 @@ const closeFullScreen = (): void => {
 
 const isFullScreen = (): boolean => {
   if (
-    window.innerWidth === screen.width && 
     window.innerHeight === screen.height
   ) {
     return true;
@@ -28,7 +27,7 @@ const isFullScreen = (): boolean => {
 
 const FullScreenOption: React.FC = () => {
   const [fs, setFs] = useState<boolean>(false);
-  const body: HTMLElement = document.getElementsByTagName('body')[0];
+  const body: HTMLElement = document.body;
   document.addEventListener('keydown', event => externalFSChange(event.key));
 
   const clickHandler = (): void => {
@@ -37,14 +36,15 @@ const FullScreenOption: React.FC = () => {
       setFs(false);
     }
     else {
-      runFullScreen(body);
+      runFullScreen();
       setFs(true);
     }
   };
 
   const externalFSChange = (key: string): void => {
-    if (key === 'F11') setFs(!fs);
     console.log(key)
+    if (key === 'F11') setFs(!fs);
+    else if (key === 'Escape') setFs(false);
   }
 
   const fsOnOff: string = fs ? 'option--on' : 'option--off'; //It determines icon color

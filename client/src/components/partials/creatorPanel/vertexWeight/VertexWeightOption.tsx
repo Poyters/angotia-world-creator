@@ -19,8 +19,8 @@ import VertexWeightPopup from './VertexWeightPopup';
 import { changeMapVertexWeightMatrix, changeMapVertexWeights } from '../../../../redux/actions/mapActions';
 
 
-let pressedKey: number = -1;
-document.addEventListener('keydown', event => pressedKey = event.keyCode);
+let pressedKey: string = '';
+document.addEventListener('keydown', event => pressedKey = event.key);
 
 const VertexWeightOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
@@ -37,7 +37,7 @@ const VertexWeightOption: React.FC = () => {
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
-        setTimeout(() => pressedKey = -1, 500); 
+        setTimeout(() => pressedKey = '', 250); 
     };
     
     const deletePassage = () => {

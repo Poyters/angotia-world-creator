@@ -15,9 +15,9 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
 
 
-let pressedKey: number = -1;
+let pressedKey: string = '';
 
-document.addEventListener('keydown', event => pressedKey = event.keyCode);
+document.addEventListener('keydown', event => pressedKey = event.key);
 
 export const markSquare = (
   sourceMatrix: any[], 
@@ -47,5 +47,5 @@ export const markSquare = (
   setActionNote(note);
 
   //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
-  setTimeout(() => pressedKey = -1, 500);
+  setTimeout(() => pressedKey = '', 250);
 };

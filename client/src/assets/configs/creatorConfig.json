@@ -13,5 +13,5 @@
         "max": 5,
         "color": "#27427c"
     },
-    "secondOptionKeyCode": 17
+    "secondOptionKeyCode": "Control"
 }
