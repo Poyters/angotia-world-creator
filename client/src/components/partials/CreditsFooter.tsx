@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const CreditsFooter = () => {
+const CreditsFooter: React.FC = () => {
   const currentYear: number = (new Date()).getFullYear();
 
   return (

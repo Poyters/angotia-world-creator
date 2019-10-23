@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 interface ILinkButton {
-    link: string,
-    buttonText: string
+  link: string,
+  buttonText: string
 }
 
 const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {

@@ -9,7 +9,7 @@ import { saveFile } from '../../../assets/scripts/saveFile';
 const SaveOption: React.FC = () => {
   const mapData = useSelector(state => state.map);
 
-  const saveMap = () => {
+  const saveMap = (): void => {
     saveFile(JSON.stringify(mapData), 'boardName.json', 'text/json');
   };
 
@@ -18,7 +18,7 @@ const SaveOption: React.FC = () => {
       role="button" 
       className="option option--textOption option--smallerMargin" 
       data-title="save board on your computer" 
-      onClick={() => saveMap()}
+      onClick={(): void => saveMap()}
     >
       <span> Save </span>
     </div>

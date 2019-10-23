@@ -21,7 +21,7 @@ const LayersOption: React.FC = () => {
                     id={`${layerName}Btn`} 
                     className="layersList__layer layersList__layer--active" 
                     key={id} 
-                    onClick={() => toggleLayer(layerName)} 
+                    onClick={(): void => toggleLayer(layerName)} 
                     data-title={`click to toggle ${layerName} layer`}
                 >
                     {layerName}
@@ -34,7 +34,7 @@ const LayersOption: React.FC = () => {
     }, []);
 
     let isBackgroundVisible: boolean = true;
-    const toggleBackground = () => {
+    const toggleBackground = (): void => {
         const map: any = document.getElementById('map');
         const button: any = document.getElementById(`backgroundBtn`);
 
@@ -67,7 +67,7 @@ const LayersOption: React.FC = () => {
 
     return (
         <Fragment>
-            <div role="button" className="option option--textOption option--layers" onClick={() => setIsOpen(!isOpen)}> 
+            <div role="button" className="option option--textOption option--layers" onClick={(): void => setIsOpen(!isOpen)}> 
                 <span>Layers</span>
             </div>
             <ul className="layersList" style={layersListStyles}>

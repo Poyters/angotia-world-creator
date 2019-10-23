@@ -27,7 +27,7 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const dispatch = useDispatch(); 
 
 
-    useEffect(() => {
+    useEffect((): void => {
         if (
             parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
             parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
@@ -41,8 +41,8 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
     }, [vertexWeightValue]);
 
 
-    const insertVertexWeight = () => {
-        const potentialWeights = matrixToIds(selectMatrix);
+    const insertVertexWeight = (): void => {
+        const potentialWeights: any[] = matrixToIds(selectMatrix);
         potentialWeights.forEach(location => {
             if (!vertexWeights.some(e => e.id === location.id)) {
                 const newLocation = {
@@ -85,7 +85,7 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={() => insertVertexWeight()} disabled={error}
+                    onClick={(): void => insertVertexWeight()} disabled={error}
                 > 
                     submit 
                 </button>

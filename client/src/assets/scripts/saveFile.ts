@@ -10,7 +10,7 @@ export const saveFile = (data: any, filename: string, type: string): void => {
         a.download = filename;
         document.body.appendChild(a);
         a.click();
-        setTimeout(() => {
+        setTimeout((): void => {
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);  
         }, 0); 

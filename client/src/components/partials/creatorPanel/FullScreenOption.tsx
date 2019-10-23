@@ -27,7 +27,6 @@ const isFullScreen = (): boolean => {
 
 const FullScreenOption: React.FC = () => {
   const [fs, setFs] = useState<boolean>(false);
-  const body: HTMLElement = document.body;
   document.addEventListener('keydown', event => externalFSChange(event.key));
 
   const clickHandler = (): void => {
@@ -42,7 +41,6 @@ const FullScreenOption: React.FC = () => {
   };
 
   const externalFSChange = (key: string): void => {
-    console.log(key)
     if (key === 'F11') setFs(!fs);
     else if (key === 'Escape') setFs(false);
   }

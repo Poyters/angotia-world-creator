@@ -24,7 +24,7 @@ interface IRectanglePosition {
   bottomRight: IPoint
 }
 
-export const mouseSelectFields = () => {
+export const mouseSelectFields = (): void => {
   const map: any = document.getElementById("map");
 	canvas = document.getElementById('mapSelectCanvas');
   ctx = canvas.getContext('2d');
@@ -49,7 +49,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 };
 
 
-const mouseUp = () => {
+const mouseUp = (): void => {
 	const storeData = store.getState();
   const selectType: string = storeData.map.select.type;
 	
@@ -87,7 +87,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   draw();
 };
 
-const draw = () => {
+const draw = (): void => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.map.select.matrix];
 
@@ -139,7 +139,7 @@ const colorSquares = (rectanglePosition) => {
   selectCanvasSquare(selectMatrix, rectangleSquarePoints.topLeft);
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
-  setTimeout(() => {
+  setTimeout((): void => {
     colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor); //TODO: make it async
   }, 20);
 };

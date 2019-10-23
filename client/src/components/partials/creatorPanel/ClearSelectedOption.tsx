@@ -9,7 +9,7 @@ import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
 
 const ClearSelectedOption: React.FC = () => {
 
-  const clearSelected = ():void => {
+  const clearSelected = (): void => {
     clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 	};
 

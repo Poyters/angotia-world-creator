@@ -29,7 +29,7 @@ const PassageOption: React.FC = () => {
     let passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
-    const passageHandler = () => {
+    const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
             setActionNote('Need to select fields', 'warning');
             return;
@@ -37,10 +37,10 @@ const PassageOption: React.FC = () => {
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
-        setTimeout(() => pressedKey = '', 250); 
+        setTimeout((): string => pressedKey = '', 250); 
     };
     
-    const deletePassage = () => {
+    const deletePassage = (): void => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {
@@ -58,7 +58,7 @@ const PassageOption: React.FC = () => {
     return (
         <Fragment>
             { isPopup ? ReactDOM.createPortal(<PassagePopup closePopup={setIsPopup}/>, document.body) : null}
-            <div className="passageOption" onClick={() => passageHandler()} data-title="add/delete passage"></div>
+            <div className="passageOption" onClick={(): void => passageHandler()} data-title="add/delete passage"></div>
         </Fragment>
     );
 };

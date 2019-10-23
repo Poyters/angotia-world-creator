@@ -47,5 +47,5 @@ export const markSquare = (
   setActionNote(note);
 
   //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
-  setTimeout(() => pressedKey = '', 250);
+  setTimeout((): string => pressedKey = '', 250);
 };

@@ -114,7 +114,7 @@ const FilesPanel: React.FC = () => {
                 <li 
                     key={index} 
                     style={imageStyle} 
-                    onClick={() => markSquare(
+                    onClick={(): void => markSquare(
                                 sourceMatrix, 
                                 `map${currBookmark}Canvas`, 
                                 matrixTransformationMethod, 
@@ -135,7 +135,7 @@ const FilesPanel: React.FC = () => {
         const bookmarksToRender: any[] = bookmarks.map((bookmark, index) => {
             return <li 
                         key={index} 
-                        onClick={() => setCurrBookmark(bookmark)} 
+                        onClick={(): void => setCurrBookmark(bookmark)} 
                         style={{color: currBookmark === bookmark ? '#27427c' : 'inherit'}}
                     > {bookmark} </li>;
         });
@@ -145,7 +145,7 @@ const FilesPanel: React.FC = () => {
 
     return (
         <Fragment>
-            <div className="filesPanelSwitch t-paragraph4Normal" onClick={() => setIsOpen(true)}> Open files panel</div>
+            <div className="filesPanelSwitch t-paragraph4Normal" onClick={(): void => setIsOpen(true)}> Open files panel</div>
             <aside className="filesPanelWrapper" style={filesPanelStyles}>
                 <div className="filesPanel">
                     <nav className="filesPanel__bookmarks t-paragraph5Normal">
@@ -160,7 +160,7 @@ const FilesPanel: React.FC = () => {
                         </ul>
                     </div>
 
-                    <div className="filesPanel__switch t-paragraph4Normal" onClick={() => setIsOpen(false)}>
+                    <div className="filesPanel__switch t-paragraph4Normal" onClick={(): void => setIsOpen(false)}>
                         <span>Hide files panel</span>
                         <Arrow additionalClass="arrow--filesPanel"/>
                     </div>

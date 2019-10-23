@@ -16,7 +16,7 @@ const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => 
       value={currValue}
       id={id}
       onChange={e => changeValue(e.target.value)}
-      onClick={() => changeValue('')}
+      onClick={(): void => changeValue('')}
     />
   );
 };

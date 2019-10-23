@@ -20,9 +20,9 @@ const BlockOption = () => {
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
-            setActionNote('Need to select fields', 'warning');
-            return;
-        }
+			setActionNote('Need to select fields', 'warning');
+			return;
+		}
 		
 		markSquare(
 			blockMatrix, 
@@ -38,7 +38,7 @@ const BlockOption = () => {
 		<div 
 			role="button" 
 			className="option option--block" 
-			onClick={() => blockHandler()} 
+			onClick={(): void => blockHandler()} 
 			data-title="add/delete block squares"
 		>
 			<div className="g-exitBtn"></div>

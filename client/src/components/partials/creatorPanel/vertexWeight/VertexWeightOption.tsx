@@ -29,7 +29,7 @@ const VertexWeightOption: React.FC = () => {
     let vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
-    const vertexHandler = () => {
+    const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
             setActionNote('Need to select fields', 'warning');
             return;
@@ -37,10 +37,10 @@ const VertexWeightOption: React.FC = () => {
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
 
-        setTimeout(() => pressedKey = '', 250); 
+        setTimeout((): string => pressedKey = '', 250); 
     };
     
-    const deletePassage = () => {
+    const deletePassage = (): void => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {
@@ -65,7 +65,7 @@ const VertexWeightOption: React.FC = () => {
     return (
         <Fragment>
             { isPopup ? ReactDOM.createPortal(<VertexWeightPopup closePopup={setIsPopup}/>, document.body) : null}
-            <div role="button" className="option" onClick={() => vertexHandler()} data-title="add/delete vertex weight">
+            <div role="button" className="option" onClick={(): void => vertexHandler()} data-title="add/delete vertex weight">
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
                         { creatorConfig.vertexWeight.max }

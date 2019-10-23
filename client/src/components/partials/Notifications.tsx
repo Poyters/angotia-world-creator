@@ -11,7 +11,7 @@ const Notifications: React.FC = () => {
 	const [note, setNote] = useState<string>(actionNote);
 	const [opacityCSS, setOpacityCSS] = useState<number>(1);
 
-	useEffect(() => {
+	useEffect((): void => {
 		clearTimeout(timer);
 
 		if (opacityCSS === 0 && note !== actionNote) {
@@ -19,7 +19,7 @@ const Notifications: React.FC = () => {
 			setOpacityCSS(1);
 		}
 
-		timer = setTimeout(() => {
+		timer = setTimeout((): void => {
 			setOpacityCSS(0);	
 		}, creatorConfig.actionNoteDelay);
 	});

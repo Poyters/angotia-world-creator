@@ -8,8 +8,8 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 	const storeData = store.getState();
 	const mapSize: IMapSize = storeData.map.size;
 
-	const newMatrix: Array<any> = [...Array(mapSize.y)].map(() => {
-		return [...Array(mapSize.x)].map(() => {
+	const newMatrix: Array<any> = [...Array(mapSize.y)].map((): any[] => {
+		return [...Array(mapSize.x)].map((): any[] => {
 			return [
 				[0, 0],
 				[0, 0]
