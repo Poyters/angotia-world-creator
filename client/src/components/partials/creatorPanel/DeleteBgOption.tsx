@@ -18,7 +18,7 @@ const DeleteBgOption: React.FC = () => {
 
   return (
     <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
-        <div className="g-exitBtn" data-tile="delete background image"></div>
+      <div className="g-exitBtn" data-tile="delete background image"></div>
     </div>
   );
 };

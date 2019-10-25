@@ -47,7 +47,16 @@ const Help: React.FC = () => {
         </p>
 
         <p>
-          Background you define by add bg image by image here> button. To delete it, use /image here>. 
+          To set background image, you need to click on <span className="iconWrapper iconWrapper--down"> 
+            <input 
+              className="option option--addFile" 
+            />
+            <label className="option--on" data-title="set background image"></label>
+          </span> button and choose file from your disc. To delete it, use <span className="iconWrapper iconWrapper--down">
+            <div className="option option--deleteBg">
+              <div className="g-exitBtn" data-tile="delete background image"></div>
+            </div> 
+          </span>. 
         </p>
 
         <p>
