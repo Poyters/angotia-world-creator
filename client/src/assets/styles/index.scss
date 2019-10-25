@@ -5,6 +5,9 @@
 @import '_typography.scss';
 @import '_fonts.scss';
 
+//Import components view styles
+@import './components/_notFound.scss';
+
 //Import components styles
 @import './components/_buttons.scss';
 @import './components/_creditsFooter.scss';

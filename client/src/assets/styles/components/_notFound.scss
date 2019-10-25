@@ -1,0 +1,27 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+
+  &--error {
+    margin-bottom: 70px;
+
+    font-weight: 700;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  &--errorDesc {
+    margin-bottom: 0;
+  }
+
+  &--errorNote {
+    margin: 6px 0 25px 0;
+  }
+}
+
+.notFoundWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
