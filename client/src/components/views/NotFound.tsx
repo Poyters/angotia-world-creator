@@ -1,13 +1,10 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 //Import components
 import ComeBack from '../partials/ComeBack';
 
 
-const NotFound: React.FC = (props: any) => {
-  const history = props.history;
-
+const NotFound: React.FC = () => {
   return (
     <div className="notFoundWrapper">
       <article className="notFound">
@@ -24,4 +21,4 @@ const NotFound: React.FC = (props: any) => {
   );
 };
 
-export default withRouter(NotFound);
+export default NotFound;
