@@ -112,3 +112,26 @@ a {
 		transform: rotate(45deg);
 	}
 }
+
+.g-sectionNav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+
+	&__elem {
+		flex: 1;
+
+		&--page {
+			color: $decorationColor6;
+			text-transform: uppercase;
+			text-align: right;
+		}
+	}
+}
+
+.g-sectionTitle {
+	margin: 10px 0 30px 0;
+
+	color: $decorationColor1;
+	font-size: 50px;
+}

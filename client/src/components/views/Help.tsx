@@ -1,21 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //Import components
 import CreditsFooter from '../partials/CreditsFooter';
 import VersionMark from '../partials/VersionMark';
-import ComeBack from '../partials/ComeBack';
 
 
 const Help: React.FC = () => {
   return (
-    <article className="help">
-      <section className="help__content">
-        <ComeBack
-          class='t-paragraph2Normal help__content--comeBack'
-          url='/creator'
-          description='Come back to Creator'
-        />
-        <h1 className="help__content--title">Help</h1>
+    <article className="textView">
+      <section className="textView__content">
+        <nav className="g-sectionNav">
+          <div className="g-sectionNav__elem">
+            <Link to='/creator' className="t-paragraph2Normal textView__content--comeBack">
+              Come back to Creator
+            </Link>
+          </div>
+          <div className="g-sectionNav__elem g-sectionNav__elem--page t-paragraph6Normal">
+            <Link to='/features'>go to features</Link>
+          </div>
+        </nav>
+        <h1 className="g-sectionTitle">Help</h1>
         <p>
           Okey! If you are here it means that you chose your map size. You needed to type size in “field” unit. Each field contains a four square units. It’s really good show by the net option. Fields are marked by solid gray line, squares are marked by cropped gray line. You can manipulate the nets view by Net Option <span className="iconWrapper">
             <div 

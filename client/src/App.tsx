@@ -13,6 +13,7 @@ import Creator from './components/views/Creator';
 import Help from './components/views/Help';
 import NotFound from './components/views/NotFound';
 import License from './components/views/License';
+import Features from './components/views/Features';
 
 
 export const store = createStore(rootReducer);
@@ -27,6 +28,7 @@ export class App extends Component {
             <Route path="/creator" component={Creator} />
             <Route path="/help" component={Help} />
             <Route path="/license" component={License} />
+            <Route path="/features" component={Features} />
             <Route component={NotFound}/>
           </Switch>
         </Router>
