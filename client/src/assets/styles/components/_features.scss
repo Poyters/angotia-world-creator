@@ -1,7 +1,13 @@
 .featuresList {
+    padding-left: 15px;
+
     & li {
-        margin: 5px 0;
+        display: flex;
+        align-content: center;
+        margin: 9px 0;
     }
 }
   
- 
+.featuresWrapper {
+    overflow-y: auto;
+}

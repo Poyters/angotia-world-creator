@@ -12,7 +12,9 @@
 		margin: 50px 12% 80px 10%;
 		max-width: 700px;
 		
-		& p {
+		& section {
+			margin: 10px 0;
+
 			text-indent: 17px;
 		}
 
@@ -24,7 +26,7 @@
 
 .iconWrapper {
 	display: inline-block;
-	margin: 0 5px;
+	margin: 0 7px;
 	transform: translateY(-5px);
 
 	&--down {

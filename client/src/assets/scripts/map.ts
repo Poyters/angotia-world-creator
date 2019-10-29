@@ -23,6 +23,8 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 
 export const emptyMapCanvasCtx = (canvasId: string) => {
 	const canvas: any = document.getElementById(canvasId);
+	if (!canvas) return;
+
 	const context: any = canvas.getContext("2d");
 
 	context.save();
