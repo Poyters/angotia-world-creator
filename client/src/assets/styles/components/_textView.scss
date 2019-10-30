@@ -36,4 +36,8 @@
 	&--normal {
 		transform: translateY(0px);
 	}
+
+	&--margin {
+		min-width: 25px;	
+	}
 }
