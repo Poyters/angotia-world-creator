@@ -37,7 +37,7 @@ const Features: React.FC = () => {
         <p>
           Below you can find precisly feature descriptions
         </p>
-        <div className="featuresWrapper">
+        <div className="scrollWrapper">
           <h3>Creator</h3>
           <ul className="featuresList">
             <li>
