@@ -140,6 +140,10 @@ const colorSquares = (rectanglePosition) => {
   store.dispatch(changeMapSelectMatrix(selectMatrix));
 
   setTimeout((): void => {
-    colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor); //TODO: make it async
+    colorBasedOnMatrix(
+      selectMatrix, 
+      'mapSelectCanvas', 
+      creatorConfig.selectColor
+    ); //TODO: make it async
   }, 20);
 };

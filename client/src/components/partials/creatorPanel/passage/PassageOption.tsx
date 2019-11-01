@@ -16,7 +16,10 @@ import { setActionNote } from '../../../../assets/scripts/notifications';
 import PassagePopup from './PassagePopup';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
+import { 
+    changeMapPassageMatrix, 
+    changeMapPassageLocations 
+} from '../../../../redux/actions/mapActions';
 
 
 let pressedKey: string = '';
@@ -52,13 +55,26 @@ const PassageOption: React.FC = () => {
         });
 
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '');
+        markSquare(
+            passageMatrix, 
+            'mapPassageCanvas', 
+            changeMapPassageMatrix, 
+            'Passage added', 
+            '#fff', 
+            ''
+        );
     };
 
     return (
         <Fragment>
-            { isPopup ? ReactDOM.createPortal(<PassagePopup closePopup={setIsPopup}/>, document.body) : null}
-            <div className="passageOption" onClick={(): void => passageHandler()} data-title="add/delete passage"></div>
+            { isPopup ? ReactDOM.createPortal(
+                <PassagePopup closePopup={setIsPopup}/>, document.body
+            ) : null}
+            <div 
+                className="passageOption" 
+                onClick={(): void => passageHandler()} 
+                data-title="add/delete passage"
+            > </div>
         </Fragment>
     );
 };

@@ -41,7 +41,11 @@ const selectField = (cursorPosition: IPoint) => {
     y: -1
   };
 
-  if (!mapNetsStatus.field && !mapNetsStatus.square || selectType === 'none') return; //no nets, no select
+  if (
+    !mapNetsStatus.field && 
+    !mapNetsStatus.square || 
+    selectType === 'none'
+  ) return; //no nets, no select
 
 
   switch(selectType) {
@@ -91,7 +95,8 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
 
 
 export const selectCanvasSquare = (selectMatrix: Array<any>, squarePosition: IPoint): void => {
-  //squarePosition determines x and y axis of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
+  // squarePosition determines x and y axis 
+  // of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
   
   const fieldPosition: IPoint = {
     x: Math.floor(squarePosition.x / 2),

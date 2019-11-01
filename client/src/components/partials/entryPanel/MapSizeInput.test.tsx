@@ -11,6 +11,11 @@ configure({adapter: new Adapter()});
 
 it('MapSizeInput component renders without crashing', (): void => {
   const div: HTMLElement = document.createElement('div');
-  ReactDOM.render(<MapSizeInput id="testInput" currValue={10} changeValue={() => {}} />, div);
+  ReactDOM.render(
+    <MapSizeInput 
+      id="testInput" 
+      currValue={10} 
+      changeValue={() => {}} />, div
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -3,7 +3,11 @@ import { ISquareData } from '../interfaces/squareInterfaces';
 import { deepCopy } from './utils/deepCopy';
 
 
-export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], setValue: number | string): any[] => {
+export const updateMatrixByTheOther = (
+	rootMatrix: any[], 
+	upgradeMatrix: any[], 
+	setValue: number | string
+): any[] => {
 	const copyOfRootMatrix: any[] = deepCopy(rootMatrix);
 	const copyOfUpgradeMatrix: any[] = deepCopy(upgradeMatrix);
 
@@ -21,7 +25,8 @@ export const updateMatrixByTheOther = (rootMatrix: any[], upgradeMatrix: any[], 
 					const fieldArray = squareIndex >= 2 ? 1 : 0;
 					const squarePos = fieldArray === 0 ? squareIndex : squareIndex - 2;
 
-					copyOfRootMatrix[y][x][fieldArray][squarePos] = setValue; //add new values to the rootMatrix
+					//add new values to the rootMatrix
+					copyOfRootMatrix[y][x][fieldArray][squarePos] = setValue; 
 				}
 			});
 

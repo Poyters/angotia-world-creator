@@ -10,7 +10,10 @@ import { markSquare } from '../../../../assets/scripts/markSquare';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
 //Import actions
-import { changeMapVertexWeightMatrix, changeMapVertexWeights } from '../../../../redux/actions/mapActions';
+import { 
+    changeMapVertexWeightMatrix, 
+    changeMapVertexWeights 
+} from '../../../../redux/actions/mapActions';
 
 
 interface IPassageOption {
@@ -71,11 +74,18 @@ const VertexWeightPopup: React.FC<IPassageOption> = ({ closePopup }) => {
     return (
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
-                <header className="insertPopup__header t-paragraph3Light">Add weight</header>
+                <header className="insertPopup__header t-paragraph3Light">
+                    Add weight
+                </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    Weight of vertex ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                    Weight of vertex 
+                    ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
                 </label>
-                <input type='text' value={vertexWeightValue} onChange={e => setVertexWeightValue(e.target.value)}/>
+                <input 
+                    type='text' 
+                    value={vertexWeightValue} 
+                    onChange={e => setVertexWeightValue(e.target.value)}
+                />
                 {
                     (error) ? (
                         <span className="insertPopup--error">Type proper value (number)</span>

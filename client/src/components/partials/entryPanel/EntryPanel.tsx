@@ -82,7 +82,10 @@ const EntryPanel: React.FC = () => {
             />
             <button onClick={mapSizeValidation}>start</button>
           </div>
-          <span id="validationInfo" className="t-paragraph2Bold entryPanel__validationInfo">
+          <span 
+            id="validationInfo" 
+            className="t-paragraph2Bold entryPanel__validationInfo"
+          >
             {valMess}
           </span>
         </a>

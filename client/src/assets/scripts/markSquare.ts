@@ -36,7 +36,9 @@ export const markSquare = (
     pressedKey !== creatorConfig.secondOptionKeyCode
   ) typeOfAction = fillColor;
 
-  const newMatrix: any[] = deepCopy(updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction));
+  const newMatrix: any[] = deepCopy(
+    updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction)
+  );
 
   store.dispatch(changeMatrixMethod(newMatrix));
   clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
@@ -46,6 +48,7 @@ export const markSquare = (
 
   setActionNote(note);
 
-  //clear pressedKey. Duration is necessary due to pressing key for a while after running setBlockSquares
+  // clear pressedKey. Duration is necessary due to 
+  // pressing key for a while after running setBlockSquares
   setTimeout((): string => pressedKey = '', 250);
 };

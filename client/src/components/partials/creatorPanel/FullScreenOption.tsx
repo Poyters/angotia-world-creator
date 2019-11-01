@@ -42,7 +42,7 @@ const FullScreenOption: React.FC = () => {
 
   const externalFSChange = (key: string): void => {
     if (key === 'F11') setFs(!fs);
-  }
+  };
 
   const fsOnOff: string = fs ? 'option--on' : 'option--off'; //It determines icon color
 

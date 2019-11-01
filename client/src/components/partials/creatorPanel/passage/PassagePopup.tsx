@@ -7,7 +7,10 @@ import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 
 //Import actions
-import { changeMapPassageMatrix, changeMapPassageLocations } from '../../../../redux/actions/mapActions';
+import { 
+    changeMapPassageMatrix, 
+    changeMapPassageLocations 
+} from '../../../../redux/actions/mapActions';
 
 
 interface IPassageOption {
@@ -47,17 +50,38 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
         closePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
-        markSquare(passageMatrix, 'mapPassageCanvas', changeMapPassageMatrix, 'Passage added', '#fff', '');
+        markSquare(
+            passageMatrix, 
+            'mapPassageCanvas', 
+            changeMapPassageMatrix, 
+            'Passage added', 
+            '#fff', 
+            ''
+        );
     };
 
     return (
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
-                <header className="insertPopup__header t-paragraph3Light"> Add passage </header>
-                <label className="insertPopup__label t-paragraph6Light">Target map id </label>
-                <input type='text' value={mapTargetId} onChange={e => setMapTargetId(e.target.value)}/>
-                <label className="insertPopup__label t-paragraph6Light">Target map coordinations </label>
-                <input type='text' value={mapTargetCords} onChange={e => setMapTargetCords(e.target.value)}/>
+                <header className="insertPopup__header t-paragraph3Light"> 
+                    Add passage 
+                </header>
+                <label className="insertPopup__label t-paragraph6Light">
+                    Target map id 
+                </label>
+                <input 
+                    type='text' 
+                    value={mapTargetId} 
+                    onChange={e => setMapTargetId(e.target.value)}
+                />
+                <label className="insertPopup__label t-paragraph6Light">
+                    Target map coordinations 
+                </label>
+                <input 
+                    type='text' 
+                    value={mapTargetCords} 
+                    onChange={e => setMapTargetCords(e.target.value)}
+                />
                 {
                     (error) ? (
                         <span className="insertPopup--error">Fill all fields</span>

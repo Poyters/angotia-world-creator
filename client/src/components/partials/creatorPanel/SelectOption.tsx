@@ -45,7 +45,8 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
     else setSelectType(0);
   };
 
-  const selectOnOff: string = selectType !== 0 ? 'option--on' : 'option--off'; //It determines icon color
+  const selectOnOff: string = selectType !== 0 ? 
+    'option--on' : 'option--off'; //It determines icon color
 
   return (
     <div role="button" className={`option selectOption ${selectOnOff}`} onClick={changeSelectType}>

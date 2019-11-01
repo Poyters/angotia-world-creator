@@ -16,7 +16,10 @@ import { setActionNote } from '../../../../assets/scripts/notifications';
 import VertexWeightPopup from './VertexWeightPopup';
 
 //Import actions
-import { changeMapVertexWeightMatrix, changeMapVertexWeights } from '../../../../redux/actions/mapActions';
+import { 
+    changeMapVertexWeightMatrix, 
+    changeMapVertexWeights 
+} from '../../../../redux/actions/mapActions';
 
 
 let pressedKey: string = '';
@@ -64,8 +67,15 @@ const VertexWeightOption: React.FC = () => {
 
     return (
         <Fragment>
-            { isPopup ? ReactDOM.createPortal(<VertexWeightPopup closePopup={setIsPopup}/>, document.body) : null}
-            <div role="button" className="option" onClick={(): void => vertexHandler()} data-title="add/delete vertex weight">
+            { isPopup ? ReactDOM.createPortal(
+                <VertexWeightPopup closePopup={setIsPopup}/>, document.body
+            ) : null}
+            <div 
+                role="button" 
+                className="option" 
+                onClick={(): void => vertexHandler()} 
+                data-title="add/delete vertex weight"
+            >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
                         { creatorConfig.vertexWeight.max }

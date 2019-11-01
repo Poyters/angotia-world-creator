@@ -53,7 +53,8 @@ const LayersOption: React.FC = () => {
   
             if (name === layerName) {
                 const computedDisplay = getComputedStyle(layer).display;
-                const display: string = layer.style.display === '' ? computedDisplay : layer.style.display;
+                const display: string = layer.style.display === '' ? 
+                    computedDisplay : layer.style.display;
                 const button: any = document.getElementById(`${name}Btn`);
 
                 if (display === 'block') layer.style.display = "none";
@@ -67,7 +68,11 @@ const LayersOption: React.FC = () => {
 
     return (
         <Fragment>
-            <div role="button" className="option option--textOption option--layers" onClick={(): void => setIsOpen(!isOpen)}> 
+            <div 
+                role="button" 
+                className="option option--textOption option--layers" 
+                onClick={(): void => setIsOpen(!isOpen)}
+            > 
                 <span>Layers</span>
             </div>
             <ul className="layersList" style={layersListStyles}>
