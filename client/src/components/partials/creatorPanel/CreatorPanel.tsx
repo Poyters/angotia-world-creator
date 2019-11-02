@@ -15,6 +15,7 @@ import LinkButton from './LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
 import SaveOption from './SaveOption';
 import DeleteBgOption from './DeleteBgOption';
+import AddFSImageOption from './addFSImage/AddFSImageOption';
 
 //Import actions
 import { 
@@ -91,6 +92,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <VertexWeightOption />
+        </li>
+        <li>
+          <AddFSImageOption />
         </li>
       </ul>
     </nav>

@@ -16,12 +16,12 @@ import {
 } from '../../../../redux/actions/mapActions';
 
 
-interface IVertexOption {
+interface IFSImageOption {
     closePopup: Function
 }
 
 
-const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
+const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
@@ -44,38 +44,17 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     }, [vertexWeightValue]);
 
 
-    const insertVertexWeight = (): void => {
-        const potentialWeights: any[] = matrixToIds(selectMatrix);
-        potentialWeights.forEach(location => {
-            if (!vertexWeights.some(e => e.id === location.id)) {
-                const newLocation = {
-                    ...location,
-                    destination: {
-                        vertexWeightValue,
-                    }
-                };
-
-                vertexWeights.push(newLocation);
-              }
-        });
+    const insertImage = (): void => {
+        console.log('Insert image process');
 
         closePopup(false);
-        dispatch(changeMapVertexWeights(vertexWeights));
-        markSquare(
-            vertexWeightMatrix, 
-            'mapVertexWeightCanvas', 
-            changeMapVertexWeightMatrix, 
-            'Vertex weight added', 
-            vertexWeightValue, 
-            'vertexWeight'
-        );
     };
 
     return (
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
                 <header className="insertPopup__header t-paragraph3Light">
-                    Add weight
+                    Add image to Files Panel
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     Weight of vertex 
@@ -95,7 +74,7 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertVertexWeight()} disabled={error}
+                    onClick={(): void => insertImage()} disabled={error}
                 > 
                     submit 
                 </button>
@@ -105,4 +84,4 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 };
 
 
-export default VertexWeightPopup;
+export default AddFSImagePopup;
