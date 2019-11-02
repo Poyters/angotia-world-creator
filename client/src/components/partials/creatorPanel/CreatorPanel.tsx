@@ -16,6 +16,7 @@ import VertexWeightOption from './vertexWeight/VertexWeightOption';
 import SaveOption from './SaveOption';
 import DeleteBgOption from './DeleteBgOption';
 import AddFSImageOption from './addFSImage/AddFSImageOption';
+import BoardNameOption from './boardName/BoardNameOption';
 
 //Import actions
 import { 
@@ -62,6 +63,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <SaveOption />
+        </li>
+        <li>
+          <BoardNameOption />
         </li>
         <li>
           <LayersOption />
