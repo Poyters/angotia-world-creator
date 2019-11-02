@@ -23,11 +23,9 @@ const AddFSImageOption: React.FC = () => {
                 onClick={(): void => setIsPopup(true)} 
                 data-title="add own pics to Files Panel"
             >
-				<div className="vertexWeightOption">
-					<div className="vertexWeightOption__number">
-                        { creatorConfig.vertexWeight.max }
-					</div>
-				</div>
+				<div className="addFSImageOption">
+
+                </div>
 			</div>
         </Fragment>
     );
