@@ -58,10 +58,47 @@
       content: 'Search file';
       top: 0;
       left: 0;
-      padding: 8px 4px;
+      padding: 10px 4px;
 
       font-weight: 400;
-      font-size: 16px;;
+      font-size: 16px;
+    }
+  }
+}
+
+.addFSImageSelect {
+  display: flex;
+  position: relative;
+  height: 30px;
+  padding: 4px 8px;
+  margin: 5px 0;
+  align-items: center;
+
+  background-color: $decorationColor1;
+  color: $decorationColor6;
+  font-size: 14px;
+  transition: 200ms ease-in-out;
+
+  cursor: pointer;
+  &:hover {
+    color: $decorationColor4;
+  }
+
+  & ul {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+
+    background-color: $decorationColor1;
+    border-right: 1px solid $decorationColor4;
+    border-bottom: 1px solid $decorationColor4;
+    border-left: 1px solid $decorationColor4;
+
+    & li {
+      margin: 0 0 4px 20px;
     }
   }
 }

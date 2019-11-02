@@ -11,24 +11,10 @@ interface IFSImageOption {
 
 
 const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
-    const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
-    const [categoryError, setCategoryError] = useState<boolean>(false);
     const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
+    const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
     const [fileName, setFileName] = useState<string>("");
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-
-    useEffect((): void => {
-        if (
-            parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
-            parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
-            !vertexWeightMatrix || 
-            !Number(vertexWeightValue)
-        ) {
-            setCategoryError(true);
-        }
-        else setCategoryError(false);
-
-    }, [vertexWeightValue]);
+    const [currBookmark, setCurrBookmark] = useState<string>(creatorConfig.bookmarks[0]);
 
     const handleFileSelect = (evt: any) => {
         const file = evt.target.files[0]; 
@@ -46,7 +32,6 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
         setFileName(file.name)
         reader.readAsDataURL(file);
     };
-
 
     const insertImage = (): void => {
         console.log('Insert image process');
@@ -78,21 +63,36 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 <label className="insertPopup__label t-paragraph6Light">
                     Select category
                 </label>
-                <input 
-                    type='text' 
-                    value={vertexWeightValue} 
-                    onChange={e => setVertexWeightValue(e.target.value)}
-                />
-                {
-                    (categoryError) ? (
-                        <span className="insertPopup--error">Type proper value (number)</span>
-                    ) : null
-                }
+                <div 
+                    className="addFSImageSelect"
+                    onClick={(): void => setIsSelectOpen(!isSelectOpen)}
+                >
+                    <span> { currBookmark } </span>
+                    {
+                        (isSelectOpen) ? (
+                        <ul>
+                            { creatorConfig.bookmarks.map((bookmark, index) => {
+                                if (bookmark !== currBookmark) {
+                                    return (
+                                        <li 
+                                            onClick={(): void => setCurrBookmark(bookmark)}
+                                            key={index}
+                                        > 
+                                            { bookmark } 
+                                        </li>
+                                    )
+                                }  
+                            })}  
+                        </ul>
+                        ): null
+                    }
+                    
+                </div>
 
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertImage()} disabled={categoryError || !isLoadedImage}
+                    onClick={(): void => insertImage()} disabled={!isLoadedImage}
                 > 
                     submit 
                 </button>
