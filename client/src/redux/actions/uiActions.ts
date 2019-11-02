@@ -4,3 +4,11 @@ export const setNotification = (notification: string) => {
         notification
     };
 };
+
+export const changeMapName = (mapName: string) => {
+    return {
+        type: 'CHANGE_MAP_NAME',
+        mapName
+    };
+};
+

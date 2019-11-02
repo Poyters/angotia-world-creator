@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-//Import scripts
-import { matrixToIds } from '../../../../assets/scripts/matrix';
-import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
-import { markSquare } from '../../../../assets/scripts/markSquare';
+//Import actions
+import { changeMapName } from '../../../../redux/actions/uiActions';
+
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
@@ -18,13 +17,9 @@ interface IFSImageOption {
 const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const [mapName, setMapName] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
-    const dispatch = useDispatch(); 
-
+    const dispatch = useDispatch();
 
     useEffect((): void => {
-
         if (
             mapName.length < creatorConfig.mapName.minLength || 
             mapName.length > creatorConfig.mapName.maxLength
@@ -37,8 +32,7 @@ const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
 
     const insertImage = (): void => {
-        console.log('Insert image process');
-
+        dispatch(changeMapName(mapName));
         closePopup(false);
     };
 

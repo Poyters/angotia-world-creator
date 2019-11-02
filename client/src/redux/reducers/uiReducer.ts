@@ -1,5 +1,6 @@
 export const initState = {
-    actionNote: "Map has been loaded"
+    actionNote: "Map has been loaded",
+    mapName: 'board name'
 };
 
 
@@ -10,6 +11,11 @@ export const mapReducer = (state = initState, action) => {
                 ...state,
                 actionNote: action.notification
             };
+        case 'CHANGE_MAP_NAME':
+                return {
+                    ...state,
+                    mapName: action.mapName
+                };
         default:
             return state;
     }

@@ -8,9 +8,10 @@ import { saveFile } from '../../../assets/scripts/saveFile';
 
 const SaveOption: React.FC = () => {
   const mapData = useSelector(state => state.map);
+  const mapName = useSelector(state => state.ui.mapName);
 
   const saveMap = (): void => {
-    saveFile(JSON.stringify(mapData), 'boardName.json', 'text/json');
+    saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');
   };
 
   return (
