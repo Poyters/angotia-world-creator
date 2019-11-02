@@ -1,10 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-//Import configs
-import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-
 //Import components
 import AddFSImagePopup from './AddFSImagePopup';
 
