@@ -9,12 +9,6 @@ import { markSquare } from '../../../../assets/scripts/markSquare';
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
-//Import actions
-import { 
-    changeMapVertexWeightMatrix, 
-    changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
-
 
 interface IFSImageOption {
     closePopup: Function
@@ -22,26 +16,24 @@ interface IFSImageOption {
 
 
 const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
-    const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
+    const [mapName, setMapName] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
     const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
 
     useEffect((): void => {
+
         if (
-            parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
-            parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
-            !vertexWeightMatrix || 
-            !Number(vertexWeightValue)
+            mapName.length < creatorConfig.mapName.minLength || 
+            mapName.length > creatorConfig.mapName.maxLength
         ) {
             setError(true);
         }
         else setError(false);
 
-    }, [vertexWeightValue]);
+    }, [mapName]);
 
 
     const insertImage = (): void => {
@@ -58,12 +50,12 @@ const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     Name
-                    ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                    ({creatorConfig.mapName.minLength} - {creatorConfig.mapName.maxLength})
                 </label>
                 <input 
                     type='text' 
-                    value={vertexWeightValue} 
-                    onChange={e => setVertexWeightValue(e.target.value)}
+                    value={mapName} 
+                    onChange={e => setMapName(e.target.value)}
                 />
                 {
                     (error) ? (
