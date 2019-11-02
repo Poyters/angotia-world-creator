@@ -5,6 +5,10 @@
         "minSize": 8,
         "maxSize": 100
     },
+    "mapName": {
+        "minLength": 5,
+        "maxLength": 15
+    },
     "actionNoteDelay": 1500,
     "selectColor": "rgba(0, 0, 0, 0.5)",
     "blockSquareColor": "#7d190b",
