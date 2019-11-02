@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-//Import scripts
-import { matrixToIds } from '../../../../assets/scripts/matrix';
-import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
-import { markSquare } from '../../../../assets/scripts/markSquare';
+import { useSelector } from 'react-redux';
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import actions
-import { 
-    changeMapVertexWeightMatrix, 
-    changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
 
 
 interface IFSImageOption {
@@ -23,12 +12,10 @@ interface IFSImageOption {
 
 const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
-    const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
+    const [categoryError, setCategoryError] = useState<boolean>(false);
+    const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
+    const [fileName, setFileName] = useState<string>("");
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
-    const dispatch = useDispatch(); 
-
 
     useEffect((): void => {
         if (
@@ -37,11 +24,28 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
             !vertexWeightMatrix || 
             !Number(vertexWeightValue)
         ) {
-            setError(true);
+            setCategoryError(true);
         }
-        else setError(false);
+        else setCategoryError(false);
 
     }, [vertexWeightValue]);
+
+    const handleFileSelect = (evt: any) => {
+        const file = evt.target.files[0]; 
+        const reader = new FileReader();
+    
+        reader.onload = (():any => {
+          return (e) => {
+            const path: string = e.target.result;
+            setIsLoadedImage(true);
+            console.log(path);
+          };
+    
+        })();
+    
+        setFileName(file.name)
+        reader.readAsDataURL(file);
+    };
 
 
     const insertImage = (): void => {
@@ -57,8 +61,22 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     Add image to Files Panel
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    Weight of vertex 
-                    ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                    Choose image
+                </label>
+                <input 
+                    type="file" 
+                    id="addFSImageInput" 
+                    onChange={evt => handleFileSelect(evt)}
+                    className="addFSImageBtn"
+                />
+                <label htmlFor="addFSImageInput">{fileName}</label>
+                {
+                    (!isLoadedImage) ? (
+                        <span className="insertPopup--error">You need to choose pic</span>
+                    ) : null
+                }
+                <label className="insertPopup__label t-paragraph6Light">
+                    Select category
                 </label>
                 <input 
                     type='text' 
@@ -66,7 +84,7 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     onChange={e => setVertexWeightValue(e.target.value)}
                 />
                 {
-                    (error) ? (
+                    (categoryError) ? (
                         <span className="insertPopup--error">Type proper value (number)</span>
                     ) : null
                 }
@@ -74,7 +92,7 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertImage()} disabled={error}
+                    onClick={(): void => insertImage()} disabled={categoryError || !isLoadedImage}
                 > 
                     submit 
                 </button>

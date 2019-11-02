@@ -2,7 +2,7 @@
   position: relative;
   width: 3px;
   height: 19px;
-  margin: 1px 0 0 2px;
+  margin: 1px 0 0 4px;
 
   background-color: $decorationColor4;
   transition: 200ms ease-in-out;
@@ -25,5 +25,43 @@
 
     transition: 200ms ease-in-out;
     background-color: $decorationColor4;
+  }
+}
+
+.addFSImageBtn {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+    
+  & + label {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 40px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    padding: 10px 4px;    
+
+    color: $decorationColor6;
+    background-color: $decorationColor1;
+    border: 1px solid $decorationColor1;
+    cursor: pointer;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 200;
+
+    &:before {
+      position: absolute;
+      content: 'Search file';
+      top: 0;
+      left: 0;
+      padding: 8px 4px;
+
+      font-weight: 400;
+      font-size: 16px;;
+    }
   }
 }

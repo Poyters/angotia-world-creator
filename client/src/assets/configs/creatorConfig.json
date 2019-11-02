@@ -7,7 +7,7 @@
     },
     "mapName": {
         "minLength": 5,
-        "maxLength": 15
+        "maxLength": 13
     },
     "actionNoteDelay": 1500,
     "selectColor": "rgba(0, 0, 0, 0.5)",
@@ -17,5 +17,12 @@
         "max": 5,
         "color": "#27427c"
     },
-    "secondOptionKeyCode": "Control"
+    "secondOptionKeyCode": "Control",
+    "bookmarks": [
+        "building",
+        "decoration",
+        "subsoil",
+        "npc",
+        "mob"
+    ]
 }

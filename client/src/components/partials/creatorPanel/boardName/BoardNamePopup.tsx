@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 //Import actions
 import { changeMapName } from '../../../../redux/actions/uiActions';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
@@ -34,6 +36,7 @@ const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const insertImage = (): void => {
         dispatch(changeMapName(mapName));
         closePopup(false);
+        setActionNote('Changed map name');
     };
 
     return (
