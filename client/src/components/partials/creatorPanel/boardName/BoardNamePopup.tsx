@@ -42,6 +42,10 @@ const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     return (
         <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup"> 
+                <div 
+                    className="g-exitBtn g-exitBtn--popup"
+                    onClick={():void => closePopup(false)}
+                > </div>
                 <header className="insertPopup__header t-paragraph3Light">
                     Change board name
                 </header>
