@@ -83,7 +83,7 @@
     & button {
       flex: 0 1 auto;
       position: relative;
-      margin: 0 40px;
+      margin: 0 40px; 
       padding: 10px 20px;
       
       font-size: 0px;
@@ -137,5 +137,18 @@
     
     transition: 0.3s;
     color: $warningColor;
+  }
+}
+
+.loadMapInput {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+
+  & + label {
+    cursor: pointer;
   }
 }

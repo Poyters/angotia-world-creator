@@ -59,6 +59,27 @@ const EntryPanel: React.FC = () => {
 
   };
 
+  const loadMap = (evt: any) => {
+    const file = evt.target.files[0]; 
+    const reader = new FileReader();
+
+    reader.onload = (():any => {
+      return (e) => {
+        try {
+          const mapData = JSON.parse(e.target.result);
+
+          console.log(mapData)
+				} catch (error) {
+					alert('Exception when trying to parse json = ' + error);
+				}
+      };
+
+    })();
+
+    reader.readAsText(file);
+    console.log(file.name)
+  };
+
   const content = redirect ? (
     <Redirect to='/creator'/>
   ) : (
@@ -92,9 +113,15 @@ const EntryPanel: React.FC = () => {
       </li>
       <li>
         <a href="#">
-          <span className="t-paragraph1Light">
+          <input 
+              type="file" 
+              id="loadMapInput" 
+              className="loadMapInput"
+              onChange={(event): void => loadMap(event)}
+          />
+          <label className="t-paragraph1Light" htmlFor="loadMapInput">
             load map
-          </span>
+          </label>
         </a>
       </li>
       <li>
