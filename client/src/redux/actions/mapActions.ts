@@ -106,3 +106,10 @@ export const changeMapVertexWeights = (weights) => {
         weights
     };
 };
+
+export const loadMapData = (mapData) => {
+    return {
+        type: 'LOAD_MAP_DATA',
+        mapData
+    };
+};

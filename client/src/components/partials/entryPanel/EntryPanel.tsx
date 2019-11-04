@@ -7,6 +7,8 @@ import MapSizeInput from './MapSizeInput';
 
 //Import actions
 import { setMapSizes } from '../../../redux/actions/mapActions';
+import { changeMapName } from '../../../redux/actions/uiActions';
+import { loadMapData } from '../../../redux/actions/mapActions';
 
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
@@ -69,6 +71,9 @@ const EntryPanel: React.FC = () => {
           const mapData = JSON.parse(e.target.result);
 
           console.log(mapData)
+
+          dispatch(changeMapName(file.name));
+          dispatch(loadMapData(mapData));
 				} catch (error) {
 					alert('Exception when trying to parse json = ' + error);
 				}
@@ -78,6 +83,8 @@ const EntryPanel: React.FC = () => {
 
     reader.readAsText(file);
     console.log(file.name)
+
+    setRedirect(true);
   };
 
   const content = redirect ? (
