@@ -150,9 +150,8 @@ export const mapReducer = (state = initState, action) => {
                     weights: action.weights,
                 },
             };
-        case 'LODA_MAP_DATA':
+        case 'LOAD_MAP_DATA':
             return {
-                ...state,
                 ...action.mapData
             };
         default:

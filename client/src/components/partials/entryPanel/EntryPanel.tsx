@@ -16,6 +16,9 @@ import creatorConfig from '../../../assets/configs/creatorConfig.json';
 //Import interfaces
 import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 
+//Import scripts
+import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
+
 
 let mapSizes: IPoint = {
   x: 0,
@@ -74,6 +77,7 @@ const EntryPanel: React.FC = () => {
 
           dispatch(changeMapName(file.name));
           dispatch(loadMapData(mapData));
+          drawLoadedMap();
 				} catch (error) {
 					alert('Exception when trying to parse json = ' + error);
 				}
@@ -83,7 +87,6 @@ const EntryPanel: React.FC = () => {
 
     reader.readAsText(file);
     console.log(file.name)
-
     setRedirect(true);
   };
 
