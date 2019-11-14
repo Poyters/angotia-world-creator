@@ -15,6 +15,12 @@ export const drawLoadedMap = () => {
   const storeData = store.getState();
   const blockMatrix = storeData.map.blockMatrix;
   const passageMatrix = storeData.map.passage.matrix;
+  const buildingMatrix = storeData.map.building.matrix;
+  const decorationMatrix = storeData.map.decoration.matrix;
+  const subsoilMatrix = storeData.map.subsoil.matrix;
+  const npcMatrix = storeData.map.npc.matrix;
+  const mobMatrix = storeData.map.mob.matrix;
+  const vertexWeightMatrix = storeData.map.vertex.matrix;
 
   console.log(storeData);
 
@@ -32,5 +38,53 @@ export const drawLoadedMap = () => {
     'mapPassageCanvas', 
     '#fff', 
     ''
+  );
+
+  // Draw buildings
+  colorBasedOnMatrix(
+    buildingMatrix, 
+    'mapbuildingCanvas', 
+    '', 
+    'image'
+  );
+
+  // Draw decorations
+  colorBasedOnMatrix(
+    decorationMatrix, 
+    'mapdecorationCanvas', 
+    '', 
+    'image'
+  );
+
+  // Draw subsoils
+  colorBasedOnMatrix(
+    subsoilMatrix, 
+    'mapsubsoilCanvas', 
+    '', 
+    'image'
+  );
+
+  // Draw NPCs
+  colorBasedOnMatrix(
+    npcMatrix, 
+    'mapnpcCanvas', 
+    '', 
+    'image'
+  );
+
+  // Draw MOBs
+  colorBasedOnMatrix(
+    mobMatrix, 
+    'mapmobCanvas', 
+    '', 
+    'image'
+  );
+
+  // Draw vertex weights
+  colorBasedOnMatrix(
+    vertexWeightMatrix, 
+    'mapVertexWeightCanvas',
+    '', 
+    'vertexWeight'
   );
 };
