@@ -4,7 +4,7 @@ import { store } from '../../App';
 import creatorConfig from '../configs/creatorConfig.json';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
 
 //Import scripts
 import { mouseSelectFields } from './mouseSelectFields';
@@ -32,8 +32,8 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
 
 const selectField = (cursorPosition: IPoint) => {
   const storeData = store.getState();
-  const selectType: string = storeData.map.select.type;
-  const selectMatrix: Array<number> = [...storeData.map.select.matrix];
+  const selectType: string = storeData.ui.select.type;
+  const selectMatrix: Array<number> = [...storeData.ui.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
   const mapNetsStatus = storeData.map.net;
   let positionDelta: IPoint = {

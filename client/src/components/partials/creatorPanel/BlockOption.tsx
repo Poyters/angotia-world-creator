@@ -16,7 +16,7 @@ import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
 const BlockOption = () => {
 	const blockMatrix = useSelector(state => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
-	const selectMatrix = useSelector(state => state.map.select.matrix);
+	const selectMatrix = useSelector(state => state.ui.select.matrix);
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {

@@ -1,17 +1,13 @@
 export const initState = {
     size: {
-        x: 8,
-        y: 5
+        x: 25,
+        y: 15
     },
     net: {
         field: true,
         square: true
     },
     mapPic: "",
-    select: {
-        type: "none", //none, square, field, mouse
-        matrix: [],
-    },
     blockMatrix: [],
     passage: {
         locations: [],
@@ -56,22 +52,6 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 mapPic: action.path
-            };
-        case 'SET_MAP_SELECT_TYPE':
-            return {
-                ...state,
-                select: {
-                    ...state.select,
-                    type: action.selectType
-                }
-            };
-        case 'CHANGE_MAP_SELECT_MATRIX':
-            return {
-                ...state,
-                select: {
-                    ...state.select,
-                    matrix: action.newMatrix
-                }
             };
         case 'CHANGE_MAP_BLOCK_MATRIX':
             return {

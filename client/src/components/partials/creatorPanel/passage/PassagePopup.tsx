@@ -21,7 +21,7 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
+    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const passageMatrix = useSelector(state => state.map.passage.matrix);
     const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
     const dispatch = useDispatch(); 

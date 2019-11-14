@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import actions
-import { setMapSelectType } from '../../../redux/actions/mapActions';
+import { setMapSelectType } from '../../../redux/actions/uiActions';
 
 //Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';

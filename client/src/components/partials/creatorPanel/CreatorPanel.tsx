@@ -20,11 +20,11 @@ import BoardNameOption from './boardName/BoardNameOption';
 
 //Import actions
 import { 
-  changeMapSelectMatrix, 
   changeMapBlockMatrix, 
   changeMapPassageMatrix, 
   changeMapVertexWeightMatrix 
 } from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
 
 //Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';

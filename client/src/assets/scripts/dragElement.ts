@@ -15,7 +15,7 @@ const dragElement = (element:any) => {
 
   const elementDrag = (e: MouseEvent): void => {
     const storeData = store.getState();
-    const selectType = storeData.map.select.type;
+    const selectType = storeData.ui.select.type;
 
     if (selectType === 'mouse') return;
     

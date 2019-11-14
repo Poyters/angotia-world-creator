@@ -24,7 +24,7 @@ interface IVertexOption {
 const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
+    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
     const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
     const dispatch = useDispatch(); 

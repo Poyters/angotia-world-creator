@@ -4,7 +4,7 @@ import React from 'react';
 import { clearCanvas } from '../../../assets/scripts/clearCanvas';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
 
 
 const ClearSelectedOption: React.FC = () => {

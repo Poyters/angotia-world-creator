@@ -27,7 +27,7 @@ document.addEventListener('keydown', event => pressedKey = event.key);
 
 const PassageOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.map.select.matrix));
+    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const passageMatrix = useSelector(state => state.map.passage.matrix);
     let passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
     const dispatch = useDispatch(); 

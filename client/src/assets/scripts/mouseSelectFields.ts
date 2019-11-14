@@ -4,7 +4,7 @@ import { store } from '../../App';
 import creatorConfig from '../configs/creatorConfig.json';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
 
 //Import interfaces
 import { IPoint } from '../interfaces/pointInterfaces';
@@ -37,7 +37,7 @@ export const mouseSelectFields = (): void => {
 
 const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 	const storeData = store.getState();
-  const selectType: string = storeData.map.select.type;
+  const selectType: string = storeData.ui.select.type;
   const mapLeft = parseInt(map.style.left) || 0;
   const mapTop = parseInt(map.style.top) || 0;
 	
@@ -51,7 +51,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 
 const mouseUp = (): void => {
 	const storeData = store.getState();
-  const selectType: string = storeData.map.select.type;
+  const selectType: string = storeData.ui.select.type;
 	
   if (selectType !== "mouse") return;
   
@@ -75,7 +75,7 @@ const mouseUp = (): void => {
 
 const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const storeData = store.getState();
-  const selectType: string = storeData.map.select.type;
+  const selectType: string = storeData.ui.select.type;
   const mapLeft = parseInt(map.style.left) || 0;
   const mapTop = parseInt(map.style.top) || 0;
 	
@@ -89,7 +89,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 
 const draw = (): void => {
   const storeData = store.getState();
-  const selectMatrix: any[] = [...storeData.map.select.matrix];
+  const selectMatrix: any[] = [...storeData.ui.select.matrix];
 
   ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
@@ -100,7 +100,7 @@ const draw = (): void => {
 
 const colorSquares = (rectanglePosition) => {
   const storeData = store.getState();
-  const selectMatrix: any[] = [...storeData.map.select.matrix];
+  const selectMatrix: any[] = [...storeData.ui.select.matrix];
   const fieldSize = creatorConfig.map.fieldSize;
 
   const rectangleSquarePoints: IRectanglePosition = {

@@ -12,7 +12,7 @@ import { deepCopy } from './utils/deepCopy';
 import creatorConfig from '../configs/creatorConfig.json';
 
 //Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/mapActions';
+import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
 
 
 let pressedKey: string = '';
@@ -28,7 +28,7 @@ export const markSquare = (
   fillStyle?: string
 ) => {
   const storeData = store.getState();
-  const selectMatrix: any[] = deepCopy(storeData.map.select.matrix);
+  const selectMatrix: any[] = deepCopy(storeData.ui.select.matrix);
   const sourceMatrixCopy: any[] = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1;
   if (
