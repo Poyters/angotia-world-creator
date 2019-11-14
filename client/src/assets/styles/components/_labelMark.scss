@@ -1,0 +1,44 @@
+.labelMark {
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    padding: 4px 7px;
+
+    color: $fontColor1;
+    letter-spacing: 1px;
+    background-color: $decorationColor5;
+
+    &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: -50px;
+
+        border-style: solid;
+        border-width: 0 0 21px 50px;
+        border-color: transparent transparent $decorationColor5 transparent;
+    }
+
+    &--bottomLeft {
+        left: 0;
+        right: auto;
+
+        &:before {
+            left: auto;
+            right: -50px;
+            border-width: 21px 0 0 50px;
+            border-color: transparent transparent transparent $decorationColor5;
+        }
+    }
+
+    &--link {
+        cursor: pointer;
+        transform: 200ms ease-in-out;
+
+        & > a:hover {
+            color: $decorationColor1;
+        }
+    }
+}
