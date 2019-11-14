@@ -7,7 +7,7 @@ import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
 import { setActionNote } from '../../../assets/scripts/notifications';
 
 //Import actions
-import { setMapNets } from '../../../redux/actions/mapActions';
+import { setMapNets } from '../../../redux/actions/uiActions';
 
 
 interface INetOption {

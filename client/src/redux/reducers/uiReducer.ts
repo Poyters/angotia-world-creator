@@ -4,6 +4,10 @@ export const initState = {
     select: {
         type: "none", //none, square, field, mouse
         matrix: [],
+    },
+    net: {
+        field: true,
+        square: true
     }
 };
 
@@ -35,6 +39,11 @@ export const mapReducer = (state = initState, action) => {
                     ...state.select,
                     matrix: action.newMatrix
                 }
+            };
+        case 'CHANGE_MAP_NETS':
+            return {
+                ...state,
+                net: action.values
             };
         default:
             return state;

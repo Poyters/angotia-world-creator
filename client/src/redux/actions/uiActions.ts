@@ -1,3 +1,6 @@
+//Import interfaces
+import { IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+
 export const setNotification = (notification: string) => {
     return {
         type: 'CHANGE_ACTION_NOTIFICATION',
@@ -23,5 +26,12 @@ export const changeMapSelectMatrix = (newMatrix: Array<any>) => {
     return {
         type: 'CHANGE_MAP_SELECT_MATRIX',
         newMatrix
+    };
+};
+
+export const setMapNets = (values: IMapNetStatus) => {
+    return {
+        type: 'CHANGE_MAP_NETS',
+        values
     };
 };

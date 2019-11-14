@@ -35,7 +35,7 @@ const selectField = (cursorPosition: IPoint) => {
   const selectType: string = storeData.ui.select.type;
   const selectMatrix: Array<number> = [...storeData.ui.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
-  const mapNetsStatus = storeData.map.net;
+  const mapNetsStatus = storeData.ui.net;
   let positionDelta: IPoint = {
     x: -1,
     y: -1

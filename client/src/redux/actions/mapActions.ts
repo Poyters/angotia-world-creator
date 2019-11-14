@@ -1,18 +1,11 @@
 //Import interfaces
-import { IMapSize, IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../assets/interfaces/mapInterfaces';
 
 
 export const setMapSizes = (sizes: IMapSize) => {
     return {
         type: 'CHANGE_MAP_SIZES',
         sizes
-    };
-};
-
-export const setMapNets = (values: IMapNetStatus) => {
-    return {
-        type: 'CHANGE_MAP_NETS',
-        values
     };
 };
 

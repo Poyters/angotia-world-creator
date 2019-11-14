@@ -3,10 +3,6 @@ export const initState = {
         x: 25,
         y: 15
     },
-    net: {
-        field: true,
-        square: true
-    },
     mapPic: "",
     blockMatrix: [],
     passage: {
@@ -42,11 +38,6 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 size: action.sizes
-            };
-        case 'CHANGE_MAP_NETS':
-            return {
-                ...state,
-                net: action.values
             };
         case 'SET_MAP_BACKGROUND':
             return {
