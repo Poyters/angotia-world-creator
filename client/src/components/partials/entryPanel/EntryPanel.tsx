@@ -72,19 +72,14 @@ const EntryPanel: React.FC = () => {
       return (e) => {
         const mapData = JSON.parse(e.target.result);
 
-        console.log(mapData)
-
         dispatch(changeMapName(file.name));
         dispatch(loadMapData(mapData));
         drawLoadedMap();
-
-        console.log(mapData)
       };
 
     })();
 
     reader.readAsText(file);
-    console.log(file.name)
     setRedirect(true);
   };
 

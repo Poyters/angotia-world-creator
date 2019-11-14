@@ -22,8 +22,6 @@ export const drawLoadedMap = () => {
   const mobMatrix = storeData.map.mob.matrix;
   const vertexWeightMatrix = storeData.map.vertex.matrix;
 
-  console.log(storeData);
-
   // Draw block fields
   colorBasedOnMatrix(
     blockMatrix, 

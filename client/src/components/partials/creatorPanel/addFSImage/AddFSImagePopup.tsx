@@ -24,7 +24,6 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
           return (e) => {
             const path: string = e.target.result;
             setIsLoadedImage(true);
-            console.log(path);
           };
     
         })();

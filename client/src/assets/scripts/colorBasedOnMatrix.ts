@@ -16,7 +16,6 @@ export const colorBasedOnMatrix = (
   color: string, 
   specialView?: string
 ): void => {
-    console.log(matrix);
     const copyOfmatrix: Array<any> = deepCopy(matrix);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
