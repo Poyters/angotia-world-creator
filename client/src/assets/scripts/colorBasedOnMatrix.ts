@@ -13,9 +13,10 @@ const squareSize: number = creatorConfig.map.fieldSize / 2;
 export const colorBasedOnMatrix = (
   matrix: any[], 
   canvasId: string, 
-  color, 
+  color: string, 
   specialView?: string
 ): void => {
+    console.log(matrix);
     const copyOfmatrix: Array<any> = deepCopy(matrix);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");

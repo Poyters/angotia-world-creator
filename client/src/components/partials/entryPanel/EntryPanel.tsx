@@ -70,17 +70,15 @@ const EntryPanel: React.FC = () => {
 
     reader.onload = (():any => {
       return (e) => {
-        try {
-          const mapData = JSON.parse(e.target.result);
+        const mapData = JSON.parse(e.target.result);
 
-          console.log(mapData)
+        console.log(mapData)
 
-          dispatch(changeMapName(file.name));
-          dispatch(loadMapData(mapData));
-          drawLoadedMap();
-				} catch (error) {
-					alert('Exception when trying to parse json = ' + error);
-				}
+        dispatch(changeMapName(file.name));
+        dispatch(loadMapData(mapData));
+        drawLoadedMap();
+
+        console.log(mapData)
       };
 
     })();
