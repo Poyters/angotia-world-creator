@@ -18,7 +18,7 @@
     }
 
     &:last-child {
-      margin-top: 45px;	
+      margin-top: 40px;	
     }
   }
 
@@ -160,7 +160,7 @@
 
   &__separator {
     position: relative;
-    margin-bottom: 25px;
+    height: 1px;
 
     &:before {
       position: absolute;
