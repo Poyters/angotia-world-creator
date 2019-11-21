@@ -1,12 +1,16 @@
 {
   "version": {
     "phase": "alpha",
-    "number": "1.1.13"
+    "number": "1.2.1"
   },
   "author": {
     "name": "Poyters",
     "startedYear": "2018",
     "link": "http://poyters.pl"
   },
-  "exitLink": "http://poyters.pl/angotia-tools"
+  "exitLink": "http://poyters.pl/angotia-tools",
+  "reportIssue": {
+    "name": "report issue",
+    "link": "http://poyters.pl/support"
+  }
 }
