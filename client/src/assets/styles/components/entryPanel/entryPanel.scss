@@ -6,6 +6,7 @@
   transform: translateY(-50px);
 
   background-color: rgba(0, 0, 0, 0.2);
+
   & li {
     display: block;
     margin: 16px 15px;
@@ -17,23 +18,27 @@
     }
 
     &:last-child {
-      margin-top: 30px;	
+      margin-top: 45px;	
     }
   }
 
   &__createBoard {
     display: block;
+
     transition: 0.3s;
     outline: none;
 
     &:focus-within {
       .entryPanel__sizeBoard {
         height: 35px;
+        margin: 20px 0;
         opacity: 1;
+
         font-size: 12px;
 
         & button {
           font-size: inherit;
+
           &:before {
             border-width: 0 4px 35px 0;
           }
@@ -52,12 +57,12 @@
 
   &__sizeBoard {
     display: flex;
-    margin: 20px 0;
+    margin: 0;
     justify-content: center;
     height: 0;
     opacity: 0;
-    transition: 0.3s;
 
+    transition: 300ms;
     font-size: 0px;
     word-spacing: 3px;
 
@@ -112,8 +117,9 @@
         top: 0;
         width: 0;
         height: 0;
+
         border-style: solid;
-        transition-duration: 0.3s;
+        transition-duration: 300ms;
       }
 
       &:before {
@@ -138,17 +144,21 @@
     transition: 0.3s;
     color: $warningColor;
   }
-}
 
-.loadMapInput {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
+  &__loadMapInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  
+    & + label {
+      cursor: pointer;
+    }
+  }
 
-  & + label {
-    cursor: pointer;
+  &__separator {
+    
   }
 }

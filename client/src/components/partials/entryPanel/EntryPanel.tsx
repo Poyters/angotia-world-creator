@@ -19,6 +19,7 @@ import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 
 //Import scripts
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
+import { Link } from 'react-router-dom';
 
 
 let mapSizes: IPoint = {
@@ -120,13 +121,30 @@ const EntryPanel: React.FC = () => {
           <input 
               type="file" 
               id="loadMapInput" 
-              className="loadMapInput"
+              className="entryPanel__loadMapInput"
               onChange={(event): void => loadMap(event)}
           />
           <label className="t-paragraph1Light" htmlFor="loadMapInput">
             load map
           </label>
         </a>
+      </li>
+      <li className="entryPanel__separator"> </li>
+      <li>
+        <Link
+          to='/char'
+          className="t-paragraph1Light"
+        >
+          create char
+        </Link>
+      </li>
+      <li>
+        <Link
+          to='/char'
+          className="t-paragraph1Light"
+        >
+          load char
+        </Link>
       </li>
       <li>
         <a href={appConfig.exitLink} id="closeBtn">
