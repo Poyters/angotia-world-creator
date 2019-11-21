@@ -1,9 +1,8 @@
 import React from 'react';
 
 //Import other components
-import ExportOption from './ExportOption';
-import FullScreenOption from './FullScreenOption';
-import LinkButton from './LinkButton';
+import FullScreenOption from '../options/FullScreenOption';
+import LinkButton from '../LinkButton';
 
 
 const CharPanel: React.FC = () => {
@@ -21,9 +20,6 @@ const CharPanel: React.FC = () => {
         </li>
         <li>
           <LinkButton link='/license' buttonText='license' />
-        </li>
-        <li>
-          <ExportOption />
         </li>
         <li>
           <FullScreenOption />

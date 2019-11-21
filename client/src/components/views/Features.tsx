@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CreditsFooter from '../partials/CreditsFooter';
 import VersionMark from '../partials/VersionMark';
 import ExportOption from '../partials/creatorPanel/ExportOption';
-import FullScreenOption from '../partials/creatorPanel/FullScreenOption';
+import FullScreenOption from '../partials/options/FullScreenOption';
 import NetOption from '../partials/creatorPanel/NetOption';
 import SelectOption from '../partials/creatorPanel/SelectOption';
 import AddFileOption from '../partials/creatorPanel/AddFileOption';

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 //Import other components
 import ExportOption from './ExportOption';
-import FullScreenOption from './FullScreenOption';
+import FullScreenOption from '../options/FullScreenOption';
 import NetOption from './NetOption';
 import SelectOption from './SelectOption';
 import AddFileOption from './AddFileOption';
@@ -11,7 +11,7 @@ import ClearSelectedOption from './ClearSelectedOption';
 import BlockOption from './BlockOption';
 import LayersOption from './LayersOption';
 import PassageOption from './passage/PassageOption';
-import LinkButton from './LinkButton';
+import LinkButton from '../LinkButton';
 import VertexWeightOption from './vertexWeight/VertexWeightOption';
 import SaveOption from './SaveOption';
 import DeleteBgOption from './DeleteBgOption';
