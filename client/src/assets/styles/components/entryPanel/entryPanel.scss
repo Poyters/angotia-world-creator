@@ -159,6 +159,18 @@
   }
 
   &__separator {
-    
+    position: relative;
+    margin-bottom: 25px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: calc(50% - 25px);
+      width: 50px;
+      height: 1px;
+
+      background-color: $decorationColor1;
+    }
   }
 }
