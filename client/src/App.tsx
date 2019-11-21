@@ -10,6 +10,7 @@ import './assets/styles/index.scss';
 //Import views
 import Home from './components/views/Home';
 import Creator from './components/views/Creator';
+import CharCreator from './components/views/CharCreator';
 import Help from './components/views/Help';
 import NotFound from './components/views/NotFound';
 import License from './components/views/License';
@@ -26,6 +27,7 @@ export class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/creator" component={Creator} />
+            <Route path="/char-creator" component={CharCreator} />
             <Route path="/help" component={Help} />
             <Route path="/license" component={License} />
             <Route path="/features" component={Features} />
