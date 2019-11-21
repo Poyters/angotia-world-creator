@@ -1,0 +1,27 @@
+.charCreatorFormWrapper {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.charCreatorForm {
+  display: flex;
+  max-width: 800px;
+  margin: 70px 30px 100px 30px;
+  overflow-y: auto;
+
+  background-color: $decorationColor1;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__label {
+    text-transform: uppercase;
+  }
+}

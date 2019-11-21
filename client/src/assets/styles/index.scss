@@ -20,14 +20,13 @@
 @import './components/_layersOption.scss';
 @import './components/_labelMark.scss';
 @import './components/_insertPopup.scss';
+@import './components/_optionsPanel.scss';
 
 @import './components/entryPanel/entryPanel.scss';
 
 @import './components/filesPanel/filesPanel.scss';
 @import './components/filesPanel/filesPanelSwitch.scss';
 @import './components/filesPanel/filesPanelWrapper.scss';
-
-@import './components/_optionsPanel.scss';
 
 @import './components/creatorPanel/option.scss';
 @import './components/creatorPanel/clearSelectedOption.scss';
@@ -37,6 +36,8 @@
 @import './components/creatorPanel/vertexWeightOption.scss';
 @import './components/creatorPanel/boardNameOption.scss';
 @import './components/creatorPanel/addFSImageOption.scss';
+
+@import './components/charCreatorForm/charCreatorForm.scss';
 
 @import './components/map/map.scss';
 @import './components/map/mapField.scss';
