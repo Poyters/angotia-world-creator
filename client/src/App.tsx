@@ -27,7 +27,7 @@ export class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/creator" component={Creator} />
-            <Route path="/char-creator" component={CharCreator} />
+            <Route path="/char" component={CharCreator} />
             <Route path="/help" component={Help} />
             <Route path="/license" component={License} />
             <Route path="/features" component={Features} />

@@ -12,6 +12,7 @@ import { loadMapData } from '../../../redux/actions/mapActions';
 
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
+import appConfig from '../../../assets/configs/appConfig.json';
 
 //Import interfaces
 import { IPoint } from '../../../assets/interfaces/pointInterfaces';
@@ -128,7 +129,7 @@ const EntryPanel: React.FC = () => {
         </a>
       </li>
       <li>
-        <a href="#" id="closeBtn">
+        <a href={appConfig.exitLink} id="closeBtn">
           <span className="t-paragraphLight">
             exit
           </span>

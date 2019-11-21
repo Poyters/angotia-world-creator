@@ -13,7 +13,7 @@ const CharPanel: React.FC = () => {
       </header>
       <ul className="optionsPanel__options">
         <li>
-          <LinkButton link='/creator' buttonText='come back' />
+          <LinkButton link='/' buttonText='come back' />
         </li>
         <li>
           <LinkButton link='/help' buttonText='help' />

@@ -10,7 +10,7 @@ interface IComeBack {
 const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
   return (
     <Link 
-      to={`'/${url}`} 
+      to={`/${url}`} 
       className={addedClass}
     >
       {description}
