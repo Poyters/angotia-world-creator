@@ -44,11 +44,11 @@ const CreatorPanel: React.FC = () => {
   }, []);
 
   return (
-    <nav className="creatorPanel">
-      <header className="creatorPanel__title">
+    <nav className="optionsPanel">
+      <header className="optionsPanel__title">
         <span> AMC </span>
       </header>
-      <ul className="creatorPanel__options">
+      <ul className="optionsPanel__options">
         <li>
           <LinkButton link='/' buttonText='come back' />
         </li>

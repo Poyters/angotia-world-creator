@@ -12,7 +12,7 @@ import ReportIssue from '../partials/ReportIssue';
 
 const Creator: React.FC = () => {
   return (
-    <article className="creator">
+    <article className="creatorWrapper">
       <CreatorPanel />
       <FilesPanel />
       <Map />

@@ -10,7 +10,7 @@ import ReportIssue from '../partials/ReportIssue';
 
 const CharCreator: React.FC = () => {
   return (
-    <article className="creator">
+    <article className="creatorWrapper">
       <CharPanel />
       <CreditsFooter />
       <Notifications />
