@@ -14,7 +14,7 @@ const NotFound: React.FC = () => {
           Propably you typed wrong url
         </p>
         <ComeBack
-          class='t-paragraph2Normal'
+          addedClass='t-paragraph2Normal'
           url='/'
           description='Click here to come back to Angotia Map Creator'
         />

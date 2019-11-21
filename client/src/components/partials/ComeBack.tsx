@@ -1,18 +1,21 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
+interface IComeBack {
+  addedClass: string,
+  url: string,
+  description: string
+}
 
-const ComeBack: React.FC = (props: any) => {
-  const history = props.history;
-
+const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
   return (
-    <a
-      className={props.class}
-      onClick={() => history.push(`${props.url}`)}
+    <Link 
+      to={`'/${url}`} 
+      className={addedClass}
     >
-      {props.description}
-    </a>
+      {description}
+    </Link>
   );
 };
 
-export default withRouter(ComeBack);
+export default ComeBack;
