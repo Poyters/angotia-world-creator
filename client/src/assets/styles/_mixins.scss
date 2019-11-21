@@ -5,6 +5,9 @@
 }
 
 @mixin scrollBar {
+	scrollbar-color: $decorationColor7 rgba(0,0,0,0.6);
+	scrollbar-width: thin;
+
 	&::-webkit-scrollbar {
 		width: 8px;
 		height: 8px;
