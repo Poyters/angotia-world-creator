@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import VersionMark from './VersionMark';
 
 //Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import appConfig from '../../assets/configs/appConfig.json';
 
 configure({adapter: new Adapter()});
 
@@ -18,6 +18,6 @@ describe("VersionMark component", () => {
   });
 
   it("Check proper version", () => {
-		expect(versionMark.text()).toEqual(creatorConfig.version);
+		expect(versionMark.text()).toEqual(`${appConfig.version.phase} ${appConfig.version.number}`);
   });
 });

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 //Import configs
@@ -12,23 +12,36 @@ import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 const Map: React.FC = () => {
   const mapSize = useSelector(state => state.map.size);
   const mapPic = useSelector(state => state.map.mapPic);
+  const [mapTop, setMapTop] = useState<number>(0);
+  const [mapLeft, setMapLeft] = useState<number>(0);
 
   const fieldSize: number = creatorConfig.map.fieldSize;
 
   interface IMapStyles {
     width: string,
     height: string,
+    top: string,
+    left: string
     backgroundImage: string
   }
 
   const mapStyles: IMapStyles = {
     width: `${mapSize.x * fieldSize}px`,
     height: `${mapSize.y * fieldSize}px`,
+    top: `${mapTop}px`,
+    left: `${mapLeft}px`,
     backgroundImage: `url('${mapPic}')`
   };
 
   useEffect((): void => {
     dragElement(document.getElementById("map"));
+    const winHeight: number = window.innerHeight;
+    const winWidth: number = window.innerWidth;
+    const marginTop: number = (winHeight - (mapSize.y * fieldSize)) / 2;
+    const marginLeft: number = (winWidth - (mapSize.x * fieldSize)) / 2;
+
+    setMapTop(marginTop);
+    setMapLeft(marginLeft);
   }, []);
 
 

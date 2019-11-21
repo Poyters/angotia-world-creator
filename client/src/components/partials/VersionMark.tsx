@@ -1,13 +1,13 @@
 import React from 'react';
 
 //Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import appConfig from '../../assets/configs/appConfig.json';
 
 
 const VersionMark: React.FC = () => {
   return (
     <aside className="labelMark t-paragraph5Normal">
-      {creatorConfig.version}
+      {appConfig.version.phase} {appConfig.version.number}
     </aside>
   );
 };
