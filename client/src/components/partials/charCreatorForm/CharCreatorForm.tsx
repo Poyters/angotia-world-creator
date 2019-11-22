@@ -2,6 +2,7 @@ import React from 'react';
 
 //Import components
 import CharInputField from './CharInputField';
+import CornerButton from '../CornerButton';
 
 
 const CreatorForm: React.FC = () => {
@@ -46,11 +47,9 @@ const CreatorForm: React.FC = () => {
             <div className="charCreatorFormGraphice__content">
 
             </div>
-            <div className="charImportPicBtn t-paragraph5Normal">
-              <div className="charImportPicBtn__content"> 
-                <span> import graphice </span>
-              </div>
-            </div>
+            <CornerButton 
+              name='import graphice'
+            />
           </div>
         </div>
       </div>
