@@ -6,6 +6,7 @@ const CreatorForm: React.FC = () => {
   return (
     <main className="charCreatorFormWrapper">
       <div className="charCreatorFormContentWrapper">
+        <div role="presentation" className="charCreatorFormContentWrapper__decorations"></div>
         <div className="charCreatorForm">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec nibh a velit ultricies finibus id ut risus. Aenean at fermentum enim, at efficitur arcu. Mauris ultricies massa ut quam pulvinar elementum. Nunc ut dolor in mauris egestas dictum. Aenean nisl ante, mattis non metus sodales, tempor pretium ante. Fusce congue semper lorem vel gravida. Aliquam laoreet sapien vitae sem aliquam, suscipit bibendum mi venenatis. Ut eu elementum purus, non convallis lacus. Mauris maximus sed dolor in convallis. Vestibulum at nisi odio. Nulla vel ligula consectetur, dictum leo at, fringilla risus. Aliquam dui enim, vehicula volutpat dictum eget, eleifend a libero. In accumsan purus vel euismod efficitur. Morbi placerat euismod nisl vel dapibus. Nam vitae ligula ut metus interdum facilisis ut ac massa. Interdum et malesuada fames ac ante ipsum primis in faucibus.
 

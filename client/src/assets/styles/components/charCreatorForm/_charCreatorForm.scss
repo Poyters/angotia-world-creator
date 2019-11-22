@@ -28,7 +28,7 @@
   &:before {
     top: 0;
     left: 0;
-    width: 140px;
+    width: 240px;
     height: 1px;
   }
 
@@ -37,6 +37,35 @@
     left: 0;
     width: 1px;
     height: 85px;
+  }
+
+  &__decorations {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    height: 1px;
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+  
+      background-color: $decorationColor1;
+    }
+  
+    &:before {
+      top: 0;
+      right: 0;
+      width: 135px;
+      height: 1px;
+    }
+  
+    &:after {
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      height: 305px;
+    }
   }
 }
 
