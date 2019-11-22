@@ -94,6 +94,13 @@
         transition: 200ms ease-in-out;
         color: $decorationColor4;
 
+        &--char {
+            left: 10px;
+            right: auto;
+
+            letter-spacing: 1px;
+        }
+
         &:hover {
             cursor: pointer;
             color: $decorationColor1;
