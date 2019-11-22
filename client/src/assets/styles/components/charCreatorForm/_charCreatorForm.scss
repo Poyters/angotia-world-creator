@@ -8,20 +8,43 @@
   justify-content: center;
 }
 
-.charCreatorForm {
+.charCreatorFormContentWrapper {
+  position: relative;
   display: flex;
   max-width: 800px;
   margin: 70px 30px 100px 30px;
-  overflow-y: auto;
+  padding: 40px 30px;
 
-  background-color: $decorationColor1;
+  background-color: $decorationColor8;
+  
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+
+    background-color: $decorationColor1;
+  }
+
+  &:before {
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 1px;
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 85px;
+  }
+}
+
+.charCreatorForm {
+  overflow-y: auto;
   scrollbar-width: none;
 
   &::-webkit-scrollbar {
     display: none;
-  }
-
-  &__label {
-    text-transform: uppercase;
   }
 }
