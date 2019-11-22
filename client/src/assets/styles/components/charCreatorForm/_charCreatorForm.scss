@@ -77,3 +77,14 @@
     display: none;
   }
 }
+
+.charCreatorHeader {
+  position: absolute;
+
+  right: 100px;
+  top: -10px;
+
+  color: $decorationColor1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

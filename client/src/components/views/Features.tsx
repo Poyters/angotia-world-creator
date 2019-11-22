@@ -42,17 +42,6 @@ const Features: React.FC = () => {
           Below you can find precisly feature descriptions
         </p>
         <div className="scrollWrapper">
-          <h3>Creator</h3>
-          <ul className="featuresList">
-            <li>
-              Notification system - provides notifications about current 
-              actions (left bottom corner)
-            </li>
-            <li>
-              AMC - run only when you are log in (Poyters account). Here is 
-              auto-save (like in google disc)
-            </li>
-          </ul>
           <h3>Creator panel</h3>
           <ul className="featuresList featuresList--withoutMarks">
             <li>
@@ -145,6 +134,14 @@ const Features: React.FC = () => {
           </ul>
           <h3>Creator</h3>
           <ul className="featuresList">
+            <li>
+              Notification system - provides notifications about current 
+              actions (left bottom corner)
+            </li>
+            <li>
+              AMC - run only when you are log in (Poyters account). Here is 
+              auto-save (like in google disc)
+            </li>
             <li>
               Bookmarks - divides images source into smaller bookmarks depends on 
               utility, eg. (npc, mob, decoration, building, subsoil etc)
