@@ -1,6 +1,7 @@
 import React , { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 //Import other components
 import MapSizeInput from './MapSizeInput';
@@ -19,7 +20,6 @@ import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 
 //Import scripts
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
-import { Link } from 'react-router-dom';
 
 
 let mapSizes: IPoint = {

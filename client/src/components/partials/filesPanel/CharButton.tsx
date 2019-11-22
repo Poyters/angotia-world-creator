@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const CharButton: React.FC = () => {
@@ -18,7 +19,11 @@ const CharButton: React.FC = () => {
       >
         <ul>
           <li>
-            load
+            <Link
+              to='/char'
+            >
+              load
+            </Link>
           </li>
           <li>
             edit

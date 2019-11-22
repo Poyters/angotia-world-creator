@@ -68,7 +68,7 @@
 
         transition: 200ms ease-in-out;
 
-        &:hover {
+        &:hover, &:hover > a {
           cursor: pointer;
           color: $decorationColor1;
         }
