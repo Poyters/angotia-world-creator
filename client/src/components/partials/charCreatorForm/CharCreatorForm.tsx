@@ -46,8 +46,10 @@ const CreatorForm: React.FC = () => {
             <div className="charCreatorFormGraphice__content">
 
             </div>
-            <div className="charCreatorFormGraphice__button">
-              button
+            <div className="charImportPicBtn t-paragraph5Normal">
+              <div className="charImportPicBtn__content"> 
+                <span> import graphice </span>
+              </div>
             </div>
           </div>
         </div>

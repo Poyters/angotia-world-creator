@@ -101,12 +101,6 @@
 
     background-color: $decorationColor11;
   }
-
-  &__button {
-    margin-top: 30px;
-
-    background: red;
-  }
 }
 
 .charCreatorHeader {
@@ -118,4 +112,71 @@
   color: $decorationColor1;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+.charImportPicBtn {
+  margin-top: 10px;
+
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &__content {
+    position: relative;
+    display: inline-flex;
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+  
+      background-color: $decorationColor1;
+    }
+  
+    &:before {
+      bottom: 0;
+      right: 0;
+      width: 12px;
+      height: 1px;
+    }
+  
+    &:after {
+      bottom: 0;
+      right: 0;
+      width: 1px;
+      height: 5px;
+    }
+  }
+
+  & span {
+    position: relative;
+    padding: 5px 12px;
+
+    transition: 200ms ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      color: $decorationColor1;
+    }
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+  
+      background-color: $decorationColor1;
+    }
+  
+    &:before {
+      top: 0;
+      left: 0;
+      width: 12px;
+      height: 1px;
+    }
+  
+    &:after {
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 5px;
+    }
+  }
 }
