@@ -1,0 +1,87 @@
+.charButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__menu {
+    position: absolute;
+    width: 72px;
+    top: -22px;
+    left: -26px;
+    padding: 1px;
+
+    transition: 300ms all;
+    background-color: $decorationColor8;
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+
+      background-color: $decorationColor1;
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      width: 10px;
+      height: 1px;
+    }
+
+    &:after {
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 7px;
+    }
+
+    & ul {
+      display: flex;
+      position: relative;
+      margin: 0;
+      padding: 0 1px;
+      justify-content: center;
+
+      &:before, &:after {
+        position: absolute;
+        content: '';
+  
+        background-color: $decorationColor1;
+      }
+
+      &:before {
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 1px;
+      }
+  
+      &:after {
+        bottom: 0;
+        right: 0;
+        width: 1px;
+        height: 7px;
+      }
+
+      & li {
+        display: inline-block;
+        margin: 2px 3px;
+
+        transition: 200ms ease-in-out;
+
+        &:hover {
+          cursor: pointer;
+          color: $decorationColor1;
+        }
+      }
+    }
+  }
+
+  &__name {
+    transition: 200ms ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      color: $decorationColor1;
+    }
+  }
+}

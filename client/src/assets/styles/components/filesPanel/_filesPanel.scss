@@ -99,6 +99,10 @@
             right: auto;
 
             letter-spacing: 1px;
+
+            &:hover {
+                color: $decorationColor4 !important;
+            }
         }
 
         &:hover {
