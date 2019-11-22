@@ -82,9 +82,9 @@
   }
 
   &__baseInfo {
+    display: flex;
     flex: 1;
-
-    background-color: red;
+    margin-right: 20px;
   }
 
   &__graphice {

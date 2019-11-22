@@ -1,7 +1,11 @@
 import React from 'react';
 
+//Import components
+import CharInputField from './CharInputField';
+
 
 const CreatorForm: React.FC = () => {
+  const charId = Math.random();
 
   return (
     <main className="charCreatorFormWrapper">
@@ -12,7 +16,14 @@ const CreatorForm: React.FC = () => {
         </header>
         <div className="charCreatorForm">
           <div className="charCreatorForm__baseInfo">
-            base info here
+            <CharInputField
+              label='name'
+            />
+            <CharInputField
+              label='ID - auto generated'
+              inputValue={charId}
+              inputDisabled={true}
+            />
           </div>
           <div className="charCreatorForm__graphice">
             graphice
