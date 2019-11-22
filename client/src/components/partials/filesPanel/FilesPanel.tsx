@@ -11,6 +11,7 @@ import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 
 //Import components
 import Arrow from '../Arrow';
+import CharButton from './CharButton';
 
 //Import images
 import test1 from '../../../assets/images/mapSources/building/test1.png';
@@ -175,7 +176,7 @@ const FilesPanel: React.FC = () => {
                             <div 
                                 className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
                             >
-                                <span>Char</span>
+                                <CharButton />
                             </div>
                         ) : null
                     }
