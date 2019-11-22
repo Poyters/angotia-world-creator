@@ -83,17 +83,29 @@
 
   &__baseInfo {
     display: flex;
-    flex: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
     margin-right: 20px;
   }
+}
 
-  &__graphice {
-    flex: 1;
+.charCreatorFormGraphice {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+  &__content {
     width: 360px;
     height: 240px;
-    margin-left: 20px;
+    max-height: 240px;
 
     background-color: $decorationColor11;
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    background: red;
   }
 }
 
@@ -101,7 +113,7 @@
   position: absolute;
 
   right: 100px;
-  top: -10px;
+  top: 0;
 
   color: $decorationColor1;
   text-transform: uppercase;

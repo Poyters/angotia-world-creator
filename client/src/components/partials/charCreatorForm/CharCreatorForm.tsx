@@ -11,7 +11,7 @@ const CreatorForm: React.FC = () => {
     <main className="charCreatorFormWrapper">
       <div className="charCreatorFormContentWrapper">
         <div role="presentation" className="charCreatorFormContentWrapper__decorations"></div>
-        <header className="charCreatorHeader t-paragraph1Normal">
+        <header className="charCreatorHeader t-paragraph7Light">
           Character
         </header>
         <div className="charCreatorForm">
@@ -24,9 +24,31 @@ const CreatorForm: React.FC = () => {
               inputValue={charId}
               inputDisabled={true}
             />
+            <CharInputField
+              label='Level'
+            />
+            <CharInputField
+              label='Health'
+            />
+            <CharInputField
+              label='Strength'
+            />
+            <CharInputField
+              label='Intelligence'
+            />
+            <CharInputField
+              label='Dexterity'
+            />
+
+            Add more stats
           </div>
-          <div className="charCreatorForm__graphice">
-            graphice
+          <div className="charCreatorFormGraphice">
+            <div className="charCreatorFormGraphice__content">
+
+            </div>
+            <div className="charCreatorFormGraphice__button">
+              button
+            </div>
           </div>
         </div>
       </div>
