@@ -40,8 +40,9 @@ const CreatorForm: React.FC = () => {
             <CharInputField
               label='Dexterity'
             />
-
-            Add more stats
+            <CornerButton 
+              name='add stat'
+            />
           </div>
           <div className="charCreatorFormGraphice">
             <div className="charCreatorFormGraphice__content">
