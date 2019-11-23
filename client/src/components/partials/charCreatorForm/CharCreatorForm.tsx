@@ -3,6 +3,7 @@ import React from 'react';
 //Import components
 import CharInputField from './CharInputField';
 import CornerButton from '../CornerButton';
+import ChooseCharType from './ChooseCharType';
 
 
 const CreatorForm: React.FC = () => {
@@ -33,9 +34,7 @@ const CreatorForm: React.FC = () => {
             />
             <CharInputField
               label='Strength'
-            />
-            <CharInputField
-              label='Intelligence'
+            />String
             />
             <CharInputField
               label='Dexterity'
@@ -44,12 +43,16 @@ const CreatorForm: React.FC = () => {
               name='add stat'
             />
           </div>
-          <div className="charCreatorFormGraphice">
-            <div className="charCreatorFormGraphice__content">
+          <div className="charFormRightPanel">
+            <div className="charFormRightPanel__graphice">
 
             </div>
             <CornerButton 
               name='import graphice'
+            />
+            
+            <ChooseCharType 
+              types={['npc', 'mob']}
             />
           </div>
         </div>

@@ -89,12 +89,12 @@
   }
 }
 
-.charCreatorFormGraphice {
+.charFormRightPanel {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
 
-  &__content {
+  &__graphice {
     width: 360px;
     height: 240px;
     max-height: 240px;
