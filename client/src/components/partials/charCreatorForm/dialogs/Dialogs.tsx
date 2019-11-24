@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 
 const Dialogs: React.FC = () => {
   return (
     <div>
-      Dialogs component works
+      dialogs component
     </div>
   )
 }

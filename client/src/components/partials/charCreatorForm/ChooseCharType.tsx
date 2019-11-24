@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
+//Import actions
+import { changeCharType } from '../../../redux/actions/charActions';
 
 interface IChooseCharType {
   types: string[]
@@ -8,15 +10,14 @@ interface IChooseCharType {
 
 const ChooseCharType: React.FC<IChooseCharType> = ({ types }) => {
   const [currChecked, setCurrChecked] = useState<string>('');
+  const dispatch = useDispatch();
 
   const changeChecked = (type: string): void => {
-    if (currChecked === type) setCurrChecked('');
-    else setCurrChecked(type);
+    const charType = currChecked === type ? '' : type;
+    
+    setCurrChecked(charType);
+    dispatch(changeCharType(charType));
   }
-
-  useEffect(() => {
-    console.log(currChecked)
-  })
 
   return (
     <div className="chooseCharTypeWrapper">

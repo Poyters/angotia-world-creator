@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 //Import components
 import CharInputField from './CharInputField';
 import CornerButton from '../CornerButton';
 import ChooseCharType from './ChooseCharType';
+import Dialogs from './dialogs/Dialogs';
 
 
 const CreatorForm: React.FC = () => {
   const charId = Math.random();
+  const charType = useSelector(state => state.char.type);
+
+  useEffect(() => {
+    console.log(charType);
+  });
 
   return (
     <main className="charCreatorFormWrapper">
@@ -34,7 +41,6 @@ const CreatorForm: React.FC = () => {
             />
             <CharInputField
               label='Strength'
-            />String
             />
             <CharInputField
               label='Dexterity'
@@ -54,6 +60,12 @@ const CreatorForm: React.FC = () => {
             <ChooseCharType 
               types={['npc', 'mob']}
             />
+
+            { charType === 'npc' ? (
+               <Dialogs />
+              ) : null
+            }
+           
           </div>
         </div>
       </div>

@@ -8,8 +8,10 @@ const charReducer = (state = initState, action) => {
     case 'CHANGE_CHAR_TYPE':
       return {
         ...state,
-        type: action.type
+        type: action.charType
       };
+    default:
+      return state;
   }
 };
 
