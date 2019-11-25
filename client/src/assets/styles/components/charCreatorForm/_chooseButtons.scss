@@ -1,14 +1,13 @@
 .chooseCharTypeWrapper {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin-top: 30px;
 }
 
 .chooseCharType {
   display: flex;
-  flex: 1;
-  justify-content: center;
+  margin: 0 15px;
   align-items: center;
 
   &__label {
@@ -34,3 +33,9 @@
   }
 }
 
+.chooseCharTypeHeader {
+  display: flex;
+  min-width: 100%;
+
+  text-transform: lowercase;
+}

@@ -4,8 +4,11 @@ import { useSelector } from 'react-redux';
 //Import components
 import CharInputField from './CharInputField';
 import CornerButton from '../CornerButton';
-import ChooseCharType from './ChooseCharType';
+import ChooseButtons from './ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
+
+//Import actions
+import { changeCharType } from '../../../redux/actions/charActions';
 
 
 const CreatorForm: React.FC = () => {
@@ -57,8 +60,16 @@ const CreatorForm: React.FC = () => {
               name='import graphice'
             />
             
-            <ChooseCharType 
+            <ChooseButtons 
               types={['npc', 'mob']}
+              action={changeCharType}
+              label={'Choose character'}
+            />
+
+            <ChooseButtons 
+              types={['static', 'moving']}
+              action={(): void => {}}
+              label={'Choos char type'}
             />
 
             { charType === 'npc' ? (

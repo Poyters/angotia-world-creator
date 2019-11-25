@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-//Import actions
-import { changeCharType } from '../../../redux/actions/charActions';
 
 interface IChooseCharType {
-  types: string[]
+  types: string[],
+  action: Function,
+  label?: string
 }
 
-const ChooseCharType: React.FC<IChooseCharType> = ({ types }) => {
+const ChooseCharType: React.FC<IChooseCharType> = ({ types, action, label }) => {
   const [currChecked, setCurrChecked] = useState<string>('');
   const dispatch = useDispatch();
 
@@ -16,11 +16,12 @@ const ChooseCharType: React.FC<IChooseCharType> = ({ types }) => {
     const charType = currChecked === type ? '' : type;
     
     setCurrChecked(charType);
-    dispatch(changeCharType(charType));
+    dispatch(action(charType));
   }
 
   return (
     <div className="chooseCharTypeWrapper">
+      <header className="chooseCharTypeHeader t-paragraph5Light"> { label } </header>
       {
         types.map((type, index) => {
           const inputStyle = {
