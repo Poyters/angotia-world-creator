@@ -1,0 +1,43 @@
+.dialog {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+  padding: 7px 8px;
+
+  border: 1px dotted $decorationColor7;
+  font-size: 12px;
+
+  & p {
+    margin: 2px 0;
+  }
+
+  & span {
+    margin-right: 3px;
+  }
+
+  &__playerDialog {
+    position: relative;
+    margin: 11px 30px 5px 10px;
+    padding: 5px 10px 0 0;
+
+    &:before, &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      
+      background-color: $decorationColor7;
+    }
+
+    &:before {
+      left: 0;
+      width: 60px;
+      height: 1px;
+    }
+
+    &:after {
+      right: 0;
+      width: 1px;
+      height: 100%;
+    }
+  }
+}
