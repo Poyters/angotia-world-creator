@@ -8,15 +8,16 @@ import ChooseButtons from './ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
 
 //Import actions
-import { changeCharType } from '../../../redux/actions/charActions';
+import { changeCharType, changeChar } from '../../../redux/actions/charActions';
 
 
 const CreatorForm: React.FC = () => {
-  const charId = Math.random();
-  const charType = useSelector(state => state.char.type);
+  const charId: number = Math.random();
+  const choosedChar: string = useSelector(state => state.char.choosed);
+  const charType: string = useSelector(state => state.char.type);
 
   useEffect(() => {
-    console.log(charType);
+    console.log(choosedChar, charType);
   });
 
   return (
@@ -27,57 +28,64 @@ const CreatorForm: React.FC = () => {
           Character
         </header>
         <div className="charCreatorForm">
-          <div className="charCreatorForm__baseInfo">
-            <CharInputField
-              label='name'
-            />
-            <CharInputField
-              label='ID - auto generated'
-              inputValue={charId}
-              inputDisabled={true}
-            />
-            <CharInputField
-              label='Level'
-            />
-            <CharInputField
-              label='Health'
-            />
-            <CharInputField
-              label='Strength'
-            />
-            <CharInputField
-              label='Dexterity'
-            />
-            <CornerButton 
-              name='add stat'
-            />
-          </div>
-          <div className="charFormRightPanel">
-            <div className="charFormRightPanel__graphice">
-
+          <div className="charCreatorForm__row">
+            <div className="charFormPanel charFormPanel--left">
+              <CharInputField
+                label='name'
+              />
+              <CharInputField
+                label='ID - auto generated'
+                inputValue={charId}
+                inputDisabled={true}
+              />
+              <CharInputField
+                label='Level'
+              />
+              <CharInputField
+                label='Health'
+              />
+              <CharInputField
+                label='Strength'
+              />
+              <CharInputField
+                label='Dexterity'
+              />
+              <CornerButton 
+                name='add new stat'
+              />
             </div>
-            <CornerButton 
-              name='import graphice'
-            />
-            
-            <ChooseButtons 
-              types={['npc', 'mob']}
-              action={changeCharType}
-              label={'Choose character'}
-            />
+            <div className="charFormPanel">
+              <div className="charFormPanel__graphice">
 
-            <ChooseButtons 
-              types={['static', 'moving']}
-              action={(): void => {}}
-              label={'Choos char type'}
-            />
+              </div>
+              <CornerButton 
+                name='import graphice'
+              />
+              
+              <ChooseButtons 
+                types={['npc', 'mob']}
+                action={changeChar}
+                label={'Choose character'}
+              />
 
-            { charType === 'npc' ? (
-               <Dialogs />
-              ) : null
-            }
-           
+              <ChooseButtons 
+                types={['static', 'moving']}
+                action={changeCharType}
+                label={'Choose char type'}
+              />
+
+              { charType === 'moving' ? (
+                <CharInputField
+                  label='Field diameter'
+                />
+                ) : null
+              }           
+            </div>
           </div>
+          { choosedChar === 'npc' ? (
+              <Dialogs />
+            ) : null
+          }
         </div>
       </div>
     </main>

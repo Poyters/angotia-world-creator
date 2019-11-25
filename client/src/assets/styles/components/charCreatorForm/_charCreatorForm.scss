@@ -71,8 +71,7 @@
 
 .charCreatorForm {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
   overflow-y: auto;
 
   scrollbar-width: none;
@@ -81,18 +80,22 @@
     display: none;
   }
 
-  &__baseInfo {
+  &__row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
-    margin-right: 20px;
   }
 }
 
-.charFormRightPanel {
+.charFormPanel {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+
+  &--left {
+    margin-right: 20px;
+    margin-left: 0;
+  }
 
   &__graphice {
     width: 360px;
@@ -107,7 +110,7 @@
   position: absolute;
 
   right: 85px;
-  top: 0;
+  top: -15px;
 
   color: $decorationColor1;
   text-transform: uppercase;

@@ -4,3 +4,10 @@ export const changeCharType = (charType: string) => {
       charType
   };
 };
+
+export const changeChar = (char: string) => {
+  return {
+      type: 'CHANGE_CHAR',
+      char
+  };
+};

@@ -1,0 +1,35 @@
+.dialogs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  margin-top: 50px;
+  padding: 15px 0;
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    height: 1px;
+
+    background-color: $decorationColor1;
+  }
+
+  &:before {
+    left: 0;
+    width: 285px;
+  }
+
+  &:after {
+    right: 0;
+    width: 110px;
+  }
+
+  &__header {
+    display: flex;
+    margin-bottom: 20px;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}

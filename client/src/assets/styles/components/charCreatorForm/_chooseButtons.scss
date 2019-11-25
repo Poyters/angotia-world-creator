@@ -1,11 +1,11 @@
-.chooseCharTypeWrapper {
+.chooseButtonsWrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 30px;
 }
 
-.chooseCharType {
+.chooseButtons {
   display: flex;
   margin: 0 15px;
   align-items: center;
@@ -33,7 +33,7 @@
   }
 }
 
-.chooseCharTypeHeader {
+.chooseButtonsHeader {
   display: flex;
   min-width: 100%;
 

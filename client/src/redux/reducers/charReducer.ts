@@ -1,5 +1,6 @@
 const initState = {
-  type: ''
+  type: '',
+  choosed: ''
 };
 
 
@@ -9,6 +10,11 @@ const charReducer = (state = initState, action) => {
       return {
         ...state,
         type: action.charType
+      };
+    case 'CHANGE_CHAR':
+      return {
+        ...state,
+        choosed: action.char
       };
     default:
       return state;
