@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
+
 
 const Dialog: React.FC<IDialog> = ({ 
   id, 
   npc, 
   player, 
-  validatorFunc=():void =>{} 
+  validatorFunc=():void=>{},
+  connectedDialogs,
+  clearValidator=():void=>{}
 }) => {
+  const [isConnected, setIsConnected] = useState<boolean>(connectedDialogs.includes(id));
+
+  useEffect(() => {
+    console.log('isConnected', connectedDialogs.includes(id))
+  });
+
   return (
-    <div className="dialog" onMouseEnter={():void => validatorFunc(id)}>
+    <div 
+      className="dialog" 
+      onMouseEnter={():void => validatorFunc(id)}
+      onMouseLeave={():void => clearValidator()}
+    >
+      { 
+        connectedDialogs.includes(id) ? (<p>connected</p>) : null
+      }
       <p> 
         <span className="t-paragraph5Light"> 
           Dialog ID: 

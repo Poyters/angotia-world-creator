@@ -2,7 +2,9 @@ export interface IDialog {
   id: number
   npc: string
   player: IPlayer[],
-  validatorFunc?: Function
+  validatorFunc?: Function,
+  connectedDialogs: any[],
+  clearValidator?: Function
 }
 
 export interface IPlayer {

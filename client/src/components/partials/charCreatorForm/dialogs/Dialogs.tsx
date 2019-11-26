@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //Import data
 import { exampleDialogs } from './exampleDialogs';
@@ -20,9 +20,18 @@ interface IDialogs {
 }
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
+  const [connectedDialogs, setConnectedDialogs] = useState<any[]>([]);
+
   const dialogsValidator = (beginId: number | string): void => {
-    findConnectedDialog(exampleDialogs, beginId);
-    console.log(beginId);
+    setConnectedDialogs(
+      findConnectedDialog(exampleDialogs, beginId)
+    );
+
+    console.log('connectedDialogs', connectedDialogs);
+  }
+
+  const clearConnected = ():void => {
+    setConnectedDialogs([]);
   }
 
   return (
@@ -45,6 +54,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                 player={dialog.player}
                 key={index}
                 validatorFunc={dialogsValidator}
+                connectedDialogs={connectedDialogs}
+                clearValidator={clearConnected}
               />
             })
           ) : (
