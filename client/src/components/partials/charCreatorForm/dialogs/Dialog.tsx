@@ -15,7 +15,7 @@ const Dialog: React.FC<IDialog> = ({
   const [isConnected, setIsConnected] = useState<boolean>(connectedDialogs.includes(id));
 
   useEffect(() => {
-    console.log('isConnected', connectedDialogs.includes(id))
+    console.log('isConnected', connectedDialogs.includes(id), id)
   });
 
   const dialogStyle = {

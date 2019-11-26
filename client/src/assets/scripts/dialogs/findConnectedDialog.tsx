@@ -7,5 +7,7 @@ export const findConnectedDialog = (dataSet, beginID) => {
     return playerDialog.next;
   }) : null;
 
+  if (connectedIds.includes('exit')) connectedIds.push(beginID);
+
   return connectedIds;
 }
