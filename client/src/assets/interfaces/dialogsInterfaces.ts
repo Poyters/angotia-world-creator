@@ -10,3 +10,8 @@ export interface IPlayer {
   next: number | string,
   action: null | Function
 }
+
+export interface IMonolog {
+  id: number,
+  content: string
+}
