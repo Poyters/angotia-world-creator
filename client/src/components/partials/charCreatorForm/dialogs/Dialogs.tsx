@@ -27,25 +27,37 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
       </nav>
       {
         type ==='dialogs' ? (
-          exampleDialogs.map((dialog, index) => {
-            return <Dialog 
-              id={dialog.id}
-              npc={dialog.npc}
-              player={dialog.player}
-              key={index}
-            />
-          })
+          exampleDialogs.length > 0 ? (
+            exampleDialogs.map((dialog, index) => {
+              return <Dialog 
+                id={dialog.id}
+                npc={dialog.npc}
+                player={dialog.player}
+                key={index}
+              />
+            })
+          ) : (
+            <p className='dialogs--none t-paragraph5Normal'>
+              There's no { type }
+            </p>
+          )
         ) : null
       }
       {
         type ==='monologs' ? (
-          exampleMonologs.map((monolog, index) => {
-            return <Monolog 
-              id={monolog.id}
-              content={monolog.content}
-              key={index}
-            />
-          })
+          exampleMonologs.length > 0 ? (
+            exampleMonologs.map((monolog, index) => {
+              return <Monolog 
+                id={monolog.id}
+                content={monolog.content}
+                key={index}
+              />
+            })
+          ) : (
+            <p className='dialogs--none t-paragraph5Normal'>
+              There's no { type }
+            </p>
+          )
         ) : null
       }
     </div>

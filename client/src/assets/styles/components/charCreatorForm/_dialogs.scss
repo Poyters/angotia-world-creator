@@ -25,6 +25,11 @@
     width: 110px;
   }
 
+  &--none {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
   &__nav {
     display: flex;
     margin-bottom: 20px;
