@@ -8,6 +8,11 @@ import { exampleMonologs } from './exampleMonologs';
 import Dialog from './Dialog';
 import Monolog from './Monolog';
 
+//Import scripts
+import { 
+  findConnectedDialog 
+} from '../../../../assets/scripts/dialogs/findConnectedDialog';
+
 
 interface IDialogs {
   type: string,
@@ -15,6 +20,11 @@ interface IDialogs {
 }
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
+  const dialogsValidator = (beginId: number | string): void => {
+    findConnectedDialog(exampleDialogs, beginId);
+    console.log(beginId);
+  }
+
   return (
     <div className="dialogs">
       <nav className="dialogs__nav">
@@ -34,6 +44,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                 npc={dialog.npc}
                 player={dialog.player}
                 key={index}
+                validatorFunc={dialogsValidator}
               />
             })
           ) : (

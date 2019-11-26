@@ -3,7 +3,7 @@ import React from 'react';
 //Import interfaces
 import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 
-const Dialog: React.FC<IMonolog> = ({ id, content }) => {
+const Monolog: React.FC<IMonolog> = ({ id, content }) => {
   return (
     <div className="dialog">
       <p> 
@@ -21,4 +21,4 @@ const Dialog: React.FC<IMonolog> = ({ id, content }) => {
 }
 
 
-export default Dialog;
+export default Monolog;

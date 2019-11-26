@@ -3,9 +3,14 @@ import React from 'react';
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
-const Dialog: React.FC<IDialog> = ({ id, npc, player }) => {
+const Dialog: React.FC<IDialog> = ({ 
+  id, 
+  npc, 
+  player, 
+  validatorFunc=():void =>{} 
+}) => {
   return (
-    <div className="dialog">
+    <div className="dialog" onMouseEnter={():void => validatorFunc(id)}>
       <p> 
         <span className="t-paragraph5Light"> 
           Dialog ID: 
