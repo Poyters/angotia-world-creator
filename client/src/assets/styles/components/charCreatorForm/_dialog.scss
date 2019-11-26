@@ -6,6 +6,11 @@
 
   border: 1px dotted $decorationColor7;
   font-size: 12px;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    background-color: $decorationColor8;
+  }
 
   & p {
     margin: 2px 0;
@@ -13,6 +18,7 @@
 
   & span {
     margin-right: 3px;
+    word-spacing: 3px;
   }
 
   &__playerDialog {

@@ -6,7 +6,16 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 const Dialog: React.FC<IMonolog> = ({ id, content }) => {
   return (
     <div className="dialog">
-      monolog content
+      <p> 
+        <span className="t-paragraph5Light"> 
+          Monolog ID: 
+        </span> { id } 
+      </p>
+      <p> 
+        <span className="t-paragraph5Light">
+          Monolog content: 
+        </span> { content } 
+      </p>
     </div>
   )
 }
