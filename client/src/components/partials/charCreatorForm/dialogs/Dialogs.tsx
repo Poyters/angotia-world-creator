@@ -26,8 +26,6 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     setConnectedDialogs(
       findConnectedDialog(exampleDialogs, beginId)
     );
-
-    console.log('connectedDialogs', connectedDialogs);
   }
 
   const clearConnected = ():void => {

@@ -18,15 +18,17 @@ const Dialog: React.FC<IDialog> = ({
     console.log('isConnected', connectedDialogs.includes(id))
   });
 
+  const dialogStyle = {
+    borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38'
+  }
+
   return (
     <div 
       className="dialog" 
       onMouseEnter={():void => validatorFunc(id)}
       onMouseLeave={():void => clearValidator()}
+      style={dialogStyle}
     >
-      { 
-        connectedDialogs.includes(id) ? (<p>connected</p>) : null
-      }
       <p> 
         <span className="t-paragraph5Light"> 
           Dialog ID: 
