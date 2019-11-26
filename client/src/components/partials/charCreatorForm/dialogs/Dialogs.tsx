@@ -11,9 +11,12 @@ const Dialogs: React.FC = () => {
   console.log(exampleDialogs);
   return (
     <div className="dialogs">
-      <div className="dialogs__header t-paragraph8Light">
-        dialogs
-      </div>
+      <nav className="dialogs__nav">
+        <ul>
+          <li className="t-paragraph8Light"> dialogs </li>
+          <li className="t-paragraph5Normal">Add dialog</li>
+        </ul>
+      </nav>
       {
         exampleDialogs.map((dialog, index) => {
           return <Dialog 

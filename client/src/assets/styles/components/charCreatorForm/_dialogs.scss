@@ -25,11 +25,36 @@
     width: 110px;
   }
 
-  &__header {
+  &__nav {
     display: flex;
     margin-bottom: 20px;
 
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    & ul {
+      display: flex;
+      min-width: 100%;
+      margin: 0;
+      padding: 0;
+
+      & li {
+        display: block;
+        flex: 1;
+
+        &:first-child {
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        &:last-child {
+          text-align: right;
+          transition: 200ms ease-in-out;
+          text-transform: lowercase;
+
+          &:hover {
+            cursor: pointer;
+            color: $decorationColor1;
+          }
+        }
+      }
+    }
   }
 }
