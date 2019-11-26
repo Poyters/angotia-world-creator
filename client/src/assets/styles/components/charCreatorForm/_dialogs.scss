@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 15px 0;
 
   &:before, &:after {
@@ -46,12 +46,16 @@
 
         &:last-child {
           text-align: right;
-          transition: 200ms ease-in-out;
+          
           text-transform: lowercase;
 
-          &:hover {
-            cursor: pointer;
-            color: $decorationColor1;
+          & > span {
+            transition: 200ms ease-in-out;
+
+            &:hover {
+              cursor: pointer;
+              color: $decorationColor1;
+            }
           }
         }
       }

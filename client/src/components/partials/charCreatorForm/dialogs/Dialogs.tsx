@@ -2,6 +2,7 @@ import React from 'react';
 
 //Import data
 import { exampleDialogs } from './exampleDialogs';
+import { exampleMonologs } from './exampleMonologs';
 
 //Import components
 import Dialog from './Dialog';
@@ -9,16 +10,19 @@ import Monolog from './Monolog';
 
 
 interface IDialogs {
-  type: string
+  type: string,
+  addBtnText: string
 }
 
-const Dialogs: React.FC<IDialogs> = ({ type }) => {
+const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   return (
     <div className="dialogs">
       <nav className="dialogs__nav">
         <ul>
-          <li className="t-paragraph8Light"> dialogs </li>
-          <li className="t-paragraph5Normal">Add dialog</li>
+          <li className="t-paragraph8Light"> { type } </li>
+          <li className="t-paragraph5Normal">
+            <span> { addBtnText } </span>
+          </li>
         </ul>
       </nav>
       {
@@ -34,8 +38,8 @@ const Dialogs: React.FC<IDialogs> = ({ type }) => {
         ) : null
       }
       {
-        type ==='dialogs' ? (
-          exampleDialogs.map((monolog, index) => {
+        type ==='monologs' ? (
+          exampleMonologs.map((monolog, index) => {
             return <Monolog 
               id={monolog.id}
               content={monolog.content}

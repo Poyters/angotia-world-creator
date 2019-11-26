@@ -83,9 +83,16 @@ const CreatorForm: React.FC = () => {
             </div>
           </div>
           { choosedChar === 'npc' ? (
-              <Dialogs />
+              <Dialogs 
+                type='dialogs'
+                addBtnText='add dialog'
+              />
             ) : null
           }
+          <Dialogs 
+            type='monologs'
+            addBtnText='add monolog'
+          />
         </div>
       </div>
     </main>
