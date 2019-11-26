@@ -40,5 +40,17 @@ export const exampleDialogs = [
         action: null, //special event (not required); open shop etc
       }
     ]
-  }
+  },
+  {
+    id: 4,
+    npc: 'example char invalid dialog. Invalid connections',
+    player: [
+      {
+        id: 52352,
+        dialog: 'tfawf',
+        next: 654,
+        action: null
+      }
+    ]
+  },
 ];

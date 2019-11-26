@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
@@ -12,14 +12,10 @@ const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator=():void=>{}
 }) => {
-  const [isConnected, setIsConnected] = useState<boolean>(connectedDialogs.includes(id));
-
-  useEffect(() => {
-    console.log('isConnected', connectedDialogs.includes(id), id)
-  });
-
   const dialogStyle = {
-    borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38'
+    borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38',
+    backgroundColor: connectedDialogs.includes(`invalid_${id}`) ? 
+      'rgba(175, 26, 26, 0.3)' : 'inherit'
   }
 
   return (
