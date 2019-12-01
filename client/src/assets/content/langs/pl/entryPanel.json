@@ -1,3 +1,7 @@
 {
-  "example": "example"
+  "createMap": "stwórz nową mapę",
+  "loadMap": "załaduj mapę",
+  "createChar": "stwórz bohatera",
+  "loadChar": "załąduj bohatera",
+  "exit": "wyjdź"
 }

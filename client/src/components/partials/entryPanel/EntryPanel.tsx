@@ -21,6 +21,9 @@ import { IPoint } from '../../../assets/interfaces/pointInterfaces';
 //Import scripts
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 let mapSizes: IPoint = {
   x: 0,
@@ -88,72 +91,76 @@ const EntryPanel: React.FC = () => {
   const content = redirect ? (
     <Redirect to='/creator'/>
   ) : (
-    <ul className="entryPanel">
-      <li>
-        <a href="#" className="t-paragraph1Light entryPanel__createBoard">
-          <span>
-            create new map
-          </span>
-          <div role="presentation" className="entryPanel__sizeBoard">
-            <MapSizeInput
-              currValue={mapX}
-              changeValue={setMapX}
-              id="yMapSize"
-            />
-            <span className="t-paragraph3Normal">x</span>
-            <MapSizeInput
-              currValue={mapY}
-              changeValue={setMapY}
-              id="yMapSize"
-            />
-            <button onClick={mapSizeValidation}>start</button>
-          </div>
-          <span 
-            id="validationInfo" 
-            className="t-paragraph2Bold entryPanel__validationInfo"
-          >
-            {valMess}
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <input 
-              type="file" 
-              id="loadMapInput" 
-              className="entryPanel__loadMapInput"
-              onChange={(event): void => loadMap(event)}
-          />
-          <label className="t-paragraph1Light" htmlFor="loadMapInput">
-            load map
-          </label>
-        </a>
-      </li>
-      <li className="entryPanel__separator"> </li>
-      <li>
-        <Link
-          to='/char'
-          className="t-paragraph1Light"
-        >
-          create char
-        </Link>
-      </li>
-      <li>
-        <Link
-          to='/char'
-          className="t-paragraph1Light"
-        >
-          load char
-        </Link>
-      </li>
-      <li>
-        <a href={appConfig.exitLink} id="closeBtn">
-          <span className="t-paragraphLight">
-            exit
-          </span>
-        </a>
-      </li>
-    </ul>
+    <ContentContext.Consumer>
+      {({ entryPanel }) => (
+        <ul className="entryPanel">
+          <li>
+            <a href="#" className="t-paragraph1Light entryPanel__createBoard">
+              <span>
+                { entryPanel.createMap }
+              </span>
+              <div role="presentation" className="entryPanel__sizeBoard">
+                <MapSizeInput
+                  currValue={mapX}
+                  changeValue={setMapX}
+                  id="yMapSize"
+                />
+                <span className="t-paragraph3Normal">x</span>
+                <MapSizeInput
+                  currValue={mapY}
+                  changeValue={setMapY}
+                  id="yMapSize"
+                />
+                <button onClick={mapSizeValidation}>start</button>
+              </div>
+              <span 
+                id="validationInfo" 
+                className="t-paragraph2Bold entryPanel__validationInfo"
+              >
+                {valMess}
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <input 
+                  type="file" 
+                  id="loadMapInput" 
+                  className="entryPanel__loadMapInput"
+                  onChange={(event): void => loadMap(event)}
+              />
+              <label className="t-paragraph1Light" htmlFor="loadMapInput">
+                { entryPanel.loadMap }
+              </label>
+            </a>
+          </li>
+          <li className="entryPanel__separator"> </li>
+          <li>
+            <Link
+              to='/char'
+              className="t-paragraph1Light"
+            >
+               { entryPanel.createChar }
+            </Link>
+          </li>
+          <li>
+            <Link
+              to='/char'
+              className="t-paragraph1Light"
+            >
+              { entryPanel.loadChar }
+            </Link>
+          </li>
+          <li>
+            <a href={appConfig.exitLink} id="closeBtn">
+              <span className="t-paragraphLight">
+              { entryPanel.exit }
+              </span>
+            </a>
+          </li>
+        </ul>
+      )}
+    </ContentContext.Consumer>
   );
 
   return (
