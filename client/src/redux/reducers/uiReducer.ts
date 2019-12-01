@@ -8,7 +8,8 @@ export const initState = {
     net: {
         field: true,
         square: true
-    }
+    },
+    language: 'en'
 };
 
 
@@ -44,6 +45,11 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 net: action.values
+            };
+        case 'CHANGE_LANGUAGE':
+            return {
+                ...state,
+                language: action.lang
             };
         default:
             return state;
