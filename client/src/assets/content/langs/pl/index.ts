@@ -5,6 +5,8 @@ import entryPanel from './entryPanel.json';
 import creator from './creator.json';
 import routes from './routes.json';
 import features from './features.json';
+import filesPanel from './filesPanel.json';
+
 
 export const plContent = {
   lang: 'pl',
@@ -13,5 +15,6 @@ export const plContent = {
   entryPanel,
   creator,
   routes,
-  features
+  features,
+  filesPanel
 };

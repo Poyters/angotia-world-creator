@@ -1,0 +1,7 @@
+{
+  "charButton": {
+    "load": "load",
+    "edit": "edit",
+    "char": "char"
+  }
+}

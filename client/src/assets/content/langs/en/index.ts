@@ -5,6 +5,8 @@ import entryPanel from './entryPanel.json';
 import creator from './creator.json';
 import routes from './routes.json';
 import features from './features.json';
+import filesPanel from './filesPanel.json';
+
 
 export const enContent = {
   lang: 'en',
@@ -13,5 +15,6 @@ export const enContent = {
   entryPanel,
   creator,
   routes,
-  features
+  features,
+  filesPanel
 };
