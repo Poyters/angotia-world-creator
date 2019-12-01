@@ -1,0 +1,13 @@
+{
+  "comeBack": "come back to creator",
+  "toHelp": "go to help",
+  "title": "features",
+  "description": "Below you can find precisly feature descriptions",
+  "creatorPanel": {
+    "title": "Creator Panel",
+    "exportOption": "Export - export created board to AMC admins"
+  },
+  "creator": {
+    "title": "Creator"
+  }
+}

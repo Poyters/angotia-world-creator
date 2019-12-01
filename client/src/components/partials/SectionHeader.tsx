@@ -8,7 +8,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({headerTxt}) => {
   return (
     <header className="sectionHeader">
       <h1>
-          {headerTxt}
+        { headerTxt }
       </h1>
     </header>
   );

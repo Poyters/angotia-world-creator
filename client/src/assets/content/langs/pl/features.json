@@ -1,0 +1,13 @@
+{
+  "comeBack": "wróć do kreatora",
+  "toHelp": "idź do pomocy",
+  "title": "Cechy",
+  "description": "Poniżej znajdziesz dokładny opis właściwości programu",
+  "creatorPanel": {
+    "title": "Panel Kreatora",
+    "exportOption": "Export - wyeksportuj swoją mapę do administracji AMC"
+  },
+  "creator": {
+    "title": "Kreator"
+  }
+}

@@ -13,7 +13,7 @@ const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
       to={`/${url}`} 
       className={addedClass}
     >
-      {description}
+      { description }
     </Link>
   );
 };
