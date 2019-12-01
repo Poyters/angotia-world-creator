@@ -1,29 +1,49 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { withRouter } from "react-router";
 
 //Import configs
 import appConfig from '../../assets/configs/appConfig.json';
 
-//Import actions
-import { changeLang } from '../../redux/actions/uiActions';
+//Import content
+import { enContent } from '../../assets/content/langs/en/index';
+import { plContent } from '../../assets/content/langs/pl/index';
 
 
-const LangMenu: React.FC = () => {
+const LangMenu: React.FC = (props: any) => {
   const currLang: string = useSelector(state => state.ui.language);
-  const dispatch = useDispatch();
+
+  const changeLanguage = (lang: string): void => {
+    let content: any;
+
+    switch(lang) {
+      case 'en':
+        content = enContent;
+      break;
+      case 'pl':
+        content = plContent;
+      break;
+      default:
+        content = enContent;
+      break;
+    }
+
+    props.history.push(`/${lang}/${content.routes.home}`);
+    window.location.reload();
+  }
 
   return (
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
       {
         appConfig.langs.map((lang, index) => {
           const langStyle = {
-            color: lang === currLang ? '#27427c' : 'inherit'
+            color: (lang === currLang || (lang === 'en' && currLang === '')) ? '#27427c' : 'inherit'
           }
 
           return (
             <span 
               key={index} 
-              onClick={() => dispatch(changeLang(lang))}
+              onClick={() => changeLanguage(lang)}
               style={langStyle}
             > 
               { lang } 
@@ -35,4 +55,4 @@ const LangMenu: React.FC = () => {
   );
 };
 
-export default LangMenu;
+export default withRouter(LangMenu);
