@@ -4,6 +4,7 @@ import React from 'react';
 import CreditsFooter from '../partials/CreditsFooter';
 import SectionHeader from '../partials/SectionHeader';
 import EntryPanel from '../partials/entryPanel/EntryPanel';
+import LangMenu from '../partials/LangMenu';
 
 
 const Home: React.FC = () => {
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
           <EntryPanel />
         </div>
         <CreditsFooter />
+        <LangMenu />
       </div>
   );
 };

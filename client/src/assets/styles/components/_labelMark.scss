@@ -41,4 +41,21 @@
             color: $decorationColor1;
         }
     }
+
+    &--langs {
+        & span {
+            margin: 0 5px;
+
+            cursor: pointer;
+            transform: 200ms ease-in-out;
+
+            &:hover {
+                color: $decorationColor1;
+            }
+
+            &:last-child {
+                margin-right: 10px;
+            }
+        }
+    }
 }

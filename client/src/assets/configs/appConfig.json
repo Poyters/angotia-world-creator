@@ -12,5 +12,9 @@
   "reportIssue": {
     "name": "report issue",
     "link": "http://poyters.pl/support"
-  }
+  },
+  "langs": [
+    "en", 
+    "pl"
+  ]
 }

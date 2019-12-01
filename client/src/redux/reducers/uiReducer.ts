@@ -13,7 +13,8 @@ export const initState = {
 };
 
 
-export const mapReducer = (state = initState, action) => {
+export const uiReducer = (state = initState, action) => {
+    console.log(action);
     switch(action.type) {
         case 'CHANGE_ACTION_NOTIFICATION':
             return {
@@ -21,10 +22,10 @@ export const mapReducer = (state = initState, action) => {
                 actionNote: action.notification
             };
         case 'CHANGE_MAP_NAME':
-        return {
-            ...state,
-            mapName: action.mapName
-        };
+            return {
+                ...state,
+                mapName: action.mapName
+            };
         case 'SET_MAP_SELECT_TYPE':
             return {
                 ...state,
@@ -47,6 +48,7 @@ export const mapReducer = (state = initState, action) => {
                 net: action.values
             };
         case 'CHANGE_LANGUAGE':
+            console.log('action', action);
             return {
                 ...state,
                 language: action.lang
@@ -55,5 +57,3 @@ export const mapReducer = (state = initState, action) => {
             return state;
     }
 };
-
-export default mapReducer;

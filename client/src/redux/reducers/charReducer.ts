@@ -4,7 +4,7 @@ const initState = {
 };
 
 
-const charReducer = (state = initState, action) => {
+export const charReducer = (state = initState, action) => {
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -20,6 +20,3 @@ const charReducer = (state = initState, action) => {
       return state;
   }
 };
-
-
-export default charReducer;
