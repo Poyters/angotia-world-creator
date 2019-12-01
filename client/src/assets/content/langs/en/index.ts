@@ -6,6 +6,7 @@ import creator from './creator.json';
 import routes from './routes.json';
 
 export const enContent = {
+  lang: 'en',
   char,
   global,
   entryPanel,

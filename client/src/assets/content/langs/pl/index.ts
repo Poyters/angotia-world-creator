@@ -6,6 +6,7 @@ import creator from './creator.json';
 import routes from './routes.json';
 
 export const plContent = {
+  lang: 'pl',
   char,
   global,
   entryPanel,

@@ -1,3 +1,7 @@
 {
-  "example": "example"
+  "charPanel": {
+    "comeBack": "come back",
+    "help": "help",
+    "license": "license"
+  }
 }
