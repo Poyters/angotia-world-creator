@@ -38,7 +38,7 @@ export const setMapNets = (values: IMapNetStatus) => {
 
 export const changeLang = (lang: string) => {
     return {
-        type: 'CHANGE_MAP_NETS',
+        type: 'CHANGE_LANGUAGE',
         lang
     };
 };
