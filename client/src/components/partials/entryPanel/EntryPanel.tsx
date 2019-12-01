@@ -89,7 +89,11 @@ const EntryPanel: React.FC = () => {
   };
 
   const content = redirect ? (
-    <Redirect to='/creator'/>
+    <ContentContext.Consumer>
+      {({ routes }) => (
+        <Redirect to={routes.creator}/>
+      )}
+    </ContentContext.Consumer>
   ) : (
     <ContentContext.Consumer>
       {({ entryPanel }) => (

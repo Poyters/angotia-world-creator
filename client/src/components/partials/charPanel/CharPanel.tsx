@@ -18,13 +18,13 @@ const CharPanel: React.FC = () => {
           </header>
           <ul className="optionsPanel__options">
             <li>
-              <LinkButton link='/' buttonText={char.comeBack} />
+              <LinkButton link='/' buttonText={char.charPanel.comeBack} />
             </li>
             <li>
-              <LinkButton link={routes.help} buttonText={char.help} />
+              <LinkButton link={routes.help} buttonText={char.charPanel.help} />
             </li>
             <li>
-              <LinkButton link={routes.license} buttonText={char.license} />
+              <LinkButton link={routes.license} buttonText={char.charPanel.license} />
             </li>
             <li>
               <FullScreenOption />
