@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
 //Import views
-import Template from './Template';
+import { Template } from './Template';
 import Home from './components/views/Home';
 
 

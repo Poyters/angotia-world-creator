@@ -1,3 +1,6 @@
 {
-  "example": "example"
+  "example": "example",
+  "menu": {
+    "createMap": "create new map"
+  }
 }

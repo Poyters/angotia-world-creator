@@ -24,7 +24,9 @@ import { changeLang } from './redux/actions/uiActions';
 import appConfig from './assets/configs/appConfig.json';
 
 
-const Template: React.FC = ( props: any ) => {
+export let ContentContext;
+
+export const Template: React.FC = ( props: any ) => {
   const paramLang = props.match.params.lang === undefined ? '' : props.match.params.lang;
   const dispatch = useDispatch();
   const availableLangs = appConfig.langs;
@@ -43,27 +45,28 @@ const Template: React.FC = ( props: any ) => {
     break;
   }
 
+  ContentContext = React.createContext(content);
+
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        {
-          availableLangs.map((avLang, index) => {
-            return (
-              <Route key={index} path={`/${avLang}/${contents[avLang].routes.home}`} component={Home} />
-            )
-          })
-        }
-        <Route path={`/${paramLang}/${content.routes.creator}`} component={Creator} />
-        <Route path={`/${paramLang}/${content.routes.char}`} component={CharCreator} />
-        <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
-        <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
-        <Route path={`/${paramLang}/${content.routes.features}`} component={Features} />
-        <Route component={NotFound}/>
-      </Switch>
-    </Router>
+    <ContentContext.Provider value={content}>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          {
+            availableLangs.map((avLang, index) => {
+              return (
+                <Route key={index} path={`/${avLang}/${contents[avLang].routes.home}`} component={Home} />
+              )
+            })
+          }
+          <Route path={`/${paramLang}/${content.routes.creator}`} component={Creator} />
+          <Route path={`/${paramLang}/${content.routes.char}`} component={CharCreator} />
+          <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
+          <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
+          <Route path={`/${paramLang}/${content.routes.features}`} component={Features} />
+          <Route component={NotFound}/>
+        </Switch>
+      </Router>
+    </ContentContext.Provider>
   );
 }
-
-
-export default Template;

@@ -1,3 +1,5 @@
 {
-  "example": "example"
+  "footer": {
+    "created": "Created by"
+  }
 }
