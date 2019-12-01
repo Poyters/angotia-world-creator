@@ -23,176 +23,199 @@ import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
 
 //Import actions
 import { 
-    changeMapBuildingMatrix, 
-    changeMapDecorationMatrix, 
-    changeMapSubsoilMatrix, 
-    changeMapNpcMatrix, 
-    changeMapMobMatrix 
+	changeMapBuildingMatrix, 
+	changeMapDecorationMatrix, 
+	changeMapSubsoilMatrix, 
+	changeMapNpcMatrix, 
+	changeMapMobMatrix 
 } from '../../../redux/actions/mapActions';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
 
-const bookmarks: string[] = ['building', 'decoration', 'subsoil', 'npc', 'mob'];
+
+const bookmarks: string[] = creatorConfig.bookmarks;
 
 const FilesPanel: React.FC = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
-    const dispatch = useDispatch();
-  
-    useEffect((): void => { //Create necessary empty matrix at the beginning
-        const newEmptyMatrix = generateEmptyMapMatrix();
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
+	const dispatch = useDispatch();
+	const buildingMatrix = deepCopy(useSelector(state => state.map.building.matrix));
+	const subsoilMatrix = deepCopy(useSelector(state => state.map.subsoil.matrix));
+	const mobMatrix = deepCopy(useSelector(state => state.map.mob.matrix));
+	const decorationMatrix = deepCopy(
+		useSelector(state => state.map.decoration.matrix)
+	);
+	const npcMatrix = deepCopy(useSelector(state => state.map.npc.matrix));
 
-        dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
-        dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
-        dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
-        dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-        dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
-    }, []);
+	useEffect((): void => { //Create necessary empty matrix at the beginning
+		const newEmptyMatrix = generateEmptyMapMatrix();
 
-    const filesPanelStyles = {
-        right: isOpen ? "0" : "-300px"
-    };
+		dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
+		dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
+		dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
+		dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
+		dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
+	}, []);
 
-    const imageStyle = {
-        width: `${creatorConfig.map.fieldSize}px`,
-        height: `${creatorConfig.map.fieldSize}px`
-    };
-    
-    const generateImages = (): any[] => {
-        const bookmarkImages: string[] = [];
-        let matrixTransformationMethod: Function;
-        let sourceMatrix: any[];
-        let note: string = '';
+	const filesPanelStyles = {
+		right: isOpen ? "0" : "-300px"
+	};
 
-        switch(currBookmark) { 
-            case 'building':
-                bookmarkImages.push(test1); //TODO: get images from database
-                bookmarkImages.push(test1min); //TODO: get images from database
-                matrixTransformationMethod = changeMapBuildingMatrix;
-                sourceMatrix = deepCopy(useSelector(state => state.map.building.matrix));
-                note ='Added building images';
-            break;
-            case 'decoration':
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                bookmarkImages.push(test2);
-                matrixTransformationMethod = changeMapDecorationMatrix;
-                sourceMatrix = deepCopy(
-                    useSelector(state => state.map.decoration.matrix)
-                );
-                note ='Added decoration images';
-            break;
-            case 'subsoil':
-                bookmarkImages.push(test3);
-                matrixTransformationMethod = changeMapSubsoilMatrix;
-                sourceMatrix = deepCopy(useSelector(state => state.map.subsoil.matrix));
-                note ='Added subsoil images';
-            break;
-            case 'mob':
-                bookmarkImages.push(test4);
-                matrixTransformationMethod = changeMapMobMatrix;
-                sourceMatrix = deepCopy(useSelector(state => state.map.mob.matrix));
-                note ='Added MOBs';
-            break;
-            case 'npc':
-                bookmarkImages.push(test5);
-                matrixTransformationMethod = changeMapNpcMatrix;
-                sourceMatrix = deepCopy(useSelector(state => state.map.npc.matrix));
-                note ='Added NPCs';
-            break;
-        }
+	const imageStyle = {
+		width: `${creatorConfig.map.fieldSize}px`,
+		height: `${creatorConfig.map.fieldSize}px`
+	};
+	
+	const generateImages = (): any[] => {
+		const bookmarkImages: string[] = [];
+		let matrixTransformationMethod: Function;
+		let sourceMatrix: any[];
+		let note: string = '';
 
-        const imagesToRender: any[] = bookmarkImages.map((img, index) => {
-            return (
-                <li 
-                    key={index} 
-                    style={imageStyle} 
-                    onClick={(): void => markSquare(
-                                sourceMatrix, 
-                                `map${currBookmark}Canvas`, 
-                                matrixTransformationMethod, 
-                                note, 
-                                img, 
-                                'image'
-                            )}
-                >
-                    <img src={img}></img>
-                </li>
-            );
-        });
+		switch(currBookmark) { 
+			case 'building':
+				bookmarkImages.push(test1); //TODO: get images from database
+				bookmarkImages.push(test1min); //TODO: get images from database
+				matrixTransformationMethod = changeMapBuildingMatrix;
+				sourceMatrix = buildingMatrix;
+				note ='Added building images';
+			break;
+			case 'decoration':
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				bookmarkImages.push(test2);
+				matrixTransformationMethod = changeMapDecorationMatrix;
+				sourceMatrix = decorationMatrix;
+				note ='Added decoration images';
+			break;
+			case 'subsoil':
+				bookmarkImages.push(test3);
+				matrixTransformationMethod = changeMapSubsoilMatrix;
+				sourceMatrix = subsoilMatrix;
+				note ='Added subsoil images';
+			break;
+			case 'mob':
+				bookmarkImages.push(test4);
+				matrixTransformationMethod = changeMapMobMatrix;
+				sourceMatrix = mobMatrix;
+				note ='Added MOBs';
+			break;
+			case 'npc':
+				bookmarkImages.push(test5);
+				matrixTransformationMethod = changeMapNpcMatrix;
+				sourceMatrix = npcMatrix;
+				note ='Added NPCs';
+			break;
+		}
 
-        return imagesToRender;
-    };
+		const imagesToRender: any[] = bookmarkImages.map((img, index) => {
+			return (
+				<li 
+					key={index} 
+					style={imageStyle} 
+					onClick={(): void => markSquare(
+							sourceMatrix, 
+							`map${currBookmark}Canvas`, 
+							matrixTransformationMethod, 
+							note, 
+							img, 
+							'image'
+					)}
+				>
+					<img src={img}></img>
+				</li>
+			);
+		});
 
-    const generateBookmarks = (): any[] => {
-        const bookmarksToRender: any[] = bookmarks.map(
-            (bookmark, index) => {
-            return <li 
-                        key={index} 
-                        onClick={(): void => setCurrBookmark(bookmark)} 
-                        style={{color: currBookmark === bookmark ? 
-                            '#27427c' : 'inherit'}}
-                    > {bookmark} </li>;
-        });
+		return imagesToRender;
+	};
 
-        return bookmarksToRender;
-    };
+	const generateBookmarks = (): any[] => {
+		const bookmarksToRender: any[] = bookmarks.map(
+			(bookmark, index) => {
+			return (
+				<ContentContext.Consumer>
+					{({ filesPanel }) => (
+						<li 
+							key={index} 
+							onClick={(): void => setCurrBookmark(bookmark)} 
+							style={{color: currBookmark === bookmark ? 
+									'#27427c' : 'inherit'}}
+						> 
+							{ filesPanel.bookmarks[bookmark] } 
+						</li>
+					)}
+				</ContentContext.Consumer>
+				
+			);
+		});
 
-    return (
-        <Fragment>
-            <div 
-                className="filesPanelSwitch t-paragraph4Normal" 
-                onClick={(): void => setIsOpen(true)}
-            > 
-                Open files panel
-            </div>
-            <aside className="filesPanelWrapper" style={filesPanelStyles}>
-                <div className="filesPanel">
-                    <nav className="filesPanel__bookmarks t-paragraph5Normal">
-                        <ul>
-                            { generateBookmarks() }
-                        </ul>
-                    </nav>
+		return bookmarksToRender;
+	};
 
-                    <div className="filesPanel__imagesContainer">
-                        <ul>
-                            { generateImages() }
-                        </ul>
-                    </div>
+	return (
+		<ContentContext.Consumer>
+			{({ filesPanel }) => (
+				<Fragment>
+					<div 
+						className="filesPanelSwitch t-paragraph4Normal" 
+						onClick={(): void => setIsOpen(true)}
+					> 
+						{ filesPanel.switch }
+					</div>
+					<aside className="filesPanelWrapper" style={filesPanelStyles}>
+						<div className="filesPanel">
+							<nav className="filesPanel__bookmarks t-paragraph5Normal">
+								<ul>
+									{ generateBookmarks() }
+								</ul>
+							</nav>
 
-                    {
-                        currBookmark === 'mob' ||
-                        currBookmark === 'npc' ? (
-                            <div 
-                                className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
-                            >
-                                <CharButton />
-                            </div>
-                        ) : null
-                    }
-                    
+							<div className="filesPanel__imagesContainer">
+								<ul>
+									{ generateImages() }
+								</ul>
+							</div>
 
-                    <div 
-                        className="filesPanel__switch t-paragraph4Normal" 
-                        onClick={(): void => setIsOpen(false)}
-                    >
-                        <span>Hide files panel</span>
-                        <Arrow additionalClass="arrow--filesPanel"/>
-                    </div>
-                </div>
-            </aside>
-        </Fragment>
-    );
+							{
+								currBookmark === 'mob' ||
+								currBookmark === 'npc' ? (
+									<div 
+										className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
+									>
+										<CharButton />
+									</div>
+								) : null
+							}
+							
+
+							<div 
+								className="filesPanel__switch t-paragraph4Normal" 
+								onClick={(): void => setIsOpen(false)}
+							>
+								<span>
+									{ filesPanel.close }
+								</span>
+								<Arrow additionalClass="arrow--filesPanel"/>
+							</div>
+						</div>
+					</aside>
+				</Fragment>
+			)}
+		</ContentContext.Consumer>
+	);
 };
 
 

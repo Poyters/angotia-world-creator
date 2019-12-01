@@ -1,7 +1,16 @@
 {
+  "switch": "Otwórz panel plików",
+  "close": "Zamknij panel plików",
   "charButton": {
     "load": "załaduj",
     "edit": "edytuj",
     "char": "bohater"
+  },
+  "bookmarks": {
+    "building": "budowle", 
+    "decoration": "dekoracje", 
+    "subsoil": "podłoża", 
+    "npc": "npc", 
+    "mob": "mob"
   }
 }

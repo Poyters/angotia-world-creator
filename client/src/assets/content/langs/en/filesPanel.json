@@ -1,7 +1,16 @@
 {
+  "switch": "Open files panel",
+  "close": "Hide files panel",
   "charButton": {
     "load": "load",
     "edit": "edit",
     "char": "char"
+  },
+  "bookmarks": {
+    "building": "bulding", 
+    "decoration": "decoration", 
+    "subsoil": "subsoil", 
+    "npc": "npc", 
+    "mob": "mob"
   }
 }
