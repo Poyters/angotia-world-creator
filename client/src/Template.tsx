@@ -15,28 +15,31 @@ import Features from './components/views/Features';
 import NotFound from './components/views/NotFound';
 
 //Import content
-import { enContent } from './assets/content/langs/en/index';
-import { plContent } from './assets/content/langs/pl/index';
+import { contents } from './assets/content/langs/index';
 
 //Import actions
 import { changeLang } from './redux/actions/uiActions';
+
+//Import configs
+import appConfig from './assets/configs/appConfig.json';
 
 
 const Template: React.FC = ( props: any ) => {
   const paramLang = props.match.params.lang === undefined ? '' : props.match.params.lang;
   const dispatch = useDispatch();
+  const availableLangs = appConfig.langs;
   dispatch(changeLang(paramLang));
   let content: any;
 
   switch(paramLang) {
     case 'en':
-      content = enContent;
+      content = contents.en;
     break;
     case 'pl':
-      content = plContent;
+      content = contents.pl;
     break;
     default:
-      content = enContent;
+      content = contents.en;
     break;
   }
 
@@ -44,7 +47,13 @@ const Template: React.FC = ( props: any ) => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path={`/${paramLang}/${content.routes.home}`} component={Home} />
+        {
+          availableLangs.map((avLang, index) => {
+            return (
+              <Route key={index} path={`/${avLang}/${contents[avLang].routes.home}`} component={Home} />
+            )
+          })
+        }
         <Route path={`/${paramLang}/${content.routes.creator}`} component={Creator} />
         <Route path={`/${paramLang}/${content.routes.char}`} component={CharCreator} />
         <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
