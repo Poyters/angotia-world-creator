@@ -27,10 +27,9 @@ import appConfig from './assets/configs/appConfig.json';
 export let ContentContext;
 
 export const Template: React.FC = ( props: any ) => {
-  const paramLang = props.match.params.lang === undefined ? '' : props.match.params.lang;
+  let paramLang = props.match.params.lang;
   const dispatch = useDispatch();
   const availableLangs = appConfig.langs;
-  dispatch(changeLang(paramLang));
   let content: any;
 
   switch(paramLang) {
@@ -42,9 +41,11 @@ export const Template: React.FC = ( props: any ) => {
     break;
     default:
       content = contents.en;
+      paramLang = 'en';
     break;
   }
 
+  dispatch(changeLang(paramLang));
   ContentContext = React.createContext(content);
 
   return (

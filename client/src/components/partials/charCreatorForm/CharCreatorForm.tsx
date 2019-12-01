@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 //Import components
@@ -15,10 +15,6 @@ const CreatorForm: React.FC = () => {
   const charId: number = Math.random();
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charType: string = useSelector(state => state.char.type);
-
-  useEffect(() => {
-    console.log(choosedChar, charType);
-  });
 
   return (
     <main className="charCreatorFormWrapper">

@@ -16,7 +16,6 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
     const choosedOption = currChecked === option ? '' : option;
     
     setCurrChecked(choosedOption);
-    console.log(action)
     dispatch(action(choosedOption));
   }
 

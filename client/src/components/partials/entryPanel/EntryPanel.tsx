@@ -90,13 +90,13 @@ const EntryPanel: React.FC = () => {
 
   const content = redirect ? (
     <ContentContext.Consumer>
-      {({ routes }) => (
-        <Redirect to={routes.creator}/>
+      {({ lang, routes }) => (
+        <Redirect to={`/${lang}/${routes.creator}`}/>
       )}
     </ContentContext.Consumer>
   ) : (
     <ContentContext.Consumer>
-      {({ entryPanel }) => (
+      {({ lang, entryPanel, routes }) => (
         <ul className="entryPanel">
           <li>
             <a href="#" className="t-paragraph1Light entryPanel__createBoard">
@@ -141,7 +141,7 @@ const EntryPanel: React.FC = () => {
           <li className="entryPanel__separator"> </li>
           <li>
             <Link
-              to='/char'
+              to={`/${lang}/${routes.char}`}
               className="t-paragraph1Light"
             >
                { entryPanel.createChar }
@@ -149,7 +149,7 @@ const EntryPanel: React.FC = () => {
           </li>
           <li>
             <Link
-              to='/char'
+              to={`/${lang}/${routes.char}`}
               className="t-paragraph1Light"
             >
               { entryPanel.loadChar }

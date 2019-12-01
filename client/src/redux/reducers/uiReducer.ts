@@ -14,7 +14,6 @@ export const initState = {
 
 
 export const uiReducer = (state = initState, action) => {
-    console.log(action);
     switch(action.type) {
         case 'CHANGE_ACTION_NOTIFICATION':
             return {
@@ -48,7 +47,6 @@ export const uiReducer = (state = initState, action) => {
                 net: action.values
             };
         case 'CHANGE_LANGUAGE':
-            console.log('action', action);
             return {
                 ...state,
                 language: action.lang
