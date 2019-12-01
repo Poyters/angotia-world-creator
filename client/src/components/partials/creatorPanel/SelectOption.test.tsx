@@ -3,7 +3,7 @@ import { shallow, configure } from "enzyme";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
-import { store } from '../../../App';
+import { store } from '../../../index';
 
 //Import component
 import SelectOption from './SelectOption';

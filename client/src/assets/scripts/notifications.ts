@@ -1,4 +1,4 @@
-import { store } from '../../App';
+import { store } from '../../index';
 
 //Import actions
 import { setNotification } from '../../redux/actions/uiActions';

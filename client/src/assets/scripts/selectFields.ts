@@ -1,4 +1,4 @@
-import { store } from '../../App';
+import { store } from '../../index';
 
 //Import configs
 import creatorConfig from '../configs/creatorConfig.json';

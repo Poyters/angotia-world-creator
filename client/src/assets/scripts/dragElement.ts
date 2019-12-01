@@ -1,4 +1,4 @@
-import { store } from '../../App';
+import { store } from '../../index';
 
 
 const dragElement = (element:any) => {

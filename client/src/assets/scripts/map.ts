@@ -1,4 +1,4 @@
-import { store } from '../../App';
+import { store } from '../../index';
 
 //Import interfaces
 import { IMapSize } from '../interfaces/mapInterfaces';

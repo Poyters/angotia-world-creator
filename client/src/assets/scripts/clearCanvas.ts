@@ -1,4 +1,4 @@
-import { store } from '../../App';
+import { store } from '../../index';
 
 //Import scripts
 import { generateEmptyMapMatrix, emptyMapCanvasCtx } from './map';
