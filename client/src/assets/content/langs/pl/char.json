@@ -1,7 +1,39 @@
 {
-  "charPanel": {
+  "panel": {
     "comeBack": "wróć",
     "help": "pomoc",
     "license": "licencja"
+  },
+  "form": {
+    "title": "Bohater",
+    "inputs": {
+      "name": "nazwa",
+      "id": "ID - wygenerowane automatycznie",
+      "lvl": "Level",
+      "health": "Zdrowie",
+      "strength": "Siła",
+      "dexterity": "Zręczność"
+    },
+    "addStatBtn": "Dodaj statystykę",
+    "importPicBtn": "importuj grafikę",
+    "dialogs": {
+      "title": "dialogi",
+      "addBtn": "dodaj dialog"
+    },
+    "monologs": {
+      "title": "monologi",
+      "addBtn": "dodaj monolog"
+    },
+    "char": {
+      "npcId": "npc",
+      "types": ["npc", "mob"],
+      "label": "Wybierz bohatera"
+    },
+    "charType": {
+      "movingId": "ruchomy",
+      "types": ["statyczny", "ruchomy"],
+      "label": "Wybierz typ bohatera",
+      "movingField": "Średnica ruchu"
+    }
   }
 }

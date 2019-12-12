@@ -43,7 +43,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
         </ul>
       </nav>
       {
-        type ==='dialogs' ? (
+        type === 'dialogs' ? (
           exampleDialogs.length > 0 ? (
             exampleDialogs.map((dialog, index) => {
               return <Dialog 

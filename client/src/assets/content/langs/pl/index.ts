@@ -6,6 +6,7 @@ import creator from './creator.json';
 import routes from './routes.json';
 import features from './features.json';
 import filesPanel from './filesPanel.json';
+import help from './help.json';
 
 
 export const plContent = {
@@ -16,5 +17,6 @@ export const plContent = {
   creator,
   routes,
   features,
-  filesPanel
+  filesPanel,
+  help
 };

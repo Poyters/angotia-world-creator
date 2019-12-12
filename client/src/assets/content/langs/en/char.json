@@ -1,7 +1,39 @@
 {
-  "charPanel": {
+  "panel": {
     "comeBack": "come back",
     "help": "help",
     "license": "license"
+  },
+  "form": {
+    "title": "Character",
+    "inputs": {
+      "name": "name",
+      "id": "ID - auto generated",
+      "lvl": "Level",
+      "health": "Health",
+      "strength": "strength",
+      "dexterity": "Dexterity"
+    },
+    "addStatBtn": "add new stat",
+    "importPicBtn": "import graphice",
+    "dialogs": {
+      "title": "dialogs",
+      "addBtn": "add dialog"
+    },
+    "monologs": {
+      "title": "monologs",
+      "addBtn": "add monolog"
+    },
+    "char": {
+      "npcId": "npc",
+      "types": ["npc", "mob"],
+      "label": "Choose character"
+    },
+    "charType": {
+      "movingId": "moving",
+      "types": ["static", "moving"],
+      "label": "Choose char type",
+      "movingField": "Field diameter"
+    }
   }
 }
