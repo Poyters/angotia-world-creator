@@ -17,6 +17,10 @@
       },
       "deleteBg": {
         "dataTitle": "delete background image"
+      },
+      "export": {
+        "dataTitle": "export your board to Angotia",
+        "content": "Export"
       }
     }
   }
