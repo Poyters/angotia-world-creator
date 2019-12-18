@@ -54,20 +54,20 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   return (
     <ContentContext.Consumer>
 			{({ creator }) => (
+        <div 
+          role="button" 
+          className={`option selectOption ${selectOnOff}`} 
+          onClick={changeSelectType}
+        >
+          <span 
+            className="option__viewType"
+          > 
+            { selectType }            
+          </span>
           <div 
-            role="button" 
-            className={`option selectOption ${selectOnOff}`} 
-            onClick={changeSelectType}
-          >
-            <span 
-              className="option__viewType"
-            > 
-              { selectType }            
-            </span>
-            <div 
-              className="titleContainer" 
-              data-title={creator.panel.options.select.dataTitle}
-            > </div>
+            className="titleContainer" 
+            data-title={creator.panel.options.select.dataTitle}
+          > </div>
         </div>
       )}
     </ContentContext.Consumer>
