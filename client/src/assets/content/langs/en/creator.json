@@ -3,6 +3,9 @@
     "options": {
       "addFileOption": {
         "dataTitle": "set background image"
+      },
+      "blockOption": {
+        "dataTitle": "add/delete block squares"
       }
     }
   }

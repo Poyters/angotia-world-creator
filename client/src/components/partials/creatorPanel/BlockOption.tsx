@@ -12,6 +12,9 @@ import creatorConfig from '../../../assets/configs/creatorConfig.json';
 //Import actions
 import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const BlockOption = () => {
 	const blockMatrix = useSelector(state => state.map.blockMatrix);
@@ -35,14 +38,18 @@ const BlockOption = () => {
 	};
 
 	return (
-		<div 
-			role="button" 
-			className="option option--block" 
-			onClick={(): void => blockHandler()} 
-			data-title="add/delete block squares"
-		>
-			<div className="g-exitBtn"></div>
-		</div>
+		<ContentContext.Consumer>
+			{({ creator }) => (
+				<div 
+					role="button" 
+					className="option option--block" 
+					onClick={(): void => blockHandler()} 
+					data-title={creator.panel.options.addFileOption.dataTitle}
+				>
+					<div className="g-exitBtn"></div>
+				</div>
+			)}
+		</ContentContext.Consumer>
 	);
 };
 

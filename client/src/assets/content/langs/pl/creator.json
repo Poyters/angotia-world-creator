@@ -1,3 +1,9 @@
 {
-  "example": "example"
+  "panel": {
+    "options": {
+      "addFileOption": {
+        "dataTitle": "ustaw obraz tła"
+      }
+    }
+  }
 }
