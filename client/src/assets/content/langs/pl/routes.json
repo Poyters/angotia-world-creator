@@ -1,8 +1,8 @@
 {
-  "home": "dom",
-  "creator": "kreator",
-  "char": "bohater",
-  "help": "pomoc",
-  "license": "licencja",
-  "features": "cechy"
+  "home": "home",
+  "creator": "creator",
+  "char": "char",
+  "help": "help",
+  "license": "license",
+  "features": "features"
 }
