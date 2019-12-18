@@ -21,6 +21,10 @@
       "export": {
         "dataTitle": "export your board to Angotia",
         "content": "Export"
+      },
+      "layers": {
+        "title": "Layers",
+        "bg": "background"
       }
     }
   }

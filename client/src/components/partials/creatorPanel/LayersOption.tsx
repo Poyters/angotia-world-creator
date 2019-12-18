@@ -1,6 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const LayersOption: React.FC = () => {
     const [isOpen, setIsOpen] = useState<Boolean>(false);    
@@ -67,25 +70,31 @@ const LayersOption: React.FC = () => {
     };
 
     return (
-        <Fragment>
-            <div 
-                role="button" 
-                className="option option--textOption option--layers" 
-                onClick={(): void => setIsOpen(!isOpen)}
-            > 
-                <span>Layers</span>
-            </div>
-            <ul className="layersList" style={layersListStyles}>
-                <li 
-                    id="backgroundBtn" 
-                    onClick={toggleBackground} 
-                    className="layersList__layer layersList__layer--active"
-                >
-                    background
-                </li>
-                { layersToRender }
-            </ul>
-        </Fragment>
+        <ContentContext.Consumer>
+			{({ creator }) => (
+                <Fragment>
+                    <div 
+                        role="button" 
+                        className="option option--textOption option--layers" 
+                        onClick={(): void => setIsOpen(!isOpen)}
+                    > 
+                        <span>
+                            {creator.panel.options.layers.title}
+                        </span>
+                    </div>
+                    <ul className="layersList" style={layersListStyles}>
+                        <li 
+                            id="backgroundBtn" 
+                            onClick={toggleBackground} 
+                            className="layersList__layer layersList__layer--active"
+                        >
+                            {creator.panel.options.layers.bg}
+                        </li>
+                        { layersToRender }
+                    </ul>
+                </Fragment>
+            )}
+        </ContentContext.Consumer>
     );
 };
 
