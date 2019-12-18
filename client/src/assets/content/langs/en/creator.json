@@ -28,7 +28,11 @@
       },
       "net": {
         "dataTitle": "click to change nets mode"
-      }
+      },
+      "save": {
+        "dataTitle": "save board on your computer",
+        "content": "Save"
+      },
     }
   }
 }

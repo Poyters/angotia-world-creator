@@ -5,6 +5,9 @@ import { useSelector } from 'react-redux';
 //Import scripts
 import { saveFile } from '../../../assets/scripts/saveFile';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const SaveOption: React.FC = () => {
   const mapData = useSelector(state => state.map);
@@ -15,14 +18,20 @@ const SaveOption: React.FC = () => {
   };
 
   return (
-    <div 
-      role="button" 
-      className="option option--textOption option--smallerMargin" 
-      data-title="save board on your computer" 
-      onClick={(): void => saveMap()}
-    >
-      <span> Save </span>
-    </div>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <div 
+          role="button" 
+          className="option option--textOption option--smallerMargin" 
+          data-title={creator.panel.options.save.dataTitle}
+          onClick={(): void => saveMap()}
+        >
+          <span> 
+            {creator.panel.options.save.content}  
+          </span>
+        </div>
+      )}
+    </ContentContext.Consumer>
   );
 };
 
