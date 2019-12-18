@@ -30,6 +30,9 @@ import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const CreatorPanel: React.FC = () => {
   const dispatch = useDispatch();
@@ -44,64 +47,77 @@ const CreatorPanel: React.FC = () => {
   }, []);
 
   return (
-    <nav className="optionsPanel">
-      <header className="optionsPanel__title">
-        <span> AMC </span>
-      </header>
-      <ul className="optionsPanel__options">
-        <li>
-          <LinkButton link='/' buttonText='come back' />
-        </li>
-        <li>
-          <LinkButton link='/help' buttonText='help' />
-        </li>
-        <li>
-          <LinkButton link='/license' buttonText='license' />
-        </li>
-        <li>
-          <ExportOption />
-        </li>
-        <li>
-          <SaveOption />
-        </li>
-        <li>
-          <BoardNameOption />
-        </li>
-        <li>
-          <LayersOption />
-        </li>
-        <li>
-          <AddFileOption />
-        </li>
-        <li>
-          <DeleteBgOption />
-        </li>
-        <li>
-          <FullScreenOption />
-        </li>
-        <li>
-          <NetOption viewTypeQuantity={3} />
-        </li>
-        <li>
-          <SelectOption selectTypeQuantity={3} />
-        </li>
-        <li>
-          <ClearSelectedOption />
-        </li>
-        <li>
-          <BlockOption />
-        </li>
-        <li>
-          <PassageOption />
-        </li>
-        <li>
-          <VertexWeightOption />
-        </li>
-        <li>
-          <AddFSImageOption />
-        </li>
-      </ul>
-    </nav>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <nav className="optionsPanel">
+          <header className="optionsPanel__title">
+            <span> AMC </span>
+          </header>
+          <ul className="optionsPanel__options">
+            <li>
+              <LinkButton 
+                link='/' 
+                buttonText={creator.panel.buttons.back} 
+              />
+            </li>
+            <li>
+              <LinkButton 
+                link='/help' 
+                buttonText={creator.panel.buttons.help}  
+              />
+            </li>
+            <li>
+              <LinkButton 
+                link='/license' 
+                buttonText={creator.panel.buttons.license}  
+              />
+            </li>
+            <li>
+              <ExportOption />
+            </li>
+            <li>
+              <SaveOption />
+            </li>
+            <li>
+              <BoardNameOption />
+            </li>
+            <li>
+              <LayersOption />
+            </li>
+            <li>
+              <AddFileOption />
+            </li>
+            <li>
+              <DeleteBgOption />
+            </li>
+            <li>
+              <FullScreenOption />
+            </li>
+            <li>
+              <NetOption viewTypeQuantity={3} />
+            </li>
+            <li>
+              <SelectOption selectTypeQuantity={3} />
+            </li>
+            <li>
+              <ClearSelectedOption />
+            </li>
+            <li>
+              <BlockOption />
+            </li>
+            <li>
+              <PassageOption />
+            </li>
+            <li>
+              <VertexWeightOption />
+            </li>
+            <li>
+              <AddFSImageOption />
+            </li>
+          </ul>
+        </nav>
+      )}
+    </ContentContext.Consumer>
   );
 };
 

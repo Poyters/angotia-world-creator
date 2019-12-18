@@ -1,5 +1,10 @@
 {
   "panel": {
+    "buttons": {
+      "back": "come back",
+      "help": "help",
+      "license": "license"
+    },
     "options": {
       "addFile": {
         "dataTitle": "set background image"
