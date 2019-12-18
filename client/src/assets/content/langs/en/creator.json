@@ -33,6 +33,9 @@
         "dataTitle": "save board on your computer",
         "content": "Save"
       },
+      "select": {
+        "dataTitle": "turn on/off full screen mode"
+      }
     }
   }
 }

@@ -7,6 +7,9 @@ import { setMapSelectType } from '../../../redux/actions/uiActions';
 //Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 interface ISelectOption {
   selectTypeQuantity: number
@@ -49,10 +52,25 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
     'option--on' : 'option--off'; //It determines icon color
 
   return (
-    <div role="button" className={`option selectOption ${selectOnOff}`} onClick={changeSelectType}>
-        <span className="option__viewType">{selectType}</span>
-        <div className="titleContainer" data-title="turn on/off full screen mode"></div>
-    </div>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+          <div 
+            role="button" 
+            className={`option selectOption ${selectOnOff}`} 
+            onClick={changeSelectType}
+          >
+            <span 
+              className="option__viewType"
+            > 
+              { selectType }            
+            </span>
+            <div 
+              className="titleContainer" 
+              data-title={creator.panel.options.select.dataTitle}
+            > </div>
+        </div>
+      )}
+    </ContentContext.Consumer>
   );
 };
 
