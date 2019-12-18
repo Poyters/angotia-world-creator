@@ -6,6 +6,9 @@ import { clearCanvas } from '../../../assets/scripts/clearCanvas';
 //Import actions
 import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const ClearSelectedOption: React.FC = () => {
 
@@ -14,14 +17,18 @@ const ClearSelectedOption: React.FC = () => {
 	};
 
   return (
-    <div 
-      role="button" 
-      className="clearSelectedOption" 
-      onClick={clearSelected} 
-      data-title="clear selected fields"
-    >
-      <div className="clearSelectedOption__ereaser"> </div>
-    </div>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <div 
+          role="button" 
+          className="clearSelectedOption" 
+          onClick={clearSelected} 
+          data-title={creator.panel.options.clearSelected.dataTitle}
+        >
+          <div className="clearSelectedOption__ereaser"> </div>
+        </div>
+      )}
+    </ContentContext.Consumer>
   );
 };
 

@@ -44,7 +44,7 @@ const BlockOption = () => {
 					role="button" 
 					className="option option--block" 
 					onClick={(): void => blockHandler()} 
-					data-title={creator.panel.options.addFileOption.dataTitle}
+					data-title={creator.panel.options.block.dataTitle}
 				>
 					<div className="g-exitBtn"></div>
 				</div>

@@ -47,7 +47,7 @@ const AddFileOption: React.FC = () => {
           <label 
             className={optionOnOff} 
             htmlFor="file" 
-            data-title={creator.panel.options.addFileOption.dataTitle}
+            data-title={creator.panel.options.addFile.dataTitle}
           > </label>
         </React.Fragment>
       )}

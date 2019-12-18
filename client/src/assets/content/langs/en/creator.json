@@ -1,11 +1,14 @@
 {
   "panel": {
     "options": {
-      "addFileOption": {
+      "addFile": {
         "dataTitle": "set background image"
       },
-      "blockOption": {
+      "block": {
         "dataTitle": "add/delete block squares"
+      },
+      "clearSelected": {
+        "dataTitle": "clear selected fields"
       }
     }
   }
