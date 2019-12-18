@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 //Import actions
 import { setMapBg } from '../../../redux/actions/mapActions';
 
@@ -31,16 +34,24 @@ const AddFileOption: React.FC = () => {
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
 
   return (
-    <React.Fragment>
-      <input 
-        className="option option--addFile" 
-        type="file" 
-        id="file" 
-        name="files[]" 
-        onChange={evt => handleFileSelect(evt)}
-      />
-      <label className={optionOnOff} htmlFor="file" data-title="set background image"></label>
-    </React.Fragment>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <React.Fragment>
+          <input 
+            className="option option--addFile" 
+            type="file" 
+            id="file" 
+            name="files[]" 
+            onChange={evt => handleFileSelect(evt)}
+          />
+          <label 
+            className={optionOnOff} 
+            htmlFor="file" 
+            data-title={creator.panel.options.addFileOption.dataTitle}
+          > </label>
+        </React.Fragment>
+      )}
+    </ContentContext.Consumer>
   );
 };
 
