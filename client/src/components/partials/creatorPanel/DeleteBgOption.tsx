@@ -7,6 +7,9 @@ import { setMapBg } from '../../../redux/actions/mapActions';
 //Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 const DeleteBgOption: React.FC = () => {
   const dispatch = useDispatch();
@@ -17,9 +20,16 @@ const DeleteBgOption: React.FC = () => {
   };
 
   return (
-    <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
-      <div className="g-exitBtn" data-tile="delete background image"></div>
-    </div>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
+          <div 
+            className="g-exitBtn" 
+            data-tile={creator.panel.options.deleteBg.dataTitle}
+          > </div>
+        </div>
+      )}
+    </ContentContext.Consumer>
   );
 };
 

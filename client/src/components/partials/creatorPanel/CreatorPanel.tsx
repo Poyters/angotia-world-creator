@@ -48,7 +48,7 @@ const CreatorPanel: React.FC = () => {
 
   return (
     <ContentContext.Consumer>
-			{({ creator }) => (
+			{({ creator, lang, routes }) => (
         <nav className="optionsPanel">
           <header className="optionsPanel__title">
             <span> AMC </span>
@@ -56,19 +56,19 @@ const CreatorPanel: React.FC = () => {
           <ul className="optionsPanel__options">
             <li>
               <LinkButton 
-                link='/' 
+                link={`/${lang}/${routes.home}`}
                 buttonText={creator.panel.buttons.back} 
               />
             </li>
             <li>
               <LinkButton 
-                link='/help' 
+                link={`/${lang}/${routes.help}`}
                 buttonText={creator.panel.buttons.help}  
               />
             </li>
             <li>
               <LinkButton 
-                link='/license' 
+                link={`/${lang}/${routes.license}`}
                 buttonText={creator.panel.buttons.license}  
               />
             </li>
