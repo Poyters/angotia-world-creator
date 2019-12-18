@@ -30,7 +30,7 @@
       "label": "Wybierz bohatera"
     },
     "charType": {
-      "movingId": "ruchomy",
+      "movingId": "moving",
       "types": ["statyczny", "ruchomy"],
       "label": "Wybierz typ bohatera",
       "movingField": "Średnica ruchu"

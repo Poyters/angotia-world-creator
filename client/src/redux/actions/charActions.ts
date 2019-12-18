@@ -1,13 +1,20 @@
 export const changeCharType = (charType: string) => {
   return {
-      type: 'CHANGE_CHAR_TYPE',
-      charType
+    type: 'CHANGE_CHAR_TYPE',
+    charType
   };
 };
 
 export const changeChar = (char: string) => {
   return {
-      type: 'CHANGE_CHAR',
-      char
+    type: 'CHANGE_CHAR',
+    char
+  };
+};
+
+export const changeMonologs = (monologs: any[]) => {
+  return {
+    type: 'CHANGE_MONOLOGS',
+    monologs
   };
 };

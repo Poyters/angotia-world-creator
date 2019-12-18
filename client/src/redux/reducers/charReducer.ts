@@ -2,6 +2,7 @@
 const initState = {
   type: '',
   choosed: '',
+  moveType: '',
   monologs: [
     {
       id: 535,
@@ -83,6 +84,11 @@ export const charReducer = (state = initState, action) => {
         ...state,
         choosed: action.char
       };
+    case 'CHANGE_MONOLOGS':
+        return {
+          ...state,
+          monologs: action.monologs
+        };
     default:
       return state;
   }
