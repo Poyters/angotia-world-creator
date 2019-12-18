@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-
-//Import data
-import { exampleDialogs } from './exampleDialogs';
-import { exampleMonologs } from './exampleMonologs';
+import { useSelector } from 'react-redux';
 
 //Import components
 import Dialog from './Dialog';
@@ -24,10 +21,12 @@ interface IDialogs {
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const [connectedDialogs, setConnectedDialogs] = useState<any[]>([]);
+  const dialogsData: any[] = useSelector(state => state.char.dialogs);
+  const monologsData: any[] = useSelector(state => state.char.monologs);
 
   const dialogsValidator = (beginId: number | string): void => {
     setConnectedDialogs(
-      findConnectedDialog(exampleDialogs, beginId)
+      findConnectedDialog(dialogsData, beginId)
     );
   }
 
@@ -49,8 +48,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           </nav>
           {
             type === char.form.dialogs.title ? (
-              exampleDialogs.length > 0 ? (
-                exampleDialogs.map((dialog, index) => {
+              dialogsData.length > 0 ? (
+                dialogsData.map((dialog, index) => {
                   return <Dialog 
                     id={dialog.id}
                     npc={dialog.npc}
@@ -70,8 +69,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           }
           {
             type === char.form.monologs.title ? (
-              exampleMonologs.length > 0 ? (
-                exampleMonologs.map((monolog, index) => {
+              monologsData.length > 0 ? (
+                monologsData.map((monolog, index) => {
                   return <Monolog 
                     id={monolog.id}
                     content={monolog.content}
