@@ -9,6 +9,9 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 //Import actions
 import { setMapNets } from '../../../redux/actions/uiActions';
 
+//Import contexts
+import { ContentContext } from '../../../Template';
+
 
 interface INetOption {
   viewTypeQuantity: number
@@ -56,19 +59,23 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     'option--off' : 'option--on'; //It determines icon color
 
   return (
-    <div 
-      className="option option--net" 
-      onClick={changeViewType} 
-      data-title="click to change nets mode"
-    >
-      <span className="option__viewType">{optionViewType}</span>
-      <div className={`netGraphic ${netOnOff}`}>
-        <div className="netGraphic__square"></div>
-        <div className="netGraphic__square"></div>
-        <div className="netGraphic__square"></div>
-        <div className="netGraphic__square"></div>
-      </div>
-    </div>
+    <ContentContext.Consumer>
+			{({ creator }) => (
+        <div 
+          className="option option--net" 
+          onClick={changeViewType} 
+          data-title={creator.panel.options.net.dataTitle}
+        >
+          <span className="option__viewType">{optionViewType}</span>
+          <div className={`netGraphic ${netOnOff}`}>
+            <div className="netGraphic__square"></div>
+            <div className="netGraphic__square"></div>
+            <div className="netGraphic__square"></div>
+            <div className="netGraphic__square"></div>
+          </div>
+        </div>
+      )}
+    </ContentContext.Consumer>
   );
 };
 

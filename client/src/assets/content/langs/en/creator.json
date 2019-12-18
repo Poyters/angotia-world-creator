@@ -25,6 +25,9 @@
       "layers": {
         "title": "Layers",
         "bg": "background"
+      },
+      "net": {
+        "dataTitle": "click to change nets mode"
       }
     }
   }
