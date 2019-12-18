@@ -35,6 +35,14 @@
       },
       "select": {
         "dataTitle": "turn on/off full screen mode"
+      },
+      "addFSImage": {
+        "dataTitle": "add own pics to Files Panel",
+        "title": "Add image to Files Panel",
+        "image": "Choose image",
+        "error": "You need to choose pic",
+        "category": "Select category",
+        "submit": "submit"
       }
     }
   }

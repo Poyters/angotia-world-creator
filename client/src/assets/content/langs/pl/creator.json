@@ -1,8 +1,48 @@
 {
   "panel": {
+    "buttons": {
+      "back": "wróć",
+      "help": "pomoc",
+      "license": "licencja"
+    },
     "options": {
-      "addFileOption": {
-        "dataTitle": "ustaw obraz tła"
+      "addFile": {
+        "dataTitle": "ustaw zdjęcie tła"
+      },
+      "block": {
+        "dataTitle": "dodaj/usuń zablokowane pola"
+      },
+      "clearSelected": {
+        "dataTitle": "wyczyść zaznaczone pola"
+      },
+      "deleteBg": {
+        "dataTitle": "usuń zdjęcie tła"
+      },
+      "export": {
+        "dataTitle": "wyeksportuj planszę do Angotii",
+        "content": "Eksportuj"
+      },
+      "layers": {
+        "title": "Warstwy",
+        "bg": "tło"
+      },
+      "net": {
+        "dataTitle": "kliknij by zmienić widoczność siatki"
+      },
+      "save": {
+        "dataTitle": "zapisz mapę na swoim komputerze",
+        "content": "Zapisz"
+      },
+      "select": {
+        "dataTitle": "włącz/wyłącz pełen ekran"
+      },
+      "addFSImage": {
+        "dataTitle": "dodaj zdjęcia do Panelu Plików",
+        "title": "Dodaj zdjęcie do Panelu Plików",
+        "image": "Wybierz plik",
+        "error": "Musisz wybrać plik",
+        "category": "Wybierz kategorię",
+        "submit": "potwierdz"
       }
     }
   }
