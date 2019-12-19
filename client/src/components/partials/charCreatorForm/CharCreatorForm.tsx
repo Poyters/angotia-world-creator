@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 //Import components
@@ -18,10 +18,6 @@ const CreatorForm: React.FC = () => {
   const charId: number = Math.random();
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charType: string = useSelector(state => state.char.type);
-
-  useEffect(() => {
-    console.log(charType)
-  })
 
   return (
     <ContentContext.Consumer>
@@ -70,13 +66,13 @@ const CreatorForm: React.FC = () => {
                   <ChooseButtons 
                     types={char.form.char.types}
                     action={changeChar}
-                    label={char.form.char.types}
+                    label={char.form.char.label}
                   />
 
                   <ChooseButtons 
                     types={char.form.charType.types}
                     action={changeCharType}
-                    label={char.form.charType.types}
+                    label={char.form.charType.label}
                   />
 
                   { charType === char.form.charType.movingId ? (

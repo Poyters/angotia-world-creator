@@ -28,11 +28,11 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     setConnectedDialogs(
       findConnectedDialog(dialogsData, beginId)
     );
-  }
+  };
 
   const clearConnected = ():void => {
     setConnectedDialogs([]);
-  }
+  };
 
   return (
     <ContentContext.Consumer>
@@ -58,7 +58,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                     validatorFunc={dialogsValidator}
                     connectedDialogs={connectedDialogs}
                     clearValidator={clearConnected}
-                  />
+                  />;
                 })
               ) : (
                 <p className='dialogs--none t-paragraph5Normal'>
@@ -75,7 +75,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                     id={monolog.id}
                     content={monolog.content}
                     key={index}
-                  />
+                  />;
                 })
               ) : (
                 <p className='dialogs--none t-paragraph5Normal'>
@@ -87,8 +87,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
         </div>
       )}
     </ContentContext.Consumer>
-  )
-}
+  );
+};
 
 
 export default Dialogs;

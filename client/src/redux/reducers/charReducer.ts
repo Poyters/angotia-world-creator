@@ -85,10 +85,15 @@ export const charReducer = (state = initState, action) => {
         choosed: action.char
       };
     case 'CHANGE_MONOLOGS':
-        return {
-          ...state,
-          monologs: action.monologs
-        };
+      return {
+        ...state,
+        monologs: action.monologs
+      };
+    case 'CHANGE_DIALOGS':
+      return {
+        ...state,
+        dialogs: action.dialogs
+      };
     default:
       return state;
   }

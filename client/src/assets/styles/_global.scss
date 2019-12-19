@@ -109,6 +109,13 @@ a {
 		height: 12px;
 		top: 5px;
 		right: 5px;
+
+		&:before, &:after {
+			width: calc(100% + 2px);
+			height: 1px !important;
+
+			background-color: $decorationColor7 !important;
+		}
 	}
 
 	&:hover {

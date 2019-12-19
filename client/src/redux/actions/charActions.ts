@@ -18,3 +18,10 @@ export const changeMonologs = (monologs: any[]) => {
     monologs
   };
 };
+
+export const changeDialogs = (dialogs: any[]) => {
+  return {
+    type: 'CHANGE_DIALOGS',
+    dialogs
+  };
+};

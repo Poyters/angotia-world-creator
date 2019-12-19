@@ -17,7 +17,7 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
     });
 
     dispatch(changeMonologs(filteredMonologs));
-  }
+  };
 
 
   return (
@@ -33,12 +33,12 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
         </span> { content } 
       </p>
       <div 
-          className="g-exitBtn g-exitBtn--dialog"
-          onClick={():void => deleteMonolog(id)}
+        className="g-exitBtn g-exitBtn--dialog"
+        onClick={():void => deleteMonolog(id)}
       > </div>
     </div>
-  )
-}
+  );
+};
 
 
 export default Monolog;
