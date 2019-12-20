@@ -13,11 +13,11 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
 interface IMonologPopup {
-  closePopup: Function,
+  togglePopup: Function,
   monologData?: IMonolog
 }
 
-const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
+const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => {
   const [monologId, setMonologId] = useState<number>(Math.random());
   const [monologContent, setMonologContent] = useState<string>('');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
@@ -30,6 +30,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
       monologData.id && 
       monologData.content
     ) {
+      console.log(monologData);
       setMonologId(monologData.id);
       setMonologContent(monologData.content);
     }
@@ -52,7 +53,31 @@ const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
     });
 
     dispatch(changeMonologs(monologsData));
-    closePopup(false);
+  };
+
+  const editMonolog = (): void => {
+    monologsData.filter(monolog => {
+      if (monolog.id === monologId) {
+        monolog.content = monologContent;
+      }
+    });
+
+    console.log(monologsData);
+    dispatch(changeMonologs(monologsData));
+  };
+
+  const submitHandler = (): void => {
+    if (
+      monologData &&
+      monologData.id && 
+      monologData.content
+    ) { // edit mode
+      editMonolog();
+    } else { // insert mode
+      insertMonolog();
+    }
+
+    togglePopup(false);
   };
 
   return (
@@ -60,7 +85,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
       <div role="alert" className="insertPopup"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => closePopup(false)}
+          onClick={():void => togglePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           Add new monolog
@@ -86,7 +111,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => insertMonolog()} 
+          onClick={(): void => submitHandler()} 
           disabled={monologCtnErr}
         > 
           submit 

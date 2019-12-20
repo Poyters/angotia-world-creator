@@ -15,6 +15,9 @@ import {
 import { ContentContext } from '../../../../Template';
 import MonologPopup from './MonologPopup';
 
+//Import interfaces
+import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
+
 
 interface IDialogs {
   type: string,
@@ -24,6 +27,7 @@ interface IDialogs {
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const [connectedDialogs, setConnectedDialogs] = useState<any[]>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
+  const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const monologsData: any[] = useSelector(state => state.char.monologs);
 
@@ -38,7 +42,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
 			{({ char }) => (
         <React.Fragment>
           { isPopupOpen ? ReactDOM.createPortal(
-              <MonologPopup closePopup={setIsPopupOpen}/>, document.body
+            <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData}/>, document.body
           ) : null}
           <div className="dialogs">
             <nav className="dialogs__nav">
@@ -81,6 +85,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                     return <Monolog 
                       id={monolog.id}
                       content={monolog.content}
+                      togglePopup={setIsPopupOpen}
+                      setPopupData={setMonologData}
                       key={index}
                     />;
                   })

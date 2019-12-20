@@ -7,7 +7,13 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 //Import actions
 import { changeMonologs } from '../../../../redux/actions/charActions';
 
-const Monolog: React.FC<IMonolog> = ({ id, content }) => {
+
+interface IMonologExplicit extends IMonolog {
+  togglePopup: Function,
+  setPopupData: Function
+}
+
+const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopupData }) => {
   const monologsData: any[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
@@ -24,6 +30,10 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
       id,
       content
     };
+
+    console.log(monologData);
+    setPopupData(monologData);
+    togglePopup(true);
   };
 
 
@@ -45,12 +55,9 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
       > </div>
       <div 
         className="g-editBtn g-editBtn--dialog"
-        onClick={():void => editMonolog(id)}
+        onClick={():void => editMonolog()}
       >
-        <div className="g-editBtn__gum">
-
-        </div>
-      
+        <div className="g-editBtn__gum"></div>
       </div>
     </div>
   );
