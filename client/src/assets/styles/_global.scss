@@ -111,9 +111,6 @@ a {
 		right: 5px;
 
 		&:before, &:after {
-			width: calc(100% + 2px);
-			height: 1px !important;
-
 			background-color: $decorationColor7 !important;
 		}
 	}
@@ -166,4 +163,39 @@ a {
 
 	color: $decorationColor1;
 	font-size: 50px;
+}
+
+.g-editBtn {
+	position: absolute;
+	width: 12px;
+	height: 4px;
+	transform: rotate(-45deg);
+
+	background-color: $decorationColor7;
+	transition: 200ms ease-in-out;
+	border-radius: 3px 0 0 3px;
+
+	&__gum {
+		position: relative;
+		right: -13px;
+		width: 3px;
+		height: 4px;
+
+		background-color: $decorationColor7;
+		transition: 200ms ease-in-out;
+		border-radius: 0 3px 3px 0;
+	}
+
+	&:hover {
+		background-color: $decorationColor4;
+
+		& .g-editBtn__gum {
+			background-color: $decorationColor4;
+		}
+	}
+
+	&--dialog {
+		top: 28px;
+		right: 5px;
+	}
 }

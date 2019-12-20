@@ -19,6 +19,13 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
     dispatch(changeMonologs(filteredMonologs));
   };
 
+  const editMonolog = (): void => {
+    const monologData: IMonolog = {
+      id,
+      content
+    };
+  };
+
 
   return (
     <div className="dialog">
@@ -36,6 +43,15 @@ const Monolog: React.FC<IMonolog> = ({ id, content }) => {
         className="g-exitBtn g-exitBtn--dialog"
         onClick={():void => deleteMonolog(id)}
       > </div>
+      <div 
+        className="g-editBtn g-editBtn--dialog"
+        onClick={():void => editMonolog(id)}
+      >
+        <div className="g-editBtn__gum">
+
+        </div>
+      
+      </div>
     </div>
   );
 };

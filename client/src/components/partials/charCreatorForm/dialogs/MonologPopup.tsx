@@ -8,16 +8,32 @@ import CharInputField from '../CharInputField';
 import { changeMonologs } from '../../../../redux/actions/charActions';
 
 
+//Import interfaces
+import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
+
+
 interface IMonologPopup {
-  closePopup: Function
+  closePopup: Function,
+  monologData?: IMonolog
 }
 
-const MonologPopup: React.FC<IMonologPopup> = ({ closePopup }) => {
-  const monologId: number = Math.random();
+const MonologPopup: React.FC<IMonologPopup> = ({ closePopup, monologData }) => {
+  const [monologId, setMonologId] = useState<number>(Math.random());
   const [monologContent, setMonologContent] = useState<string>('');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
   const monologsData: any[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
+
+  useEffect((): void => {
+    if (
+      monologData &&
+      monologData.id && 
+      monologData.content
+    ) {
+      setMonologId(monologData.id);
+      setMonologContent(monologData.content);
+    }
+  }, []);
 
   useEffect((): void => {
     if (
