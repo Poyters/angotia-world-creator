@@ -26,11 +26,12 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
           return (e) => {
             const path: string = e.target.result;
             setIsLoadedImage(true);
+            console.log(path);
           };
     
         })();
     
-        setFileName(file.name)
+        setFileName(file.name);
         reader.readAsDataURL(file);
     };
 
@@ -89,7 +90,7 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                                                 > 
                                                     { bookmark } 
                                                 </li>
-                                            )
+                                            );
                                         }  
                                     })}  
                                 </ul>

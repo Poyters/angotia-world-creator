@@ -49,11 +49,9 @@
         color: $warningColor;
     }
 
-    & input {
-        height: 30px;
+    & input, & textarea {
         padding: 4px 8px;
         margin: 5px 0;
-
         background-color: $decorationColor1;
         border: 1px solid transparent;
         outline: none;
@@ -63,5 +61,17 @@
         &:active, &:focus {
             border: 1px solid $decorationColor6;
         }
+    }
+
+    & input {
+        height: 30px;
+    }
+
+    & textarea {
+        min-height: 100px;
+        max-width: 100%;
+        box-sizing: border-box;
+
+        @include scrollBar;
     }
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 
 //Import components
@@ -12,6 +13,7 @@ import {
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
+import MonologPopup from './MonologPopup';
 
 
 interface IDialogs {
@@ -21,6 +23,7 @@ interface IDialogs {
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const [connectedDialogs, setConnectedDialogs] = useState<any[]>([]);
+  const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const monologsData: any[] = useSelector(state => state.char.monologs);
 
@@ -30,61 +33,66 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     );
   };
 
-  const clearConnected = ():void => {
-    setConnectedDialogs([]);
-  };
-
   return (
     <ContentContext.Consumer>
 			{({ char }) => (
-        <div className="dialogs">
-          <nav className="dialogs__nav">
-            <ul>
-              <li className="t-paragraph8Light"> { type } </li>
-              <li className="t-paragraph5Normal">
-                <span> { addBtnText } </span>
-              </li>
-            </ul>
-          </nav>
-          {
-            type === char.form.dialogs.title ? (
-              dialogsData.length > 0 ? (
-                dialogsData.map((dialog, index) => {
-                  return <Dialog 
-                    id={dialog.id}
-                    npc={dialog.npc}
-                    player={dialog.player}
-                    key={index}
-                    validatorFunc={dialogsValidator}
-                    connectedDialogs={connectedDialogs}
-                    clearValidator={clearConnected}
-                  />;
-                })
-              ) : (
-                <p className='dialogs--none t-paragraph5Normal'>
-                  There's no { type }
-                </p>
-              )
-            ) : null
-          }
-          {
-            type === char.form.monologs.title ? (
-              monologsData.length > 0 ? (
-                monologsData.map((monolog, index) => {
-                  return <Monolog 
-                    id={monolog.id}
-                    content={monolog.content}
-                    key={index}
-                  />;
-                })
-              ) : (
-                <p className='dialogs--none t-paragraph5Normal'>
-                  There's no { type }
-                </p>
-              )
-            ) : null
-          }
-        </div>
+        <React.Fragment>
+          { isPopupOpen ? ReactDOM.createPortal(
+              <MonologPopup closePopup={setIsPopupOpen}/>, document.body
+          ) : null}
+          <div className="dialogs">
+            <nav className="dialogs__nav">
+              <ul>
+                <li className="t-paragraph8Light"> { type } </li>
+                <li className="t-paragraph5Normal">
+                  <span 
+                    onClick={(): void => setIsPopupOpen(true)}
+                  > 
+                    { addBtnText } 
+                  </span>
+                </li>
+              </ul>
+            </nav>
+            {
+              type === char.form.dialogs.title ? (
+                dialogsData.length > 0 ? (
+                  dialogsData.map((dialog, index) => {
+                    return <Dialog 
+                      id={dialog.id}
+                      npc={dialog.npc}
+                      player={dialog.player}
+                      key={index}
+                      validatorFunc={dialogsValidator}
+                      connectedDialogs={connectedDialogs}
+                      clearValidator={(): void => setConnectedDialogs([])}
+                    />;
+                  })
+                ) : (
+                  <p className='dialogs--none t-paragraph5Normal'>
+                    There's no { type }
+                  </p>
+                )
+              ) : null
+            }
+            {
+              type === char.form.monologs.title ? (
+                monologsData.length > 0 ? (
+                  monologsData.map((monolog, index) => {
+                    return <Monolog 
+                      id={monolog.id}
+                      content={monolog.content}
+                      key={index}
+                    />;
+                  })
+                ) : (
+                  <p className='dialogs--none t-paragraph5Normal'>
+                    There's no { type }
+                  </p>
+                )
+              ) : null
+            }
+          </div>
+        </React.Fragment>
       )}
     </ContentContext.Consumer>
   );
