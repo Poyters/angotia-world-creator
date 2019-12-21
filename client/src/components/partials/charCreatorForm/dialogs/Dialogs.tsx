@@ -14,6 +14,7 @@ import {
 //Import contexts
 import { ContentContext } from '../../../../Template';
 import MonologPopup from './MonologPopup';
+import DialogPopup from './DialogPopup';
 
 //Import interfaces
 import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
@@ -41,8 +42,11 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     <ContentContext.Consumer>
 			{({ char }) => (
         <React.Fragment>
-          { isPopupOpen ? ReactDOM.createPortal(
+          { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
             <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData}/>, document.body
+          ) : null}
+          { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
+            <DialogPopup togglePopup={setIsPopupOpen}/>, document.body
           ) : null}
           <div className="dialogs">
             <nav className="dialogs__nav">
