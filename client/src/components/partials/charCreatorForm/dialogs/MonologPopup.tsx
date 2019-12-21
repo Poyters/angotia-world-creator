@@ -18,23 +18,13 @@ interface IMonologPopup {
 }
 
 const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => {
-  const [monologId, setMonologId] = useState<number>(Math.random());
-  const [monologContent, setMonologContent] = useState<string>('');
+  const monologId = monologData ? monologData.id : Math.random();
+  const [monologContent, setMonologContent] = useState<string>(
+    monologData ? monologData.content : '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
   const monologsData: any[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
-  useEffect((): void => {
-    if (
-      monologData &&
-      monologData.id && 
-      monologData.content
-    ) {
-      console.log(monologData);
-      setMonologId(monologData.id);
-      setMonologContent(monologData.content);
-    }
-  }, []);
 
   useEffect((): void => {
     if (
