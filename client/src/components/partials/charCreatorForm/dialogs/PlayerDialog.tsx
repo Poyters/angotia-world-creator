@@ -12,7 +12,7 @@ const PlayerDialog: React.FC = () => {
   const [newDialogText, setNewDialogText] = useState<string>('');
 
   return (
-    <React.Fragment>
+    <section className="playerDialog">
       <CharInputField
         label='Player dialog ID'
         inputValue={dialogId}
@@ -30,7 +30,7 @@ const PlayerDialog: React.FC = () => {
         inputValue={''}
         inputDisabled={false}
       />
-    </React.Fragment>
+    </section>
   );
 };
 
