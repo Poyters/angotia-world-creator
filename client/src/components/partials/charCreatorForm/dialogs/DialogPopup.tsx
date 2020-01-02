@@ -3,9 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import CharInputField from '../CharInputField';
+import PlayerDialog from './PlayerDialog';
 
 //Import actions
 import { changeDialogs } from '../../../../redux/actions/charActions';
+
+//Import interfaces
+import { INewDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 interface IMonologPopup {
   togglePopup: Function
@@ -17,6 +21,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
+  const [playerDialogs, setPlayerDialogs] = useState<any>(0);
 
 
   useEffect((): void => {
@@ -51,6 +56,10 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
     togglePopup(false);
   };
 
+  const addPlayerDialogHandler = (): void => {
+    setPlayerDialogs(playerDialogs + 1);
+  };
+
   return (
     <div className="g-container g-container--popup">
       <div role="alert" className="insertPopup"> 
@@ -78,6 +87,29 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
             <span className="insertPopup--error">You need to type npc dialog</span>
           ) : null
         }
+        <nav className="playerDialogsHeader">
+          <header 
+            className="playerDialogsHeader__title t-paragraph5Light"
+      
+          >
+            Player dialogs
+          </header>
+          <div 
+            className="playerDialogsHeader__add t-paragraph5Normal"
+            onClick={():void => addPlayerDialogHandler() }
+          >
+            New Player dialog
+          </div>
+
+        </nav>
+        
+        <div className="playerDialogsWrapper">
+          { 
+            [...Array(playerDialogs)].map((playerDialog, index) => {
+              return <PlayerDialog key={index} />;
+            })
+          }
+        </div>      
 
         <button 
           type="submit" 

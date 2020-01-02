@@ -1,0 +1,43 @@
+.playerDialogsWrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px;
+  overflow-y: auto;
+
+  @include scrollBar;
+}
+
+.playerDialogsHeader {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 30px;
+  padding-top: 10px;
+  
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 55px;
+    height: 1px;
+
+    background-color: $decorationColor7;
+  }
+
+  &__title {
+    flex: 1;
+  }
+
+  &__add {
+    flex: 1;
+
+    text-align: right;
+    transition: 200ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: $decorationColor1;
+    }
+  }
+}

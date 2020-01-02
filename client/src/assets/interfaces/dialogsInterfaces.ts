@@ -18,3 +18,7 @@ export interface IMonolog {
   id: number,
   content: string
 }
+
+export interface INewDialog {
+  label?: string
+}
