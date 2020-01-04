@@ -1,18 +1,38 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import CharInputField from '../CharInputField';
 
+//Import actions
+import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
-const PlayerDialog: React.FC = () => {
-  const dialogId = Math.random();
+
+interface IPlayerDialog {
+  playerId: number
+}
+
+const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const [newDialogText, setNewDialogText] = useState<string>('');
+  const dispatch: Function = useDispatch();
+  const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
+
+  const updateDialog = (): void => {
+    temponaryPlayerDialogs.filter(data => {
+      if (data.id === playerId) {
+        data.dialog = newDialogText;
+      }
+    });
+
+    dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
+  };
+  
 
   return (
     <section className="playerDialog">
       <CharInputField
         label='Player dialog ID'
-        inputValue={dialogId}
+        inputValue={playerId}
         inputDisabled={true}
       />
       <label className="insertPopup__label t-paragraph6Light">
@@ -21,6 +41,7 @@ const PlayerDialog: React.FC = () => {
       <textarea
         value={newDialogText} 
         onChange={e => setNewDialogText(e.target.value)}
+        onMouseLeave={updateDialog}
       />
       <CharInputField
         label='Next dialog'
@@ -29,6 +50,7 @@ const PlayerDialog: React.FC = () => {
       />
       <div 
         className="g-exitBtn g-exitBtn--playerDialog"
+        onClick={deleteDialog}
       > </div>
     </section>
   );

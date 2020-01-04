@@ -6,23 +6,21 @@ import CharInputField from '../CharInputField';
 import PlayerDialog from './PlayerDialog';
 
 //Import actions
-import { changeDialogs } from '../../../../redux/actions/charActions';
+import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
-//Import interfaces
-import { INewDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
-interface IMonologPopup {
+interface IDialogPopup {
   togglePopup: Function
 }
 
-const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
+const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const dialogId = Math.random();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
-  const [playerDialogs, setPlayerDialogs] = useState<any>(0);
-
+  const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const [quantityPlayer, setQuantityPlayer] = useState<number>(0);
 
   useEffect((): void => {
     if (
@@ -38,14 +36,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
     dialogsData.push({
       id: dialogId,
       npc: npcText,
-      player: [
-        {
-          id: 52352,
-          dialog: 'Mauris atiqueipiscing elit. ',
-          next: 2,
-          action: null
-        }
-      ]
+      player: temponaryPlayerDialogs
     });
 
     dispatch(changeDialogs(dialogsData));
@@ -57,7 +48,18 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
   };
 
   const addPlayerDialogHandler = (): void => {
-    setPlayerDialogs(playerDialogs + 1);
+    const playerDialogId = Math.random();
+    temponaryPlayerDialogs.push({
+      id: playerDialogId,
+      dialog: '',
+      next: -1,
+      action: null
+    });
+
+    console.log(temponaryPlayerDialogs);
+
+    dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
+    setQuantityPlayer(temponaryPlayerDialogs.length);
   };
 
   return (
@@ -105,8 +107,8 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
         
         <div className="playerDialogsWrapper">
           { 
-            [...Array(playerDialogs)].map((playerDialog, index) => {
-              return <PlayerDialog key={index} />;
+            temponaryPlayerDialogs.map((playerDialog, index) => {
+              return <PlayerDialog playerId={playerDialog.id} key={index} />;
             })
           }
         </div>      
@@ -124,4 +126,4 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
   );
 };
 
-export default MonologPopup;
+export default DialogPopup;
