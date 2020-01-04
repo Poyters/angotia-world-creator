@@ -62,7 +62,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup }) => {
 
   return (
     <div className="g-container g-container--popup">
-      <div role="alert" className="insertPopup"> 
+      <div role="alert" className="insertPopup insertPopup--dialog"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
           onClick={():void => togglePopup(false)}

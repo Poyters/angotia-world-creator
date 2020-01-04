@@ -25,3 +25,10 @@ export const changeDialogs = (dialogs: any[]) => {
     dialogs
   };
 };
+
+export const changeTemponaryPlayerDialogs = (temponaryDialogs: any[]) => {
+  return {
+    type: 'CHANGE_TEMPONARY_PLAYER_DIALOGS',
+    temponaryDialogs
+  };
+};

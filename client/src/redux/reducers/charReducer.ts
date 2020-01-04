@@ -68,7 +68,8 @@ const initState = {
         }
       ]
     },
-  ]
+  ],
+  temponaryPlayerDialogs: []
 };
 
 
@@ -93,6 +94,11 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         dialogs: action.dialogs
+      };
+    case 'CHANGE_TEMPONARY_PLAYER_DIALOGS':
+      return {
+        ...state,
+        temponaryPlayerDialogs: action.temponaryDialogs
       };
     default:
       return state;
