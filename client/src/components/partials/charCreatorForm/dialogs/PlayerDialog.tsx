@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 
-//Import interfaces
-import { INewDialog } from '../../../../assets/interfaces/dialogsInterfaces';
-
 //Import components
 import CharInputField from '../CharInputField';
 
@@ -30,6 +27,9 @@ const PlayerDialog: React.FC = () => {
         inputValue={''}
         inputDisabled={false}
       />
+      <div 
+        className="g-exitBtn g-exitBtn--playerDialog"
+      > </div>
     </section>
   );
 };
