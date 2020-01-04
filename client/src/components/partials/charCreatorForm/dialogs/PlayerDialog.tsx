@@ -26,7 +26,14 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
 
     dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
   };
-  
+
+  const deleteDialog = (): void => {
+    const filteredDialogs = temponaryPlayerDialogs.filter(dialog => {
+      if (dialog.id !== playerId) return dialog;
+    });
+
+    dispatch(changeTemponaryPlayerDialogs(filteredDialogs));
+  };
 
   return (
     <section className="playerDialog">
