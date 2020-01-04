@@ -26,8 +26,8 @@ const CharInputField: React.FC<ICharInputField> = (
         onChange={(e): void => setCurrValue(e.target.value)}
       />
     </div>
-  )
-}
+  );
+};
 
 
 export default CharInputField;

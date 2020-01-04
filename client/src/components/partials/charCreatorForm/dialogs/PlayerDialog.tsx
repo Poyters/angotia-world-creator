@@ -14,6 +14,7 @@ interface IPlayerDialog {
 
 const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const [newDialogText, setNewDialogText] = useState<string>('');
+  const [next, setNext] = useState<string>('');
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
 
@@ -21,6 +22,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
     temponaryPlayerDialogs.filter(data => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
+        data.next = parseInt(next);
       }
     });
 
@@ -50,10 +52,11 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         onChange={e => setNewDialogText(e.target.value)}
         onMouseLeave={updateDialog}
       />
-      <CharInputField
-        label='Next dialog'
-        inputValue={''}
-        inputDisabled={false}
+      <label className="insertPopup__label t-paragraph6Light">
+        Next dialog
+      </label>
+      <input 
+        onChange={e => setNext(e.target.value)}
       />
       <div 
         className="g-exitBtn g-exitBtn--playerDialog"

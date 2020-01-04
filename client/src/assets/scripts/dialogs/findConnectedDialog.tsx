@@ -1,8 +1,8 @@
 export const findConnectedDialog = (dataSet, beginID) => {
   const availableIds = dataSet.map(dialog => dialog.id);
   const findDialofById = (dialog): boolean => {
-    return dialog.id === beginID
-  }
+    return dialog.id === beginID;
+  };
   const beginDialog = dataSet.find(findDialofById);
   const connectedIds = beginDialog ? beginDialog.player.map(playerDialog => {
     return playerDialog.next;
@@ -10,11 +10,11 @@ export const findConnectedDialog = (dataSet, beginID) => {
   
   if (connectedIds.includes('exit')) {
     connectedIds.push(beginID);
-    availableIds.push('exit')
+    availableIds.push('exit');
   }
 
   const isInvalid = connectedIds.some(el => !availableIds.includes(el));
   if (isInvalid) connectedIds.push(`invalid_${beginID}`);
 
   return connectedIds;
-}
+};
