@@ -48,6 +48,7 @@ const Dialog: React.FC<IDialog> = ({
         onMouseEnter={():void => validatorFunc(id)}
         onMouseLeave={():void => clearValidator()}
         style={dialogStyle}
+        onClick={():void => setIsPopup(true)}
       >
         <p> 
           <span className="t-paragraph5Light"> 

@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import CharInputField from '../CharInputField';
-import PlayerDialog from './PlayerDialog';
 
 //Import actions
-import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
+import { changeDialogs } from '../../../../redux/actions/charActions';
+
+//Import interfaces
+import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
 interface IEditDialog {
@@ -17,12 +19,11 @@ interface IEditDialog {
 const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
-  const dialogData = dialogsData.filter(dialog => dialog.id = dialogId);
+  const dialogData = dialogsData.find((dialog: IDialog): boolean => dialog.id === dialogId);
   console.log(dialogData);
 
   const submitHandler = (): void => {
     closePopup(false);
-    dispatch(changeTemponaryPlayerDialogs([]));
   };
 
   return (
@@ -44,43 +45,28 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           Npc dialog
         </label>
         <textarea
-          value={npcText} 
-          onChange={e => setNpcText(e.target.value)}
+          value={'npcText'} 
+          // onChange={e => setNpcText(e.target.value)}
         />
-        {
+        {/* {
           (npcTextErr) ? (
             <span className="insertPopup--error">You need to type npc dialog</span>
           ) : null
-        }
-        <nav className="playerDialogsHeader">
-          <header 
-            className="playerDialogsHeader__title t-paragraph5Light"
-      
-          >
-            Player dialogs
-          </header>
-          <div 
-            className="playerDialogsHeader__add t-paragraph5Normal"
-            onClick={():void => addPlayerDialogHandler() }
-          >
-            New Player dialog
-          </div>
-
-        </nav>
+        } */}
         
         <div className="playerDialogsWrapper">
-          { 
+          {/* { 
             temponaryPlayerDialogs.map((playerDialog, index) => {
               return <PlayerDialog playerId={playerDialog.id} key={index} />;
             })
-          }
+          } */}
         </div>      
 
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
           onClick={(): void => submitHandler()} 
-          disabled={npcTextErr}
+          // disabled={npcTextErr}
         > 
           submit 
         </button>
