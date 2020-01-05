@@ -20,7 +20,6 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
-  const [quantityPlayer, setQuantityPlayer] = useState<number>(0);
 
   useEffect((): void => {
     if (
@@ -49,17 +48,19 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
 
   const addPlayerDialogHandler = (): void => {
     const playerDialogId = Math.random();
-    temponaryPlayerDialogs.push({
-      id: playerDialogId,
-      dialog: '',
-      next: -1,
-      action: null
-    });
+    const newDialogs = [
+      ...temponaryPlayerDialogs,
+      {
+        id: playerDialogId,
+        dialog: '',
+        next: -1,
+        action: null
+      }
+    ];
 
-    console.log(temponaryPlayerDialogs);
+    console.log(newDialogs);
 
-    dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
-    setQuantityPlayer(temponaryPlayerDialogs.length);
+    dispatch(changeTemponaryPlayerDialogs(newDialogs));
   };
 
   return (

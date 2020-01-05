@@ -33,7 +33,6 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const monologsData: any[] = useSelector(state => state.char.monologs);
 
   const dialogsValidator = (beginId: number | string): void => {
-    console.log(findConnectedDialog(dialogsData, beginId));
     setConnectedDialogs(
       findConnectedDialog(dialogsData, beginId)
     );
