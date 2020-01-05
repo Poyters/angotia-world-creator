@@ -26,7 +26,6 @@ const Dialog: React.FC<IDialog> = ({
   const [playerId, setPlayerId] = useState<number>(-1);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
-  let playerDialogId: number = -1;
 
   const dialogStyle = {
     borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38',

@@ -16,6 +16,5 @@ export const findConnectedDialog = (dataSet, beginID) => {
   const isInvalid = connectedIds.some(el => !availableIds.includes(el));
   if (isInvalid) connectedIds.push(`invalid_${beginID}`);
 
-  console.log(connectedIds);
   return connectedIds;
 };
