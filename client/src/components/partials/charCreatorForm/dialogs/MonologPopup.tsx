@@ -52,7 +52,6 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => 
       }
     });
 
-    console.log(monologsData);
     dispatch(changeMonologs(monologsData));
   };
 

@@ -30,8 +30,7 @@ const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopu
       id,
       content
     };
-
-    console.log(monologData);
+    
     setPopupData(monologData);
     togglePopup(true);
   };

@@ -15,10 +15,9 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
   const changeChecked = (option: string): void => {
     const choosedOption = currChecked === option ? '' : option;
     
-    console.log(choosedOption)
     setCurrChecked(choosedOption);
     dispatch(action(choosedOption));
-  }
+  };
 
   return (
     <div className="chooseButtonsWrapper">
@@ -27,7 +26,7 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
         types.map((type, index) => {
           const inputStyle = {
             backgroundColor: currChecked === type ? '#27427c' : ''
-          }
+          };
 
           return (
             <div className="chooseButtons" key={index}>
@@ -42,12 +41,12 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
                 style={inputStyle}
               > </div>
             </div>
-          )
+          );
         })
       }
     </div>
-  )
-}
+  );
+};
 
 
 export default ChooseButtons;

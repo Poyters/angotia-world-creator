@@ -59,8 +59,6 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
       }
     ];
 
-    console.log(newDialogs);
-
     dispatch(changeTemponaryPlayerDialogs(newDialogs));
   };
 

@@ -6,7 +6,6 @@ import CharInputField from '../CharInputField';
 
 //Import actions
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-import { useEffect } from 'react';
 
 
 interface IPlayerDialog {
@@ -37,10 +36,6 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
 
     dispatch(changeTemponaryPlayerDialogs(filteredDialogs));
   };
-
-  useEffect(() => {
-    console.log(next);
-  });
 
   return (
     <section className="playerDialog">
