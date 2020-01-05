@@ -44,6 +44,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const submitHandler = (): void => {
     insertDialog();
     togglePopup(false);
+    dispatch(changeTemponaryPlayerDialogs([]));
   };
 
   const addPlayerDialogHandler = (): void => {
