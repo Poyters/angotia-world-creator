@@ -18,11 +18,33 @@ interface IEditDialog {
 
 const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
-  const dispatch: Function = useDispatch();
   const dialogData = dialogsData.find((dialog: IDialog): boolean => dialog.id === dialogId);
+  const dispatch: Function = useDispatch();
+  const [npcText, setNpcText] = useState<string>(dialogData.npc);
+  const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
+  
   console.log(dialogData);
 
+  useEffect((): void => {
+    if (
+      npcText.length === 0 || 
+      !npcText
+    ) {
+      setNpcTextErr(true);
+    }
+    else setNpcTextErr(false);
+  }, [npcText]);
+
   const submitHandler = (): void => {
+    const updatedDialogs = dialogsData.map((dialog: IDialog) => {
+      if (dialog.id === dialogId) {
+        dialog.npc = npcText;
+      }
+
+      return dialog;
+    });
+
+    dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
   };
 
@@ -45,28 +67,20 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           Npc dialog
         </label>
         <textarea
-          value={'npcText'} 
-          // onChange={e => setNpcText(e.target.value)}
+          value={npcText} 
+          onChange={e => setNpcText(e.target.value)}
         />
-        {/* {
+        {
           (npcTextErr) ? (
             <span className="insertPopup--error">You need to type npc dialog</span>
           ) : null
-        } */}
-        
-        <div className="playerDialogsWrapper">
-          {/* { 
-            temponaryPlayerDialogs.map((playerDialog, index) => {
-              return <PlayerDialog playerId={playerDialog.id} key={index} />;
-            })
-          } */}
-        </div>      
+        }     
 
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
           onClick={(): void => submitHandler()} 
-          // disabled={npcTextErr}
+          disabled={npcTextErr}
         > 
           submit 
         </button>
