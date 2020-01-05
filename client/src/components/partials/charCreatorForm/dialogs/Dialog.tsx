@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import ReactDOM from 'react-dom';
 
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 //Import actions
 import { changeDialogs } from '../../../../redux/actions/charActions';
+
+//Import components
+import EditDialog from './EditDialog';
 
 
 const Dialog: React.FC<IDialog> = ({ 
@@ -16,6 +20,7 @@ const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator=():void=>{}
 }) => {
+  const [isPopup, setIsPopup] = useState<boolean>(false);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
 
@@ -34,48 +39,53 @@ const Dialog: React.FC<IDialog> = ({
   };
 
   return (
-    <div 
-      className="dialog" 
-      onMouseEnter={():void => validatorFunc(id)}
-      onMouseLeave={():void => clearValidator()}
-      style={dialogStyle}
-    >
-      <p> 
-        <span className="t-paragraph5Light"> 
-          Dialog ID: 
-        </span> { id } 
-      </p>
-      <p> 
-        <span className="t-paragraph5Light">
-          NPC dialog: 
-        </span> { npc } 
-      </p>
-      { 
-        player.map((dialogData, index) => {
-          return <div className="dialog__playerDialog" key={index}>
-            <p> 
-              <span className="t-paragraph5Light"> 
-                Player dialog ID: 
-              </span> { dialogData.id } 
-            </p>
-            <p> 
-              <span className="t-paragraph5Light"> 
-                Player dialog: 
-              </span> { dialogData.dialog } 
-            </p>
-            <p> 
-              <span className="t-paragraph5Light"> 
-                Next dialog: 
-              </span> { dialogData.next } 
-            </p>
-          </div>;
-        })
-      }
+    <React.Fragment>
+      { isPopup ? ReactDOM.createPortal(
+        <EditDialog dialogId={id} closePopup={setIsPopup}/>, document.body
+      ) : null}
       <div 
-        className="g-exitBtn g-exitBtn--dialog"
-        onClick={():void => deleteDialog(id)}
-      > </div>
-    </div>
+        className="dialog" 
+        onMouseEnter={():void => validatorFunc(id)}
+        onMouseLeave={():void => clearValidator()}
+        style={dialogStyle}
+      >
+        <p> 
+          <span className="t-paragraph5Light"> 
+            Dialog ID: 
+          </span> { id } 
+        </p>
+        <p> 
+          <span className="t-paragraph5Light">
+            NPC dialog: 
+          </span> { npc } 
+        </p>
+        { 
+          player.map((dialogData, index) => {
+            return <div className="dialog__playerDialog" key={index}>
+              <p> 
+                <span className="t-paragraph5Light"> 
+                  Player dialog ID: 
+                </span> { dialogData.id } 
+              </p>
+              <p> 
+                <span className="t-paragraph5Light"> 
+                  Player dialog: 
+                </span> { dialogData.dialog } 
+              </p>
+              <p> 
+                <span className="t-paragraph5Light"> 
+                  Next dialog: 
+                </span> { dialogData.next } 
+              </p>
+            </div>;
+          })
+        }
+        <div 
+          className="g-exitBtn g-exitBtn--dialog"
+          onClick={():void => deleteDialog(id)}
+        > </div>
+      </div>
+    </React.Fragment>
   );
 };
 
