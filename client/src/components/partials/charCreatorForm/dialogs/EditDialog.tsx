@@ -22,8 +22,6 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const dispatch: Function = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData.npc);
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  
-  console.log(dialogData);
 
   useEffect((): void => {
     if (

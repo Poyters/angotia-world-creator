@@ -10,6 +10,7 @@ import { changeDialogs } from '../../../../redux/actions/charActions';
 
 //Import components
 import EditDialog from './EditDialog';
+import EditPlayerDialog from './EditPlayerDialog';
 
 
 const Dialog: React.FC<IDialog> = ({ 
@@ -20,9 +21,12 @@ const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator=():void=>{}
 }) => {
-  const [isPopup, setIsPopup] = useState<boolean>(false);
+  const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
+  const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
+  const [playerId, setPlayerId] = useState<number>(-1);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
+  let playerDialogId: number = -1;
 
   const dialogStyle = {
     borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38',
@@ -38,17 +42,29 @@ const Dialog: React.FC<IDialog> = ({
     dispatch(changeDialogs(filteredDialogs));
   };
 
+  const openPlayerPopupHandler = (id: number): void => {
+    setPlayerId(id);
+    setIsPlayerPopup(true);
+  };
+
   return (
     <React.Fragment>
-      { isPopup ? ReactDOM.createPortal(
-        <EditDialog dialogId={id} closePopup={setIsPopup}/>, document.body
+      { isDialogPopup ? ReactDOM.createPortal(
+        <EditDialog dialogId={id} closePopup={setIsDialogPopup}/>, document.body
+      ) : null}
+       { isPlayerPopup ? ReactDOM.createPortal(
+        <EditPlayerDialog 
+          dialogId={id} 
+          playerId={playerId} 
+          closePopup={setIsPlayerPopup}
+        />, document.body
       ) : null}
       <div 
         className="dialog" 
         onMouseEnter={():void => validatorFunc(id)}
         onMouseLeave={():void => clearValidator()}
         style={dialogStyle}
-        onClick={():void => setIsPopup(true)}
+        onClick={():void => setIsDialogPopup(true)}
       >
         <p> 
           <span className="t-paragraph5Light"> 
@@ -62,23 +78,29 @@ const Dialog: React.FC<IDialog> = ({
         </p>
         { 
           player.map((dialogData, index) => {
-            return <div className="dialog__playerDialog" key={index}>
-              <p> 
-                <span className="t-paragraph5Light"> 
-                  Player dialog ID: 
-                </span> { dialogData.id } 
-              </p>
-              <p> 
-                <span className="t-paragraph5Light"> 
-                  Player dialog: 
-                </span> { dialogData.dialog } 
-              </p>
-              <p> 
-                <span className="t-paragraph5Light"> 
-                  Next dialog: 
-                </span> { dialogData.next } 
-              </p>
-            </div>;
+            return (
+              <div 
+                className="dialog__playerDialog" 
+                key={index}
+                onClick={():void => openPlayerPopupHandler(dialogData.id)}
+              >
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    Player dialog ID: 
+                  </span> { dialogData.id } 
+                </p>
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    Player dialog: 
+                  </span> { dialogData.dialog } 
+                </p>
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    Next dialog: 
+                  </span> { dialogData.next } 
+                </p>
+              </div>
+            );
           })
         }
         <div 
