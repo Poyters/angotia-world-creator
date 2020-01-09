@@ -20,7 +20,7 @@ let pressedKey: string = '';
 document.addEventListener('keydown', event => pressedKey = event.key);
 
 export const markSquare = (
-  sourceMatrix: any[], 
+  sourceMatrix: Array<[]>, 
   sourceMatrixCanvas: string, 
   changeMatrixMethod: Function, 
   note: string, 
@@ -28,15 +28,15 @@ export const markSquare = (
   fillStyle?: string
 ) => {
   const storeData = store.getState();
-  const selectMatrix: any[] = deepCopy(storeData.ui.select.matrix);
-  const sourceMatrixCopy: any[] = deepCopy(sourceMatrix);
+  const selectMatrix: Array<[]> = deepCopy(storeData.ui.select.matrix);
+  const sourceMatrixCopy: Array<[]> = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1;
   if (
     (fillStyle === 'image' || fillStyle === 'vertexWeight') && 
     pressedKey !== creatorConfig.secondOptionKeyCode
   ) typeOfAction = fillColor;
 
-  const newMatrix: any[] = deepCopy(
+  const newMatrix: Array<[]> = deepCopy(
     updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction)
   );
 

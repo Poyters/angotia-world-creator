@@ -1,6 +1,9 @@
 //Import component
 import { updateMatrixByTheOther, matrixToIds } from './matrix';
 
+//Import interfaces
+import { ISquareData } from '../interfaces/squareInterfaces';
+
 
 describe("updateMatrixByTheOther script", () => {
 	const updateMatrix: any[] = [
@@ -9,7 +12,7 @@ describe("updateMatrixByTheOther script", () => {
 		[[[1, 0], [0, 1]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
   ];
     
-  const emptyootMatrix: any[] = [
+  const emptyrootMatrix: any[] = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
@@ -22,12 +25,14 @@ describe("updateMatrixByTheOther script", () => {
 	];
 
 	it("Update empty matrix by the other", () => {
-		const updatedMatrix = updateMatrixByTheOther(emptyootMatrix, updateMatrix, 1);
+		const updatedMatrix: Array<[]> = updateMatrixByTheOther(emptyrootMatrix, updateMatrix, 1);
     expect(updatedMatrix).toEqual(updateMatrix);
 	});
 
 	it("Update not empty matrix by the other", () => {
-		const updatedMatrix = updateMatrixByTheOther(notEmptyRootMatrix, updateMatrix, 1);
+		const updatedMatrix: Array<any[]> = updateMatrixByTheOther(
+			notEmptyRootMatrix, updateMatrix, 1
+		);
     expect(updatedMatrix[0][0]).toEqual([[1, 1], [1, 1]]);
 	});
 	
@@ -42,8 +47,8 @@ describe("matrixToIds script", () => {
   ];
     
 	it("Update empty matrix by the other", () => {
-		const squareIds = matrixToIds(matrix);
-		const expectedOutput = [
+		const squareIds: ISquareData[] = matrixToIds(matrix);
+		const expectedOutput: ISquareData[] = [
 			{id: "0.0, 0.0", x: 0, xDelta: 0, y: 0, yDelta: 0}, 
 			{id: "1.1, 1.0", x: 1, xDelta: 1, y: 1, yDelta: 0}, 
 			{id: "2.0, 2.0", x: 2, xDelta: 0, y: 2, yDelta: 0}

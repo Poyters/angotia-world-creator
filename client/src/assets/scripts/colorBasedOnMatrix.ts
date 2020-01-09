@@ -11,12 +11,12 @@ const fieldSize: number = creatorConfig.map.fieldSize;
 const squareSize: number = creatorConfig.map.fieldSize / 2;
 
 export const colorBasedOnMatrix = (
-  matrix: any[], 
+  matrix: Array<[]>, 
   canvasId: string, 
   color: string, 
   specialView?: string
 ): void => {
-    const copyOfmatrix: Array<any> = deepCopy(matrix);
+    const copyOfmatrix: Array<[]> = deepCopy(matrix);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
 

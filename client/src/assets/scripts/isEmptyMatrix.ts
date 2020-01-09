@@ -1,4 +1,4 @@
-export const isEmptyMatrix = (matrix: any[]): boolean => {
+export const isEmptyMatrix = (matrix: Array<[]>): boolean => {
     let result = true;
 
     matrix.forEach((yAxis: Array<number>) => {

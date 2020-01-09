@@ -8,6 +8,7 @@ import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
 
 //Import interfaces
 import { IPoint } from '../interfaces/pointInterfaces';
+import { IRect, IRectanglePosition } from '../interfaces/figureInterfaces';
 
 //Import scripts
 import { selectCanvasSquare } from './selectFields';
@@ -16,16 +17,16 @@ import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 
 let canvas: any;
 let ctx: any;
-let rect: any = {};
+const rect: IRect = {
+  startX: 0,
+  startY: 0,
+  width: 0,
+  height: 0
+};
 let drag: boolean = false;
 
-interface IRectanglePosition {
-  topLeft: IPoint,
-  bottomRight: IPoint
-}
-
 export const mouseSelectFields = (): void => {
-  const map: any = document.getElementById("map");
+  const map: HTMLElement | null = document.getElementById("map");
 	canvas = document.getElementById('mapSelectCanvas');
   ctx = canvas.getContext('2d');
 	
@@ -38,8 +39,8 @@ export const mouseSelectFields = (): void => {
 const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 	const storeData = store.getState();
   const selectType: string = storeData.ui.select.type;
-  const mapLeft = parseInt(map.style.left) || 0;
-  const mapTop = parseInt(map.style.top) || 0;
+  const mapLeft: number = parseInt(map.style.left) || 0;
+  const mapTop: number = parseInt(map.style.top) || 0;
 	
 	if (selectType !== "mouse") return;
 
@@ -76,8 +77,8 @@ const mouseUp = (): void => {
 const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const storeData = store.getState();
   const selectType: string = storeData.ui.select.type;
-  const mapLeft = parseInt(map.style.left) || 0;
-  const mapTop = parseInt(map.style.top) || 0;
+  const mapLeft: number = parseInt(map.style.left) || 0;
+  const mapTop: number = parseInt(map.style.top) || 0;
 	
 	if (selectType !== "mouse" || !drag) return;
 
@@ -89,7 +90,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 
 const draw = (): void => {
   const storeData = store.getState();
-  const selectMatrix: any[] = [...storeData.ui.select.matrix];
+  const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
 
   ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
@@ -101,7 +102,7 @@ const draw = (): void => {
 const colorSquares = (rectanglePosition) => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.ui.select.matrix];
-  const fieldSize = creatorConfig.map.fieldSize;
+  const fieldSize: number = creatorConfig.map.fieldSize;
 
   const rectangleSquarePoints: IRectanglePosition = {
     topLeft: {
@@ -115,21 +116,21 @@ const colorSquares = (rectanglePosition) => {
   };
 
   //We need to find out real topLeft and bottomRight corner (due to reverse drawing)
-  const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
+  const xSmaller: number = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
     rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const xBigger = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 
+  const xBigger: number = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 
     rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const ySmaller = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? 
+  const ySmaller: number = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? 
     rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
-  const yBigger = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? 
+  const yBigger: number = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? 
     rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
 
-  for (let x = xSmaller; x < xBigger + 1; x++) {
-    for (let y = ySmaller; y < yBigger + 1; y++) {
+  for (let x: number = xSmaller; x < xBigger + 1; x++) {
+    for (let y: number = ySmaller; y < yBigger + 1; y++) {
 
       const recSquarePoints: IPoint = {
-        x: x,
-        y: y
+        x,
+        y
       };
 
       selectCanvasSquare(selectMatrix, recSquarePoints);

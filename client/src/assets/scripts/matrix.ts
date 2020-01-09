@@ -1,15 +1,18 @@
 //Import interfaces
 import { ISquareData } from '../interfaces/squareInterfaces';
+import { IPoint } from '../interfaces/pointInterfaces';
+
+//Import scripts
 import { deepCopy } from './utils/deepCopy';
 
 
 export const updateMatrixByTheOther = (
-	rootMatrix: any[], 
-	upgradeMatrix: any[], 
+	rootMatrix: Array<IPoint[]>, 
+	upgradeMatrix: Array<IPoint[]>, 
 	setValue: number | string
-): any[] => {
-	const copyOfRootMatrix: any[] = deepCopy(rootMatrix);
-	const copyOfUpgradeMatrix: any[] = deepCopy(upgradeMatrix);
+): Array<[]> => {
+	const copyOfRootMatrix: Array<IPoint[]> = deepCopy(rootMatrix);
+	const copyOfUpgradeMatrix: Array<[]> = deepCopy(upgradeMatrix);
 
 	copyOfUpgradeMatrix.forEach((yAxis: Array<number>, y:number) => {
 		yAxis.forEach((field: number, x: number) => {
@@ -22,8 +25,8 @@ export const updateMatrixByTheOther = (
 
 			squareMatrix.forEach((square: number, squareIndex: number) => {
 				if (square && square !== 0) {
-					const fieldArray = squareIndex >= 2 ? 1 : 0;
-					const squarePos = fieldArray === 0 ? squareIndex : squareIndex - 2;
+					const fieldArray: number = squareIndex >= 2 ? 1 : 0;
+					const squarePos: number = fieldArray === 0 ? squareIndex : squareIndex - 2;
 
 					//add new values to the rootMatrix
 					copyOfRootMatrix[y][x][fieldArray][squarePos] = setValue; 
@@ -39,7 +42,7 @@ export const updateMatrixByTheOther = (
 
 export const matrixToIds = (matrix: any[]): ISquareData[] => {
 	const copyOfmatrix: Array<any> = deepCopy(matrix);
-	const squareIds: any = [];
+	const squareIds: ISquareData[] = [];
   
 	copyOfmatrix.map((yAxis: Array<number>, y:number) => {
 	  yAxis.map((field: number, x: number) => {
