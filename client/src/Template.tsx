@@ -23,10 +23,13 @@ import { changeLang } from './redux/actions/uiActions';
 //Import configs
 import appConfig from './assets/configs/appConfig.json';
 
+//Import interfaces
+import { IRouteProps, IMatchParams } from './assets/interfaces/routingInterfaces';
+
 
 export let ContentContext;
 
-export const Template: React.FC = ( props: any ) => {
+export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
   let paramLang = props.match.params.lang;
   const dispatch = useDispatch();
   const availableLangs = appConfig.langs;
@@ -56,8 +59,12 @@ export const Template: React.FC = ( props: any ) => {
           {
             availableLangs.map((avLang, index) => {
               return (
-                <Route key={index} path={`/${avLang}/${contents[avLang].routes.home}`} component={Home} />
-              )
+                <Route 
+                  key={index} 
+                  path={`/${avLang}/${contents[avLang].routes.home}`} 
+                  component={Home} 
+                />
+              );
             })
           }
           <Route path={`/${paramLang}/${content.routes.creator}`} component={Creator} />
@@ -70,4 +77,4 @@ export const Template: React.FC = ( props: any ) => {
       </Router>
     </ContentContext.Provider>
   );
-}
+};

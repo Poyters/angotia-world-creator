@@ -63,14 +63,13 @@ const Dialog: React.FC<IDialog> = ({
         onMouseEnter={():void => validatorFunc(id)}
         onMouseLeave={():void => clearValidator()}
         style={dialogStyle}
-        onClick={():void => setIsDialogPopup(true)}
       >
         <p> 
           <span className="t-paragraph5Light"> 
             Dialog ID: 
           </span> { id } 
         </p>
-        <p> 
+        <p onClick={():void => setIsDialogPopup(true)}> 
           <span className="t-paragraph5Light">
             NPC dialog: 
           </span> { npc } 
