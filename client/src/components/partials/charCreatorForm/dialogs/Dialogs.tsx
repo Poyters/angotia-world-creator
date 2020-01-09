@@ -26,7 +26,7 @@ interface IDialogs {
 }
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
-  const [connectedDialogs, setConnectedDialogs] = useState<any[]>([]);
+  const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
   const dialogsData: any[] = useSelector(state => state.char.dialogs);

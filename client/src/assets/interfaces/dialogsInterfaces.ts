@@ -3,7 +3,7 @@ export interface IDialog {
   npc: string
   player: IPlayer[],
   validatorFunc?: Function,
-  connectedDialogs: any[],
+  connectedDialogs: Array<string | number>,
   clearValidator?: Function
 }
 
