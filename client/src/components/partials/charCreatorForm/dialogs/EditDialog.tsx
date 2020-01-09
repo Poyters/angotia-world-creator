@@ -17,10 +17,11 @@ interface IEditDialog {
 }
 
 const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
-  const dialogsData: any[] = useSelector(state => state.char.dialogs);
-  const dialogData = dialogsData.find((dialog: IDialog): boolean => dialog.id === dialogId);
+  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogData: IDialog | undefined= dialogsData
+    .find((dialog: IDialog): boolean => dialog.id === dialogId);
   const dispatch: Function = useDispatch();
-  const [npcText, setNpcText] = useState<string>(dialogData.npc);
+  const [npcText, setNpcText] = useState<string>(dialogData ? dialogData.npc : '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
 
   useEffect((): void => {

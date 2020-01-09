@@ -17,7 +17,7 @@ import MonologPopup from './MonologPopup';
 import DialogPopup from './DialogPopup';
 
 //Import interfaces
-import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
 interface IDialogs {
@@ -29,8 +29,8 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
-  const dialogsData: any[] = useSelector(state => state.char.dialogs);
-  const monologsData: any[] = useSelector(state => state.char.monologs);
+  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
 
   const dialogsValidator = (beginId: number | string): void => {
     setConnectedDialogs(

@@ -7,6 +7,9 @@ import CharInputField from '../CharInputField';
 //Import actions
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
+//Import interfaces
+import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
+
 
 interface IPlayerDialog {
   playerId: number
@@ -16,7 +19,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
 
   const updateDialog = (): void => {
     temponaryPlayerDialogs.filter(data => {

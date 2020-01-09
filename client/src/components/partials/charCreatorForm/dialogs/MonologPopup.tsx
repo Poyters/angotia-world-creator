@@ -22,7 +22,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => 
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
-  const monologsData: any[] = useSelector(state => state.char.monologs);
+  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
 

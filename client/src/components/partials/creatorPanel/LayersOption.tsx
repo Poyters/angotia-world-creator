@@ -49,13 +49,13 @@ const LayersOption: React.FC = () => {
     };
 
     const toggleLayer = (layerName: string): void => {
-        const layers = document.getElementsByClassName('js-mapLayer');
+        const layers: HTMLCollectionOf<Element> = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {
             const name: string = layer.dataset.layername;
   
             if (name === layerName) {
-                const computedDisplay = getComputedStyle(layer).display;
+                const computedDisplay: string | null = getComputedStyle(layer).display;
                 const display: string = layer.style.display === '' ? 
                     computedDisplay : layer.style.display;
                 const button: any = document.getElementById(`${name}Btn`);

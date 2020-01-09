@@ -18,15 +18,17 @@ interface IEditPlayerDialog {
 }
 
 const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, closePopup }) => {
-  const dialogsData: any[] = useSelector(state => state.char.dialogs);
-  const dialogData = dialogsData.find((dialog: IDialog): boolean => dialog.id === dialogId);
-  const playerData = dialogData.player.find((dialog: IPlayer): boolean => {
-    return dialog.id === playerId;
-  });
+  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogData: IDialog | undefined = dialogsData
+    .find((dialog: IDialog): boolean => dialog.id === dialogId);
+  const playerData: IPlayer | undefined = dialogData ? dialogData.player
+    .find((dialog: IPlayer): boolean => {
+      return dialog.id === playerId;
+    }) : undefined;
   const dispatch: Function = useDispatch();
-  const [dialog, setDialog] = useState<string>(playerData.dialog);
+  const [dialog, setDialog] = useState<string>(playerData ? playerData.dialog : '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
-  const [next, setNext] = useState<string>(playerData.next);
+  const [next, setNext] = useState<string | number>(playerData ? playerData.next : '');
 
   useEffect((): void => {
     if (
@@ -39,16 +41,18 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
   }, [dialog]);
 
   const submitHandler = (): void => {
+    if (!dialogData) return;
+
     const playerDataId = dialogData.player.findIndex((dialog: IPlayer): boolean => {
       return dialog.id === playerId;
     });
 
-    const updatedDialogs = dialogsData.map((dlg: any) => {
+    const updatedDialogs = dialogsData.map((dlg: IDialog) => {
       if (dlg.id === dialogId) {
         dlg.player[playerDataId] = {
           ...dlg.player[playerDataId],
           dialog,
-          next: parseInt(next)
+          next
         };
       }
 

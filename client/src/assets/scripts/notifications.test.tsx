@@ -18,7 +18,7 @@ const mockedStore = mockStore(store);
 configure({adapter: new Adapter()});
 
 describe("setActionNote script", () => {
-  const notifications: any = shallow(
+  const notifications = shallow(
     <Provider store={mockedStore}>
       <Notifications />
     </Provider>

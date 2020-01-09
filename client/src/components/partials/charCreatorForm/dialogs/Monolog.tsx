@@ -14,7 +14,7 @@ interface IMonologExplicit extends IMonolog {
 }
 
 const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopupData }) => {
-  const monologsData: any[] = useSelector(state => state.char.monologs);
+  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
   const deleteMonolog = (id: number): void => {

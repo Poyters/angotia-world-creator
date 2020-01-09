@@ -1,7 +1,7 @@
 import { store } from '../../index';
 
 
-const dragElement = (element:any) => {
+const dragElement = (element: any) => {
   let positions:Array<number> = [0, 0, 0, 0];
   
   const dragMouseDown = (e: MouseEvent): void => {

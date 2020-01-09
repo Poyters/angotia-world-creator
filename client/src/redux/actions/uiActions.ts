@@ -22,7 +22,7 @@ export const setMapSelectType = (selectType: string) => {
     };
 };
 
-export const changeMapSelectMatrix = (newMatrix: Array<any>) => {
+export const changeMapSelectMatrix = (newMatrix: Array<[]>) => {
     return {
         type: 'CHANGE_MAP_SELECT_MATRIX',
         newMatrix

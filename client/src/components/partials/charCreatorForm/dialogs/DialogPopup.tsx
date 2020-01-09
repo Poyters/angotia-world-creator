@@ -8,6 +8,9 @@ import PlayerDialog from './PlayerDialog';
 //Import actions
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
+//Import interfaces
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
+
 
 interface IDialogPopup {
   togglePopup: Function
@@ -17,9 +20,9 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const dialogId = Math.random();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  const dialogsData: any[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: any[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
 
   useEffect((): void => {
     if (
@@ -35,6 +38,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     dialogsData.push({
       id: dialogId,
       npc: npcText,
+      connectedDialogs: [],
       player: temponaryPlayerDialogs
     });
 
@@ -49,7 +53,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
 
   const addPlayerDialogHandler = (): void => {
     const playerDialogId = Math.random();
-    const newDialogs = [
+    const newDialogs: IPlayer[] = [
       ...temponaryPlayerDialogs,
       {
         id: playerDialogId,

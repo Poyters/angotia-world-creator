@@ -24,7 +24,7 @@ const Dialog: React.FC<IDialog> = ({
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<number>(-1);
-  const dialogsData: any[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
 
   const dialogStyle = {
