@@ -25,6 +25,7 @@ import appConfig from './assets/configs/appConfig.json';
 
 //Import interfaces
 import { IRouteProps, IMatchParams } from './assets/interfaces/routingInterfaces';
+import { Icontent } from './assets/interfaces/contentInterfaces';
 
 
 export let ContentContext;
@@ -33,7 +34,7 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
   let paramLang = props.match.params.lang;
   const dispatch = useDispatch();
   const availableLangs = appConfig.langs;
-  let content: any;
+  let content: Icontent;
 
   switch(paramLang) {
     case 'en':

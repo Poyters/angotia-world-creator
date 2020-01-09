@@ -1,3 +1,6 @@
+//Import interfaces
+import { Icontent } from '../../../interfaces/contentInterfaces';
+
 //import translations
 import char from './char.json';
 import global from './global.json';
@@ -9,7 +12,7 @@ import filesPanel from './filesPanel.json';
 import help from './help.json';
 
 
-export const enContent = {
+export const enContent: Icontent = {
   lang: 'en',
   char,
   global,

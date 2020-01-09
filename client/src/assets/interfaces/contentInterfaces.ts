@@ -20,5 +20,5 @@ interface Iroutes {
 }
 
 interface Idig {
-  [key: string]: any
+  [key: string]: Object[] | string
 }
