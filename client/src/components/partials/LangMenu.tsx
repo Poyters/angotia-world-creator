@@ -9,12 +9,16 @@ import appConfig from '../../assets/configs/appConfig.json';
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
 
+//Import interfaces
+import { IRouteProps, IMatchParams } from '../../assets/interfaces/routingInterfaces';
+import { Icontent } from '../../assets/interfaces/contentInterfaces';
 
-const LangMenu: React.FC = (props: any) => {
+
+const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
   const currLang: string = useSelector(state => state.ui.language);
 
   const changeLanguage = (lang: string): void => {
-    let content: any;
+    let content: Icontent;
 
     switch(lang) {
       case 'en':
@@ -30,7 +34,7 @@ const LangMenu: React.FC = (props: any) => {
 
     props.history.push(`/${lang}/${content.routes.home}`);
     window.location.reload();
-  }
+  };
 
   return (
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
@@ -38,7 +42,7 @@ const LangMenu: React.FC = (props: any) => {
         appConfig.langs.map((lang, index) => {
           const langStyle = {
             color: (lang === currLang || (lang === 'en' && currLang === '')) ? '#27427c' : 'inherit'
-          }
+          };
 
           return (
             <span 
@@ -48,7 +52,7 @@ const LangMenu: React.FC = (props: any) => {
             > 
               { lang } 
             </span>
-          )
+          );
         })
       }
     </aside>
