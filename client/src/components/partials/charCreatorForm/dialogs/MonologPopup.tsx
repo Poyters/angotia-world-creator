@@ -15,10 +15,11 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 interface IMonologPopup {
   togglePopup: Function,
-  monologData?: IMonolog
+  monologData?: IMonolog,
+  setMonologData?: Function
 }
 
-const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => {
+const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMonologData }) => {
   const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
@@ -29,8 +30,8 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => 
 
   useEffect((): void => {
     if (
-      monologContent.length === 0 || 
-      !monologContent
+      !monologContent ||
+      monologContent.length === 0
     ) {
       setMonologCtnErr(true);
     }
@@ -54,6 +55,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => 
     });
 
     dispatch(changeMonologs(monologsData));
+    if (setMonologData) setMonologData(null);
   };
 
   const submitHandler = (): void => {
