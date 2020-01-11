@@ -12,7 +12,7 @@ import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
 interface IPlayerDialog {
-  playerId: number
+  playerId: string
 }
 
 const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {

@@ -17,8 +17,8 @@ const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopu
   const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
-  const deleteMonolog = (id: number): void => {
-    const filteredMonologs = monologsData.filter(monolog => {
+  const deleteMonolog = (id: string): void => {
+    const filteredMonologs: IMonolog[] = monologsData.filter((monolog: IMonolog) => {
       if (monolog.id !== id) return monolog;
     });
 

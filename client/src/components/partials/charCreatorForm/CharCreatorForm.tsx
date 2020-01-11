@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from './CharInputField';
@@ -15,7 +16,7 @@ import { ContentContext } from '../../../Template';
 
 
 const CreatorForm: React.FC = () => {
-  const charId: number = Math.random();
+  const charId: string = uuid();
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charType: string = useSelector(state => state.char.type);
 

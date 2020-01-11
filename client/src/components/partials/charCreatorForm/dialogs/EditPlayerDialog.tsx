@@ -12,8 +12,8 @@ import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterface
 
 
 interface IEditPlayerDialog {
-  dialogId: number,
-  playerId: number,
+  dialogId: string,
+  playerId: string,
   closePopup: Function
 }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from '../CharInputField';
@@ -17,7 +18,7 @@ interface IDialogPopup {
 }
 
 const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
-  const dialogId = Math.random();
+  const dialogId: string = uuid();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
@@ -52,7 +53,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   };
 
   const addPlayerDialogHandler = (): void => {
-    const playerDialogId = Math.random();
+    const playerDialogId: string = uuid();
     const newDialogs: IPlayer[] = [
       ...temponaryPlayerDialogs,
       {

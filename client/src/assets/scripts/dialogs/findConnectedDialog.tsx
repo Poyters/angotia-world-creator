@@ -1,26 +1,28 @@
 //Import configs
 import charConfig from '../../configs/charConfig.json';
 
+//Import interfaces
+import { IDialog } from '../../interfaces/dialogsInterfaces';
 
-export const findConnectedDialog = (dataSet, beginID) => {
-  const availableIds = dataSet.map(dialog => dialog.id);
-  const findDialofById = (dialog): boolean => {
+
+export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string[] => {
+  const availableIds: string[] = dataSet.map((dialog: IDialog) => dialog.id = dialog.id.toString());
+  const findDialofById = (dialog: IDialog): boolean => {
     return dialog.id === beginID;
   };
-  const beginDialog = dataSet.find(findDialofById);
-  const connectedIds = beginDialog ? beginDialog.player.map(playerDialog => {
-    return playerDialog.next === charConfig.dialogExit ? 
-      playerDialog.next : parseInt(playerDialog.next);
-  }) : null;
+  const beginDialog: IDialog | undefined = dataSet.find(findDialofById);
+  const connectedIds: string[] = beginDialog ? beginDialog.player.map(playerDialog => {
+    return playerDialog.next.toString();
+  }) : [];
   
-  console.log(connectedIds);
+  console.log(availableIds, connectedIds);
 
   if (connectedIds.includes(charConfig.dialogExit)) {
     connectedIds.push(beginID);
     availableIds.push(charConfig.dialogExit);
   }
 
-  const isInvalid = connectedIds.some(el => !availableIds.includes(el));
+  const isInvalid: boolean = connectedIds.some(el => !availableIds.includes(el));
   if (isInvalid) connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);
 
   console.log(connectedIds);

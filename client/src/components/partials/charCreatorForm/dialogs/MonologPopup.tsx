@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from '../CharInputField';
@@ -18,7 +19,7 @@ interface IMonologPopup {
 }
 
 const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData }) => {
-  const monologId = monologData ? monologData.id : Math.random();
+  const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);

@@ -1,5 +1,5 @@
 export interface IDialog {
-  id: number
+  id: string
   npc: string
   player: IPlayer[],
   validatorFunc?: Function,
@@ -8,14 +8,14 @@ export interface IDialog {
 }
 
 export interface IPlayer {
-  id: number,
+  id: string,
   dialog: string,
   next: number | string,
   action: null | Function
 }
 
 export interface IMonolog {
-  id: number,
+  id: string,
   content: string
 }
 

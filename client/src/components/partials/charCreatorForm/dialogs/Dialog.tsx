@@ -26,7 +26,7 @@ const Dialog: React.FC<IDialog> = ({
 }) => {
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
-  const [playerId, setPlayerId] = useState<number>(-1);
+  const [playerId, setPlayerId] = useState<string>('');
   const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dispatch: Function = useDispatch();
 
@@ -36,7 +36,7 @@ const Dialog: React.FC<IDialog> = ({
       'rgba(175, 26, 26, 0.3)' : 'inherit'
   };
 
-  const deleteDialog = (id: number): void => {
+  const deleteDialog = (id: string): void => {
     const filteredDialogs = dialogsData.filter(dialog => {
       if (dialog.id !== id) return dialog;
     });
@@ -44,7 +44,7 @@ const Dialog: React.FC<IDialog> = ({
     dispatch(changeDialogs(filteredDialogs));
   };
 
-  const openPlayerPopupHandler = (id: number): void => {
+  const openPlayerPopupHandler = (id: string): void => {
     setPlayerId(id);
     setIsPlayerPopup(true);
   };

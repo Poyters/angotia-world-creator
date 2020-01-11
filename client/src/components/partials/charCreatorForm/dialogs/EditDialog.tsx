@@ -12,7 +12,7 @@ import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
 interface IEditDialog {
-  dialogId: number,
+  dialogId: string,
   closePopup: Function
 }
 
