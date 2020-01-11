@@ -1,5 +1,5 @@
 export const saveFile = (data: any, filename: string, type: string): void => {
-    const file = new Blob([data], {type: type});
+    const file: Blob = new Blob([data], {type: type});
     
     if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
