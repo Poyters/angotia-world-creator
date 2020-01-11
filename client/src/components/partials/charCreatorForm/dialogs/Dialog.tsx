@@ -12,6 +12,9 @@ import { changeDialogs } from '../../../../redux/actions/charActions';
 import EditDialog from './EditDialog';
 import EditPlayerDialog from './EditPlayerDialog';
 
+//Import configs
+import charConfig from '../../../../assets/configs/charConfig.json';
+
 
 const Dialog: React.FC<IDialog> = ({ 
   id, 
@@ -29,7 +32,7 @@ const Dialog: React.FC<IDialog> = ({
 
   const dialogStyle = {
     borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38',
-    backgroundColor: connectedDialogs.includes(`invalid_${id}`) ? 
+    backgroundColor: connectedDialogs.includes(`${charConfig.invalidPrefix}${id}`) ? 
       'rgba(175, 26, 26, 0.3)' : 'inherit'
   };
 
