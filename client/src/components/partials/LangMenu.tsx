@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from "react-router";
+import uuid from 'uuid/v4';
 
 //Import configs
 import appConfig from '../../assets/configs/appConfig.json';
@@ -39,14 +40,14 @@ const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
   return (
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
       {
-        appConfig.langs.map((lang, index) => {
+        appConfig.langs.map((lang: string) => {
           const langStyle = {
             color: (lang === currLang || (lang === 'en' && currLang === '')) ? '#27427c' : 'inherit'
           };
 
           return (
             <span 
-              key={index} 
+              key={uuid()} 
               onClick={() => changeLanguage(lang)}
               style={langStyle}
             > 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import uuid from 'uuid/v4';
 
 //Import styles
 import './assets/styles/index.scss';
@@ -58,10 +59,10 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
         <Switch>
           <Route exact path="/" component={Home} />
           {
-            availableLangs.map((avLang, index) => {
+            availableLangs.map((avLang: string) => {
               return (
                 <Route 
-                  key={index} 
+                  key={uuid()} 
                   path={`/${avLang}/${contents[avLang].routes.home}`} 
                   component={Home} 
                 />

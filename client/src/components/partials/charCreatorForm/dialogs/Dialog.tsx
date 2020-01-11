@@ -78,11 +78,11 @@ const Dialog: React.FC<IDialog> = ({
           </span> { npc } 
         </p>
         { 
-          player.map((dialogData, index) => {
+          player.map((dialogData) => {
             return (
               <div 
                 className="dialog__playerDialog" 
-                key={index}
+                key={dialogData.id}
                 onClick={():void => openPlayerPopupHandler(dialogData.id)}
               >
                 <p> 

@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import uuid from 'uuid/v4';
 
 //Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
@@ -120,10 +121,10 @@ const FilesPanel: React.FC = () => {
 			break;
 		}
 
-		const imagesToRender: any[] = bookmarkImages.map((img, index) => {
+		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
 			return (
 				<li 
-					key={index} 
+					key={uuid()} 
 					style={imageStyle} 
 					onClick={(): void => markSquare(
 							sourceMatrix, 
@@ -144,12 +145,12 @@ const FilesPanel: React.FC = () => {
 
 	const generateBookmarks = (): any[] => {
 		const bookmarksToRender: any[] = bookmarks.map(
-			(bookmark, index) => {
+			(bookmark: string) => {
 			return (
 				<ContentContext.Consumer>
 					{({ filesPanel }) => (
 						<li 
-							key={index} 
+							key={uuid()} 
 							onClick={(): void => setCurrBookmark(bookmark)} 
 							style={{color: currBookmark === bookmark ? 
 									'#27427c' : 'inherit'}}

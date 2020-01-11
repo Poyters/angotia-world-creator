@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import uuid from 'uuid/v4';
 
 //Import contexts
 import { ContentContext } from '../../../Template';
@@ -17,13 +18,13 @@ const LayersOption: React.FC = () => {
     useEffect((): void => {
         const layers = document.getElementsByClassName('js-mapLayer');
 
-        const ltr = Array.from(layers).map((layer: any, id: number) => {
+        const ltr = Array.from(layers).map((layer: any) => {
             const layerName = layer.dataset.layername;
             return (
                 <li 
                     id={`${layerName}Btn`} 
                     className="layersList__layer layersList__layer--active" 
-                    key={id} 
+                    key={uuid()} 
                     onClick={(): void => toggleLayer(layerName)} 
                     data-title={`click to toggle ${layerName} layer`}
                 >

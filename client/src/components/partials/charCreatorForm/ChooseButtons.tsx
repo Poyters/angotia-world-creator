@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import uuid from 'uuid/v4';
 
 
 interface IChooseButtons {
@@ -23,13 +24,13 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
     <div className="chooseButtonsWrapper">
       <header className="chooseButtonsHeader t-paragraph5Light"> { label } </header>
       {
-        types.map((type, index) => {
+        types.map((type: string) => {
           const inputStyle = {
             backgroundColor: currChecked === type ? '#27427c' : ''
           };
 
           return (
-            <div className="chooseButtons" key={index}>
+            <div className="chooseButtons" key={uuid()}>
               <label 
                 className="chooseButtons__label t-paragraph3Light"
               > 

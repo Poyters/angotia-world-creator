@@ -111,8 +111,8 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
         
         <div className="playerDialogsWrapper">
           { 
-            temponaryPlayerDialogs.map((playerDialog, index) => {
-              return <PlayerDialog playerId={playerDialog.id} key={index} />;
+            temponaryPlayerDialogs.map((playerDialog: IPlayer) => {
+              return <PlayerDialog playerId={playerDialog.id} key={playerDialog.id} />;
             })
           }
         </div>      

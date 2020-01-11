@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import uuid from 'uuid/v4';
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
@@ -81,12 +82,12 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                             {
                                 (isSelectOpen) ? (
                                 <ul>
-                                    { creatorConfig.bookmarks.map((bookmark, index) => {
+                                    { creatorConfig.bookmarks.map((bookmark: string) => {
                                         if (bookmark !== currBookmark) {
                                             return (
                                                 <li 
                                                     onClick={(): void => setCurrBookmark(bookmark)}
-                                                    key={index}
+                                                    key={uuid()}
                                                 > 
                                                     { bookmark } 
                                                 </li>

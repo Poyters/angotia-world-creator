@@ -64,12 +64,12 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
             {
               type === char.form.dialogs.title ? (
                 dialogsData.length > 0 ? (
-                  dialogsData.map((dialog, index) => {
+                  dialogsData.map((dialog: IDialog) => {
                     return <Dialog 
                       id={dialog.id}
                       npc={dialog.npc}
                       player={dialog.player}
-                      key={index}
+                      key={dialog.id}
                       validatorFunc={dialogsValidator}
                       connectedDialogs={connectedDialogs}
                       clearValidator={(): void => setConnectedDialogs([])}
@@ -85,13 +85,13 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
             {
               type === char.form.monologs.title ? (
                 monologsData.length > 0 ? (
-                  monologsData.map((monolog, index) => {
+                  monologsData.map((monolog: IMonolog) => {
                     return <Monolog 
                       id={monolog.id}
                       content={monolog.content}
                       togglePopup={setIsPopupOpen}
                       setPopupData={setMonologData}
-                      key={index}
+                      key={monolog.id}
                     />;
                   })
                 ) : (
