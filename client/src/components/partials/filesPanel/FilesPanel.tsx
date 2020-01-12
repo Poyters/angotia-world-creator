@@ -176,7 +176,7 @@ const FilesPanel: React.FC = () => {
 					> 
 						{ filesPanel.switch }
 					</div>
-					<aside className="filesPanelWrapper" style={filesPanelStyles}>
+					<aside className="g-sidePanelWrapper" style={filesPanelStyles}>
 						<div className="filesPanel">
 							<nav className="filesPanel__bookmarks t-paragraph5Normal">
 								<ul>
