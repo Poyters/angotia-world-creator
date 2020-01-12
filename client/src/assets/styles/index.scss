@@ -23,10 +23,13 @@
 @import './components/_optionsPanel.scss';
 @import './components/_cornerButton.scss';
 
+@import './components/sidePanel/sidePanel.scss';
+@import './components/sidePanel/sidePanelSwitch.scss';
+@import './components/sidePanel/sidePanelWrapper.scss';
+
 @import './components/entryPanel/entryPanel.scss';
 
 @import './components/filesPanel/filesPanel.scss';
-@import './components/filesPanel/filesPanelSwitch.scss';
 @import './components/filesPanel/filesPanelWrapper.scss';
 @import './components/filesPanel/charButton.scss';
 

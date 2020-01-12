@@ -1,0 +1,56 @@
+.g-sidePanelWrapper, .g-sidePanel {
+    display: flex;
+    box-sizing: border-box;
+    
+    transition: 400ms ease-in-out;
+
+    &:before, &:after {
+        position: absolute;
+        content: '';
+        width: 0;
+        height: 0;
+        left: 0;
+        border-style: solid;
+    }
+
+    &:before {
+        top: -15px;
+    }
+
+    &:after {
+        bottom: -15px;
+    } 
+}
+
+.g-sidePanelWrapper {
+    position: absolute;
+    top: 57px;
+    width: 235px;
+    height: calc(100vh - 95px);
+    padding: $filesPanelWrapperPadding + px;
+    z-index: 12;
+
+    background-color: $decorationColor2;
+
+    &:before {
+        border-width: 0 0 15px 235px;
+        border-color: transparent transparent $decorationColor2 transparent;
+    }
+
+    &:after {
+        border-width: 0 235px 15px 0;
+        border-color: transparent $decorationColor2 transparent transparent;
+    } 
+
+    &--left {
+        &:before {
+            border-width: 15px 0 0 235px;
+            border-color: transparent transparent transparent $decorationColor2;
+        }
+    
+        &:after {
+            border-width: 15px 235px 0 0;
+            border-color: $decorationColor2 transparent transparent transparent;
+        } 
+    }
+}

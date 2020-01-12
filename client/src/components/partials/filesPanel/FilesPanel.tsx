@@ -171,7 +171,7 @@ const FilesPanel: React.FC = () => {
 			{({ filesPanel }) => (
 				<Fragment>
 					<div 
-						className="filesPanelSwitch t-paragraph4Normal" 
+						className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(true)}
 					> 
 						{ filesPanel.switch }

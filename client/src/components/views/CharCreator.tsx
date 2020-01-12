@@ -7,6 +7,7 @@ import Notifications from '../partials/Notifications';
 import VersionMark from '../partials/VersionMark';
 import ReportIssue from '../partials/ReportIssue';
 import CharCreatorForm from '../partials/charCreatorForm/CharCreatorForm';
+import StatisticPanel from '../partials/charCreatorForm/statisticPanel/StatisticPanel';
 
 
 const CharCreator: React.FC = () => {
@@ -14,6 +15,7 @@ const CharCreator: React.FC = () => {
     <article className="creatorWrapper">
       <CharPanel />
       <CharCreatorForm />
+      <StatisticPanel />
       <CreditsFooter />
       <Notifications />
       <VersionMark />

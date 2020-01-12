@@ -13,41 +13,44 @@ const StaticticPanel: React.FC = () => {
 	// const dispatch = useDispatch();
 
 
-	const filesPanelStyles = {
-		right: isOpen ? "0" : "-300px"
+	const statisticPanelStyles = {
+		left: isOpen ? "0" : "-300px"
 	};
 	
 
 	return (
 		<ContentContext.Consumer>
-			{({ filesPanel }) => (
+			{() => (
 				<Fragment>
 					<div 
-						className="filesPanelSwitch t-paragraph4Normal" 
+						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(true)}
 					> 
-						{ filesPanel.switch }
+						Open Statistic Panel
 					</div>
-					<aside className="filesPanelWrapper" style={filesPanelStyles}>
-						<div className="filesPanel">
-							<nav className="filesPanel__bookmarks t-paragraph5Normal">
+					<aside 
+						className="g-sidePanelWrapper g-sidePanelWrapper--left" 
+						style={statisticPanelStyles}
+					>
+						<div className="g-sidePanel g-sidePanel--left">
+							<nav className="g-sidePanel__bookmarks t-paragraph5Normal">
 								<ul>
 									{/* { generateBookmarks() } */}
 								</ul>
 							</nav>
 
-							<div className="filesPanel__imagesContainer">
+							<div className="g-sidePanel__imagesContainer">
 								<ul>
 									{/* { generateImages() } */}
 								</ul>
 							</div>					
 
 							<div 
-								className="filesPanel__switch t-paragraph4Normal" 
+								className="g-sidePanel__switch t-paragraph4Normal" 
 								onClick={(): void => setIsOpen(false)}
 							>
 								<span>
-									{ filesPanel.close }
+									Close Statistic Panel
 								</span>
 								<Arrow additionalClass="arrow--filesPanel"/>
 							</div>

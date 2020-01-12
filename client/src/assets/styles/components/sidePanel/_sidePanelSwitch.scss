@@ -1,8 +1,6 @@
-.filesPanelSwitch {
+.g-sidePanelSwitch {
     position: absolute;
     display: flex;
-    top: calc(50% - 20px);
-    right: 0;
     width: 40px;
     height: 40px;
     align-items: center;
@@ -18,4 +16,14 @@
         color: $decorationColor1;
     }
 
+
+    &--statisticPanel {
+        top: calc(50% - 20px);
+        left: 0;
+    }
+
+    &--filesPanel {
+        top: calc(50% - 20px);
+        right: 0;
+    }
 }
