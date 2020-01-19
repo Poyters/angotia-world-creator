@@ -31,4 +31,9 @@
     &--filesPanel {
         margin-top: 5px;
     }
+
+    &--statisticPanel {
+        margin: 5px 8px 0 0;
+        transform: rotate(-180deg);
+    }
 }

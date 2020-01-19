@@ -14,7 +14,7 @@
       "strength": "strength",
       "dexterity": "Dexterity"
     },
-    "addStatBtn": "add new stat",
+    "addStatBtn": "special stats",
     "importPicBtn": "import graphice",
     "dialogs": {
       "title": "dialogs",

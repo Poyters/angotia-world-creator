@@ -49,10 +49,10 @@ const StaticticPanel: React.FC = () => {
 								className="g-sidePanel__switch t-paragraph4Normal" 
 								onClick={(): void => setIsOpen(false)}
 							>
+								<Arrow additionalClass="arrow--statisticPanel"/>
 								<span>
 									Close Statistic Panel
 								</span>
-								<Arrow additionalClass="arrow--filesPanel"/>
 							</div>
 						</div>
 					</aside>
