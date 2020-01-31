@@ -33,7 +33,7 @@ const StaticticPanel: React.FC = () => {
 						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 						onClick={(): void => dispatch(toggleStatisticPanel(true))}
 					> 
-						Open Statistic Panel
+						{ char.statisticPanel.open }
 					</div>
 					<aside 
 						className="g-sidePanelWrapper g-sidePanelWrapper--left" 
@@ -41,30 +41,31 @@ const StaticticPanel: React.FC = () => {
 					>
 						<div className="g-sidePanel g-sidePanel--left">
 							<CharInputField
-								label='Strength'
+								label={char.form.inputs.strength}
 								inputValue={0}
 							/>
 							<CharInputField
-								label='Dexternity'
+								label={char.form.inputs.dexterity}
 								inputValue={0}
 							/>
 							<CharInputField
-								label='Inteligence'
+								label={char.form.inputs.inteligence}
 								inputValue={0}
 							/>
 							<CharInputField
-								label='Jink'
+								label={char.form.inputs.jink}
 								inputValue={0}
 							/>
 							{ charType === char.form.charType.movingId ? (
 								<CharInputField
-									label='Speed'
+									label={char.form.inputs.speed}
 									inputValue={10}
 								/>) : null
 							}
-							{ choosedChar === char.form.char.mobId && isAgressiveMob === 'yes' ? (
+							{ choosedChar === char.form.char.mobId && 
+								isAgressiveMob === char.form.isAgressiveMob.yesId ? (
 								<CharInputField
-									label='Attack Range'
+									label={char.form.inputs.attackRange}
 									inputValue={5}
 								/>) : null
 							}			
@@ -75,7 +76,7 @@ const StaticticPanel: React.FC = () => {
 							>
 								<Arrow additionalClass="arrow--statisticPanel"/>
 								<span>
-									Close Statistic Panel
+									{ char.statisticPanel.close }
 								</span>
 							</div>
 						</div>

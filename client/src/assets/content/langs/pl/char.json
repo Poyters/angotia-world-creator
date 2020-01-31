@@ -4,6 +4,10 @@
     "help": "pomoc",
     "license": "licencja"
   },
+  "statisticPanel": {
+    "open": "Otwórz Panel Statystyk",
+    "close": "Zamknij Panel Statystyk"
+  },
   "form": {
     "title": "Bohater",
     "inputs": {
@@ -12,7 +16,16 @@
       "lvl": "Level",
       "health": "Zdrowie",
       "strength": "Siła",
-      "dexterity": "Zręczność"
+      "dexterity": "Zręczność",
+      "inteligence": "Inteligencja",
+      "jink": "Unik",
+      "speed": "Prędkość ruchu",
+      "attackRange": "Zasięg ataku"
+    },
+    "isAgressiveMob": {
+      "title": "agresywność",
+      "yesId": "tak",
+      "types": ["tak", "nie"]
     },
     "addStatBtn": "Dodaj statystykę",
     "importPicBtn": "importuj grafikę",
@@ -26,11 +39,12 @@
     },
     "char": {
       "npcId": "npc",
+      "mobId": "mob",
       "types": ["npc", "mob"],
       "label": "Wybierz bohatera"
     },
     "charType": {
-      "movingId": "moving",
+      "movingId": "ruchomy",
       "types": ["statyczny", "ruchomy"],
       "label": "Wybierz typ bohatera",
       "movingField": "Średnica ruchu"

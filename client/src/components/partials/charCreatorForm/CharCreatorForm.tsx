@@ -78,9 +78,9 @@ const CreatorForm: React.FC = () => {
                   />
                   { choosedChar === char.form.char.mobId ? (
                       <ChooseButtons 
-                        types={['yes', 'not']}
+                        types={char.form.isAgressiveMob.types}
                         action={isAgressiveMob} //change agressive
-                        label='agressive'
+                        label={char.form.isAgressiveMob.title}
                         specialClass='chooseButtonsWrapper--smaller'
                       />
                     ) : null

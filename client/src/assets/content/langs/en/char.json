@@ -4,6 +4,10 @@
     "help": "help",
     "license": "license"
   },
+  "statisticPanel": {
+    "open": "Open Statistic Panel",
+    "close": "Close Statistic Panel"
+  },
   "form": {
     "title": "Character",
     "inputs": {
@@ -12,7 +16,16 @@
       "lvl": "Level",
       "health": "Health",
       "strength": "strength",
-      "dexterity": "Dexterity"
+      "dexterity": "Dexterity",
+      "inteligence": "Inteligence",
+      "jink": "Jink",
+      "speed": "Speed",
+      "attackRange": "Attack range"
+    },
+    "isAgressiveMob": {
+      "title": "agressive",
+      "yesId": "yes",
+      "types": ["yes", "no"]
     },
     "addStatBtn": "special stats",
     "importPicBtn": "import graphice",
