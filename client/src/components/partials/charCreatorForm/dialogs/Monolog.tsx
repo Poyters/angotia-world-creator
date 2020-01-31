@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import interfaces
@@ -7,13 +7,19 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 //Import actions
 import { changeMonologs } from '../../../../redux/actions/charActions';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IMonologExplicit extends IMonolog {
   togglePopup: Function,
   setPopupData: Function
 }
 
-const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopupData }) => {
+const Monolog: React.FC<IMonologExplicit> = (
+  { id, content, togglePopup, setPopupData }
+) => {
+  const { char } = useContext(ContentContext);
   const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
@@ -37,15 +43,15 @@ const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopu
 
 
   return (
-    <div className="dialog">
+    <section className="dialog">
       <p> 
         <span className="t-paragraph5Light"> 
-          Monolog ID: 
+          { char.monolog.id }
         </span> { id } 
       </p>
       <p> 
         <span className="t-paragraph5Light">
-          Monolog content: 
+          { char.monolog.content }
         </span> { content } 
       </p>
       <div 
@@ -58,7 +64,7 @@ const Monolog: React.FC<IMonologExplicit> = ({ id, content, togglePopup, setPopu
       >
         <div className="g-editBtn__gum"></div>
       </div>
-    </div>
+    </section>
   );
 };
 
