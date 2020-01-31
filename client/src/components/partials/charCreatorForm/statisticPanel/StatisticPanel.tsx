@@ -62,7 +62,7 @@ const StaticticPanel: React.FC = () => {
 									inputValue={10}
 								/>) : null
 							}
-							{ choosedChar === char.form.char.mobId && isAgressiveMob ? (
+							{ choosedChar === char.form.char.mobId && isAgressiveMob === 'yes' ? (
 								<CharInputField
 									label='Attack Range'
 									inputValue={5}
