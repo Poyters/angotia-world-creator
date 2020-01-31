@@ -68,5 +68,14 @@
     "submit": "Potwierdź",
     "edit": "Edytuj dialog",
     "id": "ID - wygenerowane"
+  },
+  "editPlayer": {
+    "title": "Edytuj dialog gracza",
+    "id": "ID - wygenerowane",
+    "playerDialog": "Dialog gracza",
+    "playerDialogErr": "Musisz wpisać dialog gracza",
+    "action": "Akcja",
+    "next": "Następny dialog",
+    "submit": "Potwierdź"
   }
 }

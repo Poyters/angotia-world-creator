@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
@@ -10,6 +10,9 @@ import { changeDialogs } from '../../../../redux/actions/charActions';
 //Import interfaces
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IEditPlayerDialog {
   dialogId: string,
@@ -17,7 +20,10 @@ interface IEditPlayerDialog {
   closePopup: Function
 }
 
-const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, closePopup }) => {
+const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
+  { dialogId, playerId, closePopup }
+) => {
+  const { char } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dialogData: IDialog | undefined = dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
@@ -73,7 +79,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
           onClick={():void => closePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          Edit player dialog
+          { char.editPlayer.title }
         </header>
         <CharInputField
           label='ID - auto generated'
@@ -81,7 +87,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          Player dialog
+          { char.editPlayer.playerDialog }
         </label>
         <textarea
           value={dialog} 
@@ -89,12 +95,14 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
         />
         {
           (dialogErr) ? (
-            <span className="insertPopup--error">You need to type player dialog</span>
+            <span className="insertPopup--error">
+              { char.editPlayer.playerDialogErr }
+            </span>
           ) : null
         }   
 
         <label className="insertPopup__label t-paragraph6Light">
-          Action
+          { char.editPlayer.action }
         </label>
         <input
           value={action} 
@@ -102,7 +110,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
         /> 
 
         <label className="insertPopup__label t-paragraph6Light">
-          Next dialog
+          { char.editPlayer.next }
         </label>
         <input
           value={next} 
@@ -115,7 +123,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
           onClick={(): void => submitHandler()} 
           disabled={dialogErr}
         > 
-          submit 
+          { char.editPlayer.submit }
         </button>
       </div>
     </div>

@@ -68,5 +68,14 @@
     "submit": "submit",
     "edit": "Edit dialog",
     "id": "ID - auto generated"
+  },
+  "editPlayer": {
+    "title": "Edit player dialog",
+    "id": "ID - auto generated",
+    "playerDialog": "Player dialog",
+    "playerDialogErr": "You need to type player dialog",
+    "action": "Action",
+    "next": "Next dialog:",
+    "submit": "Submit"
   }
 }
