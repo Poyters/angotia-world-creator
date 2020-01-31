@@ -95,6 +95,15 @@ const Dialog: React.FC<IDialog> = ({
                     Player dialog: 
                   </span> { dialogData.dialog } 
                 </p>
+                {
+                  dialogData.action !== null ? (
+                    <p> 
+                      <span className="t-paragraph5Light"> 
+                        Action: 
+                      </span> { dialogData.action } 
+                    </p>
+                  ) : null
+                }
                 <p> 
                   <span className="t-paragraph5Light"> 
                     Next dialog: 

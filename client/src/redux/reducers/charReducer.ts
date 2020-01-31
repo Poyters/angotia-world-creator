@@ -38,9 +38,9 @@ const initState = {
       player: [
         {
           id: 52352,
-          dialog: 'thanks for talk',
+          dialog: 'Show my ur shop',
           next: 1, //id of next npc dialog or 'exit' if exit
-          action: null, //special event (not required); open shop etc
+          action: 'OPEN_SHOP', //special event (not required); open shop etc
         }
       ]
     },
@@ -50,9 +50,9 @@ const initState = {
       player: [
         {
           id: 3155,
-          dialog: 'thanks for talk',
+          dialog: 'Do not kill me, please!',
           next: 'exit', //id of next npc dialog or 'exit' if exit
-          action: null, //special event (not required); open shop etc
+          action: 'KILL_PLAYER', //special event (not required); open shop etc
         }
       ]
     },
