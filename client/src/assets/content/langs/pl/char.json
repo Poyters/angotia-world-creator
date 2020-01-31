@@ -65,6 +65,8 @@
     "npcTextErr": "Musisz wpisać dialog NPC",
     "playerDialogs": "Dialogi gracza",
     "newPlayerDialog": "Nowy dialog gracza",
-    "submit": "Potwierdź"
+    "submit": "Potwierdź",
+    "edit": "Edytuj dialog",
+    "id": "ID - wygenerowane"
   }
 }

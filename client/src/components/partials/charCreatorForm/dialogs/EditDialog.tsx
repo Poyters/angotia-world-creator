@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
@@ -10,6 +10,9 @@ import { changeDialogs } from '../../../../redux/actions/charActions';
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IEditDialog {
   dialogId: string,
@@ -17,6 +20,7 @@ interface IEditDialog {
 }
 
 const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
+  const { char } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
@@ -55,15 +59,15 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           onClick={():void => closePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          Edit dialog
+          { char.dialogPopup.edit }
         </header>
         <CharInputField
-          label='ID - auto generated'
+          label={char.dialogPopup.id}
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          Npc dialog
+          { char.dialogPopup.npcDialog }
         </label>
         <textarea
           value={npcText} 
@@ -71,7 +75,9 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
         />
         {
           (npcTextErr) ? (
-            <span className="insertPopup--error">You need to type npc dialog</span>
+            <span className="insertPopup--error">
+              { char.dialogPopup.npcTextErr }
+            </span>
           ) : null
         }     
 
@@ -81,7 +87,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           onClick={(): void => submitHandler()} 
           disabled={npcTextErr}
         > 
-          submit 
+          { char.dialogPopup.submit } 
         </button>
       </div>
     </div>

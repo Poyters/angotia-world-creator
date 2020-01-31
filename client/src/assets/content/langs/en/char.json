@@ -65,6 +65,8 @@
     "npcTextErr": "You need to type npc dialog",
     "playerDialogs": "Player dialogs",
     "newPlayerDialog": "New player dialog",
-    "submit": "submit"
+    "submit": "submit",
+    "edit": "Edit dialog",
+    "id": "ID - auto generated"
   }
 }
