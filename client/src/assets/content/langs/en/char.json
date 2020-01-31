@@ -57,5 +57,13 @@
     "playerDialog": "Player dialog:",
     "action": "Action:",
     "next": "Next dialog:"
+  },
+  "dialogPopup": {
+    "add": "Add new dialog",
+    "npcDialog": "NPC dialog",
+    "npcTextErr": "You need to type npc dialog",
+    "playerDialogs": "Player dialogs",
+    "newPlayerDialog": "New player dialog",
+    "submit": "submit"
   }
 }
