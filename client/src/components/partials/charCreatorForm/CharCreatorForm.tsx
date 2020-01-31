@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
 //Import components
@@ -10,6 +10,7 @@ import Dialogs from './dialogs/Dialogs';
 
 //Import actions
 import { changeCharType, changeChar } from '../../../redux/actions/charActions';
+import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
 //Import contexts
 import { ContentContext } from '../../../Template';
@@ -19,6 +20,7 @@ const CreatorForm: React.FC = () => {
   const charId: string = uuid();
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charType: string = useSelector(state => state.char.type);
+  const dispatch: Function = useDispatch();
 
   return (
     <ContentContext.Consumer>
@@ -49,15 +51,16 @@ const CreatorForm: React.FC = () => {
                     inputValue={1000}
                   />
                   <CharInputField
-                    label={char.form.inputs.strength}
+                    label='Attack'
                     inputValue={0}
                   />
                   <CharInputField
-                    label={char.form.inputs.dexterity}
+                    label='Defence'
                     inputValue={0}
                   />
                   <CornerButton 
                     name={char.form.addStatBtn}
+                    clickEvent={() => dispatch(toggleStatisticPanel(true))}
                   />
                 </div>
                 <div className="charFormPanel">

@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import React, { Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import Arrow from '../../Arrow';
@@ -8,16 +8,17 @@ import CharInputField from '../CharInputField';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import actions
+import { toggleStatisticPanel } from '../../../../redux/actions/uiActions';
+
 
 const StaticticPanel: React.FC = () => {
-	const [isOpen, setIsOpen] = useState<boolean>(false);
-	// const dispatch = useDispatch();
-
+	const isOpen: string = useSelector(state => state.ui.statisticPanelIsOpen);
+	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
 		left: isOpen ? "0" : "-300px"
 	};
-	
 
 	return (
 		<ContentContext.Consumer>
@@ -25,7 +26,7 @@ const StaticticPanel: React.FC = () => {
 				<Fragment>
 					<div 
 						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
-						onClick={(): void => setIsOpen(true)}
+						onClick={(): void => dispatch(toggleStatisticPanel(true))}
 					> 
 						Open Statistic Panel
 					</div>
@@ -36,26 +37,34 @@ const StaticticPanel: React.FC = () => {
 						<div className="g-sidePanel g-sidePanel--left">
 							<div className="g-sidePanel__imagesContainer">
 								<CharInputField
+									label='Strength'
+									inputValue={0}
+                />
+								<CharInputField
+									label='Dexternity'
+									inputValue={0}
+                />
+								<CharInputField
+									label='Inteligence'
+									inputValue={0}
+                />
+								<CharInputField
+									label='Jink'
+									inputValue={0}
+                />
+								<CharInputField
 									label='Speed'
 									inputValue={0}
 								/>
 								<CharInputField
-									label='Speed'
-									inputValue={0}
-                />
-								<CharInputField
-									label='Speed'
-									inputValue={0}
-                />
-								<CharInputField
-									label='Speed'
+									label='Attack Range'
 									inputValue={0}
                 />
 							</div>					
 
 							<div 
 								className="g-sidePanel__switch t-paragraph4Normal" 
-								onClick={(): void => setIsOpen(false)}
+								onClick={(): void => dispatch(toggleStatisticPanel(false))}
 							>
 								<Arrow additionalClass="arrow--statisticPanel"/>
 								<span>

@@ -44,6 +44,7 @@ export const changeLang = (lang: string) => {
 };
 
 export const toggleStatisticPanel = (isOpen: boolean) => {
+    console.log('toggleStatisticPanel');
     return {
         type: 'TOGGLE_STATISTIC_PANEL',
         isOpen
