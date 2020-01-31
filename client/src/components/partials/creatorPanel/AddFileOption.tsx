@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import contexts
@@ -12,6 +12,7 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 
 
 const AddFileOption: React.FC = () => {
+  const { creator } = useContext(ContentContext);
   const mapPic = useSelector(state => state.map.mapPic);
   const dispatch = useDispatch();
 
@@ -34,24 +35,20 @@ const AddFileOption: React.FC = () => {
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
 
   return (
-    <ContentContext.Consumer>
-			{({ creator }) => (
-        <React.Fragment>
-          <input 
-            className="option option--addFile" 
-            type="file" 
-            id="file" 
-            name="files[]" 
-            onChange={evt => handleFileSelect(evt)}
-          />
-          <label 
-            className={optionOnOff} 
-            htmlFor="file" 
-            data-title={creator.panel.options.addFile.dataTitle}
-          > </label>
-        </React.Fragment>
-      )}
-    </ContentContext.Consumer>
+    <React.Fragment>
+      <input 
+        className="option option--addFile" 
+        type="file" 
+        id="file" 
+        name="files[]" 
+        onChange={evt => handleFileSelect(evt)}
+      />
+      <label 
+        className={optionOnOff} 
+        htmlFor="file" 
+        data-title={creator.panel.options.addFile.dataTitle}
+      > </label>
+    </React.Fragment>
   );
 };
 

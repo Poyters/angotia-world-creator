@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -32,6 +32,7 @@ let mapSizes: IPoint = {
 
 
 const EntryPanel: React.FC = () => {
+  const { lang, routes, entryPanel } = useContext(ContentContext);
   const mapSize = useSelector(state => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
@@ -89,82 +90,74 @@ const EntryPanel: React.FC = () => {
   };
 
   const content = redirect ? (
-    <ContentContext.Consumer>
-      {({ lang, routes }) => (
-        <Redirect to={`/${lang}/${routes.creator}`}/>
-      )}
-    </ContentContext.Consumer>
+    <Redirect to={`/${lang}/${routes.creator}`}/>
   ) : (
-    <ContentContext.Consumer>
-      {({ lang, entryPanel, routes }) => (
-        <ul className="entryPanel">
-          <li>
-            <a href="#" className="t-paragraph1Light entryPanel__createBoard">
-              <span>
-                { entryPanel.createMap }
-              </span>
-              <div role="presentation" className="entryPanel__sizeBoard">
-                <MapSizeInput
-                  currValue={mapX}
-                  changeValue={setMapX}
-                  id="yMapSize"
-                />
-                <span className="t-paragraph3Normal">x</span>
-                <MapSizeInput
-                  currValue={mapY}
-                  changeValue={setMapY}
-                  id="yMapSize"
-                />
-                <button onClick={mapSizeValidation}>start</button>
-              </div>
-              <span 
-                id="validationInfo" 
-                className="t-paragraph2Bold entryPanel__validationInfo"
-              >
-                {valMess}
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <input 
-                  type="file" 
-                  id="loadMapInput" 
-                  className="entryPanel__loadMapInput"
-                  onChange={(event): void => loadMap(event)}
-              />
-              <label className="t-paragraph1Light" htmlFor="loadMapInput">
-                { entryPanel.loadMap }
-              </label>
-            </a>
-          </li>
-          <li className="entryPanel__separator"> </li>
-          <li>
-            <Link
-              to={`/${lang}/${routes.char}`}
-              className="t-paragraph1Light"
-            >
-               { entryPanel.createChar }
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={`/${lang}/${routes.char}`}
-              className="t-paragraph1Light"
-            >
-              { entryPanel.loadChar }
-            </Link>
-          </li>
-          <li>
-            <a href={appConfig.exitLink} id="closeBtn">
-              <span className="t-paragraphLight">
-              { entryPanel.exit }
-              </span>
-            </a>
-          </li>
-        </ul>
-      )}
-    </ContentContext.Consumer>
+    <ul className="entryPanel">
+      <li>
+        <a href="#" className="t-paragraph1Light entryPanel__createBoard">
+          <span>
+            { entryPanel.createMap }
+          </span>
+          <div role="presentation" className="entryPanel__sizeBoard">
+            <MapSizeInput
+              currValue={mapX}
+              changeValue={setMapX}
+              id="yMapSize"
+            />
+            <span className="t-paragraph3Normal">x</span>
+            <MapSizeInput
+              currValue={mapY}
+              changeValue={setMapY}
+              id="yMapSize"
+            />
+            <button onClick={mapSizeValidation}>start</button>
+          </div>
+          <span 
+            id="validationInfo" 
+            className="t-paragraph2Bold entryPanel__validationInfo"
+          >
+            {valMess}
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <input 
+              type="file" 
+              id="loadMapInput" 
+              className="entryPanel__loadMapInput"
+              onChange={(event): void => loadMap(event)}
+          />
+          <label className="t-paragraph1Light" htmlFor="loadMapInput">
+            { entryPanel.loadMap }
+          </label>
+        </a>
+      </li>
+      <li className="entryPanel__separator"> </li>
+      <li>
+        <Link
+          to={`/${lang}/${routes.char}`}
+          className="t-paragraph1Light"
+        >
+            { entryPanel.createChar }
+        </Link>
+      </li>
+      <li>
+        <Link
+          to={`/${lang}/${routes.char}`}
+          className="t-paragraph1Light"
+        >
+          { entryPanel.loadChar }
+        </Link>
+      </li>
+      <li>
+        <a href={appConfig.exitLink} id="closeBtn">
+          <span className="t-paragraphLight">
+          { entryPanel.exit }
+          </span>
+        </a>
+      </li>
+    </ul>
   );
 
   return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 //Import scripts 
 import { clearCanvas } from '../../../assets/scripts/clearCanvas';
@@ -11,24 +11,21 @@ import { ContentContext } from '../../../Template';
 
 
 const ClearSelectedOption: React.FC = () => {
+  const { creator } = useContext(ContentContext);
 
   const clearSelected = (): void => {
     clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 	};
 
   return (
-    <ContentContext.Consumer>
-			{({ creator }) => (
-        <div 
-          role="button" 
-          className="clearSelectedOption" 
-          onClick={clearSelected} 
-          data-title={creator.panel.options.clearSelected.dataTitle}
-        >
-          <div className="clearSelectedOption__ereaser"> </div>
-        </div>
-      )}
-    </ContentContext.Consumer>
+    <div 
+      role="button" 
+      className="clearSelectedOption" 
+      onClick={clearSelected} 
+      data-title={creator.panel.options.clearSelected.dataTitle}
+    >
+      <div className="clearSelectedOption__ereaser"> </div>
+    </div>
   );
 };
 

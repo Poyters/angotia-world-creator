@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
@@ -38,6 +38,7 @@ import { ContentContext } from '../../../Template';
 const bookmarks: string[] = creatorConfig.bookmarks;
 
 const FilesPanel: React.FC = () => {
+	const { filesPanel } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 	const dispatch = useDispatch();
@@ -147,19 +148,14 @@ const FilesPanel: React.FC = () => {
 		const bookmarksToRender: any[] = bookmarks.map(
 			(bookmark: string) => {
 			return (
-				<ContentContext.Consumer>
-					{({ filesPanel }) => (
-						<li 
-							key={uuid()} 
-							onClick={(): void => setCurrBookmark(bookmark)} 
-							style={{color: currBookmark === bookmark ? 
-									'#27427c' : 'inherit'}}
-						> 
-							{ filesPanel.bookmarks[bookmark] } 
-						</li>
-					)}
-				</ContentContext.Consumer>
-				
+				<li 
+					key={uuid()} 
+					onClick={(): void => setCurrBookmark(bookmark)} 
+					style={{color: currBookmark === bookmark ? 
+							'#27427c' : 'inherit'}}
+				> 
+					{ filesPanel.bookmarks[bookmark] } 
+				</li>
 			);
 		});
 
@@ -167,55 +163,51 @@ const FilesPanel: React.FC = () => {
 	};
 
 	return (
-		<ContentContext.Consumer>
-			{({ filesPanel }) => (
-				<Fragment>
-					<div 
-						className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
-						onClick={(): void => setIsOpen(true)}
-					> 
-						{ filesPanel.switch }
+		<Fragment>
+			<div 
+				className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
+				onClick={(): void => setIsOpen(true)}
+			> 
+				{ filesPanel.switch }
+			</div>
+			<aside className="g-sidePanelWrapper" style={filesPanelStyles}>
+				<div className="filesPanel">
+					<nav className="filesPanel__bookmarks t-paragraph5Normal">
+						<ul>
+							{ generateBookmarks() }
+						</ul>
+					</nav>
+
+					<div className="filesPanel__imagesContainer">
+						<ul>
+							{ generateImages() }
+						</ul>
 					</div>
-					<aside className="g-sidePanelWrapper" style={filesPanelStyles}>
-						<div className="filesPanel">
-							<nav className="filesPanel__bookmarks t-paragraph5Normal">
-								<ul>
-									{ generateBookmarks() }
-								</ul>
-							</nav>
 
-							<div className="filesPanel__imagesContainer">
-								<ul>
-									{ generateImages() }
-								</ul>
-							</div>
-
-							{
-								currBookmark === 'mob' ||
-								currBookmark === 'npc' ? (
-									<div 
-										className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
-									>
-										<CharButton />
-									</div>
-								) : null
-							}
-							
-
+					{
+						currBookmark === 'mob' ||
+						currBookmark === 'npc' ? (
 							<div 
-								className="filesPanel__switch t-paragraph4Normal" 
-								onClick={(): void => setIsOpen(false)}
+								className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
 							>
-								<span>
-									{ filesPanel.close }
-								</span>
-								<Arrow additionalClass="arrow--filesPanel"/>
+								<CharButton />
 							</div>
-						</div>
-					</aside>
-				</Fragment>
-			)}
-		</ContentContext.Consumer>
+						) : null
+					}
+					
+
+					<div 
+						className="filesPanel__switch t-paragraph4Normal" 
+						onClick={(): void => setIsOpen(false)}
+					>
+						<span>
+							{ filesPanel.close }
+						</span>
+						<Arrow additionalClass="arrow--filesPanel"/>
+					</div>
+				</div>
+			</aside>
+		</Fragment>
 	);
 };
 

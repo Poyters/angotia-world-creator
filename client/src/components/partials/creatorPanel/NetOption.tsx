@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import scripts
@@ -19,6 +19,7 @@ interface INetOption {
 
 
 const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
+  const { creator } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -59,23 +60,19 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     'option--off' : 'option--on'; //It determines icon color
 
   return (
-    <ContentContext.Consumer>
-			{({ creator }) => (
-        <div 
-          className="option option--net" 
-          onClick={changeViewType} 
-          data-title={creator.panel.options.net.dataTitle}
-        >
-          <span className="option__viewType">{optionViewType}</span>
-          <div className={`netGraphic ${netOnOff}`}>
-            <div className="netGraphic__square"></div>
-            <div className="netGraphic__square"></div>
-            <div className="netGraphic__square"></div>
-            <div className="netGraphic__square"></div>
-          </div>
-        </div>
-      )}
-    </ContentContext.Consumer>
+    <div 
+      className="option option--net" 
+      onClick={changeViewType} 
+      data-title={creator.panel.options.net.dataTitle}
+    >
+      <span className="option__viewType">{optionViewType}</span>
+      <div className={`netGraphic ${netOnOff}`}>
+        <div className="netGraphic__square"></div>
+        <div className="netGraphic__square"></div>
+        <div className="netGraphic__square"></div>
+        <div className="netGraphic__square"></div>
+      </div>
+    </div>
   );
 };
 

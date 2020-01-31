@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 
 //Import scripts
@@ -17,6 +17,7 @@ import { ContentContext } from '../../../Template';
 
 
 const BlockOption = () => {
+	const { creator } = useContext(ContentContext);
 	const blockMatrix = useSelector(state => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
 	const selectMatrix = useSelector(state => state.ui.select.matrix);
@@ -38,18 +39,14 @@ const BlockOption = () => {
 	};
 
 	return (
-		<ContentContext.Consumer>
-			{({ creator }) => (
-				<div 
-					role="button" 
-					className="option option--block" 
-					onClick={(): void => blockHandler()} 
-					data-title={creator.panel.options.block.dataTitle}
-				>
-					<div className="g-exitBtn"></div>
-				</div>
-			)}
-		</ContentContext.Consumer>
+		<div 
+			role="button" 
+			className="option option--block" 
+			onClick={(): void => blockHandler()} 
+			data-title={creator.panel.options.block.dataTitle}
+		>
+			<div className="g-exitBtn"></div>
+		</div>
 	);
 };
 

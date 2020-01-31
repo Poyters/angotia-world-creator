@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import other components
@@ -35,6 +35,7 @@ import { ContentContext } from '../../../Template';
 
 
 const CreatorPanel: React.FC = () => {
+  const { creator, lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   
   useEffect((): void => { //Create necessary empty matrix at the beginning
@@ -47,77 +48,73 @@ const CreatorPanel: React.FC = () => {
   }, []);
 
   return (
-    <ContentContext.Consumer>
-			{({ creator, lang, routes }) => (
-        <nav className="optionsPanel">
-          <header className="optionsPanel__title">
-            <span> AMC </span>
-          </header>
-          <ul className="optionsPanel__options">
-            <li>
-              <LinkButton 
-                link={`/${lang}/${routes.home}`}
-                buttonText={creator.panel.buttons.back} 
-              />
-            </li>
-            <li>
-              <LinkButton 
-                link={`/${lang}/${routes.help}`}
-                buttonText={creator.panel.buttons.help}  
-              />
-            </li>
-            <li>
-              <LinkButton 
-                link={`/${lang}/${routes.license}`}
-                buttonText={creator.panel.buttons.license}  
-              />
-            </li>
-            <li>
-              <ExportOption />
-            </li>
-            <li>
-              <SaveOption />
-            </li>
-            <li>
-              <BoardNameOption />
-            </li>
-            <li>
-              <LayersOption />
-            </li>
-            <li>
-              <AddFileOption />
-            </li>
-            <li>
-              <DeleteBgOption />
-            </li>
-            <li>
-              <FullScreenOption />
-            </li>
-            <li>
-              <NetOption viewTypeQuantity={3} />
-            </li>
-            <li>
-              <SelectOption selectTypeQuantity={3} />
-            </li>
-            <li>
-              <ClearSelectedOption />
-            </li>
-            <li>
-              <BlockOption />
-            </li>
-            <li>
-              <PassageOption />
-            </li>
-            <li>
-              <VertexWeightOption />
-            </li>
-            <li>
-              <AddFSImageOption />
-            </li>
-          </ul>
-        </nav>
-      )}
-    </ContentContext.Consumer>
+    <nav className="optionsPanel">
+      <header className="optionsPanel__title">
+        <span> AMC </span>
+      </header>
+      <ul className="optionsPanel__options">
+        <li>
+          <LinkButton 
+            link={`/${lang}/${routes.home}`}
+            buttonText={creator.panel.buttons.back} 
+          />
+        </li>
+        <li>
+          <LinkButton 
+            link={`/${lang}/${routes.help}`}
+            buttonText={creator.panel.buttons.help}  
+          />
+        </li>
+        <li>
+          <LinkButton 
+            link={`/${lang}/${routes.license}`}
+            buttonText={creator.panel.buttons.license}  
+          />
+        </li>
+        <li>
+          <ExportOption />
+        </li>
+        <li>
+          <SaveOption />
+        </li>
+        <li>
+          <BoardNameOption />
+        </li>
+        <li>
+          <LayersOption />
+        </li>
+        <li>
+          <AddFileOption />
+        </li>
+        <li>
+          <DeleteBgOption />
+        </li>
+        <li>
+          <FullScreenOption />
+        </li>
+        <li>
+          <NetOption viewTypeQuantity={3} />
+        </li>
+        <li>
+          <SelectOption selectTypeQuantity={3} />
+        </li>
+        <li>
+          <ClearSelectedOption />
+        </li>
+        <li>
+          <BlockOption />
+        </li>
+        <li>
+          <PassageOption />
+        </li>
+        <li>
+          <VertexWeightOption />
+        </li>
+        <li>
+          <AddFSImageOption />
+        </li>
+      </ul>
+    </nav>
   );
 };
 

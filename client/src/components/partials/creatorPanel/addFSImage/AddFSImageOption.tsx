@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
 //Import components
@@ -9,28 +9,25 @@ import { ContentContext } from '../../../../Template';
 
 
 const AddFSImageOption: React.FC = () => {
+    const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
 
     return (
-        <ContentContext.Consumer>
-			{({ creator }) => (
-                <Fragment>
-                    { isPopup ? ReactDOM.createPortal(
-                        <AddFSImagePopup closePopup={setIsPopup}/>, document.body
-                    ) : null}
-                    <div 
-                        role="button" 
-                        className="option" 
-                        onClick={(): void => setIsPopup(true)} 
-                        data-title={creator.panel.options.addFSImage.dataTitle}
-                    >
-                        <div className="addFSImageOption">
-        
-                        </div>
-                    </div>
-                </Fragment>
-            )}
-        </ContentContext.Consumer>
+        <Fragment>
+            { isPopup ? ReactDOM.createPortal(
+                <AddFSImagePopup closePopup={setIsPopup}/>, document.body
+            ) : null}
+            <div 
+                role="button" 
+                className="option" 
+                onClick={(): void => setIsPopup(true)} 
+                data-title={creator.panel.options.addFSImage.dataTitle}
+            >
+                <div className="addFSImageOption">
+
+                </div>
+            </div>
+        </Fragment>
     );
 };
 

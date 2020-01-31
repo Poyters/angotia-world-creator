@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 
@@ -27,6 +27,7 @@ const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator=():void=>{}
 }) => {
+  const { char } = useContext(ContentContext);
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
@@ -53,79 +54,75 @@ const Dialog: React.FC<IDialog> = ({
   };
 
   return (
-    <ContentContext.Consumer>
-			{({ char }) => (
-        <React.Fragment>
-          { isDialogPopup ? ReactDOM.createPortal(
-            <EditDialog dialogId={id} closePopup={setIsDialogPopup}/>, document.body
-          ) : null}
-          { isPlayerPopup ? ReactDOM.createPortal(
-            <EditPlayerDialog 
-              dialogId={id} 
-              playerId={playerId} 
-              closePopup={setIsPlayerPopup}
-            />, document.body
-          ) : null}
-          <div 
-            className="dialog" 
-            onMouseEnter={():void => validatorFunc(id)}
-            onMouseLeave={():void => clearValidator()}
-            style={dialogStyle}
-          >
-            <p> 
-              <span className="t-paragraph5Light"> 
-                { char.dialog.dialogId }
-              </span> { id } 
-            </p>
-            <p onClick={():void => setIsDialogPopup(true)}> 
-              <span className="t-paragraph5Light">
-                { char.dialog.npcDialog }
-              </span> { npc } 
-            </p>
-            { 
-              player.map((dialogData) => {
-                return (
-                  <div 
-                    className="dialog__playerDialog" 
-                    key={dialogData.id}
-                    onClick={():void => openPlayerPopupHandler(dialogData.id)}
-                  >
+    <React.Fragment>
+      { isDialogPopup ? ReactDOM.createPortal(
+        <EditDialog dialogId={id} closePopup={setIsDialogPopup}/>, document.body
+      ) : null}
+      { isPlayerPopup ? ReactDOM.createPortal(
+        <EditPlayerDialog 
+          dialogId={id} 
+          playerId={playerId} 
+          closePopup={setIsPlayerPopup}
+        />, document.body
+      ) : null}
+      <div 
+        className="dialog" 
+        onMouseEnter={():void => validatorFunc(id)}
+        onMouseLeave={():void => clearValidator()}
+        style={dialogStyle}
+      >
+        <p> 
+          <span className="t-paragraph5Light"> 
+            { char.dialog.dialogId }
+          </span> { id } 
+        </p>
+        <p onClick={():void => setIsDialogPopup(true)}> 
+          <span className="t-paragraph5Light">
+            { char.dialog.npcDialog }
+          </span> { npc } 
+        </p>
+        { 
+          player.map((dialogData) => {
+            return (
+              <div 
+                className="dialog__playerDialog" 
+                key={dialogData.id}
+                onClick={():void => openPlayerPopupHandler(dialogData.id)}
+              >
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    { char.dialog.playerId }
+                  </span> { dialogData.id } 
+                </p>
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    { char.dialog.playerDialog }
+                  </span> { dialogData.dialog } 
+                </p>
+                {
+                  dialogData.action !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
-                        { char.dialog.playerId }
-                      </span> { dialogData.id } 
+                        { char.dialog.action }
+                      </span> { dialogData.action } 
                     </p>
-                    <p> 
-                      <span className="t-paragraph5Light"> 
-                        { char.dialog.playerDialog }
-                      </span> { dialogData.dialog } 
-                    </p>
-                    {
-                      dialogData.action !== '' ? (
-                        <p> 
-                          <span className="t-paragraph5Light"> 
-                            { char.dialog.action }
-                          </span> { dialogData.action } 
-                        </p>
-                      ) : null
-                    }
-                    <p> 
-                      <span className="t-paragraph5Light"> 
-                        { char.dialog.next }
-                      </span> { dialogData.next } 
-                    </p>
-                  </div>
-                );
-              })
-            }
-            <div 
-              className="g-exitBtn g-exitBtn--dialog"
-              onClick={():void => deleteDialog(id)}
-            > </div>
-          </div>
-        </React.Fragment>
-      )}
-    </ContentContext.Consumer>
+                  ) : null
+                }
+                <p> 
+                  <span className="t-paragraph5Light"> 
+                    { char.dialog.next }
+                  </span> { dialogData.next } 
+                </p>
+              </div>
+            );
+          })
+        }
+        <div 
+          className="g-exitBtn g-exitBtn--dialog"
+          onClick={():void => deleteDialog(id)}
+        > </div>
+      </div>
+    </React.Fragment>
   );
 };
 

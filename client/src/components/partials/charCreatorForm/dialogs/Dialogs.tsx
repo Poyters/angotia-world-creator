@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 
@@ -26,6 +26,7 @@ interface IDialogs {
 }
 
 const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
+  const { char } = useContext(ContentContext);
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
@@ -39,72 +40,68 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   };
 
   return (
-    <ContentContext.Consumer>
-			{({ char }) => (
-        <React.Fragment>
-          { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
-            <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData} setMonologData={setMonologData}/>, document.body
-          ) : null}
-          { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
-            <DialogPopup togglePopup={setIsPopupOpen}/>, document.body
-          ) : null}
-          <div className="dialogs">
-            <nav className="dialogs__nav">
-              <ul>
-                <li className="t-paragraph8Light"> { type } </li>
-                <li className="t-paragraph5Normal">
-                  <span 
-                    onClick={(): void => setIsPopupOpen(true)}
-                  > 
-                    { addBtnText } 
-                  </span>
-                </li>
-              </ul>
-            </nav>
-            {
-              type === char.form.dialogs.title ? (
-                dialogsData.length > 0 ? (
-                  dialogsData.map((dialog: IDialog) => {
-                    return <Dialog 
-                      id={dialog.id}
-                      npc={dialog.npc}
-                      player={dialog.player}
-                      key={dialog.id}
-                      validatorFunc={dialogsValidator}
-                      connectedDialogs={connectedDialogs}
-                      clearValidator={(): void => setConnectedDialogs([])}
-                    />;
-                  })
-                ) : (
-                  <p className='dialogs--none t-paragraph5Normal'>
-                     { char.form.lackOf } { type }
-                  </p>
-                )
-              ) : null
-            }
-            {
-              type === char.form.monologs.title ? (
-                monologsData.length > 0 ? (
-                  monologsData.map((monolog: IMonolog) => {
-                    return <Monolog 
-                      id={monolog.id}
-                      content={monolog.content}
-                      togglePopup={setIsPopupOpen}
-                      setPopupData={setMonologData}
-                      key={monolog.id}
-                    />;
-                  })
-                ) : (
-                  <p className='dialogs--none t-paragraph5Normal'>
-                    { char.form.lackOf } { type }
-                  </p>
-                )
-              ) : null
-            }
-          </div>
-        </React.Fragment>
-      )}
-    </ContentContext.Consumer>
+    <React.Fragment>
+      { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
+        <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData} setMonologData={setMonologData}/>, document.body
+      ) : null}
+      { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
+        <DialogPopup togglePopup={setIsPopupOpen}/>, document.body
+      ) : null}
+      <div className="dialogs">
+        <nav className="dialogs__nav">
+          <ul>
+            <li className="t-paragraph8Light"> { type } </li>
+            <li className="t-paragraph5Normal">
+              <span 
+                onClick={(): void => setIsPopupOpen(true)}
+              > 
+                { addBtnText } 
+              </span>
+            </li>
+          </ul>
+        </nav>
+        {
+          type === char.form.dialogs.title ? (
+            dialogsData.length > 0 ? (
+              dialogsData.map((dialog: IDialog) => {
+                return <Dialog 
+                  id={dialog.id}
+                  npc={dialog.npc}
+                  player={dialog.player}
+                  key={dialog.id}
+                  validatorFunc={dialogsValidator}
+                  connectedDialogs={connectedDialogs}
+                  clearValidator={(): void => setConnectedDialogs([])}
+                />;
+              })
+            ) : (
+              <p className='dialogs--none t-paragraph5Normal'>
+                  { char.form.lackOf } { type }
+              </p>
+            )
+          ) : null
+        }
+        {
+          type === char.form.monologs.title ? (
+            monologsData.length > 0 ? (
+              monologsData.map((monolog: IMonolog) => {
+                return <Monolog 
+                  id={monolog.id}
+                  content={monolog.content}
+                  togglePopup={setIsPopupOpen}
+                  setPopupData={setMonologData}
+                  key={monolog.id}
+                />;
+              })
+            ) : (
+              <p className='dialogs--none t-paragraph5Normal'>
+                { char.form.lackOf } { type }
+              </p>
+            )
+          ) : null
+        }
+      </div>
+    </React.Fragment>
   );
 };
 

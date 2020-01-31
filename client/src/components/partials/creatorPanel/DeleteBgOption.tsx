@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import actions
@@ -12,6 +12,7 @@ import { ContentContext } from '../../../Template';
 
 
 const DeleteBgOption: React.FC = () => {
+  const { creator } = useContext(ContentContext);
   const dispatch = useDispatch();
 
   const deleteBg = (): void => {
@@ -20,16 +21,12 @@ const DeleteBgOption: React.FC = () => {
   };
 
   return (
-    <ContentContext.Consumer>
-			{({ creator }) => (
-        <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
-          <div 
-            className="g-exitBtn" 
-            data-tile={creator.panel.options.deleteBg.dataTitle}
-          > </div>
-        </div>
-      )}
-    </ContentContext.Consumer>
+    <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
+      <div 
+        className="g-exitBtn" 
+        data-tile={creator.panel.options.deleteBg.dataTitle}
+      > </div>
+    </div>
   );
 };
 

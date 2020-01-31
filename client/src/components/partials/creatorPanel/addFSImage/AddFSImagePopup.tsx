@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import uuid from 'uuid/v4';
 
 //Import configs
@@ -14,6 +14,7 @@ interface IFSImageOption {
 
 
 const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+    const { creator } = useContext(ContentContext);
     const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
     const [fileName, setFileName] = useState<string>("");
@@ -43,74 +44,70 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     };
 
     return (
-        <ContentContext.Consumer>
-			{({ creator }) => (
-                <div className="g-container g-container--popup">
-                    <div role="alert" className="insertPopup">
-                        <div 
-                            className="g-exitBtn g-exitBtn--popup"
-                            onClick={():void => closePopup(false)}
-                        > </div>
-                        <header className="insertPopup__header t-paragraph3Light">
-                            {creator.panel.options.addFSImage.title}
-                        </header>
-                        <label className="insertPopup__label t-paragraph6Light">
-                            {creator.panel.options.addFSImage.image}
-                        </label>
-                        <input 
-                            type="file" 
-                            id="addFSImageInput" 
-                            onChange={evt => handleFileSelect(evt)}
-                            className="addFSImageBtn"
-                        />
-                        <label htmlFor="addFSImageInput">{fileName}</label>
-                        {
-                            (!isLoadedImage) ? (
-                                <span className="insertPopup--error">
-                                    {creator.panel.options.addFSImage.error}
-                                </span>
-                            ) : null
-                        }
-                        <label className="insertPopup__label t-paragraph6Light">
-                            {creator.panel.options.addFSImage.category}
-                        </label>
-                        <div 
-                            className="addFSImageSelect"
-                            onClick={(): void => setIsSelectOpen(!isSelectOpen)}
-                        >
-                            <span> { currBookmark } </span>
-                            {
-                                (isSelectOpen) ? (
-                                <ul>
-                                    { creatorConfig.bookmarks.map((bookmark: string) => {
-                                        if (bookmark !== currBookmark) {
-                                            return (
-                                                <li 
-                                                    onClick={(): void => setCurrBookmark(bookmark)}
-                                                    key={uuid()}
-                                                > 
-                                                    { bookmark } 
-                                                </li>
-                                            );
-                                        }  
-                                    })}  
-                                </ul>
-                                ): null
-                            }
-                            
-                        </div>
-        
-                        <button 
-                            type="submit" 
-                            className="insertPopup__submit t-paragraphLight" 
-                            onClick={(): void => insertImage()} disabled={!isLoadedImage}
-                        > 
-                            {creator.panel.options.addFSImage.submit} 
-                        </button>
-                    </div>
+        <div className="g-container g-container--popup">
+            <div role="alert" className="insertPopup">
+                <div 
+                    className="g-exitBtn g-exitBtn--popup"
+                    onClick={():void => closePopup(false)}
+                > </div>
+                <header className="insertPopup__header t-paragraph3Light">
+                    {creator.panel.options.addFSImage.title}
+                </header>
+                <label className="insertPopup__label t-paragraph6Light">
+                    {creator.panel.options.addFSImage.image}
+                </label>
+                <input 
+                    type="file" 
+                    id="addFSImageInput" 
+                    onChange={evt => handleFileSelect(evt)}
+                    className="addFSImageBtn"
+                />
+                <label htmlFor="addFSImageInput">{fileName}</label>
+                {
+                    (!isLoadedImage) ? (
+                        <span className="insertPopup--error">
+                            {creator.panel.options.addFSImage.error}
+                        </span>
+                    ) : null
+                }
+                <label className="insertPopup__label t-paragraph6Light">
+                    {creator.panel.options.addFSImage.category}
+                </label>
+                <div 
+                    className="addFSImageSelect"
+                    onClick={(): void => setIsSelectOpen(!isSelectOpen)}
+                >
+                    <span> { currBookmark } </span>
+                    {
+                        (isSelectOpen) ? (
+                        <ul>
+                            { creatorConfig.bookmarks.map((bookmark: string) => {
+                                if (bookmark !== currBookmark) {
+                                    return (
+                                        <li 
+                                            onClick={(): void => setCurrBookmark(bookmark)}
+                                            key={uuid()}
+                                        > 
+                                            { bookmark } 
+                                        </li>
+                                    );
+                                }  
+                            })}  
+                        </ul>
+                        ): null
+                    }
+                    
                 </div>
-            )}
-        </ContentContext.Consumer>
+
+                <button 
+                    type="submit" 
+                    className="insertPopup__submit t-paragraphLight" 
+                    onClick={(): void => insertImage()} disabled={!isLoadedImage}
+                > 
+                    {creator.panel.options.addFSImage.submit} 
+                </button>
+            </div>
+        </div>
     );
 };
 

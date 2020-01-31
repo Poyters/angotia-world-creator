@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import actions
@@ -17,6 +17,7 @@ interface ISelectOption {
 
 
 const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
+  const { creator } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -52,25 +53,21 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
     'option--on' : 'option--off'; //It determines icon color
 
   return (
-    <ContentContext.Consumer>
-			{({ creator }) => (
-        <div 
-          role="button" 
-          className={`option selectOption ${selectOnOff}`} 
-          onClick={changeSelectType}
-        >
-          <span 
-            className="option__viewType"
-          > 
-            { selectType }            
-          </span>
-          <div 
-            className="titleContainer" 
-            data-title={creator.panel.options.select.dataTitle}
-          > </div>
-        </div>
-      )}
-    </ContentContext.Consumer>
+    <div 
+      role="button" 
+      className={`option selectOption ${selectOnOff}`} 
+      onClick={changeSelectType}
+    >
+      <span 
+        className="option__viewType"
+      > 
+        { selectType }            
+      </span>
+      <div 
+        className="titleContainer" 
+        data-title={creator.panel.options.select.dataTitle}
+      > </div>
+    </div>
   );
 };
 
