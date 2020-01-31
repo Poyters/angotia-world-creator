@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import uuid from 'uuid/v4';
 
 //Import components
 import CreditsFooter from '../partials/CreditsFooter';
@@ -65,114 +66,89 @@ const Features: React.FC = () => {
               <div className="iconWrapper iconWrapper--normal">
                 <SaveOption />
               </div>
-              Save - save on your computer disc
+              { features.creatorPanel.saveOption }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal">
                 <LayersOption />
               </div>
-              Layers - click to toggle layers (backgroundImage, vertices, 
-              mobs, ncpc, decorations, buildings, subsoils)
+              { features.creatorPanel.layers }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <AddFileOption />
               </div>
-              Background Image - set background image, for instance: hand-painted 
-              subsoil
+              { features.creatorPanel.bgImage }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <DeleteBgOption />
               </div>
-              Delete background Image - delete background image
+              { features.creatorPanel.deleteBg }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <FullScreenOption />
               </div>
-              Full screen - turn on/off full screen mode
+              { features.creatorPanel.fullScreen }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <NetOption viewTypeQuantity={3} />
               </div>
-              Nets - we have 4 type of nets: All nets - fields and square nets, 
-              Field nets - only fields nets, Square nets - only square nets, 
-              No nets - you see only your map; disable select option
+              { features.creatorPanel.nets }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <SelectOption selectTypeQuantity={3} />
               </div>
-              Select tool - provides a three ways to select fields/squares: 
-              0 - select is disable, 1 - select squares, 2 - select fields, 
-              3 - select by mouse rectangle draw
+              { features.creatorPanel.selectTool }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <ClearSelectedOption />
               </div>
-              Clear selected - clear selected fields/squares
+              { features.creatorPanel.clearSelected }
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                 <BlockOption />
               </div>
-              Block fields - disable selected fields/square. Press CTRL 
-              button when you want to
+              { features.creatorPanel.blockFields }
             </li>
             <li>
                 <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                   <PassageOption />
                 </div> 
-                Passage - create passages to another locations where are selected 
-                fields/squares. Press CTRL button when you want to delete selected 
-                fields/squares. When you want to add new passages, you will see 
-                popu with: Map id - id of map when passage leads and Destination 
-                id - coordinations of destination map where player should appear
+                { features.creatorPanel.passage }
             </li>
             <li>
                 <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
                   <VertexWeightOption />
                 </div> 
-                set vertices weight (1-5) for selected fields/squares. Vertices 
-                determines how difficult is floor (subsoil). By default all 
-                vertices has weight equal to 0. The bigger value the harder 
-                floor. If you want to delete vertices, please select fields/squares, 
-                press CTRL button and then 
+                { features.creatorPanel.vertices }
             </li>
           </ul>
           <h3> { features.creator.title } </h3>
           <ul className="featuresList">
             <li>
-              Notification system - provides notifications about current 
-              actions (left bottom corner)
+              { features.creator.notification }
             </li>
             <li>
-              AMC - run only when you are log in (Poyters account). Here is 
-              auto-save (like in google disc)
+              { features.creator.logIn }
             </li>
             <li>
-              Bookmarks - divides images source into smaller bookmarks depends on 
-              utility, eg. (npc, mob, decoration, building, subsoil etc)
+              { features.creator.bookmarks }
             </li>
             <li>
-              Images source (of chose bookmark) - gets images from database. These 
-              images are using to create map. At load larger image than field square 
-              it will be cut into smaller images (equal to field size). Also, at load 
-              images are loaded in queue (first fields and then squares)
+              { features.creator.imgsSource }
             </li>
             <li>
-              Bookmarks are connected to layers at the board. It means that pictures 
-              from specific bookmarks are setted below or above others. Here is the 
-              list (from number one - at the top, to the bottom): 
+              { features.creator.bookmarkLayers }
               <ol>
-                <li>decoration</li>
-                <li>building</li>
-                <li>npc</li>
-                <li>mog</li>
-                <li>subsoil</li>
+                { features.creator.layersList.map(layer => {
+                  return <li key={uuid()}> { layer } </li>;
+                }) }
               </ol>
             </li>
           </ul>

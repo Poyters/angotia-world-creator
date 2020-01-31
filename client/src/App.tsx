@@ -1,11 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-
 //Import views
 import { Template } from './Template';
 import Home from './components/views/Home';
-
 
 
 const App: React.FC = () => {
@@ -18,7 +16,7 @@ const App: React.FC = () => {
       </Switch>
     </Router>
   );
-}
+};
 
 
 export default App;
