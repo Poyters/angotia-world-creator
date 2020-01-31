@@ -77,7 +77,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                   })
                 ) : (
                   <p className='dialogs--none t-paragraph5Normal'>
-                    There's no { type }
+                     { char.form.lackOf } { type }
                   </p>
                 )
               ) : null
@@ -96,7 +96,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                   })
                 ) : (
                   <p className='dialogs--none t-paragraph5Normal'>
-                    There's no { type }
+                    { char.form.lackOf } { type }
                   </p>
                 )
               ) : null

@@ -10,6 +10,7 @@
   },
   "form": {
     "title": "Character",
+    "lackOf": "A lack of",
     "inputs": {
       "name": "name",
       "id": "ID - auto generated",
