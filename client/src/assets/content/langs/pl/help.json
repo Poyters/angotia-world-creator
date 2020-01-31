@@ -1,5 +1,15 @@
 {
   "comeBack": "Wróć do Kreatora",
   "goFeatures": "idź do właściwości",
-  "title": "Pomoc"
+  "title": "Pomoc",
+  "field": "Okey! Jeśli tutaj jesteś, to oznacza, że wybrałeś już plansze. Musiałeś ustawić jej rozmiar w 'polach'. Każde pole, skłąda się z czterech mniejszych kwadratów. To bardzo dobrze pokazuje Opcja siatki. Pola są zaznaczone przez grubą siwą linię, natomiast kwadraty przez kropkowaną linię. Możesz zmieniać widoczność siatki tym przyckiem",
+  "field1": "(więcje o tym w Poszczególnych Cechach Kreatora).",
+  "selectBlock": "Kolejną ważną rzeczą, o tworzeniu map jest Opcja Zaznaczania. Możesz wybrać różne typy zaznaczeń: polem, kwadratem, lub zaznaczając obszar myszą. Chcesz aby żadna postać nie mogła wejść na pole/kwadrat? Po prostu je zablokuj, używając Opcji Blokowania",
+  "selectBlock1": ". Możesz odblokować zaznaczone pole/kwadraty przytrzymując przycisk CTRL i klikając Opcje Blokowania",
+  "bg": "Aby ustawić obraz tła, musisz kliknąć na ",
+  "bg1": ".",
+  "fs": "Musisz wiedzieć, że ważną rzeczą do tworzenia map są obrazy. Możesz je znaleźć w Panelu Plików (FS). FS posiada zakładki, w których znajdują się obrazki. Pamiętaj, że zakładki zawierają pogrupowane obrazki, według ich przeznaczenia. Każda grupa jest wyświetlana na mapie pod lub nad inną.",
+  "import": "Możesz także zaimportować swoje włąsne obrazki klikając na <import btn here>. Zaimportowane grafiki będą dostępne tylko z poziomu twojego Konta Poyters. W momencie wyexportowania oraz zaakceptowania twojej mapy przez Zespół Angotii, twoje obrazy dołączą do globalnej bazy i staną się dostępne dla wszystkich użytkowników.",
+  "vertex": "Chcesz stworzyć innym poziom trudności podłoży? Na przykłąd chcesz rozróżnić podłoże piaskowe od ścieżki? To spowoduje różne zachowania gracza, który będzie się po nich poruszał. Większa waga danego wierzchołka (powierzchni) oznacza, że teren jest trudniejszy (np. gracz będzie poruszał się po nim wolniej). Także prawidłowym ustawieniem byłoby oznaczenie ścieżki jako 3, piasku 4, a bagien na 5",
+  "end": "Jeśli znasz te wszystkie rzeczy, już możesz zabrać się do pracy! Tak, to jest takie proste. Zaznacz potrzebne pola/kwadraty i wykonuj akcje - jak blokowanie pól, dodawanie obrazów, przejść itp. Więc do dzieła!"
 }
