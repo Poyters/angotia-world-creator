@@ -87,7 +87,7 @@ const CreatorForm: React.FC = () => {
                     <CharInputField
                       label={char.form.charType.movingField}
                     />
-                  ) : null
+                    ) : null
                   }           
                 </div>
               </div>

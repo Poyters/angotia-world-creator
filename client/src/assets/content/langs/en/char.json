@@ -26,6 +26,7 @@
     },
     "char": {
       "npcId": "npc",
+      "mobId": "mob",
       "types": ["npc", "mob"],
       "label": "Choose character"
     },

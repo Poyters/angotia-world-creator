@@ -14,15 +14,19 @@ import { toggleStatisticPanel } from '../../../../redux/actions/uiActions';
 
 const StaticticPanel: React.FC = () => {
 	const isOpen: string = useSelector(state => state.ui.statisticPanelIsOpen);
+	const choosedChar: string = useSelector(state => state.char.choosed);
+	const charType: string = useSelector(state => state.char.type);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
 		left: isOpen ? "0" : "-300px"
 	};
 
+	console.log(choosedChar);
+
 	return (
 		<ContentContext.Consumer>
-			{() => (
+			{({ char }) => (
 				<Fragment>
 					<div 
 						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
@@ -52,14 +56,18 @@ const StaticticPanel: React.FC = () => {
 									label='Jink'
 									inputValue={0}
                 />
-								<CharInputField
-									label='Speed'
-									inputValue={0}
-								/>
-								<CharInputField
-									label='Attack Range'
-									inputValue={0}
-                />
+								{ charType === char.form.charType.movingId ? (
+									<CharInputField
+										label='Speed'
+										inputValue={0}
+									/>) : null
+                }
+								{ choosedChar === char.form.char.mobId ? (
+									<CharInputField
+										label='Attack Range'
+										inputValue={0}
+									/>) : null
+								}
 							</div>					
 
 							<div 
