@@ -52,6 +52,11 @@ export const uiReducer = (state = initState, action) => {
                 ...state,
                 language: action.lang
             };
+        case 'TOGGLE_STATISTIC_PANEL':
+            return {
+                ...state,
+                statisticPanelIsOpen: action.isOpen
+            };
         default:
             return state;
     }

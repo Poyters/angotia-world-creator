@@ -43,3 +43,11 @@ export const changeLang = (lang: string) => {
     };
 };
 
+export const toggleStatisticPanel = (isOpen: boolean) => {
+    return {
+        type: 'TOGGLE_STATISTIC_PANEL',
+        isOpen
+    };
+};
+
+
