@@ -9,7 +9,7 @@ import ChooseButtons from './ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
 
 //Import actions
-import { changeCharType, changeChar } from '../../../redux/actions/charActions';
+import { changeCharType, changeChar, isAgressiveMob } from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
 //Import contexts
@@ -76,6 +76,15 @@ const CreatorForm: React.FC = () => {
                     action={changeChar}
                     label={char.form.char.label}
                   />
+                  { choosedChar === char.form.char.mobId ? (
+                      <ChooseButtons 
+                        types={['yes', 'not']}
+                        action={isAgressiveMob} //change agressive
+                        label='agressive'
+                        specialClass='chooseButtonsWrapper--smaller'
+                      />
+                    ) : null
+                  }
 
                   <ChooseButtons 
                     types={char.form.charType.types}

@@ -6,10 +6,13 @@ import uuid from 'uuid/v4';
 interface IChooseButtons {
   types: string[],
   action: Function,
-  label?: string
+  label?: string,
+  specialClass?: string
 }
 
-const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
+const ChooseButtons: React.FC<IChooseButtons> = (
+  { types, action, label, specialClass='' }
+) => {
   const [currChecked, setCurrChecked] = useState<string>('');
   const dispatch = useDispatch();
 
@@ -21,7 +24,7 @@ const ChooseButtons: React.FC<IChooseButtons> = ({ types, action, label }) => {
   };
 
   return (
-    <div className="chooseButtonsWrapper">
+    <div className={`chooseButtonsWrapper ${specialClass}`}>
       <header className="chooseButtonsHeader t-paragraph5Light"> { label } </header>
       {
         types.map((type: string) => {

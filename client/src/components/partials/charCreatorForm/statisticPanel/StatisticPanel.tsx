@@ -16,6 +16,7 @@ const StaticticPanel: React.FC = () => {
 	const isOpen: string = useSelector(state => state.ui.statisticPanelIsOpen);
 	const choosedChar: string = useSelector(state => state.char.choosed);
 	const charType: string = useSelector(state => state.char.type);
+	const isAgressiveMob: string = useSelector(state => state.char.isAgressiveMob);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
@@ -58,13 +59,13 @@ const StaticticPanel: React.FC = () => {
 							{ charType === char.form.charType.movingId ? (
 								<CharInputField
 									label='Speed'
-									inputValue={0}
+									inputValue={10}
 								/>) : null
 							}
-							{ choosedChar === char.form.char.mobId ? (
+							{ choosedChar === char.form.char.mobId && isAgressiveMob ? (
 								<CharInputField
 									label='Attack Range'
-									inputValue={0}
+									inputValue={5}
 								/>) : null
 							}			
 

@@ -2,7 +2,27 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 10px;
+
+  &--smaller {
+    margin: 5px 0 0 20px;
+
+    & .chooseButtons {
+      margin: 0 5px;
+
+      &__label {
+        margin-top: 0;
+        
+        font-size: 12px !important;
+      }
+
+      &__input {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+  }
 }
 
 .chooseButtons {
@@ -35,6 +55,7 @@
 
 .chooseButtonsHeader {
   display: flex;
+  flex-direction: column;
   min-width: 100%;
 
   text-transform: lowercase;

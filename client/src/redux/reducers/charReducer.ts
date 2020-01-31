@@ -69,7 +69,8 @@ const initState = {
       ]
     },
   ],
-  temponaryPlayerDialogs: []
+  temponaryPlayerDialogs: [],
+  isAgressiveMob: false
 };
 
 
@@ -99,6 +100,11 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         temponaryPlayerDialogs: action.temponaryDialogs
+      };
+    case 'IS_AGRESSIVE_MOB':
+      return {
+        ...state,
+        isAgressiveMob: action.isAgressive
       };
     default:
       return state;
