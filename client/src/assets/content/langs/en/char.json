@@ -49,5 +49,13 @@
       "label": "Choose char type",
       "movingField": "Field diameter"
     }
+  },
+  "dialog": {
+    "dialogId": "Dialog ID:",
+    "npcDialog": "NPC dialog:",
+    "playerId": "Player dialog ID:",
+    "playerDialog": "Player dialog:",
+    "action": "Action:",
+    "next": "Next dialog:"
   }
 }

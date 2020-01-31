@@ -49,5 +49,13 @@
       "label": "Wybierz typ bohatera",
       "movingField": "Średnica ruchu"
     }
+  },
+  "dialog": {
+    "dialogId": "Dialog ID:",
+    "npcDialog": "NPC dialog:",
+    "playerId": "Dialog gracza ID:",
+    "playerDialog": "Dialog gracza:",
+    "action": "Akcja:",
+    "next": "Następny dialog:"
   }
 }
