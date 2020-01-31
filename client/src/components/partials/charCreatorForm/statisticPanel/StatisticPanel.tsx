@@ -3,6 +3,7 @@ import React, { Fragment, useState } from 'react';
 
 //Import components
 import Arrow from '../../Arrow';
+import CharInputField from '../CharInputField';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
@@ -33,16 +34,23 @@ const StaticticPanel: React.FC = () => {
 						style={statisticPanelStyles}
 					>
 						<div className="g-sidePanel g-sidePanel--left">
-							<nav className="g-sidePanel__bookmarks t-paragraph5Normal">
-								<ul>
-									{/* { generateBookmarks() } */}
-								</ul>
-							</nav>
-
 							<div className="g-sidePanel__imagesContainer">
-								<ul>
-									{/* { generateImages() } */}
-								</ul>
+								<CharInputField
+									label='Speed'
+									inputValue={0}
+								/>
+								<CharInputField
+									label='Speed'
+									inputValue={0}
+                />
+								<CharInputField
+									label='Speed'
+									inputValue={0}
+                />
+								<CharInputField
+									label='Speed'
+									inputValue={0}
+                />
 							</div>					
 
 							<div 

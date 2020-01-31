@@ -42,15 +42,19 @@ const CreatorForm: React.FC = () => {
                   />
                   <CharInputField
                     label={char.form.inputs.lvl}
+                    inputValue={1}
                   />
                   <CharInputField
                     label={char.form.inputs.health}
+                    inputValue={1000}
                   />
                   <CharInputField
                     label={char.form.inputs.strength}
+                    inputValue={0}
                   />
                   <CharInputField
                     label={char.form.inputs.dexterity}
+                    inputValue={0}
                   />
                   <CornerButton 
                     name={char.form.addStatBtn}

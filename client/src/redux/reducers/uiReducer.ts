@@ -9,7 +9,8 @@ export const initState = {
         field: true,
         square: true
     },
-    language: 'en'
+    language: 'en',
+    statisticPanelIsOpen: false
 };
 
 
