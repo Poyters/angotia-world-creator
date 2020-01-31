@@ -60,7 +60,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
         id: playerDialogId,
         dialog: '',
         next: -1,
-        action: null
+        action: ''
       }
     ];
 

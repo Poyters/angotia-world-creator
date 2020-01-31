@@ -11,7 +11,7 @@ export interface IPlayer {
   id: string,
   dialog: string,
   next: number | string,
-  action: null | Function
+  action: string
 }
 
 export interface IMonolog {

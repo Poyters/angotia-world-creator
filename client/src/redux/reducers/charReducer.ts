@@ -22,13 +22,13 @@ const initState = {
           id: 52352,
           dialog: 'Mauris at blandit leo, id fermentum libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
           next: 2, //id of next npc dialog or 'exit' if exit
-          action: null, //special event (not required); open shop etc
+          action: '', //special event (not required); open shop etc
         },
         {
           id: 412,
           dialog: 'player response/dialog 1',
           next: 3, //id of next npc dialog or 'exit' if exit
-          action: null, //special event (not required); open shop etc
+          action: '', //special event (not required); open shop etc
         }
       ]
     },
@@ -64,7 +64,7 @@ const initState = {
           id: 52352,
           dialog: 'tfawf',
           next: 654,
-          action: null
+          action: ''
         }
       ]
     },

@@ -96,7 +96,7 @@ const Dialog: React.FC<IDialog> = ({
                   </span> { dialogData.dialog } 
                 </p>
                 {
-                  dialogData.action !== null ? (
+                  dialogData.action !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
                         Action: 

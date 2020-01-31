@@ -29,6 +29,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
   const [dialog, setDialog] = useState<string>(playerData ? playerData.dialog : '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
   const [next, setNext] = useState<string | number>(playerData ? playerData.next : '');
+  const [action, setAction] = useState<string>(playerData ? playerData.action : '');
 
   useEffect((): void => {
     if (
@@ -52,7 +53,8 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
         dlg.player[playerDataId] = {
           ...dlg.player[playerDataId],
           dialog,
-          next
+          next,
+          action
         };
       }
 
@@ -90,6 +92,14 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = ({ dialogId, playerId, clo
             <span className="insertPopup--error">You need to type player dialog</span>
           ) : null
         }   
+
+        <label className="insertPopup__label t-paragraph6Light">
+          Action
+        </label>
+        <input
+          value={action} 
+          onChange={e => setAction(e.target.value)}
+        /> 
 
         <label className="insertPopup__label t-paragraph6Light">
           Next dialog
