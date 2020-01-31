@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
@@ -10,12 +10,16 @@ import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActi
 //Import interfaces
 import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IPlayerDialog {
   playerId: string
 }
 
 const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
+  const { char } = useContext(ContentContext);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
   const dispatch: Function = useDispatch();
@@ -43,12 +47,12 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   return (
     <section className="playerDialog">
       <CharInputField
-        label='Player dialog ID'
+        label={char.dialog.playerId}
         inputValue={playerId}
         inputDisabled={true}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        Player dialog
+        { char.dialog.playerDialog }
       </label>
       <textarea
         value={newDialogText} 
@@ -56,7 +60,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        Next dialog
+        { char.dialog.next }
       </label>
       <input 
         onChange={e => setNext(e.target.value)}
