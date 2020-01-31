@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
@@ -8,9 +8,11 @@ import CharInputField from '../CharInputField';
 //Import actions
 import { changeMonologs } from '../../../../redux/actions/charActions';
 
-
 //Import interfaces
 import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
+
+//Import contexts
+import { ContentContext } from '../../../../Template';
 
 
 interface IMonologPopup {
@@ -19,7 +21,10 @@ interface IMonologPopup {
   setMonologData?: Function
 }
 
-const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMonologData }) => {
+const MonologPopup: React.FC<IMonologPopup> = (
+  { togglePopup, monologData, setMonologData }
+) => {
+  const { char } = useContext(ContentContext);
   const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
@@ -80,7 +85,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMo
           onClick={():void => togglePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          Add new monolog
+          { char.monolog.add }
         </header>
         <CharInputField
           label='ID - auto generated'
@@ -88,7 +93,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMo
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          Monolog content
+          { char.monolog.content }
         </label>
         <textarea
           value={monologContent} 
@@ -96,7 +101,9 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMo
         />
         {
           (monologCtnErr) ? (
-            <span className="insertPopup--error">You need to type some content</span>
+            <span className="insertPopup--error">
+              { char.monolog.contentErr }
+            </span>
           ) : null
         }
 
@@ -106,7 +113,7 @@ const MonologPopup: React.FC<IMonologPopup> = ({ togglePopup, monologData, setMo
           onClick={(): void => submitHandler()} 
           disabled={monologCtnErr}
         > 
-          submit 
+          { char.monolog.submit } 
         </button>
       </div>
     </div>

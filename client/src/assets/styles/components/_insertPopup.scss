@@ -33,6 +33,7 @@
         cursor: pointer;
         letter-spacing: 1px;
         outline: none;
+        text-transform: lowercase;
 
         &:hover {
             color: $decorationColor1;

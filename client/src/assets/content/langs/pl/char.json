@@ -80,6 +80,9 @@
   },
   "monolog": {
     "id": "Monolog ID:",
-    "content": "Treść monologu:"
+    "content": "Treść monologu:",
+    "contentErr": "Musisz wpisać jakąś treść",
+    "add": "Dodaj nowy monolog",
+    "submit": "Potwierdź"
   }
 }

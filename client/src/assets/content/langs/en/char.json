@@ -80,6 +80,9 @@
   },
   "monolog": {
     "id": "Monolog ID:",
-    "content": "Monolog content:"
+    "content": "Monolog content:",
+    "contentErr": "You need to type some content",
+    "add": "Add new monolog",
+    "submit": "Submit"
   }
 }
