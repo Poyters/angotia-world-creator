@@ -39,36 +39,34 @@ const StaticticPanel: React.FC = () => {
 						style={statisticPanelStyles}
 					>
 						<div className="g-sidePanel g-sidePanel--left">
-							<div className="g-sidePanel__imagesContainer">
+							<CharInputField
+								label='Strength'
+								inputValue={0}
+							/>
+							<CharInputField
+								label='Dexternity'
+								inputValue={0}
+							/>
+							<CharInputField
+								label='Inteligence'
+								inputValue={0}
+							/>
+							<CharInputField
+								label='Jink'
+								inputValue={0}
+							/>
+							{ charType === char.form.charType.movingId ? (
 								<CharInputField
-									label='Strength'
+									label='Speed'
 									inputValue={0}
-                />
+								/>) : null
+							}
+							{ choosedChar === char.form.char.mobId ? (
 								<CharInputField
-									label='Dexternity'
+									label='Attack Range'
 									inputValue={0}
-                />
-								<CharInputField
-									label='Inteligence'
-									inputValue={0}
-                />
-								<CharInputField
-									label='Jink'
-									inputValue={0}
-                />
-								{ charType === char.form.charType.movingId ? (
-									<CharInputField
-										label='Speed'
-										inputValue={0}
-									/>) : null
-                }
-								{ choosedChar === char.form.char.mobId ? (
-									<CharInputField
-										label='Attack Range'
-										inputValue={0}
-									/>) : null
-								}
-							</div>					
+								/>) : null
+							}			
 
 							<div 
 								className="g-sidePanel__switch t-paragraph4Normal" 
