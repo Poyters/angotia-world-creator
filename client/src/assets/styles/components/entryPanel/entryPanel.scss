@@ -8,13 +8,31 @@
   background-color: rgba(0, 0, 0, 0.2);
 
   & li {
-    display: block;
+    display: flex;
     margin: 16px 15px;
+    justify-content: center;
+
     text-align: center;
 
-    & a {
+    & a, & > button {
       display: block; 
       outline: none; 
+    }
+
+    & > button {
+      background-color: inherit;
+      border: none;
+      cursor: pointer;
+      outline: 0;
+      color: inherit;
+
+      &:hover, &:active, &:focus{
+        outline: 0;
+        outline: none;
+        -webkit-appearance: none;
+        border: none;
+      }
+    
     }
 
     &:last-child {
@@ -88,7 +106,7 @@
     & button {
       flex: 0 1 auto;
       position: relative;
-      margin: 0 40px; 
+      margin: 0 20px; 
       padding: 10px 20px;
       
       font-size: 0px;

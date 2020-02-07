@@ -94,7 +94,7 @@ const EntryPanel: React.FC = () => {
   ) : (
     <ul className="entryPanel">
       <li>
-        <a href="#" className="t-paragraph1Light entryPanel__createBoard">
+        <button className="t-paragraph1MediumLight entryPanel__createBoard">
           <span>
             { entryPanel.createMap }
           </span>
@@ -118,7 +118,7 @@ const EntryPanel: React.FC = () => {
           >
             {valMess}
           </span>
-        </a>
+        </button>
       </li>
       <li>
         <a href="#">
@@ -128,7 +128,7 @@ const EntryPanel: React.FC = () => {
               className="entryPanel__loadMapInput"
               onChange={(event): void => loadMap(event)}
           />
-          <label className="t-paragraph1Light" htmlFor="loadMapInput">
+          <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
             { entryPanel.loadMap }
           </label>
         </a>
@@ -137,7 +137,7 @@ const EntryPanel: React.FC = () => {
       <li>
         <Link
           to={`/${lang}/${routes.char}`}
-          className="t-paragraph1Light"
+          className="t-paragraph1MediumLight"
         >
             { entryPanel.createChar }
         </Link>
@@ -145,7 +145,7 @@ const EntryPanel: React.FC = () => {
       <li>
         <Link
           to={`/${lang}/${routes.char}`}
-          className="t-paragraph1Light"
+          className="t-paragraph1MediumLight"
         >
           { entryPanel.loadChar }
         </Link>

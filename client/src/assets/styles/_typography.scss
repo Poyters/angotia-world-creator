@@ -18,6 +18,10 @@
 	&Light {
 		@include paragraph(28px, 32px, 200);
 	}
+
+	&MediumLight {
+		@include paragraph(28px, 32px, 300);
+	}
 	
 	&Normal {
 		@include paragraph(28px, 32px, 400);
