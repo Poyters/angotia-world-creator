@@ -32,6 +32,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         data.next = parseInt(next);
       }
     });
+    console.log('here');
 
     dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
   };
@@ -41,6 +42,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
       if (dialog.id !== playerId) return dialog;
     });
 
+    console.log('here1');
     dispatch(changeTemponaryPlayerDialogs(filteredDialogs));
   };
 

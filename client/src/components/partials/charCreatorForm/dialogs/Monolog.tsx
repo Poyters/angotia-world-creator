@@ -10,6 +10,9 @@ import { changeMonologs } from '../../../../redux/actions/charActions';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 interface IMonologExplicit extends IMonolog {
   togglePopup: Function,
@@ -29,6 +32,7 @@ const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
+    setActionNote('Deleted monolog');
   };
 
   const editMonolog = (): void => {

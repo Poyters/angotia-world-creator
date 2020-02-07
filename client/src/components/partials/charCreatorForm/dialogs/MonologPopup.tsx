@@ -14,6 +14,9 @@ import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 interface IMonologPopup {
   togglePopup: Function,
@@ -50,6 +53,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
+    setActionNote('Added new monolog');
   };
 
   const editMonolog = (): void => {
@@ -60,6 +64,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
+    setActionNote('Edited monolog');
     if (setMonologData) setMonologData(null);
   };
 

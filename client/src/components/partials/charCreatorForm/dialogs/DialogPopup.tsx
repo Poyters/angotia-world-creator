@@ -15,6 +15,9 @@ import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterface
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 interface IDialogPopup {
   togglePopup: Function
@@ -48,6 +51,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     });
 
     dispatch(changeDialogs(dialogsData));
+    setActionNote('Add new dialog');
   };
 
   const submitHandler = (): void => {

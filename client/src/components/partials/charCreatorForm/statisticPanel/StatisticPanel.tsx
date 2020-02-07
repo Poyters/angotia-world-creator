@@ -24,8 +24,6 @@ const StaticticPanel: React.FC = () => {
 		left: isOpen ? "0" : "-300px"
 	};
 
-	console.log(choosedChar);
-
 	return (
 		<Fragment>
 			<div 

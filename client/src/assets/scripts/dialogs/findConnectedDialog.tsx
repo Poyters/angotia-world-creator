@@ -15,8 +15,6 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     return playerDialog.next.toString();
   }) : [];
   
-  console.log(availableIds, connectedIds);
-
   if (connectedIds.includes(charConfig.dialogExit)) {
     connectedIds.push(beginID);
     availableIds.push(charConfig.dialogExit);
@@ -24,8 +22,6 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
 
   const isInvalid: boolean = connectedIds.some(el => !availableIds.includes(el));
   if (isInvalid) connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);
-
-  console.log(connectedIds);
 
   return connectedIds;
 };

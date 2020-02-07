@@ -18,6 +18,9 @@ import charConfig from '../../../../assets/configs/charConfig.json';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 const Dialog: React.FC<IDialog> = ({ 
   id, 
@@ -46,6 +49,7 @@ const Dialog: React.FC<IDialog> = ({
     });
 
     dispatch(changeDialogs(filteredDialogs));
+    setActionNote('Deleted dialog');
   };
 
   const openPlayerPopupHandler = (id: string): void => {

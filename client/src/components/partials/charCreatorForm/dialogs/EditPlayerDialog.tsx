@@ -13,6 +13,9 @@ import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterface
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 interface IEditPlayerDialog {
   dialogId: string,
@@ -69,6 +72,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
+    setActionNote('Edited player dialog');
   };
 
   return (

@@ -13,6 +13,9 @@ import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
+
 
 interface IEditDialog {
   dialogId: string,
@@ -49,6 +52,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
+    setActionNote('Edited dialog');
   };
 
   return (
