@@ -10,8 +10,8 @@ const CornerButton: React.FC<ICornerButton> = ({ name, clickEvent }) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
 
   return (
-    <div className="cornerButton t-paragraph5Normal" onClick={() => dispatchedClickEvent()}>
-      <div className="cornerButton__content"> 
+    <div className="g-cornerButton t-paragraph5Normal" onClick={() => dispatchedClickEvent()}>
+      <div className="g-cornerButton__content"> 
         <span> { name } </span>
       </div>
     </div>

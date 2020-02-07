@@ -5,10 +5,13 @@
 @import '_typography.scss';
 @import '_fonts.scss';
 
+//Import global component styles
+@import './global/_cornerButton.scss';
+
 //Import components view styles
-@import './components/_notFound.scss';
-@import './components/_textView.scss';
-@import './components/_features.scss';
+@import './views/_notFound.scss';
+@import './views/_textView.scss';
+@import './views/_features.scss';
 
 //Import components styles
 @import './components/_buttons.scss';
@@ -21,7 +24,6 @@
 @import './components/_labelMark.scss';
 @import './components/_insertPopup.scss';
 @import './components/_optionsPanel.scss';
-@import './components/_cornerButton.scss';
 
 @import './components/sidePanel/sidePanel.scss';
 @import './components/sidePanel/sidePanelSwitch.scss';

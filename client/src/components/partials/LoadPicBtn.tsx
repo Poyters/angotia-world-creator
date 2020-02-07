@@ -29,10 +29,10 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
   return (
     <Fragment>
       <label 
-        className="cornerButton t-paragraph5Normal"
+        className="g-cornerButton t-paragraph5Normal"
         htmlFor="file"
       >
-        <div className="cornerButton__content"> 
+        <div className="g-cornerButton__content"> 
           <span> { name } </span>
         </div>
       </label>
