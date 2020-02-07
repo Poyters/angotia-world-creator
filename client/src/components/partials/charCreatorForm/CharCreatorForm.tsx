@@ -10,7 +10,12 @@ import ChooseButtons from './ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
 
 //Import actions
-import { changeCharType, changeChar, isAgressiveMob } from '../../../redux/actions/charActions';
+import { 
+  changeCharType, 
+  changeChar, 
+  isAgressiveMob, 
+  setCharPic 
+} from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
 //Import contexts
@@ -21,8 +26,13 @@ const CreatorForm: React.FC = () => {
   const { char } = useContext(ContentContext);
   const charId: string = uuid();
   const choosedChar: string = useSelector(state => state.char.choosed);
+  const charPicPath: string = useSelector(state => state.char.charPic);
   const charType: string = useSelector(state => state.char.type);
   const dispatch: Function = useDispatch();
+
+  const charPicStyles = {
+    backgroundImage: `url('${charPicPath}')`
+  };
 
   return (
     <main className="charCreatorFormWrapper">
@@ -64,11 +74,12 @@ const CreatorForm: React.FC = () => {
               />
             </div>
             <div className="charFormPanel">
-              <div className="charFormPanel__graphice">
+              <div className="charFormPanel__graphice" style={charPicStyles}>
 
               </div>
               <LoadPicBtn 
                 name={char.form.importPicBtn}
+                clickEvent={setCharPic}
               />
               
               <ChooseButtons 

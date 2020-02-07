@@ -42,3 +42,11 @@ export const isAgressiveMob = (isAgressive: boolean) => {
     isAgressive
   };
 };
+
+export const setCharPic = (picPath?: string) => {
+  console.log(picPath);
+  return {
+    type: 'SET_CHAR_PIC',
+    picPath
+  };
+};

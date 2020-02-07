@@ -70,7 +70,8 @@ const initState = {
     },
   ],
   temponaryPlayerDialogs: [],
-  isAgressiveMob: false
+  isAgressiveMob: false,
+  charPic: ''
 };
 
 
@@ -105,6 +106,11 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         isAgressiveMob: action.isAgressive
+      };
+    case 'SET_CHAR_PIC':
+      return {
+        ...state,
+        charPic: action.picPath
       };
     default:
       return state;

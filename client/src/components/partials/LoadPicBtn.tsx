@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { useDispatch } from 'react-redux';
 
 
 interface ILoadPicBtn {
@@ -8,6 +9,7 @@ interface ILoadPicBtn {
 
 const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
+  const dispatch: Function = useDispatch();
 
   const handleFileSelect = (evt: any) => {
     const f = evt.target.files[0]; 
@@ -16,7 +18,7 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
     reader.onload = (():any => {
       return e => {
         const path: string = e.target.result;
-        // dispatchedClickEvent(path);
+        dispatch(dispatchedClickEvent(path));
       };
 
     })();
