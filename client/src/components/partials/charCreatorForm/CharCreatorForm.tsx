@@ -4,6 +4,7 @@ import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from './CharInputField';
+import LoadPicBtn from '../LoadPicBtn';
 import CornerButton from '../CornerButton';
 import ChooseButtons from './ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
@@ -66,7 +67,7 @@ const CreatorForm: React.FC = () => {
               <div className="charFormPanel__graphice">
 
               </div>
-              <CornerButton 
+              <LoadPicBtn 
                 name={char.form.importPicBtn}
               />
               
