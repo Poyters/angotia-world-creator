@@ -75,9 +75,29 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     setActionNote('Edited player dialog');
   };
 
+  const deleteDialog = (id: string): void => {
+    const updatedDialogs = dialogsData.map((dlg: IDialog) => {
+      if (dlg.id === dialogId) {
+        dlg.player = dlg.player.filter(player => {
+          if (player.id !== id) return player;
+        });
+      }
+
+      return dlg;
+    });
+
+    dispatch(changeDialogs(updatedDialogs));
+    closePopup(false);
+    setActionNote('Deleted player dialog');
+  };
+
   return (
     <div className="g-container g-container--popup">
-      <div role="alert" className="insertPopup insertPopup--dialog"> 
+      <div role="alert" className="insertPopup insertPopup--dialog">
+        <div
+          className="g-deleteBtn"
+          onClick={():void => deleteDialog(playerId)}
+        > delete </div> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
           onClick={():void => closePopup(false)}

@@ -213,3 +213,20 @@ a {
 	position: absolute;
 	z-index: -1;
 }
+
+.g-deleteBtn {
+	position: absolute;
+	top: 14px;
+	right: 40px;
+
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 12px;
+	cursor: pointer;
+	transition: 200ms ease-in-out;
+	color: $decorationColor1;
+
+	&:hover {
+		color: $decorationColor4;
+	}
+}
