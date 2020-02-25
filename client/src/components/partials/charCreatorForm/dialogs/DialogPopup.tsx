@@ -4,7 +4,7 @@ import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from '../CharInputField';
-import PlayerDialog from './PlayerDialog';
+import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
 
 //Import actions
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
@@ -60,19 +60,9 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     dispatch(changeTemponaryPlayerDialogs([]));
   };
 
-  const addPlayerDialogHandler = (): void => {
-    const playerDialogId: string = uuid();
-    const newDialogs: IPlayer[] = [
-      ...temponaryPlayerDialogs,
-      {
-        id: playerDialogId,
-        dialog: '',
-        next: -1,
-        action: ''
-      }
-    ];
-
-    dispatch(changeTemponaryPlayerDialogs(newDialogs));
+  const closePopupHandler = (): void => {
+    togglePopup(false);
+    dispatch(changeTemponaryPlayerDialogs([]));
   };
 
   return (
@@ -80,7 +70,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
       <div role="alert" className="insertPopup insertPopup--dialog"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => togglePopup(false)}
+          onClick={closePopupHandler}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { char.dialogPopup.add }
@@ -104,29 +94,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
             </span>
           ) : null
         }
-        <nav className="playerDialogsHeader">
-          <header 
-            className="playerDialogsHeader__title t-paragraph5Light"
-      
-          >
-            { char.dialogPopup.playerDialogs }
-          </header>
-          <div 
-            className="playerDialogsHeader__add t-paragraph5Normal"
-            onClick={():void => addPlayerDialogHandler() }
-          >
-            { char.dialogPopup.newPlayerDialog }
-          </div>
-
-        </nav>
-        
-        <div className="playerDialogsWrapper">
-          { 
-            temponaryPlayerDialogs.map((playerDialog: IPlayer) => {
-              return <PlayerDialog playerId={playerDialog.id} key={playerDialog.id} />;
-            })
-          }
-        </div>      
+        <AddTemponaryPlayerDialog/>     
 
         <button 
           type="submit" 

@@ -99,10 +99,11 @@
 
   &__graphice {
     width: 360px;
-    height: 240px;
+    height: 200px;
     max-height: 240px;
 
     background-color: $decorationColor11;
+    background-repeat: no-repeat;
   }
 }
 

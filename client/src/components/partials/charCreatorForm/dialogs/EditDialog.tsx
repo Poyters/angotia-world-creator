@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import CharInputField from '../CharInputField';
+import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
 
 //Import actions
-import { changeDialogs } from '../../../../redux/actions/charActions';
+import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
 //Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
@@ -83,7 +84,9 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
               { char.dialogPopup.npcTextErr }
             </span>
           ) : null
-        }     
+        }   
+
+        <AddTemponaryPlayerDialog/>  
 
         <button 
           type="submit" 

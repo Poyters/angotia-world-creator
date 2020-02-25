@@ -86,7 +86,7 @@ const Dialog: React.FC<IDialog> = ({
           </span> { npc } 
         </p>
         { 
-          player.map((dialogData) => {
+          player.map(dialogData => {
             return (
               <div 
                 className="dialog__playerDialog" 
