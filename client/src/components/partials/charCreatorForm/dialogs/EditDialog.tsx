@@ -9,7 +9,7 @@ import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 
 //Import interfaces
-import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
@@ -31,6 +31,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const dispatch: Function = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData ? dialogData.npc : '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
 
   useEffect((): void => {
     if (
@@ -45,13 +46,21 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const submitHandler = (): void => {
     const updatedDialogs = dialogsData.map((dialog: IDialog) => {
       if (dialog.id === dialogId) {
-        dialog.npc = npcText;
+        dialog = {
+          ...dialog,
+          npc: npcText,
+          player: [
+            ...dialog.player,
+            ...temponaryPlayerDialogs
+          ]
+        };
       }
 
       return dialog;
     });
 
     dispatch(changeDialogs(updatedDialogs));
+    dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
     setActionNote('Edited dialog');
   };
