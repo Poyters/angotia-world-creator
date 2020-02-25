@@ -39,7 +39,6 @@ const AddTemponaryPlayerDialog: React.FC = () => {
       <nav className="playerDialogsHeader">
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
-    
         >
           { char.dialogPopup.playerDialogs }
         </header>

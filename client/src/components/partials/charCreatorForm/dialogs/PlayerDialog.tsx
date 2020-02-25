@@ -12,6 +12,7 @@ import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
+import Dialog from './Dialog';
 
 
 interface IPlayerDialog {
@@ -22,6 +23,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const { char } = useContext(ContentContext);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
+  const [action, setAction] = useState<string>('');
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
 
@@ -30,9 +32,9 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
         data.next = parseInt(next);
+        data.action = action;
       }
     });
-    console.log('here');
 
     dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
   };
@@ -42,7 +44,6 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
       if (dialog.id !== playerId) return dialog;
     });
 
-    console.log('here1');
     dispatch(changeTemponaryPlayerDialogs(filteredDialogs));
   };
 
@@ -59,6 +60,13 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
       <textarea
         value={newDialogText} 
         onChange={e => setNewDialogText(e.target.value)}
+        onMouseLeave={updateDialog}
+      />
+      <label className="insertPopup__label t-paragraph6Light">
+        { char.dialog.action }
+      </label>
+      <input 
+        onChange={e => setAction(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
