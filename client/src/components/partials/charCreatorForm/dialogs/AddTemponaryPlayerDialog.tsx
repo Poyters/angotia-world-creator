@@ -27,7 +27,8 @@ const AddTemponaryPlayerDialog: React.FC = () => {
         id: uuid(),
         dialog: '',
         next: -1,
-        action: ''
+        action: '',
+        condition: ''
       }
     ];
 

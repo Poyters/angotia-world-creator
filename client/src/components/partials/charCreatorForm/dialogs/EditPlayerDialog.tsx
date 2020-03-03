@@ -39,6 +39,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   const [dialogErr, setDialogErr] = useState<boolean>(false);
   const [next, setNext] = useState<string | number>(playerData ? playerData.next : '');
   const [action, setAction] = useState<string>(playerData ? playerData.action : '');
+  const [condition, setCondition] = useState<string>(playerData ? playerData.condition : '');
 
   useEffect((): void => {
     if (
@@ -63,7 +64,8 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           ...dlg.player[playerDataId],
           dialog,
           next,
-          action
+          action,
+          condition
         };
       }
 
@@ -139,6 +141,14 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         <input
           value={next} 
           onChange={e => setNext(e.target.value)}
+        />  
+
+        <label className="insertPopup__label t-paragraph6Light">
+          { char.editPlayer.condition }
+        </label>
+        <input
+          value={condition} 
+          onChange={e => setCondition(e.target.value)}
         />  
 
         <button 

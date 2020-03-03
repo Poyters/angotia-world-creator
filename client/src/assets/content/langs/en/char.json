@@ -57,7 +57,8 @@
     "playerId": "Player dialog ID:",
     "playerDialog": "Player dialog:",
     "action": "Action:",
-    "next": "Next dialog:"
+    "next": "Next dialog:",
+    "condition": "Condition:"
   },
   "dialogPopup": {
     "add": "Add new dialog",
@@ -75,8 +76,9 @@
     "playerDialog": "Player dialog",
     "playerDialogErr": "You need to type player dialog",
     "action": "Action",
-    "next": "Next dialog:",
-    "submit": "Submit"
+    "next": "Next dialog",
+    "submit": "Submit",
+    "condition": "Condition"
   },
   "monolog": {
     "id": "Monolog ID:",

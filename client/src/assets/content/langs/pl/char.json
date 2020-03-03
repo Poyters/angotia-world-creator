@@ -57,7 +57,8 @@
     "playerId": "Dialog gracza ID:",
     "playerDialog": "Dialog gracza:",
     "action": "Akcja:",
-    "next": "Następny dialog:"
+    "next": "Następny dialog:",
+    "condition": "Warunek:"
   },
   "dialogPopup": {
     "add": "Dodaj nowy dialog",
@@ -76,7 +77,8 @@
     "playerDialogErr": "Musisz wpisać dialog gracza",
     "action": "Akcja",
     "next": "Następny dialog",
-    "submit": "Potwierdź"
+    "submit": "Potwierdź",
+    "condition": "Warunek"
   },
   "monolog": {
     "id": "Monolog ID:",

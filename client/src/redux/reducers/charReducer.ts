@@ -23,12 +23,14 @@ const initState = {
           dialog: 'Mauris at blandit leo, id fermentum libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
           next: 2, //id of next npc dialog or 'exit' if exit
           action: '', //special event (not required); open shop etc
+          condition: 'TIME_MORE_THAN_21'
         },
         {
           id: 412,
           dialog: 'player response/dialog 1',
           next: 3, //id of next npc dialog or 'exit' if exit
           action: '', //special event (not required); open shop etc
+          condition: ''
         }
       ]
     },
@@ -41,6 +43,7 @@ const initState = {
           dialog: 'Show my ur shop',
           next: 1, //id of next npc dialog or 'exit' if exit
           action: 'OPEN_SHOP', //special event (not required); open shop etc
+          condition: ''
         }
       ]
     },
@@ -53,6 +56,7 @@ const initState = {
           dialog: 'Do not kill me, please!',
           next: 'exit', //id of next npc dialog or 'exit' if exit
           action: 'KILL_PLAYER', //special event (not required); open shop etc
+          condition: ''
         }
       ]
     },
@@ -64,7 +68,8 @@ const initState = {
           id: 52352,
           dialog: 'tfawf',
           next: 654,
-          action: ''
+          action: '',
+          condition: ''
         }
       ]
     },

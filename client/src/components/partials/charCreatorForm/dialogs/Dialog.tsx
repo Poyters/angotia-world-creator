@@ -112,6 +112,15 @@ const Dialog: React.FC<IDialog> = ({
                     </p>
                   ) : null
                 }
+                {
+                  dialogData.condition !== '' ? (
+                    <p> 
+                      <span className="t-paragraph5Light"> 
+                        { char.dialog.condition }
+                      </span> { dialogData.condition } 
+                    </p>
+                  ) : null
+                }
                 <p> 
                   <span className="t-paragraph5Light"> 
                     { char.dialog.next }
