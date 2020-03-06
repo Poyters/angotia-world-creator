@@ -58,11 +58,12 @@ export const colorBasedOnMatrix = (
                   ctx.drawImage(image, drawStartX, drawStartY);
                 }
                 else { //field size
-                  // Nie mogę tutaj operować tylko na index 0
+                  // Nie mogę tutaj operować tylko na index 0, a powinienem sprawdzac obszar i ustawiac w square, ktory jest x=0 i y=0
                   if (index === 0) {
                     ctx.drawImage(image, drawStartX, drawStartY);
                   } else {
                     console.log('here, index', index);
+                    ctx.drawImage(image, drawStartX, drawStartY);
                   }
                 }
               break;
