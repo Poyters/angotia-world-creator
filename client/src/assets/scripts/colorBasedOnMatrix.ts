@@ -20,6 +20,7 @@ export const colorBasedOnMatrix = (
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
 
+    // TODO: replace .map to forEach
     copyOfmatrix.map((yAxis: Array<number>, y:number) => {
       yAxis.map((field: number, x: number) => {
         const squareMatrix: Array<number> = [
