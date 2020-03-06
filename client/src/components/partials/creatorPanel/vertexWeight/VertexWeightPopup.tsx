@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
@@ -15,6 +15,9 @@ import {
     changeMapVertexWeights 
 } from '../../../../redux/actions/mapActions';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IVertexOption {
     closePopup: Function
@@ -22,6 +25,7 @@ interface IVertexOption {
 
 
 const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
+    const { notifications } = useContext(ContentContext);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
@@ -65,7 +69,7 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
             vertexWeightMatrix, 
             'mapVertexWeightCanvas', 
             changeMapVertexWeightMatrix, 
-            'Vertex weight added', 
+            notifications.options.vertex.add, 
             vertexWeightValue, 
             'vertexWeight'
         );

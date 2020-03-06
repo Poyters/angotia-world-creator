@@ -63,7 +63,7 @@ const PassageOption: React.FC = () => {
             passageMatrix, 
             'mapPassageCanvas', 
             changeMapPassageMatrix, 
-            notifications.options.passage.add, 
+            notifications.options.passage.delete, 
             '#fff', 
             ''
         );

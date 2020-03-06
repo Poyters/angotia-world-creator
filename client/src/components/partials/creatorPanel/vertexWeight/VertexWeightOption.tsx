@@ -63,7 +63,7 @@ const VertexWeightOption: React.FC = () => {
             vertexWeightMatrix, 
             'mapVertexWeightCanvas', 
             changeMapVertexWeightMatrix, 
-            notifications.options.vertex.add, 
+            notifications.options.vertex.delete, 
             '', 
             'vertexWeight'
         );

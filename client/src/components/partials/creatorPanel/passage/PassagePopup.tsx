@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import scripts
@@ -12,12 +12,16 @@ import {
     changeMapPassageLocations 
 } from '../../../../redux/actions/mapActions';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 interface IPassageOption {
     closePopup: Function
 }
 
 const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
+    const { notifications } = useContext(ContentContext);
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
@@ -54,7 +58,7 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
             passageMatrix, 
             'mapPassageCanvas', 
             changeMapPassageMatrix, 
-            'Passage added', 
+            notifications.options.passage.add, 
             '#fff', 
             ''
         );

@@ -28,11 +28,13 @@
     },
     "passage": {
       "select": "Najpierw zaznacz obszar",
-      "add": "Dodano przejście"
+      "add": "Dodano przejście",
+      "delete": "Skasowano przejście"
     },
     "vertex": {
       "select": "Najpierw zaznacz obszar",
-      "add": "Dodano wierzchołek wagi"
+      "add": "Dodano wierzchołek wagi",
+      "delete": "Skasowano wierzchołek wagi"
     }
   },
   "boardName": {

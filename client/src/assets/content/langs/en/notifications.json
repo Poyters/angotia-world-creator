@@ -28,11 +28,13 @@
     },
     "passage": {
       "select": "Need to select fields",
-      "add": "Passage added"
+      "add": "Passage added",
+      "delete": "Passage deleted"
     },
     "vertex": {
       "select": "Need to select fields",
-      "add": "Vertex weight added"
+      "add": "Vertex weight added",
+      "delete": "Vertex weight deleted"
     }
   },
   "boardName": {
