@@ -24,7 +24,7 @@ interface IDialogPopup {
 }
 
 const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const dialogId: string = uuid();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
@@ -51,7 +51,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     });
 
     dispatch(changeDialogs(dialogsData));
-    setActionNote('Add new dialog');
+    setActionNote(notifications.dialog.add);
   };
 
   const submitHandler = (): void => {

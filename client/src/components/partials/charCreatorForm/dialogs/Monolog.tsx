@@ -22,7 +22,7 @@ interface IMonologExplicit extends IMonolog {
 const Monolog: React.FC<IMonologExplicit> = (
   { id, content, togglePopup, setPopupData }
 ) => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
   const dispatch: Function = useDispatch();
 
@@ -32,7 +32,7 @@ const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
-    setActionNote('Deleted monolog');
+    setActionNote(notifications.monologs.delete);
   };
 
   const editMonolog = (): void => {

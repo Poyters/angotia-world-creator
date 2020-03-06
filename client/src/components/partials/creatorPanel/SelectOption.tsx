@@ -17,30 +17,30 @@ interface ISelectOption {
 
 
 const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
-  const { creator } = useContext(ContentContext);
+  const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
-  const dispatch = useDispatch();
+  const dispatch: Function = useDispatch();
 
   useEffect((): void => {
     switch(selectType) {
       case 0:
         dispatch(setMapSelectType('none'));
-        setActionNote('Select option is disable');
+        setActionNote(notifications.options.select.option);
       break;
       case 1:
         dispatch(setMapSelectType('square'));
-        setActionNote('Select square type is enable');
+        setActionNote(notifications.options.select.square);
       break;
       case 2: 
       dispatch(setMapSelectType('field'));
-        setActionNote('Select field type is enable');
+        setActionNote(notifications.options.select.field);
       break;
       case 3:
         dispatch(setMapSelectType('mouse'));
-        setActionNote('Select mouse type is enable');
+        setActionNote(notifications.options.select.mouse);
       break;
       default:
-        throw new Error('invalid selectType');
+        console.warn('Invalid selectType');
     }
   });
 

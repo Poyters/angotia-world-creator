@@ -27,7 +27,7 @@ interface IMonologPopup {
 const MonologPopup: React.FC<IMonologPopup> = (
   { togglePopup, monologData, setMonologData }
 ) => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
@@ -53,7 +53,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote('Added new monolog');
+    setActionNote(notifications.monologs.add);
   };
 
   const editMonolog = (): void => {
@@ -64,7 +64,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote('Edited monolog');
+    setActionNote(notifications.monologs.edit);
     if (setMonologData) setMonologData(null);
   };
 

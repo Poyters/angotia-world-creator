@@ -12,16 +12,16 @@ import { ContentContext } from '../../../Template';
 
 
 const DeleteBgOption: React.FC = () => {
-  const { creator } = useContext(ContentContext);
+  const { creator, notifications } = useContext(ContentContext);
   const dispatch = useDispatch();
 
   const deleteBg = (): void => {
     dispatch(setMapBg(''));
-    setActionNote('Deleted background image');
+    setActionNote(notifications.options.deleteBg.delete);
   };
 
   return (
-    <div className="option option--deleteBg" onClick={(): void => deleteBg()}>
+    <div className="option option--deleteBg" onClick={deleteBg}>
       <div 
         className="g-exitBtn" 
         data-tile={creator.panel.options.deleteBg.dataTitle}

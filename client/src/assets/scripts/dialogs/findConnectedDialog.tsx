@@ -23,7 +23,6 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     availableIds.push(charConfig.dialogExit);
   }
 
-  console.log(beginDialog, hasInvalidConditions(beginDialog));
   const isInvalid: boolean = connectedIds.some(el => !availableIds.includes(el)) || 
     hasInvalidConditions(beginDialog);
   if (isInvalid) connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);

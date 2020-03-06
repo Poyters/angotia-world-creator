@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 
 //Import actions
@@ -10,13 +10,17 @@ import { setActionNote } from '../../../../assets/scripts/notifications';
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
 
-interface IFSImageOption {
+
+interface IBoardNamePopup {
     closePopup: Function
 }
 
 
-const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
+    const { notifications } = useContext(ContentContext);
     const [mapName, setMapName] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
     const dispatch = useDispatch();
@@ -36,7 +40,7 @@ const BoardNamePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const insertImage = (): void => {
         dispatch(changeMapName(mapName));
         closePopup(false);
-        setActionNote('Changed map name');
+        setActionNote(notifications.boardName.change);
     };
 
     return (

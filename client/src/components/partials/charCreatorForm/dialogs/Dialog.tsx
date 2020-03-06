@@ -30,7 +30,7 @@ const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator=():void=>{}
 }) => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
@@ -49,7 +49,7 @@ const Dialog: React.FC<IDialog> = ({
     });
 
     dispatch(changeDialogs(filteredDialogs));
-    setActionNote('Deleted dialog');
+    setActionNote(notifications.dialogs.delete);
   };
 
   const openPlayerPopupHandler = (id: string): void => {

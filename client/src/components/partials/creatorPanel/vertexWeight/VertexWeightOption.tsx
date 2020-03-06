@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -21,11 +21,15 @@ import {
     changeMapVertexWeights 
 } from '../../../../redux/actions/mapActions';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 
 let pressedKey: string = '';
 document.addEventListener('keydown', event => pressedKey = event.key);
 
 const VertexWeightOption: React.FC = () => {
+    const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
@@ -34,7 +38,7 @@ const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote('Need to select fields', 'warning');
+            setActionNote(notifications.options.vertex.select, 'warning');
             return;
         }
 
@@ -59,7 +63,7 @@ const VertexWeightOption: React.FC = () => {
             vertexWeightMatrix, 
             'mapVertexWeightCanvas', 
             changeMapVertexWeightMatrix, 
-            'Vertex weight added', 
+            notifications.options.vertex.add, 
             '', 
             'vertexWeight'
         );

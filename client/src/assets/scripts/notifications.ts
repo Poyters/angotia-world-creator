@@ -16,7 +16,7 @@ export const setActionNote = (note: string, messageType?: string) => {
     case 'warning':
       notifications.style.color = '#af1a1a';
       setTimeout(
-          (): string => notifications.style.color = '#bbb', creatorConfig.actionNoteDelay + 500
+        (): string => notifications.style.color = '#bbb', creatorConfig.actionNoteDelay + 500
       ); // TODO replace 500 by animation time
     break;
   }

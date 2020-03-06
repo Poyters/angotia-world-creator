@@ -1,0 +1,41 @@
+{
+  "dialogs": {
+    "delete": "Skasowano dialog",
+    "add": "Dodano dialog",
+    "edit": "Edytowano dialog",
+    "player": {
+      "edit": "Edytowano dialog gracza",
+      "delete": "Skasowano dialog gracza"
+    }
+  },
+  "monologs": {
+    "delete": "Skasowano monolog",
+    "add": "Dodano monolog",
+    "edit": "Edytowano monolog"
+  },
+  "options": {
+    "block": {
+      "select": "Najpierw zaznacz obszar"
+    },
+    "deleteBg": {
+      "delete": "Skasowano obraz tła"
+    },
+    "select": {
+      "option": "Wyłączono narzędzie zaznaczania",
+      "square": "Włączono zaznaczanie kratkami",
+      "field": "Włączono zaznaczanie polami",
+      "mouse": "Włączono zaznaczanie myszą"
+    },
+    "passage": {
+      "select": "Najpierw zaznacz obszar",
+      "add": "Dodano przejście"
+    },
+    "vertex": {
+      "select": "Najpierw zaznacz obszar",
+      "add": "Dodano wierzchołek wagi"
+    }
+  },
+  "boardName": {
+    "change": "Zmieniono nazwę mapy"
+  }
+}

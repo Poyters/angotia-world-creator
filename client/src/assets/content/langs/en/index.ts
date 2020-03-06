@@ -10,6 +10,7 @@ import routes from './routes.json';
 import features from './features.json';
 import filesPanel from './filesPanel.json';
 import help from './help.json';
+import notifications from './notifications.json';
 
 
 export const enContent: Icontent = {
@@ -21,5 +22,6 @@ export const enContent: Icontent = {
   routes,
   features,
   filesPanel,
-  help
+  help,
+  notifications
 };

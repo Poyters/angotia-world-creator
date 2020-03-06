@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -15,6 +15,9 @@ import { setActionNote } from '../../../../assets/scripts/notifications';
 //Import components
 import PassagePopup from './PassagePopup';
 
+//Import contexts
+import { ContentContext } from '../../../../Template';
+
 //Import actions
 import { 
     changeMapPassageMatrix, 
@@ -26,6 +29,7 @@ let pressedKey: string = '';
 document.addEventListener('keydown', event => pressedKey = event.key);
 
 const PassageOption: React.FC = () => {
+    const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const passageMatrix = useSelector(state => state.map.passage.matrix);
@@ -34,7 +38,7 @@ const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote('Need to select fields', 'warning');
+            setActionNote(notifications.options.passage.select, 'warning');
             return;
         }
 
@@ -59,7 +63,7 @@ const PassageOption: React.FC = () => {
             passageMatrix, 
             'mapPassageCanvas', 
             changeMapPassageMatrix, 
-            'Passage added', 
+            notifications.options.passage.add, 
             '#fff', 
             ''
         );
@@ -72,7 +76,7 @@ const PassageOption: React.FC = () => {
             ) : null}
             <div 
                 className="passageOption" 
-                onClick={(): void => passageHandler()} 
+                onClick={passageHandler} 
                 data-title="add/delete passage"
             > </div>
         </Fragment>

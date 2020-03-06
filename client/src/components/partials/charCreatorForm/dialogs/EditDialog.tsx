@@ -24,7 +24,7 @@ interface IEditDialog {
 }
 
 const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
@@ -62,7 +62,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
-    setActionNote('Edited dialog');
+    setActionNote(notifications.dialog.edit);
   };
 
   return (

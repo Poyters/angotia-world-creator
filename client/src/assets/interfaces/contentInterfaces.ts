@@ -1,16 +1,17 @@
 export interface Icontent {
   lang: string,
-  char: Idig,
-  global: Idig,
-  entryPanel: Idig,
-  creator: Idig,
-  routes: Iroutes
-  features: Idig,
-  filesPanel: Idig
-  help: Idig
+  char: IDig,
+  global: IDig,
+  entryPanel: IDig,
+  creator: IDig,
+  routes: IRoutes
+  features: IDig,
+  filesPanel: IDig
+  help: IDig,
+  notifications: IDig
 }
 
-interface Iroutes {
+interface IRoutes {
   home: string,
   creator: string,
   char: string,
@@ -19,6 +20,6 @@ interface Iroutes {
   features: string
 }
 
-interface Idig {
+interface IDig {
   [key: string]: any
 }

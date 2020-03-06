@@ -17,14 +17,14 @@ import { ContentContext } from '../../../Template';
 
 
 const BlockOption = () => {
-	const { creator } = useContext(ContentContext);
+	const { creator, notifications } = useContext(ContentContext);
 	const blockMatrix = useSelector(state => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
 	const selectMatrix = useSelector(state => state.ui.select.matrix);
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
-			setActionNote('Need to select fields', 'warning');
+			setActionNote(notifications.options.block.select, 'warning');
 			return;
 		}
 		

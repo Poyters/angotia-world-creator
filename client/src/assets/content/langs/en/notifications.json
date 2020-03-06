@@ -1,0 +1,41 @@
+{
+  "dialogs": {
+    "delete": "Dialog deleted",
+    "add": "Dialog added",
+    "edit": "Dialog edited",
+    "player": {
+      "edit": "Player dialog edited",
+      "delete": "Player dialog deleted"
+    }
+  },
+  "monologs": {
+    "delete": "Monolog deleted",
+    "add": "Monolog added",
+    "edit": "Monolog edited"
+  },
+  "options": {
+    "block": {
+      "select": "Need to select fields"
+    },
+    "deleteBg": {
+      "delete": "Deleted background image"
+    },
+    "select": {
+      "option": "Select option is disable",
+      "square": "Select square type is enable",
+      "field": "Select field type is enable",
+      "mouse": "Select mouse type is enable"
+    },
+    "passage": {
+      "select": "Need to select fields",
+      "add": "Passage added"
+    },
+    "vertex": {
+      "select": "Need to select fields",
+      "add": "Vertex weight added"
+    }
+  },
+  "boardName": {
+    "change": "Changed map name"
+  }
+}

@@ -10,6 +10,7 @@ import routes from './routes.json';
 import features from './features.json';
 import filesPanel from './filesPanel.json';
 import help from './help.json';
+import notifications from './notifications.json';
 
 
 export const plContent: Icontent = {
@@ -21,5 +22,6 @@ export const plContent: Icontent = {
   routes,
   features,
   filesPanel,
-  help
+  help,
+  notifications
 };
