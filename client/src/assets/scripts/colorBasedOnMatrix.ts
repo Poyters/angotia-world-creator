@@ -58,8 +58,11 @@ export const colorBasedOnMatrix = (
                   ctx.drawImage(image, drawStartX, drawStartY);
                 }
                 else { //field size
+                  // Nie mogę tutaj operować tylko na index 0
                   if (index === 0) {
                     ctx.drawImage(image, drawStartX, drawStartY);
+                  } else {
+                    console.log('here, index', index);
                   }
                 }
               break;
