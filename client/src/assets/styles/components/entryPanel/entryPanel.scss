@@ -102,56 +102,6 @@
 
       text-align: center;
     }
-
-    & button {
-      flex: 0 1 auto;
-      position: relative;
-      margin: 0 20px; 
-      padding: 10px 20px;
-      
-      font-size: 0px;
-      text-transform: uppercase;
-      transition-duration: 0.3s;
-      font-weight: 700;
-      letter-spacing: 1px;
-
-      &:hover {
-        cursor: pointer;  
-        background-color: $decorationColor1;
-        color: $backgroundColor;
-
-        &:before {
-          border-color: transparent $decorationColor1 transparent transparent;
-        }
-
-        &:after {
-          border-color: transparent transparent transparent $decorationColor1;
-        }
-      }
-
-      &:before, &:after {
-        position: absolute;
-        content: '';
-        top: 0;
-        width: 0;
-        height: 0;
-
-        border-style: solid;
-        transition-duration: 300ms;
-      }
-
-      &:before {
-        left: -3px;
-        border-width: 0 4px 0px 0;
-        border-color: transparent $decorationColor transparent transparent;
-      }
-
-      &:after {
-        right: -3px;
-        border-width: 0px 0 0 4px;
-        border-color: transparent transparent transparent $decorationColor;
-      }
-    }
   }
 
   &__validationInfo {
