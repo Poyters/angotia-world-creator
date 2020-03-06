@@ -15,12 +15,22 @@ describe("isEmptyMatrix script", () => {
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
 	];
 
+	const notEmptyMatrixMix: any[] = [
+		[[[0.12222, '12412412'], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
+		[[[0, 0], [0, 0]], [[0, `araw`], [0, 0]], [[0, 0], [0, 0]]],
+		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 8]]]
+	];
+
+
 	it("Check if matrix is empty (it is)", () => {
     expect(isEmptyMatrix(emptyMatrix)).toBe(true);
 	});
 	
 	it("Check if matrix is empty (it isn't)", () => {
 		expect(isEmptyMatrix(notEmptyMatrix)).toBe(false);
-  });
-
+	});
+	
+	it("Check if matrix is empty (it isn't)/mixed types", () => {
+		expect(isEmptyMatrix(notEmptyMatrixMix)).toBe(false);
+	});
 });

@@ -7,8 +7,6 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 
 
-// const fieldSize: number = creatorConfig.map.fieldSize;
-// const squareSize: number = creatorConfig.map.fieldSize / 2;
 const blockSquaresColor = creatorConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
