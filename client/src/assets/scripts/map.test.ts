@@ -8,9 +8,7 @@ describe("generateEmptyMapMatrix script", () => {
     const newEmptyMatrix = generateEmptyMapMatrix();
 
     expect(isEmptyMatrix(newEmptyMatrix)).toBe(true);
-    expect(newEmptyMatrix.length).toEqual(15);
-    expect(newEmptyMatrix[0].length).toEqual(25);
+    expect(newEmptyMatrix.length).toEqual(8);
+    expect(newEmptyMatrix[0].length).toEqual(8);
 	});
-
-	
 });

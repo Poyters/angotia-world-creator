@@ -1,7 +1,7 @@
 export const initState = {
     size: {
-        x: 25,
-        y: 15
+        x: 8,
+        y: 8
     },
     mapPic: "",
     blockMatrix: [],

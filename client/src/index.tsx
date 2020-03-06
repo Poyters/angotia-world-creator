@@ -10,10 +10,14 @@ import App from './App';
 
 export const store = createStore(rootReducer);
 
+const runApp = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>, document.getElementById('root')
+  );
+};
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>, document.getElementById('root')
-);
+window.addEventListener('DOMContentLoaded', runApp, false);
+
 serviceWorker.unregister();

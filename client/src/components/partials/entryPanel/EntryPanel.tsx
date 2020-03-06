@@ -53,6 +53,7 @@ const EntryPanel: React.FC = () => {
       (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)
     ) {
       setValMess(
+        // eslint-disable-next-line max-len
         `Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`
       );
     }
@@ -110,7 +111,9 @@ const EntryPanel: React.FC = () => {
               changeValue={setMapY}
               id="yMapSize"
             />
-            <button onClick={mapSizeValidation}>start</button>
+            <div className="startBtn" onClick={mapSizeValidation}>
+              start
+            </div>
           </div>
           <span 
             id="validationInfo" 

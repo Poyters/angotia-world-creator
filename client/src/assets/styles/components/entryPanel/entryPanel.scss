@@ -192,3 +192,56 @@
     }
   }
 }
+
+.startBtn {
+  flex: 0 1 auto;
+  position: relative;
+  margin: 0 20px; 
+  padding: 0 20px;
+  
+  font-size: 12px;
+  text-transform: uppercase;
+  transition: 200ms ease-in-out;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background-color: $decorationColor;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;  
+    background-color: $decorationColor1;
+    color: $backgroundColor;
+
+    &:before {
+      border-color: transparent $decorationColor1 transparent transparent;
+    }
+
+    &:after {
+      border-color: transparent transparent transparent $decorationColor1;
+    }
+  }
+
+  &:before, &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 0;
+    height: 0;
+
+    border-style: solid;
+    transition: 200ms ease-in-out;
+  }
+  
+
+  &:before {
+    left: -3px;
+    border-width: 0 4px 35px 0;
+    border-color: transparent $decorationColor transparent transparent;
+  }
+
+  &:after {
+    right: -3px;
+    border-width: 35px 0 0 4px;
+    border-color: transparent transparent transparent $decorationColor;
+  }
+}
