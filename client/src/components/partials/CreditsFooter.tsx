@@ -14,6 +14,7 @@ const CreditsFooter: React.FC = () => {
     <footer className="t-paragraph2Light creditsFooter">
       <div className="creditsFooter__box">
         <a href={appConfig.author.link}>
+          {/*eslint-disable-next-line max-len*/}
           {`${global.footer.created} ${appConfig.author.name} @${appConfig.author.startedYear}-${currentYear}`}
         </a>
       </div>
