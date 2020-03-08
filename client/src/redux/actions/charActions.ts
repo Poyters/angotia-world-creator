@@ -49,3 +49,10 @@ export const setCharPic = (picPath: string) => {
     picPath
   };
 };
+
+export const changeStatistics = (newStats: string) => {
+  return {
+    type: 'CHANGE_STATISTICS',
+    newStats
+  };
+};

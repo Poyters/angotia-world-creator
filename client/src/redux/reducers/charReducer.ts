@@ -76,7 +76,11 @@ const initState = {
   ],
   temponaryPlayerDialogs: [],
   isAgressiveMob: false,
-  charPic: ''
+  charPic: '',
+  statistics: {
+    level: 1,
+    health: 1000
+  }
 };
 
 
@@ -117,6 +121,11 @@ export const charReducer = (state = initState, action) => {
         ...state,
         charPic: action.picPath
       };
+    case 'CHANGE_STATISTICS':
+        return {
+          ...state,
+          statistics: action.newStatistics
+        };
     default:
       return state;
   }
