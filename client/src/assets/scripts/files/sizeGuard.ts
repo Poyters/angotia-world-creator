@@ -3,7 +3,6 @@ import { setActionNote } from '../notifications';
 
 
 export const sizeGuard = (file: any, maxValue: number) => {
-  console.log(file, maxValue);
   if (!file || !file.size || !maxValue) {
     console.warn('Invalid properties in sizeGuard!');
     return false;

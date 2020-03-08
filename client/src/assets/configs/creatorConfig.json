@@ -25,8 +25,8 @@
         "mob"
     ],
     "maxPicsWeight": {
-        "background": 1000,
-        "mapTile": 30,
-        "char": 1000
+        "background": 200,
+        "mapTile": 10,
+        "char": 30
     }
 }

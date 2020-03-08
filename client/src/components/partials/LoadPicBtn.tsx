@@ -1,6 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+//Import configs
+import creatorConfig from '../../assets/configs/creatorConfig.json';
+
+//Import scripts
+import { sizeGuard } from '../../assets/scripts/files/sizeGuard';
+
 
 interface ILoadPicBtn {
   name: string,
@@ -12,8 +18,12 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
   const dispatch: Function = useDispatch();
 
   const handleFileSelect = (evt: any) => {
-    const f = evt.target.files[0]; 
+    const file = evt.target.files[0]; 
     const reader = new FileReader();
+
+    if (!sizeGuard(file, creatorConfig.maxPicsWeight.char)) {
+      return;
+    }
 
     reader.onload = (():any => {
       return e => {
@@ -23,7 +33,7 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
 
     })();
 
-    reader.readAsDataURL(f);
+    reader.readAsDataURL(file);
   };
 
   return (
