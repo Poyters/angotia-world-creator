@@ -7,6 +7,9 @@ import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
+//Import scripts
+import { sizeGuard } from '../../../../assets/scripts/files/sizeGuard';
+
 
 interface IFSImageOption {
     closePopup: Function
@@ -23,6 +26,10 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const handleFileSelect = (evt: any) => {
         const file = evt.target.files[0]; 
         const reader = new FileReader();
+
+        if (!sizeGuard(file, creatorConfig.maxPicsWeight.mapTile)) {
+            return;
+        }
     
         reader.onload = (():any => {
           return (e) => {

@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 
 //Import scripts
-import { saveFile } from '../../../assets/scripts/saveFile';
+import { saveFile } from '../../../assets/scripts/files/saveFile';
 
 //Import contexts
 import { ContentContext } from '../../../Template';

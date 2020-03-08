@@ -26,7 +26,7 @@
     ],
     "maxPicsWeight": {
         "background": 1000,
-        "mapTile": 500,
+        "mapTile": 30,
         "char": 1000
     }
 }
