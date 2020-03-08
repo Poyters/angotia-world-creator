@@ -9,6 +9,10 @@ import { setMapBg } from '../../../redux/actions/mapActions';
 
 //Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';
+import { sizeGuard } from '../../../assets/scripts/files/sizeGuard';
+
+// Import configs
+import creatorConfig from '../../../assets/configs/creatorConfig.json';
 
 
 const AddFileOption: React.FC = () => {
@@ -17,8 +21,12 @@ const AddFileOption: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleFileSelect = (evt: any) => {
-    const f = evt.target.files[0]; 
+    const file = evt.target.files[0]; 
     const reader = new FileReader();
+
+    if (!sizeGuard(file, creatorConfig.maxPicsWeight.background)) { // Pic is too weight
+      return true;
+    }
 
     reader.onload = (():any => {
       return e => {
@@ -28,7 +36,7 @@ const AddFileOption: React.FC = () => {
 
     })();
 
-    reader.readAsDataURL(f);
+    reader.readAsDataURL(file);
     setActionNote("Added background image");
   };
 

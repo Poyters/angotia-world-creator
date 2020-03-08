@@ -23,5 +23,10 @@
         "subsoil",
         "npc",
         "mob"
-    ]
+    ],
+    "maxPicsWeight": {
+        "background": 1000,
+        "mapTile": 500,
+        "char": 1000
+    }
 }
