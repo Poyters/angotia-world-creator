@@ -10,6 +10,11 @@ import creatorConfig from '../configs/creatorConfig.json';
 export const setActionNote = (note: string, messageType?: string) => {
   const notifications: any = document.getElementById('notifications');
 
+  if (!notifications) { 
+    console.warn('Cannot get notifications placeholder!');
+    return;
+  }
+
   store.dispatch(setNotification(note));
 
   switch(messageType) {
