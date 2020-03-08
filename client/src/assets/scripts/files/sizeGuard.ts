@@ -2,10 +2,10 @@
 import { setActionNote } from '../notifications';
 
 
-export const sizeGuard = (file: any, maxValue: number) => {
+export const sizeGuard = (file: any, maxValue: number): boolean | null => {
   if (!file || !file.size || !maxValue) {
     console.warn('Invalid properties in sizeGuard!');
-    return;
+    return null;
   }
 
 

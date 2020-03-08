@@ -10,19 +10,23 @@ describe("sizeGuard script", () => {
     expect(typeof sizeGuard).toBe('function');
   });
 
-	it("sizeGuard work without crashes", () => {
+	it("Work without crashes", () => {
     sizeGuard(fakeFile, 500);
   });
 
-  it("sizeGuard allow add image", () => {
+  it("Allow add image", () => {
     expect(sizeGuard(fakeFile, 550)).toBe(true);
   });
 
-  it("sizeGuard doesn't allow add image/equal", () => { // equal case
+  it("Doesn't allow add image/equal", () => { // equal case
     expect(sizeGuard(fakeFile, 500)).toBe(false); // file.size should be smaller than guard value
   });
 
-  it("sizeGuard doesn't allow add image/smaller", () => {
+  it("Doesn't allow add image/smaller", () => {
     expect(sizeGuard(fakeFile, 450)).toBe(false);
+  });
+
+  it("Doesn't allow add image/invalid props", () => {
+    expect(sizeGuard({}, 100)).toBe(null);
   });
 });
