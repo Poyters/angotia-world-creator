@@ -58,7 +58,7 @@ const Dialog: React.FC<IDialog> = ({
   };
 
   return (
-    <React.Fragment>
+    <>
       { isDialogPopup ? ReactDOM.createPortal(
         <EditDialog dialogId={id} closePopup={setIsDialogPopup}/>, document.body
       ) : null}
@@ -135,7 +135,7 @@ const Dialog: React.FC<IDialog> = ({
           onClick={():void => deleteDialog(id)}
         > </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

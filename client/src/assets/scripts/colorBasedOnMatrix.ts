@@ -63,7 +63,7 @@ export const colorBasedOnMatrix = (
                     ctx.drawImage(image, drawStartX, drawStartY);
                   } else {
                     console.log('here, index', index);
-                    ctx.drawImage(image, drawStartX, drawStartY);
+                    // ctx.drawImage(image, drawStartX, drawStartY);
                   }
                 }
               break;

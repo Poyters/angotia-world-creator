@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
@@ -163,7 +163,7 @@ const FilesPanel: React.FC = () => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<div 
 				className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
@@ -207,7 +207,7 @@ const FilesPanel: React.FC = () => {
 					</div>
 				</div>
 			</aside>
-		</Fragment>
+		</>
 	);
 };
 

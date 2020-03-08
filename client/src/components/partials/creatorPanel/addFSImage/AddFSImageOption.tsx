@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 
 //Import components
@@ -13,7 +13,7 @@ const AddFSImageOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
 
     return (
-        <Fragment>
+        <>
             { isPopup ? ReactDOM.createPortal(
                 <AddFSImagePopup closePopup={setIsPopup}/>, document.body
             ) : null}
@@ -27,7 +27,7 @@ const AddFSImageOption: React.FC = () => {
 
                 </div>
             </div>
-        </Fragment>
+        </>
     );
 };
 

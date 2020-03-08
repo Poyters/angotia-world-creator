@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
@@ -36,7 +36,7 @@ const AddTemponaryPlayerDialog: React.FC = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <nav className="playerDialogsHeader">
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
@@ -59,7 +59,7 @@ const AddTemponaryPlayerDialog: React.FC = () => {
           })
         }
       </div>   
-    </Fragment>        
+    </>        
   );
 };
 

@@ -14,8 +14,8 @@ describe("CreditsFooter component", () => {
     <MockContent.Provider value={content}>
       <CreditsFooter />
     </MockContent.Provider>
-	);
-
+  );
+  
 	it("Render CreditsFooter component without errors", () => {
     expect(creditsFooter.exists()).toBe(true);
   });

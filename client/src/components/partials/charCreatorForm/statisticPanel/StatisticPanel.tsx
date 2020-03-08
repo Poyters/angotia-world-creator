@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
@@ -25,7 +25,7 @@ const StaticticPanel: React.FC = () => {
 	};
 
 	return (
-		<Fragment>
+		<>
 			<div 
 				className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 				onClick={(): void => dispatch(toggleStatisticPanel(true))}
@@ -78,7 +78,7 @@ const StaticticPanel: React.FC = () => {
 					</div>
 				</div>
 			</aside>
-		</Fragment>
+		</>
 	);
 };
 

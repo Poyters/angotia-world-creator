@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 
@@ -27,7 +27,7 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
   };
 
   return (
-    <Fragment>
+    <>
       <label 
         className="g-cornerButton t-paragraph5Normal"
         htmlFor="file"
@@ -43,7 +43,7 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
         name="files[]" 
         onChange={evt => handleFileSelect(evt)}
       />
-    </Fragment>
+    </>
   );
 };
 

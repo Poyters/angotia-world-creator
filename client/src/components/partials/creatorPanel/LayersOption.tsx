@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
 
@@ -72,7 +72,7 @@ const LayersOption: React.FC = () => {
     };
 
     return (
-        <Fragment>
+        <>
             <div 
                 role="button" 
                 className="option option--textOption option--layers" 
@@ -92,7 +92,7 @@ const LayersOption: React.FC = () => {
                 </li>
                 { layersToRender }
             </ul>
-        </Fragment>
+        </>
     );
 };
 

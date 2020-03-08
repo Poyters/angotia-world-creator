@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +11,7 @@ const BoardNameOption: React.FC = () => {
     const mapName = useSelector(state => state.ui.mapName);
 
     return (
-        <Fragment>
+        <>
             { isPopup ? ReactDOM.createPortal(
                 <BoardNamePopup closePopup={setIsPopup}/>, document.body
             ) : null}
@@ -25,7 +25,7 @@ const BoardNameOption: React.FC = () => {
                     { mapName }
                 </span>
 			</div>
-        </Fragment>
+        </>
     );
 };
 

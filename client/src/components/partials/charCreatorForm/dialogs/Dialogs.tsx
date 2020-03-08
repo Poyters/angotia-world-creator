@@ -40,7 +40,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   };
 
   return (
-    <React.Fragment>
+    <>
       { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
         <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData} setMonologData={setMonologData}/>, document.body
       ) : null}
@@ -101,7 +101,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           ) : null
         }
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

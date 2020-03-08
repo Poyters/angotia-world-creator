@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -70,7 +70,7 @@ const PassageOption: React.FC = () => {
     };
 
     return (
-        <Fragment>
+        <>
             { isPopup ? ReactDOM.createPortal(
                 <PassagePopup closePopup={setIsPopup}/>, document.body
             ) : null}
@@ -79,7 +79,7 @@ const PassageOption: React.FC = () => {
                 onClick={passageHandler} 
                 data-title="add/delete passage"
             > </div>
-        </Fragment>
+        </>
     );
 };
 

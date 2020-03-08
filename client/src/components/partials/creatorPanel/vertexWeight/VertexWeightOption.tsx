@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -70,7 +70,7 @@ const VertexWeightOption: React.FC = () => {
     };
 
     return (
-        <Fragment>
+        <>
             { isPopup ? ReactDOM.createPortal(
                 <VertexWeightPopup closePopup={setIsPopup}/>, document.body
             ) : null}
@@ -86,7 +86,7 @@ const VertexWeightOption: React.FC = () => {
 					</div>
 				</div>
 			</div>
-        </Fragment>
+        </>
     );
 };
 

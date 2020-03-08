@@ -35,7 +35,7 @@ const AddFileOption: React.FC = () => {
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
 
   return (
-    <React.Fragment>
+    <>
       <input 
         className="option option--addFile" 
         type="file" 
@@ -48,7 +48,7 @@ const AddFileOption: React.FC = () => {
         htmlFor="file" 
         data-title={creator.panel.options.addFile.dataTitle}
       > </label>
-    </React.Fragment>
+    </>
   );
 };
 
