@@ -49,5 +49,3 @@ export const toggleStatisticPanel = (isOpen: boolean) => {
         isOpen
     };
 };
-
-

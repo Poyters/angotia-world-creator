@@ -79,7 +79,9 @@ const initState = {
   charPic: '',
   statistics: {
     level: 1,
-    health: 1000
+    health: 1000,
+    attack: 0,
+    defence: 0
   }
 };
 
@@ -122,9 +124,10 @@ export const charReducer = (state = initState, action) => {
         charPic: action.picPath
       };
     case 'CHANGE_STATISTICS':
+      console.log(action.newStats);
         return {
           ...state,
-          statistics: action.newStatistics
+          statistics: action.newStats
         };
     default:
       return state;

@@ -1,3 +1,5 @@
+import { store } from '../../index';
+
 //Import interfaces
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogsInterfaces';
 
@@ -50,7 +52,12 @@ export const setCharPic = (picPath: string) => {
   };
 };
 
-export const changeStatistics = (newStats: string) => {
+
+export const changeStatistics = (key: string, value: string) => {
+  const statistics = store.getState().char.statistics;
+  const newStats = Object.assign({}, statistics);
+  newStats[key] = value;
+
   return {
     type: 'CHANGE_STATISTICS',
     newStats

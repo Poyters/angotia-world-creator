@@ -14,7 +14,8 @@ import {
   changeCharType, 
   changeChar, 
   isAgressiveMob, 
-  setCharPic 
+  setCharPic, 
+  changeStatistics
 } from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
@@ -55,18 +56,26 @@ const CreatorForm: React.FC = () => {
               <CharInputField
                 label={char.form.inputs.lvl}
                 inputValue={1}
+                action={changeStatistics}
+                payloadId='level'
               />
               <CharInputField
                 label={char.form.inputs.health}
                 inputValue={1000}
+                action={changeStatistics}
+                payloadId='health'
               />
               <CharInputField
                 label='Attack'
                 inputValue={0}
+                action={changeStatistics}
+                payloadId='attack'
               />
               <CharInputField
                 label='Defence'
                 inputValue={0}
+                action={changeStatistics}
+                payloadId='defence'
               />
               <CornerButton 
                 name={char.form.addStatBtn}

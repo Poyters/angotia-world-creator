@@ -8,19 +8,25 @@ interface ICharInputField {
   inputValue?: string | number
   inputDisabled?: boolean,
   action?: Function,
-  id?: string
+  payloadId?: any
 }
 
 const CharInputField: React.FC<ICharInputField> = (
-  { label, inputType='text', inputValue='', inputDisabled=false, action, id='' }
+  { label, inputType='text', inputValue='', inputDisabled=false, action, payloadId }
 ) => {
   const [currValue, setCurrValue] = useState<string | number>(inputValue);
   const dispatch = useDispatch();
 
   const actionHandler = () => {
     if (!action) return;
+    console.log(action, payloadId, currValue);
 
-    dispatch(action(id));
+
+    if (payloadId) {
+      dispatch(action(payloadId, currValue));
+    } else {
+      dispatch(action(currValue));
+    }
   };
 
   return (
