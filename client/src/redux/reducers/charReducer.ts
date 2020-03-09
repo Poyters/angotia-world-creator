@@ -81,7 +81,13 @@ const initState = {
     level: 1,
     health: 1000,
     attack: 0,
-    defence: 0
+    defence: 0,
+    strength: 0,
+    dexterity: 0,
+    inteligence: 0,
+    jink: 0,
+    speed: 0,
+    attackRange: 0
   }
 };
 
