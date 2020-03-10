@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
 const initState = {
+  name: '',
+  id: '',
   type: '',
   choosed: '',
   moveType: '',
@@ -130,11 +132,20 @@ export const charReducer = (state = initState, action) => {
         charPic: action.picPath
       };
     case 'CHANGE_STATISTICS':
-      console.log(action.newStats);
-        return {
-          ...state,
-          statistics: action.newStats
-        };
+      return {
+        ...state,
+        statistics: action.newStats
+      };
+    case 'CHANGE_NAME':
+      return {
+        ...state,
+        name: action.newName
+      };
+    case 'SET_ID':
+      return {
+        ...state,
+        id: action.newId
+      };
     default:
       return state;
   }

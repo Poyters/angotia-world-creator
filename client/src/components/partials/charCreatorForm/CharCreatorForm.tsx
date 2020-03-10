@@ -15,7 +15,8 @@ import {
   changeChar, 
   isAgressiveMob, 
   setCharPic, 
-  changeStatistics
+  changeStatistics,
+  changeName
 } from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
@@ -47,6 +48,7 @@ const CreatorForm: React.FC = () => {
             <div className="charFormPanel charFormPanel--left">
               <CharInputField
                 label={char.form.inputs.name}
+                action={changeName}
               />
               <CharInputField
                 label={char.form.inputs.id}
