@@ -21,10 +21,12 @@ const VisibilityOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator.panel.options.addFSImage.dataTitle}
+                data-title={'player visibility range'}
             >
-                <div className="addFSImageOption">
-
+                <div className="visibilityOption">
+                    <div className="visibilityOption__range"> 
+                        3 
+                    </div>
                 </div>
             </div>
         </>

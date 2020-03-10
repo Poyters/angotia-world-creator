@@ -1,0 +1,20 @@
+.visibilityOption {
+  display: flex;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px solid $decorationColor4;
+  border-radius: 50%;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    border: 2px solid $decorationColor1;
+  }
+
+  &__range {
+    font-size: 9px;
+  }
+}

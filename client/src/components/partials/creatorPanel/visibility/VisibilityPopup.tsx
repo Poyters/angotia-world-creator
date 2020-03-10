@@ -7,12 +7,12 @@ import { ContentContext } from '../../../../Template';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 
 
-interface IFSImageOption {
+interface IVisibilityPopup {
     closePopup: Function
 }
 
 
-const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
     const dafaultRange = creatorConfig.visibility.default.toString();
     const { creator } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
