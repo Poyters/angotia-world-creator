@@ -28,5 +28,10 @@
         "background": 200,
         "mapTile": 10,
         "char": 30
+    },
+    "visibility": {
+        "min": 3,
+        "max": 30,
+        "default": 8
     }
 }

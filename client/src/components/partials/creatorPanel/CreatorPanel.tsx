@@ -17,6 +17,7 @@ import SaveOption from './SaveOption';
 import DeleteBgOption from './DeleteBgOption';
 import AddFSImageOption from './addFSImage/AddFSImageOption';
 import BoardNameOption from './boardName/BoardNameOption';
+import VisibilityOption from './visibility/VisibilityOption';
 
 //Import actions
 import { 
@@ -112,6 +113,9 @@ const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <AddFSImageOption />
+        </li>
+        <li>
+          <VisibilityOption />
         </li>
       </ul>
     </nav>
