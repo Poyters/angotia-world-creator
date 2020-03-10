@@ -26,10 +26,10 @@ import { ContentContext } from '../../../Template';
 
 const CreatorForm: React.FC = () => {
   const { char } = useContext(ContentContext);
-  const charId: string = uuid();
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charPicPath: string = useSelector(state => state.char.charPic);
   const charType: string = useSelector(state => state.char.type);
+  const charId: string = useSelector(state => state.char.id);
   const dispatch: Function = useDispatch();
 
   const charPicStyles = {

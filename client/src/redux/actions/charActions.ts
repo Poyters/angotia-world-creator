@@ -68,8 +68,3 @@ export const changeName = (newName: string) => ({
   type: 'CHANGE_NAME',
   newName
 });
-
-export const setId = (newId: string) => ({
-  type: 'SET_ID',
-  newId
-});

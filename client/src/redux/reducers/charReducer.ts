@@ -1,7 +1,9 @@
+import uuid from 'uuid/v4';
+
 /* eslint-disable max-len */
 const initState = {
   name: '',
-  id: '',
+  id: uuid(),
   type: '',
   choosed: '',
   moveType: '',
@@ -95,6 +97,7 @@ const initState = {
 
 
 export const charReducer = (state = initState, action) => {
+  console.log(state);
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -140,11 +143,6 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         name: action.newName
-      };
-    case 'SET_ID':
-      return {
-        ...state,
-        id: action.newId
       };
     default:
       return state;
