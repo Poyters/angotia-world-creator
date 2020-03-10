@@ -1,4 +1,9 @@
+// Import configs
+import creatorConfig from '../../assets/configs/creatorConfig.json';
+
+
 export const initState = {
+    visibilityRange: creatorConfig.visibility.default,
     size: {
         x: 8,
         y: 8
@@ -124,6 +129,11 @@ export const mapReducer = (state = initState, action) => {
         case 'LOAD_MAP_DATA':
             return {
                 ...action.mapData
+            };
+        case 'SET_VISIBILITY_RANGE':
+            return {
+                ...state,
+                visibilityRange: action.newRange
             };
         default:
             return state;

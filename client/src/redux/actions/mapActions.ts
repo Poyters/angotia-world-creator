@@ -92,3 +92,8 @@ export const loadMapData = (mapData) => {
         mapData
     };
 };
+
+export const setVisibilityRange = (newRange: number) => ({
+    type: 'SET_VISIBILITY_RANGE',
+    newRange
+});

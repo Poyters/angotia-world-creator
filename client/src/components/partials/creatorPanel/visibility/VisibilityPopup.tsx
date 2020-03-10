@@ -1,10 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
+
+//Import actions
+import { setVisibilityRange } from '../../../../redux/actions/mapActions';
 
 
 interface IVisibilityPopup {
@@ -17,6 +21,7 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
     const { creator } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
     const [visibility, setVisibility] = useState<string>(dafaultRange);
+    const dispatch = useDispatch();
 
     useEffect((): void => {
         if (
@@ -30,6 +35,10 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
 
     }, [visibility]);
 
+    const sumbitHandler = (): void => {
+        dispatch(setVisibilityRange(parseInt(visibility)));
+        closePopup(false);
+    };
 
     return (
         <div className="g-container g-container--popup">
@@ -59,7 +68,8 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    // onClick={(): void => insertImage()} disabled={!isLoadedImage}
+                    onClick={sumbitHandler}
+                    disabled={error}
                 > 
                     {creator.panel.options.addFSImage.submit} 
                 </button>

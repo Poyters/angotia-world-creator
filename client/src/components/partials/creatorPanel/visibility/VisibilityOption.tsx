@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { useSelector } from 'react-redux';
 
 //Import components
 import VisibilityPopup from './VisibilityPopup';
@@ -11,6 +12,7 @@ import { ContentContext } from '../../../../Template';
 const VisibilityOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
+    const range: number = useSelector(state => state.map.visibilityRange);
 
     return (
         <>
@@ -25,7 +27,7 @@ const VisibilityOption: React.FC = () => {
             >
                 <div className="visibilityOption">
                     <div className="visibilityOption__range"> 
-                        3 
+                        { range }
                     </div>
                 </div>
             </div>
