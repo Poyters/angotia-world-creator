@@ -4,6 +4,7 @@ import uuid from 'uuid/v4';
 const initState = {
   name: '',
   id: uuid(),
+  fieldDiameter: 0,
   type: '',
   choosed: '',
   moveType: '',
@@ -97,7 +98,6 @@ const initState = {
 
 
 export const charReducer = (state = initState, action) => {
-  console.log(state);
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -143,6 +143,11 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         name: action.newName
+      };
+    case 'CHANGE_FIELD_DIAMETER':
+      return {
+        ...state,
+        fieldDiameter: action.newDiameter
       };
     default:
       return state;

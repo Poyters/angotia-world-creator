@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import uuid from 'uuid/v4';
 
 //Import components
 import CharInputField from './CharInputField';
@@ -16,7 +15,8 @@ import {
   isAgressiveMob, 
   setCharPic, 
   changeStatistics,
-  changeName
+  changeName,
+  changeFieldDiameter
 } from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 
@@ -117,6 +117,7 @@ const CreatorForm: React.FC = () => {
               { charType === char.form.charType.movingId ? (
                 <CharInputField
                   label={char.form.charType.movingField}
+                  action={changeFieldDiameter}
                 />
                 ) : null
               }           

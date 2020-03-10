@@ -53,7 +53,7 @@ export const setCharPic = (picPath: string) => {
 };
 
 
-export const changeStatistics = (key: string, value: string) => {
+export const changeStatistics = (key: string, value: string | number) => {
   const statistics = store.getState().char.statistics;
   const newStats = Object.assign({}, statistics);
   newStats[key] = value;
@@ -67,4 +67,9 @@ export const changeStatistics = (key: string, value: string) => {
 export const changeName = (newName: string) => ({
   type: 'CHANGE_NAME',
   newName
+});
+
+export const changeFieldDiameter = (newDiameter: number) => ({
+  type: 'CHANGE_FIELD_DIAMETER',
+  newDiameter
 });

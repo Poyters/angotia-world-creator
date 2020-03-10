@@ -19,8 +19,6 @@ const CharInputField: React.FC<ICharInputField> = (
 
   const actionHandler = () => {
     if (!action) return;
-    console.log(action, payloadId, currValue);
-
 
     if (payloadId) {
       dispatch(action(payloadId, currValue));
