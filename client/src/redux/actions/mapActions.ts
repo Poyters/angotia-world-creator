@@ -23,6 +23,13 @@ export const changeMapBlockMatrix = (newMatrix: Array<any>) => {
     };
 };
 
+export const setVisibilityRange = (range: number) => {
+    return {
+        type: 'SET_VISIBILITY_RANGE',
+        range
+    };
+};
+
 export const changeMapPassageMatrix = (newMatrix: Array<any>) => {
     return {
         type: 'CHANGE_MAP_PASSAGE_MATRIX',

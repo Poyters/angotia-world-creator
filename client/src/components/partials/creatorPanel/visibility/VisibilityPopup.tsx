@@ -1,10 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
 
 //Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
+
+//Import actions
+import { setVisibilityRange } from '../../../../redux/actions/mapActions';
+
+//Import scripts
+import { setActionNote } from '../../../../assets/scripts/notifications';
 
 
 interface IFSImageOption {
@@ -13,10 +20,11 @@ interface IFSImageOption {
 
 
 const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
-    const dafaultRange = creatorConfig.visibility.default.toString();
-    const { creator } = useContext(ContentContext);
+    const dafaultRange: string = useSelector(state => state.map.visibilityRange);
+    const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
     const [visibility, setVisibility] = useState<string>(dafaultRange);
+    const dispatch = useDispatch();
 
     useEffect((): void => {
         if (
@@ -31,9 +39,10 @@ const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     }, [visibility]);
 
     const submitVisibility = ():void => {
-
+        dispatch(setVisibilityRange(parseInt(visibility)));
+        closePopup(false);
+        setActionNote(notifications.visibility.change);
     }
-
 
     return (
         <div className="g-container g-container--popup">

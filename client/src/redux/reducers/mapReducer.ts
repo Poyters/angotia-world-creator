@@ -29,7 +29,8 @@ export const initState = {
     vertex: {
         matrix: [],
         weights: []
-    }
+    },
+    visibilityRange: 8
 };
 
 export const mapReducer = (state = initState, action) => {
@@ -124,6 +125,11 @@ export const mapReducer = (state = initState, action) => {
         case 'LOAD_MAP_DATA':
             return {
                 ...action.mapData
+            };
+        case 'SET_VISIBILITY_RANGE':
+            return {
+                ...state,
+                visibilityRange: action.range
             };
         default:
             return state;
