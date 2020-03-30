@@ -43,6 +43,13 @@
         "error": "You need to choose pic",
         "category": "Select category",
         "submit": "submit"
+      },
+      "visibility": {
+        "dataTitle": "set player visibility range",
+        "title": "Set player visibility range",
+        "desc": "range (fields)",
+        "error": "Type proper value (number)",
+        "submit": "submit"
       }
     }
   }

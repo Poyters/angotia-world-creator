@@ -21,11 +21,9 @@ const VisibilityOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator.panel.options.addFSImage.dataTitle}
+                data-title={creator.panel.options.visibility.dataTitle}
             >
-                <div className="visibilityOption">
-
-                </div>
+                <div className="visibilityOption"> </div>
             </div>
         </>
     );
