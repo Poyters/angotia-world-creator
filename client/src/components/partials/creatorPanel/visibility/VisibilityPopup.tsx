@@ -30,6 +30,10 @@ const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
     }, [visibility]);
 
+    const submitVisibility = ():void => {
+
+    }
+
 
     return (
         <div className="g-container g-container--popup">
@@ -59,7 +63,8 @@ const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    // onClick={(): void => insertImage()} disabled={!isLoadedImage}
+                    onClick={submitVisibility} 
+                    disabled={error}
                 > 
                     {creator.panel.options.addFSImage.submit} 
                 </button>

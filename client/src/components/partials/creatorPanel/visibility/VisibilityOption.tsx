@@ -23,7 +23,7 @@ const VisibilityOption: React.FC = () => {
                 onClick={(): void => setIsPopup(true)} 
                 data-title={creator.panel.options.addFSImage.dataTitle}
             >
-                <div className="addFSImageOption">
+                <div className="visibilityOption">
 
                 </div>
             </div>

@@ -1,0 +1,44 @@
+.visibilityOption {
+    position: relative;
+    width: 20px; 
+    height: 20px;
+    margin-left: 3px;
+
+    border-radius: 50%;
+    background: 
+      linear-gradient(36deg, $decorationColor6 42.34%, transparent 42.34%) 0 0,
+      linear-gradient(72deg, $decorationColor6 75.48%, transparent 75.48%) 0 0,
+      transparent linear-gradient(transparent, transparent) 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    border: 1px solid $decorationColor6;
+    transition: 200ms ease-in-out;
+
+    &:hover {
+        background: 
+            linear-gradient(36deg, $decorationColor1 42.34%, transparent 42.34%) 0 0,
+            linear-gradient(72deg, $decorationColor1 75.48%, transparent 75.48%) 0 0,
+            transparent linear-gradient(transparent, transparent) 50% 100%;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        border: 1px solid $decorationColor1;
+
+        &:after {
+            background-color: $decorationColor1;
+        }
+    }
+
+    &:after {
+        position: absolute;
+        content: '';
+        top: 7px; 
+        left: 7px;
+        width: 6px; 
+        height: 6px;
+
+        border-radius: 50%;
+        background-color: $decorationColor6;
+        transition: 200ms ease-in-out;
+    }
+  }
+  
