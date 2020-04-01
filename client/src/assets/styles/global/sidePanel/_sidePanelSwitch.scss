@@ -22,6 +22,11 @@
         left: 0;
     }
 
+    &--charSettingsPanel {
+        top: calc(50% - 70px);
+        left: 0;
+    }
+
     &--filesPanel {
         top: calc(50% - 20px);
         right: 0;

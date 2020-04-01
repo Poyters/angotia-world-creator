@@ -8,6 +8,10 @@
 //Import global component styles
 @import './global/_cornerButton.scss';
 
+@import './global/sidePanel/sidePanel.scss';
+@import './global/sidePanel/sidePanelSwitch.scss';
+@import './global/sidePanel/sidePanelWrapper.scss';
+
 //Import components view styles
 @import './views/_notFound.scss';
 @import './views/_textView.scss';
@@ -24,10 +28,6 @@
 @import './components/_labelMark.scss';
 @import './components/_insertPopup.scss';
 @import './components/_optionsPanel.scss';
-
-@import './components/sidePanel/sidePanel.scss';
-@import './components/sidePanel/sidePanelSwitch.scss';
-@import './components/sidePanel/sidePanelWrapper.scss';
 
 @import './components/entryPanel/entryPanel.scss';
 

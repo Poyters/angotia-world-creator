@@ -8,6 +8,7 @@ import VersionMark from '../partials/VersionMark';
 import ReportIssue from '../partials/ReportIssue';
 import CharCreatorForm from '../partials/charCreatorForm/CharCreatorForm';
 import StatisticPanel from '../partials/charCreatorForm/statisticPanel/StatisticPanel';
+import CharSettingsPanel from '../partials/charCreatorForm/CharSettingsPanel';
 
 
 const CharCreator: React.FC = () => {
@@ -16,6 +17,7 @@ const CharCreator: React.FC = () => {
       <CharPanel />
       <CharCreatorForm />
       <StatisticPanel />
+      <CharSettingsPanel />
       <CreditsFooter />
       <Notifications />
       <VersionMark />
