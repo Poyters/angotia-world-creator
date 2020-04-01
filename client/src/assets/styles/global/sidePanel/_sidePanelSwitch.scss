@@ -1,8 +1,8 @@
 .g-sidePanelSwitch {
     position: absolute;
     display: flex;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     align-items: center;
     z-index: 11;
 
@@ -18,7 +18,7 @@
 
 
     &--statisticPanel {
-        top: calc(50% - 20px);
+        top: calc(50% - 22px);
         left: 0;
     }
 
@@ -28,7 +28,7 @@
     }
 
     &--filesPanel {
-        top: calc(50% - 20px);
+        top: calc(50% - 22px);
         right: 0;
     }
 }
