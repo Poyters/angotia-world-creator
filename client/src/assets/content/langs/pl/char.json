@@ -9,13 +9,20 @@
     "close": "Zamknij Panel Ustawień",
     "hasVisibleLevel": {
       "title": "posiada widoczny poziom",
-      "noId": "no",
-      "yesId": "yes",
-      "types": ["tak", "nie"]
+      "types": [
+        {
+          "id": true,
+          "label": "tak"
+        },
+        {
+          "id": false,
+          "label": "nie"
+        }
+      ]
     }
   },
   "statisticPanel": {
-    "open": "Otwórz Panel Statystyk",
+    "open": "Panel Statystyk",
     "close": "Zamknij Panel Statystyk"
   },
   "form": {
@@ -35,8 +42,16 @@
     },
     "isAgressiveMob": {
       "title": "agresywność",
-      "yesId": "tak",
-      "types": ["tak", "nie"]
+      "types": [
+        {
+          "id": true,
+          "label": "tak"
+        },
+        {
+          "id": false,
+          "label": "nie"
+        }
+      ]
     },
     "addStatBtn": "Dodaj statystykę",
     "importPicBtn": "importuj grafikę",
@@ -49,14 +64,29 @@
       "addBtn": "dodaj monolog"
     },
     "char": {
-      "npcId": "npc",
-      "mobId": "mob",
-      "types": ["npc", "mob"],
+      "types": [
+        {
+          "id": "npc",
+          "label": "npc"
+        },
+        {
+          "id": "mob",
+          "label": "mob"
+        }
+      ],
       "label": "Wybierz bohatera"
     },
     "charType": {
-      "movingId": "ruchomy",
-      "types": ["statyczny", "ruchomy"],
+      "types": [
+        {
+          "id": "static",
+          "label": "statyczny"
+        },
+        {
+          "id": "moving",
+          "label": "ruchomy"
+        }
+      ],
       "label": "Wybierz typ bohatera",
       "movingField": "Średnica ruchu"
     }

@@ -39,7 +39,7 @@ const CharSettingsPanel: React.FC = () => {
 				style={settingsPanelStyles}
 			>
 				<div className="g-sidePanel g-sidePanel--left">
-					{ choosedChar === char.form.char.npcId ?
+					{ choosedChar === 'npc' ?
 						<ChooseButtons 
 							types={char.settingsPanel.hasVisibleLevel.types}
 							action={setVisibleLevel}
@@ -47,9 +47,9 @@ const CharSettingsPanel: React.FC = () => {
 							specialClass='chooseButtonsWrapper--charSettingsPanel'
 						/> : null
 					}
-					{ choosedChar === char.form.char.mobId ?
+					{ choosedChar === 'mob' ?
 						<CharInputField
-							label='Respawn time (ms; x-y value)'
+							label='Respawn time (sec; x-y value)'
 							inputValue={'500-900'}
 						/> : null
 					}	

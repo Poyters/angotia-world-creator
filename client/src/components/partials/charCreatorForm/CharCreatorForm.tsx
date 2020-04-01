@@ -98,7 +98,8 @@ const CreatorForm: React.FC = () => {
                 action={changeChar}
                 label={char.form.char.label}
               />
-              { choosedChar === char.form.char.mobId ? (
+              
+              { choosedChar === 'mob'? (
                   <ChooseButtons 
                     types={char.form.isAgressiveMob.types}
                     action={isAgressiveMob}
@@ -114,7 +115,7 @@ const CreatorForm: React.FC = () => {
                 label={char.form.charType.label}
               />
 
-              { charType === char.form.charType.movingId ? (
+              { charType === 'moving' ? (
                 <CharInputField
                   label={char.form.charType.movingField}
                   action={changeFieldDiameter}
@@ -123,7 +124,7 @@ const CreatorForm: React.FC = () => {
               }           
             </div>
           </div>
-          { choosedChar === char.form.char.npcId ? (
+          { choosedChar === 'npc' ? (
               <Dialogs 
                 type={char.form.dialogs.title}
                 addBtnText={char.form.dialogs.addBtn}

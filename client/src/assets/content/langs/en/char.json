@@ -6,17 +6,24 @@
   },
   "statisticPanel": {
     "open": "Statistic Panel",
-    "close": "Close Statistic Panel",
-    "hasVisibleLevel": {
-      "title": "has visible level",
-      "noId": "no",
-      "yesId": "yes",
-      "types": ["yes", "no"]
-    }
+    "close": "Close Statistic Panel"
   },
   "settingsPanel": {
     "open": "Settings Panel",
-    "close": "Close Settings Panel"
+    "close": "Close Settings Panel",
+    "hasVisibleLevel": {
+      "title": "has vsible level",
+      "types": [
+        {
+          "id": true,
+          "label": "yes"
+        },
+        {
+          "id": false,
+          "label": "no"
+        }
+      ]
+    }
   },
   "form": {
     "title": "Character",
@@ -35,8 +42,16 @@
     },
     "isAgressiveMob": {
       "title": "agressive",
-      "yesId": "yes",
-      "types": ["yes", "no"]
+      "types": [
+        {
+          "id": true,
+          "label": "yes"
+        },
+        {
+          "id": false,
+          "label": "no"
+        }
+      ]
     },
     "addStatBtn": "special stats",
     "importPicBtn": "import graphice",
@@ -49,14 +64,29 @@
       "addBtn": "add monolog"
     },
     "char": {
-      "npcId": "npc",
-      "mobId": "mob",
-      "types": ["npc", "mob"],
+      "types": [
+        {
+          "id": "npc",
+          "label": "npc"
+        },
+        {
+          "id": "mob",
+          "label": "mob"
+        }
+      ],
       "label": "Choose character"
     },
     "charType": {
-      "movingId": "moving",
-      "types": ["static", "moving"],
+      "types": [
+        {
+          "id": "static",
+          "label": "static"
+        },
+        {
+          "id": "moving",
+          "label": "moving"
+        }
+      ],
       "label": "Choose char type",
       "movingField": "Field diameter"
     }

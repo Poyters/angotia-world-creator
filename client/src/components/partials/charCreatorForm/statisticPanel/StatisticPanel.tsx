@@ -64,7 +64,7 @@ const StaticticPanel: React.FC = () => {
 						action={changeStatistics}
             			payloadId='jink'
 					/>
-					{ charType === char.form.charType.movingId ? (
+					{ charType === 'moving' ? (
 						<CharInputField
 							label={char.form.inputs.speed}
 							inputValue={10}
@@ -72,8 +72,8 @@ const StaticticPanel: React.FC = () => {
               				payloadId='speed'
 						/>) : null
 					}
-					{ choosedChar === char.form.char.mobId && 
-						isAgressiveMob === char.form.isAgressiveMob.yesId ? (
+					{ choosedChar === 'mob' && 
+						isAgressiveMob ? (
 						<CharInputField
 							label={char.form.inputs.attackRange}
 							inputValue={5}
