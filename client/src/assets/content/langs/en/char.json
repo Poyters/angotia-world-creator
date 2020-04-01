@@ -5,8 +5,12 @@
     "license": "license"
   },
   "statisticPanel": {
-    "open": "Open Statistic Panel",
+    "open": "Statistic Panel",
     "close": "Close Statistic Panel"
+  },
+  "settingsPanel": {
+    "open": "Settings Panel",
+    "close": "Close Settings Panel"
   },
   "form": {
     "title": "Character",

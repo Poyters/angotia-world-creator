@@ -25,7 +25,7 @@ const ChooseButtons: React.FC<IChooseButtons> = (
 
   return (
     <div className={`chooseButtonsWrapper ${specialClass}`}>
-      <header className="chooseButtonsHeader t-paragraph5Light"> { label } </header>
+      <header className="chooseButtonsHeader t-paragraph6Light"> { label } </header>
       {
         types.map((type: string) => {
           const inputStyle = {

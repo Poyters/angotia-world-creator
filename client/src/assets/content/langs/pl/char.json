@@ -4,6 +4,10 @@
     "help": "pomoc",
     "license": "licencja"
   },
+  "settingsPanel": {
+    "open": "Panel Ustawień",
+    "close": "Close Zamknij Panel Ustawień"
+  },
   "statisticPanel": {
     "open": "Otwórz Panel Statystyk",
     "close": "Zamknij Panel Statystyk"
