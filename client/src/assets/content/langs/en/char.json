@@ -6,7 +6,13 @@
   },
   "statisticPanel": {
     "open": "Statistic Panel",
-    "close": "Close Statistic Panel"
+    "close": "Close Statistic Panel",
+    "hasVisibleLevel": {
+      "title": "has visible level",
+      "noId": "no",
+      "yesId": "yes",
+      "types": ["yes", "no"]
+    }
   },
   "settingsPanel": {
     "open": "Settings Panel",

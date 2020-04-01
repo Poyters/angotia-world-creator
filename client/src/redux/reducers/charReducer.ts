@@ -81,6 +81,7 @@ const initState = {
   ],
   temponaryPlayerDialogs: [],
   isAgressiveMob: false,
+  hasVisibleLevel: true,
   charPic: '',
   statistics: {
     level: 1,
@@ -93,11 +94,22 @@ const initState = {
     jink: 0,
     speed: 0,
     attackRange: 0
+  },
+  settings: {
+    timeOfOccurance: {
+      min: 0,
+      max: 24
+    },
+    respTime: {
+      min: 60,
+      max: 100
+    }
   }
 };
 
 
 export const charReducer = (state = initState, action) => {
+  console.log('state', state)
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -148,6 +160,11 @@ export const charReducer = (state = initState, action) => {
       return {
         ...state,
         fieldDiameter: action.newDiameter
+      };
+    case 'SET_VISIBLE_LEVEL':
+      return {
+        ...state,
+        hasVisibleLevel: action.isVisible
       };
     default:
       return state;

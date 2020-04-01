@@ -73,3 +73,8 @@ export const changeFieldDiameter = (newDiameter: number) => ({
   type: 'CHANGE_FIELD_DIAMETER',
   newDiameter
 });
+
+export const setVisibleLevel = (isVisible: boolean) => ({
+  type: 'SET_VISIBLE_LEVEL',
+  isVisible
+});

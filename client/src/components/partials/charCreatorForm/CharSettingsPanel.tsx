@@ -9,6 +9,9 @@ import ChooseButtons from './ChooseButtons';
 //Import contexts
 import { ContentContext } from '../../../Template';
 
+//Import actions
+import { setVisibleLevel } from '../../../redux/actions/charActions';
+
 
 const CharSettingsPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
@@ -38,9 +41,9 @@ const CharSettingsPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					{ choosedChar === char.form.char.npcId ?
 						<ChooseButtons 
-							types={['YES', 'NO']}
-							action={() => {}}
-							label='Is visble char level?'
+							types={char.settingsPanel.hasVisibleLevel.types}
+							action={setVisibleLevel}
+							label={char.settingsPanel.hasVisibleLevel.title}
 							specialClass='chooseButtonsWrapper--charSettingsPanel'
 						/> : null
 					}
@@ -59,7 +62,7 @@ const CharSettingsPanel: React.FC = () => {
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>
-						<Arrow additionalClass="arrow--statisticPanel"/>
+						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
 							{ char.settingsPanel.close }
 						</span>

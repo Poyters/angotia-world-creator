@@ -44,32 +44,32 @@ const StaticticPanel: React.FC = () => {
 						label={char.form.inputs.strength}
 						inputValue={0}
 						action={changeStatistics}
-            payloadId='strength'
+            			payloadId='strength'
 					/>
 					<CharInputField
 						label={char.form.inputs.dexterity}
 						inputValue={0}
 						action={changeStatistics}
-            payloadId='dexterity'
+            			payloadId='dexterity'
 					/>
 					<CharInputField
 						label={char.form.inputs.inteligence}
 						inputValue={0}
 						action={changeStatistics}
-            payloadId='inteligence'
+            			payloadId='inteligence'
 					/>
 					<CharInputField
 						label={char.form.inputs.jink}
 						inputValue={0}
 						action={changeStatistics}
-            payloadId='jink'
+            			payloadId='jink'
 					/>
 					{ charType === char.form.charType.movingId ? (
 						<CharInputField
 							label={char.form.inputs.speed}
 							inputValue={10}
 							action={changeStatistics}
-              payloadId='speed'
+              				payloadId='speed'
 						/>) : null
 					}
 					{ choosedChar === char.form.char.mobId && 
@@ -78,7 +78,7 @@ const StaticticPanel: React.FC = () => {
 							label={char.form.inputs.attackRange}
 							inputValue={5}
 							action={changeStatistics}
-              payloadId='attackRange'
+              				payloadId='attackRange'
 						/>) : null
 					}			
 
@@ -86,7 +86,7 @@ const StaticticPanel: React.FC = () => {
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => dispatch(toggleStatisticPanel(false))}
 					>
-						<Arrow additionalClass="arrow--statisticPanel"/>
+						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
 							{ char.statisticPanel.close }
 						</span>

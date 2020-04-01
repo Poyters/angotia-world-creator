@@ -6,7 +6,13 @@
   },
   "settingsPanel": {
     "open": "Panel Ustawień",
-    "close": "Close Zamknij Panel Ustawień"
+    "close": "Zamknij Panel Ustawień",
+    "hasVisibleLevel": {
+      "title": "posiada widoczny poziom",
+      "noId": "no",
+      "yesId": "yes",
+      "types": ["tak", "nie"]
+    }
   },
   "statisticPanel": {
     "open": "Otwórz Panel Statystyk",
