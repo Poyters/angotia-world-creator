@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
-import CharInputField from '../CharInputField';
+import ActionInputField from '../../ActionInputField';
 
 //Import actions
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
@@ -50,7 +50,7 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
 
   return (
     <section className="playerDialog">
-      <CharInputField
+      <ActionInputField
         label={char.dialog.playerId}
         inputValue={playerId}
         inputDisabled={true}

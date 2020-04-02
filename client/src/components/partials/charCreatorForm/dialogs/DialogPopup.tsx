@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
 //Import components
-import CharInputField from '../CharInputField';
+import ActionInputField from '../../ActionInputField';
 import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
 
 //Import actions
@@ -75,7 +75,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
         <header className="insertPopup__header t-paragraph3Light">
           { char.dialogPopup.add }
         </header>
-        <CharInputField
+        <ActionInputField
           label='ID - auto generated'
           inputValue={dialogId}
           inputDisabled={true}

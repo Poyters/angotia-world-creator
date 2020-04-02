@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import Arrow from '../../Arrow';
-import CharInputField from '../CharInputField';
+import ActionInputField from '../../ActionInputField';
 
 //Import contexts
 import { ContentContext } from '../../../../Template';
@@ -40,32 +40,32 @@ const StaticticPanel: React.FC = () => {
 				style={statisticPanelStyles}
 			>
 				<div className="g-sidePanel g-sidePanel--left">
-					<CharInputField
+					<ActionInputField
 						label={char.form.inputs.strength}
 						inputValue={0}
 						action={changeStatistics}
             			payloadId='strength'
 					/>
-					<CharInputField
+					<ActionInputField
 						label={char.form.inputs.dexterity}
 						inputValue={0}
 						action={changeStatistics}
             			payloadId='dexterity'
 					/>
-					<CharInputField
+					<ActionInputField
 						label={char.form.inputs.inteligence}
 						inputValue={0}
 						action={changeStatistics}
             			payloadId='inteligence'
 					/>
-					<CharInputField
+					<ActionInputField
 						label={char.form.inputs.jink}
 						inputValue={0}
 						action={changeStatistics}
             			payloadId='jink'
 					/>
 					{ charType === 'moving' ? (
-						<CharInputField
+						<ActionInputField
 							label={char.form.inputs.speed}
 							inputValue={10}
 							action={changeStatistics}
@@ -74,7 +74,7 @@ const StaticticPanel: React.FC = () => {
 					}
 					{ choosedChar === 'mob' && 
 						isAgressiveMob ? (
-						<CharInputField
+						<ActionInputField
 							label={char.form.inputs.attackRange}
 							inputValue={5}
 							action={changeStatistics}

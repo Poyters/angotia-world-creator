@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
-import CharInputField from './CharInputField';
+import ActionInputField from '../ActionInputField';
 import LoadPicBtn from '../LoadPicBtn';
 import CornerButton from '../CornerButton';
 import ChooseButtons from './ChooseButtons';
@@ -46,34 +46,34 @@ const CreatorForm: React.FC = () => {
         <div className="charCreatorForm">
           <div className="charCreatorForm__row">
             <div className="charFormPanel charFormPanel--left">
-              <CharInputField
+              <ActionInputField
                 label={char.form.inputs.name}
                 action={changeName}
               />
-              <CharInputField
+              <ActionInputField
                 label={char.form.inputs.id}
                 inputValue={charId}
                 inputDisabled={true}
               />
-              <CharInputField
+              <ActionInputField
                 label={char.form.inputs.lvl}
                 inputValue={1}
                 action={changeStatistics}
                 payloadId='level'
               />
-              <CharInputField
+              <ActionInputField
                 label={char.form.inputs.health}
                 inputValue={1000}
                 action={changeStatistics}
                 payloadId='health'
               />
-              <CharInputField
+              <ActionInputField
                 label='Attack'
                 inputValue={0}
                 action={changeStatistics}
                 payloadId='attack'
               />
-              <CharInputField
+              <ActionInputField
                 label='Defence'
                 inputValue={0}
                 action={changeStatistics}
@@ -116,7 +116,7 @@ const CreatorForm: React.FC = () => {
               />
 
               { charType === 'moving' ? (
-                <CharInputField
+                <ActionInputField
                   label={char.form.charType.movingField}
                   action={changeFieldDiameter}
                 />

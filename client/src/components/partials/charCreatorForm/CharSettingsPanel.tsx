@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 //Import components
 import Arrow from '../Arrow';
-import CharInputField from './CharInputField';
+import ActionInputField from '../ActionInputField';
 import ChooseButtons from './ChooseButtons';
 
 //Import contexts
@@ -48,12 +48,12 @@ const CharSettingsPanel: React.FC = () => {
 						/> : null
 					}
 					{ choosedChar === 'mob' ?
-						<CharInputField
+						<ActionInputField
 							label='Respawn time (sec; x-y value)'
 							inputValue={'500-900'}
 						/> : null
 					}	
-					<CharInputField
+					<ActionInputField
 						label='Time of occurence'
 						inputValue={'0-24'}
 					/>

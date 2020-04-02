@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 
 //Import components
-import CharInputField from '../CharInputField';
+import ActionInputField from '../../ActionInputField';
 
 //Import actions
 import { changeMonologs } from '../../../../redux/actions/charActions';
@@ -92,7 +92,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
         <header className="insertPopup__header t-paragraph3Light">
           { char.monolog.add }
         </header>
-        <CharInputField
+        <ActionInputField
           label='ID - auto generated'
           inputValue={monologId}
           inputDisabled={true}

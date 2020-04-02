@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
-import CharInputField from '../CharInputField';
+import ActionInputField from '../../ActionInputField';
 
 //Import actions
 import { changeDialogs } from '../../../../redux/actions/charActions';
@@ -107,7 +107,7 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         <header className="insertPopup__header t-paragraph3Light">
           { char.editPlayer.title }
         </header>
-        <CharInputField
+        <ActionInputField
           label='ID - auto generated'
           inputValue={playerId}
           inputDisabled={true}

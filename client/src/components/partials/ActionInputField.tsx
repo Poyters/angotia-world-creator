@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 
-interface ICharInputField {
+interface IActionInputField {
   label: string,
   inputType?: string
   inputValue?: string | number
@@ -11,7 +11,7 @@ interface ICharInputField {
   payloadId?: any
 }
 
-const CharInputField: React.FC<ICharInputField> = (
+const ActionInputField: React.FC<IActionInputField> = (
   { label, inputType='text', inputValue='', inputDisabled=false, action, payloadId }
 ) => {
   const [currValue, setCurrValue] = useState<string | number>(inputValue);
@@ -28,12 +28,12 @@ const CharInputField: React.FC<ICharInputField> = (
   };
 
   return (
-    <div className="charInputField">
+    <div className="actionInputField">
       <label className="charInputField__label t-paragraph6Light">
         { label }
       </label>
       <input 
-        className="charInputField__input" 
+        className="actionInputField__input" 
         type={inputType} 
         value={currValue}
         disabled={inputDisabled}
@@ -45,4 +45,4 @@ const CharInputField: React.FC<ICharInputField> = (
 };
 
 
-export default CharInputField;
+export default ActionInputField;
