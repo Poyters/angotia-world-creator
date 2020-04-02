@@ -1,4 +1,9 @@
+import uuid from 'uuid/v4';
+
 export const initState = {
+    id: uuid(),
+    minEntryLevel: 0,
+    description: '',
     size: {
         x: 8,
         y: 8
@@ -34,6 +39,7 @@ export const initState = {
 };
 
 export const mapReducer = (state = initState, action) => {
+    console.log(state)
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {
@@ -130,6 +136,16 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 visibilityRange: action.range
+            };
+        case 'SET_MAP_DESCRIPTION':
+            return {
+                ...state,
+                description: action.description
+            };
+        case 'SET_MAP_MIN_LVL':
+            return {
+                ...state,
+                minEntryLevel: action.minLvl
             };
         default:
             return state;

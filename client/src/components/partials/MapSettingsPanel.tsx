@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Import components
 import Arrow from './Arrow';
@@ -7,10 +8,18 @@ import ActionInputField from './ActionInputField';
 //Import contexts
 import { ContentContext } from '../../Template';
 
+//Import ations
+import { setMapDesc, setMinEntryLevel } from '../../redux/actions/mapActions';
+
 
 const MapSettingsPanel: React.FC = () => {
 	const { creator } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const description: string = useSelector(state => state.map.description);
+	const [descValue, setDescValue] = useState<string>(description);
+	const mapId: string = useSelector(state => state.map.id);
+	const minEntryLevel: number = useSelector(state => state.map.minEntryLevel);
+	const dispatch = useDispatch();
 
 	const settingsPanelStyles = {
 		left: isOpen ? "0" : "-300px"
@@ -31,19 +40,34 @@ const MapSettingsPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
 						label={creator.settingsPanel.id}
-						inputValue='fafawf98y329fb2324'
+						inputValue={mapId}
+						inputDisabled={true}
 					/>
 					<ActionInputField
 						label={creator.settingsPanel.minLevel}
-						inputValue={0}
+						inputValue={minEntryLevel}
+						action={setMinEntryLevel}
 					/>
 
 					<ActionInputField
 						label={creator.settingsPanel.description}
-						inputValue={'M1 to pierwsza wioska, ktorą gości każdego nwoego gracza.'}
+						inputValue={description}
+						action={setMapDesc}
 					/>
 
-					<div 
+					<div className="g-separeTextarea">
+						<label className="g-separeTextarea__label t-paragraph6Light">
+							{ creator.settingsPanel.description }
+						</label>
+						<textarea
+							className="g-separeTextarea__area g-separeTextarea__area--mapDesc"
+							value={descValue}
+							onChange={e => setDescValue(e.target.value)}
+							onBlur={():void => dispatch(setMapDesc(descValue))}
+						/>
+					</div>
+
+					<div
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>

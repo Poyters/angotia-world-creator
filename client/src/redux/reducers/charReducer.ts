@@ -109,7 +109,6 @@ const initState = {
 
 
 export const charReducer = (state = initState, action) => {
-  console.log('state', state)
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {

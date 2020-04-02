@@ -29,7 +29,7 @@ const ActionInputField: React.FC<IActionInputField> = (
 
   return (
     <div className="actionInputField">
-      <label className="charInputField__label t-paragraph6Light">
+      <label className="actionInputField__label t-paragraph6Light">
         { label }
       </label>
       <input 

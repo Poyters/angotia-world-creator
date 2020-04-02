@@ -99,3 +99,13 @@ export const loadMapData = (mapData) => {
         mapData
     };
 };
+
+export const setMapDesc = (description: string) => ({
+    type: 'SET_MAP_DESCRIPTION',
+    description
+});
+
+export const setMinEntryLevel = (minLvl: number) => ({
+    type: 'SET_MAP_MIN_LVL',
+    minLvl
+});

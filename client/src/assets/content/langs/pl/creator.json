@@ -1,4 +1,11 @@
 {
+  "settingsPanel": {
+    "open": "Panel Ustawień",
+    "close": "Zamknij Panel Ustawień",
+    "id": "ID - automatycznie wygenerowany",
+    "description": "opis",
+    "minLevel": "minimalny poziom wejścia"
+  },
   "panel": {
     "buttons": {
       "back": "wróć",

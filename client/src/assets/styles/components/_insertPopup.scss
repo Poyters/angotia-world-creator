@@ -58,14 +58,17 @@
     & input, & textarea {
         padding: 4px 8px;
         margin: 5px 0;
+
         background-color: $decorationColor1;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         outline: none;
         color: $decorationColor6;
         transition: 200ms ease-in-out;
+        box-sizing: border-box;
 
         &:active, &:focus {
-            border: 1px solid $decorationColor6;
+            border-radius: 2px;
+            border: 2px solid $decorationColor13;
         }
     }
 

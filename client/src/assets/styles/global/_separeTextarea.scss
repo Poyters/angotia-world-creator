@@ -1,0 +1,33 @@
+.g-separeTextarea {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        margin: 3px;
+
+        text-transform: uppercase;
+    }
+
+    &__area {
+        padding: 4px 8px;
+        margin: 5px 0;
+
+        background-color: $decorationColor1;
+        border: 2px solid transparent;
+        outline: none;
+        color: $decorationColor6;
+        transition: 200ms ease-in-out;
+        box-sizing: border-box;
+        resize: none;
+        @include scrollBar;
+
+        &:active, &:focus {
+            border-radius: 2px;
+            border: 2px solid $decorationColor13;
+        }
+
+        &--mapDesc {
+            min-height: 90px;
+        }
+    }
+}
