@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 //Import components
 import Arrow from '../Arrow';
 import ActionInputField from '../ActionInputField';
-import ChooseButtons from './ChooseButtons';
+import ChooseButtons from '../ChooseButtons';
 
 //Import contexts
 import { ContentContext } from '../../../Template';
@@ -21,10 +21,6 @@ const CharSettingsPanel: React.FC = () => {
 	const settingsPanelStyles = {
 		left: isOpen ? "0" : "-300px"
 	};
-
-	useEffect(() => {
-		console.log(choosedChar)
-	}, [choosedChar])
 
 	return (
 		<>

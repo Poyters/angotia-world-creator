@@ -1,4 +1,11 @@
 {
+  "settingsPanel": {
+    "open": "Settings Panel",
+    "close": "Close Settings Panel",
+    "id": "ID - auto generated",
+    "description": "descrition",
+    "minLevel": "minimum entry level"
+  },
   "panel": {
     "buttons": {
       "back": "come back",

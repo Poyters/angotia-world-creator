@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ActionInputField from '../ActionInputField';
 import LoadPicBtn from '../LoadPicBtn';
 import CornerButton from '../CornerButton';
-import ChooseButtons from './ChooseButtons';
+import ChooseButtons from '../ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
 
 //Import actions

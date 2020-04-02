@@ -8,6 +8,7 @@ import Map from '../partials/Map';
 import Notifications from '../partials/Notifications';
 import VersionMark from '../partials/VersionMark';
 import ReportIssue from '../partials/ReportIssue';
+import MapSettingsPanel from '../partials/MapSettingsPanel';
 
 
 const Creator: React.FC = () => {
@@ -15,6 +16,7 @@ const Creator: React.FC = () => {
     <article className="creatorWrapper">
       <CreatorPanel />
       <FilesPanel />
+      <MapSettingsPanel />
       <Map />
       <CreditsFooter />
       <Notifications />
