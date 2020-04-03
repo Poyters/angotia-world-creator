@@ -6,7 +6,7 @@ import BoardNamePopup from './BoardNamePopup';
 
 const BoardNameOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const mapName = useSelector(state => state.ui.mapName);
+    const mapName = useSelector(state => state.map.mapName);
 
     return (
         <>

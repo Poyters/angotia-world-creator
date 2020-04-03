@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import MapSizeInput from './MapSizeInput';
 import { setMapSizes, loadMapData } from '../../../redux/actions/mapActions';
-import { changeMapName } from '../../../redux/actions/uiActions';
+import { changeMapName } from '../../../redux/actions/mapActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
 import { IPoint } from '../../../assets/interfaces/pointInterfaces';

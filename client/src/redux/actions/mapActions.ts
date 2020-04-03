@@ -80,3 +80,8 @@ export const setMinEntryLevel = (minLvl: number) => ({
     type: 'SET_MAP_MIN_LVL',
     minLvl
 });
+
+export const changeMapName = (mapName: string) => ({
+    type: 'CHANGE_MAP_NAME',
+    mapName
+});

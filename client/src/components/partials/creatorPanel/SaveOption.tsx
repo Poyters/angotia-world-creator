@@ -8,7 +8,7 @@ import { ContentContext } from '../../../Template';
 const SaveOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
   const mapData = useSelector(state => state.map);
-  const mapName = useSelector(state => state.ui.mapName);
+  const mapName = useSelector(state => state.map.mapName);
 
   const saveMap = (): void => {
     saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');

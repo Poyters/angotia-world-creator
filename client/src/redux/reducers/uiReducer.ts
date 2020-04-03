@@ -1,6 +1,5 @@
 export const initState = {
     actionNote: "Map has been loaded",
-    mapName: 'board name',
     select: {
         type: "none", //none, square, field, mouse
         matrix: [],
@@ -20,11 +19,6 @@ export const uiReducer = (state = initState, action) => {
             return {
                 ...state,
                 actionNote: action.notification
-            };
-        case 'CHANGE_MAP_NAME':
-            return {
-                ...state,
-                mapName: action.mapName
             };
         case 'SET_MAP_SELECT_TYPE':
             return {

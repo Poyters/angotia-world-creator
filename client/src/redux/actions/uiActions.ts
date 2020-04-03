@@ -6,11 +6,6 @@ export const setNotification = (notification: string) => ({
     notification
 });
 
-export const changeMapName = (mapName: string) => ({
-    type: 'CHANGE_MAP_NAME',
-    mapName
-});
-
 export const setMapSelectType = (selectType: string) => ({
     type: 'SET_MAP_SELECT_TYPE',
     selectType

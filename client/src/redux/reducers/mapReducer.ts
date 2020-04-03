@@ -2,6 +2,7 @@ import uuid from 'uuid/v4';
 
 export const initState = {
     id: uuid(),
+    mapName: 'board name',
     minEntryLevel: 0,
     description: '',
     size: {
@@ -146,6 +147,11 @@ export const mapReducer = (state = initState, action) => {
             return {
                 ...state,
                 minEntryLevel: action.minLvl
+            };
+        case 'CHANGE_MAP_NAME':
+            return {
+                ...state,
+                mapName: action.mapName
             };
         default:
             return state;
