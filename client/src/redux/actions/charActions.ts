@@ -1,54 +1,41 @@
 import { store } from '../../index';
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogsInterfaces';
 
-export const changeCharType = (charType: string) => {
-  return {
-    type: 'CHANGE_CHAR_TYPE',
-    charType
-  };
-};
 
-export const changeChar = (char: string) => {
-  return {
-    type: 'CHANGE_CHAR',
-    char
-  };
-};
+export const changeCharType = (charType: string) => ({
+  type: 'CHANGE_CHAR_TYPE',
+  charType
+});
 
-export const changeMonologs = (monologs: IMonolog[]) => {
-  return {
-    type: 'CHANGE_MONOLOGS',
-    monologs
-  };
-};
+export const changeChar = (char: string) => ({
+  type: 'CHANGE_CHAR',
+  char
+});
 
-export const changeDialogs = (dialogs: IDialog[]) => {
-  return {
-    type: 'CHANGE_DIALOGS',
-    dialogs
-  };
-};
+export const changeMonologs = (monologs: IMonolog[]) => ({
+  type: 'CHANGE_MONOLOGS',
+  monologs
+});
 
-export const changeTemponaryPlayerDialogs = (temponaryDialogs: IPlayer[]) => {
-  return {
-    type: 'CHANGE_TEMPONARY_PLAYER_DIALOGS',
-    temponaryDialogs
-  };
-};
+export const changeDialogs = (dialogs: IDialog[]) => ({
+  type: 'CHANGE_DIALOGS',
+  dialogs
+});
 
-export const isAgressiveMob = (isAgressive: boolean) => {
-  return {
-    type: 'IS_AGRESSIVE_MOB',
-    isAgressive
-  };
-};
+export const changeTemponaryPlayerDialogs = (temponaryDialogs: IPlayer[]) => ({
+  type: 'CHANGE_TEMPONARY_PLAYER_DIALOGS',
+  temponaryDialogs
+});
 
-export const setCharPic = (picPath: string) => {
-  return {
-    type: 'SET_CHAR_PIC',
-    picPath
-  };
-};
+export const isAgressiveMob = (isAgressive: boolean) => ({
+  type: 'IS_AGRESSIVE_MOB',
+  isAgressive
+});
+
+export const setCharPic = (picPath: string) => ({
+  type: 'SET_CHAR_PIC',
+  picPath
+});
 
 
 export const changeStatistics = (key: string, value: string | number) => {

@@ -43,12 +43,6 @@ const MapSettingsPanel: React.FC = () => {
 						action={setMinEntryLevel}
 					/>
 
-					<ActionInputField
-						label={creator.settingsPanel.description}
-						inputValue={description}
-						action={setMapDesc}
-					/>
-
 					<div className="g-separeTextarea">
 						<label className="g-separeTextarea__label t-paragraph6Light">
 							{ creator.settingsPanel.description }
