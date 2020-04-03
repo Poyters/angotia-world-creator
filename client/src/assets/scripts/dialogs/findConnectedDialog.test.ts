@@ -1,10 +1,5 @@
-//Import component
 import { findConnectedDialog } from './findConnectedDialog';
-
-//Import interfaces
 import { IDialog } from '../../interfaces/dialogsInterfaces';
-
-//Import configs
 import charConfig from '../../configs/charConfig.json';
 
 

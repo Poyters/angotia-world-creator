@@ -1,22 +1,14 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
-
-//Import components
 import Dialog from './Dialog';
 import Monolog from './Monolog';
-
-//Import scripts
 import { 
   findConnectedDialog 
 } from '../../../../assets/scripts/dialogs/findConnectedDialog';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 import MonologPopup from './MonologPopup';
 import DialogPopup from './DialogPopup';
-
-//Import interfaces
 import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 

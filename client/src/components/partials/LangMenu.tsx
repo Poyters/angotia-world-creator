@@ -2,15 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from "react-router";
 import uuid from 'uuid/v4';
-
-//Import configs
 import appConfig from '../../assets/configs/appConfig.json';
-
-//Import content
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
-
-//Import interfaces
 import { IRouteProps, IMatchParams } from '../../assets/interfaces/routingInterfaces';
 import { Icontent } from '../../assets/interfaces/contentInterfaces';
 

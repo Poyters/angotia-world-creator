@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

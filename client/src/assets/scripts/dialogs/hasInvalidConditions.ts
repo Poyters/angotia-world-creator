@@ -1,4 +1,3 @@
-//Import interfaces
 import { IDialog } from '../../interfaces/dialogsInterfaces';
 
 export const hasInvalidConditions = (dialog: IDialog | undefined): boolean => {

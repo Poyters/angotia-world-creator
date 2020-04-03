@@ -1,9 +1,5 @@
 import { store } from '../../index';
-
-//Import actions
 import { setNotification } from '../../redux/actions/uiActions';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
 
 

@@ -1,4 +1,3 @@
-//Import component
 import { isEmptyMatrix } from './isEmptyMatrix';
 
 

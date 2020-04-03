@@ -1,7 +1,4 @@
-//Import component
 import { selectCanvasSquare, selectCanvasField } from './selectFields';
-
-//Import interfaces
 import { IPoint } from '../interfaces/pointInterfaces';
 
 

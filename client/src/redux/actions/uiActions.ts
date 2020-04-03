@@ -1,5 +1,5 @@
-//Import interfaces
 import { IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+
 
 export const setNotification = (notification: string) => {
     return {

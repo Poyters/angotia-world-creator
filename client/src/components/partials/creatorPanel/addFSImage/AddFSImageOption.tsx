@@ -1,10 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-
-//Import components
 import AddFSImagePopup from './AddFSImagePopup';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 

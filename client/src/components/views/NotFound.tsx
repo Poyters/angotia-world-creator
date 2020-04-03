@@ -1,6 +1,4 @@
 import React from 'react';
-
-//Import components
 import ComeBack from '../partials/ComeBack';
 
 

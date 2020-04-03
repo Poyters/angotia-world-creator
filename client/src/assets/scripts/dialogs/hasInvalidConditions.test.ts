@@ -1,7 +1,4 @@
-//Import component
 import { hasInvalidConditions } from './hasInvalidConditions';
-
-//Import interfaces
 import { IDialog } from '../../interfaces/dialogsInterfaces';
 
 

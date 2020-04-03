@@ -1,9 +1,5 @@
 import { store } from '../../index';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import scripts
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 
 

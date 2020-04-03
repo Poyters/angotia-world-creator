@@ -2,11 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import uuid from 'uuid/v4';
-
-//Import styles
 import './assets/styles/index.scss';
-
-//Import views
 import Home from './components/views/Home';
 import Creator from './components/views/Creator';
 import CharCreator from './components/views/CharCreator';
@@ -14,17 +10,9 @@ import Help from './components/views/Help';
 import License from './components/views/License';
 import Features from './components/views/Features';
 import NotFound from './components/views/NotFound';
-
-//Import content
 import { contents } from './assets/content/langs/index';
-
-//Import actions
 import { changeLang } from './redux/actions/uiActions';
-
-//Import configs
 import appConfig from './assets/configs/appConfig.json';
-
-//Import interfaces
 import { IRouteProps, IMatchParams } from './assets/interfaces/routingInterfaces';
 import { Icontent } from './assets/interfaces/contentInterfaces';
 

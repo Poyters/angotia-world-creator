@@ -1,6 +1,4 @@
 import React from 'react';
-
-//Import configs
 import appConfig from '../../assets/configs/appConfig.json';
 
 

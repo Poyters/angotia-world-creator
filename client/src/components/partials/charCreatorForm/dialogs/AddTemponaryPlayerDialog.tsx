@@ -1,17 +1,9 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import components
 import PlayerDialog from './PlayerDialog';
-
-//Import actions
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
 import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 

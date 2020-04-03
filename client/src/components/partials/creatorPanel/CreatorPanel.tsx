@@ -1,7 +1,5 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import other components
 import ExportOption from './ExportOption';
 import FullScreenOption from '../options/FullScreenOption';
 import NetOption from './NetOption';
@@ -18,20 +16,14 @@ import DeleteBgOption from './DeleteBgOption';
 import AddFSImageOption from './addFSImage/AddFSImageOption';
 import BoardNameOption from './boardName/BoardNameOption';
 import VisibilityOption from './visibility/VisibilityOption';
-
-//Import actions
 import { 
   changeMapBlockMatrix, 
   changeMapPassageMatrix, 
   changeMapVertexWeightMatrix 
 } from '../../../redux/actions/mapActions';
 import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
-
-//Import scripts 
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

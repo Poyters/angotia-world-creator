@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
 import ActionInputField from '../ActionInputField';
 import LoadPicBtn from '../LoadPicBtn';
 import CornerButton from '../CornerButton';
 import ChooseButtons from '../ChooseButtons';
 import Dialogs from './dialogs/Dialogs';
-
-//Import actions
 import { 
   changeCharType, 
   changeChar, 
@@ -19,8 +15,6 @@ import {
   changeFieldDiameter
 } from '../../../redux/actions/charActions';
 import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

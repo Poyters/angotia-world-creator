@@ -1,10 +1,7 @@
 import React, { useContext } from 'react';
-
-//Import configs
 import appConfig from '../../assets/configs/appConfig.json';
-
-//Import contexts
 import { ContentContext } from '../../Template';
+
 
 const CreditsFooter: React.FC = () => {
   const { global } = useContext(ContentContext);

@@ -1,10 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-
-//Import components
 import VisibilityPopup from './VisibilityPopup';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 

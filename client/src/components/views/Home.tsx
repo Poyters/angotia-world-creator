@@ -1,6 +1,4 @@
 import React from 'react';
-
-//Import other components
 import CreditsFooter from '../partials/CreditsFooter';
 import SectionHeader from '../partials/SectionHeader';
 import EntryPanel from '../partials/entryPanel/EntryPanel';

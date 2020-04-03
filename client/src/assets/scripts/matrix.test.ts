@@ -1,7 +1,4 @@
-//Import component
 import { updateMatrixByTheOther, matrixToIds } from './matrix';
-
-//Import interfaces
 import { ISquareData } from '../interfaces/squareInterfaces';
 
 

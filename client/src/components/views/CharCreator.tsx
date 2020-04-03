@@ -1,6 +1,4 @@
 import React from 'react';
-
-//Import other components
 import CharPanel from '../partials/charPanel/CharPanel';
 import CreditsFooter from '../partials/CreditsFooter';
 import Notifications from '../partials/Notifications';

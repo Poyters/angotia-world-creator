@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

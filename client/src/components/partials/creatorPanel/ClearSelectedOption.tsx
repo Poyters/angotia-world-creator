@@ -1,12 +1,6 @@
 import React, { useContext } from 'react';
-
-//Import scripts 
 import { clearCanvas } from '../../../assets/scripts/clearCanvas';
-
-//Import actions
 import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

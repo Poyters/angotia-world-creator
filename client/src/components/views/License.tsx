@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-//Import components
 import CreditsFooter from '../partials/CreditsFooter';
 import VersionMark from '../partials/VersionMark';
 

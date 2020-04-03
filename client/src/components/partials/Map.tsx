@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import dragElement from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 

@@ -1,23 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import actions
 import { setVisibilityRange } from '../../../../redux/actions/mapActions';
-
-//Import scripts
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 
 interface IFSImageOption {
     closePopup: Function
 }
-
 
 const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const dafaultRange: string = useSelector(state => state.map.visibilityRange);

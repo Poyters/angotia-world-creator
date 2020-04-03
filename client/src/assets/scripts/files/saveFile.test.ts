@@ -1,5 +1,5 @@
-//Import component
 import { saveFile } from './saveFile';
+
 
 describe("saveFile script", () => {
   it('Should be function', () => {

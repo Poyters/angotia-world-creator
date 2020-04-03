@@ -1,24 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
-
-//Import interfaces
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import actions
 import { changeDialogs } from '../../../../redux/actions/charActions';
-
-//Import components
 import EditDialog from './EditDialog';
 import EditPlayerDialog from './EditPlayerDialog';
-
-//Import configs
 import charConfig from '../../../../assets/configs/charConfig.json';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 

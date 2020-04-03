@@ -1,10 +1,5 @@
-//Import configs
 import charConfig from '../../configs/charConfig.json';
-
-//Import interfaces
 import { IDialog } from '../../interfaces/dialogsInterfaces';
-
-//Import scripts
 import { hasInvalidConditions } from './hasInvalidConditions';
 
 

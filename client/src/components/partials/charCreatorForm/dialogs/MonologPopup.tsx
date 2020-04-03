@@ -1,20 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import components
 import ActionInputField from '../../ActionInputField';
-
-//Import actions
 import { changeMonologs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
 import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 

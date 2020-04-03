@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import scripts
 import { drawMapNet } from '../../../assets/scripts/drawNetMap';
 import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
 import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import actions
 import { setMapNets } from '../../../redux/actions/uiActions';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

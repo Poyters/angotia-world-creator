@@ -1,13 +1,7 @@
 import React, { useState, useContext } from 'react';
 import uuid from 'uuid/v4';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
 import { sizeGuard } from '../../../../assets/scripts/files/sizeGuard';
 
 

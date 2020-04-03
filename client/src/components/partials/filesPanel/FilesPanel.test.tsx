@@ -4,9 +4,8 @@ import { shallow, configure } from 'enzyme';
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import { store } from '../../../index';
-
-//Import component
 import FilesPanel from './FilesPanel';
+
 
 const mockStore = configureMockStore();
 const mockedStore = mockStore(store);

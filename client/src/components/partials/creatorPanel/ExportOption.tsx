@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

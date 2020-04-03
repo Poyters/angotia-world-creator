@@ -1,5 +1,5 @@
-//Import component
 import { makeImage } from './makeImage';
+
 
 describe("makeImage script", () => {
   it('Should be function', () => {

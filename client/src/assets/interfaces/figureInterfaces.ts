@@ -1,4 +1,3 @@
-//Import interfaces
 import { IPoint } from './pointInterfaces';
 
 

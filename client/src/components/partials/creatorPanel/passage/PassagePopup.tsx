@@ -1,18 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
-
-//Import actions
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
 } from '../../../../redux/actions/mapActions';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 

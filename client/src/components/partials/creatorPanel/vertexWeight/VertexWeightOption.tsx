@@ -1,27 +1,17 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../../assets/scripts/notifications';
-
-//Import components
 import VertexWeightPopup from './VertexWeightPopup';
-
-//Import actions
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
 } from '../../../../redux/actions/mapActions';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 

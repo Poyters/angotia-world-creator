@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import actions
 import { setMapBg } from '../../../redux/actions/mapActions';
-
-//Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

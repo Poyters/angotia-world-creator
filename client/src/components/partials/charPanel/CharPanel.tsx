@@ -1,10 +1,6 @@
 import React, { useContext } from 'react';
-
-//Import other components
 import FullScreenOption from '../options/FullScreenOption';
 import LinkButton from '../LinkButton';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

@@ -2,26 +2,13 @@ import React , { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-
-//Import other components
 import MapSizeInput from './MapSizeInput';
-
-//Import actions
-import { setMapSizes } from '../../../redux/actions/mapActions';
+import { setMapSizes, loadMapData } from '../../../redux/actions/mapActions';
 import { changeMapName } from '../../../redux/actions/uiActions';
-import { loadMapData } from '../../../redux/actions/mapActions';
-
-//Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
-
-//Import interfaces
 import { IPoint } from '../../../assets/interfaces/pointInterfaces';
-
-//Import scripts
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 
@@ -29,7 +16,6 @@ let mapSizes: IPoint = {
   x: 0,
   y: 0
 };
-
 
 const EntryPanel: React.FC = () => {
   const { lang, routes, entryPanel } = useContext(ContentContext);

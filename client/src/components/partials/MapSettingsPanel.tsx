@@ -1,14 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
 import Arrow from './Arrow';
 import ActionInputField from './ActionInputField';
-
-//Import contexts
 import { ContentContext } from '../../Template';
-
-//Import ations
 import { setMapDesc, setMinEntryLevel } from '../../redux/actions/mapActions';
 
 

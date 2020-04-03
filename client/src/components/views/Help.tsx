@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-//Import components
 import CreditsFooter from '../partials/CreditsFooter';
 import VersionMark from '../partials/VersionMark';
 import NetOption from '../partials/creatorPanel/NetOption';
 import AddFileOption from '../partials/creatorPanel/AddFileOption';
 import BlockOption from '../partials/creatorPanel/BlockOption';
-
-//Import contexts
 import { ContentContext } from '../../Template';
 
 

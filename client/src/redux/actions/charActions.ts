@@ -1,6 +1,4 @@
 import { store } from '../../index';
-
-//Import interfaces
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogsInterfaces';
 
 export const changeCharType = (charType: string) => {

@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
-
-//Import components
 import CreditsFooter from '../partials/CreditsFooter';
 import VersionMark from '../partials/VersionMark';
 import ExportOption from '../partials/creatorPanel/ExportOption';
@@ -17,8 +15,6 @@ import PassageOption from '../partials/creatorPanel/passage/PassageOption';
 import VertexWeightOption from '../partials/creatorPanel/vertexWeight/VertexWeightOption';
 import SaveOption from '../partials/creatorPanel/SaveOption';
 import DeleteBgOption from '../partials/creatorPanel/DeleteBgOption';
-
-//Import contexts
 import { ContentContext } from '../../Template';
 
 

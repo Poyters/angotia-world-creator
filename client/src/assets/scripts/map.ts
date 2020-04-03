@@ -1,6 +1,4 @@
 import { store } from '../../index';
-
-//Import interfaces
 import { IMapSize } from '../interfaces/mapInterfaces';
 
 

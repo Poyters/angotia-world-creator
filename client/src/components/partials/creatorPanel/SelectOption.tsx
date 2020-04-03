@@ -1,20 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import actions
 import { setMapSelectType } from '../../../redux/actions/uiActions';
-
-//Import scripts
 import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 
 interface ISelectOption {
   selectTypeQuantity: number
 }
-
 
 const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   const { creator, notifications } = useContext(ContentContext);

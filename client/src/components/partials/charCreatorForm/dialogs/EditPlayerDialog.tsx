@@ -1,19 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
 import ActionInputField from '../../ActionInputField';
-
-//Import actions
 import { changeDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 

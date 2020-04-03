@@ -1,15 +1,7 @@
 import { store } from '../../index';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import actions
 import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
-
-//Import scripts
 import { mouseSelectFields } from './mouseSelectFields';
-
-//Import interfaces
 import { IPoint } from '../interfaces/pointInterfaces';
 
 

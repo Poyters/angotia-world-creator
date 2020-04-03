@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
-
-//Import components
 import BoardNamePopup from './BoardNamePopup';
 
 

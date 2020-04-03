@@ -1,18 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-
-//Import scripts
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-
-//Import actions
 import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

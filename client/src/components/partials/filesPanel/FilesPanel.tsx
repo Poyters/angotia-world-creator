@@ -1,28 +1,18 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import configs
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-
-//Import components
 import Arrow from '../Arrow';
 import CharButton from './CharButton';
-
-//Import images
 import test1 from '../../../assets/images/mapSources/building/test1.png';
 import test1min from '../../../assets/images/mapSources/building/test1min.png';
 import test2 from '../../../assets/images/mapSources/decoration/test2.png';
 import test3 from '../../../assets/images/mapSources/mob/test3.png';
 import test4 from '../../../assets/images/mapSources/npc/test4.png';
 import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
-
-//Import actions
 import { 
 	changeMapBuildingMatrix, 
 	changeMapDecorationMatrix, 
@@ -30,8 +20,6 @@ import {
 	changeMapNpcMatrix, 
 	changeMapMobMatrix 
 } from '../../../redux/actions/mapActions';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 

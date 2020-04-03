@@ -1,15 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
-
-//Import components
 import Arrow from '../Arrow';
 import ActionInputField from '../ActionInputField';
 import ChooseButtons from '../ChooseButtons';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
-
-//Import actions
 import { setVisibleLevel } from '../../../redux/actions/charActions';
 
 

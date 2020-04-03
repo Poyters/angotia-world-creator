@@ -1,10 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { sizeGuard } from '../../assets/scripts/files/sizeGuard';
 
 

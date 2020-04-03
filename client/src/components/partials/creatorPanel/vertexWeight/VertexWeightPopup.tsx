@@ -1,28 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import actions
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
 } from '../../../../redux/actions/mapActions';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 
 interface IVertexOption {
     closePopup: Function
 }
-
 
 const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);

@@ -1,7 +1,4 @@
-//Import interfaces
 import { Icontent } from '../../../interfaces/contentInterfaces';
-
-//import translations
 import char from './char.json';
 import global from './global.json';
 import entryPanel from './entryPanel.json';

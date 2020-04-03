@@ -1,16 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
 import ActionInputField from '../../ActionInputField';
-
-//Import actions
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
 import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
 
 
