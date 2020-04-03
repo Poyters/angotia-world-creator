@@ -1,4 +1,3 @@
-// Import scripts
 import { setActionNote } from '../notifications';
 
 
