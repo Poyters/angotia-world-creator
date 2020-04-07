@@ -1,5 +1,5 @@
 import { findConnectedDialog } from './findConnectedDialog';
-import { IDialog } from '../../interfaces/dialogsInterfaces';
+import { IDialog } from '../../interfaces/dialogs';
 import charConfig from '../../configs/charConfig.json';
 
 

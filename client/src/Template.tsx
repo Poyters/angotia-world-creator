@@ -13,8 +13,8 @@ import { NotFound } from './components/views/NotFound';
 import { contents } from './assets/content/langs/index';
 import { changeLang } from './redux/actions/uiActions';
 import appConfig from './assets/configs/appConfig.json';
-import { IRouteProps, IMatchParams } from './assets/interfaces/routingInterfaces';
-import { Icontent } from './assets/interfaces/contentInterfaces';
+import { IRouteProps, IMatchParams } from './assets/interfaces/routing';
+import { Icontent } from './assets/interfaces/content';
 
 
 export let ContentContext;

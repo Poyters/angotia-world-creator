@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogsInterfaces';
+import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs';
 
 
 export const changeCharType = (charType: string) => ({

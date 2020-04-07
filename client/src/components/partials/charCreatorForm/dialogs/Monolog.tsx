@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { changeMonologs } from '../../../../redux/actions/charActions';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';

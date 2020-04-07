@@ -1,6 +1,6 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
-import { IMapSize } from '../interfaces/mapInterfaces';
+import { IMapSize } from '../interfaces/map';
 
 
 const fieldSize: number = creatorConfig.map.fieldSize;

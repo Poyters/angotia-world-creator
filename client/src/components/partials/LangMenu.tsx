@@ -5,8 +5,8 @@ import uuid from 'uuid/v4';
 import appConfig from '../../assets/configs/appConfig.json';
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
-import { IRouteProps, IMatchParams } from '../../assets/interfaces/routingInterfaces';
-import { Icontent } from '../../assets/interfaces/contentInterfaces';
+import { IRouteProps, IMatchParams } from '../../assets/interfaces/routing';
+import { Icontent } from '../../assets/interfaces/content';
 
 
 const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {

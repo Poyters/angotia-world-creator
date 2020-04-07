@@ -1,4 +1,6 @@
-import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../assets/interfaces/map';
+import { IPassageLocation } from '../../assets/interfaces/passage';
+import { IVertexWeight } from '../../assets/interfaces/vertex';
 
 
 export const setMapSizes = (sizes: IMapSize) => ({
@@ -56,12 +58,12 @@ export const changeMapVertexWeightMatrix = (newMatrix: Array<any>) => ({
     newMatrix
 });
 
-export const changeMapPassageLocations = (locations) => ({
+export const changeMapPassageLocations = (locations: IPassageLocation[]) => ({
     type: 'CHANGE_MAP_PASSAGE_LOCATIONS',
     locations
 });
 
-export const changeMapVertexWeights = (weights) => ({
+export const changeMapVertexWeights = (weights: IVertexWeight[]) => ({
     type: 'CHANGE_MAP_VERTEX_WEIGHTS',
     weights
 });

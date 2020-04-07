@@ -9,6 +9,8 @@ import {
     changeMapVertexWeights 
 } from '../../../../redux/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { ISquareData } from '../../../../assets/interfaces/square';
+import { IVertexWeight } from '../../../../assets/interfaces/vertex';
 
 
 interface IVertexOption {
@@ -17,7 +19,7 @@ interface IVertexOption {
 
 export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);
-    const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
+    const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
@@ -40,17 +42,15 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
 
     const insertVertexWeight = (): void => {
-        const potentialWeights: any[] = matrixToIds(selectMatrix);
+        const potentialWeights: ISquareData[] = matrixToIds(selectMatrix);
         potentialWeights.forEach(location => {
             if (!vertexWeights.some(e => e.id === location.id)) {
-                const newLocation = {
+                const newVertex: IVertexWeight = {
                     ...location,
-                    destination: {
-                        vertexWeightValue,
-                    }
+                    weight: parseInt(vertexWeightValue)
                 };
 
-                vertexWeights.push(newLocation);
+                vertexWeights.push(newVertex);
               }
         });
 

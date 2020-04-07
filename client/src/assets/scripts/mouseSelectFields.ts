@@ -1,8 +1,8 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
-import { IPoint } from '../interfaces/pointInterfaces';
-import { IRect, IRectanglePosition } from '../interfaces/figureInterfaces';
+import { IPoint } from '../interfaces/point';
+import { IRect, IRectanglePosition } from '../interfaces/figure';
 import { selectCanvasSquare } from './selectFields';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 

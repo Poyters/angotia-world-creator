@@ -2,7 +2,7 @@ import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
 import { mouseSelectFields } from './mouseSelectFields';
-import { IPoint } from '../interfaces/pointInterfaces';
+import { IPoint } from '../interfaces/point';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {

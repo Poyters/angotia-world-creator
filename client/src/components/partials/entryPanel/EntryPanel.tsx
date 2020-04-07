@@ -7,7 +7,7 @@ import { setMapSizes, loadMapData } from '../../../redux/actions/mapActions';
 import { changeMapName } from '../../../redux/actions/mapActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
-import { IPoint } from '../../../assets/interfaces/pointInterfaces';
+import { IPoint } from '../../../assets/interfaces/point';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
 

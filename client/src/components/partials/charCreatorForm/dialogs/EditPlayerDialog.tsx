@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../redux/actions/charActions';
-import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
 

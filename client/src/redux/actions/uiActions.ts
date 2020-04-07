@@ -1,4 +1,4 @@
-import { IMapNetStatus } from '../../assets/interfaces/mapInterfaces';
+import { IMapNetStatus } from '../../assets/interfaces/map';
 
 
 export const setNotification = (notification: string) => ({

@@ -1,4 +1,4 @@
-import { ISquareData } from './squareInterfaces';
+import { ISquareData } from './square';
 
 export interface IPassageLocation extends ISquareData {
     destination: {

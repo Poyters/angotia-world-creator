@@ -1,4 +1,4 @@
-import { IDialog } from '../../interfaces/dialogsInterfaces';
+import { IDialog } from '../../interfaces/dialogs';
 
 export const hasInvalidConditions = (dialog: IDialog | undefined): boolean => {
   if (dialog === undefined || dialog.player.length === 0) return false;

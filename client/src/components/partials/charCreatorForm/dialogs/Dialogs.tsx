@@ -9,7 +9,7 @@ import {
 import { ContentContext } from '../../../../Template';
 import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
-import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogs';
 
 
 interface IDialogs {

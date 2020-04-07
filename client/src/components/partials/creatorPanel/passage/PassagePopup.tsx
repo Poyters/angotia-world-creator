@@ -8,8 +8,8 @@ import {
     changeMapPassageLocations 
 } from '../../../../redux/actions/mapActions';
 import { ContentContext } from '../../../../Template';
-import { ISquareData } from '../../../../assets/interfaces/squareInterfaces';
-import { IPassageLocation } from '../../../../assets/interfaces/passageIntefaces';
+import { ISquareData } from '../../../../assets/interfaces/square';
+import { IPassageLocation } from '../../../../assets/interfaces/passage';
 
 
 interface IPassageOption {

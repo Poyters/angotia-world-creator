@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { PlayerDialog } from './PlayerDialog';
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
+import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 
 
