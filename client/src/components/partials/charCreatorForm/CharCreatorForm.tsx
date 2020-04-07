@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ActionInputField from '../ActionInputField';
-import LoadPicBtn from '../LoadPicBtn';
-import CornerButton from '../CornerButton';
-import ChooseButtons from '../ChooseButtons';
-import Dialogs from './dialogs/Dialogs';
+import { ActionInputField } from '../ActionInputField';
+import { LoadPicBtn } from '../LoadPicBtn';
+import { CornerButton } from '../CornerButton';
+import { ChooseButtons } from '../ChooseButtons';
+import { Dialogs } from './dialogs/Dialogs';
 import { 
   changeCharType, 
   changeChar, 
@@ -18,7 +18,7 @@ import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 
-const CreatorForm: React.FC = () => {
+export const CharCreatorForm: React.FC = () => {
   const { char } = useContext(ContentContext);
   const choosedChar: string = useSelector(state => state.char.choosed);
   const charPicPath: string = useSelector(state => state.char.charPic);
@@ -134,5 +134,3 @@ const CreatorForm: React.FC = () => {
     </main>
   );
 };
-
-export default CreatorForm;

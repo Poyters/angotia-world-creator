@@ -9,8 +9,7 @@ interface IFSImageOption {
     closePopup: Function
 }
 
-
-const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const { creator } = useContext(ContentContext);
     const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
@@ -111,6 +110,3 @@ const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default AddFSImagePopup;

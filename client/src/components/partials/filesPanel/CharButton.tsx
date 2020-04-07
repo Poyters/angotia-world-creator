@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 
 
-const CharButton: React.FC = () => {
+export const CharButton: React.FC = () => {
   const { filesPanel, lang, routes } = useContext(ContentContext);
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
 
@@ -44,5 +44,3 @@ const CharButton: React.FC = () => {
     </div>
   );
 };
-
-export default CharButton;

@@ -4,7 +4,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 
 
 let timer;
-const Notifications: React.FC = () => {
+export const Notifications: React.FC = () => {
 	const actionNote = useSelector(state => state.ui.actionNote);
 	const [note, setNote] = useState<string>(actionNote);
 	const [opacityCSS, setOpacityCSS] = useState<number>(1);
@@ -28,6 +28,3 @@ const Notifications: React.FC = () => {
 		</div>
 	);
 };
-
-
-export default Notifications;

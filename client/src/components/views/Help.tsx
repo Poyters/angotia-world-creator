@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import CreditsFooter from '../partials/CreditsFooter';
-import VersionMark from '../partials/VersionMark';
-import NetOption from '../partials/creatorPanel/NetOption';
-import AddFileOption from '../partials/creatorPanel/AddFileOption';
-import BlockOption from '../partials/creatorPanel/BlockOption';
+import { CreditsFooter } from '../partials/CreditsFooter';
+import { VersionMark } from '../partials/VersionMark';
+import { NetOption } from '../partials/creatorPanel/NetOption';
+import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
+import { BlockOption }from '../partials/creatorPanel/BlockOption';
 import { ContentContext } from '../../Template';
 
 
-const Help: React.FC = () => {
+export const Help: React.FC = () => {
   const { lang, routes, help } = useContext(ContentContext);
 
   return (
@@ -75,5 +75,3 @@ const Help: React.FC = () => {
     </div>
   );
 };
-
-export default Help;

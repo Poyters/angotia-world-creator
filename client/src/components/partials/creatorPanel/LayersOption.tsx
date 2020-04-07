@@ -4,7 +4,7 @@ import uuid from 'uuid/v4';
 import { ContentContext } from '../../../Template';
 
 
-const LayersOption: React.FC = () => {
+export const LayersOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isOpen, setIsOpen] = useState<Boolean>(false);    
     const [layersToRender, setLayersToRender] = useState<any>(null);
@@ -93,6 +93,3 @@ const LayersOption: React.FC = () => {
         </>
     );
 };
-
-
-export default LayersOption;

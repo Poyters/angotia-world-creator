@@ -7,7 +7,7 @@ interface ILinkButton {
   buttonText: string
 }
 
-const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {
+export const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {
 
   return (
     <div role="button" className="option option--textOption option--smallerMargin">
@@ -15,6 +15,3 @@ const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {
     </div>
   );
 };
-
-
-export default LinkButton;

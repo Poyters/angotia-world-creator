@@ -3,7 +3,7 @@ import appConfig from "../../assets/configs/appConfig.json";
 import { ContentContext } from '../../Template';
 
 
-const ReportIssue: React.FC = () => {
+export const ReportIssue: React.FC = () => {
   const { global } = useContext(ContentContext);
 
   return (
@@ -16,5 +16,3 @@ const ReportIssue: React.FC = () => {
     </aside>
   );
 };
-
-export default ReportIssue;

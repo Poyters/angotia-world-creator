@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import FullScreenOption from '../options/FullScreenOption';
-import LinkButton from '../LinkButton';
+import { FullScreenOption } from '../options/FullScreenOption';
+import { LinkButton } from '../LinkButton';
 import { ContentContext } from '../../../Template';
 
 
-const CharPanel: React.FC = () => {
+export const CharPanel: React.FC = () => {
   const { char, routes } = useContext(ContentContext);
 
   return (
@@ -29,6 +29,3 @@ const CharPanel: React.FC = () => {
     </nav>
   );
 };
-
-
-export default CharPanel;

@@ -1,11 +1,11 @@
 import React from 'react';
-import CreditsFooter from '../partials/CreditsFooter';
-import SectionHeader from '../partials/SectionHeader';
-import EntryPanel from '../partials/entryPanel/EntryPanel';
+import { CreditsFooter } from '../partials/CreditsFooter';
+import { SectionHeader } from '../partials/SectionHeader';
+import { EntryPanel } from '../partials/entryPanel/EntryPanel';
 import LangMenu from '../partials/LangMenu';
 
 
-const Home: React.FC = () => {
+export const Home: React.FC = () => {
   return (
     <div role="presentation" className="g-container">
         <SectionHeader 
@@ -19,5 +19,3 @@ const Home: React.FC = () => {
       </div>
   );
 };
-
-export default Home;

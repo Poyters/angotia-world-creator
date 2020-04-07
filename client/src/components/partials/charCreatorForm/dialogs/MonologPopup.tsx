@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-import ActionInputField from '../../ActionInputField';
+import { ActionInputField } from '../../ActionInputField';
 import { changeMonologs } from '../../../../redux/actions/charActions';
 import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
 import { ContentContext } from '../../../../Template';
@@ -14,7 +14,7 @@ interface IMonologPopup {
   setMonologData?: Function
 }
 
-const MonologPopup: React.FC<IMonologPopup> = (
+export const MonologPopup: React.FC<IMonologPopup> = (
   { togglePopup, monologData, setMonologData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
@@ -114,5 +114,3 @@ const MonologPopup: React.FC<IMonologPopup> = (
     </div>
   );
 };
-
-export default MonologPopup;

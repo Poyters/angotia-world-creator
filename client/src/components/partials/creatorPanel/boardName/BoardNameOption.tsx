@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
-import BoardNamePopup from './BoardNamePopup';
+import { BoardNamePopup } from './BoardNamePopup';
 
 
-const BoardNameOption: React.FC = () => {
+export const BoardNameOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const mapName = useSelector(state => state.map.mapName);
 
@@ -26,6 +26,3 @@ const BoardNameOption: React.FC = () => {
         </>
     );
 };
-
-
-export default BoardNameOption;

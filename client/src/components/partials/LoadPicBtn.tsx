@@ -9,7 +9,7 @@ interface ILoadPicBtn {
   clickEvent?: Function
 }
 
-const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
+export const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
   const dispatch: Function = useDispatch();
 
@@ -52,6 +52,3 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
     </>
   );
 };
-
-
-export default LoadPicBtn;

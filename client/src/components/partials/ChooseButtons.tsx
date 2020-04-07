@@ -15,7 +15,7 @@ interface IChooseButtons {
   specialClass?: string
 }
 
-const ChooseButtons: React.FC<IChooseButtons> = (
+export const ChooseButtons: React.FC<IChooseButtons> = (
   { types, action, label, specialClass='' }
 ) => {
   const [currChecked, setCurrChecked] = useState<string | boolean | number>('');
@@ -56,6 +56,3 @@ const ChooseButtons: React.FC<IChooseButtons> = (
     </div>
   );
 };
-
-
-export default ChooseButtons;

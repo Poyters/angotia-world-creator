@@ -4,7 +4,7 @@ import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 
-const ClearSelectedOption: React.FC = () => {
+export const ClearSelectedOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
 
   const clearSelected = (): void => {
@@ -22,6 +22,3 @@ const ClearSelectedOption: React.FC = () => {
     </div>
   );
 };
-
-
-export default ClearSelectedOption;

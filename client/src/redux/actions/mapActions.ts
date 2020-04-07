@@ -66,7 +66,8 @@ export const changeMapVertexWeights = (weights) => ({
     weights
 });
 
-export const loadMapData = (mapData) => ({
+// TODO: change :any to mapReduce interface
+export const loadMapData = (mapData: any) => ({
     type: 'LOAD_MAP_DATA',
     mapData
 });

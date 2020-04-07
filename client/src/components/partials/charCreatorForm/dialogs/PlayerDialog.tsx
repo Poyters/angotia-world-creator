@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ActionInputField from '../../ActionInputField';
+import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 import { ContentContext } from '../../../../Template';
@@ -10,7 +10,7 @@ interface IPlayerDialog {
   playerId: string
 }
 
-const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
+export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const { char } = useContext(ContentContext);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
@@ -83,5 +83,3 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
     </section>
   );
 };
-
-export default PlayerDialog;

@@ -7,7 +7,7 @@ import { sizeGuard } from '../../../assets/scripts/files/sizeGuard';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 
 
-const AddFileOption: React.FC = () => {
+export const AddFileOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
   const mapPic = useSelector(state => state.map.mapPic);
   const dispatch = useDispatch();
@@ -51,6 +51,3 @@ const AddFileOption: React.FC = () => {
     </>
   );
 };
-
-
-export default AddFileOption;

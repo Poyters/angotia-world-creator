@@ -7,7 +7,7 @@ import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../../assets/scripts/notifications';
-import PassagePopup from './PassagePopup';
+import { PassagePopup } from './PassagePopup';
 import { ContentContext } from '../../../../Template';
 import { 
     changeMapPassageMatrix, 
@@ -18,7 +18,7 @@ import {
 let pressedKey: string = '';
 document.addEventListener('keydown', event => pressedKey = event.key);
 
-const PassageOption: React.FC = () => {
+export const PassageOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
@@ -72,6 +72,3 @@ const PassageOption: React.FC = () => {
         </>
     );
 };
-
-
-export default PassageOption;

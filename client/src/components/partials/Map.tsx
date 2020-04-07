@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-import dragElement from '../../assets/scripts/dragElement';
+import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 
 
-const Map: React.FC = () => {
+export const Map: React.FC = () => {
   const mapSize = useSelector(state => state.map.size);
   const mapPic = useSelector(state => state.map.mapPic);
   const [mapTop, setMapTop] = useState<number>(0);
@@ -125,6 +125,3 @@ const Map: React.FC = () => {
     </main>
   );
 };
-
-
-export default Map;

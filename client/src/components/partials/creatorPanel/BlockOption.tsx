@@ -8,7 +8,7 @@ import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
 import { ContentContext } from '../../../Template';
 
 
-const BlockOption = () => {
+export const BlockOption = () => {
 	const { creator, notifications } = useContext(ContentContext);
 	const blockMatrix = useSelector(state => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
@@ -41,6 +41,3 @@ const BlockOption = () => {
 		</div>
 	);
 };
-
-
-export default BlockOption;

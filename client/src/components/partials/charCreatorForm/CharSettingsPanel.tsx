@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Arrow from '../Arrow';
-import ActionInputField from '../ActionInputField';
-import ChooseButtons from '../ChooseButtons';
+import { Arrow } from '../Arrow';
+import { ActionInputField } from '../ActionInputField';
+import { ChooseButtons } from '../ChooseButtons';
 import { ContentContext } from '../../../Template';
 import { setVisibleLevel } from '../../../redux/actions/charActions';
 
 
-const CharSettingsPanel: React.FC = () => {
+export const CharSettingsPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const choosedChar: string = useSelector(state => state.char.choosed);
@@ -62,6 +62,3 @@ const CharSettingsPanel: React.FC = () => {
 		</>
 	);
 };
-
-
-export default CharSettingsPanel;

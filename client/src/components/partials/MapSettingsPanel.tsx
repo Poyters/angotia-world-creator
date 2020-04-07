@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Arrow from './Arrow';
-import ActionInputField from './ActionInputField';
+import { Arrow } from './Arrow';
+import { ActionInputField } from './ActionInputField';
 import { ContentContext } from '../../Template';
 import { setMapDesc, setMinEntryLevel } from '../../redux/actions/mapActions';
 
 
-const MapSettingsPanel: React.FC = () => {
+export const MapSettingsPanel: React.FC = () => {
 	const { creator } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const description: string = useSelector(state => state.map.description);
@@ -69,6 +69,3 @@ const MapSettingsPanel: React.FC = () => {
 		</>
 	);
 };
-
-
-export default MapSettingsPanel;

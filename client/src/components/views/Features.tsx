@@ -1,24 +1,24 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
-import CreditsFooter from '../partials/CreditsFooter';
-import VersionMark from '../partials/VersionMark';
-import ExportOption from '../partials/creatorPanel/ExportOption';
-import FullScreenOption from '../partials/options/FullScreenOption';
-import NetOption from '../partials/creatorPanel/NetOption';
-import SelectOption from '../partials/creatorPanel/SelectOption';
-import AddFileOption from '../partials/creatorPanel/AddFileOption';
-import ClearSelectedOption from '../partials/creatorPanel/ClearSelectedOption';
-import BlockOption from '../partials/creatorPanel/BlockOption';
-import LayersOption from '../partials/creatorPanel/LayersOption';
-import PassageOption from '../partials/creatorPanel/passage/PassageOption';
-import VertexWeightOption from '../partials/creatorPanel/vertexWeight/VertexWeightOption';
-import SaveOption from '../partials/creatorPanel/SaveOption';
-import DeleteBgOption from '../partials/creatorPanel/DeleteBgOption';
+import { CreditsFooter } from '../partials/CreditsFooter';
+import { VersionMark } from '../partials/VersionMark';
+import { ExportOption } from '../partials/creatorPanel/ExportOption';
+import { FullScreenOption } from '../partials/options/FullScreenOption';
+import { NetOption } from '../partials/creatorPanel/NetOption';
+import { SelectOption } from '../partials/creatorPanel/SelectOption';
+import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
+import { ClearSelectedOption } from '../partials/creatorPanel/ClearSelectedOption';
+import { BlockOption } from '../partials/creatorPanel/BlockOption';
+import { LayersOption } from '../partials/creatorPanel/LayersOption';
+import { PassageOption } from '../partials/creatorPanel/passage/PassageOption';
+import { VertexWeightOption } from '../partials/creatorPanel/vertexWeight/VertexWeightOption';
+import { SaveOption } from '../partials/creatorPanel/SaveOption';
+import { DeleteBgOption }from '../partials/creatorPanel/DeleteBgOption';
 import { ContentContext } from '../../Template';
 
 
-const Features: React.FC = () => {
+export const Features: React.FC = () => {
   const { features, lang, routes } = useContext(ContentContext);
 
   return (
@@ -155,5 +155,3 @@ const Features: React.FC = () => {
     </article>
   );
 };
-
-export default Features;

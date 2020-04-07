@@ -5,7 +5,7 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 import { ContentContext } from '../../../Template';
 
 
-const DeleteBgOption: React.FC = () => {
+export const DeleteBgOption: React.FC = () => {
   const { creator, notifications } = useContext(ContentContext);
   const dispatch = useDispatch();
 
@@ -23,6 +23,3 @@ const DeleteBgOption: React.FC = () => {
     </div>
   );
 };
-
-
-export default DeleteBgOption;

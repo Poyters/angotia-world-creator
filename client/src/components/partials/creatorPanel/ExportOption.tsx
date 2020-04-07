@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ContentContext } from '../../../Template';
 
 
-const ExportOption: React.FC = () => {
+export const ExportOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
 
   return (
@@ -17,6 +17,3 @@ const ExportOption: React.FC = () => {
     </div>
   );
 };
-
-
-export default ExportOption;

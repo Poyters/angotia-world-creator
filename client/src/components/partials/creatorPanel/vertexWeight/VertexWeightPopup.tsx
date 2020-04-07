@@ -15,7 +15,7 @@ interface IVertexOption {
     closePopup: Function
 }
 
-const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
+export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
@@ -102,6 +102,3 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default VertexWeightPopup;

@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-import AddFSImagePopup from './AddFSImagePopup';
+import { AddFSImagePopup } from './AddFSImagePopup';
 import { ContentContext } from '../../../../Template';
 
 
-const AddFSImageOption: React.FC = () => {
+export const AddFSImageOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
 
@@ -26,6 +26,3 @@ const AddFSImageOption: React.FC = () => {
         </>
     );
 };
-
-
-export default AddFSImageOption;

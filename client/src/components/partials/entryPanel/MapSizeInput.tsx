@@ -7,7 +7,7 @@ interface IMapSizeInput {
     changeValue(value: any): void
 }
 
-const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => {
+export const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => {
 
   return (
     <input 
@@ -20,5 +20,3 @@ const MapSizeInput: React.FC<IMapSizeInput> = ({id, currValue, changeValue}) => 
     />
   );
 };
-
-export default MapSizeInput;

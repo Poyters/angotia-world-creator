@@ -40,7 +40,7 @@ export const initState = {
 };
 
 export const mapReducer = (state = initState, action) => {
-    console.log(state)
+    console.log(action);
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {

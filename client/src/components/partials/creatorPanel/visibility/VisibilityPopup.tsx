@@ -10,7 +10,7 @@ interface IFSImageOption {
     closePopup: Function
 }
 
-const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const dafaultRange: string = useSelector(state => state.map.visibilityRange);
     const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
@@ -74,6 +74,3 @@ const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default VisibilityPopup;

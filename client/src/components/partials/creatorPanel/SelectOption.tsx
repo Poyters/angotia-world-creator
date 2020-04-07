@@ -9,7 +9,7 @@ interface ISelectOption {
   selectTypeQuantity: number
 }
 
-const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
+export const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
   const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
   const dispatch: Function = useDispatch();
@@ -63,6 +63,3 @@ const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
     </div>
   );
 };
-
-
-export default SelectOption;

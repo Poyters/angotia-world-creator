@@ -1,21 +1,21 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import ExportOption from './ExportOption';
-import FullScreenOption from '../options/FullScreenOption';
-import NetOption from './NetOption';
-import SelectOption from './SelectOption';
-import AddFileOption from './AddFileOption';
-import ClearSelectedOption from './ClearSelectedOption';
-import BlockOption from './BlockOption';
-import LayersOption from './LayersOption';
-import PassageOption from './passage/PassageOption';
-import LinkButton from '../LinkButton';
-import VertexWeightOption from './vertexWeight/VertexWeightOption';
-import SaveOption from './SaveOption';
-import DeleteBgOption from './DeleteBgOption';
-import AddFSImageOption from './addFSImage/AddFSImageOption';
-import BoardNameOption from './boardName/BoardNameOption';
-import VisibilityOption from './visibility/VisibilityOption';
+import { ExportOption } from './ExportOption';
+import { FullScreenOption } from '../options/FullScreenOption';
+import { NetOption } from './NetOption';
+import { SelectOption } from './SelectOption';
+import { AddFileOption } from './AddFileOption';
+import { ClearSelectedOption } from './ClearSelectedOption';
+import { BlockOption } from './BlockOption';
+import { LayersOption } from './LayersOption';
+import { PassageOption } from './passage/PassageOption';
+import { LinkButton } from '../LinkButton';
+import { VertexWeightOption } from './vertexWeight/VertexWeightOption';
+import { SaveOption } from './SaveOption';
+import { DeleteBgOption } from './DeleteBgOption';
+import { AddFSImageOption } from './addFSImage/AddFSImageOption';
+import { BoardNameOption } from './boardName/BoardNameOption';
+import { VisibilityOption } from './visibility/VisibilityOption';
 import { 
   changeMapBlockMatrix, 
   changeMapPassageMatrix, 
@@ -27,7 +27,7 @@ import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 import { ContentContext } from '../../../Template';
 
 
-const CreatorPanel: React.FC = () => {
+export const CreatorPanel: React.FC = () => {
   const { creator, lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   
@@ -113,6 +113,3 @@ const CreatorPanel: React.FC = () => {
     </nav>
   );
 };
-
-
-export default CreatorPanel;

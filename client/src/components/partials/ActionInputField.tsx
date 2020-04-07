@@ -11,7 +11,7 @@ interface IActionInputField {
   payloadId?: any
 }
 
-const ActionInputField: React.FC<IActionInputField> = (
+export const ActionInputField: React.FC<IActionInputField> = (
   { label, inputType='text', inputValue='', inputDisabled=false, action, payloadId }
 ) => {
   const [currValue, setCurrValue] = useState<string | number>(inputValue);
@@ -43,6 +43,3 @@ const ActionInputField: React.FC<IActionInputField> = (
     </div>
   );
 };
-
-
-export default ActionInputField;

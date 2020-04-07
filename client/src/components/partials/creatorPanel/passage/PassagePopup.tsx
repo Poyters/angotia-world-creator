@@ -8,13 +8,15 @@ import {
     changeMapPassageLocations 
 } from '../../../../redux/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { ISquareData } from '../../../../assets/interfaces/squareInterfaces';
+import { IPassageLocation } from '../../../../assets/interfaces/passageIntefaces';
 
 
 interface IPassageOption {
     closePopup: Function
 }
 
-const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
+export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
@@ -31,14 +33,14 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     }, [mapTargetId, mapTargetCords]);
 
     const insertPassage = (): void => {
-        const potentialLocations = matrixToIds(selectMatrix);
+        const potentialLocations: ISquareData[] = matrixToIds(selectMatrix);
         potentialLocations.forEach(location => {
             if (!passageLocations.some(e => e.id === location.id)) {
-                const newLocation = {
+                const newLocation: IPassageLocation = {
                     ...location,
                     destination: {
-                        mapTargetId,
-                        mapTargetCords
+                        mapTargetId: parseInt(mapTargetId),
+                        mapTargetCords: parseInt(mapTargetCords)
                     }
                 };
 
@@ -102,6 +104,3 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default PassagePopup;

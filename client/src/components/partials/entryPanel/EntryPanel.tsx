@@ -2,7 +2,7 @@ import React , { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-import MapSizeInput from './MapSizeInput';
+import { MapSizeInput } from './MapSizeInput';
 import { setMapSizes, loadMapData } from '../../../redux/actions/mapActions';
 import { changeMapName } from '../../../redux/actions/mapActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
@@ -17,7 +17,7 @@ let mapSizes: IPoint = {
   y: 0
 };
 
-const EntryPanel: React.FC = () => {
+export const EntryPanel: React.FC = () => {
   const { lang, routes, entryPanel } = useContext(ContentContext);
   const mapSize = useSelector(state => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
@@ -153,6 +153,3 @@ const EntryPanel: React.FC = () => {
     content
   );
 };
-
-
-export default EntryPanel;

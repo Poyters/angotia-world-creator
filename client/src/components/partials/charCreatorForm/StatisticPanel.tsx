@@ -1,15 +1,15 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Arrow from '../../Arrow';
-import ActionInputField from '../../ActionInputField';
-import { ContentContext } from '../../../../Template';
-import { toggleStatisticPanel } from '../../../../redux/actions/uiActions';
+import { Arrow } from '../Arrow';
+import { ActionInputField } from '../ActionInputField';
+import { ContentContext } from '../../../Template';
+import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
 import { 
   changeStatistics
-} from '../../../../redux/actions/charActions';
+} from '../../../redux/actions/charActions';
 
 
-const StaticticPanel: React.FC = () => {
+export const StatisticPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
 	const isOpen: string = useSelector(state => state.ui.statisticPanelIsOpen);
 	const choosedChar: string = useSelector(state => state.char.choosed);
@@ -90,6 +90,3 @@ const StaticticPanel: React.FC = () => {
 		</>
 	);
 };
-
-
-export default StaticticPanel;

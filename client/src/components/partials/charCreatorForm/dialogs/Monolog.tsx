@@ -11,7 +11,7 @@ interface IMonologExplicit extends IMonolog {
   setPopupData: Function
 }
 
-const Monolog: React.FC<IMonologExplicit> = (
+export const Monolog: React.FC<IMonologExplicit> = (
   { id, content, togglePopup, setPopupData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
@@ -63,6 +63,3 @@ const Monolog: React.FC<IMonologExplicit> = (
     </section>
   );
 };
-
-
-export default Monolog;

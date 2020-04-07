@@ -10,8 +10,7 @@ interface IBoardNamePopup {
     closePopup: Function
 }
 
-
-const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
+export const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);
     const [mapName, setMapName] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
@@ -71,6 +70,3 @@ const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default BoardNamePopup;

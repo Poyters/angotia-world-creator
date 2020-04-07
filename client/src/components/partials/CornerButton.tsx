@@ -6,7 +6,7 @@ interface ICornerButton {
   clickEvent?: Function
 }
 
-const CornerButton: React.FC<ICornerButton> = ({ name, clickEvent }) => {
+export const CornerButton: React.FC<ICornerButton> = ({ name, clickEvent }) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
 
   return (
@@ -17,6 +17,3 @@ const CornerButton: React.FC<ICornerButton> = ({ name, clickEvent }) => {
     </div>
   );
 };
-
-
-export default CornerButton;

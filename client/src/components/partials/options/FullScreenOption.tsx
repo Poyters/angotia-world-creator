@@ -25,7 +25,7 @@ const isFullScreen = (): boolean => {
 };
 
 
-const FullScreenOption: React.FC = () => {
+export const FullScreenOption: React.FC = () => {
   const [fs, setFs] = useState<boolean>(false);
   document.addEventListener('keydown', event => externalFSChange(event.key));
 
@@ -52,6 +52,3 @@ const FullScreenOption: React.FC = () => {
     </div>
   );
 };
-
-
-export default FullScreenOption;

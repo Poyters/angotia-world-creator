@@ -3,14 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 import { changeDialogs } from '../../../../redux/actions/charActions';
-import EditDialog from './EditDialog';
-import EditPlayerDialog from './EditPlayerDialog';
+import { EditDialog } from './EditDialog';
+import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 
-const Dialog: React.FC<IDialog> = ({ 
+export const Dialog: React.FC<IDialog> = ({ 
   id, 
   npc, 
   player, 
@@ -126,6 +126,3 @@ const Dialog: React.FC<IDialog> = ({
     </>
   );
 };
-
-
-export default Dialog;

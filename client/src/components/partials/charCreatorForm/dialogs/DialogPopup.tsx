@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-import ActionInputField from '../../ActionInputField';
-import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
+import { ActionInputField } from '../../ActionInputField';
+import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 import { ContentContext } from '../../../../Template';
@@ -13,7 +13,7 @@ interface IDialogPopup {
   togglePopup: Function
 }
 
-const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
+export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const { char, notifications } = useContext(ContentContext);
   const dialogId: string = uuid();
   const [npcText, setNpcText] = useState<string>('');
@@ -98,5 +98,3 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     </div>
   );
 };
-
-export default DialogPopup;

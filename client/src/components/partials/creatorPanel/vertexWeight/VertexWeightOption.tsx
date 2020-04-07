@@ -7,7 +7,7 @@ import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../../assets/scripts/notifications';
-import VertexWeightPopup from './VertexWeightPopup';
+import { VertexWeightPopup } from './VertexWeightPopup';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
@@ -18,7 +18,7 @@ import { ContentContext } from '../../../../Template';
 let pressedKey: string = '';
 document.addEventListener('keydown', event => pressedKey = event.key);
 
-const VertexWeightOption: React.FC = () => {
+export const VertexWeightOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
@@ -79,6 +79,3 @@ const VertexWeightOption: React.FC = () => {
         </>
     );
 };
-
-
-export default VertexWeightOption;

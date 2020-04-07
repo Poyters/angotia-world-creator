@@ -5,8 +5,8 @@ import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-import Arrow from '../Arrow';
-import CharButton from './CharButton';
+import { Arrow } from '../Arrow';
+import { CharButton } from './CharButton';
 import test1 from '../../../assets/images/mapSources/building/test1.png';
 import test1min from '../../../assets/images/mapSources/building/test1min.png';
 import test2 from '../../../assets/images/mapSources/decoration/test2.png';
@@ -25,7 +25,7 @@ import { ContentContext } from '../../../Template';
 
 const bookmarks: string[] = creatorConfig.bookmarks;
 
-const FilesPanel: React.FC = () => {
+export const FilesPanel: React.FC = () => {
 	const { filesPanel } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
@@ -198,6 +198,3 @@ const FilesPanel: React.FC = () => {
 		</>
 	);
 };
-
-
-export default FilesPanel;

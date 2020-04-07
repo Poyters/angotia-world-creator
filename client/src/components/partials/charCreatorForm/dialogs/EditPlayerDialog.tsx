@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ActionInputField from '../../ActionInputField';
+import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../redux/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
 import { ContentContext } from '../../../../Template';
@@ -13,7 +13,7 @@ interface IEditPlayerDialog {
   closePopup: Function
 }
 
-const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
+export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   { dialogId, playerId, closePopup }
 ) => {
   const { char, notifications } = useContext(ContentContext);
@@ -153,5 +153,3 @@ const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     </div>
   );
 };
-
-export default EditPlayerDialog;

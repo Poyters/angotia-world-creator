@@ -5,7 +5,7 @@ import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
 
 
-const SaveOption: React.FC = () => {
+export const SaveOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
   const mapData = useSelector(state => state.map);
   const mapName = useSelector(state => state.map.mapName);
@@ -27,6 +27,3 @@ const SaveOption: React.FC = () => {
     </div>
   );
 };
-
-
-export default SaveOption;

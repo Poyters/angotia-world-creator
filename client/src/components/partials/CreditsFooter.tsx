@@ -3,7 +3,7 @@ import appConfig from '../../assets/configs/appConfig.json';
 import { ContentContext } from '../../Template';
 
 
-const CreditsFooter: React.FC = () => {
+export const CreditsFooter: React.FC = () => {
   const { global } = useContext(ContentContext);
   const currentYear: number = (new Date()).getFullYear();
 
@@ -18,5 +18,3 @@ const CreditsFooter: React.FC = () => {
     </footer>
   );
 };
-
-export default CreditsFooter;

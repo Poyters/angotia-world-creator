@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-import VisibilityPopup from './VisibilityPopup';
+import { VisibilityPopup } from './VisibilityPopup';
 import { ContentContext } from '../../../../Template';
 
 
-const VisibilityOption: React.FC = () => {
+export const VisibilityOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
 
@@ -24,6 +24,3 @@ const VisibilityOption: React.FC = () => {
         </>
     );
 };
-
-
-export default VisibilityOption;

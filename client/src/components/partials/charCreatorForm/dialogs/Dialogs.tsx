@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
-import Dialog from './Dialog';
-import Monolog from './Monolog';
+import { Dialog } from './Dialog';
+import { Monolog } from './Monolog';
 import { 
   findConnectedDialog 
 } from '../../../../assets/scripts/dialogs/findConnectedDialog';
 import { ContentContext } from '../../../../Template';
-import MonologPopup from './MonologPopup';
-import DialogPopup from './DialogPopup';
+import { MonologPopup } from './MonologPopup';
+import { DialogPopup } from './DialogPopup';
 import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
 
 
@@ -17,7 +17,7 @@ interface IDialogs {
   addBtnText: string
 }
 
-const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
+export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const { char } = useContext(ContentContext);
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
@@ -96,6 +96,3 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     </>
   );
 };
-
-
-export default Dialogs;

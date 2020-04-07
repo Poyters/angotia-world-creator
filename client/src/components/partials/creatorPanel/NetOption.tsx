@@ -11,8 +11,7 @@ interface INetOption {
   viewTypeQuantity: number
 }
 
-
-const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
+export const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
   const { creator } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
@@ -69,6 +68,3 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     </div>
   );
 };
-
-
-export default NetOption;
