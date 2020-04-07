@@ -55,7 +55,7 @@
 
     border: 1px solid $decorationColor1;
     cursor: pointer;
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
 
     &:hover {
       background-color: $decorationColor1;

@@ -4,7 +4,7 @@
 
     border: 1px solid $decorationColor1;
     background-color: $decorationColor2;
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
 
     &__layer {
         display: list-item !important;
@@ -14,7 +14,7 @@
         font-size: 12px;
         text-transform: lowercase;
         color: $fontColor1;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         cursor: pointer;
 
         &:hover {

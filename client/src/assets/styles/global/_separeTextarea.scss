@@ -16,7 +16,7 @@
         border: 2px solid transparent;
         outline: none;
         color: $decorationColor6;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         box-sizing: border-box;
         resize: none;
         @include scrollBar;

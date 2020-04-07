@@ -42,7 +42,7 @@
 
                 text-transform: uppercase;
                 border-right: 1px solid $decorationColor6;
-                transition: 200ms ease-in-out;
+                transition: $shortEasyAnimation1;
                 cursor: pointer;
 
                 &:last-child {
@@ -81,7 +81,7 @@
 
                 background-color: $decorationColor8;
                 cursor: pointer;
-                transition: 200ms ease-in-out;
+                transition: $shortEasyAnimation1;
                 border: 1px solid $decorationColor8;
 
                 &:hover {
@@ -99,7 +99,7 @@
         right: 10px;
 
         text-transform: uppercase;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         color: $decorationColor4;
 
         &--char {

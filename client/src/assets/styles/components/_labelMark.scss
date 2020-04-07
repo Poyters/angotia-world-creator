@@ -35,7 +35,7 @@
 
     &--link {
         cursor: pointer;
-        transform: 200ms ease-in-out;
+        transform: $shortEasyAnimation1;
 
         & > a:hover {
             color: $decorationColor1;
@@ -47,7 +47,7 @@
             margin: 0 5px;
 
             cursor: pointer;
-            transform: 200ms ease-in-out;
+            transform: $shortEasyAnimation1;
 
             &:hover {
                 color: $decorationColor1;

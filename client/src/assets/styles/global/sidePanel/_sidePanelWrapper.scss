@@ -2,7 +2,7 @@
     display: flex;
     box-sizing: border-box;
     
-    transition: 400ms ease-in-out;
+    transition: $shortEasyAnimation2;
 
     &:before, &:after {
         position: absolute;

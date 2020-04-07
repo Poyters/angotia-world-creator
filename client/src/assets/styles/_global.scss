@@ -50,7 +50,7 @@ a {
 	&:hover {
 		&:after {
 			opacity: 1;
-			transition: all 200ms ease-in-out;
+			transition: all $shortEasyAnimation1;
 			visibility: visible;
 		}
 	}
@@ -136,7 +136,7 @@ a {
 		width: calc(100% + 2px);
 		height: 2px;
 
-		transition: 200ms ease-in-out;
+		transition: $shortEasyAnimation1;
 		background-color: $decorationColor4;
 	}
 
@@ -179,7 +179,7 @@ a {
 	transform: rotate(-45deg);
 
 	background-color: $decorationColor7;
-	transition: 200ms ease-in-out;
+	transition: $shortEasyAnimation1;
 	border-radius: 3px 0 0 3px;
 
 	&__gum {
@@ -189,7 +189,7 @@ a {
 		height: 4px;
 
 		background-color: $decorationColor7;
-		transition: 200ms ease-in-out;
+		transition: $shortEasyAnimation1;
 		border-radius: 0 3px 3px 0;
 	}
 
@@ -225,7 +225,7 @@ a {
 	font-weight: 400;
 	font-size: 12px;
 	cursor: pointer;
-	transition: 200ms ease-in-out;
+	transition: $shortEasyAnimation1;
 	color: $decorationColor1;
 
 	&:hover {

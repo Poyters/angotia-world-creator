@@ -11,7 +11,7 @@
     border-color: $decorationColor1;
     transform: rotate(45deg);
     user-select: none;
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
 
     & .option__viewType {
         top: 9px;

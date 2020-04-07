@@ -29,7 +29,7 @@
         background-color: transparent;
         color: $decorationColor4;
         border: 2px solid $decorationColor1;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         cursor: pointer;
         letter-spacing: 1px;
         outline: none;
@@ -63,7 +63,7 @@
         border: 2px solid transparent;
         outline: none;
         color: $decorationColor6;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         box-sizing: border-box;
 
         &:active, &:focus {

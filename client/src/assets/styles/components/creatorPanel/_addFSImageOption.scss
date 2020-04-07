@@ -5,7 +5,7 @@
   margin: 1px 0 0 4px;
 
   background-color: $decorationColor4;
-  transition: 200ms ease-in-out;
+  transition: $shortEasyAnimation1;
 
   &:hover {
     background-color: $decorationColor1;
@@ -23,7 +23,7 @@
     width: 19px;
     height: 3px;
 
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
     background-color: $decorationColor4;
   }
 }
@@ -77,7 +77,7 @@
   background-color: $decorationColor1;
   color: $decorationColor6;
   font-size: 14px;
-  transition: 200ms ease-in-out;
+  transition: $shortEasyAnimation1;
 
   cursor: pointer;
   &:hover {

@@ -7,7 +7,7 @@
 
   border: 1px dotted $decorationColor7;
   font-size: 12px;
-  transition: 200ms ease-in-out;
+  transition: $shortEasyAnimation1;
 
   &:hover {
     background-color: $decorationColor8;

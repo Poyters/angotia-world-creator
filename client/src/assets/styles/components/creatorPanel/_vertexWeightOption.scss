@@ -5,7 +5,7 @@
     height: 0;
     justify-content: center;
 
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
     border-style: solid;
     border-width: 0 9px 20px 9px;
     border-color: transparent transparent $decorationColor4 transparent;
@@ -24,6 +24,6 @@
         font-weight: 700;
         font-size: 12px;
         color: $decorationColor1;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
     }
 }
