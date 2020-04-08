@@ -15,11 +15,12 @@ import {
 import { ContentContext } from '../../../../Template';
 
 
-let pressedKey: string = '';
+let pressedKey: string | null = null;
 document.addEventListener('keydown', event => pressedKey = event.key);
+document.addEventListener('keyup', () => pressedKey = null);
 
 export const VertexWeightOption: React.FC = () => {
-    const { notifications } = useContext(ContentContext);
+    const { notifications, creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
@@ -33,8 +34,7 @@ export const VertexWeightOption: React.FC = () => {
         }
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
-
-        setTimeout((): string => pressedKey = '', 250); 
+        pressedKey = null;
     };
     
     const deletePassage = (): void => {
@@ -68,7 +68,7 @@ export const VertexWeightOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => vertexHandler()} 
-                data-title="add/delete vertex weight"
+                data-title={ creator.panel.options.vertex.dataTitle }
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">

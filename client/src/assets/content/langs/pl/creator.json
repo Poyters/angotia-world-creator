@@ -57,6 +57,13 @@
         "desc": "zasięg (w polach)",
         "error": "Wpisz prawidłową wartość (liczba)",
         "submit": "potwierdź"
+      },
+      "vertex": {
+        "dataTitle": "dodaj/usuń wagę wierzchołka",
+        "title": "Dodaj wagę",
+        "desc": "Waga wierzchołka",
+        "error": "Wpisz poprawną wartość (liczba)",
+        "submit": "potwierdź"
       }
     }
   }

@@ -57,6 +57,13 @@
         "desc": "range (fields)",
         "error": "Type proper value (number)",
         "submit": "submit"
+      },
+      "vertex": {
+        "dataTitle": "add/delete vertex weight",
+        "title": "Add weight",
+        "desc": "Weight of vertex",
+        "error": "Type proper value (number)",
+        "submit": "submit"
       }
     }
   }

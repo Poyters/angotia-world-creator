@@ -18,7 +18,7 @@ interface IVertexOption {
 }
 
 export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
-    const { notifications } = useContext(ContentContext);
+    const { notifications, creator } = useContext(ContentContext);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
@@ -74,10 +74,10 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    Add weight
+                    { creator.panel.options.vertex.title }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    Weight of vertex 
+                    { creator.panel.options.vertex.desc }
                     ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
                 </label>
                 <input 
@@ -87,7 +87,9 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 />
                 {
                     (error) ? (
-                        <span className="insertPopup--error">Type proper value (number)</span>
+                        <span className="insertPopup--error">
+                           { creator.panel.options.vertex.error }
+                        </span>
                     ) : null
                 }
 
@@ -96,7 +98,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                     className="insertPopup__submit t-paragraphLight" 
                     onClick={(): void => insertVertexWeight()} disabled={error}
                 > 
-                    submit 
+                    { creator.panel.options.vertex.submit }
                 </button>
             </div>
         </div>
