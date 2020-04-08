@@ -13,7 +13,7 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     return playerDialog.next.toString();
   }) : [];
   
-  if (connectedIds.includes(charConfig.dialogExit)) {
+  if (connectedIds.includes(charConfig?.dialogExit)) {
     connectedIds.push(beginID);
     availableIds.push(charConfig.dialogExit);
   }

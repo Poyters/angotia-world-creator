@@ -41,7 +41,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     });
 
     dispatch(changeDialogs(dialogsData));
-    setActionNote(notifications.dialog.add);
+    setActionNote(notifications.dialogs.add);
   };
 
   const submitHandler = (): void => {

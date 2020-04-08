@@ -16,7 +16,7 @@ const closeFullScreen = (): void => {
 
 const isFullScreen = (): boolean => {
   if (
-    window.innerHeight === screen.height
+    window.innerHeight === window.screen.height
   ) {
     return true;
   } 
