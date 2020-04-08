@@ -33,7 +33,7 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
         dispatch(setVisibilityRange(parseInt(visibility)));
         closePopup(false);
         setActionNote(notifications.visibility.change);
-    }
+    };
 
     return (
         <div className="g-container g-container--popup">

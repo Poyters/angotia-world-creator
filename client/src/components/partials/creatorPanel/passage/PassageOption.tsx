@@ -15,8 +15,9 @@ import {
 } from '../../../../redux/actions/mapActions';
 
 
-let pressedKey: string = '';
+let pressedKey: string | null = null;
 document.addEventListener('keydown', event => pressedKey = event.key);
+document.addEventListener('keyup', () => pressedKey = null);
 
 export const PassageOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
@@ -33,8 +34,7 @@ export const PassageOption: React.FC = () => {
         }
 
         pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
-
-        setTimeout((): string => pressedKey = '', 250); 
+        pressedKey = null;
     };
     
     const deletePassage = (): void => {
