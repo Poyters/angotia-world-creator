@@ -20,6 +20,7 @@ import {
 	changeMapMobMatrix 
 } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 const bookmarks: string[] = creatorConfig.bookmarks;
@@ -28,13 +29,13 @@ export const FilesPanel: React.FC = () => {
 	const { filesPanel } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
-	const buildingMatrix = deepCopy(useSelector(state => state.map.building.matrix));
-	const subsoilMatrix = deepCopy(useSelector(state => state.map.subsoil.matrix));
-	const mobMatrix = deepCopy(useSelector(state => state.map.mob.matrix));
+	const buildingMatrix = deepCopy(useSelector((state: IStore) => state.map.building.matrix));
+	const subsoilMatrix = deepCopy(useSelector((state: IStore) => state.map.subsoil.matrix));
+	const mobMatrix = deepCopy(useSelector((state: IStore) => state.map.mob.matrix));
 	const decorationMatrix = deepCopy(
-		useSelector(state => state.map.decoration.matrix)
+		useSelector((state: IStore) => state.map.decoration.matrix)
 	);
-	const npcMatrix = deepCopy(useSelector(state => state.map.npc.matrix));
+	const npcMatrix = deepCopy(useSelector((state: IStore) => state.map.npc.matrix));
 
 	const filesPanelStyles = {
 		right: isOpen ? "0" : "-300px"

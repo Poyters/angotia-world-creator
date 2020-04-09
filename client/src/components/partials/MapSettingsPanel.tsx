@@ -4,15 +4,16 @@ import { Arrow } from './Arrow';
 import { ActionInputField } from './ActionInputField';
 import { ContentContext } from '../../Template';
 import { setMapDesc, setMinEntryLevel } from '../../store/actions/mapActions';
+import { IStore } from '../../assets/interfaces/store';
 
 
 export const MapSettingsPanel: React.FC = () => {
 	const { creator } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const description: string = useSelector(state => state.map.description);
+	const description: string = useSelector((state: IStore) => state.map.description);
 	const [descValue, setDescValue] = useState<string>(description);
-	const mapId: string = useSelector(state => state.map.id);
-	const minEntryLevel: number = useSelector(state => state.map.minEntryLevel);
+	const mapId: string = useSelector((state: IStore) => state.map.id);
+	const minEntryLevel: number = useSelector((state: IStore) => state.map.minEntryLevel);
 	const dispatch = useDispatch();
 
 	const settingsPanelStyles = {

@@ -6,6 +6,7 @@ import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/a
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IEditDialog {
@@ -15,13 +16,15 @@ interface IEditDialog {
 
 export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const { char, notifications } = useContext(ContentContext);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
   const dispatch: Function = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData ? dialogData.npc : '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   useEffect((): void => {
     if (
@@ -52,7 +55,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
-    setActionNote(notifications.dialog.edit);
+    setActionNote(notifications.dialogs.edit);
   };
 
   return (

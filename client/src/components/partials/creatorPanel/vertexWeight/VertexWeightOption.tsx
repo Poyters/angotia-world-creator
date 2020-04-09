@@ -13,6 +13,7 @@ import {
     changeMapVertexWeights 
 } from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 let pressedKey: string | null = null;
@@ -22,9 +23,9 @@ document.addEventListener('keyup', () => pressedKey = null);
 export const VertexWeightOption: React.FC = () => {
     const { notifications, creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    let vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
+    let vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
     const vertexHandler = (): void => {

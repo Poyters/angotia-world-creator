@@ -5,12 +5,15 @@ import { PlayerDialog } from './PlayerDialog';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 export const AddTemponaryPlayerDialog: React.FC = () => {
   const { char } = useContext(ContentContext);
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   const addPlayerDialogHandler = (): void => {
     const newDialogs: IPlayer[] = [
@@ -18,7 +21,7 @@ export const AddTemponaryPlayerDialog: React.FC = () => {
       {
         id: uuid(),
         dialog: '',
-        next: -1,
+        next: '',
         action: '',
         condition: ''
       }

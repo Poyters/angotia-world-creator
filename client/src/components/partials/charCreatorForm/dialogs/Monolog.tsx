@@ -4,6 +4,7 @@ import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IMonologExplicit extends IMonolog {
@@ -15,7 +16,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
   { id, content, togglePopup, setPopupData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
-  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
+  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
   const dispatch: Function = useDispatch();
 
   const deleteMonolog = (id: string): void => {

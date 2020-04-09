@@ -11,6 +11,7 @@ import {
 import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../assets/interfaces/square';
 import { IVertexWeight } from '../../../../assets/interfaces/vertex';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IVertexOption {
@@ -21,9 +22,9 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const { notifications, creator } = useContext(ContentContext);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
+    const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
 

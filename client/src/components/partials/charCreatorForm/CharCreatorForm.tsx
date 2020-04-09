@@ -16,14 +16,15 @@ import {
 } from '../../../store/actions/charActions';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 export const CharCreatorForm: React.FC = () => {
   const { char } = useContext(ContentContext);
-  const choosedChar: string = useSelector(state => state.char.choosed);
-  const charPicPath: string = useSelector(state => state.char.charPic);
-  const charType: string = useSelector(state => state.char.type);
-  const charId: string = useSelector(state => state.char.id);
+  const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
+  const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
+  const charType: string = useSelector((state: IStore) => state.char.type);
+  const charId: string = useSelector((state: IStore) => state.char.id);
   const dispatch: Function = useDispatch();
 
   const charPicStyles = {

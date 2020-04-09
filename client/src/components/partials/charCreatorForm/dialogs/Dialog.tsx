@@ -8,6 +8,7 @@ import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 export const Dialog: React.FC<IDialog> = ({ 
@@ -22,7 +23,7 @@ export const Dialog: React.FC<IDialog> = ({
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dispatch: Function = useDispatch();
 
   const dialogStyle = {
@@ -63,16 +64,21 @@ export const Dialog: React.FC<IDialog> = ({
         onMouseLeave={():void => clearValidator()}
         style={dialogStyle}
       >
-        <p> 
-          <span className="t-paragraph5Light"> 
-            { char.dialog.dialogId }
-          </span> { id } 
-        </p>
-        <p onClick={():void => setIsDialogPopup(true)}> 
-          <span className="t-paragraph5Light">
-            { char.dialog.npcDialog }
-          </span> { npc } 
-        </p>
+        <div 
+          className="dialog__npc"
+          onClick={():void => setIsDialogPopup(true)}
+        >
+          <p> 
+            <span className="t-paragraph5Light"> 
+              { char.dialog.dialogId }
+            </span> { id } 
+          </p>
+          <p> 
+            <span className="t-paragraph5Light">
+              { char.dialog.npcDialog }
+            </span> { npc } 
+          </p>
+        </div>
         { 
           player.map(dialogData => {
             return (

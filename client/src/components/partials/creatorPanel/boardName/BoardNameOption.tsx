@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 import { BoardNamePopup } from './BoardNamePopup';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 export const BoardNameOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const mapName = useSelector(state => state.map.mapName);
+    const mapName = useSelector((state: IStore) => state.map.mapName);
 
     return (
         <>

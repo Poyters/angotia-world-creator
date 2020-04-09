@@ -10,6 +10,7 @@ import {
 import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../assets/interfaces/square';
 import { IPassageLocation } from '../../../../assets/interfaces/passage';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IPassageOption {
@@ -21,9 +22,9 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
+    const passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
     useEffect((): void => {

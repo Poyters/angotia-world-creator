@@ -7,10 +7,11 @@ import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
 import { IRouteProps, IMatchParams } from '../../assets/interfaces/routing';
 import { Icontent } from '../../assets/interfaces/content';
+import { IStore } from '../../assets/interfaces/store';
 
 
 const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
-  const currLang: string = useSelector(state => state.ui.language);
+  const currLang: string = useSelector((state: IStore) => state.ui.language);
 
   const changeLanguage = (lang: string): void => {
     let content: Icontent;

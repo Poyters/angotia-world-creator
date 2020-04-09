@@ -5,12 +5,13 @@ import { ActionInputField } from '../ActionInputField';
 import { ChooseButtons } from '../ChooseButtons';
 import { ContentContext } from '../../../Template';
 import { setVisibleLevel } from '../../../store/actions/charActions';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 export const CharSettingsPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const choosedChar: string = useSelector(state => state.char.choosed);
+	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
 
 	const settingsPanelStyles = {
 		left: isOpen ? "0" : "-300px"

@@ -10,7 +10,7 @@ export interface IDialog {
 export interface IPlayer {
   id: string,
   dialog: string,
-  next: number | string,
+  next: string,
   action: string,
   condition: string
 }

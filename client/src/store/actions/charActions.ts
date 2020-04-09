@@ -1,5 +1,6 @@
 import { store } from '../../index';
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs';
+import { ICharStatistic } from '../../assets/interfaces/char';
 
 
 export const changeCharType = (charType: string) => ({
@@ -37,10 +38,9 @@ export const setCharPic = (picPath: string) => ({
   picPath
 });
 
-
 export const changeStatistics = (key: string, value: string | number) => {
-  const statistics = store.getState().char.statistics;
-  const newStats = Object.assign({}, statistics);
+  const statistics: ICharStatistic = store.getState().char.statistics;
+  const newStats: ICharStatistic = Object.assign({}, statistics);
   newStats[key] = value;
 
   return {

@@ -10,6 +10,7 @@ import appConfig from '../../../assets/configs/appConfig.json';
 import { IPoint } from '../../../assets/interfaces/point';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 let mapSizes: IPoint = {
@@ -19,7 +20,7 @@ let mapSizes: IPoint = {
 
 export const EntryPanel: React.FC = () => {
   const { lang, routes, entryPanel } = useContext(ContentContext);
-  const mapSize = useSelector(state => state.map.size);
+  const mapSize = useSelector((state: IStore) => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');

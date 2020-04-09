@@ -3,12 +3,13 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 export const SaveOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
-  const mapData = useSelector(state => state.map);
-  const mapName = useSelector(state => state.map.mapName);
+  const mapData = useSelector((state: IStore) => state.map);
+  const mapName = useSelector((state: IStore) => state.map.mapName);
 
   const saveMap = (): void => {
     saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');

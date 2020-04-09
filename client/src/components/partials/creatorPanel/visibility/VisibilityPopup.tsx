@@ -4,6 +4,7 @@ import { ContentContext } from '../../../../Template';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { setActionNote } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IFSImageOption {
@@ -11,7 +12,7 @@ interface IFSImageOption {
 }
 
 export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
-    const dafaultRange: string = useSelector(state => state.map.visibilityRange);
+    const dafaultRange: string = useSelector((state: IStore) => state.map.visibilityRange);
     const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
     const [visibility, setVisibility] = useState<string>(dafaultRange);

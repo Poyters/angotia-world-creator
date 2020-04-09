@@ -4,6 +4,7 @@ import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IPlayerDialog {
@@ -17,13 +18,15 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const [action, setAction] = useState<string>('');
   const [condition, setCondition] = useState<string>('');
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   const updateDialog = (): void => {
     temponaryPlayerDialogs.filter(data => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
-        data.next = parseInt(next);
+        data.next = next;
         data.action = action;
         data.condition = condition;
       }

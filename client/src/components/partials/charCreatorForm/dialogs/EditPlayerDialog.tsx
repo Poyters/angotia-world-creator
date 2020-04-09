@@ -5,6 +5,7 @@ import { changeDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IEditPlayerDialog {
@@ -17,7 +18,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   { dialogId, playerId, closePopup }
 ) => {
   const { char, notifications } = useContext(ContentContext);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined = dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
   const playerData: IPlayer | undefined = dialogData ? dialogData.player
@@ -27,7 +28,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   const dispatch: Function = useDispatch();
   const [dialog, setDialog] = useState<string>(playerData ? playerData.dialog : '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
-  const [next, setNext] = useState<string | number>(playerData ? playerData.next : '');
+  const [next, setNext] = useState<string>(playerData ? playerData.next : '');
   const [action, setAction] = useState<string>(playerData ? playerData.action : '');
   const [condition, setCondition] = useState<string>(playerData ? playerData.condition : '');
 

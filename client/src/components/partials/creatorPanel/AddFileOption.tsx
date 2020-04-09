@@ -5,11 +5,12 @@ import { setMapBg } from '../../../store/actions/mapActions';
 import { setActionNote } from '../../../assets/scripts/notifications';
 import { sizeGuard } from '../../../assets/scripts/files/sizeGuard';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 export const AddFileOption: React.FC = () => {
   const { creator } = useContext(ContentContext);
-  const mapPic = useSelector(state => state.map.mapPic);
+  const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
   const handleFileSelect = (evt: any) => {

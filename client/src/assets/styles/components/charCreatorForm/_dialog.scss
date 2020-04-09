@@ -23,6 +23,11 @@
     word-spacing: 3px;
   }
 
+  &__npc {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__playerDialog {
     position: relative;
     margin: 11px 30px 5px 10px;

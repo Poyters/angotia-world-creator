@@ -6,13 +6,14 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 export const BlockOption = () => {
 	const { creator, notifications } = useContext(ContentContext);
-	const blockMatrix = useSelector(state => state.map.blockMatrix);
+	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
-	const selectMatrix = useSelector(state => state.ui.select.matrix);
+	const selectMatrix = useSelector((state: IStore) => state.ui.select.matrix);
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {

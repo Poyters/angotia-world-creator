@@ -13,6 +13,7 @@ import {
     changeMapPassageMatrix, 
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 let pressedKey: string | null = null;
@@ -22,9 +23,9 @@ document.addEventListener('keyup', () => pressedKey = null);
 export const PassageOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    let passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
+    let passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
     const passageHandler = (): void => {

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
+import { IStore } from '../../assets/interfaces/store';
 
 
 let timer;
 export const Notifications: React.FC = () => {
-	const actionNote = useSelector(state => state.ui.actionNote);
+	const actionNote = useSelector((state: IStore) => state.ui.actionNote);
 	const [note, setNote] = useState<string>(actionNote);
 	const [opacityCSS, setOpacityCSS] = useState<number>(1);
 

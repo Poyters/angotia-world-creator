@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
+import { IStore } from '../../assets/interfaces/store';
 
 
 export const Map: React.FC = () => {
-  const mapSize = useSelector(state => state.map.size);
-  const mapPic = useSelector(state => state.map.mapPic);
+  const mapSize = useSelector((state: IStore) => state.map.size);
+  const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const [mapTop, setMapTop] = useState<number>(0);
   const [mapLeft, setMapLeft] = useState<number>(0);
 

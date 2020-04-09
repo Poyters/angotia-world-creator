@@ -10,6 +10,7 @@ import { ContentContext } from '../../../../Template';
 import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
 import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogs';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IDialogs {
@@ -22,8 +23,8 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
-  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
+  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
 
   const dialogsValidator = (beginId: string): void => {
     setConnectedDialogs(
@@ -34,7 +35,11 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   return (
     <>
       { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
-        <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData} setMonologData={setMonologData}/>, document.body
+        <MonologPopup 
+          togglePopup={setIsPopupOpen} 
+          monologData={monologData}
+          setMonologData={setMonologData}
+        />, document.body
       ) : null}
       { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
         <DialogPopup togglePopup={setIsPopupOpen}/>, document.body

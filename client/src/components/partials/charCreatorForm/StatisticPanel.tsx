@@ -4,6 +4,7 @@ import { Arrow } from '../Arrow';
 import { ActionInputField } from '../ActionInputField';
 import { ContentContext } from '../../../Template';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
+import { IStore } from '../../../assets/interfaces/store';
 import { 
   changeStatistics
 } from '../../../store/actions/charActions';
@@ -11,10 +12,10 @@ import {
 
 export const StatisticPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
-	const isOpen: string = useSelector(state => state.ui.statisticPanelIsOpen);
-	const choosedChar: string = useSelector(state => state.char.choosed);
-	const charType: string = useSelector(state => state.char.type);
-	const isAgressiveMob: string = useSelector(state => state.char.isAgressiveMob);
+	const isOpen: string = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
+	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
+	const charType: string = useSelector((state: IStore) => state.char.type);
+	const isAgressiveMob: string = useSelector((state: IStore) => state.char.isAgressiveMob);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
