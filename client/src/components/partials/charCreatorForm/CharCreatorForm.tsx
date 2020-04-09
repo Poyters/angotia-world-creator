@@ -13,8 +13,8 @@ import {
   changeStatistics,
   changeName,
   changeFieldDiameter
-} from '../../../redux/actions/charActions';
-import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
+} from '../../../store/actions/charActions';
+import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 

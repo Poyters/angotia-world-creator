@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { clearCanvas } from '../../../assets/scripts/clearCanvas';
-import { changeMapSelectMatrix } from '../../../redux/actions/uiActions';
+import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 

@@ -1,6 +1,6 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
-import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../interfaces/point';
 import { IRect, IRectanglePosition } from '../interfaces/figure';
 import { selectCanvasSquare } from './selectFields';

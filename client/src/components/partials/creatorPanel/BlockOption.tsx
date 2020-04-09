@@ -4,7 +4,7 @@ import { markSquare } from '../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
 import { setActionNote } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
+import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 
 

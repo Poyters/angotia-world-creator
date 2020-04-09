@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { setMapSelectType } from '../../../redux/actions/uiActions';
+import { setMapSelectType } from '../../../store/actions/uiActions';
 import { setActionNote } from '../../../assets/scripts/notifications';
 import { ContentContext } from '../../../Template';
 

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ContentContext } from '../../../../Template';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-import { setVisibilityRange } from '../../../../redux/actions/mapActions';
+import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { setActionNote } from '../../../../assets/scripts/notifications';
 
 

@@ -11,7 +11,7 @@ import { License } from './components/views/License';
 import { Features } from './components/views/Features';
 import { NotFound } from './components/views/NotFound';
 import { contents } from './assets/content/langs/index';
-import { changeLang } from './redux/actions/uiActions';
+import { changeLang } from './store/actions/uiActions';
 import appConfig from './assets/configs/appConfig.json';
 import { IRouteProps, IMatchParams } from './assets/interfaces/routing';
 import { Icontent } from './assets/interfaces/content';

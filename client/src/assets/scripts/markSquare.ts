@@ -6,7 +6,7 @@ import { setActionNote } from './notifications';
 import { updateMatrixByTheOther } from './matrix';
 import { deepCopy } from './utils/deepCopy';
 import creatorConfig from '../configs/creatorConfig.json';
-import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 
 
 let pressedKey: string | null = null;

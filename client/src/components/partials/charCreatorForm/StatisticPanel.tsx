@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Arrow } from '../Arrow';
 import { ActionInputField } from '../ActionInputField';
 import { ContentContext } from '../../../Template';
-import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
+import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { 
   changeStatistics
-} from '../../../redux/actions/charActions';
+} from '../../../store/actions/charActions';
 
 
 export const StatisticPanel: React.FC = () => {

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { drawMapNet } from '../../../assets/scripts/drawNetMap';
 import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
 import { setActionNote } from '../../../assets/scripts/notifications';
-import { setMapNets } from '../../../redux/actions/uiActions';
+import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeMapName } from '../../../../redux/actions/mapActions';
+import { changeMapName } from '../../../../store/actions/mapActions';
 import { setActionNote } from '../../../../assets/scripts/notifications';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { ContentContext } from '../../../../Template';

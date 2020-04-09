@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { IDialog } from '../../../../assets/interfaces/dialogs';
-import { changeDialogs } from '../../../../redux/actions/charActions';
+import { changeDialogs } from '../../../../store/actions/charActions';
 import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';

@@ -11,7 +11,7 @@ import { VertexWeightPopup } from './VertexWeightPopup';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
 
 

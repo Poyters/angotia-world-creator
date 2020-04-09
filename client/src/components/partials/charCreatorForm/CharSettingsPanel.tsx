@@ -4,7 +4,7 @@ import { Arrow } from '../Arrow';
 import { ActionInputField } from '../ActionInputField';
 import { ChooseButtons } from '../ChooseButtons';
 import { ContentContext } from '../../../Template';
-import { setVisibleLevel } from '../../../redux/actions/charActions';
+import { setVisibleLevel } from '../../../store/actions/charActions';
 
 
 export const CharSettingsPanel: React.FC = () => {

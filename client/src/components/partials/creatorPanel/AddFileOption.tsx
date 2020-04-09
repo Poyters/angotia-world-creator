@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ContentContext } from '../../../Template';
-import { setMapBg } from '../../../redux/actions/mapActions';
+import { setMapBg } from '../../../store/actions/mapActions';
 import { setActionNote } from '../../../assets/scripts/notifications';
 import { sizeGuard } from '../../../assets/scripts/files/sizeGuard';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';

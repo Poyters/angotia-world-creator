@@ -7,7 +7,7 @@ import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../assets/interfaces/square';
 import { IVertexWeight } from '../../../../assets/interfaces/vertex';

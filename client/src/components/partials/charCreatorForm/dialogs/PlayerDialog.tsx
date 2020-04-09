@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
-import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
+import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 

@@ -6,7 +6,7 @@ import { markSquare } from '../../../../assets/scripts/markSquare';
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
-} from '../../../../redux/actions/mapActions';
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../assets/interfaces/square';
 import { IPassageLocation } from '../../../../assets/interfaces/passage';

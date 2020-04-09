@@ -12,7 +12,7 @@ import { ContentContext } from '../../../../Template';
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
-} from '../../../../redux/actions/mapActions';
+} from '../../../../store/actions/mapActions';
 
 
 let pressedKey: string | null = null;

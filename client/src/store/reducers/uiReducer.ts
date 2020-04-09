@@ -1,19 +1,7 @@
-export const initState = {
-    actionNote: "Map has been loaded",
-    select: {
-        type: "none", //none, square, field, mouse
-        matrix: [],
-    },
-    net: {
-        field: true,
-        square: true
-    },
-    language: 'en',
-    statisticPanelIsOpen: false
-};
+import { uiState } from '../states/uiState';
 
 
-export const uiReducer = (state = initState, action) => {
+export const uiReducer = (state = uiState, action) => {
     switch(action.type) {
         case 'CHANGE_ACTION_NOTIFICATION':
             return {

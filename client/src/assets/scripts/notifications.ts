@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import { setNotification } from '../../redux/actions/uiActions';
+import { setNotification } from '../../store/actions/uiActions';
 import creatorConfig from '../configs/creatorConfig.json';
 
 

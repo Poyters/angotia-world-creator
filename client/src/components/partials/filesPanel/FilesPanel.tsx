@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useContext, CSSProperties } from 'react';
+import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { markSquare } from '../../../assets/scripts/markSquare';
-import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 import { Arrow } from '../Arrow';
 import { CharButton } from './CharButton';
@@ -19,7 +18,7 @@ import {
 	changeMapSubsoilMatrix, 
 	changeMapNpcMatrix, 
 	changeMapMobMatrix 
-} from '../../../redux/actions/mapActions';
+} from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 
 
@@ -29,7 +28,6 @@ export const FilesPanel: React.FC = () => {
 	const { filesPanel } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
-	const dispatch = useDispatch();
 	const buildingMatrix = deepCopy(useSelector(state => state.map.building.matrix));
 	const subsoilMatrix = deepCopy(useSelector(state => state.map.subsoil.matrix));
 	const mobMatrix = deepCopy(useSelector(state => state.map.mob.matrix));
@@ -38,21 +36,11 @@ export const FilesPanel: React.FC = () => {
 	);
 	const npcMatrix = deepCopy(useSelector(state => state.map.npc.matrix));
 
-	useEffect((): void => { //Create necessary empty matrix at the beginning
-		const newEmptyMatrix = generateEmptyMapMatrix();
-
-		dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
-	}, []);
-
 	const filesPanelStyles = {
 		right: isOpen ? "0" : "-300px"
 	};
 
-	const imageStyle = {
+	const imageStyle: CSSProperties = {
 		width: `${creatorConfig.map.fieldSize}px`,
 		height: `${creatorConfig.map.fieldSize}px`
 	};
@@ -61,15 +49,13 @@ export const FilesPanel: React.FC = () => {
 		const bookmarkImages: string[] = [];
 		let matrixTransformationMethod: Function;
 		let sourceMatrix: any[];
-		let note: string = '';
 
 		switch(currBookmark) { 
 			case 'building':
 				bookmarkImages.push(test1); //TODO: get images from database
-				bookmarkImages.push(test1min); //TODO: get images from database
+				bookmarkImages.push(test1min);
 				matrixTransformationMethod = changeMapBuildingMatrix;
 				sourceMatrix = buildingMatrix;
-				note ='Added building images';
 			break;
 			case 'decoration':
 				bookmarkImages.push(test2);
@@ -88,25 +74,21 @@ export const FilesPanel: React.FC = () => {
 				bookmarkImages.push(test2);
 				matrixTransformationMethod = changeMapDecorationMatrix;
 				sourceMatrix = decorationMatrix;
-				note ='Added decoration images';
 			break;
 			case 'subsoil':
 				bookmarkImages.push(test3);
 				matrixTransformationMethod = changeMapSubsoilMatrix;
 				sourceMatrix = subsoilMatrix;
-				note ='Added subsoil images';
 			break;
 			case 'mob':
 				bookmarkImages.push(test4);
 				matrixTransformationMethod = changeMapMobMatrix;
 				sourceMatrix = mobMatrix;
-				note ='Added MOBs';
 			break;
 			case 'npc':
 				bookmarkImages.push(test5);
 				matrixTransformationMethod = changeMapNpcMatrix;
 				sourceMatrix = npcMatrix;
-				note ='Added NPCs';
 			break;
 		}
 
@@ -119,12 +101,12 @@ export const FilesPanel: React.FC = () => {
 							sourceMatrix, 
 							`map${currBookmark}Canvas`, 
 							matrixTransformationMethod, 
-							note, 
+							`Added ${currBookmark}`, 
 							img, 
 							'image'
 					)}
 				>
-					<img src={img}></img>
+					<img src={img} alt='tile' />
 				</li>
 			);
 		});
@@ -183,7 +165,6 @@ export const FilesPanel: React.FC = () => {
 						) : null
 					}
 					
-
 					<div 
 						className="filesPanel__switch t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(false)}

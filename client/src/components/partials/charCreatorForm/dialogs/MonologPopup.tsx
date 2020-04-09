@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { ActionInputField } from '../../ActionInputField';
-import { changeMonologs } from '../../../../redux/actions/charActions';
+import { changeMonologs } from '../../../../store/actions/charActions';
 import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
 import { setActionNote } from '../../../../assets/scripts/notifications';
