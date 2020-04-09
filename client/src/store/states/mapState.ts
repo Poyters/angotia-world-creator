@@ -1,6 +1,8 @@
 import uuid from 'uuid/v4';
+import { MapState } from '../../assets/types/mapState';
 
-export const mapState = {
+
+export const mapState: MapState = {
     id: uuid(),
     mapName: 'board name',
     minEntryLevel: 0,
@@ -25,12 +27,10 @@ export const mapState = {
         matrix: []
     },
     npc: {
-        matrix: [],
-        dialogs: {}
+        matrix: []
     },
     mob: {
-        matrix: [],
-        types: {}
+        matrix: []
     },
     vertex: {
         matrix: [],
