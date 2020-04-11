@@ -27,7 +27,7 @@ export const CharSettingsPanel: React.FC = () => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--charSettingsPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
 			> 
-				{ char.settingsPanel.open }
+				{ char?.settingsPanel?.open }
 			</div>
 			<aside 
 				className="g-sidePanelWrapper g-sidePanelWrapper--left" 
@@ -36,9 +36,9 @@ export const CharSettingsPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					{ choosedChar === 'npc' ?
 						<ChooseButtons 
-							types={char.settingsPanel.hasVisibleLevel.types}
+							types={char?.settingsPanel?.hasVisibleLevel?.types}
 							action={setVisibleLevel}
-							label={char.settingsPanel.hasVisibleLevel.title}
+							label={char?.settingsPanel?.hasVisibleLevel?.title}
 							specialClass='chooseButtonsWrapper--charSettingsPanel'
 						/> : null
 					}
@@ -63,7 +63,7 @@ export const CharSettingsPanel: React.FC = () => {
 					>
 						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
-							{ char.settingsPanel.close }
+							{ char?.settingsPanel?.close }
 						</span>
 					</div>
 				</div>

@@ -66,7 +66,6 @@ export const EntryPanel: React.FC = () => {
       return (e) => {
         const mapData = JSON.parse(e.target.result);
 
-        dispatch(changeMapName(file.name));
         dispatch(loadMapData(mapData));
         drawLoadedMap();
       };

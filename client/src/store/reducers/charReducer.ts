@@ -2,7 +2,6 @@ import { charState } from '../states/charState';
 
 
 export const charReducer = (state = charState, action) => {
-  console.log(state)
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {

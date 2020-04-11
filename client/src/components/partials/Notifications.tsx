@@ -20,7 +20,7 @@ export const Notifications: React.FC = () => {
 
 		timer = setTimeout((): void => {
 			setOpacityCSS(0);	
-		}, creatorConfig.actionNoteDelay);
+		}, creatorConfig?.actionNoteDelay);
 	});
 
 	return (

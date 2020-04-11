@@ -26,7 +26,7 @@ export const MapSettingsPanel: React.FC = () => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
 			> 
-				{ creator.settingsPanel.open }
+				{ creator?.settingsPanel?.open }
 			</div>
 			<aside 
 				className="g-sidePanelWrapper g-sidePanelWrapper--left" 
@@ -34,19 +34,19 @@ export const MapSettingsPanel: React.FC = () => {
 			>
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
-						label={creator.settingsPanel.id}
+						label={creator?.settingsPanel?.id}
 						inputValue={mapId}
 						inputDisabled={true}
 					/>
 					<ActionInputField
-						label={creator.settingsPanel.minLevel}
+						label={creator?.settingsPanel?.minLevel}
 						inputValue={minEntryLevel}
 						action={setMinEntryLevel}
 					/>
 
 					<div className="g-separeTextarea">
 						<label className="g-separeTextarea__label t-paragraph6Light">
-							{ creator.settingsPanel.description }
+							{ creator?.settingsPanel?.description }
 						</label>
 						<textarea
 							className="g-separeTextarea__area g-separeTextarea__area--mapDesc"
@@ -62,7 +62,7 @@ export const MapSettingsPanel: React.FC = () => {
 					>
 						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
-							{ creator.settingsPanel.close }
+							{ creator?.settingsPanel?.close }
 						</span>
 					</div>
 				</div>

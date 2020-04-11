@@ -31,19 +31,19 @@ export const CreatorPanel: React.FC = () => {
         <li>
           <LinkButton 
             link={`/${lang}/${routes.home}`}
-            buttonText={creator.panel.buttons.back} 
+            buttonText={creator?.panel?.buttons?.back} 
           />
         </li>
         <li>
           <LinkButton 
             link={`/${lang}/${routes.help}`}
-            buttonText={creator.panel.buttons.help}  
+            buttonText={creator?.panel?.buttons?.help}  
           />
         </li>
         <li>
           <LinkButton 
             link={`/${lang}/${routes.license}`}
-            buttonText={creator.panel.buttons.license}  
+            buttonText={creator?.panel?.buttons?.license}  
           />
         </li>
         <li>

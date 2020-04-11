@@ -12,7 +12,7 @@ export const Map: React.FC = () => {
   const [mapTop, setMapTop] = useState<number>(0);
   const [mapLeft, setMapLeft] = useState<number>(0);
 
-  const fieldSize: number = creatorConfig.map.fieldSize;
+  const fieldSize: number = creatorConfig?.map?.fieldSize;
 
   interface IMapStyles {
     width: string,

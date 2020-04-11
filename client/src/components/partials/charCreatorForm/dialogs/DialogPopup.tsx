@@ -65,7 +65,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           className="g-exitBtn g-exitBtn--popup"
           onClick={closePopupHandler}
         > </div>
-        <header className="insertPopup__header t-paragraph3Light">
+        <header className="insertPopup__header insertPopup__header--dialog t-paragraph3Light">
           { char.dialogPopup.add }
         </header>
         <ActionInputField

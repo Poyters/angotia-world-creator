@@ -5,7 +5,7 @@ interface ISectionHeader {
     headerTxt: string
 }
 
-export const SectionHeader: React.FC<ISectionHeader> = ({headerTxt}) => {
+export const SectionHeader: React.FC<ISectionHeader> = ({ headerTxt }) => {
   return (
     <header className="sectionHeader">
       <h1>

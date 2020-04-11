@@ -10,8 +10,8 @@ export const ReportIssue: React.FC = () => {
     <aside 
       className="labelMark labelMark--bottomLeft labelMark--link t-paragraph5Normal"
     >
-      <a href={appConfig.reportIssue.link}>
-        {global.reportIssue.name}
+      <a href={appConfig?.reportIssue?.link}>
+        {global?.reportIssue?.name}
       </a>
     </aside>
   );
