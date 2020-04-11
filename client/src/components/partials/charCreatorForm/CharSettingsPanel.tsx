@@ -1,10 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Arrow } from '../Arrow';
-import { ActionInputField } from '../ActionInputField';
+import { ActionMaxMinField } from '../ActionMaxMinField';
 import { ChooseButtons } from '../ChooseButtons';
 import { ContentContext } from '../../../Template';
-import { setVisibleLevel } from '../../../store/actions/charActions';
+import { 
+	setVisibleLevel,
+	setTimeOfOccurance,
+	setRespawnTime
+} from '../../../store/actions/charActions';
 import { IStore } from '../../../assets/interfaces/store';
 
 
@@ -39,15 +43,19 @@ export const CharSettingsPanel: React.FC = () => {
 						/> : null
 					}
 					{ choosedChar === 'mob' ?
-						<ActionInputField
-							label='Respawn time (sec; x-y value)'
-							inputValue={'500-900'}
+						<ActionMaxMinField
+							label='Respawn time (seconds)'
+							minValue={500}
+							maxValue={1000}
+							action={setRespawnTime}
 						/> : null
 					}	
-					<ActionInputField
-						label='Time of occurence'
-						inputValue={'0-24'}
-					/>
+					<ActionMaxMinField
+						label='Time of occurance'
+						minValue={0}
+						maxValue={24}
+						action={setTimeOfOccurance}
+					/> 
 
 					<div 
 						className="g-sidePanel__switch t-paragraph4Normal" 

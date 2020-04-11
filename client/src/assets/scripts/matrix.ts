@@ -1,5 +1,5 @@
 import { ISquareData } from '../interfaces/square';
-import { IPoint } from '../interfaces/point';
+import { IPoint } from '../interfaces/math';
 import { deepCopy } from './utils/deepCopy';
 
 

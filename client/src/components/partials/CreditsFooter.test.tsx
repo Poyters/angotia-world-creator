@@ -3,7 +3,7 @@ import { shallow, configure } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
 import { MockContent, content } from '../../assets/mocks/content';
 import { render } from '@testing-library/react';
-import CreditsFooter from './CreditsFooter';
+import { CreditsFooter } from './CreditsFooter';
 
 configure({adapter: new Adapter()});
 

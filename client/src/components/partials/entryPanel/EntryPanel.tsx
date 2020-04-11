@@ -7,7 +7,7 @@ import { setMapSizes, loadMapData } from '../../../store/actions/mapActions';
 import { changeMapName } from '../../../store/actions/mapActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
-import { IPoint } from '../../../assets/interfaces/point';
+import { IPoint } from '../../../assets/interfaces/math';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';

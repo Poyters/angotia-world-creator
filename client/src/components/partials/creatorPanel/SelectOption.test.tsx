@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
 import { store } from '../../../index';
-import SelectOption from './SelectOption';
+import { SelectOption } from './SelectOption';
 
 const mockStore = configureMockStore();
 const mockedStore = mockStore(store);

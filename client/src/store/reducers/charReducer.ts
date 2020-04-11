@@ -2,6 +2,7 @@ import { charState } from '../states/charState';
 
 
 export const charReducer = (state = charState, action) => {
+  console.log(state)
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -57,6 +58,22 @@ export const charReducer = (state = charState, action) => {
       return {
         ...state,
         hasVisibleLevel: action.isVisible
+      };
+    case 'SET_TIME_OF_OCCURANCE':
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          timeOfOccurance: action.times
+        }
+      };
+    case 'SET_RESPAWN_TIME':
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          respTime: action.times
+        }
       };
     default:
       return state;

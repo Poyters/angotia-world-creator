@@ -1,4 +1,4 @@
-import { IPoint } from '../interfaces/point';
+import { IPoint } from '../interfaces/math';
 import { IPassageLocation } from '../interfaces/passage';
 import { IVertexWeight } from '../interfaces/vertex';
 

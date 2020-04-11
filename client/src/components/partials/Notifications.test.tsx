@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
 import { store } from '../../index';
-import Notifications from './Notifications';
+import { Notifications } from './Notifications';
 
 
 const mockStore = configureMockStore();

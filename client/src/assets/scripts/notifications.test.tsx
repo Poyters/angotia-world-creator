@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
 import { store } from '../../index';
-import Notifications from '../../components/partials/Notifications';
+import { Notifications } from '../../components/partials/Notifications';
 // import { setActionNote } from './notifications';
 
 

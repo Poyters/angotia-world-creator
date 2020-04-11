@@ -1,6 +1,7 @@
 import { store } from '../../index';
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs';
 import { ICharStatistic } from '../../assets/interfaces/char';
+import { IMinMaxField } from '../../assets/interfaces/math';
 
 
 export const changeCharType = (charType: string) => ({
@@ -62,4 +63,14 @@ export const changeFieldDiameter = (newDiameter: number) => ({
 export const setVisibleLevel = (isVisible: boolean) => ({
   type: 'SET_VISIBLE_LEVEL',
   isVisible
+});
+
+export const setTimeOfOccurance = (times: IMinMaxField) => ({
+  type: 'SET_TIME_OF_OCCURANCE',
+  times
+});
+
+export const setRespawnTime = (times: IMinMaxField) => ({
+  type: 'SET_RESPAWN_TIME',
+  times
 });

@@ -1,4 +1,4 @@
-import { IPoint } from './point';
+import { IPoint } from './math';
 
 
 export interface IRectanglePosition {
