@@ -74,6 +74,10 @@ export const charReducer = (state = charState, action) => {
           respTime: action.times
         }
       };
+    case 'LOAD_CHAR_DATA':
+      return {
+        ...action.data
+      };
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import { store } from '../../index';
 import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs';
 import { ICharStatistic } from '../../assets/interfaces/char';
 import { IMinMaxField } from '../../assets/interfaces/math';
+import { CharState } from '../../assets/types/charState';
 
 
 export const changeCharType = (charType: string) => ({
@@ -73,4 +74,9 @@ export const setTimeOfOccurance = (times: IMinMaxField) => ({
 export const setRespawnTime = (times: IMinMaxField) => ({
   type: 'SET_RESPAWN_TIME',
   times
+});
+
+export const loadCharData = (data: CharState) => ({
+  type: 'LOAD_CHAR_DATA',
+  data
 });

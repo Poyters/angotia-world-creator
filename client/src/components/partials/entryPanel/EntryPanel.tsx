@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MapSizeInput } from './MapSizeInput';
 import { setMapSizes, loadMapData } from '../../../store/actions/mapActions';
-import { changeMapName } from '../../../store/actions/mapActions';
+import { loadCharData } from '../../../store/actions/charActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
 import { IPoint } from '../../../assets/interfaces/math';
@@ -24,7 +24,7 @@ export const EntryPanel: React.FC = () => {
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');
-  const [redirect, setRedirect] = useState<boolean>(false);
+  const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
   const mapSizeValidation = ():void => {
@@ -53,31 +53,40 @@ export const EntryPanel: React.FC = () => {
       mapSizes.y = mapSizeY;
 
       dispatch(setMapSizes(mapSizes));
-      setRedirect(true);
+      setRedirect(routes.creator);
     }
 
   };
 
-  const loadMap = (evt: any) => {
+  const loadMap = (evt: any, type: string) => {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
     reader.onload = (():any => {
       return (e) => {
-        const mapData = JSON.parse(e.target.result);
+        const loadedData = JSON.parse(e.target.result);
 
-        dispatch(loadMapData(mapData));
-        drawLoadedMap();
+        switch (type) {
+          case 'map':
+            dispatch(loadMapData(loadedData));
+            setRedirect(routes.creator);
+            drawLoadedMap();
+            
+          break;
+          case 'char':
+            dispatch(loadCharData(loadedData));
+            setRedirect(routes.char);
+          break;
+        }
       };
 
     })();
 
     reader.readAsText(file);
-    setRedirect(true);
   };
 
-  const content = redirect ? (
-    <Redirect to={`/${lang}/${routes.creator}`}/>
+  const content = redirect !== null ? (
+    <Redirect to={`/${lang}/${redirect}`}/>
   ) : (
     <ul className="entryPanel">
       <li>
@@ -115,7 +124,7 @@ export const EntryPanel: React.FC = () => {
               type="file" 
               id="loadMapInput" 
               className="entryPanel__loadMapInput"
-              onChange={(event): void => loadMap(event)}
+              onChange={(event): void => loadMap(event, 'map')}
           />
           <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
             { entryPanel.loadMap }
@@ -132,12 +141,17 @@ export const EntryPanel: React.FC = () => {
         </Link>
       </li>
       <li>
-        <Link
-          to={`/${lang}/${routes.char}`}
-          className="t-paragraph1MediumLight"
-        >
-          { entryPanel.loadChar }
-        </Link>
+        <a href="#">
+          <input 
+              type="file" 
+              id="loadCharInput" 
+              className="entryPanel__loadMapInput"
+              onChange={(event): void => loadMap(event, 'char')}
+          />
+          <label className="t-paragraph1MediumLight" htmlFor="loadCharInput">
+            { entryPanel.loadChar }
+          </label>
+        </a>
       </li>
       <li>
         <a href={appConfig.exitLink} id="closeBtn">

@@ -23,6 +23,8 @@ export const CharCreatorForm: React.FC = () => {
   const { char } = useContext(ContentContext);
   const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
   const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
+  const charName: string = useSelector((state: IStore) => state.char.name);
+  const charLevel: string = useSelector((state: IStore) => state.char.statistics.level);
   const charType: string = useSelector((state: IStore) => state.char.type);
   const charId: string = useSelector((state: IStore) => state.char.id);
   const dispatch: Function = useDispatch();
@@ -42,6 +44,7 @@ export const CharCreatorForm: React.FC = () => {
           <div className="charCreatorForm__row">
             <div className="charFormPanel charFormPanel--left">
               <ActionInputField
+                inputValue={charName}
                 label={char.form.inputs.name}
                 action={changeName}
               />
@@ -52,7 +55,7 @@ export const CharCreatorForm: React.FC = () => {
               />
               <ActionInputField
                 label={char.form.inputs.lvl}
-                inputValue={1}
+                inputValue={charLevel}
                 action={changeStatistics}
                 payloadId='level'
               />
