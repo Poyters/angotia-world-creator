@@ -13,7 +13,7 @@ import { BlockOption } from '../partials/creatorPanel/BlockOption';
 import { LayersOption } from '../partials/creatorPanel/LayersOption';
 import { PassageOption } from '../partials/creatorPanel/passage/PassageOption';
 import { VertexWeightOption } from '../partials/creatorPanel/vertexWeight/VertexWeightOption';
-import { SaveOption } from '../partials/creatorPanel/SaveOption';
+import { SaveOption } from '../partials/options/SaveOption';
 import { DeleteBgOption }from '../partials/creatorPanel/DeleteBgOption';
 import { ContentContext } from '../../Template';
 

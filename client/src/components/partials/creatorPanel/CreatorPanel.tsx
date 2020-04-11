@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useContext } from 'react';
 import { ExportOption } from './ExportOption';
 import { FullScreenOption } from '../options/FullScreenOption';
 import { NetOption } from './NetOption';
@@ -11,7 +10,7 @@ import { LayersOption } from './LayersOption';
 import { PassageOption } from './passage/PassageOption';
 import { LinkButton } from '../LinkButton';
 import { VertexWeightOption } from './vertexWeight/VertexWeightOption';
-import { SaveOption } from './SaveOption';
+import { SaveOption } from '../options/SaveOption';
 import { DeleteBgOption } from './DeleteBgOption';
 import { AddFSImageOption } from './addFSImage/AddFSImageOption';
 import { BoardNameOption } from './boardName/BoardNameOption';

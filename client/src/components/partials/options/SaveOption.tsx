@@ -6,13 +6,26 @@ import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 
 
-export const SaveOption: React.FC = () => {
+interface ISaveOption {
+  type?: string
+}
+
+export const SaveOption: React.FC<ISaveOption> = ({ type }) => {
   const { creator } = useContext(ContentContext);
   const mapData = useSelector((state: IStore) => state.map);
   const mapName = useSelector((state: IStore) => state.map.mapName);
+  const charData = useSelector((state: IStore) => state.char);
+  const charName = useSelector((state: IStore) => state.char.name);
 
   const saveMap = (): void => {
-    saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');
+    switch(type) {
+      case 'char':
+        saveFile(JSON.stringify(charData), `${charName}.json`, 'text/json');
+      break;
+      case 'map':
+      default:
+        saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');
+    }
   };
 
   return (
