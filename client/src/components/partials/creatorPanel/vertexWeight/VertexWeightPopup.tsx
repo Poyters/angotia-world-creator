@@ -30,8 +30,8 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
     useEffect((): void => {
         if (
-            parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
-            parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
+            parseInt(vertexWeightValue) < creatorConfig?.vertexWeight?.min || 
+            parseInt(vertexWeightValue) > creatorConfig?.vertexWeight?.max || 
             !vertexWeightMatrix || 
             !Number(vertexWeightValue)
         ) {
@@ -61,7 +61,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
             vertexWeightMatrix, 
             'mapVertexWeightCanvas', 
             changeMapVertexWeightMatrix, 
-            notifications.options.vertex.add, 
+            notifications?.options?.vertex?.add, 
             vertexWeightValue, 
             'vertexWeight'
         );
@@ -75,11 +75,11 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    { creator.panel.options.vertex.title }
+                    { creator?.panel?.options?.vertex?.title }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    { creator.panel.options.vertex.desc }
-                    ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                    { creator?.panel?.options?.vertex?.desc }
+                    ({creatorConfig?.vertexWeight?.min} - {creatorConfig?.vertexWeight?.max})
                 </label>
                 <input 
                     type='text' 
@@ -89,7 +89,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                           { creator.panel.options.vertex.error }
+                           { creator?.panel?.options?.vertex?.error }
                         </span>
                     ) : null
                 }
@@ -99,7 +99,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                     className="insertPopup__submit t-paragraphLight" 
                     onClick={(): void => insertVertexWeight()} disabled={error}
                 > 
-                    { creator.panel.options.vertex.submit }
+                    { creator?.panel?.options?.vertex?.submit }
                 </button>
             </div>
         </div>

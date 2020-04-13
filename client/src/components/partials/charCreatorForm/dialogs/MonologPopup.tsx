@@ -44,7 +44,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications.monologs.add);
+    setActionNote(notifications?.monologs?.add);
   };
 
   const editMonolog = (): void => {
@@ -55,7 +55,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications.monologs.edit);
+    setActionNote(notifications?.monologs?.edit);
     if (setMonologData) setMonologData(null);
   };
 
@@ -81,7 +81,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           onClick={():void => togglePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char.monolog.add }
+          { char?.monolog?.add }
         </header>
         <ActionInputField
           label='ID - auto generated'
@@ -89,7 +89,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.monolog.content }
+          { char?.monolog?.content }
         </label>
         <textarea
           value={monologContent} 
@@ -98,7 +98,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
         {
           (monologCtnErr) ? (
             <span className="insertPopup--error">
-              { char.monolog.contentErr }
+              { char?.monolog?.contentErr }
             </span>
           ) : null
         }
@@ -109,7 +109,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           onClick={(): void => submitHandler()} 
           disabled={monologCtnErr}
         > 
-          { char.monolog.submit } 
+          { char?.monolog?.submit } 
         </button>
       </div>
     </div>

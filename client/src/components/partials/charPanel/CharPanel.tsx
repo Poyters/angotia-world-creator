@@ -15,13 +15,13 @@ export const CharPanel: React.FC = () => {
       </header>
       <ul className="optionsPanel__options">
         <li>
-          <LinkButton link='/' buttonText={char.panel.comeBack} />
+          <LinkButton link='/' buttonText={char?.panel?.comeBack} />
         </li>
         <li>
-          <LinkButton link={routes.help} buttonText={char.panel.help} />
+          <LinkButton link={routes?.help} buttonText={char?.panel?.help} />
         </li>
         <li>
-          <LinkButton link={routes.license} buttonText={char.panel.license} />
+          <LinkButton link={routes?.license} buttonText={char?.panel?.license} />
         </li>
         <li>
           <SaveOption

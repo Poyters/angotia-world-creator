@@ -56,7 +56,7 @@ export const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     <div 
       className="option option--net" 
       onClick={changeViewType} 
-      data-title={creator.panel.options.net.dataTitle}
+      data-title={creator?.panel?.options?.net?.dataTitle}
     >
       <span className="option__viewType">{optionViewType}</span>
       <div className={`netGraphic ${netOnOff}`}>

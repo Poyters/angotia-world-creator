@@ -58,7 +58,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           </ul>
         </nav>
         {
-          type === char.form.dialogs.title ? (
+          type === char?.form?.dialogs?.title ? (
             dialogsData.length > 0 ? (
               dialogsData.map((dialog: IDialog) => {
                 return <Dialog 
@@ -73,13 +73,13 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                  { char.form.lackOf } { type }
+                  { char?.form?.lackOf } { type }
               </p>
             )
           ) : null
         }
         {
-          type === char.form.monologs.title ? (
+          type === char?.form?.monologs?.title ? (
             monologsData.length > 0 ? (
               monologsData.map((monolog: IMonolog) => {
                 return <Monolog 
@@ -92,7 +92,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                { char.form.lackOf } { type }
+                { char?.form?.lackOf } { type }
               </p>
             )
           ) : null

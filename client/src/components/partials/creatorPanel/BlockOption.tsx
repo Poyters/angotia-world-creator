@@ -17,7 +17,7 @@ export const BlockOption = () => {
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
-			setActionNote(notifications.options.block.select, 'warning');
+			setActionNote(notifications?.options?.block?.select, 'warning');
 			return;
 		}
 		
@@ -36,7 +36,7 @@ export const BlockOption = () => {
 			role="button" 
 			className="option option--block" 
 			onClick={(): void => blockHandler()} 
-			data-title={creator.panel.options.block.dataTitle}
+			data-title={creator?.panel?.options?.block?.dataTitle}
 		>
 			<div className="g-exitBtn"></div>
 		</div>

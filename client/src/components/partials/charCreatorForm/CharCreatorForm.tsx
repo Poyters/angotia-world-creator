@@ -81,7 +81,7 @@ export const CharCreatorForm: React.FC = () => {
                 payloadId='defence'
               />
               <CornerButton 
-                name={char.form.addStatBtn}
+                name={char?.form?.addStatBtn}
                 clickEvent={() => dispatch(toggleStatisticPanel(true))}
               />
             </div>
@@ -105,7 +105,7 @@ export const CharCreatorForm: React.FC = () => {
                   <ChooseButtons 
                     types={char?.form?.isAgressiveMob?.types}
                     action={isAgressiveMob}
-                    label={char.form.isAgressiveMob.title}
+                    label={char?.form?.isAgressiveMob?.title}
                     specialClass='chooseButtonsWrapper--smaller'
                     choosed={charIsAgressiveMob}
                   />
@@ -113,15 +113,15 @@ export const CharCreatorForm: React.FC = () => {
               }
 
               <ChooseButtons 
-                types={char.form.charType.types}
+                types={char?.form?.charType?.types}
                 action={changeCharType}
-                label={char.form.charType.label}
+                label={char?.form?.charType?.label}
                 choosed={charType}
               />
 
               { charType === 'moving' ? (
                 <ActionInputField
-                  label={char.form.charType.movingField}
+                  label={char?.form?.charType?.movingField}
                   inputValue={fieldDiameter}
                   action={changeFieldDiameter}
                 />
@@ -131,14 +131,14 @@ export const CharCreatorForm: React.FC = () => {
           </div>
           { choosedChar === 'npc' ? (
               <Dialogs 
-                type={char.form.dialogs.title}
-                addBtnText={char.form.dialogs.addBtn}
+                type={char?.form?.dialogs?.title}
+                addBtnText={char?.form?.dialogs?.addBtn}
               />
             ) : null
           }
           <Dialogs 
-            type={char.form.monologs.title}
-            addBtnText={char.form.monologs.addBtn}
+            type={char?.form?.monologs?.title}
+            addBtnText={char?.form?.monologs?.addBtn}
           />
         </div>
       </div>

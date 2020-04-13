@@ -36,13 +36,13 @@ export const AddTemponaryPlayerDialog: React.FC = () => {
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
         >
-          { char.dialogPopup.playerDialogs }
+          { char?.dialogPopup?.playerDialogs }
         </header>
         <div 
           className="playerDialogsHeader__add t-paragraph5Normal"
           onClick={():void => addPlayerDialogHandler() }
         >
-          { char.dialogPopup.newPlayerDialog }
+          { char?.dialogPopup?.newPlayerDialog }
         </div>
 
       </nav>

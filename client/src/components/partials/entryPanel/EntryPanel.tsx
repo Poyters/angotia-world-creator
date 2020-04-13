@@ -69,13 +69,13 @@ export const EntryPanel: React.FC = () => {
         switch (type) {
           case 'map':
             dispatch(loadMapData(loadedData));
-            setRedirect(routes.creator);
+            setRedirect(routes?.creator);
             drawLoadedMap();
             
           break;
           case 'char':
             dispatch(loadCharData(loadedData));
-            setRedirect(routes.char);
+            setRedirect(routes?.char);
           break;
         }
       };
@@ -92,7 +92,7 @@ export const EntryPanel: React.FC = () => {
       <li>
         <button className="t-paragraph1MediumLight entryPanel__createBoard">
           <span>
-            { entryPanel.createMap }
+            { entryPanel?.createMap }
           </span>
           <div role="presentation" className="entryPanel__sizeBoard">
             <MapSizeInput
@@ -114,7 +114,7 @@ export const EntryPanel: React.FC = () => {
             id="validationInfo" 
             className="t-paragraph2Bold entryPanel__validationInfo"
           >
-            {valMess}
+            { valMess }
           </span>
         </button>
       </li>
@@ -127,7 +127,7 @@ export const EntryPanel: React.FC = () => {
               onChange={(event): void => loadMap(event, 'map')}
           />
           <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
-            { entryPanel.loadMap }
+            { entryPanel?.loadMap }
           </label>
         </a>
       </li>
@@ -137,7 +137,7 @@ export const EntryPanel: React.FC = () => {
           to={`/${lang}/${routes.char}`}
           className="t-paragraph1MediumLight"
         >
-            { entryPanel.createChar }
+            { entryPanel?.createChar }
         </Link>
       </li>
       <li>
@@ -149,14 +149,14 @@ export const EntryPanel: React.FC = () => {
               onChange={(event): void => loadMap(event, 'char')}
           />
           <label className="t-paragraph1MediumLight" htmlFor="loadCharInput">
-            { entryPanel.loadChar }
+            { entryPanel?.loadChar }
           </label>
         </a>
       </li>
       <li>
-        <a href={appConfig.exitLink} id="closeBtn">
+        <a href={appConfig?.exitLink} id="closeBtn">
           <span className="t-paragraphLight">
-          { entryPanel.exit }
+          { entryPanel?.exit }
           </span>
         </a>
       </li>

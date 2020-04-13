@@ -11,14 +11,14 @@ export const DeleteBgOption: React.FC = () => {
 
   const deleteBg = (): void => {
     dispatch(setMapBg(''));
-    setActionNote(notifications.options.deleteBg.delete);
+    setActionNote(notifications?.options?.deleteBg?.delete);
   };
 
   return (
     <div className="option option--deleteBg" onClick={deleteBg}>
       <div 
         className="g-exitBtn" 
-        data-tile={creator.panel.options.deleteBg.dataTitle}
+        data-tile={creator?.panel?.options?.deleteBg?.dataTitle}
       > </div>
     </div>
   );

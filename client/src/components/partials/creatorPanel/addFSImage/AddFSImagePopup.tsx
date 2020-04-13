@@ -14,13 +14,13 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
     const [fileName, setFileName] = useState<string>("");
-    const [currBookmark, setCurrBookmark] = useState<string>(creatorConfig.bookmarks[0]);
+    const [currBookmark, setCurrBookmark] = useState<string>(creatorConfig?.bookmarks[0]);
 
     const handleFileSelect = (evt: any) => {
         const file = evt.target.files[0]; 
         const reader = new FileReader();
 
-        if (!sizeGuard(file, creatorConfig.maxPicsWeight.mapTile)) {
+        if (!sizeGuard(file, creatorConfig?.maxPicsWeight?.mapTile)) {
             return;
         }
     
@@ -51,10 +51,10 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    {creator.panel.options.addFSImage.title}
+                    { creator?.panel?.options?.addFSImage?.title }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    {creator.panel.options.addFSImage.image}
+                    { creator?.panel?.options?.addFSImage?.image}
                 </label>
                 <input 
                     type="file" 
@@ -66,12 +66,12 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 {
                     (!isLoadedImage) ? (
                         <span className="insertPopup--error">
-                            {creator.panel.options.addFSImage.error}
+                            {creator?.panel?.options?.addFSImage?.error}
                         </span>
                     ) : null
                 }
                 <label className="insertPopup__label t-paragraph6Light">
-                    {creator.panel.options.addFSImage.category}
+                    { creator?.panel?.options?.addFSImage?.category }
                 </label>
                 <div 
                     className="addFSImageSelect"
@@ -81,7 +81,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     {
                         (isSelectOpen) ? (
                         <ul>
-                            { creatorConfig.bookmarks.map((bookmark: string) => {
+                            { creatorConfig?.bookmarks.map((bookmark: string) => {
                                 if (bookmark !== currBookmark) {
                                     return (
                                         <li 
@@ -104,7 +104,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     className="insertPopup__submit t-paragraphLight" 
                     onClick={(): void => insertImage()} disabled={!isLoadedImage}
                 > 
-                    {creator.panel.options.addFSImage.submit} 
+                    {creator?.panel?.options?.addFSImage?.submit} 
                 </button>
             </div>
         </div>

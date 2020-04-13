@@ -55,7 +55,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
-    setActionNote(notifications.dialogs.edit);
+    setActionNote(notifications?.dialogs?.edit);
   };
 
   return (
@@ -66,15 +66,15 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           onClick={():void => closePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char.dialogPopup.edit }
+          { char?.dialogPopup?.edit }
         </header>
         <ActionInputField
-          label={char.dialogPopup.id}
+          label={char?.dialogPopup?.id}
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.dialogPopup.npcDialog }
+          { char?.dialogPopup?.npcDialog }
         </label>
         <textarea
           value={npcText} 
@@ -83,7 +83,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { char.dialogPopup.npcTextErr }
+              { char?.dialogPopup?.npcTextErr }
             </span>
           ) : null
         }   
@@ -96,7 +96,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           onClick={(): void => submitHandler()} 
           disabled={npcTextErr}
         > 
-          { char.dialogPopup.submit } 
+          { char?.dialogPopup?.submit } 
         </button>
       </div>
     </div>

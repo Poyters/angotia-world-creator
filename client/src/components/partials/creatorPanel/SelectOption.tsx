@@ -18,19 +18,19 @@ export const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) =>
     switch(selectType) {
       case 0:
         dispatch(setMapSelectType('none'));
-        setActionNote(notifications.options.select.option);
+        setActionNote(notifications?.options?.select?.option);
       break;
       case 1:
         dispatch(setMapSelectType('square'));
-        setActionNote(notifications.options.select.square);
+        setActionNote(notifications?.options?.select?.square);
       break;
       case 2: 
       dispatch(setMapSelectType('field'));
-        setActionNote(notifications.options.select.field);
+        setActionNote(notifications?.options?.select?.field);
       break;
       case 3:
         dispatch(setMapSelectType('mouse'));
-        setActionNote(notifications.options.select.mouse);
+        setActionNote(notifications?.options?.select?.mouse);
       break;
       default:
         console.warn('Invalid selectType');
@@ -58,7 +58,7 @@ export const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) =>
       </span>
       <div 
         className="titleContainer" 
-        data-title={creator.panel.options.select.dataTitle}
+        data-title={creator?.panel?.options?.select?.dataTitle}
       > </div>
     </div>
   );

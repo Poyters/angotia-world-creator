@@ -17,7 +17,7 @@ export const AddFSImageOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator.panel.options.addFSImage.dataTitle}
+                data-title={creator?.panel?.options?.addFSImage?.dataTitle}
             >
                 <div className="addFSImageOption">
 

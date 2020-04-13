@@ -20,8 +20,8 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
     useEffect((): void => {
         if (
-            parseInt(visibility) < creatorConfig.visibility.min || 
-            parseInt(visibility) > creatorConfig.visibility.max ||
+            parseInt(visibility) < creatorConfig?.visibility?.min || 
+            parseInt(visibility) > creatorConfig?.visibility?.max ||
             !Number(visibility)
         ) {
             setError(true);
@@ -33,7 +33,7 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const submitVisibility = ():void => {
         dispatch(setVisibilityRange(parseInt(visibility)));
         closePopup(false);
-        setActionNote(notifications.visibility.change);
+        setActionNote(notifications?.visibility?.change);
     };
 
     return (
@@ -44,11 +44,11 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    { creator.panel.options.visibility.title } 
+                    { creator?.panel?.options?.visibility?.title } 
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    { creator.panel.options.visibility.desc } 
-                    ({creatorConfig.visibility.min} - {creatorConfig.visibility.max})
+                    { creator?.panel?.options?.visibility?.desc } 
+                    ({creatorConfig?.visibility?.min} - {creatorConfig?.visibility?.max})
                 </label>
                 <input 
                     type='text' 
@@ -58,7 +58,7 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                            { creator.panel.options.visibility.error } 
+                            { creator?.panel?.options?.visibility?.error } 
                         </span>
                     ) : null
                 }                
@@ -69,7 +69,7 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                     onClick={submitVisibility} 
                     disabled={error}
                 > 
-                    {creator.panel.options.visibility.submit} 
+                    {creator?.panel?.options?.visibility?.submit} 
                 </button>
             </div>
         </div>

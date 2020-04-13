@@ -24,11 +24,11 @@ export const CharButton: React.FC = () => {
             <Link
               to={`/${lang}/${routes.char}`}
             >
-              { filesPanel.charButton.load }
+              { filesPanel?.charButton?.load }
             </Link>
           </li>
           <li>
-            { filesPanel.charButton.edit }
+            { filesPanel?.charButton?.edit }
           </li>
         </ul>
       </nav>
@@ -38,7 +38,7 @@ export const CharButton: React.FC = () => {
         onMouseLeave={() => setIsMenuVisible(false)}
       >
         <span>
-          { filesPanel.charButton.char }
+          { filesPanel?.charButton?.char }
         </span>
       </div>
     </div>

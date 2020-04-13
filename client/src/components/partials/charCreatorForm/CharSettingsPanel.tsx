@@ -48,15 +48,15 @@ export const CharSettingsPanel: React.FC = () => {
 					{ choosedChar === 'mob' ?
 						<ActionMaxMinField
 							label='Respawn time (seconds)'
-							minValue={charSettings.respTime.min}
-							maxValue={charSettings.respTime.max}
+							minValue={charSettings?.respTime?.min}
+							maxValue={charSettings?.respTime?.max}
 							action={setRespawnTime}
 						/> : null
 					}	
 					<ActionMaxMinField
 						label='Time of occurance'
-						minValue={charSettings.timeOfOccurance.min}
-						maxValue={charSettings.timeOfOccurance.max}
+						minValue={charSettings?.timeOfOccurance?.min}
+						maxValue={charSettings?.timeOfOccurance?.max}
 						action={setTimeOfOccurance}
 					/> 
 

@@ -17,7 +17,7 @@ export const VisibilityOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator.panel.options.visibility.dataTitle}
+                data-title={creator?.panel?.options?.visibility?.dataTitle}
             >
                 <div className="visibilityOption"> </div>
             </div>

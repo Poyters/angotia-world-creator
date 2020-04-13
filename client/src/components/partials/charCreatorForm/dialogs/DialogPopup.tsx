@@ -66,7 +66,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           onClick={closePopupHandler}
         > </div>
         <header className="insertPopup__header insertPopup__header--dialog t-paragraph3Light">
-          { char.dialogPopup.add }
+          { char?.dialogPopup?.add }
         </header>
         <ActionInputField
           label='ID - auto generated'
@@ -74,7 +74,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.dialogPopup.npcDialog }
+          { char?.dialogPopup?.npcDialog }
         </label>
         <textarea
           value={npcText} 
@@ -83,7 +83,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { char.dialogPopup.npcTextErr }
+              { char?.dialogPopup?.npcTextErr }
             </span>
           ) : null
         }
@@ -95,7 +95,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           onClick={(): void => submitHandler()} 
           disabled={npcTextErr}
         > 
-          { char.dialogPopup.submit }
+          { char?.dialogPopup?.submit }
         </button>
       </div>
     </div>

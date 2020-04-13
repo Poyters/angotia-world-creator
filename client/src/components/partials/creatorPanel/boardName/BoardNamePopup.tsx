@@ -18,8 +18,8 @@ export const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
 
     useEffect((): void => {
         if (
-            mapName.length < creatorConfig.mapName.minLength || 
-            mapName.length > creatorConfig.mapName.maxLength
+            mapName.length < creatorConfig?.mapName?.minLength || 
+            mapName.length > creatorConfig?.mapName?.maxLength
         ) {
             setError(true);
         }
@@ -31,7 +31,7 @@ export const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
     const insertImage = (): void => {
         dispatch(changeMapName(mapName));
         closePopup(false);
-        setActionNote(notifications.boardName.change);
+        setActionNote(notifications?.boardName?.change);
     };
 
     return (
@@ -46,7 +46,7 @@ export const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     Name
-                    ({creatorConfig.mapName.minLength} - {creatorConfig.mapName.maxLength})
+                    ({creatorConfig?.mapName?.minLength} - {creatorConfig?.mapName?.maxLength})
                 </label>
                 <input 
                     type='text' 

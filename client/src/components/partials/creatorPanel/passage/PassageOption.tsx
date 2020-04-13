@@ -30,11 +30,11 @@ export const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications.options.passage.select, 'warning');
+            setActionNote(notifications?.options?.passage?.select, 'warning');
             return;
         }
 
-        pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
         pressedKey = null;
     };
     
@@ -54,7 +54,7 @@ export const PassageOption: React.FC = () => {
             passageMatrix, 
             'mapPassageCanvas', 
             changeMapPassageMatrix, 
-            notifications.options.passage.delete, 
+            notifications?.options?.passage?.delete, 
             '#fff', 
             ''
         );

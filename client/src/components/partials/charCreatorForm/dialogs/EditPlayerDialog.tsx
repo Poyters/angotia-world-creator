@@ -65,7 +65,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
-    setActionNote(notifications.dialogs.player.edit);
+    setActionNote(notifications?.dialogs?.player?.edit);
   };
 
   const deleteDialog = (id: string): void => {
@@ -81,7 +81,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
-    setActionNote(notifications.dialogs.player.delete);
+    setActionNote(notifications?.dialogs?.player?.delete);
   };
 
   return (
@@ -96,7 +96,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           onClick={():void => closePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char.editPlayer.title }
+          { char?.editPlayer?.title }
         </header>
         <ActionInputField
           label='ID - auto generated'
@@ -104,7 +104,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.editPlayer.playerDialog }
+          { char?.editPlayer?.playerDialog }
         </label>
         <textarea
           value={dialog} 
@@ -113,13 +113,13 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         {
           (dialogErr) ? (
             <span className="insertPopup--error">
-              { char.editPlayer.playerDialogErr }
+              { char?.editPlayer?.playerDialogErr }
             </span>
           ) : null
         }   
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char.editPlayer.action }
+          { char?.editPlayer?.action }
         </label>
         <input
           value={action} 
@@ -127,7 +127,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         /> 
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char.editPlayer.next }
+          { char?.editPlayer?.next }
         </label>
         <input
           value={next} 
@@ -135,7 +135,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         />  
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char.editPlayer.condition }
+          { char?.editPlayer?.condition }
         </label>
         <input
           value={condition} 
@@ -148,7 +148,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           onClick={(): void => submitHandler()} 
           disabled={dialogErr}
         > 
-          { char.editPlayer.submit }
+          { char?.editPlayer?.submit }
         </button>
       </div>
     </div>

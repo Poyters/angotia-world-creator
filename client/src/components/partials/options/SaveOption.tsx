@@ -32,11 +32,11 @@ export const SaveOption: React.FC<ISaveOption> = ({ type }) => {
     <div 
       role="button" 
       className="option option--textOption option--smallerMargin" 
-      data-title={creator.panel.options.save.dataTitle}
+      data-title={creator?.panel?.options?.save?.dataTitle}
       onClick={(): void => saveMap()}
     >
       <span> 
-        {creator.panel.options.save.content}  
+        {creator?.panel?.options?.save?.content}  
       </span>
     </div>
   );

@@ -42,8 +42,8 @@ export const FilesPanel: React.FC = () => {
 	};
 
 	const imageStyle: CSSProperties = {
-		width: `${creatorConfig.map.fieldSize}px`,
-		height: `${creatorConfig.map.fieldSize}px`
+		width: `${creatorConfig?.map?.fieldSize}px`,
+		height: `${creatorConfig?.map?.fieldSize}px`
 	};
 	
 	const generateImages = (): any[] => {

@@ -52,7 +52,7 @@ export const LayersOption: React.FC = () => {
         const layers: HTMLCollectionOf<Element> = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {
-            const name: string = layer.dataset.layername;
+            const name: string = layer?.dataset?.layername;
   
             if (name === layerName) {
                 const computedDisplay: string | null = getComputedStyle(layer).display;
@@ -77,7 +77,7 @@ export const LayersOption: React.FC = () => {
                 onClick={(): void => setIsOpen(!isOpen)}
             > 
                 <span>
-                    {creator.panel.options.layers.title}
+                    {creator?.panel?.options?.layers?.title}
                 </span>
             </div>
             <ul className="layersList" style={layersListStyles}>
@@ -86,7 +86,7 @@ export const LayersOption: React.FC = () => {
                     onClick={toggleBackground} 
                     className="layersList__layer layersList__layer--active"
                 >
-                    {creator.panel.options.layers.bg}
+                    { creator?.panel?.options?.layers?.bg }
                 </li>
                 { layersToRender }
             </ul>

@@ -16,7 +16,7 @@ export const ClearSelectedOption: React.FC = () => {
       role="button" 
       className="clearSelectedOption" 
       onClick={clearSelected} 
-      data-title={creator.panel.options.clearSelected.dataTitle}
+      data-title={creator?.panel?.options?.clearSelected?.dataTitle}
     >
       <div className="clearSelectedOption__ereaser"> </div>
     </div>

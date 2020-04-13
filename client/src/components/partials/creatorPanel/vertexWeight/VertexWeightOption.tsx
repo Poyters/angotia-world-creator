@@ -30,11 +30,11 @@ export const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications.options.vertex.select, 'warning');
+            setActionNote(notifications?.options?.vertex?.select, 'warning');
             return;
         }
 
-        pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
         pressedKey = null;
     };
     
@@ -54,7 +54,7 @@ export const VertexWeightOption: React.FC = () => {
             vertexWeightMatrix, 
             'mapVertexWeightCanvas', 
             changeMapVertexWeightMatrix, 
-            notifications.options.vertex.delete, 
+            notifications?.options?.vertex?.delete, 
             '', 
             'vertexWeight'
         );
@@ -69,11 +69,11 @@ export const VertexWeightOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => vertexHandler()} 
-                data-title={ creator.panel.options.vertex.dataTitle }
+                data-title={ creator?.panel?.options?.vertex?.dataTitle }
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
-                        { creatorConfig.vertexWeight.max }
+                        { creatorConfig?.vertexWeight?.max }
 					</div>
 				</div>
 			</div>

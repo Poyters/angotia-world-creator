@@ -25,7 +25,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
-    setActionNote(notifications.monologs.delete);
+    setActionNote(notifications?.monologs?.delete);
   };
 
   const editMonolog = (): void => {
@@ -43,12 +43,12 @@ export const Monolog: React.FC<IMonologExplicit> = (
     <section className="dialog">
       <p> 
         <span className="t-paragraph5Light"> 
-          { char.monolog.id }
+          { char?.monolog?.id }
         </span> { id } 
       </p>
       <p> 
         <span className="t-paragraph5Light">
-          { char.monolog.content }
+          { char?.monolog?.content }
         </span> { content } 
       </p>
       <div 
