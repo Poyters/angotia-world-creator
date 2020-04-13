@@ -12,13 +12,14 @@ interface IChooseButtons {
   types: chooseType[],
   action: Function,
   label?: string,
-  specialClass?: string
+  specialClass?: string,
+  choosed?: string | boolean | number
 }
 
 export const ChooseButtons: React.FC<IChooseButtons> = (
-  { types, action, label, specialClass='' }
+  { types, action, label, specialClass='', choosed='' }
 ) => {
-  const [currChecked, setCurrChecked] = useState<string | boolean | number>('');
+  const [currChecked, setCurrChecked] = useState<string | boolean | number>(choosed);
   const dispatch = useDispatch();
 
   const changeChecked = (option: string | boolean | number): void => {

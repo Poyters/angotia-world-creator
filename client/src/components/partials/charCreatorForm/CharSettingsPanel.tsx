@@ -15,7 +15,9 @@ import { IStore } from '../../../assets/interfaces/store';
 export const CharSettingsPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const charSettings = useSelector((state: IStore) => state.char.settings);
 	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
+	const hasVisibleLevel: boolean = useSelector((state: IStore) => state.char.hasVisibleLevel);
 
 	const settingsPanelStyles = {
 		left: isOpen ? "0" : "-300px"
@@ -40,20 +42,21 @@ export const CharSettingsPanel: React.FC = () => {
 							action={setVisibleLevel}
 							label={char?.settingsPanel?.hasVisibleLevel?.title}
 							specialClass='chooseButtonsWrapper--charSettingsPanel'
+							choosed={hasVisibleLevel}
 						/> : null
 					}
 					{ choosedChar === 'mob' ?
 						<ActionMaxMinField
 							label='Respawn time (seconds)'
-							minValue={500}
-							maxValue={1000}
+							minValue={charSettings.respTime.min}
+							maxValue={charSettings.respTime.max}
 							action={setRespawnTime}
 						/> : null
 					}	
 					<ActionMaxMinField
 						label='Time of occurance'
-						minValue={0}
-						maxValue={24}
+						minValue={charSettings.timeOfOccurance.min}
+						maxValue={charSettings.timeOfOccurance.max}
 						action={setTimeOfOccurance}
 					/> 
 

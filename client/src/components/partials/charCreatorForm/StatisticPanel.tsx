@@ -15,6 +15,7 @@ export const StatisticPanel: React.FC = () => {
 	const isOpen: string = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
 	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
 	const charType: string = useSelector((state: IStore) => state.char.type);
+	const charStatistics = useSelector((state: IStore) => state.char.statistics);
 	const isAgressiveMob: string = useSelector((state: IStore) => state.char.isAgressiveMob);
 	const dispatch = useDispatch();
 
@@ -37,32 +38,32 @@ export const StatisticPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
 						label={char.form.inputs.strength}
-						inputValue={0}
+						inputValue={charStatistics.strength}
 						action={changeStatistics}
             			payloadId='strength'
 					/>
 					<ActionInputField
 						label={char.form.inputs.dexterity}
-						inputValue={0}
+						inputValue={charStatistics.dexterity}
 						action={changeStatistics}
             			payloadId='dexterity'
 					/>
 					<ActionInputField
 						label={char.form.inputs.inteligence}
-						inputValue={0}
+						inputValue={charStatistics.inteligence}
 						action={changeStatistics}
             			payloadId='inteligence'
 					/>
 					<ActionInputField
 						label={char.form.inputs.jink}
-						inputValue={0}
+						inputValue={charStatistics.jink}
 						action={changeStatistics}
             			payloadId='jink'
 					/>
 					{ charType === 'moving' ? (
 						<ActionInputField
 							label={char.form.inputs.speed}
-							inputValue={10}
+							inputValue={charStatistics.speed}
 							action={changeStatistics}
               				payloadId='speed'
 						/>) : null
@@ -71,7 +72,7 @@ export const StatisticPanel: React.FC = () => {
 						isAgressiveMob ? (
 						<ActionInputField
 							label={char.form.inputs.attackRange}
-							inputValue={5}
+							inputValue={charStatistics.attackRange}
 							action={changeStatistics}
               				payloadId='attackRange'
 						/>) : null

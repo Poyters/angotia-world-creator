@@ -24,9 +24,12 @@ export const CharCreatorForm: React.FC = () => {
   const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
   const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
   const charName: string = useSelector((state: IStore) => state.char.name);
-  const charLevel: string = useSelector((state: IStore) => state.char.statistics.level);
+  const charStatistics = useSelector((state: IStore) => state.char.statistics);
   const charType: string = useSelector((state: IStore) => state.char.type);
   const charId: string = useSelector((state: IStore) => state.char.id);
+  const charIsAgressiveMob: boolean = useSelector((state: IStore) => state.char.isAgressiveMob);
+  const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
+  const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
   const dispatch: Function = useDispatch();
 
   const charPicStyles = {
@@ -45,35 +48,35 @@ export const CharCreatorForm: React.FC = () => {
             <div className="charFormPanel charFormPanel--left">
               <ActionInputField
                 inputValue={charName}
-                label={char.form.inputs.name}
+                label={char?.form?.inputs?.name}
                 action={changeName}
               />
               <ActionInputField
-                label={char.form.inputs.id}
+                label={char?.form?.inputs?.id}
                 inputValue={charId}
                 inputDisabled={true}
               />
               <ActionInputField
-                label={char.form.inputs.lvl}
-                inputValue={charLevel}
+                label={char?.form?.inputs?.lvl}
+                inputValue={charStatistics.level}
                 action={changeStatistics}
                 payloadId='level'
               />
               <ActionInputField
-                label={char.form.inputs.health}
-                inputValue={1000}
+                label={char?.form?.inputs?.health}
+                inputValue={charStatistics.health}
                 action={changeStatistics}
                 payloadId='health'
               />
               <ActionInputField
                 label='Attack'
-                inputValue={0}
+                inputValue={charStatistics.attack}
                 action={changeStatistics}
                 payloadId='attack'
               />
               <ActionInputField
                 label='Defence'
-                inputValue={0}
+                inputValue={charStatistics.defence}
                 action={changeStatistics}
                 payloadId='defence'
               />
@@ -87,22 +90,24 @@ export const CharCreatorForm: React.FC = () => {
 
               </div>
               <LoadPicBtn 
-                name={char.form.importPicBtn}
+                name={char?.form?.importPicBtn}
                 clickEvent={setCharPic}
               />
               
               <ChooseButtons 
-                types={char.form.char.types}
+                types={char?.form?.char?.types}
                 action={changeChar}
-                label={char.form.char.label}
+                label={char?.form?.char?.label}
+                choosed={charChoosed}
               />
               
               { choosedChar === 'mob'? (
                   <ChooseButtons 
-                    types={char.form.isAgressiveMob.types}
+                    types={char?.form?.isAgressiveMob?.types}
                     action={isAgressiveMob}
                     label={char.form.isAgressiveMob.title}
                     specialClass='chooseButtonsWrapper--smaller'
+                    choosed={charIsAgressiveMob}
                   />
                 ) : null
               }
@@ -111,11 +116,13 @@ export const CharCreatorForm: React.FC = () => {
                 types={char.form.charType.types}
                 action={changeCharType}
                 label={char.form.charType.label}
+                choosed={charType}
               />
 
               { charType === 'moving' ? (
                 <ActionInputField
                   label={char.form.charType.movingField}
+                  inputValue={fieldDiameter}
                   action={changeFieldDiameter}
                 />
                 ) : null
