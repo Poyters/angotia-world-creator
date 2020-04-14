@@ -13,7 +13,10 @@ export const Notifications: React.FC = () => {
 
 	const generateNotesList = (): any => {
 		const contentToRender = actionNotes.map(note => {
-			return <li> { note } </li>;
+			const xd = {
+				color: note.type === 'warning' ? 'red' : 'blue'
+			}
+			return <li style={xd}> { note.text } </li>;
 		});
 
 		return contentToRender;

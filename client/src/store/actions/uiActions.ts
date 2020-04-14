@@ -1,7 +1,8 @@
 import { IMapNetStatus } from '../../assets/interfaces/map';
+import { Note } from '../../assets/types/notifications';
 
 
-export const setNotification = (notifications: string[]) => ({
+export const setNotification = (notifications: Note[]) => ({
     type: 'CHANGE_ACTION_NOTIFICATION',
     notifications
 });
