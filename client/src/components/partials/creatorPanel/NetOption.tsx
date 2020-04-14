@@ -8,11 +8,14 @@ import { ContentContext } from '../../../Template';
 
 
 interface INetOption {
-  viewTypeQuantity: number
+  viewTypeQuantity: number,
+  dataTitle?: string
 }
 
-export const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
-  const { creator } = useContext(ContentContext);
+export const NetOption: React.FC<INetOption> = ({ 
+  viewTypeQuantity, dataTitle
+}) => {
+  const { notifications } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -30,21 +33,21 @@ export const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: true}));
-        setActionNote("Square and field nets are visible now");
+        setActionNote(notifications?.options?.net?.squareField);
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: false}));
-        setActionNote("Only field nets are visible");
+        setActionNote(notifications?.options?.net?.field);
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
         dispatch(setMapNets({field: false, square: true}));
-        setActionNote("Only square nets are visible");
+        setActionNote(notifications?.options?.net?.square);
       break;
       case 3:
         dispatch(setMapNets({field: false, square: false}));
-        setActionNote("Disable all nets");
+        setActionNote(notifications?.options?.net?.disabled);
         return;
     }
   });
@@ -56,7 +59,7 @@ export const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     <div 
       className="option option--net" 
       onClick={changeViewType} 
-      data-title={creator?.panel?.options?.net?.dataTitle}
+      data-title={dataTitle}
     >
       <span className="option__viewType">{optionViewType}</span>
       <div className={`netGraphic ${netOnOff}`}>

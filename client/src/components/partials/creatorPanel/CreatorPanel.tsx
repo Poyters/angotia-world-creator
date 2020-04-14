@@ -19,7 +19,7 @@ import { ContentContext } from '../../../Template';
 
 
 export const CreatorPanel: React.FC = () => {
-  const { creator, lang, routes } = useContext(ContentContext);
+  const { creator, lang, routes, notifications } = useContext(ContentContext);
   
   return (
     <nav className="optionsPanel">
@@ -67,16 +67,28 @@ export const CreatorPanel: React.FC = () => {
           <FullScreenOption />
         </li>
         <li>
-          <NetOption viewTypeQuantity={3} />
+          <NetOption 
+            viewTypeQuantity={3}
+            dataTitle={creator?.panel?.options?.net?.dataTitle}
+          />
         </li>
         <li>
-          <SelectOption selectTypeQuantity={3} />
+          <SelectOption 
+            selectTypeQuantity={3}
+            dataTitle={creator?.panel?.options?.select?.dataTitle}
+          />
         </li>
         <li>
-          <ClearSelectedOption />
+          <ClearSelectedOption 
+            note={notifications?.options?.clearSelected?.cleared}
+          />
         </li>
         <li>
-          <BlockOption />
+          <BlockOption
+            dataTitle={creator?.panel?.options?.block?.dataTitle}
+            selectNote={notifications?.options?.block?.select}
+            changeNote={notifications?.options?.block?.change}
+          />
         </li>
         <li>
           <PassageOption />

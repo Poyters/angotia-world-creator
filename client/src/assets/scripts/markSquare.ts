@@ -18,7 +18,7 @@ export const markSquare = (
   sourceMatrix: Array<[]>, 
   sourceMatrixCanvas: string, 
   changeMatrixMethod: Function, 
-  note: string, 
+  note: string | null | undefined, 
   fillColor: string, 
   fillStyle?: string
 ) => {
@@ -41,7 +41,7 @@ export const markSquare = (
   emptyMapCanvasCtx(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
 
-  setActionNote(note);
+  if (note) setActionNote(note);
 
   pressedKey = null;
 };

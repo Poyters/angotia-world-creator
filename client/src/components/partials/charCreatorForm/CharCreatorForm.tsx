@@ -86,9 +86,11 @@ export const CharCreatorForm: React.FC = () => {
               />
             </div>
             <div className="charFormPanel">
-              <div className="charFormPanel__graphice" style={charPicStyles}>
-
-              </div>
+              <div 
+                className="charFormPanel__graphice"
+                style={charPicStyles}
+              />
+              
               <LoadPicBtn 
                 name={char?.form?.importPicBtn}
                 clickEvent={setCharPic}

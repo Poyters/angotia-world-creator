@@ -17,8 +17,15 @@
     "edit": "Edytowano monolog"
   },
   "options": {
+    "net": {
+      "squareField": "Siatki pól i kwadratów są widoczne",
+      "field": "Siatki pól są widoczne",
+      "square": "Siatki kwadratów są widoczne",
+      "disabled": "Wyłączono wszystkie siatki"
+    },
     "block": {
-      "select": "Najpierw zaznacz obszar"
+      "select": "Najpierw zaznacz obszar",
+      "change": "Zmieniono macierz zablokowanych pól"
     },
     "deleteBg": {
       "delete": "Skasowano obraz tła"
@@ -38,6 +45,9 @@
       "select": "Najpierw zaznacz obszar",
       "add": "Dodano wierzchołek wagi",
       "delete": "Skasowano wierzchołek wagi"
+    },
+    "clearSelected": {
+      "cleared": "Skasowano zaznaczenie pól"
     }
   },
   "boardName": {

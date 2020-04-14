@@ -17,8 +17,15 @@
     "edit": "Monolog edited"
   },
   "options": {
+    "net": {
+      "squareField": "Square and field nets are visible now",
+      "field": "Only field nets are visible",
+      "square": "Only square nets are visible",
+      "disabled": "Disabled all nets"
+    },
     "block": {
-      "select": "Need to select fields"
+      "select": "Need to select fields",
+      "change": "Changed blocked fields matrix"
     },
     "deleteBg": {
       "delete": "Deleted background image"
@@ -38,6 +45,9 @@
       "select": "Need to select fields",
       "add": "Vertex weight added",
       "delete": "Vertex weight deleted"
+    },
+    "clearSelected": {
+      "cleared": "Cleared selected fields"
     }
   },
   "boardName": {

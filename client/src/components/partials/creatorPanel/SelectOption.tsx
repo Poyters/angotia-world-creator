@@ -7,10 +7,13 @@ import { ContentContext } from '../../../Template';
 
 interface ISelectOption {
   selectTypeQuantity: number
+  dataTitle?: string
 }
 
-export const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) => {
-  const { creator, notifications } = useContext(ContentContext);
+export const SelectOption: React.FC<ISelectOption> = ({ 
+  selectTypeQuantity, dataTitle
+}) => {
+  const { notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
   const dispatch: Function = useDispatch();
 
@@ -58,7 +61,7 @@ export const SelectOption: React.FC<ISelectOption> = ({ selectTypeQuantity }) =>
       </span>
       <div 
         className="titleContainer" 
-        data-title={creator?.panel?.options?.select?.dataTitle}
+        data-title={dataTitle}
       > </div>
     </div>
   );
