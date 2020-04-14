@@ -1,34 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { IStore } from '../../assets/interfaces/store';
+import uuid from 'uuid/v4';
 
 
 export const Notifications: React.FC = () => {
 	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
-	useEffect(() => {
-		console.log('UPDATE', actionNotes);
-	}, [actionNotes]);
-
 	const generateNotesList = (): any => {
 		const contentToRender = actionNotes.map(note => {
-			const xd = {
-				color: note.type === 'warning' ? 'red' : 'blue'
-			}
-			return <li style={xd}> { note.text } </li>;
+			const specialClass = note.type === 'warning' ? 'notifications__note--warning' : '';
+
+			return (
+				<li 
+					key={uuid()}
+					className={`notifications__note ${specialClass}`}
+				>
+					{ note.text }
+				</li>				
+			);
 		});
 
 		return contentToRender;
 	};
 
 	return (
-		<div id="notifications" className="notifications">
-			<ul>
-				{
-					generateNotesList()
-				}
-			</ul>
-		</div>
+		<ul className="notifications">
+			{ generateNotesList() }
+		</ul>
 	);
 };

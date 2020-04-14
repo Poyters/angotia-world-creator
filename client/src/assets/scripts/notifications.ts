@@ -8,7 +8,7 @@ import { Note } from '../types/notifications';
 export const setActionNote = (note: string, messageType?: string) => {
   const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
 
-  // zna nota
+  // A lack of note text
   if (!note) return;
 
   activeNotes.unshift({
@@ -18,10 +18,10 @@ export const setActionNote = (note: string, messageType?: string) => {
 
   store.dispatch(setNotification(activeNotes));
 
-  setTimeout(xd1, 5000);
+  setTimeout(deleteNote, creatorConfig.notificationTime);
 };
 
-function xd1 () {
+function deleteNote () {
   const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
   activeNotes.pop();
 
