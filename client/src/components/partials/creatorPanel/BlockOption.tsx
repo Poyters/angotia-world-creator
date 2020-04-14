@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
@@ -6,17 +6,18 @@ import { setActionNote } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { IStore } from '../../../assets/interfaces/store';
+import { ContentContext } from '../../../Template';
 
 
 interface IBlockOption {
-	dataTitle?: string
 	selectNote?: string,
 	changeNote?: string
 }
 
 export const BlockOption: React.FC<IBlockOption> = ({ 
-	dataTitle, selectNote, changeNote
+	selectNote, changeNote
 }) => {
+	const { creator } = useContext(ContentContext);
 	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
 	const selectMatrix = useSelector((state: IStore) => state.ui.select.matrix);
@@ -43,7 +44,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 			role="button" 
 			className="option option--block" 
 			onClick={(): void => blockHandler()}
-			data-title={dataTitle}
+			data-title={creator?.panel?.options?.block?.dataTitle}
 		>
 			<div className="g-exitBtn"></div>
 		</div>

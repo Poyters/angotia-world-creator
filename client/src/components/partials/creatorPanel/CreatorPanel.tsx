@@ -69,13 +69,11 @@ export const CreatorPanel: React.FC = () => {
         <li>
           <NetOption 
             viewTypeQuantity={3}
-            dataTitle={creator?.panel?.options?.net?.dataTitle}
           />
         </li>
         <li>
           <SelectOption 
             selectTypeQuantity={3}
-            dataTitle={creator?.panel?.options?.select?.dataTitle}
           />
         </li>
         <li>
@@ -85,7 +83,6 @@ export const CreatorPanel: React.FC = () => {
         </li>
         <li>
           <BlockOption
-            dataTitle={creator?.panel?.options?.block?.dataTitle}
             selectNote={notifications?.options?.block?.select}
             changeNote={notifications?.options?.block?.change}
           />

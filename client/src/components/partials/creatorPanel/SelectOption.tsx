@@ -13,7 +13,7 @@ interface ISelectOption {
 export const SelectOption: React.FC<ISelectOption> = ({ 
   selectTypeQuantity, dataTitle
 }) => {
-  const { notifications } = useContext(ContentContext);
+  const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
   const dispatch: Function = useDispatch();
 
@@ -61,7 +61,7 @@ export const SelectOption: React.FC<ISelectOption> = ({
       </span>
       <div 
         className="titleContainer" 
-        data-title={dataTitle}
+        data-title={creator?.panel?.options?.select?.dataTitle}
       > </div>
     </div>
   );

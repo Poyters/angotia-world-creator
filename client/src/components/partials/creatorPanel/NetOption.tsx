@@ -8,14 +8,13 @@ import { ContentContext } from '../../../Template';
 
 
 interface INetOption {
-  viewTypeQuantity: number,
-  dataTitle?: string
+  viewTypeQuantity: number
 }
 
 export const NetOption: React.FC<INetOption> = ({ 
-  viewTypeQuantity, dataTitle
+  viewTypeQuantity
 }) => {
-  const { notifications } = useContext(ContentContext);
+  const { creator, notifications } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -59,7 +58,7 @@ export const NetOption: React.FC<INetOption> = ({
     <div 
       className="option option--net" 
       onClick={changeViewType} 
-      data-title={dataTitle}
+      data-title={creator?.panel?.options?.net?.dataTitle}
     >
       <span className="option__viewType">{optionViewType}</span>
       <div className={`netGraphic ${netOnOff}`}>
