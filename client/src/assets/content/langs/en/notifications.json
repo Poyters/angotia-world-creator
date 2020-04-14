@@ -1,4 +1,7 @@
 {
+  "char": {
+    "loadedGraphice": "Loaded character graphice"
+  },
   "dialogs": {
     "delete": "Dialog deleted",
     "add": "Dialog added",

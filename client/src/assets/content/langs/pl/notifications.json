@@ -1,4 +1,7 @@
 {
+  "char": {
+    "loadedGraphice": "Załadowano grafikę bohatera"
+  },
   "dialogs": {
     "delete": "Skasowano dialog",
     "add": "Dodano dialog",

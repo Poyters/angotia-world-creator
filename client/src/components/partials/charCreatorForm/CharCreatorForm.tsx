@@ -20,7 +20,7 @@ import { IStore } from '../../../assets/interfaces/store';
 
 
 export const CharCreatorForm: React.FC = () => {
-  const { char } = useContext(ContentContext);
+  const { char, notifications } = useContext(ContentContext);
   const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
   const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
   const charName: string = useSelector((state: IStore) => state.char.name);
@@ -92,7 +92,7 @@ export const CharCreatorForm: React.FC = () => {
               <LoadPicBtn 
                 name={char?.form?.importPicBtn}
                 clickEvent={setCharPic}
-                note={'Added character graphice'}
+                note={notifications?.char?.loadedGraphice}
               />
               
               <ChooseButtons 
