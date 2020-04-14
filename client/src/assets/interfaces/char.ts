@@ -11,7 +11,8 @@ export interface ICharStatistic {
   inteligence: number,
   jink: number,
   speed: number,
-  attackRange: number
+  attackRange: number,
+  attackSpeed: number
 }
 
 export interface ICharSettings {

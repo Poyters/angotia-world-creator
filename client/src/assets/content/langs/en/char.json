@@ -38,7 +38,8 @@
       "inteligence": "Inteligence",
       "jink": "Jink",
       "speed": "Speed",
-      "attackRange": "Attack range"
+      "attackRange": "Attack range",
+      "attackSpeed": "Attack speed"
     },
     "isAgressiveMob": {
       "title": "agressive",

@@ -38,7 +38,8 @@
       "inteligence": "Inteligencja",
       "jink": "Unik",
       "speed": "Prędkość ruchu",
-      "attackRange": "Zasięg ataku"
+      "attackRange": "Zasięg ataku",
+      "attackSpeed": "Szybkość ataku"
     },
     "isAgressiveMob": {
       "title": "agresywność",

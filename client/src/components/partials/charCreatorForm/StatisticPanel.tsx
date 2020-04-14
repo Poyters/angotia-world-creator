@@ -76,6 +76,15 @@ export const StatisticPanel: React.FC = () => {
 							action={changeStatistics}
               				payloadId='attackRange'
 						/>) : null
+					}	
+
+					{ choosedChar === 'mob' ? (
+						<ActionInputField
+							label={char?.form?.inputs?.attackSpeed}
+							inputValue={charStatistics.attackSpeed}
+							action={changeStatistics}
+              				payloadId='attackRange'
+						/>) : null
 					}			
 
 					<div 

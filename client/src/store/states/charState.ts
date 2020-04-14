@@ -95,7 +95,8 @@ export const charState: CharState = {
       inteligence: 0,
       jink: 0,
       speed: 0,
-      attackRange: 0
+      attackRange: 0,
+      attackSpeed: 100
     },
     settings: {
       timeOfOccurance: {

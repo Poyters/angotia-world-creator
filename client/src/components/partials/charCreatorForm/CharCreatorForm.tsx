@@ -92,6 +92,7 @@ export const CharCreatorForm: React.FC = () => {
               <LoadPicBtn 
                 name={char?.form?.importPicBtn}
                 clickEvent={setCharPic}
+                note={'Added character graphice'}
               />
               
               <ChooseButtons 
