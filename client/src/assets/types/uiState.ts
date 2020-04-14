@@ -1,5 +1,5 @@
-export type UiState ={
-    actionNote: string,
+export type UiState = {
+    actionNote: string[],
     select: {
         type: string,
         matrix: any[]

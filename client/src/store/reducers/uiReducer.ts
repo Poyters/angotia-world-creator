@@ -6,7 +6,7 @@ export const uiReducer = (state = uiState, action) => {
         case 'CHANGE_ACTION_NOTIFICATION':
             return {
                 ...state,
-                actionNote: action.notification
+                actionNote: action.notifications
             };
         case 'SET_MAP_SELECT_TYPE':
             return {

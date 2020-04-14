@@ -4,28 +4,28 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { IStore } from '../../assets/interfaces/store';
 
 
-let timer;
 export const Notifications: React.FC = () => {
-	const actionNote = useSelector((state: IStore) => state.ui.actionNote);
-	const [note, setNote] = useState<string>(actionNote);
-	const [opacityCSS, setOpacityCSS] = useState<number>(1);
+	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
-	useEffect((): void => {
-		clearTimeout(timer);
+	useEffect(() => {
+		console.log('UPDATE', actionNotes);
+	}, [actionNotes]);
 
-		if (opacityCSS === 0 && note !== actionNote) {
-			setNote(actionNote);
-			setOpacityCSS(1);
-		}
+	const generateNotesList = (): any => {
+		const contentToRender = actionNotes.map(note => {
+			return <li> { note } </li>;
+		});
 
-		timer = setTimeout((): void => {
-			setOpacityCSS(0);	
-		}, creatorConfig?.actionNoteDelay);
-	});
+		return contentToRender;
+	};
 
 	return (
-		<div id="notifications" className="notifications" style={{opacity : opacityCSS}}>
-			<span id="noteText"> { note } </span>
+		<div id="notifications" className="notifications">
+			<ul>
+				{
+					generateNotesList()
+				}
+			</ul>
 		</div>
 	);
 };
