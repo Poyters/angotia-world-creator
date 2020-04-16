@@ -58,6 +58,14 @@ export const mapReducer = (state = mapState, action) => {
                     matrix: action.newMatrix
                 }
             };
+        case 'CHANGE_MAP_SE_MATRIX':
+            return {
+                ...state,
+                se: {
+                    ...state.se,
+                    matrix: action.newMatrix
+                }
+            };
         case 'CHANGE_MAP_NPC_MATRIX':
             return {
                 ...state,

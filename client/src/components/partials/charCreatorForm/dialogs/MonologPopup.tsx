@@ -5,7 +5,7 @@ import { ActionInputField } from '../../ActionInputField';
 import { changeMonologs } from '../../../../store/actions/charActions';
 import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -44,7 +44,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications?.monologs?.add);
+    addNotification(notifications?.monologs?.add);
   };
 
   const editMonolog = (): void => {
@@ -55,7 +55,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications?.monologs?.edit);
+    addNotification(notifications?.monologs?.edit);
     if (setMonologData) setMonologData(null);
   };
 

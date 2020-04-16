@@ -32,6 +32,9 @@ export const mapState: MapState = {
     mob: {
         matrix: []
     },
+    se: {
+        matrix: []
+    },
     vertex: {
         matrix: [],
         weights: []

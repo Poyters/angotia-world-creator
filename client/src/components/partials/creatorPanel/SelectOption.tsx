@@ -1,17 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMapSelectType } from '../../../store/actions/uiActions';
-import { setActionNote } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../assets/scripts/notifications';
 import { ContentContext } from '../../../Template';
 
 
 interface ISelectOption {
   selectTypeQuantity: number
-  dataTitle?: string
 }
 
 export const SelectOption: React.FC<ISelectOption> = ({ 
-  selectTypeQuantity, dataTitle
+  selectTypeQuantity
 }) => {
   const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
@@ -21,19 +20,19 @@ export const SelectOption: React.FC<ISelectOption> = ({
     switch(selectType) {
       case 0:
         dispatch(setMapSelectType('none'));
-        setActionNote(notifications?.options?.select?.option);
+        addNotification(notifications?.options?.select?.option);
       break;
       case 1:
         dispatch(setMapSelectType('square'));
-        setActionNote(notifications?.options?.select?.square);
+        addNotification(notifications?.options?.select?.square);
       break;
       case 2: 
       dispatch(setMapSelectType('field'));
-        setActionNote(notifications?.options?.select?.field);
+        addNotification(notifications?.options?.select?.field);
       break;
       case 3:
         dispatch(setMapSelectType('mouse'));
-        setActionNote(notifications?.options?.select?.mouse);
+        addNotification(notifications?.options?.select?.mouse);
       break;
       default:
         console.warn('Invalid selectType');

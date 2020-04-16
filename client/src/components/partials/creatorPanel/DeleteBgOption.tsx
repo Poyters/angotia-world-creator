@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMapBg } from '../../../store/actions/mapActions';
-import { setActionNote } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../assets/scripts/notifications';
 import { ContentContext } from '../../../Template';
 
 
@@ -11,7 +11,7 @@ export const DeleteBgOption: React.FC = () => {
 
   const deleteBg = (): void => {
     dispatch(setMapBg(''));
-    setActionNote(notifications?.options?.deleteBg?.delete);
+    addNotification(notifications?.options?.deleteBg?.delete);
   };
 
   return (

@@ -5,7 +5,7 @@ import { deepCopy } from './utils/deepCopy';
 import { Note } from '../types/notifications';
 
 
-export const setActionNote = (note: string, messageType?: string) => {
+export const addNotification = (note: string, messageType?: string) => {
   const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
 
   // A lack of note text

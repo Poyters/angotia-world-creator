@@ -17,7 +17,8 @@ import {
 	changeMapDecorationMatrix, 
 	changeMapSubsoilMatrix, 
 	changeMapNpcMatrix, 
-	changeMapMobMatrix 
+	changeMapMobMatrix ,
+	changeMapSeMatrix
 } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
@@ -36,6 +37,7 @@ export const FilesPanel: React.FC = () => {
 		useSelector((state: IStore) => state.map.decoration.matrix)
 	);
 	const npcMatrix = deepCopy(useSelector((state: IStore) => state.map.npc.matrix));
+	const seMatrix = deepCopy(useSelector((state: IStore) => state.map.se.matrix));
 
 	const filesPanelStyles = {
 		right: isOpen ? "0" : "-300px"
@@ -91,6 +93,11 @@ export const FilesPanel: React.FC = () => {
 				matrixTransformationMethod = changeMapNpcMatrix;
 				sourceMatrix = npcMatrix;
 			break;
+			case 'se':
+				bookmarkImages.push(test3);
+				matrixTransformationMethod = changeMapSeMatrix;
+				sourceMatrix = seMatrix;
+			break;
 		}
 
 		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
@@ -100,7 +107,7 @@ export const FilesPanel: React.FC = () => {
 					style={imageStyle} 
 					onClick={(): void => markSquare(
 							sourceMatrix, 
-							`map${currBookmark}Canvas`, 
+							`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
 							matrixTransformationMethod, 
 							`Added ${currBookmark}`, 
 							img, 
@@ -125,7 +132,11 @@ export const FilesPanel: React.FC = () => {
 					style={{color: currBookmark === bookmark ? 
 							'#27427c' : 'inherit'}}
 				> 
-					{ filesPanel.bookmarks[bookmark] } 
+					{ 
+						!filesPanel?.bookmarks[bookmark] ||
+						filesPanel?.bookmarks[bookmark]?.length <= 0 ?
+						bookmark : filesPanel?.bookmarks[bookmark]
+					} 
 				</li>
 			);
 		});

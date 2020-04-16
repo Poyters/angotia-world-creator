@@ -6,7 +6,7 @@ import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { PassagePopup } from './PassagePopup';
 import { ContentContext } from '../../../../Template';
 import { 
@@ -30,7 +30,7 @@ export const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications?.options?.passage?.select, 'warning');
+            addNotification(notifications?.options?.passage?.select, 'warning');
             return;
         }
 
@@ -52,7 +52,7 @@ export const PassageOption: React.FC = () => {
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
-            'mapPassageCanvas', 
+            'MAP_PASSAGE_CANVAS', 
             changeMapPassageMatrix, 
             notifications?.options?.passage?.delete, 
             '#fff', 

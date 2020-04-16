@@ -6,7 +6,7 @@ import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -44,7 +44,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     });
 
     dispatch(changeDialogs(dialogsData));
-    setActionNote(notifications.dialogs.add);
+    addNotification(notifications.dialogs.add);
   };
 
   const submitHandler = (): void => {

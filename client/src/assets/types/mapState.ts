@@ -30,6 +30,9 @@ export type MapState = {
     mob: {
         matrix: any[]
     },
+    se: {
+        matrix: any[]
+    },
     vertex: {
         matrix: any[],
         weights: IVertexWeight[]

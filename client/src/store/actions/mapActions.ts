@@ -53,6 +53,12 @@ export const changeMapMobMatrix = (newMatrix: Array<any>) => ({
     newMatrix
 });
 
+export const changeMapSeMatrix = (newMatrix: Array<any>) => ({
+    type: 'CHANGE_MAP_SE_MATRIX',
+    newMatrix
+});
+
+
 export const changeMapVertexWeightMatrix = (newMatrix: Array<any>) => ({
     type: 'CHANGE_MAP_VERTEX_WEIGHT_MATRIX',
     newMatrix

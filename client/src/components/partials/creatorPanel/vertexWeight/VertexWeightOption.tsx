@@ -6,7 +6,7 @@ import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { VertexWeightPopup } from './VertexWeightPopup';
 import { 
     changeMapVertexWeightMatrix, 
@@ -30,7 +30,7 @@ export const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications?.options?.vertex?.select, 'warning');
+            addNotification(notifications?.options?.vertex?.select, 'warning');
             return;
         }
 
@@ -52,7 +52,7 @@ export const VertexWeightOption: React.FC = () => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'mapVertexWeightCanvas', 
+            'MAP_VERTEXWEIGHT_CANVAS', 
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.delete, 
             '', 

@@ -16,7 +16,8 @@ import {
 	changeMapDecorationMatrix, 
 	changeMapSubsoilMatrix, 
 	changeMapNpcMatrix, 
-	changeMapMobMatrix 
+  changeMapMobMatrix,
+  changeMapSeMatrix
 } from '../../store/actions/mapActions';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMapMatrix } from '../../assets/scripts/map';
@@ -37,7 +38,8 @@ export const Creator: React.FC = () => {
 		dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
 		dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
 		dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
   }, []);
 
   return (

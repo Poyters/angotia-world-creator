@@ -5,7 +5,7 @@ import configureMockStore from "redux-mock-store";
 import Adapter from 'enzyme-adapter-react-16';
 import { store } from '../../index';
 import { Notifications } from '../../components/partials/Notifications';
-// import { setActionNote } from './notifications';
+// import { addNotification } from './notifications';
 
 
 const mockStore = configureMockStore();
@@ -13,7 +13,7 @@ const mockedStore = mockStore(store);
 
 configure({adapter: new Adapter()});
 
-describe("setActionNote script", () => {
+describe("addNotification script", () => {
   const notifications = shallow(
     <Provider store={mockedStore}>
       <Notifications />
@@ -28,7 +28,7 @@ describe("setActionNote script", () => {
   // it("Create new note", () => {
 	// 	const exmapleMess = 'Example notification message';
 
-	// 	setActionNote(exmapleMess);
+	// 	addNotification(exmapleMess);
 	// 	expect(noteTextNode.text()).toEqual(true);
   // });
 });

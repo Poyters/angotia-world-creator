@@ -4,6 +4,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 import { IStore } from '../../assets/interfaces/store';
+import uuid from 'uuid/v4';
 
 
 export const Map: React.FC = () => {
@@ -60,69 +61,84 @@ export const Map: React.FC = () => {
         onClick={e => selectFieldsHandler(e)}
       > </canvas>
 
-      <canvas 
+      {
+        creatorConfig.layers.map((layer: any) => {
+          return (
+            <canvas
+              key={uuid()}
+              className={`map__canvas map__canvas--${layer.type} js-mapLayer`}
+              data-layername={layer.name}
+              width={`${mapSize.x * fieldSize}`} 
+              height={`${mapSize.y * fieldSize}`} 
+              id={`MAP_${layer.type.toUpperCase()}_CANVAS`}
+            > </canvas>
+          );
+        })
+      }
+
+      {/* <canvas 
         className="map__canvas map__canvas--block js-mapLayer" 
         data-layername="disable fields" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapBlockCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--passage js-mapLayer"
         data-layername="passage"
         width={`${mapSize.x * fieldSize}`}
         height={`${mapSize.y * fieldSize}`} 
         id="mapPassageCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--building js-mapLayer" 
         data-layername="buildings" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapbuildingCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--decoration js-mapLayer" 
         data-layername="decorations" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapdecorationCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--subsoil js-mapLayer" 
         data-layername="subsoil" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapsubsoilCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--npc js-mapLayer" 
         data-layername="npcs" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapnpcCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--mob js-mapLayer" 
         data-layername="mobs" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapmobCanvas"
-      > </canvas>
+      > </canvas> */}
 
-      <canvas 
+      {/* <canvas 
         className="map__canvas map__canvas--vertexWeight js-mapLayer" 
         data-layername="vertex weight" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="mapVertexWeightCanvas"
-      > </canvas>
+      > </canvas> */}
     </main>
   );
 };

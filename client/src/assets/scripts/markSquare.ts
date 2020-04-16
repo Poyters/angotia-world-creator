@@ -2,7 +2,7 @@ import { store } from '../../index';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from './clearCanvas';
 import { emptyMapCanvasCtx } from './map';
-import { setActionNote } from './notifications';
+import { addNotification } from './notifications';
 import { updateMatrixByTheOther } from './matrix';
 import { deepCopy } from './utils/deepCopy';
 import creatorConfig from '../configs/creatorConfig.json';
@@ -41,7 +41,7 @@ export const markSquare = (
   emptyMapCanvasCtx(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
 
-  if (note) setActionNote(note);
+  if (note) addNotification(note);
 
   pressedKey = null;
 };

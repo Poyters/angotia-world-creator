@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { IStore } from '../../../assets/interfaces/store';
@@ -25,13 +25,13 @@ export const BlockOption: React.FC<IBlockOption> = ({
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
 
-			if (selectNote) setActionNote(selectNote, 'warning');
+			if (selectNote) addNotification(selectNote, 'warning');
 			return;
 		}
 		
 		markSquare(
 			blockMatrix, 
-			'mapBlockCanvas', 
+			'MAP_BLOCK_CANVAS', 
 			changeMapBlockMatrix, 
 			changeNote, 
 			fillColor, 

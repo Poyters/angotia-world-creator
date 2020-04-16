@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ContentContext } from '../../../../Template';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -33,7 +33,7 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const submitVisibility = ():void => {
         dispatch(setVisibilityRange(parseInt(visibility)));
         closePopup(false);
-        setActionNote(notifications?.visibility?.change);
+        addNotification(notifications?.visibility?.change);
     };
 
     return (

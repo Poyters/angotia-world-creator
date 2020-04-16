@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { clearCanvas } from '../../../assets/scripts/clearCanvas';
 import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
-import { setActionNote } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../assets/scripts/notifications';
 
 
 interface IClearSelectedOption {
@@ -17,7 +17,7 @@ export const ClearSelectedOption: React.FC<IClearSelectedOption> = ({
   const clearSelected = (): void => {
     clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
 
-    if (note) setActionNote(note);
+    if (note) addNotification(note);
 	};
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeMapName } from '../../../../store/actions/mapActions';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { ContentContext } from '../../../../Template';
 
@@ -31,7 +31,7 @@ export const BoardNamePopup: React.FC<IBoardNamePopup> = ({ closePopup }) => {
     const insertImage = (): void => {
         dispatch(changeMapName(mapName));
         closePopup(false);
-        setActionNote(notifications?.boardName?.change);
+        addNotification(notifications?.boardName?.change);
     };
 
     return (

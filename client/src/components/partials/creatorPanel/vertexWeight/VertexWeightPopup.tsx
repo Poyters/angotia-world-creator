@@ -59,7 +59,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'mapVertexWeightCanvas', 
+            'MAP_VERTEXWEIGHT_CANVAS', 
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.add, 
             vertexWeightValue, 

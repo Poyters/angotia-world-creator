@@ -7,7 +7,7 @@ import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -38,7 +38,7 @@ export const Dialog: React.FC<IDialog> = ({
     });
 
     dispatch(changeDialogs(filteredDialogs));
-    setActionNote(notifications?.dialogs?.delete);
+    addNotification(notifications?.dialogs?.delete);
   };
 
   const openPlayerPopupHandler = (id: string): void => {

@@ -4,7 +4,7 @@ import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -65,7 +65,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
-    setActionNote(notifications?.dialogs?.player?.edit);
+    addNotification(notifications?.dialogs?.player?.edit);
   };
 
   const deleteDialog = (id: string): void => {
@@ -81,7 +81,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     closePopup(false);
-    setActionNote(notifications?.dialogs?.player?.delete);
+    addNotification(notifications?.dialogs?.player?.delete);
   };
 
   return (

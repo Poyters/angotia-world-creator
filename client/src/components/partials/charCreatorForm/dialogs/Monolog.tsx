@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -25,7 +25,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
-    setActionNote(notifications?.monologs?.delete);
+    addNotification(notifications?.monologs?.delete);
   };
 
   const editMonolog = (): void => {

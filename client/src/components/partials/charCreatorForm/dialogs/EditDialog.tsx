@@ -5,7 +5,7 @@ import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
 import { IStore } from '../../../../assets/interfaces/store';
 
 
@@ -55,7 +55,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
-    setActionNote(notifications?.dialogs?.edit);
+    addNotification(notifications?.dialogs?.edit);
   };
 
   return (

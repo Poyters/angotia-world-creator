@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { drawMapNet } from '../../../assets/scripts/drawNetMap';
 import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
-import { setActionNote } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../assets/scripts/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
@@ -32,21 +32,21 @@ export const NetOption: React.FC<INetOption> = ({
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: true}));
-        setActionNote(notifications?.options?.net?.squareField);
+        addNotification(notifications?.options?.net?.squareField);
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: false}));
-        setActionNote(notifications?.options?.net?.field);
+        addNotification(notifications?.options?.net?.field);
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
         dispatch(setMapNets({field: false, square: true}));
-        setActionNote(notifications?.options?.net?.square);
+        addNotification(notifications?.options?.net?.square);
       break;
       case 3:
         dispatch(setMapNets({field: false, square: false}));
-        setActionNote(notifications?.options?.net?.disabled);
+        addNotification(notifications?.options?.net?.disabled);
         return;
     }
   });

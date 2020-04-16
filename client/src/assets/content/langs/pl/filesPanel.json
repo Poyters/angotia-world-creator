@@ -11,6 +11,7 @@
     "decoration": "dekoracje", 
     "subsoil": "podłoża", 
     "npc": "npc", 
-    "mob": "mob"
+    "mob": "mob",
+    "se": "se"
   }
 }

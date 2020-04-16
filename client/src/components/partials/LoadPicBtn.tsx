@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { sizeGuard } from '../../assets/scripts/files/sizeGuard';
-import { setActionNote } from '../../assets/scripts/notifications';
+import { addNotification } from '../../assets/scripts/notifications';
 
 
 interface ILoadPicBtn {
@@ -30,7 +30,7 @@ export const LoadPicBtn: React.FC<ILoadPicBtn> = ({
         const path: string = e.target.result;
         dispatch(dispatchedClickEvent(path));
 
-        if (note) setActionNote(note);
+        if (note) addNotification(note);
       };
 
     })();
