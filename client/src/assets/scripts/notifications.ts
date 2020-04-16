@@ -1,6 +1,6 @@
 import { store } from '../../index';
 import { setNotification } from '../../store/actions/uiActions';
-import creatorConfig from '../configs/creatorConfig.json';
+import appConfig from '../configs/appConfig.json';
 import { deepCopy } from './utils/deepCopy';
 import { Note } from '../types/notifications';
 
@@ -18,7 +18,7 @@ export const addNotification = (note: string, messageType?: string) => {
 
   store.dispatch(setNotification(activeNotes));
 
-  setTimeout(deleteNote, creatorConfig.notificationTime);
+  setTimeout(deleteNote, appConfig.notificationTime);
 };
 
 function deleteNote () {

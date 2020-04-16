@@ -15,7 +15,7 @@ export const ClearSelectedOption: React.FC<IClearSelectedOption> = ({
   const { creator } = useContext(ContentContext);
 
   const clearSelected = (): void => {
-    clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
+    clearCanvas("MAP_SELECT_CANVAS", changeMapSelectMatrix);
 
     if (note) addNotification(note);
 	};

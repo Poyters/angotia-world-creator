@@ -15,5 +15,6 @@
   "langs": [
     "en", 
     "pl"
-  ]
+  ],
+  "notificationTime": 2500
 }

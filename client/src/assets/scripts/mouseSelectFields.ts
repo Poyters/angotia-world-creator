@@ -19,7 +19,7 @@ let drag: boolean = false;
 
 export const mouseSelectFields = (): void => {
   const map: HTMLElement | null = document.getElementById("map");
-	canvas = document.getElementById('mapSelectCanvas');
+	canvas = document.getElementById('MAP_SELECT_CANVAS');
   ctx = canvas.getContext('2d');
 	
 	canvas.addEventListener('mousedown', event => mouseDown(event, map), false);
@@ -135,7 +135,7 @@ const colorSquares = (rectanglePosition) => {
   setTimeout((): void => {
     colorBasedOnMatrix(
       selectMatrix, 
-      'mapSelectCanvas', 
+      'MAP_SELECT_CANVAS', 
       creatorConfig.selectColor
     ); //TODO: make it async
   }, 20);

@@ -70,7 +70,7 @@ const selectField = (cursorPosition: IPoint) => {
 
 
 const colorChecked = (positionDelta: IPoint, type: string) => {
-  const canvas: any = document.getElementById("mapSelectCanvas");
+  const canvas: any = document.getElementById("MAP_SELECT_CANVAS");
   const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 

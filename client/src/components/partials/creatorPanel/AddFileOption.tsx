@@ -17,11 +17,12 @@ export const AddFileOption: React.FC = () => {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
-    if (!sizeGuard(file, creatorConfig.maxPicsWeight.background)) { // Pic is too weight
+    // Pic is too weight
+    if (!sizeGuard(file, creatorConfig.maxPicsWeight.background)) {
       return true;
     }
 
-    reader.onload = (():any => {
+    reader.onload = ((): any => {
       return e => {
         const path: string = e.target.result;
         dispatch(setMapBg(path));
