@@ -1,21 +1,22 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
+import { deepCopy } from './utils/deepCopy';
 
 
 const blockSquaresColor = creatorConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
   const storeData = store.getState();
-  const blockMatrix = storeData.map.blockMatrix;
-  const passageMatrix = storeData.map.passage.matrix;
-  const buildingMatrix = storeData.map.building.matrix;
-  const decorationMatrix = storeData.map.decoration.matrix;
-  const subsoilMatrix = storeData.map.subsoil.matrix;
-  const npcMatrix = storeData.map.npc.matrix;
-  const mobMatrix = storeData.map.mob.matrix;
-  const seMatrix = storeData.map.se.matrix;
-  const vertexWeightMatrix = storeData.map.vertex.matrix;
+  const blockMatrix = deepCopy(storeData.map.blockMatrix);
+  const passageMatrix = deepCopy(storeData.map.passage.matrix);
+  const buildingMatrix = deepCopy(storeData.map.building.matrix);
+  const decorationMatrix = deepCopy(storeData.map.decoration.matrix);
+  const subsoilMatrix = deepCopy(storeData.map.subsoil.matrix);
+  const npcMatrix = deepCopy(storeData.map.npc.matrix);
+  const mobMatrix = deepCopy(storeData.map.mob.matrix);
+  const seMatrix = deepCopy(storeData.map.se.matrix);
+  const vertexWeightMatrix = deepCopy(storeData.map.vertex.matrix);
 
   // Draw block fields
   colorBasedOnMatrix(
