@@ -14,7 +14,6 @@ export const colorBasedOnMatrix = (
   specialView?: string
 ): void => {
     const copyOfmatrix: Array<[]> = deepCopy(matrix);
-    console.log('canvasId', canvasId);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
 
@@ -28,7 +27,7 @@ export const colorBasedOnMatrix = (
           field[1][1]
         ];
   
-        squareMatrix.map((square: number, index: number) => {
+        squareMatrix.map(async (square: number, index: number) => {
           if (square !== 0 && square) {
             const xDelta: number = index === 1 || index === 3 ?  squareSize : 0;
             const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
@@ -47,7 +46,7 @@ export const colorBasedOnMatrix = (
                 ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
               case 'image':
-                const image = makeImage(square); //square is path to image
+                const image = await makeImage(square); //square is path to image
 
                 if (
                   image.width <= (fieldSize / 2) && 
@@ -59,9 +58,6 @@ export const colorBasedOnMatrix = (
                   // Nie mogę tutaj operować tylko na index 0, a powinienem sprawdzac obszar i ustawiac w square, ktory jest x=0 i y=0
                   if (index === 0) {
                     ctx.drawImage(image, drawStartX, drawStartY);
-                  } else {
-                    console.log('here, index', index);
-                    // ctx.drawImage(image, drawStartX, drawStartY);
                   }
                 }
               break;
