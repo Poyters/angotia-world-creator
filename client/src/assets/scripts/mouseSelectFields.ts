@@ -81,13 +81,8 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 };
 
 const draw = (): void => {
-  const storeData = store.getState();
-  const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
-
   ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
-
-  colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor);
 };
 
 
