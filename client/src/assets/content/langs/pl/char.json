@@ -81,6 +81,31 @@
       ],
       "label": "Wybierz bohatera"
     },
+    "mobRange": {
+      "title": "ranga potwora",
+      "types": [
+        {
+          "id": "casual",
+          "label": "zwykły"
+        },
+        {
+          "id": "special",
+          "label": "specjalny"
+        },
+        {
+          "id": "lider",
+          "label": "lider"
+        },
+        {
+          "id": "boss",
+          "label": "boss"
+        },
+        {
+          "id": "king",
+          "label": "król"
+        }
+      ]
+    },
     "charType": {
       "types": [
         {

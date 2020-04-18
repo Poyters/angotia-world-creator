@@ -33,6 +33,11 @@ export const charReducer = (state = charState, action) => {
         ...state,
         isAgressiveMob: action.isAgressive
       };
+    case 'SET_MOB_RANGE':
+      return {
+        ...state,
+        mobRange: action.range
+      };
     case 'SET_CHAR_PIC':
       return {
         ...state,

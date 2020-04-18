@@ -10,6 +10,7 @@ export const charState: CharState = {
     type: '',
     choosed: '',
     moveType: '',
+    mobRange: '',
     monologs: [
       {
         id: '535',

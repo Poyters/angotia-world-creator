@@ -6,6 +6,7 @@ export type CharState = {
     name: string,
     id: string,
     fieldDiameter: number,
+    mobRange: string,
     type: string,
     choosed: string,
     moveType: string,

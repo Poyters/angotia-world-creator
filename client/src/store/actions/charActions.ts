@@ -35,6 +35,11 @@ export const isAgressiveMob = (isAgressive: boolean) => ({
   isAgressive
 });
 
+export const setMobRange = (range: string) => ({
+  type: 'SET_MOB_RANGE',
+  range
+});
+
 export const setCharPic = (picPath: string) => ({
   type: 'SET_CHAR_PIC',
   picPath

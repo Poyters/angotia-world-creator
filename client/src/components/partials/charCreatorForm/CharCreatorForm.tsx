@@ -12,7 +12,8 @@ import {
   setCharPic, 
   changeStatistics,
   changeName,
-  changeFieldDiameter
+  changeFieldDiameter,
+  setMobRange
 } from '../../../store/actions/charActions';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
@@ -30,6 +31,7 @@ export const CharCreatorForm: React.FC = () => {
   const charIsAgressiveMob: boolean = useSelector((state: IStore) => state.char.isAgressiveMob);
   const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
   const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
+  const actualMobRange: string = useSelector((state: IStore) => state.char.mobRange);
   const dispatch: Function = useDispatch();
 
   const charPicStyles = {
@@ -109,13 +111,23 @@ export const CharCreatorForm: React.FC = () => {
               />
               
               { choosedChar === 'mob' ? (
-                  <ChooseButtons 
-                    types={char?.form?.isAgressiveMob?.types}
-                    action={isAgressiveMob}
-                    label={char?.form?.isAgressiveMob?.title}
-                    specialClass='chooseButtonsWrapper--smaller'
-                    choosed={charIsAgressiveMob}
-                  />
+                  <>
+                    <ChooseButtons 
+                      types={char?.form?.isAgressiveMob?.types}
+                      action={isAgressiveMob}
+                      label={char?.form?.isAgressiveMob?.title}
+                      specialClass='chooseButtonsWrapper--smaller'
+                      choosed={charIsAgressiveMob}
+                    />
+
+                    <ChooseButtons 
+                      types={char?.form?.mobRange?.types}
+                      action={setMobRange}
+                      label={char?.form?.mobRange?.title}
+                      specialClass='chooseButtonsWrapper--smaller'
+                      choosed={actualMobRange}
+                    />
+                  </>
                 ) : null
               }
 

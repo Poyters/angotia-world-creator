@@ -94,12 +94,13 @@
   margin-left: 20px;
 
   &--left {
+    max-width: 250px;
     margin-right: 20px;
     margin-left: 0;
   }
 
   &__graphice {
-    width: 360px;
+    width: auto;
     height: 200px;
     max-height: 240px;
 

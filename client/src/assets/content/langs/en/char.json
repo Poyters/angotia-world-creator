@@ -54,6 +54,31 @@
         }
       ]
     },
+    "mobRange": {
+      "title": "mob range",
+      "types": [
+        {
+          "id": "casual",
+          "label": "casual"
+        },
+        {
+          "id": "special",
+          "label": "special"
+        },
+        {
+          "id": "lider",
+          "label": "lider"
+        },
+        {
+          "id": "boss",
+          "label": "boss"
+        },
+        {
+          "id": "king",
+          "label": "king"
+        }
+      ]
+    },
     "addStatBtn": "special stats",
     "importPicBtn": "import graphice",
     "dialogs": {
