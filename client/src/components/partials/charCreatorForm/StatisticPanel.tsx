@@ -25,12 +25,16 @@ export const StatisticPanel: React.FC = () => {
 
 	return (
 		<>
-			<div 
-				className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
-				onClick={(): void => dispatch(toggleStatisticPanel(true))}
-			> 
-				{ char?.statisticPanel?.open }
-			</div>
+			{
+				choosedChar !== 'se' ? (
+					<div 
+						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
+						onClick={(): void => dispatch(toggleStatisticPanel(true))}
+					> 
+						{ char?.statisticPanel?.open }
+					</div>
+				) : null
+			}
 			<aside 
 				className="g-sidePanelWrapper g-sidePanelWrapper--left" 
 				style={statisticPanelStyles}
@@ -83,7 +87,7 @@ export const StatisticPanel: React.FC = () => {
 							label={char?.form?.inputs?.attackSpeed}
 							inputValue={charStatistics.attackSpeed}
 							action={changeStatistics}
-              				payloadId='attackRange'
+              				payloadId='attackSpeed'
 						/>) : null
 					}			
 

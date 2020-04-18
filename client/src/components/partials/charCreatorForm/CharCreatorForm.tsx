@@ -80,10 +80,14 @@ export const CharCreatorForm: React.FC = () => {
                 action={changeStatistics}
                 payloadId='defence'
               />
-              <CornerButton 
-                name={char?.form?.addStatBtn}
-                clickEvent={() => dispatch(toggleStatisticPanel(true))}
-              />
+              {
+                choosedChar !== 'se' ? (
+                  <CornerButton 
+                    name={char?.form?.addStatBtn}
+                    clickEvent={() => dispatch(toggleStatisticPanel(true))}
+                  />
+                ) : null
+              }
             </div>
             <div className="charFormPanel">
               <div 
@@ -104,7 +108,7 @@ export const CharCreatorForm: React.FC = () => {
                 choosed={charChoosed}
               />
               
-              { choosedChar === 'mob'? (
+              { choosedChar === 'mob' ? (
                   <ChooseButtons 
                     types={char?.form?.isAgressiveMob?.types}
                     action={isAgressiveMob}
@@ -115,14 +119,18 @@ export const CharCreatorForm: React.FC = () => {
                 ) : null
               }
 
-              <ChooseButtons 
-                types={char?.form?.charType?.types}
-                action={changeCharType}
-                label={char?.form?.charType?.label}
-                choosed={charType}
-              />
+              {
+                choosedChar !== 'se' ? (
+                  <ChooseButtons 
+                    types={char?.form?.charType?.types}
+                    action={changeCharType}
+                    label={char?.form?.charType?.label}
+                    choosed={charType}
+                  />
+                ) : null
+              }
 
-              { charType === 'moving' ? (
+              { charType === 'moving'  && choosedChar !== 'se' ? (
                 <ActionInputField
                   label={char?.form?.charType?.movingField}
                   inputValue={fieldDiameter}
@@ -132,7 +140,7 @@ export const CharCreatorForm: React.FC = () => {
               }           
             </div>
           </div>
-          { choosedChar === 'npc' ? (
+          { choosedChar !== 'mob' ? (
               <Dialogs 
                 type={char?.form?.dialogs?.title}
                 addBtnText={char?.form?.dialogs?.addBtn}

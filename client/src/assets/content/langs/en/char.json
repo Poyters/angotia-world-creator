@@ -73,6 +73,10 @@
         {
           "id": "mob",
           "label": "mob"
+        },
+        {
+          "id": "se",
+          "label": "se"
         }
       ],
       "label": "Choose character"

@@ -36,7 +36,7 @@ export const CharSettingsPanel: React.FC = () => {
 				style={settingsPanelStyles}
 			>
 				<div className="g-sidePanel g-sidePanel--left">
-					{ choosedChar === 'npc' ?
+					{ choosedChar !== 'mob' ?
 						<ChooseButtons 
 							types={char?.settingsPanel?.hasVisibleLevel?.types}
 							action={setVisibleLevel}
