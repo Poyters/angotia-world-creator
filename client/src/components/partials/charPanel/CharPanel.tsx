@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FullScreenOption } from '../options/FullScreenOption';
 import { LinkButton } from '../LinkButton';
 import { ContentContext } from '../../../Template';
-import { SaveOption } from '../options/SaveOption';
+import { SaveJsonOption } from '../options/SaveJsonOption';
 
 
 export const CharPanel: React.FC = () => {
@@ -24,7 +24,7 @@ export const CharPanel: React.FC = () => {
           <LinkButton link={routes?.license} buttonText={char?.panel?.license} />
         </li>
         <li>
-          <SaveOption
+          <SaveJsonOption
             type='char'
           />
         </li>

@@ -15,7 +15,7 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
   
   if (connectedIds.includes(charConfig?.dialogExit)) {
     connectedIds.push(beginID);
-    availableIds.push(charConfig.dialogExit);
+    availableIds.push(charConfig?.dialogExit);
   }
 
   const isInvalid: boolean = connectedIds.some(el => !availableIds.includes(el)) || 

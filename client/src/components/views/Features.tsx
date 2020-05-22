@@ -13,7 +13,7 @@ import { BlockOption } from '../partials/creatorPanel/BlockOption';
 import { LayersOption } from '../partials/creatorPanel/LayersOption';
 import { PassageOption } from '../partials/creatorPanel/passage/PassageOption';
 import { VertexWeightOption } from '../partials/creatorPanel/vertexWeight/VertexWeightOption';
-import { SaveOption } from '../partials/options/SaveOption';
+import { SaveJsonOption } from '../partials/options/SaveJsonOption';
 import { DeleteBgOption }from '../partials/creatorPanel/DeleteBgOption';
 import { ContentContext } from '../../Template';
 
@@ -60,7 +60,7 @@ export const Features: React.FC = () => {
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal">
-                <SaveOption />
+                <SaveJsonOption />
               </div>
               { features?.creatorPanel?.saveOption }
             </li>

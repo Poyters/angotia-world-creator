@@ -2,13 +2,14 @@
     display: flex;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -10px;
     z-index: 10;
     padding: 4px 7px;
 
     color: $fontColor1;
     letter-spacing: 1px;
     background-color: $decorationColor5;
+    box-shadow: 1px 1px 5px $decorationColor9;
 
     &:before {
         position: absolute;
