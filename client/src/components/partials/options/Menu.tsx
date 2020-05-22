@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
-import { SaveJsonOption } from '../options/SaveJsonOption';
+import { SaveJsonOption } from './SaveJsonOption';
 
 
-export const Menu: React.FC = () => {
+interface IMenu {
+	type?: string
+}
+
+export const Menu: React.FC<IMenu> = ({ type }) => {
 	const { creator, lang, routes } = useContext(ContentContext);
 
 	return (
@@ -21,6 +25,7 @@ export const Menu: React.FC = () => {
 						<li> 
 							<SaveJsonOption
 								text={'to json'}
+								type={type ? type : ''}
 							/>
 						</li>
 						<li> to ur account </li>
@@ -44,7 +49,7 @@ export const Menu: React.FC = () => {
 					</Link>
 				</li>
 				<li> 
-					<Link to={`/${lang}/${routes.home}`}>
+					<Link to='http://poyters.pl'>
 						{creator?.panel?.buttons?.back} 
 					</Link>
 				</li>

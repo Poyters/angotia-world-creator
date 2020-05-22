@@ -8,12 +8,11 @@ import { BlockOption } from './BlockOption';
 import { LayersOption } from './LayersOption';
 import { PassageOption } from './passage/PassageOption';
 import { VertexWeightOption } from './vertexWeight/VertexWeightOption';
-import { SaveJsonOption } from '../options/SaveJsonOption';
 import { DeleteBgOption } from './DeleteBgOption';
 import { AddFSImageOption } from './addFSImage/AddFSImageOption';
 import { BoardNameOption } from './boardName/BoardNameOption';
 import { VisibilityOption } from './visibility/VisibilityOption';
-import { Menu } from './Menu';
+import { Menu } from '../options/Menu';
 import { ContentContext } from '../../../Template';
 
 

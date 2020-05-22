@@ -1,37 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FullScreenOption } from '../options/FullScreenOption';
-import { LinkButton } from '../LinkButton';
-import { ContentContext } from '../../../Template';
-import { SaveJsonOption } from '../options/SaveJsonOption';
+import { Menu } from '../options/Menu';
 
 
 export const CharPanel: React.FC = () => {
-  const { char, routes } = useContext(ContentContext);
-
   return (
-    <nav className="optionsPanel">
-      <header className="optionsPanel__title">
-        <span> AMC </span>
-      </header>
-      <ul className="optionsPanel__options">
-        <li>
-          <LinkButton link='/' buttonText={char?.panel?.comeBack} />
-        </li>
-        <li>
-          <LinkButton link={routes?.help} buttonText={char?.panel?.help} />
-        </li>
-        <li>
-          <LinkButton link={routes?.license} buttonText={char?.panel?.license} />
-        </li>
-        <li>
-          <SaveJsonOption
-            type='char'
-          />
-        </li>
-        <li>
-          <FullScreenOption />
-        </li>
-      </ul>
-    </nav>
+    <div className="optionsPanelWrapper">
+      <nav className="optionsPanel">
+        <header className="optionsPanel__title">
+          <span> AMC </span>
+        </header>
+        <Menu type='char' />
+        <ul className="optionsPanel__options">
+          <li>
+            <FullScreenOption />
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
