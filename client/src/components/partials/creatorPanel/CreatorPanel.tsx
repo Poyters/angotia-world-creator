@@ -28,10 +28,10 @@ export const CreatorPanel: React.FC = () => {
         <Menu />
         <ul className="optionsPanel__options">
           <li>
-            <BoardNameOption />
+            <LayersOption />
           </li>
           <li>
-            <LayersOption />
+            <BoardNameOption />
           </li>
           <li>
             <AddFileOption />

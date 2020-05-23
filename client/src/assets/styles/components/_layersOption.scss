@@ -13,7 +13,7 @@
 
         font-size: 12px;
         text-transform: lowercase;
-        color: $fontColor1;
+        color: $fontColor2;
         transition: $shortEasyAnimation1;
         cursor: pointer;
 
@@ -26,4 +26,74 @@
             color: $fontColor;
         }
     }
+}
+
+.layersMenu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+	padding:  0 7px;
+	height: 100%;
+
+  &:hover {
+    background-color: $decorationColor5;
+  }
+
+  &:hover > .layersMenu__content {
+    display: flex;
+  }
+
+  &__label {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 20px;
+    left: 0;
+    z-index: 90;
+
+    list-style-type: none;
+    box-shadow: 1px 2px 5px $decorationColor9;
+
+    & > li {
+      position: relative;
+      padding: 3px 7px;
+
+      background-color: $decorationColor5;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: $shortEasyAnimation1;
+      cursor: pointer;
+
+      &:hover > .layersMenu__content {
+        display: flex;
+      }
+
+      &:hover {
+        color: $decorationColor1;
+
+        & > .submenu {
+          display: flex;
+        }
+      }
+
+      &:first-child {
+        padding-top: 8px;
+      }
+    }
+  }
+}
+
+.disableLayer {
+	color: $fontColor2;
 }
