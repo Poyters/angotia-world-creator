@@ -4,7 +4,8 @@
     "close": "Close Settings Panel",
     "id": "ID - auto generated",
     "description": "descrition",
-    "minLevel": "minimum entry level"
+    "minLevel": "minimum entry level",
+    "boardName": "map name"
   },
   "panel": {
     "buttons": {

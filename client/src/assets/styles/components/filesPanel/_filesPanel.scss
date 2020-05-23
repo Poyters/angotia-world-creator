@@ -96,17 +96,16 @@
         position: absolute;
         display: flex;
         bottom: 6px;
-        right: 10px;
+        left: 10px;
 
         text-transform: uppercase;
         transition: $shortEasyAnimation1;
         color: $decorationColor4;
+        letter-spacing: 1px;
 
         &--char {
-            left: 10px;
-            right: auto;
-
-            letter-spacing: 1px;
+            right: 10px;
+            left: auto;
 
             &:hover {
                 color: $decorationColor4 !important;

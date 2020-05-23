@@ -73,6 +73,15 @@ a {
 
 		background-color: $decorationColor10;
 	}
+
+	&--borders {
+		position: fixed;
+		width: 100%;	
+		box-sizing: border-box;
+
+		border-top: 10px solid $decorationColor2;
+		border-bottom: 10px solid $decorationColor2;
+	}
 }
 
 .g-wrapper {

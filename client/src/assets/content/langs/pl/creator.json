@@ -4,7 +4,8 @@
     "close": "Zamknij Panel Ustawień",
     "id": "ID - automatycznie wygenerowany",
     "description": "opis",
-    "minLevel": "minimalny poziom wejścia"
+    "minLevel": "minimalny poziom wejścia",
+    "boardName": "nazwa mapy"
   },
   "panel": {
     "buttons": {

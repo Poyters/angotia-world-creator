@@ -64,7 +64,6 @@ export const CharSettingsPanel: React.FC = () => {
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>
-						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
 							{ char?.settingsPanel?.close }
 						</span>

@@ -184,7 +184,6 @@ export const FilesPanel: React.FC = () => {
 						<span>
 							{ filesPanel.close }
 						</span>
-						<Arrow additionalClass="arrow--filesPanel"/>
 					</div>
 				</div>
 			</aside>

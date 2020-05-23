@@ -10,7 +10,6 @@ import { PassageOption } from './passage/PassageOption';
 import { VertexWeightOption } from './vertexWeight/VertexWeightOption';
 import { DeleteBgOption } from './DeleteBgOption';
 import { AddFSImageOption } from './addFSImage/AddFSImageOption';
-import { BoardNameOption } from './boardName/BoardNameOption';
 import { VisibilityOption } from './visibility/VisibilityOption';
 import { Menu } from '../options/Menu';
 import { ContentContext } from '../../../Template';
@@ -29,9 +28,6 @@ export const CreatorPanel: React.FC = () => {
         <ul className="optionsPanel__options">
           <li>
             <LayersOption />
-          </li>
-          <li>
-            <BoardNameOption />
           </li>
           <li>
             <AddFileOption />

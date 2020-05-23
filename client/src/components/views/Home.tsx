@@ -7,15 +7,15 @@ import LangMenu from '../partials/LangMenu';
 
 export const Home: React.FC = () => {
   return (
-    <div role="presentation" className="g-container">
-        <SectionHeader 
-          headerTxt="Angotia Map Creator"
-        />
-        <div role="presentation" className="g-wrapper">
-          <EntryPanel />
-        </div>
-        <CreditsFooter />
-        <LangMenu />
+    <div role="presentation" className="g-container g-container--borders">
+      <SectionHeader 
+        headerTxt="Angotia Map Creator"
+      />
+      <div role="presentation" className="g-wrapper">
+        <EntryPanel />
       </div>
+      <CreditsFooter />
+      <LangMenu />
+    </div>
   );
 };

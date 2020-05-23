@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Arrow } from './Arrow';
 import { ActionInputField } from './ActionInputField';
 import { ContentContext } from '../../Template';
-import { setMapDesc, setMinEntryLevel } from '../../store/actions/mapActions';
+import { setMapDesc, setMinEntryLevel, changeMapName } from '../../store/actions/mapActions';
 import { IStore } from '../../assets/interfaces/store';
 
 
@@ -14,6 +14,7 @@ export const MapSettingsPanel: React.FC = () => {
 	const [descValue, setDescValue] = useState<string>(description);
 	const mapId: string = useSelector((state: IStore) => state.map.id);
 	const minEntryLevel: number = useSelector((state: IStore) => state.map.minEntryLevel);
+	const boardName: string = useSelector((state: IStore) => state.map.mapName);
 	const dispatch = useDispatch();
 
 	const settingsPanelStyles = {
@@ -39,6 +40,11 @@ export const MapSettingsPanel: React.FC = () => {
 						inputDisabled={true}
 					/>
 					<ActionInputField
+						label={creator?.settingsPanel?.boardName}
+						inputValue={boardName}
+						action={changeMapName}
+					/>
+					<ActionInputField
 						label={creator?.settingsPanel?.minLevel}
 						inputValue={minEntryLevel}
 						action={setMinEntryLevel}
@@ -60,7 +66,6 @@ export const MapSettingsPanel: React.FC = () => {
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>
-						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
 							{ creator?.settingsPanel?.close }
 						</span>

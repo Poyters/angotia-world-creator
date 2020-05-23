@@ -41,17 +41,7 @@
         text-transform: uppercase;
         transition: $shortEasyAnimation1;
         color: $decorationColor4;
-
-        &--char {
-            left: 10px;
-            right: auto;
-
-            letter-spacing: 1px;
-
-            &:hover {
-                color: $decorationColor4 !important;
-            }
-        }
+        letter-spacing: 1px;
 
         &:hover {
             cursor: pointer;

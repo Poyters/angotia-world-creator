@@ -95,7 +95,6 @@ export const StatisticPanel: React.FC = () => {
 						className="g-sidePanel__switch t-paragraph4Normal" 
 						onClick={(): void => dispatch(toggleStatisticPanel(false))}
 					>
-						<Arrow additionalClass="arrow--leftDirection"/>
 						<span>
 							{ char?.statisticPanel?.close }
 						</span>
