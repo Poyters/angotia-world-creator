@@ -32,7 +32,16 @@
       },
       "layers": {
         "title": "Layers",
-        "bg": "background"
+        "bg": "background",
+        "disableFields": "disabled fields",
+        "passage": "passage",
+        "buildings": "buildings",
+        "decorations": "decorations",
+        "subsoil": "subsoils",
+        "npcs": "npcs",
+        "mobs": "mobs",
+        "speakingEnvironment": "speaking environment",
+        "vertexWeight": "vertex weights"
       },
       "net": {
         "dataTitle": "click to change nets mode"

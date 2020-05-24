@@ -32,7 +32,16 @@
       },
       "layers": {
         "title": "Warstwy",
-        "bg": "tło"
+        "bg": "tło",
+        "disableFields": "zablokowane pola",
+        "passage": "przejścia",
+        "buildings": "budynki",
+        "decorations": "dekoracje",
+        "subsoil": "podłoża",
+        "npcs": "npcs",
+        "mobs": "potwory",
+        "speakingEnvironment": "interaktywne otoczenie",
+        "vertexWeight": "wagi wierzchołków"
       },
       "net": {
         "dataTitle": "kliknij by zmienić widoczność siatki"

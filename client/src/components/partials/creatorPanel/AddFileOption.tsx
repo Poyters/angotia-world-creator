@@ -9,7 +9,7 @@ import { IStore } from '../../../assets/interfaces/store';
 
 
 export const AddFileOption: React.FC = () => {
-  const { creator } = useContext(ContentContext);
+  const { creator, notifications } = useContext(ContentContext);
   const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ export const AddFileOption: React.FC = () => {
     })();
 
     reader.readAsDataURL(file);
-    addNotification("Added background image");
+    addNotification(notifications?.addBg);
   };
 
   const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';

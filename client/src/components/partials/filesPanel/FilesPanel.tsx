@@ -4,7 +4,6 @@ import uuid from 'uuid/v4';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-import { Arrow } from '../Arrow';
 import { CharButton } from './CharButton';
 import test1 from '../../../assets/images/mapSources/building/test1.png';
 import test1min from '../../../assets/images/mapSources/building/test1min.png';

@@ -15,13 +15,15 @@ export const LayersOption: React.FC = () => {
 
         const ltr = Array.from(layers).map((layer: any) => {
             const layerName = layer.dataset.layername;
+            console.log(layerName);
             return (
                 <li 
                     id={`${layerName}Btn`}
                     key={uuid()} 
                     onClick={(): void => toggleLayer(layerName)}
                 >
-                    { layerName }
+                    {/* { layerName } */}
+                    { creator?.panel?.options?.layers[layerName] }
                 </li>
             );
         });

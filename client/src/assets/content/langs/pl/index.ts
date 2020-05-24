@@ -8,6 +8,7 @@ import features from './features.json';
 import filesPanel from './filesPanel.json';
 import help from './help.json';
 import notifications from './notifications.json';
+import menu from './menu.json';
 
 
 export const plContent: Icontent = {
@@ -20,5 +21,6 @@ export const plContent: Icontent = {
   features,
   filesPanel,
   help,
-  notifications
+  notifications,
+  menu
 };

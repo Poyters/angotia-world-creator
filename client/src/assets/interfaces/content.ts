@@ -8,7 +8,8 @@ export interface Icontent {
   features: IDig,
   filesPanel: IDig
   help: IDig,
-  notifications: IDig
+  notifications: IDig,
+  menu: IDig
 }
 
 interface IRoutes {

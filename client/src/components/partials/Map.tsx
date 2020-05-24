@@ -81,7 +81,7 @@ export const Map: React.FC = () => {
 
       <canvas 
         className="map__canvas map__canvas--block js-mapLayer" 
-        data-layername="disable fields" 
+        data-layername="disableFields" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="MAP_BLOCK_CANVAS"
@@ -137,7 +137,7 @@ export const Map: React.FC = () => {
 
       <canvas 
         className="map__canvas map__canvas--se js-mapLayer" 
-        data-layername="speaking environment" 
+        data-layername="speakingEnvironment" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="MAP_SE_CANVAS"
@@ -145,7 +145,7 @@ export const Map: React.FC = () => {
 
       <canvas 
         className="map__canvas map__canvas--vertexWeight js-mapLayer" 
-        data-layername="vertex weight" 
+        data-layername="vertexWeight" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
         id="MAP_VERTEXWEIGHT_CANVAS"

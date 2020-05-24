@@ -9,48 +9,48 @@ interface IMenu {
 }
 
 export const Menu: React.FC<IMenu> = ({ type }) => {
-	const { creator, lang, routes } = useContext(ContentContext);
+	const { menu, lang, routes } = useContext(ContentContext);
 
 	return (
 		<nav className="menu">
 			<header className="menu__label t-paragraph6Normal"> menu </header>
 			<ul className="menu__content t-paragraph2Light">
 				<li>
-					{ creator?.panel?.options?.export?.content }
+					{ menu?.label }
 				</li>
 				<li className="extended">
-					save
+					{ menu?.save.label }
 				<nav className="submenu t-paragraph6Light">
 					<ul>
 						<li> 
 							<SaveJsonOption
-								text={'to json'}
+								text={ menu?.save.json }
 								type={type ? type : ''}
 							/>
 						</li>
-						<li> to ur account </li>
+						<li> { menu?.save.db } </li>
 					</ul>
 				</nav>
 				</li>
 				<li>
 					<Link to={`/${lang}/${routes.help}`}>
-						{creator?.panel?.buttons?.help}  
+						{ menu?.help }
 					</Link>	
 				</li>
 				<li> 
 					<Link to={`/${lang}/${routes.license}`}>
-						{creator?.panel?.buttons?.license}
+						{ menu?.license }
 					</Link>
 				</li>
-				<li> catalogs </li>
+				<li> { menu?.catalogs } </li>
 				<li className="separator">
 					<Link to={`/${lang}/${routes.home}`}>
-						back to menu
+						{ menu?.backToMenu }
 					</Link>
 				</li>
 				<li> 
 					<Link to='http://poyters.pl'>
-						{creator?.panel?.buttons?.back} 
+						{ menu?.exit }
 					</Link>
 				</li>
 			</ul>
