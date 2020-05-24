@@ -53,4 +53,12 @@
       height: 100%;
     }
   }
+
+  &--active {
+    border-color: $decorationColor1;
+  }
+
+  &--error {
+    background-color: $warningColor1 !important;
+  }
 }

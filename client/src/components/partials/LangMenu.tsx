@@ -36,15 +36,13 @@ const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
       {
         appConfig.langs.map((lang: string) => {
-          const langStyle = {
-            color: (lang === currLang || (lang === 'en' && currLang === '')) ? '#27427c' : 'inherit'
-          };
-
           return (
             <span 
               key={uuid()} 
               onClick={() => changeLanguage(lang)}
-              style={langStyle}
+              className={`${
+                (lang === currLang || (lang === 'en' && currLang === '')) ? 'labelMark--lang' : ''
+              }`}
             > 
               { lang } 
             </span>

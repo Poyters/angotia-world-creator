@@ -26,12 +26,6 @@ export const Dialog: React.FC<IDialog> = ({
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dispatch: Function = useDispatch();
 
-  const dialogStyle = {
-    borderColor: connectedDialogs?.includes(id) ? '#27427c' : '#262d38',
-    backgroundColor: connectedDialogs?.includes(`${charConfig.invalidPrefix}${id}`) ? 
-      'rgba(175, 26, 26, 0.3)' : 'inherit'
-  };
-
   const deleteDialog = (id: string): void => {
     const filteredDialogs = dialogsData.filter(dialog => {
       if (dialog.id !== id) return dialog;
@@ -59,10 +53,13 @@ export const Dialog: React.FC<IDialog> = ({
         />, document.body
       ) : null}
       <div 
-        className="dialog" 
+        className={`
+          dialog
+          ${connectedDialogs?.includes(id) ? 'dialog--active' : ''}
+          ${connectedDialogs?.includes(`${charConfig.invalidPrefix}${id}`) ? 'dialog--error' : ''}
+        `}
         onMouseEnter={():void => validatorFunc(id)}
         onMouseLeave={():void => clearValidator()}
-        style={dialogStyle}
       >
         <div 
           className="dialog__npc"

@@ -34,10 +34,6 @@ export const ChooseButtons: React.FC<IChooseButtons> = (
       <header className="chooseButtonsHeader t-paragraph6Normal"> { label } </header>
       {
         types.map((type: chooseType) => {
-          const inputStyle = {
-            backgroundColor: currChecked === type.id ? '#27427c' : ''
-          };
-
           return (
             <div className="chooseButtons" key={uuid()}>
               <label 
@@ -46,9 +42,11 @@ export const ChooseButtons: React.FC<IChooseButtons> = (
                 { type.label } 
               </label>
               <div 
-                className="chooseButtons__input"
+                className={`
+                  chooseButtons__input
+                  ${currChecked === type.id ? 'chooseButtons__input--active' : ''}
+                `}
                 onClick={():void => changeChecked(type.id)}
-                style={inputStyle}
               > </div>
             </div>
           );
