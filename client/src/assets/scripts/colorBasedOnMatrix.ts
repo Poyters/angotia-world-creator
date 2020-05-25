@@ -2,6 +2,7 @@ import creatorConfig from '../configs/creatorConfig.json';
 import { deepCopy } from './utils/deepCopy';
 import { drawCross, drawTriangle } from './draw/drawShape';
 import { makeImage } from './draw/makeImage';
+import passagePicPath from '../images/passage.png';
 
 
 const fieldSize: number = creatorConfig.map.fieldSize;
@@ -33,6 +34,7 @@ export const colorBasedOnMatrix = (
             const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
             const drawStartX = x*fieldSize + xDelta;
             const drawStartY = y*fieldSize + yDelta;
+            console.log('specialView', specialView);
 
             switch(specialView) {
               case 'barrier':
@@ -60,6 +62,12 @@ export const colorBasedOnMatrix = (
                     ctx.drawImage(image, drawStartX, drawStartY);
                   }
                 }
+              break;
+              case 'passage':
+                console.log('here1');
+                const passagePic = await makeImage(passagePicPath); //square is path to image
+
+                ctx.drawImage(passagePic, drawStartX, drawStartY);
               break;
               default:
                 ctx.fillStyle = color;
