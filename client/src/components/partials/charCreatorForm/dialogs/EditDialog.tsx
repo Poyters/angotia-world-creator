@@ -38,19 +38,19 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-        if (event.key === 'Escape') closePopup(false);
-        else if (event.key === 'Enter') submitHandler();
+      if (event.key === 'Escape') closePopup(false);
+      else if (event.key === 'Enter') submitHandler();
     };
 
     document.addEventListener('keydown', keyPressHandler);
     return () => {
-        document.removeEventListener('keydown', keyPressHandler);
+      document.removeEventListener('keydown', keyPressHandler);
     };
   });
 
   const submitHandler = (): void => {
     if (npcTextErr) return;
-    
+
     const updatedDialogs = dialogsData.map((dialog: IDialog) => {
       if (dialog.id === dialogId) {
         dialog = {
