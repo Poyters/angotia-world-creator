@@ -30,7 +30,21 @@ export const VisibilityPopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
     }, [visibility]);
 
+    useEffect(() => {
+        const keyPressHandler = (event): void => {
+            if (event.key === 'Escape') closePopup(false);
+            else if (event.key === 'Enter') submitVisibility();
+        };
+
+        document.addEventListener('keydown', keyPressHandler);
+        return () => {
+            document.removeEventListener('keydown', keyPressHandler);
+        };
+    });
+
     const submitVisibility = ():void => {
+        if (error) return;
+        
         dispatch(setVisibilityRange(parseInt(visibility)));
         closePopup(false);
         addNotification(notifications?.visibility?.change);

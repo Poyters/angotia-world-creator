@@ -27,7 +27,6 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
     const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
-
     useEffect((): void => {
         if (
             parseInt(vertexWeightValue) < creatorConfig?.vertexWeight?.min || 
@@ -41,8 +40,21 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
     }, [vertexWeightValue]);
 
+    useEffect(() => {
+        const keyPressHandler = (event): void => {
+            if (event.key === 'Escape') closePopup(false);
+            else if (event.key === 'Enter') insertVertexWeight();
+        };
+
+        document.addEventListener('keydown', keyPressHandler);
+        return () => {
+            document.removeEventListener('keydown', keyPressHandler);
+        };
+    });
 
     const insertVertexWeight = (): void => {
+        if (error) return;
+
         const potentialWeights: ISquareData[] = matrixToIds(selectMatrix);
         potentialWeights.forEach(location => {
             if (!vertexWeights.some(e => e.id === location.id)) {
@@ -97,7 +109,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertVertexWeight()} disabled={error}
+                    onClick={insertVertexWeight} disabled={error}
                 > 
                     { creator?.panel?.options?.vertex?.submit }
                 </button>

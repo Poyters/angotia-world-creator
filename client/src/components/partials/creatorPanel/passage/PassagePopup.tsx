@@ -33,7 +33,21 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
     }, [mapTargetId, mapTargetCords]);
 
+    useEffect(() => {
+        const keyPressHandler = (event): void => {
+            if (event.key === 'Escape') closePopup(false);
+            else if (event.key === 'Enter') insertPassage();
+        };
+
+        document.addEventListener('keydown', keyPressHandler);
+        return () => {
+            document.removeEventListener('keydown', keyPressHandler);
+        };
+    });
+
     const insertPassage = (): void => {
+        if (error) return;
+        
         const potentialLocations: ISquareData[] = matrixToIds(selectMatrix);
         potentialLocations.forEach(location => {
             if (!passageLocations.some(e => e.id === location.id)) {
@@ -96,7 +110,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertPassage()} 
+                    onClick={insertPassage} 
                     disabled={error}
                 > 
                     submit 

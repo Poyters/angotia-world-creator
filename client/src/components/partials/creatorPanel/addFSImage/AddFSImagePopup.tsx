@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import uuid from 'uuid/v4';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { ContentContext } from '../../../../Template';
@@ -15,6 +15,18 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
     const [fileName, setFileName] = useState<string>("");
     const [currBookmark, setCurrBookmark] = useState<string>(creatorConfig?.bookmarks[0]);
+
+    useEffect(() => {
+			const keyPressHandler = (event): void => {
+				if (event.key === 'Escape') closePopup(false);
+				else if (event.key === 'Enter') insertImage();
+			};
+	
+			document.addEventListener('keydown', keyPressHandler);
+			return () => {
+				document.removeEventListener('keydown', keyPressHandler);
+			};
+    });
 
     const handleFileSelect = (evt: any) => {
         const file = evt.target.files[0]; 
@@ -38,10 +50,13 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
     };
 
     const insertImage = (): void => {
-        console.log('Insert image process');
+			if (!isLoadedImage) return;
 
-        closePopup(false);
-    };
+			console.log('Insert image process');
+
+			closePopup(false);
+		};
+	
 
     return (
         <div className="g-container g-container--popup">
@@ -102,7 +117,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertImage()} disabled={!isLoadedImage}
+										onClick={insertImage} disabled={!isLoadedImage}
                 > 
                     {creator?.panel?.options?.addFSImage?.submit} 
                 </button>
