@@ -35,6 +35,18 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     else setNpcTextErr(false);
   }, [npcText]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+        if (event.key === 'Escape') closePopupHandler();
+        else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+        document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const insertDialog = (): void => {
     dialogsData.push({
       id: dialogId,
@@ -48,6 +60,8 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   };
 
   const submitHandler = (): void => {
+    if (npcTextErr) return;
+
     insertDialog();
     togglePopup(false);
     dispatch(changeTemponaryPlayerDialogs([]));

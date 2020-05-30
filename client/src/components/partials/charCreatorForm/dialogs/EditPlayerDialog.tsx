@@ -42,8 +42,20 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     else setDialogErr(false);
   }, [dialog]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+      if (event.key === 'Escape') closePopup(false);
+      else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+      document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const submitHandler = (): void => {
-    if (!dialogData) return;
+    if (!dialogData || dialogErr) return;
 
     const playerDataId = dialogData.player.findIndex((dialog: IPlayer): boolean => {
       return dialog.id === playerId;
@@ -145,7 +157,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => submitHandler()} 
+          onClick={submitHandler} 
           disabled={dialogErr}
         > 
           { char?.editPlayer?.submit }

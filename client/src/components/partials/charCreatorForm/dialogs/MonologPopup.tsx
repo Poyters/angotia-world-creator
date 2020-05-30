@@ -37,6 +37,18 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     else setMonologCtnErr(false);
   }, [monologContent]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+        if (event.key === 'Escape') togglePopup(false);
+        else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+        document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const insertMonolog = (): void => {
     monologsData.push({
       id: monologId,
@@ -60,6 +72,8 @@ export const MonologPopup: React.FC<IMonologPopup> = (
   };
 
   const submitHandler = (): void => {
+    if (monologCtnErr) return;
+    
     if (
       monologData &&
       monologData.id && 
@@ -106,7 +120,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => submitHandler()} 
+          onClick={submitHandler} 
           disabled={monologCtnErr}
         > 
           { char?.monolog?.submit } 
