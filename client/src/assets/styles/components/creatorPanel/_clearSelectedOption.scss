@@ -12,7 +12,7 @@
         height: 9px;
 
         transform: rotate(30deg);
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         border-radius: 2px;
         background-color: $decorationColor4;
         box-shadow: 0 0 2px $decorationColor4;

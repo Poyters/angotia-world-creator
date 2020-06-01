@@ -1,16 +1,8 @@
 import { store } from '../../index';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
-
-//Import scripts
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { mouseSelectFields } from './mouseSelectFields';
-
-//Import interfaces
-import { IPoint } from '../interfaces/pointInterfaces';
+import { IPoint } from '../interfaces/math';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -78,7 +70,7 @@ const selectField = (cursorPosition: IPoint) => {
 
 
 const colorChecked = (positionDelta: IPoint, type: string) => {
-  const canvas: any = document.getElementById("mapSelectCanvas");
+  const canvas: any = document.getElementById("MAP_SELECT_CANVAS");
   const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 

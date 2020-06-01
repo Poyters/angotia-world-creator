@@ -1,5 +1,5 @@
 {
-  "switch": "Otwórz panel plików",
+  "switch": "Panel plików",
   "close": "Zamknij panel plików",
   "charButton": {
     "load": "załaduj",
@@ -11,6 +11,7 @@
     "decoration": "dekoracje", 
     "subsoil": "podłoża", 
     "npc": "npc", 
-    "mob": "mob"
+    "mob": "mob",
+    "se": "se"
   }
 }

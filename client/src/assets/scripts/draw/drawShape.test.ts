@@ -1,4 +1,3 @@
-//Import component
 import { drawTriangle, drawCross } from './drawShape';
 
 HTMLCanvasElement.prototype.getContext = jest.fn();

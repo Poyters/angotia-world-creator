@@ -1,50 +1,41 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../../assets/scripts/notifications';
-
-//Import components
-import PassagePopup from './PassagePopup';
-
-//Import contexts
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { PassagePopup } from './PassagePopup';
 import { ContentContext } from '../../../../Template';
-
-//Import actions
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
-} from '../../../../redux/actions/mapActions';
+} from '../../../../store/actions/mapActions';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
-let pressedKey: string = '';
+let pressedKey: string | null = null;
 document.addEventListener('keydown', event => pressedKey = event.key);
+document.addEventListener('keyup', () => pressedKey = null);
 
-const PassageOption: React.FC = () => {
+export const PassageOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    let passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
+    let passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications.options.passage.select, 'warning');
+            addNotification(notifications?.options?.passage?.select, 'warning');
             return;
         }
 
-        pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
-
-        setTimeout((): string => pressedKey = '', 250); 
+        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey = null;
     };
     
     const deletePassage = (): void => {
@@ -61,11 +52,11 @@ const PassageOption: React.FC = () => {
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
-            'mapPassageCanvas', 
+            'MAP_PASSAGE_CANVAS', 
             changeMapPassageMatrix, 
-            notifications.options.passage.delete, 
+            notifications?.options?.passage?.delete, 
             '#fff', 
-            ''
+            'passage'
         );
     };
 
@@ -82,6 +73,3 @@ const PassageOption: React.FC = () => {
         </>
     );
 };
-
-
-export default PassageOption;

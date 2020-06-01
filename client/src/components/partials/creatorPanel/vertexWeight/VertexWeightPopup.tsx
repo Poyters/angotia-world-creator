@@ -1,43 +1,36 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import actions
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
-
-//Import contexts
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { ISquareData } from '../../../../assets/interfaces/square';
+import { IVertexWeight } from '../../../../assets/interfaces/vertex';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IVertexOption {
     closePopup: Function
 }
 
-
-const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
-    const { notifications } = useContext(ContentContext);
-    const [vertexWeightValue, setVertexWeightValue] = useState<string>("");
+export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
+    const { notifications, creator } = useContext(ContentContext);
+    const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    const vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
+    const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
-
 
     useEffect((): void => {
         if (
-            parseInt(vertexWeightValue) < creatorConfig.vertexWeight.min || 
-            parseInt(vertexWeightValue) > creatorConfig.vertexWeight.max || 
+            parseInt(vertexWeightValue) < creatorConfig?.vertexWeight?.min || 
+            parseInt(vertexWeightValue) > creatorConfig?.vertexWeight?.max || 
             !vertexWeightMatrix || 
             !Number(vertexWeightValue)
         ) {
@@ -47,19 +40,30 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
     }, [vertexWeightValue]);
 
+    useEffect(() => {
+        const keyPressHandler = (event): void => {
+            if (event.key === 'Escape') closePopup(false);
+            else if (event.key === 'Enter') insertVertexWeight();
+        };
+
+        document.addEventListener('keydown', keyPressHandler);
+        return () => {
+            document.removeEventListener('keydown', keyPressHandler);
+        };
+    });
 
     const insertVertexWeight = (): void => {
-        const potentialWeights: any[] = matrixToIds(selectMatrix);
+        if (error) return;
+
+        const potentialWeights: ISquareData[] = matrixToIds(selectMatrix);
         potentialWeights.forEach(location => {
             if (!vertexWeights.some(e => e.id === location.id)) {
-                const newLocation = {
+                const newVertex: IVertexWeight = {
                     ...location,
-                    destination: {
-                        vertexWeightValue,
-                    }
+                    weight: parseInt(vertexWeightValue)
                 };
 
-                vertexWeights.push(newLocation);
+                vertexWeights.push(newVertex);
               }
         });
 
@@ -67,9 +71,9 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'mapVertexWeightCanvas', 
+            'MAP_VERTEXWEIGHT_CANVAS', 
             changeMapVertexWeightMatrix, 
-            notifications.options.vertex.add, 
+            notifications?.options?.vertex?.add, 
             vertexWeightValue, 
             'vertexWeight'
         );
@@ -83,11 +87,11 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    Add weight
+                    { creator?.panel?.options?.vertex?.title }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    Weight of vertex 
-                    ({creatorConfig.vertexWeight.min} - {creatorConfig.vertexWeight.max})
+                    { creator?.panel?.options?.vertex?.desc }
+                    ({creatorConfig?.vertexWeight?.min} - {creatorConfig?.vertexWeight?.max})
                 </label>
                 <input 
                     type='text' 
@@ -96,21 +100,20 @@ const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 />
                 {
                     (error) ? (
-                        <span className="insertPopup--error">Type proper value (number)</span>
+                        <span className="insertPopup--error">
+                           { creator?.panel?.options?.vertex?.error }
+                        </span>
                     ) : null
                 }
 
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertVertexWeight()} disabled={error}
+                    onClick={insertVertexWeight} disabled={error}
                 > 
-                    submit 
+                    { creator?.panel?.options?.vertex?.submit }
                 </button>
             </div>
         </div>
     );
 };
-
-
-export default VertexWeightPopup;

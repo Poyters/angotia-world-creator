@@ -6,7 +6,7 @@
     margin: 1px 0 0 0;
 
     background-color: $decorationColor4;
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
     cursor: pointer;
 
     &:hover {

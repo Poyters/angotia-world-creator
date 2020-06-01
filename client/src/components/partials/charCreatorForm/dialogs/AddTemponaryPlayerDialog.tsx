@@ -1,24 +1,19 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import components
-import PlayerDialog from './PlayerDialog';
-
-//Import actions
-import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
-import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
+import { PlayerDialog } from './PlayerDialog';
+import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
+import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
-const AddTemponaryPlayerDialog: React.FC = () => {
+export const AddTemponaryPlayerDialog: React.FC = () => {
   const { char } = useContext(ContentContext);
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   const addPlayerDialogHandler = (): void => {
     const newDialogs: IPlayer[] = [
@@ -26,7 +21,7 @@ const AddTemponaryPlayerDialog: React.FC = () => {
       {
         id: uuid(),
         dialog: '',
-        next: -1,
+        next: '',
         action: '',
         condition: ''
       }
@@ -41,13 +36,13 @@ const AddTemponaryPlayerDialog: React.FC = () => {
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
         >
-          { char.dialogPopup.playerDialogs }
+          { char?.dialogPopup?.playerDialogs }
         </header>
         <div 
           className="playerDialogsHeader__add t-paragraph5Normal"
           onClick={():void => addPlayerDialogHandler() }
         >
-          { char.dialogPopup.newPlayerDialog }
+          { char?.dialogPopup?.newPlayerDialog }
         </div>
 
       </nav>
@@ -62,5 +57,3 @@ const AddTemponaryPlayerDialog: React.FC = () => {
     </>        
   );
 };
-
-export default AddTemponaryPlayerDialog;

@@ -1,14 +1,10 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-
-//Import components
-import AddFSImagePopup from './AddFSImagePopup';
-
-//Import contexts
+import { AddFSImagePopup } from './AddFSImagePopup';
 import { ContentContext } from '../../../../Template';
 
 
-const AddFSImageOption: React.FC = () => {
+export const AddFSImageOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
 
@@ -21,7 +17,7 @@ const AddFSImageOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator.panel.options.addFSImage.dataTitle}
+                data-title={creator?.panel?.options?.addFSImage?.dataTitle}
             >
                 <div className="addFSImageOption">
 
@@ -30,6 +26,3 @@ const AddFSImageOption: React.FC = () => {
         </>
     );
 };
-
-
-export default AddFSImageOption;

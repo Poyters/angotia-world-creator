@@ -1,7 +1,15 @@
 {
+  "settingsPanel": {
+    "open": "Settings Panel",
+    "close": "Close Settings Panel",
+    "id": "ID - auto generated",
+    "description": "descrition",
+    "minLevel": "minimum entry level",
+    "boardName": "map name"
+  },
   "panel": {
     "buttons": {
-      "back": "come back",
+      "back": "return",
       "help": "help",
       "license": "license"
     },
@@ -24,13 +32,22 @@
       },
       "layers": {
         "title": "Layers",
-        "bg": "background"
+        "bg": "background",
+        "disableFields": "disabled fields",
+        "passage": "passage",
+        "buildings": "buildings",
+        "decorations": "decorations",
+        "subsoil": "subsoils",
+        "npcs": "npcs",
+        "mobs": "mobs",
+        "speakingEnvironment": "speaking environment",
+        "vertexWeight": "vertex weights"
       },
       "net": {
         "dataTitle": "click to change nets mode"
       },
       "save": {
-        "dataTitle": "save board on your computer",
+        "dataTitle": "save on your computer",
         "content": "Save"
       },
       "select": {
@@ -45,10 +62,17 @@
         "submit": "submit"
       },
       "visibility": {
-        "dataTitle": "player visibility range",
-        "title": "Set player visibility range ",
+        "dataTitle": "set player visibility range",
+        "title": "Set player visibility range",
+        "desc": "range (fields)",
         "error": "Type proper value (number)",
-        "label": "range (fields)",
+        "submit": "submit"
+      },
+      "vertex": {
+        "dataTitle": "add/delete vertex weight",
+        "title": "Add weight",
+        "desc": "Weight of vertex",
+        "error": "Type proper value (number)",
         "submit": "submit"
       }
     }

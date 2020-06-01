@@ -1,4 +1,3 @@
-//Import configs
 import creatorConfig from '../../configs/creatorConfig.json';
 
 

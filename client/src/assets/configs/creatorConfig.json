@@ -8,7 +8,6 @@
         "minLength": 5,
         "maxLength": 13
     },
-    "actionNoteDelay": 1500,
     "selectColor": "rgba(0, 0, 0, 0.5)",
     "blockSquareColor": "#7d190b",
     "vertexWeight": {
@@ -22,7 +21,47 @@
         "decoration",
         "subsoil",
         "npc",
-        "mob"
+        "mob",
+        "se"
+    ],
+    "layers": [
+        {
+            "type": "block",
+            "name": "disable fields",
+            "color": "#7d190b"
+        },
+        {
+            "type": "passage",
+            "name": "passage"
+        },
+        {
+            "type": "building",
+            "name": "buildings"
+        },
+        {
+            "type": "decoration",
+            "name": "decorations"
+        },
+        {
+            "type": "subsoil",
+            "name": "subsoils"
+        },
+        {
+            "type": "npc",
+            "name": "npcs"
+        },
+        {
+            "type": "mob",
+            "name": "mobs"
+        },
+        {
+            "type": "se",
+            "name": "speaking environment"
+        },
+        {
+            "type": "vertexWeight",
+            "name": "vertex weight"
+        }
     ],
     "maxPicsWeight": {
         "background": 200,

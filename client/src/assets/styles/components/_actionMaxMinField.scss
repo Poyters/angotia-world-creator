@@ -1,0 +1,46 @@
+.actionMaxMinField {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+
+  &__label {
+    margin: 3px;
+
+    text-transform: uppercase;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+
+.minMaxInput {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+
+  &__label {
+    display: flex;
+    justify-content: center;
+
+    text-transform: lowercase;
+    letter-spacing: 1px;
+  }
+
+  &__input {
+    margin: 0 3px;
+    padding: 6px 10px;
+
+    background-color: $decorationColor1;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    color: $decorationColor4;
+
+    &:active, &:focus {
+      border-radius: 2px;
+      border: 2px solid $decorationColor13;
+    }
+  }
+}

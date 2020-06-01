@@ -1,16 +1,8 @@
 import { store } from '../../index';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
-
-//Import interfaces
-import { IPoint } from '../interfaces/pointInterfaces';
-import { IRect, IRectanglePosition } from '../interfaces/figureInterfaces';
-
-//Import scripts
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
+import { IPoint } from '../interfaces/math';
+import { IRect, IRectanglePosition } from '../interfaces/figure';
 import { selectCanvasSquare } from './selectFields';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 
@@ -27,7 +19,7 @@ let drag: boolean = false;
 
 export const mouseSelectFields = (): void => {
   const map: HTMLElement | null = document.getElementById("map");
-	canvas = document.getElementById('mapSelectCanvas');
+	canvas = document.getElementById('MAP_SELECT_CANVAS');
   ctx = canvas.getContext('2d');
 	
 	canvas.addEventListener('mousedown', event => mouseDown(event, map), false);
@@ -89,13 +81,8 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 };
 
 const draw = (): void => {
-  const storeData = store.getState();
-  const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
-
   ctx.fillStyle = creatorConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
-
-  colorBasedOnMatrix(selectMatrix, 'mapSelectCanvas', creatorConfig.selectColor);
 };
 
 
@@ -143,7 +130,7 @@ const colorSquares = (rectanglePosition) => {
   setTimeout((): void => {
     colorBasedOnMatrix(
       selectMatrix, 
-      'mapSelectCanvas', 
+      'MAP_SELECT_CANVAS', 
       creatorConfig.selectColor
     ); //TODO: make it async
   }, 20);

@@ -1,0 +1,128 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding:  0 5px;
+
+  &:hover {
+    background-color: $decorationColor5;
+  }
+
+  &:hover > .menu__content {
+    display: flex;
+  }
+
+  &__label {
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    top: 25px;
+    left: 0;
+    z-index: 90;
+
+    list-style-type: none;
+    box-shadow: 1px 2px 5px $decorationColor9;
+
+    & > li {
+      position: relative;
+      padding: 3px 7px;
+
+      background-color: $decorationColor5;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: $shortEasyAnimation1;
+      cursor: pointer;
+
+      &:hover > .menu__content {
+        display: flex;
+      }
+
+      &:hover {
+        color: $decorationColor1;
+
+        & > .submenu {
+          display: flex;
+        }
+      }
+
+      &:first-child {
+        padding-top: 8px;
+      }
+    }
+  }
+}
+
+.separator {
+  padding-top: 6px !important;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+
+    background-color: $decorationColor1;
+  }
+}
+
+.extended {
+  cursor: default !important;
+
+  &:hover {
+    color: inherit !important;
+
+    background-color: $decorationColor14 !important;
+  }
+}
+
+.submenu {
+  position: absolute;
+  // display: flex;
+  display: none;
+  flex-direction: column;
+  top: 0;
+  left: 100%;
+
+  & ul {
+    margin: 0;
+    padding: 4px 1px;
+
+    list-style-type: none;
+    background-color: $decorationColor14;
+    box-shadow: 2px 2px 3px $decorationColor9;
+
+    &:hover > .menu__content {
+      display: flex;
+    }
+
+    & > li {
+      padding: 1px 4px;
+
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: $shortEasyAnimation1;
+      cursor: pointer;
+
+      &:hover > .menu__content {
+        display: flex;
+      }
+
+      &:hover {
+        color: $decorationColor1;
+      }
+    }
+  }
+}

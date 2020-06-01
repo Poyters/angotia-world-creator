@@ -1,28 +1,29 @@
 import { store } from '../../index';
-
-//Import actions
-import { setNotification } from '../../redux/actions/uiActions';
-
-//Import configs
-import creatorConfig from '../configs/creatorConfig.json';
+import { setNotification } from '../../store/actions/uiActions';
+import appConfig from '../configs/appConfig.json';
+import { deepCopy } from './utils/deepCopy';
+import { Note } from '../types/notifications';
 
 
-export const setActionNote = (note: string, messageType?: string) => {
-  const notifications: any = document.getElementById('notifications');
+export const addNotification = (note: string, messageType?: string) => {
+  const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
 
-  if (!notifications) { 
-    console.warn('Cannot get notifications placeholder!');
-    return;
-  }
+  // A lack of note text
+  if (!note) return;
 
-  store.dispatch(setNotification(note));
+  activeNotes.unshift({
+    text: note,
+    type: messageType ? messageType : undefined
+  });
 
-  switch(messageType) {
-    case 'warning':
-      notifications.style.color = '#af1a1a';
-      setTimeout(
-        (): string => notifications.style.color = '#bbb', creatorConfig.actionNoteDelay + 500
-      ); // TODO replace 500 by animation time
-    break;
-  }
+  store.dispatch(setNotification(activeNotes));
+
+  setTimeout(deleteNote, appConfig.notificationTime);
+};
+
+function deleteNote () {
+  const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
+  activeNotes.pop();
+
+  store.dispatch(setNotification(activeNotes));
 };

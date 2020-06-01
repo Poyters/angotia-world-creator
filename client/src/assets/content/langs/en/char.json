@@ -5,8 +5,25 @@
     "license": "license"
   },
   "statisticPanel": {
-    "open": "Open Statistic Panel",
+    "open": "Statistic Panel",
     "close": "Close Statistic Panel"
+  },
+  "settingsPanel": {
+    "open": "Settings Panel",
+    "close": "Close Settings Panel",
+    "hasVisibleLevel": {
+      "title": "has vsible level",
+      "types": [
+        {
+          "id": true,
+          "label": "yes"
+        },
+        {
+          "id": false,
+          "label": "no"
+        }
+      ]
+    }
   },
   "form": {
     "title": "Character",
@@ -21,12 +38,46 @@
       "inteligence": "Inteligence",
       "jink": "Jink",
       "speed": "Speed",
-      "attackRange": "Attack range"
+      "attackRange": "Attack range",
+      "attackSpeed": "Attack speed"
     },
     "isAgressiveMob": {
       "title": "agressive",
-      "yesId": "yes",
-      "types": ["yes", "no"]
+      "types": [
+        {
+          "id": true,
+          "label": "yes"
+        },
+        {
+          "id": false,
+          "label": "no"
+        }
+      ]
+    },
+    "mobRange": {
+      "title": "mob range",
+      "types": [
+        {
+          "id": "casual",
+          "label": "casual"
+        },
+        {
+          "id": "special",
+          "label": "special"
+        },
+        {
+          "id": "lider",
+          "label": "lider"
+        },
+        {
+          "id": "boss",
+          "label": "boss"
+        },
+        {
+          "id": "king",
+          "label": "king"
+        }
+      ]
     },
     "addStatBtn": "special stats",
     "importPicBtn": "import graphice",
@@ -39,14 +90,33 @@
       "addBtn": "add monolog"
     },
     "char": {
-      "npcId": "npc",
-      "mobId": "mob",
-      "types": ["npc", "mob"],
+      "types": [
+        {
+          "id": "npc",
+          "label": "npc"
+        },
+        {
+          "id": "mob",
+          "label": "mob"
+        },
+        {
+          "id": "se",
+          "label": "se"
+        }
+      ],
       "label": "Choose character"
     },
     "charType": {
-      "movingId": "moving",
-      "types": ["static", "moving"],
+      "types": [
+        {
+          "id": "static",
+          "label": "static"
+        },
+        {
+          "id": "moving",
+          "label": "moving"
+        }
+      ],
       "label": "Choose char type",
       "movingField": "Field diameter"
     }

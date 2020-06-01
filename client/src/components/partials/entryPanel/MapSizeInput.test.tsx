@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-16';
 import { configure } from 'enzyme';
-
-//Import component
-import MapSizeInput from './MapSizeInput';
+import { MapSizeInput } from './MapSizeInput';
 
 
 configure({adapter: new Adapter()});

@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-//Import components
-import CreditsFooter from '../partials/CreditsFooter';
-import VersionMark from '../partials/VersionMark';
+import { CreditsFooter } from '../partials/CreditsFooter';
+import { VersionMark } from '../partials/VersionMark';
 
 
-const License: React.FC = () => {
+export const License: React.FC = () => {
   return (
     <div className="textView">
       <article className="textView__content">
@@ -94,5 +92,3 @@ const License: React.FC = () => {
     </div>
   );
 };
-
-export default License;

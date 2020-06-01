@@ -2,21 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from "react-router";
 import uuid from 'uuid/v4';
-
-//Import configs
 import appConfig from '../../assets/configs/appConfig.json';
-
-//Import content
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
-
-//Import interfaces
-import { IRouteProps, IMatchParams } from '../../assets/interfaces/routingInterfaces';
-import { Icontent } from '../../assets/interfaces/contentInterfaces';
+import { IRouteProps, IMatchParams } from '../../assets/interfaces/routing';
+import { Icontent } from '../../assets/interfaces/content';
+import { IStore } from '../../assets/interfaces/store';
 
 
 const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
-  const currLang: string = useSelector(state => state.ui.language);
+  const currLang: string = useSelector((state: IStore) => state.ui.language);
 
   const changeLanguage = (lang: string): void => {
     let content: Icontent;
@@ -41,15 +36,13 @@ const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
       {
         appConfig.langs.map((lang: string) => {
-          const langStyle = {
-            color: (lang === currLang || (lang === 'en' && currLang === '')) ? '#27427c' : 'inherit'
-          };
-
           return (
             <span 
               key={uuid()} 
               onClick={() => changeLanguage(lang)}
-              style={langStyle}
+              className={`${
+                (lang === currLang || (lang === 'en' && currLang === '')) ? 'labelMark--lang' : ''
+              }`}
             > 
               { lang } 
             </span>

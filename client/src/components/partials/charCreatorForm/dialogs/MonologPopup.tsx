@@ -1,21 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import components
-import CharInputField from '../CharInputField';
-
-//Import actions
-import { changeMonologs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
-import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
+import { ActionInputField } from '../../ActionInputField';
+import { changeMonologs } from '../../../../store/actions/charActions';
+import { IMonolog } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IMonologPopup {
@@ -24,7 +15,7 @@ interface IMonologPopup {
   setMonologData?: Function
 }
 
-const MonologPopup: React.FC<IMonologPopup> = (
+export const MonologPopup: React.FC<IMonologPopup> = (
   { togglePopup, monologData, setMonologData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
@@ -32,7 +23,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
   const [monologContent, setMonologContent] = useState<string>(
     monologData ? monologData.content : '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
-  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
+  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
   const dispatch: Function = useDispatch();
 
 
@@ -46,6 +37,18 @@ const MonologPopup: React.FC<IMonologPopup> = (
     else setMonologCtnErr(false);
   }, [monologContent]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+        if (event.key === 'Escape') togglePopup(false);
+        else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+        document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const insertMonolog = (): void => {
     monologsData.push({
       id: monologId,
@@ -53,7 +56,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications.monologs.add);
+    addNotification(notifications?.monologs?.add);
   };
 
   const editMonolog = (): void => {
@@ -64,11 +67,13 @@ const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    setActionNote(notifications.monologs.edit);
+    addNotification(notifications?.monologs?.edit);
     if (setMonologData) setMonologData(null);
   };
 
   const submitHandler = (): void => {
+    if (monologCtnErr) return;
+    
     if (
       monologData &&
       monologData.id && 
@@ -90,15 +95,15 @@ const MonologPopup: React.FC<IMonologPopup> = (
           onClick={():void => togglePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char.monolog.add }
+          { char?.monolog?.add }
         </header>
-        <CharInputField
+        <ActionInputField
           label='ID - auto generated'
           inputValue={monologId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.monolog.content }
+          { char?.monolog?.content }
         </label>
         <textarea
           value={monologContent} 
@@ -107,7 +112,7 @@ const MonologPopup: React.FC<IMonologPopup> = (
         {
           (monologCtnErr) ? (
             <span className="insertPopup--error">
-              { char.monolog.contentErr }
+              { char?.monolog?.contentErr }
             </span>
           ) : null
         }
@@ -115,14 +120,12 @@ const MonologPopup: React.FC<IMonologPopup> = (
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => submitHandler()} 
+          onClick={submitHandler} 
           disabled={monologCtnErr}
         > 
-          { char.monolog.submit } 
+          { char?.monolog?.submit } 
         </button>
       </div>
     </div>
   );
 };
-
-export default MonologPopup;

@@ -1,23 +1,16 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
-
-//Import components
-import Dialog from './Dialog';
-import Monolog from './Monolog';
-
-//Import scripts
+import { Dialog } from './Dialog';
+import { Monolog } from './Monolog';
 import { 
   findConnectedDialog 
 } from '../../../../assets/scripts/dialogs/findConnectedDialog';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
-import MonologPopup from './MonologPopup';
-import DialogPopup from './DialogPopup';
-
-//Import interfaces
-import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
+import { MonologPopup } from './MonologPopup';
+import { DialogPopup } from './DialogPopup';
+import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogs';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IDialogs {
@@ -25,16 +18,15 @@ interface IDialogs {
   addBtnText: string
 }
 
-const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
+export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const { char } = useContext(ContentContext);
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
-  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
+  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
 
   const dialogsValidator = (beginId: string): void => {
-    console.log(findConnectedDialog(dialogsData, beginId));
     setConnectedDialogs(
       findConnectedDialog(dialogsData, beginId)
     );
@@ -43,7 +35,11 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   return (
     <>
       { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
-        <MonologPopup togglePopup={setIsPopupOpen} monologData={monologData} setMonologData={setMonologData}/>, document.body
+        <MonologPopup 
+          togglePopup={setIsPopupOpen} 
+          monologData={monologData}
+          setMonologData={setMonologData}
+        />, document.body
       ) : null}
       { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
         <DialogPopup togglePopup={setIsPopupOpen}/>, document.body
@@ -62,7 +58,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           </ul>
         </nav>
         {
-          type === char.form.dialogs.title ? (
+          type === char?.form?.dialogs?.title ? (
             dialogsData.length > 0 ? (
               dialogsData.map((dialog: IDialog) => {
                 return <Dialog 
@@ -77,13 +73,13 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                  { char.form.lackOf } { type }
+                  { char?.form?.lackOf } { type }
               </p>
             )
           ) : null
         }
         {
-          type === char.form.monologs.title ? (
+          type === char?.form?.monologs?.title ? (
             monologsData.length > 0 ? (
               monologsData.map((monolog: IMonolog) => {
                 return <Monolog 
@@ -96,7 +92,7 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                { char.form.lackOf } { type }
+                { char?.form?.lackOf } { type }
               </p>
             )
           ) : null
@@ -105,6 +101,3 @@ const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     </>
   );
 };
-
-
-export default Dialogs;

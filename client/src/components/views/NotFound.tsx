@@ -1,10 +1,8 @@
 import React from 'react';
-
-//Import components
-import ComeBack from '../partials/ComeBack';
+import { ComeBack } from '../partials/ComeBack';
 
 
-const NotFound: React.FC = () => {
+export const NotFound: React.FC = () => {
   return (
     <div className="notFoundWrapper">
       <article className="notFound">
@@ -24,5 +22,3 @@ const NotFound: React.FC = () => {
     </div>
   );
 };
-
-export default NotFound;

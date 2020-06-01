@@ -1,7 +1,7 @@
 {
   "version": {
     "phase": "beta",
-    "number": "1.0.0"
+    "number": "1.6.2"
   },
   "author": {
     "name": "Poyters",
@@ -15,5 +15,6 @@
   "langs": [
     "en", 
     "pl"
-  ]
+  ],
+  "notificationTime": 2500
 }

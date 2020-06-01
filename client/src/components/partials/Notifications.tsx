@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import { IStore } from '../../assets/interfaces/store';
+import uuid from 'uuid/v4';
 
-//Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
 
+export const Notifications: React.FC = () => {
+	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
-let timer;
-const Notifications: React.FC = () => {
-	const actionNote = useSelector(state => state.ui.actionNote);
-	const [note, setNote] = useState<string>(actionNote);
-	const [opacityCSS, setOpacityCSS] = useState<number>(1);
+	const generateNotesList = (): any => {
+		const contentToRender = actionNotes.map(note => {
+			const specialClass = note.type === 'warning' ? 'notifications__note--warning' : '';
 
-	useEffect((): void => {
-		clearTimeout(timer);
+			return (
+				<li 
+					key={uuid()}
+					className={`notifications__note ${specialClass}`}
+				>
+					{ note.text }
+				</li>				
+			);
+		});
 
-		if (opacityCSS === 0 && note !== actionNote) {
-			setNote(actionNote);
-			setOpacityCSS(1);
-		}
-
-		timer = setTimeout((): void => {
-			setOpacityCSS(0);	
-		}, creatorConfig.actionNoteDelay);
-	});
+		return contentToRender;
+	};
 
 	return (
-		<div id="notifications" className="notifications" style={{opacity : opacityCSS}}>
-			<span id="noteText"> { note } </span>
-		</div>
+		<ul className="notifications">
+			{ generateNotesList() }
+		</ul>
 	);
 };
-
-
-export default Notifications;

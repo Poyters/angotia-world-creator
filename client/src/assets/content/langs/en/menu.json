@@ -1,0 +1,13 @@
+{
+    "label": "menu",
+    "save": {
+        "label": "save",
+        "json": "to json file",
+        "db": "to ur accout"
+    },
+    "help": "help",
+    "license": "license",
+    "catalogs": "catalogs",
+    "backToMenu": "back to menu",
+    "exit": "exit"
+}

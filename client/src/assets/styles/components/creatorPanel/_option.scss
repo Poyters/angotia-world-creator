@@ -132,7 +132,7 @@
         border: 1px solid $decorationColor1;
         font-size: 11px;
         text-transform: uppercase;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
 
         & a, a:hover {
             color: inherit;

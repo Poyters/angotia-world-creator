@@ -1,7 +1,4 @@
-//Import interfaces
-import { Icontent } from '../../../interfaces/contentInterfaces';
-
-//import translations
+import { Icontent } from '../../../interfaces/content';
 import char from './char.json';
 import global from './global.json';
 import entryPanel from './entryPanel.json';
@@ -11,6 +8,7 @@ import features from './features.json';
 import filesPanel from './filesPanel.json';
 import help from './help.json';
 import notifications from './notifications.json';
+import menu from './menu.json';
 
 
 export const enContent: Icontent = {
@@ -23,5 +21,6 @@ export const enContent: Icontent = {
   features,
   filesPanel,
   help,
-  notifications
+  notifications,
+  menu
 };

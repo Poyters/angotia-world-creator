@@ -1,21 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
-import CharInputField from '../CharInputField';
-import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
-
-//Import actions
-import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
-import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
+import { ActionInputField } from '../../ActionInputField';
+import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
+import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IEditDialog {
@@ -23,15 +14,17 @@ interface IEditDialog {
   closePopup: Function
 }
 
-const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
+export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
   const { char, notifications } = useContext(ContentContext);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
   const dispatch: Function = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData ? dialogData.npc : '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   useEffect((): void => {
     if (
@@ -43,7 +36,21 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     else setNpcTextErr(false);
   }, [npcText]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+      if (event.key === 'Escape') closePopup(false);
+      else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+      document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const submitHandler = (): void => {
+    if (npcTextErr) return;
+
     const updatedDialogs = dialogsData.map((dialog: IDialog) => {
       if (dialog.id === dialogId) {
         dialog = {
@@ -62,7 +69,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     closePopup(false);
-    setActionNote(notifications.dialog.edit);
+    addNotification(notifications?.dialogs?.edit);
   };
 
   return (
@@ -73,15 +80,15 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
           onClick={():void => closePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char.dialogPopup.edit }
+          { char?.dialogPopup?.edit }
         </header>
-        <CharInputField
-          label={char.dialogPopup.id}
+        <ActionInputField
+          label={char?.dialogPopup?.id}
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.dialogPopup.npcDialog }
+          { char?.dialogPopup?.npcDialog }
         </label>
         <textarea
           value={npcText} 
@@ -90,7 +97,7 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { char.dialogPopup.npcTextErr }
+              { char?.dialogPopup?.npcTextErr }
             </span>
           ) : null
         }   
@@ -100,14 +107,12 @@ const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => submitHandler()} 
+          onClick={submitHandler} 
           disabled={npcTextErr}
         > 
-          { char.dialogPopup.submit } 
+          { char?.dialogPopup?.submit } 
         </button>
       </div>
     </div>
   );
 };
-
-export default EditDialog;

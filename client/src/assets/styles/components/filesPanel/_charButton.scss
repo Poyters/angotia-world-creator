@@ -9,7 +9,7 @@
     left: -50%;
     padding: 1px;
 
-    transition: 300ms all;
+    transition: all $shortEasyAnimation2;
     background-color: $decorationColor8;
 
     &:before, &:after {
@@ -65,7 +65,7 @@
         display: inline-block;
         margin: 2px 3px;
 
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
 
         &:hover, &:hover > a {
           cursor: pointer;
@@ -76,7 +76,7 @@
   }
 
   &__name {
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
 
     &:hover {
       cursor: pointer;

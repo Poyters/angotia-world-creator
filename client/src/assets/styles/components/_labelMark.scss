@@ -2,13 +2,14 @@
     display: flex;
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -10px;
     z-index: 10;
     padding: 4px 7px;
 
     color: $fontColor1;
     letter-spacing: 1px;
     background-color: $decorationColor5;
+    box-shadow: 1px 1px 5px $decorationColor9;
 
     &:before {
         position: absolute;
@@ -35,7 +36,7 @@
 
     &--link {
         cursor: pointer;
-        transform: 200ms ease-in-out;
+        transform: $shortEasyAnimation1;
 
         & > a:hover {
             color: $decorationColor1;
@@ -47,7 +48,7 @@
             margin: 0 5px;
 
             cursor: pointer;
-            transform: 200ms ease-in-out;
+            transform: $shortEasyAnimation1;
 
             &:hover {
                 color: $decorationColor1;
@@ -57,5 +58,9 @@
                 margin-right: 10px;
             }
         }
+    }
+
+    &--lang {
+        color: $decorationColor1;
     }
 }

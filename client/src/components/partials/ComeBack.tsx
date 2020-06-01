@@ -7,7 +7,7 @@ interface IComeBack {
   description: string
 }
 
-const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
+export const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
   return (
     <Link 
       to={`/${url}`} 
@@ -17,5 +17,3 @@ const ComeBack: React.FC<IComeBack> = ({ addedClass, url, description }) => {
     </Link>
   );
 };
-
-export default ComeBack;

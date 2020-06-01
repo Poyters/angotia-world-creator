@@ -1,50 +1,41 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../../assets/scripts/notifications';
-
-//Import components
-import VertexWeightPopup from './VertexWeightPopup';
-
-//Import actions
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { VertexWeightPopup } from './VertexWeightPopup';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
-} from '../../../../redux/actions/mapActions';
-
-//Import contexts
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
-let pressedKey: string = '';
+let pressedKey: string | null = null;
 document.addEventListener('keydown', event => pressedKey = event.key);
+document.addEventListener('keyup', () => pressedKey = null);
 
-const VertexWeightOption: React.FC = () => {
-    const { notifications } = useContext(ContentContext);
+export const VertexWeightOption: React.FC = () => {
+    const { notifications, creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const vertexWeightMatrix = useSelector(state => state.map.vertex.matrix);
-    let vertexWeights = deepCopy(useSelector(state => state.map.vertex.weights));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
+    let vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            setActionNote(notifications.options.vertex.select, 'warning');
+            addNotification(notifications?.options?.vertex?.select, 'warning');
             return;
         }
 
-        pressedKey === creatorConfig.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
-
-        setTimeout((): string => pressedKey = '', 250); 
+        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey = null;
     };
     
     const deletePassage = (): void => {
@@ -61,9 +52,9 @@ const VertexWeightOption: React.FC = () => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'mapVertexWeightCanvas', 
+            'MAP_VERTEXWEIGHT_CANVAS', 
             changeMapVertexWeightMatrix, 
-            notifications.options.vertex.delete, 
+            notifications?.options?.vertex?.delete, 
             '', 
             'vertexWeight'
         );
@@ -78,17 +69,14 @@ const VertexWeightOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => vertexHandler()} 
-                data-title="add/delete vertex weight"
+                data-title={ creator?.panel?.options?.vertex?.dataTitle }
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
-                        { creatorConfig.vertexWeight.max }
+                        { creatorConfig?.vertexWeight?.max }
 					</div>
 				</div>
 			</div>
         </>
     );
 };
-
-
-export default VertexWeightOption;

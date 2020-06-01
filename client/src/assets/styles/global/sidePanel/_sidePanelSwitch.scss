@@ -1,0 +1,34 @@
+.g-sidePanelSwitch {
+    position: absolute;
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    z-index: 11;
+
+    background-color: $decorationColor2;
+    transition: $shortEasyAnimation1;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover {
+        cursor: pointer;
+        color: $decorationColor1;
+    }
+
+
+    &--statisticPanel {
+        top: calc(50% - 22px);
+        left: 0;
+    }
+
+    &--charSettingsPanel {
+        top: calc(50% - 80px);
+        left: 0;
+    }
+
+    &--filesPanel {
+        top: calc(50% - 22px);
+        right: 0;
+    }
+}

@@ -1,8 +1,5 @@
-//Import component
 import { hasInvalidConditions } from './hasInvalidConditions';
-
-//Import interfaces
-import { IDialog } from '../../interfaces/dialogsInterfaces';
+import { IDialog } from '../../interfaces/dialogs';
 
 
 describe("hasInvalidConditions script", () => {

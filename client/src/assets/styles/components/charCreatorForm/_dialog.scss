@@ -7,7 +7,7 @@
 
   border: 1px dotted $decorationColor7;
   font-size: 12px;
-  transition: 200ms ease-in-out;
+  transition: $shortEasyAnimation1;
 
   &:hover {
     background-color: $decorationColor8;
@@ -21,6 +21,11 @@
   & span {
     margin-right: 3px;
     word-spacing: 3px;
+  }
+
+  &__npc {
+    display: flex;
+    flex-direction: column;
   }
 
   &__playerDialog {
@@ -47,5 +52,13 @@
       width: 1px;
       height: 100%;
     }
+  }
+
+  &--active {
+    border-color: $decorationColor1;
+  }
+
+  &--error {
+    background-color: $warningColor1 !important;
   }
 }

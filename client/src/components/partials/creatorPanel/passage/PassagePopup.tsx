@@ -1,33 +1,30 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import scripts
 import { matrixToIds } from '../../../../assets/scripts/matrix';
 import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
 import { markSquare } from '../../../../assets/scripts/markSquare';
-
-//Import actions
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
-} from '../../../../redux/actions/mapActions';
-
-//Import contexts
+} from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
+import { ISquareData } from '../../../../assets/interfaces/square';
+import { IPassageLocation } from '../../../../assets/interfaces/passage';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IPassageOption {
     closePopup: Function
 }
 
-const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
+export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
     const { notifications } = useContext(ContentContext);
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
     const [error, setError] = useState<boolean>(false);
-    const selectMatrix = deepCopy(useSelector(state => state.ui.select.matrix));
-    const passageMatrix = useSelector(state => state.map.passage.matrix);
-    const passageLocations = deepCopy(useSelector(state => state.map.passage.locations));
+    const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
+    const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
+    const passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
     useEffect((): void => {
@@ -36,15 +33,29 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
     }, [mapTargetId, mapTargetCords]);
 
+    useEffect(() => {
+        const keyPressHandler = (event): void => {
+            if (event.key === 'Escape') closePopup(false);
+            else if (event.key === 'Enter') insertPassage();
+        };
+
+        document.addEventListener('keydown', keyPressHandler);
+        return () => {
+            document.removeEventListener('keydown', keyPressHandler);
+        };
+    });
+
     const insertPassage = (): void => {
-        const potentialLocations = matrixToIds(selectMatrix);
+        if (error) return;
+        
+        const potentialLocations: ISquareData[] = matrixToIds(selectMatrix);
         potentialLocations.forEach(location => {
             if (!passageLocations.some(e => e.id === location.id)) {
-                const newLocation = {
+                const newLocation: IPassageLocation = {
                     ...location,
                     destination: {
-                        mapTargetId,
-                        mapTargetCords
+                        mapTargetId: parseInt(mapTargetId),
+                        mapTargetCords: parseInt(mapTargetCords)
                     }
                 };
 
@@ -56,11 +67,11 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
-            'mapPassageCanvas', 
+            'MAP_PASSAGE_CANVAS', 
             changeMapPassageMatrix, 
-            notifications.options.passage.add, 
+            notifications?.options?.passage?.add, 
             '#fff', 
-            ''
+            'passage'
         );
     };
 
@@ -99,7 +110,7 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
                 <button 
                     type="submit" 
                     className="insertPopup__submit t-paragraphLight" 
-                    onClick={(): void => insertPassage()} 
+                    onClick={insertPassage} 
                     disabled={error}
                 > 
                     submit 
@@ -108,6 +119,3 @@ const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
         </div>
     );
 };
-
-
-export default PassagePopup;

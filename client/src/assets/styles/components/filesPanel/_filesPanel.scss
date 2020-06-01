@@ -42,7 +42,7 @@
 
                 text-transform: uppercase;
                 border-right: 1px solid $decorationColor6;
-                transition: 200ms ease-in-out;
+                transition: $shortEasyAnimation1;
                 cursor: pointer;
 
                 &:last-child {
@@ -69,7 +69,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             width: 100%;
-            margin: 1px 0 0 -1px;
+            margin: 5px 0 0 0;
             padding: 0;
 
             & li {
@@ -81,7 +81,7 @@
 
                 background-color: $decorationColor8;
                 cursor: pointer;
-                transition: 200ms ease-in-out;
+                transition: $shortEasyAnimation1;
                 border: 1px solid $decorationColor8;
 
                 &:hover {
@@ -96,17 +96,16 @@
         position: absolute;
         display: flex;
         bottom: 6px;
-        right: 10px;
+        left: 10px;
 
         text-transform: uppercase;
-        transition: 200ms ease-in-out;
+        transition: $shortEasyAnimation1;
         color: $decorationColor4;
+        letter-spacing: 1px;
 
         &--char {
-            left: 10px;
-            right: auto;
-
-            letter-spacing: 1px;
+            right: 10px;
+            left: auto;
 
             &:hover {
                 color: $decorationColor4 !important;

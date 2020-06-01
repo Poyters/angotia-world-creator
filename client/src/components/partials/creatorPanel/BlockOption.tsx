@@ -1,38 +1,39 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-
-//Import scripts
 import { markSquare } from '../../../assets/scripts/markSquare';
 import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
-import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import configs
+import { addNotification } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-
-//Import actions
-import { changeMapBlockMatrix } from '../../../redux/actions/mapActions';
-
-//Import contexts
+import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
+import { IStore } from '../../../assets/interfaces/store';
 import { ContentContext } from '../../../Template';
 
 
-const BlockOption = () => {
-	const { creator, notifications } = useContext(ContentContext);
-	const blockMatrix = useSelector(state => state.map.blockMatrix);
+interface IBlockOption {
+	selectNote?: string,
+	changeNote?: string
+}
+
+export const BlockOption: React.FC<IBlockOption> = ({ 
+	selectNote, changeNote
+}) => {
+	const { creator } = useContext(ContentContext);
+	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
 	const fillColor = creatorConfig.blockSquareColor;
-	const selectMatrix = useSelector(state => state.ui.select.matrix);
+	const selectMatrix = useSelector((state: IStore) => state.ui.select.matrix);
 
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
-			setActionNote(notifications.options.block.select, 'warning');
+
+			if (selectNote) addNotification(selectNote, 'warning');
 			return;
 		}
 		
 		markSquare(
 			blockMatrix, 
-			'mapBlockCanvas', 
+			'MAP_BLOCK_CANVAS', 
 			changeMapBlockMatrix, 
-			'Selected fields have been blocked', 
+			changeNote, 
 			fillColor, 
 			'barrier'
 		);
@@ -42,13 +43,10 @@ const BlockOption = () => {
 		<div 
 			role="button" 
 			className="option option--block" 
-			onClick={(): void => blockHandler()} 
-			data-title={creator.panel.options.block.dataTitle}
+			onClick={(): void => blockHandler()}
+			data-title={creator?.panel?.options?.block?.dataTitle}
 		>
 			<div className="g-exitBtn"></div>
 		</div>
 	);
 };
-
-
-export default BlockOption;

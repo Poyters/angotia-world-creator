@@ -1,5 +1,5 @@
-//Import component
 import { deepCopy } from './deepCopy';
+
 
 // DeepCopy should support int, string, float
 describe("deepCopy script", () => {

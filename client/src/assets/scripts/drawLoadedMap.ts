@@ -1,29 +1,27 @@
 import { store } from '../../index';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import scripts
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
+import { deepCopy } from './utils/deepCopy';
 
 
 const blockSquaresColor = creatorConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
   const storeData = store.getState();
-  const blockMatrix = storeData.map.blockMatrix;
-  const passageMatrix = storeData.map.passage.matrix;
-  const buildingMatrix = storeData.map.building.matrix;
-  const decorationMatrix = storeData.map.decoration.matrix;
-  const subsoilMatrix = storeData.map.subsoil.matrix;
-  const npcMatrix = storeData.map.npc.matrix;
-  const mobMatrix = storeData.map.mob.matrix;
-  const vertexWeightMatrix = storeData.map.vertex.matrix;
+  const blockMatrix = deepCopy(storeData.map.blockMatrix);
+  const passageMatrix = deepCopy(storeData.map.passage.matrix);
+  const buildingMatrix = deepCopy(storeData.map.building.matrix);
+  const decorationMatrix = deepCopy(storeData.map.decoration.matrix);
+  const subsoilMatrix = deepCopy(storeData.map.subsoil.matrix);
+  const npcMatrix = deepCopy(storeData.map.npc.matrix);
+  const mobMatrix = deepCopy(storeData.map.mob.matrix);
+  const seMatrix = deepCopy(storeData.map.se.matrix);
+  const vertexWeightMatrix = deepCopy(storeData.map.vertex.matrix);
 
   // Draw block fields
   colorBasedOnMatrix(
     blockMatrix, 
-    'mapBlockCanvas', 
+    'MAP_BLOCK_CANVAS', 
     blockSquaresColor, 
     'barrier'
   );
@@ -31,7 +29,7 @@ export const drawLoadedMap = () => {
   // Draw passages
   colorBasedOnMatrix(
     passageMatrix, 
-    'mapPassageCanvas', 
+    'MAP_PASSAGE_CANVAS', 
     '#fff', 
     ''
   );
@@ -39,7 +37,7 @@ export const drawLoadedMap = () => {
   // Draw buildings
   colorBasedOnMatrix(
     buildingMatrix, 
-    'mapbuildingCanvas', 
+    'MAP_BUILDING_CANVAS', 
     '', 
     'image'
   );
@@ -47,7 +45,7 @@ export const drawLoadedMap = () => {
   // Draw decorations
   colorBasedOnMatrix(
     decorationMatrix, 
-    'mapdecorationCanvas', 
+    'MAP_DECORATION_CANVAS', 
     '', 
     'image'
   );
@@ -55,7 +53,7 @@ export const drawLoadedMap = () => {
   // Draw subsoils
   colorBasedOnMatrix(
     subsoilMatrix, 
-    'mapsubsoilCanvas', 
+    'MAP_SUBSOIL_CANVAS', 
     '', 
     'image'
   );
@@ -63,7 +61,7 @@ export const drawLoadedMap = () => {
   // Draw NPCs
   colorBasedOnMatrix(
     npcMatrix, 
-    'mapnpcCanvas', 
+    'MAP_NPC_CANVAS', 
     '', 
     'image'
   );
@@ -71,7 +69,7 @@ export const drawLoadedMap = () => {
   // Draw MOBs
   colorBasedOnMatrix(
     mobMatrix, 
-    'mapmobCanvas', 
+    'MAP_MOB_CANVAS', 
     '', 
     'image'
   );
@@ -79,8 +77,16 @@ export const drawLoadedMap = () => {
   // Draw vertex weights
   colorBasedOnMatrix(
     vertexWeightMatrix, 
-    'mapVertexWeightCanvas',
+    'MAP_VERTEXWEIGHT_CANVAS',
     '', 
     'vertexWeight'
+  );
+
+  // Draw se
+  colorBasedOnMatrix(
+    seMatrix, 
+    'MAP_SE_CANVAS',
+    '', 
+    'image'
   );
 };

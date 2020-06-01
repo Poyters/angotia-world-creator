@@ -1,14 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
-import CharInputField from './CharInputField';
-import LoadPicBtn from '../LoadPicBtn';
-import CornerButton from '../CornerButton';
-import ChooseButtons from './ChooseButtons';
-import Dialogs from './dialogs/Dialogs';
-
-//Import actions
+import { ActionInputField } from '../ActionInputField';
+import { LoadPicBtn } from '../LoadPicBtn';
+import { CornerButton } from '../CornerButton';
+import { ChooseButtons } from '../ChooseButtons';
+import { Dialogs } from './dialogs/Dialogs';
 import { 
   changeCharType, 
   changeChar, 
@@ -16,20 +12,26 @@ import {
   setCharPic, 
   changeStatistics,
   changeName,
-  changeFieldDiameter
-} from '../../../redux/actions/charActions';
-import { toggleStatisticPanel } from '../../../redux/actions/uiActions';
-
-//Import contexts
+  changeFieldDiameter,
+  setMobRange
+} from '../../../store/actions/charActions';
+import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
-const CreatorForm: React.FC = () => {
-  const { char } = useContext(ContentContext);
-  const choosedChar: string = useSelector(state => state.char.choosed);
-  const charPicPath: string = useSelector(state => state.char.charPic);
-  const charType: string = useSelector(state => state.char.type);
-  const charId: string = useSelector(state => state.char.id);
+export const CharCreatorForm: React.FC = () => {
+  const { char, notifications } = useContext(ContentContext);
+  const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
+  const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
+  const charName: string = useSelector((state: IStore) => state.char.name);
+  const charStatistics = useSelector((state: IStore) => state.char.statistics);
+  const charType: string = useSelector((state: IStore) => state.char.type);
+  const charId: string = useSelector((state: IStore) => state.char.id);
+  const charIsAgressiveMob: boolean = useSelector((state: IStore) => state.char.isAgressiveMob);
+  const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
+  const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
+  const actualMobRange: string = useSelector((state: IStore) => state.char.mobRange);
   const dispatch: Function = useDispatch();
 
   const charPicStyles = {
@@ -46,98 +48,123 @@ const CreatorForm: React.FC = () => {
         <div className="charCreatorForm">
           <div className="charCreatorForm__row">
             <div className="charFormPanel charFormPanel--left">
-              <CharInputField
-                label={char.form.inputs.name}
+              <ActionInputField
+                inputValue={charName}
+                label={char?.form?.inputs?.name}
                 action={changeName}
               />
-              <CharInputField
-                label={char.form.inputs.id}
+              <ActionInputField
+                label={char?.form?.inputs?.id}
                 inputValue={charId}
                 inputDisabled={true}
               />
-              <CharInputField
-                label={char.form.inputs.lvl}
-                inputValue={1}
+              <ActionInputField
+                label={char?.form?.inputs?.lvl}
+                inputValue={charStatistics.level}
                 action={changeStatistics}
                 payloadId='level'
               />
-              <CharInputField
-                label={char.form.inputs.health}
-                inputValue={1000}
+              <ActionInputField
+                label={char?.form?.inputs?.health}
+                inputValue={charStatistics.health}
                 action={changeStatistics}
                 payloadId='health'
               />
-              <CharInputField
+              <ActionInputField
                 label='Attack'
-                inputValue={0}
+                inputValue={charStatistics.attack}
                 action={changeStatistics}
                 payloadId='attack'
               />
-              <CharInputField
+              <ActionInputField
                 label='Defence'
-                inputValue={0}
+                inputValue={charStatistics.defence}
                 action={changeStatistics}
                 payloadId='defence'
               />
-              <CornerButton 
-                name={char.form.addStatBtn}
-                clickEvent={() => dispatch(toggleStatisticPanel(true))}
-              />
+              {
+                choosedChar !== 'se' ? (
+                  <CornerButton 
+                    name={char?.form?.addStatBtn}
+                    clickEvent={() => dispatch(toggleStatisticPanel(true))}
+                  />
+                ) : null
+              }
             </div>
             <div className="charFormPanel">
-              <div className="charFormPanel__graphice" style={charPicStyles}>
-
-              </div>
+              <div 
+                className="charFormPanel__graphice"
+                style={charPicStyles}
+              />
+              
               <LoadPicBtn 
-                name={char.form.importPicBtn}
+                name={char?.form?.importPicBtn}
                 clickEvent={setCharPic}
+                note={notifications?.char?.loadedGraphice}
               />
               
               <ChooseButtons 
-                types={char.form.char.types}
+                types={char?.form?.char?.types}
                 action={changeChar}
-                label={char.form.char.label}
+                label={char?.form?.char?.label}
+                choosed={charChoosed}
               />
-              { choosedChar === char.form.char.mobId ? (
+              
+              { choosedChar === 'mob' ? (
+                  <>
+                    <ChooseButtons 
+                      types={char?.form?.isAgressiveMob?.types}
+                      action={isAgressiveMob}
+                      label={char?.form?.isAgressiveMob?.title}
+                      specialClass='chooseButtonsWrapper--smaller'
+                      choosed={charIsAgressiveMob}
+                    />
+
+                    <ChooseButtons 
+                      types={char?.form?.mobRange?.types}
+                      action={setMobRange}
+                      label={char?.form?.mobRange?.title}
+                      specialClass='chooseButtonsWrapper--smaller'
+                      choosed={actualMobRange}
+                    />
+                  </>
+                ) : null
+              }
+
+              {
+                choosedChar !== 'se' ? (
                   <ChooseButtons 
-                    types={char.form.isAgressiveMob.types}
-                    action={isAgressiveMob} //change agressive
-                    label={char.form.isAgressiveMob.title}
-                    specialClass='chooseButtonsWrapper--smaller'
+                    types={char?.form?.charType?.types}
+                    action={changeCharType}
+                    label={char?.form?.charType?.label}
+                    choosed={charType}
                   />
                 ) : null
               }
 
-              <ChooseButtons 
-                types={char.form.charType.types}
-                action={changeCharType}
-                label={char.form.charType.label}
-              />
-
-              { charType === char.form.charType.movingId ? (
-                <CharInputField
-                  label={char.form.charType.movingField}
+              { charType === 'moving'  && choosedChar !== 'se' ? (
+                <ActionInputField
+                  label={char?.form?.charType?.movingField}
+                  inputValue={fieldDiameter}
                   action={changeFieldDiameter}
                 />
                 ) : null
               }           
             </div>
           </div>
-          { choosedChar === char.form.char.npcId ? (
+          { choosedChar !== 'mob' ? (
               <Dialogs 
-                type={char.form.dialogs.title}
-                addBtnText={char.form.dialogs.addBtn}
+                type={char?.form?.dialogs?.title}
+                addBtnText={char?.form?.dialogs?.addBtn}
               />
             ) : null
           }
           <Dialogs 
-            type={char.form.monologs.title}
-            addBtnText={char.form.monologs.addBtn}
+            type={char?.form?.monologs?.title}
+            addBtnText={char?.form?.monologs?.addBtn}
           />
         </div>
       </div>
     </main>
   );
 };
-
-export default CreatorForm;

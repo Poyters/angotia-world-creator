@@ -1,4 +1,12 @@
 {
+  "settingsPanel": {
+    "open": "Panel Ustawień",
+    "close": "Zamknij Panel Ustawień",
+    "id": "ID - automatycznie wygenerowany",
+    "description": "opis",
+    "minLevel": "minimalny poziom wejścia",
+    "boardName": "nazwa mapy"
+  },
   "panel": {
     "buttons": {
       "back": "wróć",
@@ -24,7 +32,16 @@
       },
       "layers": {
         "title": "Warstwy",
-        "bg": "tło"
+        "bg": "tło",
+        "disableFields": "zablokowane pola",
+        "passage": "przejścia",
+        "buildings": "budynki",
+        "decorations": "dekoracje",
+        "subsoil": "podłoża",
+        "npcs": "npcs",
+        "mobs": "potwory",
+        "speakingEnvironment": "interaktywne otoczenie",
+        "vertexWeight": "wagi wierzchołków"
       },
       "net": {
         "dataTitle": "kliknij by zmienić widoczność siatki"
@@ -45,10 +62,17 @@
         "submit": "potwierdz"
       },
       "visibility": {
-        "dataTitle": "zasięg widoczności gracza",
+        "dataTitle": "ustaw zasięg widoczności gracza",
         "title": "Ustaw zasięg widoczności gracza",
+        "desc": "zasięg (w polach)",
+        "error": "Wpisz prawidłową wartość (liczba)",
+        "submit": "potwierdź"
+      },
+      "vertex": {
+        "dataTitle": "dodaj/usuń wagę wierzchołka",
+        "title": "Dodaj wagę",
+        "desc": "Waga wierzchołka",
         "error": "Wpisz poprawną wartość (liczba)",
-        "label": "zasięg (w polach)",
         "submit": "potwierdź"
       }
     }

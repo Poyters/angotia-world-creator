@@ -1,17 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import interfaces
-import { IMonolog } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import actions
-import { changeMonologs } from '../../../../redux/actions/charActions';
-
-//Import contexts
+import { IMonolog } from '../../../../assets/interfaces/dialogs';
+import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IMonologExplicit extends IMonolog {
@@ -19,11 +12,11 @@ interface IMonologExplicit extends IMonolog {
   setPopupData: Function
 }
 
-const Monolog: React.FC<IMonologExplicit> = (
+export const Monolog: React.FC<IMonologExplicit> = (
   { id, content, togglePopup, setPopupData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
-  const monologsData: IMonolog[] = useSelector(state => state.char.monologs);
+  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
   const dispatch: Function = useDispatch();
 
   const deleteMonolog = (id: string): void => {
@@ -32,7 +25,7 @@ const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
-    setActionNote(notifications.monologs.delete);
+    addNotification(notifications?.monologs?.delete);
   };
 
   const editMonolog = (): void => {
@@ -50,12 +43,12 @@ const Monolog: React.FC<IMonologExplicit> = (
     <section className="dialog">
       <p> 
         <span className="t-paragraph5Light"> 
-          { char.monolog.id }
+          { char?.monolog?.id }
         </span> { id } 
       </p>
       <p> 
         <span className="t-paragraph5Light">
-          { char.monolog.content }
+          { char?.monolog?.content }
         </span> { content } 
       </p>
       <div 
@@ -71,6 +64,3 @@ const Monolog: React.FC<IMonologExplicit> = (
     </section>
   );
 };
-
-
-export default Monolog;

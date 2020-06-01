@@ -1,29 +1,24 @@
 import { store } from '../../index';
-
-//Import scripts
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from './clearCanvas';
 import { emptyMapCanvasCtx } from './map';
-import { setActionNote } from './notifications';
+import { addNotification } from './notifications';
 import { updateMatrixByTheOther } from './matrix';
 import { deepCopy } from './utils/deepCopy';
-
-//Import configs
 import creatorConfig from '../configs/creatorConfig.json';
-
-//Import actions
-import { changeMapSelectMatrix } from '../../redux/actions/uiActions';
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 
 
-let pressedKey: string = '';
+let pressedKey: string | null = null;
 
 document.addEventListener('keydown', event => pressedKey = event.key);
+document.addEventListener('keyup', () => pressedKey = null);
 
 export const markSquare = (
   sourceMatrix: Array<[]>, 
   sourceMatrixCanvas: string, 
   changeMatrixMethod: Function, 
-  note: string, 
+  note: string | null | undefined, 
   fillColor: string, 
   fillStyle?: string
 ) => {
@@ -41,14 +36,14 @@ export const markSquare = (
   );
 
   store.dispatch(changeMatrixMethod(newMatrix));
-  clearCanvas("mapSelectCanvas", changeMapSelectMatrix);
+  clearCanvas("MAP_SELECT_CANVAS", changeMapSelectMatrix);
+
+  console.log('fillStyle, fillColor', fillStyle, fillColor);
 
   emptyMapCanvasCtx(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
 
-  setActionNote(note);
+  if (note) addNotification(note);
 
-  // clear pressedKey. Duration is necessary due to 
-  // pressing key for a while after running setBlockSquares
-  setTimeout((): string => pressedKey = '', 250);
+  pressedKey = null;
 };

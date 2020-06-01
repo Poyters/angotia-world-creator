@@ -1,8 +1,5 @@
-//Import interfaces
-import { ISquareData } from '../interfaces/squareInterfaces';
-import { IPoint } from '../interfaces/pointInterfaces';
-
-//Import scripts
+import { ISquareData } from '../interfaces/square';
+import { IPoint } from '../interfaces/math';
 import { deepCopy } from './utils/deepCopy';
 
 

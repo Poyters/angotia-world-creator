@@ -1,36 +1,29 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import components
-import CharInputField from '../CharInputField';
-import AddTemponaryPlayerDialog from './AddTemponaryPlayerDialog';
-
-//Import actions
-import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
-import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
+import { ActionInputField } from '../../ActionInputField';
+import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
+import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
-
-//Import scripts
-import { setActionNote } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IDialogPopup {
   togglePopup: Function
 }
 
-const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
+export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
   const { char, notifications } = useContext(ContentContext);
   const dialogId: string = uuid();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   useEffect((): void => {
     if (
@@ -42,6 +35,18 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     else setNpcTextErr(false);
   }, [npcText]);
 
+  useEffect(() => {
+    const keyPressHandler = (event): void => {
+        if (event.key === 'Escape') closePopupHandler();
+        else if (event.key === 'Enter') submitHandler();
+    };
+
+    document.addEventListener('keydown', keyPressHandler);
+    return () => {
+        document.removeEventListener('keydown', keyPressHandler);
+    };
+  });
+
   const insertDialog = (): void => {
     dialogsData.push({
       id: dialogId,
@@ -51,10 +56,12 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
     });
 
     dispatch(changeDialogs(dialogsData));
-    setActionNote(notifications.dialog.add);
+    addNotification(notifications?.dialogs?.add);
   };
 
   const submitHandler = (): void => {
+    if (npcTextErr) return;
+
     insertDialog();
     togglePopup(false);
     dispatch(changeTemponaryPlayerDialogs([]));
@@ -72,16 +79,16 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           className="g-exitBtn g-exitBtn--popup"
           onClick={closePopupHandler}
         > </div>
-        <header className="insertPopup__header t-paragraph3Light">
-          { char.dialogPopup.add }
+        <header className="insertPopup__header insertPopup__header--dialog t-paragraph3Light">
+          { char?.dialogPopup?.add }
         </header>
-        <CharInputField
+        <ActionInputField
           label='ID - auto generated'
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char.dialogPopup.npcDialog }
+          { char?.dialogPopup?.npcDialog }
         </label>
         <textarea
           value={npcText} 
@@ -90,7 +97,7 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { char.dialogPopup.npcTextErr }
+              { char?.dialogPopup?.npcTextErr }
             </span>
           ) : null
         }
@@ -102,11 +109,9 @@ const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
           onClick={(): void => submitHandler()} 
           disabled={npcTextErr}
         > 
-          { char.dialogPopup.submit }
+          { char?.dialogPopup?.submit }
         </button>
       </div>
     </div>
   );
 };
-
-export default DialogPopup;

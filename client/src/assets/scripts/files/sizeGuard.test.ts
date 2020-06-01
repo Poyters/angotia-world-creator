@@ -1,5 +1,5 @@
-//Import component
 import { sizeGuard } from './sizeGuard';
+
 
 describe("sizeGuard script", () => {
   const fakeFile = {

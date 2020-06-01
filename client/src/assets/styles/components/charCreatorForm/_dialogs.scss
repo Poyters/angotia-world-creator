@@ -55,7 +55,7 @@
           text-transform: lowercase;
 
           & > span {
-            transition: 200ms ease-in-out;
+            transition: $shortEasyAnimation1;
 
             &:hover {
               cursor: pointer;

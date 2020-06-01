@@ -1,4 +1,3 @@
-//Import component
 import { markSquare } from './markSquare';
 
 
@@ -10,7 +9,7 @@ describe("markSquare script", () => {
 	];
 
 	it("Update empty matrix by the other", () => {
-    expect(typeof markSquare).toEqual('function');
+    	expect(typeof markSquare).toEqual('function');
 	});
 
 });

@@ -35,7 +35,7 @@
     position: relative;
     padding: 5px 12px;
 
-    transition: 200ms ease-in-out;
+    transition: $shortEasyAnimation1;
 
     &:hover {
       cursor: pointer;

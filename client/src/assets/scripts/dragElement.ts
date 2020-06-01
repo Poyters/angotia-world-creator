@@ -1,7 +1,7 @@
 import { store } from '../../index';
 
 
-const dragElement = (element: any) => {
+export const dragElement = (element: any) => {
   let positions:Array<number> = [0, 0, 0, 0];
   
   const dragMouseDown = (e: MouseEvent): void => {
@@ -38,5 +38,3 @@ const dragElement = (element: any) => {
 
   element.onmousedown = dragMouseDown;
 };
-
-export default dragElement;

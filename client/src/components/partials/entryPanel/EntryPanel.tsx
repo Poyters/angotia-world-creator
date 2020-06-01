@@ -2,27 +2,15 @@ import React , { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
-
-//Import other components
-import MapSizeInput from './MapSizeInput';
-
-//Import actions
-import { setMapSizes } from '../../../redux/actions/mapActions';
-import { changeMapName } from '../../../redux/actions/uiActions';
-import { loadMapData } from '../../../redux/actions/mapActions';
-
-//Import configs
+import { MapSizeInput } from './MapSizeInput';
+import { setMapSizes, loadMapData } from '../../../store/actions/mapActions';
+import { loadCharData } from '../../../store/actions/charActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
-
-//Import interfaces
-import { IPoint } from '../../../assets/interfaces/pointInterfaces';
-
-//Import scripts
+import { IPoint } from '../../../assets/interfaces/math';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../assets/interfaces/store';
 
 
 let mapSizes: IPoint = {
@@ -30,14 +18,13 @@ let mapSizes: IPoint = {
   y: 0
 };
 
-
-const EntryPanel: React.FC = () => {
+export const EntryPanel: React.FC = () => {
   const { lang, routes, entryPanel } = useContext(ContentContext);
-  const mapSize = useSelector(state => state.map.size);
+  const mapSize = useSelector((state: IStore) => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');
-  const [redirect, setRedirect] = useState<boolean>(false);
+  const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
   const mapSizeValidation = ():void => {
@@ -66,38 +53,46 @@ const EntryPanel: React.FC = () => {
       mapSizes.y = mapSizeY;
 
       dispatch(setMapSizes(mapSizes));
-      setRedirect(true);
+      setRedirect(routes.creator);
     }
 
   };
 
-  const loadMap = (evt: any) => {
+  const loadMap = (evt: any, type: string) => {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
     reader.onload = (():any => {
       return (e) => {
-        const mapData = JSON.parse(e.target.result);
+        const loadedData = JSON.parse(e.target.result);
 
-        dispatch(changeMapName(file.name));
-        dispatch(loadMapData(mapData));
-        drawLoadedMap();
+        switch (type) {
+          case 'map':
+            dispatch(loadMapData(loadedData));
+            setRedirect(routes?.creator);
+            drawLoadedMap();
+            
+          break;
+          case 'char':
+            dispatch(loadCharData(loadedData));
+            setRedirect(routes?.char);
+          break;
+        }
       };
 
     })();
 
     reader.readAsText(file);
-    setRedirect(true);
   };
 
-  const content = redirect ? (
-    <Redirect to={`/${lang}/${routes.creator}`}/>
+  const content = redirect !== null ? (
+    <Redirect to={`/${lang}/${redirect}`}/>
   ) : (
     <ul className="entryPanel">
       <li>
         <button className="t-paragraph1MediumLight entryPanel__createBoard">
           <span>
-            { entryPanel.createMap }
+            { entryPanel?.createMap }
           </span>
           <div role="presentation" className="entryPanel__sizeBoard">
             <MapSizeInput
@@ -119,7 +114,7 @@ const EntryPanel: React.FC = () => {
             id="validationInfo" 
             className="t-paragraph2Bold entryPanel__validationInfo"
           >
-            {valMess}
+            { valMess }
           </span>
         </button>
       </li>
@@ -129,10 +124,10 @@ const EntryPanel: React.FC = () => {
               type="file" 
               id="loadMapInput" 
               className="entryPanel__loadMapInput"
-              onChange={(event): void => loadMap(event)}
+              onChange={(event): void => loadMap(event, 'map')}
           />
           <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
-            { entryPanel.loadMap }
+            { entryPanel?.loadMap }
           </label>
         </a>
       </li>
@@ -142,21 +137,26 @@ const EntryPanel: React.FC = () => {
           to={`/${lang}/${routes.char}`}
           className="t-paragraph1MediumLight"
         >
-            { entryPanel.createChar }
+            { entryPanel?.createChar }
         </Link>
       </li>
       <li>
-        <Link
-          to={`/${lang}/${routes.char}`}
-          className="t-paragraph1MediumLight"
-        >
-          { entryPanel.loadChar }
-        </Link>
+        <a href="#">
+          <input 
+              type="file" 
+              id="loadCharInput" 
+              className="entryPanel__loadMapInput"
+              onChange={(event): void => loadMap(event, 'char')}
+          />
+          <label className="t-paragraph1MediumLight" htmlFor="loadCharInput">
+            { entryPanel?.loadChar }
+          </label>
+        </a>
       </li>
       <li>
-        <a href={appConfig.exitLink} id="closeBtn">
+        <a href={appConfig?.exitLink} id="closeBtn">
           <span className="t-paragraphLight">
-          { entryPanel.exit }
+          { entryPanel?.exit }
           </span>
         </a>
       </li>
@@ -167,6 +167,3 @@ const EntryPanel: React.FC = () => {
     content
   );
 };
-
-
-export default EntryPanel;

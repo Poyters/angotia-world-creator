@@ -1,37 +1,32 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-//Import components
-import CharInputField from '../CharInputField';
-
-//Import actions
-import { changeTemponaryPlayerDialogs } from '../../../../redux/actions/charActions';
-
-//Import interfaces
-import { IPlayer } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import contexts
+import { ActionInputField } from '../../ActionInputField';
+import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
+import { IPlayer } from '../../../../assets/interfaces/dialogs';
 import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../assets/interfaces/store';
 
 
 interface IPlayerDialog {
   playerId: string
 }
 
-const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
+export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const { char } = useContext(ContentContext);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
   const [action, setAction] = useState<string>('');
   const [condition, setCondition] = useState<string>('');
   const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(state => state.char.temponaryPlayerDialogs);
+  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+    (state: IStore) => state.char.temponaryPlayerDialogs
+  );
 
   const updateDialog = (): void => {
     temponaryPlayerDialogs.filter(data => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
-        data.next = parseInt(next);
+        data.next = next;
         data.action = action;
         data.condition = condition;
       }
@@ -50,13 +45,13 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
 
   return (
     <section className="playerDialog">
-      <CharInputField
-        label={char.dialog.playerId}
+      <ActionInputField
+        label={char?.dialog?.playerId}
         inputValue={playerId}
         inputDisabled={true}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char.dialog.playerDialog }
+        { char?.dialog?.playerDialog }
       </label>
       <textarea
         value={newDialogText} 
@@ -64,21 +59,21 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char.dialog.action }
+        { char?.dialog?.action }
       </label>
       <input 
         onChange={e => setAction(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char.dialog.next }
+        { char?.dialog?.next }
       </label>
       <input 
         onChange={e => setNext(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char.dialog.condition }
+        { char?.dialog?.condition }
       </label>
       <input 
         onChange={e => setCondition(e.target.value)}
@@ -91,5 +86,3 @@ const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
     </section>
   );
 };
-
-export default PlayerDialog;

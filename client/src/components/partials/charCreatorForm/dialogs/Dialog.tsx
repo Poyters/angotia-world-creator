@@ -1,28 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
-
-//Import interfaces
-import { IDialog } from '../../../../assets/interfaces/dialogsInterfaces';
-
-//Import actions
-import { changeDialogs } from '../../../../redux/actions/charActions';
-
-//Import components
-import EditDialog from './EditDialog';
-import EditPlayerDialog from './EditPlayerDialog';
-
-//Import configs
+import { IDialog } from '../../../../assets/interfaces/dialogs';
+import { changeDialogs } from '../../../../store/actions/charActions';
+import { EditDialog } from './EditDialog';
+import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
-
-//Import contexts
 import { ContentContext } from '../../../../Template';
+import { addNotification } from '../../../../assets/scripts/notifications';
+import { IStore } from '../../../../assets/interfaces/store';
 
-//Import scripts
-import { setActionNote } from '../../../../assets/scripts/notifications';
 
-
-const Dialog: React.FC<IDialog> = ({ 
+export const Dialog: React.FC<IDialog> = ({ 
   id, 
   npc, 
   player, 
@@ -34,14 +23,8 @@ const Dialog: React.FC<IDialog> = ({
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
-  const dialogsData: IDialog[] = useSelector(state => state.char.dialogs);
+  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dispatch: Function = useDispatch();
-
-  const dialogStyle = {
-    borderColor: connectedDialogs.includes(id) ? '#27427c' : '#262d38',
-    backgroundColor: connectedDialogs.includes(`${charConfig.invalidPrefix}${id}`) ? 
-      'rgba(175, 26, 26, 0.3)' : 'inherit'
-  };
 
   const deleteDialog = (id: string): void => {
     const filteredDialogs = dialogsData.filter(dialog => {
@@ -49,7 +32,7 @@ const Dialog: React.FC<IDialog> = ({
     });
 
     dispatch(changeDialogs(filteredDialogs));
-    setActionNote(notifications.dialogs.delete);
+    addNotification(notifications?.dialogs?.delete);
   };
 
   const openPlayerPopupHandler = (id: string): void => {
@@ -70,21 +53,29 @@ const Dialog: React.FC<IDialog> = ({
         />, document.body
       ) : null}
       <div 
-        className="dialog" 
+        className={`
+          dialog
+          ${connectedDialogs?.includes(id) ? 'dialog--active' : ''}
+          ${connectedDialogs?.includes(`${charConfig.invalidPrefix}${id}`) ? 'dialog--error' : ''}
+        `}
         onMouseEnter={():void => validatorFunc(id)}
         onMouseLeave={():void => clearValidator()}
-        style={dialogStyle}
       >
-        <p> 
-          <span className="t-paragraph5Light"> 
-            { char.dialog.dialogId }
-          </span> { id } 
-        </p>
-        <p onClick={():void => setIsDialogPopup(true)}> 
-          <span className="t-paragraph5Light">
-            { char.dialog.npcDialog }
-          </span> { npc } 
-        </p>
+        <div 
+          className="dialog__npc"
+          onClick={():void => setIsDialogPopup(true)}
+        >
+          <p> 
+            <span className="t-paragraph5Light"> 
+              { char?.dialog?.dialogId }
+            </span> { id } 
+          </p>
+          <p> 
+            <span className="t-paragraph5Light">
+              { char?.dialog?.npcDialog }
+            </span> { npc } 
+          </p>
+        </div>
         { 
           player.map(dialogData => {
             return (
@@ -95,19 +86,19 @@ const Dialog: React.FC<IDialog> = ({
               >
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char.dialog.playerId }
+                    { char?.dialog?.playerId }
                   </span> { dialogData.id } 
                 </p>
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char.dialog.playerDialog }
+                    { char?.dialog?.playerDialog }
                   </span> { dialogData.dialog } 
                 </p>
                 {
                   dialogData.action !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
-                        { char.dialog.action }
+                        { char?.dialog?.action }
                       </span> { dialogData.action } 
                     </p>
                   ) : null
@@ -116,14 +107,14 @@ const Dialog: React.FC<IDialog> = ({
                   dialogData.condition !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
-                        { char.dialog.condition }
+                        { char?.dialog?.condition }
                       </span> { dialogData.condition } 
                     </p>
                   ) : null
                 }
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char.dialog.next }
+                    { char?.dialog?.next }
                   </span> { dialogData.next } 
                 </p>
               </div>
@@ -138,6 +129,3 @@ const Dialog: React.FC<IDialog> = ({
     </>
   );
 };
-
-
-export default Dialog;

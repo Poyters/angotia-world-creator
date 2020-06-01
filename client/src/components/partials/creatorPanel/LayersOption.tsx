@@ -1,35 +1,28 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
-
-//Import contexts
 import { ContentContext } from '../../../Template';
 
 
-const LayersOption: React.FC = () => {
-    const { creator } = useContext(ContentContext);
-    const [isOpen, setIsOpen] = useState<Boolean>(false);    
+export const LayersOption: React.FC = () => {
+    const { creator } = useContext(ContentContext);  
     const [layersToRender, setLayersToRender] = useState<any>(null);
     const mapBackgorund = useSelector(state =>  state.map.mapPic);
 
-    const layersListStyles = {
-        display: isOpen ? 'block' : 'none'
-    };
 
     useEffect((): void => {
         const layers = document.getElementsByClassName('js-mapLayer');
 
         const ltr = Array.from(layers).map((layer: any) => {
             const layerName = layer.dataset.layername;
+
             return (
                 <li 
-                    id={`${layerName}Btn`} 
-                    className="layersList__layer layersList__layer--active" 
+                    id={`${layerName}Btn`}
                     key={uuid()} 
-                    onClick={(): void => toggleLayer(layerName)} 
-                    data-title={`click to toggle ${layerName} layer`}
+                    onClick={(): void => toggleLayer(layerName)}
                 >
-                    {layerName}
+                    { creator?.panel?.options?.layers[layerName] }
                 </li>
             );
         });
@@ -46,7 +39,7 @@ const LayersOption: React.FC = () => {
         if (isBackgroundVisible) map.style.backgroundImage = '';
         else map.style.backgroundImage = `url('${mapBackgorund}')`;
 
-        button.classList.toggle('layersList__layer--active');
+        button.classList.toggle('disableLayer');
         isBackgroundVisible = !isBackgroundVisible;
     };
 
@@ -54,7 +47,7 @@ const LayersOption: React.FC = () => {
         const layers: HTMLCollectionOf<Element> = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {
-            const name: string = layer.dataset.layername;
+            const name: string = layer?.dataset?.layername;
   
             if (name === layerName) {
                 const computedDisplay: string | null = getComputedStyle(layer).display;
@@ -65,36 +58,26 @@ const LayersOption: React.FC = () => {
                 if (display === 'block') layer.style.display = "none";
                 else layer.style.display = "block";
 
-                button.classList.toggle('layersList__layer--active');
+                button.classList.toggle('disableLayer');
  
             }
         });
     };
 
     return (
-        <>
-            <div 
-                role="button" 
-                className="option option--textOption option--layers" 
-                onClick={(): void => setIsOpen(!isOpen)}
-            > 
-                <span>
-                    {creator.panel.options.layers.title}
-                </span>
-            </div>
-            <ul className="layersList" style={layersListStyles}>
+        <div className="layersMenu">
+            <header className="layersMenu__label t-paragraph6Normal">
+                {creator?.panel?.options?.layers?.title}    
+            </header>
+            <ul className="layersMenu__content t-paragraph2Light">
                 <li 
                     id="backgroundBtn" 
-                    onClick={toggleBackground} 
-                    className="layersList__layer layersList__layer--active"
+                    onClick={toggleBackground}
                 >
-                    {creator.panel.options.layers.bg}
+                    { creator?.panel?.options?.layers?.bg }
                 </li>
                 { layersToRender }
             </ul>
-        </>
+        </div>
     );
 };
-
-
-export default LayersOption;

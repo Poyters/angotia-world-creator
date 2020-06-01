@@ -1,19 +1,19 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import configs
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-
-//Import scripts
 import { sizeGuard } from '../../assets/scripts/files/sizeGuard';
+import { addNotification } from '../../assets/scripts/notifications';
 
 
 interface ILoadPicBtn {
   name: string,
-  clickEvent?: Function
+  clickEvent?: Function,
+  note?: string
 }
 
-const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
+export const LoadPicBtn: React.FC<ILoadPicBtn> = ({ 
+  name, clickEvent, note
+}) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
   const dispatch: Function = useDispatch();
 
@@ -29,6 +29,8 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
       return e => {
         const path: string = e.target.result;
         dispatch(dispatchedClickEvent(path));
+
+        if (note) addNotification(note);
       };
 
     })();
@@ -56,6 +58,3 @@ const LoadPicBtn: React.FC<ILoadPicBtn> = ({ name, clickEvent }) => {
     </>
   );
 };
-
-
-export default LoadPicBtn;

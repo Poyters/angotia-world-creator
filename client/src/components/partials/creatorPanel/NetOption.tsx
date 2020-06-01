@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-
-//Import scripts
 import { drawMapNet } from '../../../assets/scripts/drawNetMap';
 import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
-import { setActionNote } from '../../../assets/scripts/notifications';
-
-//Import actions
-import { setMapNets } from '../../../redux/actions/uiActions';
-
-//Import contexts
+import { addNotification } from '../../../assets/scripts/notifications';
+import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 
 
@@ -17,9 +11,10 @@ interface INetOption {
   viewTypeQuantity: number
 }
 
-
-const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
-  const { creator } = useContext(ContentContext);
+export const NetOption: React.FC<INetOption> = ({ 
+  viewTypeQuantity
+}) => {
+  const { creator, notifications } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -37,21 +32,21 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: true}));
-        setActionNote("Square and field nets are visible now");
+        addNotification(notifications?.options?.net?.squareField);
       break;
       case 1: //field net
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: false}));
-        setActionNote("Only field nets are visible");
+        addNotification(notifications?.options?.net?.field);
       break;
       case 2: //square net;
         drawMapNet(ctx, 1);
         dispatch(setMapNets({field: false, square: true}));
-        setActionNote("Only square nets are visible");
+        addNotification(notifications?.options?.net?.square);
       break;
       case 3:
         dispatch(setMapNets({field: false, square: false}));
-        setActionNote("Disable all nets");
+        addNotification(notifications?.options?.net?.disabled);
         return;
     }
   });
@@ -63,7 +58,7 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     <div 
       className="option option--net" 
       onClick={changeViewType} 
-      data-title={creator.panel.options.net.dataTitle}
+      data-title={creator?.panel?.options?.net?.dataTitle}
     >
       <span className="option__viewType">{optionViewType}</span>
       <div className={`netGraphic ${netOnOff}`}>
@@ -75,6 +70,3 @@ const NetOption: React.FC<INetOption> = ({ viewTypeQuantity }) => {
     </div>
   );
 };
-
-
-export default NetOption;

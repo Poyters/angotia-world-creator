@@ -1,18 +1,14 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-
-//Import components
-import CreditsFooter from '../partials/CreditsFooter';
-import VersionMark from '../partials/VersionMark';
-import NetOption from '../partials/creatorPanel/NetOption';
-import AddFileOption from '../partials/creatorPanel/AddFileOption';
-import BlockOption from '../partials/creatorPanel/BlockOption';
-
-//Import contexts
+import { CreditsFooter } from '../partials/CreditsFooter';
+import { VersionMark } from '../partials/VersionMark';
+import { NetOption } from '../partials/creatorPanel/NetOption';
+import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
+import { BlockOption }from '../partials/creatorPanel/BlockOption';
 import { ContentContext } from '../../Template';
 
 
-const Help: React.FC = () => {
+export const Help: React.FC = () => {
   const { lang, routes, help } = useContext(ContentContext);
 
   return (
@@ -24,53 +20,53 @@ const Help: React.FC = () => {
               to={`/${lang}/${routes.creator}`}
               className="t-paragraph2Normal textView__content--comeBack"
             >
-              { help.comeBack }
+              { help?.comeBack }
             </Link>
           </div>
           <div className="g-sectionNav__elem g-sectionNav__elem--page t-paragraph6Normal">
             <Link to={`/${lang}/${routes.features}`}>
-              { help.toFeatures }
+              { help?.toFeatures }
             </Link>
           </div>
         </nav>
         <h1 className="g-sectionTitle">
-          { help.title }
+          { help?.title }
         </h1>
         <div className="scrollWrapper">
           <section>
             { help.field } <div className="iconWrapper">
               <NetOption viewTypeQuantity={3} />
-            </div> { help.field1 }
+            </div> { help?.field1 }
           </section>
 
           <section>
             { help.selectBlock }
             <div className="iconWrapper iconWrapper--down">
               <BlockOption />
-            </div>{ help.selectBlock1 }
+            </div>{ help?.selectBlock1 }
           </section>
 
           <section>
-            { help.bg }
+            { help?.bg }
             <div className="iconWrapper iconWrapper--down"> 
               <AddFileOption />
-            </div>{ help.bg1 }
+            </div>{ help?.bg1 }
           </section>
 
           <section>
-            { help.fs }
+            { help?.fs }
           </section>
 
           <section>
-            { help.import }
+            { help?.import }
           </section>
 
           <section>
-            { help.vertex }
+            { help?.vertex }
           </section>
 
           <section>
-            { help.end }
+            { help?.end }
           </section>
         </div>
       </article>
@@ -79,5 +75,3 @@ const Help: React.FC = () => {
     </div>
   );
 };
-
-export default Help;

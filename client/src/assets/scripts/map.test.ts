@@ -1,4 +1,3 @@
-//Import component
 import { generateEmptyMapMatrix } from './map';
 import { isEmptyMatrix } from './isEmptyMatrix';
 
