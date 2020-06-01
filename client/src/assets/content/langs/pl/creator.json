@@ -43,6 +43,13 @@
         "error": "Musisz wybrać plik",
         "category": "Wybierz kategorię",
         "submit": "potwierdz"
+      },
+      "visibility": {
+        "dataTitle": "zasięg widoczności gracza",
+        "title": "Ustaw zasięg widoczności gracza",
+        "error": "Wpisz poprawną wartość (liczba)",
+        "label": "zasięg (w polach)",
+        "submit": "potwierdź"
       }
     }
   }

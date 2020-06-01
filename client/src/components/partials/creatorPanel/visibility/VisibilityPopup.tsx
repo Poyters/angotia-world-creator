@@ -48,10 +48,10 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
                     onClick={():void => closePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    Set player visibility range 
+                    { creator.panel.options.visibility.title }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    range (fields)
+                    { creator.panel.options.visibility.label }
                     ({creatorConfig.visibility.min} - {creatorConfig.visibility.max})
                 </label>
                 <input 
@@ -61,7 +61,9 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
                 />
                 {
                     (error) ? (
-                        <span className="insertPopup--error">Type proper value (number)</span>
+                        <span className="insertPopup--error">
+                            { creator.panel.options.visibility.error }
+                        </span>
                     ) : null
                 }                
 
@@ -71,7 +73,7 @@ const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
                     onClick={sumbitHandler}
                     disabled={error}
                 > 
-                    {creator.panel.options.addFSImage.submit} 
+                    { creator.panel.options.visibility.submit }
                 </button>
             </div>
         </div>

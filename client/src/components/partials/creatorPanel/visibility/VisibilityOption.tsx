@@ -23,7 +23,7 @@ const VisibilityOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={'player visibility range'}
+                data-title={creator.panel.options.visibility.dataTitle}
             >
                 <div className="visibilityOption">
                     <div className="visibilityOption__range"> 
