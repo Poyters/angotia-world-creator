@@ -1,46 +1,5 @@
-<<<<<<< HEAD:client/src/redux/reducers/mapReducer.ts
-// Import configs
-import creatorConfig from '../../assets/configs/creatorConfig.json';
-
-
-export const initState = {
-    visibilityRange: creatorConfig.visibility.default,
-    size: {
-        x: 8,
-        y: 8
-    },
-    mapPic: "",
-    blockMatrix: [],
-    passage: {
-        locations: [],
-        matrix: []
-    },
-    building: {
-        matrix: []
-    },
-    decoration: {
-        matrix: []
-    },
-    subsoil: {
-        matrix: []
-    },
-    npc: {
-        matrix: [],
-        dialogs: {}
-    },
-    mob: {
-        matrix: [],
-        types: {}
-    },
-    vertex: {
-        matrix: [],
-        weights: []
-    }
-};
-=======
 import { mapState } from '../states/mapState';
 
->>>>>>> 2417667d79aa4f9d59f4d6f2f3f2ae10a332be47:client/src/store/reducers/mapReducer.ts
 
 export const mapReducer = (state = mapState, action) => {
     switch(action.type) {
@@ -146,9 +105,6 @@ export const mapReducer = (state = mapState, action) => {
         case 'SET_VISIBILITY_RANGE':
             return {
                 ...state,
-<<<<<<< HEAD:client/src/redux/reducers/mapReducer.ts
-                visibilityRange: action.newRange
-=======
                 visibilityRange: action.range
             };
         case 'SET_MAP_DESCRIPTION':
@@ -165,7 +121,6 @@ export const mapReducer = (state = mapState, action) => {
             return {
                 ...state,
                 mapName: action.mapName
->>>>>>> 2417667d79aa4f9d59f4d6f2f3f2ae10a332be47:client/src/store/reducers/mapReducer.ts
             };
         default:
             return state;

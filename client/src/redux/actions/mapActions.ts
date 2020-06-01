@@ -1,5 +1,5 @@
 //Import interfaces
-import { IMapSize } from '../../assets/interfaces/mapInterfaces';
+import { IMapSize } from '../../assets/interfaces/map';
 
 
 export const setMapSizes = (sizes: IMapSize) => {
