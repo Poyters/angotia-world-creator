@@ -152,7 +152,7 @@ export const CharCreatorForm: React.FC = () => {
               }           
             </div>
           </div>
-          { choosedChar !== 'mob' ? (
+          { choosedChar === 'npc' || choosedChar === 'se' ? (
               <Dialogs 
                 type={char?.form?.dialogs?.title}
                 addBtnText={char?.form?.dialogs?.addBtn}

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
+import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
 
 
 interface ISaveJsonOption {
@@ -21,7 +22,10 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
   const saveMap = (): void => {
     switch(type) {
       case 'char':
-        saveFile(JSON.stringify(charData), `${charName}.json`, 'text/json');
+        console.log('charData', charData);
+        const externalCharData = prepareExternalCharData(charData);
+        console.log('externalCharData', externalCharData);
+        saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');
       break;
       case 'map':
       default:
