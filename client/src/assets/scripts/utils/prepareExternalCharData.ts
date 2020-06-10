@@ -1,6 +1,7 @@
 import { CharState } from '../../types/charState';
 import { deepCopy } from './deepCopy';
-import { camelCaseKeysToUnderscore } from './camelCaseKeysToUnderscore';
+import { camelCaseToUnderscore } from './camelCaseToUnderscore';
+
 
 export const prepareExternalCharData = (charData: CharState) => {
   let preparedCharData = deepCopy(charData);
@@ -13,7 +14,7 @@ export const prepareExternalCharData = (charData: CharState) => {
       delete preparedCharData.statistics.attackSpeed;
       delete preparedCharData.statistics.attackRange;
       delete preparedCharData.settings.respTime;
-      preparedCharData = camelCaseKeysToUnderscore(preparedCharData);
+      preparedCharData = camelCaseToUnderscore(preparedCharData);
       preparedCharData._id = preparedCharData.id;
       delete preparedCharData.id;
 

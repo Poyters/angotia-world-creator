@@ -6,6 +6,8 @@ import { rootReducer } from './store/reducers/rootReducer';
 import * as serviceWorker from './serviceWorker';
 import { App } from './App';
 import { IStore } from './assets/interfaces/store';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { client } from './api/apiInit';
 
 
 export const store: IStore = createStore(rootReducer);
@@ -13,7 +15,9 @@ export const store: IStore = createStore(rootReducer);
 const runApp = () => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </Provider>, document.getElementById('root')
   );
 };

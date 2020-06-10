@@ -1,7 +1,7 @@
 import { deepCopy } from './deepCopy';
 
 
-export const camelCaseKeysToUnderscore = (obj: any): any => {
+export const camelCaseToUnderscore = (obj: any): any => {
   if (typeof obj !== "object") return obj;
 
   const objCopy: any = deepCopy(obj);
@@ -17,7 +17,7 @@ export const camelCaseKeysToUnderscore = (obj: any): any => {
     }
 
     if (typeof objCopy[newName] === "object") {
-      objCopy[newName] = camelCaseKeysToUnderscore(objCopy[newName]);
+      objCopy[newName] = camelCaseToUnderscore(objCopy[newName]);
     }
   }
   return objCopy;

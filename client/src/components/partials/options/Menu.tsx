@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { SaveJsonOption } from './SaveJsonOption';
+import { ExportToAngotia } from './ExportToAngotia';
 
 
 interface IMenu {
@@ -29,6 +30,12 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 							/>
 						</li>
 						<li> { menu?.save.db } </li>
+						<li>
+							<ExportToAngotia
+								text={ menu?.save.json }
+								type={type ? type : ''}
+							/>
+						</li>
 					</ul>
 				</nav>
 				</li>
