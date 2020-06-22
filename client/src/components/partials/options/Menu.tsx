@@ -14,11 +14,8 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 
 	return (
 		<nav className="menu">
-			<header className="menu__label t-paragraph6Normal"> menu </header>
+			<header className="menu__label t-paragraph6Normal"> { menu?.label } </header>
 			<ul className="menu__content t-paragraph2Light">
-				<li>
-					{ menu?.label }
-				</li>
 				<li className="extended">
 					{ menu?.save.label }
 				<nav className="submenu t-paragraph6Light">

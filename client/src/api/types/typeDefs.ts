@@ -2,11 +2,10 @@ import { gql } from "apollo-boost";
 
 export const typeDefs = gql`
   input NpcInput {
-    name: String!
-    type: String!
-    choosed: String!
+    name: String
+    type: String
+    choosed: String
     monologs: [Monolog]
-    dialogs: [Dialog]
     statistics: Statistics!
     field_diameter: Int
     move_type: String
@@ -15,13 +14,12 @@ export const typeDefs = gql`
     _id: String
   }
 
-  extend type Npc {
-    name: String!
-    type: String!
-    choosed: String!
+  type Npc {
+    name: String
+    type: String
+    choosed: String
     monologs: [Monolog]
-    dialogs: [Dialog]
-    statistics: Statistics!
+    statistics: Statistics
     field_diameter: Int
     move_type: String
     has_visible_level: Boolean
@@ -30,26 +28,26 @@ export const typeDefs = gql`
     id: String!
   }
 
-  extend type Monolog {
-    _id: String!
-    content: String!
+  type Monolog {
+    _id: String
+    content: String
   }
 
-  extend type Dialog {
-    _id: String!
-    npc: String!
+  type Dialog {
+    _id: String
+    npc: String
     player: [Player]
   }
 
-  extend type Player {
-    _id: String!
-    dialog: String!
-    next: String!
-    action: String!
-    condition: String!
+  type Player {
+    _id: String
+    dialog: String
+    next: String
+    action: String
+    condition: String
   }
 
-  extend type Statistics {
+  type Statistics {
     level: Int
     health: Int
     attack: Int
@@ -61,12 +59,16 @@ export const typeDefs = gql`
     speed: Int
   }
 
-  extend type Settings {
+  type Settings {
     time_of_occurance: TimeOfOccurance
   }
 
-  extend type TimeOfOccurance {
+  type TimeOfOccurance {
     min: Int
     max: Int
+  }
+
+  extend type Mutation {
+    createNpc(npc: NpcInput): Npc
   }
 `;

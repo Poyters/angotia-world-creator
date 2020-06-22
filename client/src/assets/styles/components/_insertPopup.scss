@@ -65,13 +65,13 @@
     & input, & textarea {
         padding: 4px 8px;
         margin: 5px 0;
+        box-sizing: border-box;
 
         background-color: $decorationColor1;
         border: 2px solid transparent;
         outline: none;
         color: $decorationColor6;
         transition: $shortEasyAnimation1;
-        box-sizing: border-box;
 
         &:active, &:focus {
             border-radius: 2px;
@@ -89,5 +89,43 @@
         box-sizing: border-box;
 
         @include scrollBar;
+    }
+}
+
+.popupChooseBoxes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    &__box {
+        display: flex;
+        flex: 1;
+        padding: 10px;
+        box-sizing: border-box;
+        justify-content: center;
+        align-items: center;
+        margin: 8px;
+
+        transition: $shortEasyAnimation1;
+        border: 1px solid $decorationColor1;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+            border: 1px solid $decorationColor13;
+        }
+
+        &--active {
+            border: 1px solid $decorationColor13;
+            cursor: default;
+        }
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }

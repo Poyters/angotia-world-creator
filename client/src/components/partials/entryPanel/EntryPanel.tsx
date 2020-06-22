@@ -1,4 +1,5 @@
 import React , { useState, useContext } from 'react';
+import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -11,6 +12,7 @@ import { IPoint } from '../../../assets/interfaces/math';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
+import { LoadPopup } from './LoadPopup';
 
 
 let mapSizes: IPoint = {
@@ -21,6 +23,7 @@ let mapSizes: IPoint = {
 export const EntryPanel: React.FC = () => {
   const { lang, routes, entryPanel } = useContext(ContentContext);
   const mapSize = useSelector((state: IStore) => state.map.size);
+  const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');
@@ -123,7 +126,7 @@ export const EntryPanel: React.FC = () => {
           <input 
               type="file" 
               id="loadMapInput" 
-              className="entryPanel__loadMapInput"
+              className="g-hidenFileInput"
               onChange={(event): void => loadMap(event, 'map')}
           />
           <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
@@ -142,13 +145,16 @@ export const EntryPanel: React.FC = () => {
       </li>
       <li>
         <a href="#">
-          <input 
+          {/* <input 
               type="file" 
               id="loadCharInput" 
-              className="entryPanel__loadMapInput"
+              className="g-hidenFileInput"
               onChange={(event): void => loadMap(event, 'char')}
-          />
-          <label className="t-paragraph1MediumLight" htmlFor="loadCharInput">
+          /> */}
+          <label 
+            className="t-paragraph1MediumLight"
+            // htmlFor="loadCharInput"
+            onClick={() => setIsActiveLoadPopup(true)}>
             { entryPanel?.loadChar }
           </label>
         </a>
@@ -164,6 +170,11 @@ export const EntryPanel: React.FC = () => {
   );
 
   return (
-    content
+    <>
+      { isActiveLoadPopup ? ReactDOM.createPortal(
+        <LoadPopup isActive={setIsActiveLoadPopup}/>, document.body
+      ) : null}
+     { content }
+    </>
   );
 };

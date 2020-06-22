@@ -1,9 +1,9 @@
 import { gql } from "apollo-boost";
 
 
-export const ADD_NPC = gql`
-  mutation AddNpc($type: NpcInput) {
-    createNpc(npc: $type) {
+export const CREATE_NPC = gql`
+  mutation CreateNpc($input: NpcInput) {
+    createNpc(npc: $input) {
       id
     }
   }
