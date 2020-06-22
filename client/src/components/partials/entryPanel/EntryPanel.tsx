@@ -26,9 +26,15 @@ export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
+  const [loadedDataType, setLoadedDataType] = useState<string>('');
   const [valMess, setValMess] = useState<string>('');
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
+
+  const loadDataHandler = (type: string) => {
+    setLoadedDataType(type);
+    setIsActiveLoadPopup(true);
+  };
 
   const mapSizeValidation = ():void => {
     const mapSizeX: number = typeof mapX === "number" ? mapX : parseInt(mapX);
@@ -145,16 +151,9 @@ export const EntryPanel: React.FC = () => {
       </li>
       <li>
         <a href="#">
-          {/* <input 
-              type="file" 
-              id="loadCharInput" 
-              className="g-hidenFileInput"
-              onChange={(event): void => loadMap(event, 'char')}
-          /> */}
           <label 
             className="t-paragraph1MediumLight"
-            // htmlFor="loadCharInput"
-            onClick={() => setIsActiveLoadPopup(true)}>
+            onClick={() => loadDataHandler('char')}>
             { entryPanel?.loadChar }
           </label>
         </a>
@@ -172,7 +171,7 @@ export const EntryPanel: React.FC = () => {
   return (
     <>
       { isActiveLoadPopup ? ReactDOM.createPortal(
-        <LoadPopup isActive={setIsActiveLoadPopup}/>, document.body
+        <LoadPopup isActive={setIsActiveLoadPopup} type={loadedDataType}/>, document.body
       ) : null}
      { content }
     </>

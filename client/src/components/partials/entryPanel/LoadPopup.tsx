@@ -6,16 +6,31 @@ import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { addNotification } from '../../../assets/scripts/notifications';
+import { useQuery } from '@apollo/react-hooks';
+import { NPCS_PRESENTATION_LIST } from '../../../api/queries/npcs';
 
 
 interface ILoadPopup {
-  isActive: Function
+  isActive: Function,
+  type: string
 }
 
-export const LoadPopup: React.FC<ILoadPopup> = ({ isActive }) => {
+export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
   const { lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
+  const [npcPresenationList, setNpcPresentationList] = useState<any>(null);
+  const { loading, error, data } = useQuery(NPCS_PRESENTATION_LIST);
+  
+
+  useEffect(() => {
+    console.log('xd');
+    const npcListDom = data?.allNpcs?.map(npc => {
+      return <li> { npc.name }, { npc._id} </li>;
+    });
+
+    setNpcPresentationList(npcListDom);
+  }, [data]);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -28,7 +43,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive }) => {
     };
   });
 
-  const load = (evt: any, type: string) => {
+  const load = (evt: any) => {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
@@ -72,6 +87,9 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive }) => {
           <div className="popupChooseBoxes__box">
             production database
           </div>
+          <ul>
+            { npcPresenationList }
+          </ul>
           <div className="popupChooseBoxes__box">
             private account
           </div>
@@ -79,7 +97,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive }) => {
             type="file" 
             id="loadInput" 
             className="g-hidenFileInput"
-            onChange={(event): void => load(event, 'char')}
+            onChange={(event): void => load(event)}
           /> 
           <label 
             className="popupChooseBoxes__box"
