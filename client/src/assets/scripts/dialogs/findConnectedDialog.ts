@@ -9,8 +9,8 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     return dialog.id === beginID;
   };
   const beginDialog: IDialog | undefined = dataSet.find(findDialogById);
-  const connectedIds: string[] = beginDialog ? beginDialog.player.map(playerDialog => {
-    return playerDialog.next.toString();
+  const connectedIds: string[] = beginDialog ? beginDialog?.player.map(playerDialog => {
+    return playerDialog?.next?.toString();
   }) : [];
   
   if (connectedIds.includes(charConfig?.dialogExit)) {

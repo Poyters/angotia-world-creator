@@ -25,6 +25,7 @@ export const ALL_NPCS = gql`
           dialog
           action
           condition
+          next
         }
       }
       settings {
