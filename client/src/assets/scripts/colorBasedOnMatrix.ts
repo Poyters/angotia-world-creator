@@ -34,7 +34,6 @@ export const colorBasedOnMatrix = (
             const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
             const drawStartX = x*fieldSize + xDelta;
             const drawStartY = y*fieldSize + yDelta;
-            console.log('specialView', specialView);
 
             switch(specialView) {
               case 'barrier':
@@ -64,7 +63,6 @@ export const colorBasedOnMatrix = (
                 }
               break;
               case 'passage':
-                console.log('here1');
                 const passagePic = await makeImage(passagePicPath); //square is path to image
 
                 ctx.drawImage(passagePic, drawStartX, drawStartY);

@@ -6,9 +6,7 @@ import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { addNotification } from '../../../assets/scripts/notifications';
-import { useQuery } from '@apollo/react-hooks';
-import { NPCS_PRESENTATION_LIST } from '../../../api/queries/npcs';
-
+import { NpcList } from './NpcList';
 
 interface ILoadPopup {
   isActive: Function,
@@ -19,18 +17,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
   const { lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
-  const [npcPresenationList, setNpcPresentationList] = useState<any>(null);
-  const { loading, error, data } = useQuery(NPCS_PRESENTATION_LIST);
-  
-
-  useEffect(() => {
-    console.log('xd');
-    const npcListDom = data?.allNpcs?.map(npc => {
-      return <li> { npc.name }, { npc._id} </li>;
-    });
-
-    setNpcPresentationList(npcListDom);
-  }, [data]);
+  const [isActiveProduction, setIsActiveProduction] = useState<boolean>(false);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -84,12 +71,14 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
           Load from
         </header>
         <section className="popupChooseBoxes">
-          <div className="popupChooseBoxes__box">
+          <div className="popupChooseBoxes__box" onClick={() => setIsActiveProduction(true)}>
             production database
           </div>
-          <ul>
-            { npcPresenationList }
-          </ul>
+          {
+            isActiveProduction ? (
+              <NpcList />
+            ) : null
+          }
           <div className="popupChooseBoxes__box">
             private account
           </div>

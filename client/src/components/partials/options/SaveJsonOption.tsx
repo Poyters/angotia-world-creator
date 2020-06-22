@@ -22,9 +22,7 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
   const saveMap = (): void => {
     switch(type) {
       case 'char':
-        console.log('charData', charData);
         const externalCharData = prepareExternalCharData(charData);
-        console.log('externalCharData', externalCharData);
         saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');
       break;
       case 'map':

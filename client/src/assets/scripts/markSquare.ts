@@ -38,8 +38,6 @@ export const markSquare = (
   store.dispatch(changeMatrixMethod(newMatrix));
   clearCanvas("MAP_SELECT_CANVAS", changeMapSelectMatrix);
 
-  console.log('fillStyle, fillColor', fillStyle, fillColor);
-
   emptyMapCanvasCtx(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
 
