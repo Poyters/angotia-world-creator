@@ -7,6 +7,7 @@ import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { addNotification } from '../../../assets/scripts/notifications';
 import { ProductionDataList } from './ProductionDataList';
+import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareInternalCharData';
 
 interface ILoadPopup {
   isActive: Function,
@@ -45,7 +46,8 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             drawLoadedMap();
           break;
           case 'char':
-            dispatch(loadCharData(loadedData));
+            const internalData = prepareInternalCharData(loadedData);
+            dispatch(loadCharData(internalData));
             setRedirect(routes?.char);
           break;
           default:

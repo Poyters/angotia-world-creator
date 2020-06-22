@@ -33,6 +33,17 @@ export const ALL_NPCS = gql`
           max
         }
       }
+      statistics {
+        strength
+        speed
+        level
+        jink
+        inteligence
+        health
+        dexterity
+        defence
+        attack
+      }
     }
   }
 `;
