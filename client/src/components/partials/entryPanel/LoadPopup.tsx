@@ -6,7 +6,7 @@ import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { addNotification } from '../../../assets/scripts/notifications';
-import { NpcList } from './NpcList';
+import { ProductionDataList } from './ProductionDataList';
 
 interface ILoadPopup {
   isActive: Function,
@@ -74,11 +74,6 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
           <div className="popupChooseBoxes__box" onClick={() => setIsActiveProduction(true)}>
             production database
           </div>
-          {
-            isActiveProduction ? (
-              <NpcList />
-            ) : null
-          }
           <div className="popupChooseBoxes__box">
             private account
           </div>
@@ -95,6 +90,11 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             json
           </label>
         </section>
+        {
+          isActiveProduction ? (
+            <ProductionDataList />
+          ) : null
+        }
       </div>
     </div>
   );

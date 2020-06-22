@@ -135,7 +135,10 @@ export const EntryPanel: React.FC = () => {
               className="g-hidenFileInput"
               onChange={(event): void => loadMap(event, 'map')}
           />
-          <label className="t-paragraph1MediumLight" htmlFor="loadMapInput">
+          <label
+            className="t-paragraph1MediumLight"
+            onClick={() => loadDataHandler('map')}
+          >
             { entryPanel?.loadMap }
           </label>
         </a>
