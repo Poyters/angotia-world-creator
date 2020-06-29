@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_NPCS } from '../../../api/queries/npcs';
+import { ALL_CHARS } from '../../../api/queries/chars';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
@@ -11,7 +11,7 @@ import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareIn
 
 export const ProductionDataList: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
-  const { loading, error, data } = useQuery(ALL_NPCS);
+  const { loading, error, data } = useQuery(ALL_CHARS);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
@@ -34,12 +34,13 @@ export const ProductionDataList: React.FC = () => {
       }
       <ul className="productionDataList">
         { 
-          data?.allNpcs.map(npc => {
+          data?.allChars.map(char => {
             return (
-              <li onClick={() => loadData(npc)} key={uuid()}> 
-                <span>Name:</span>{ npc.name }
-                <span>Id:</span>{ npc.id }
-                <span>_Id:</span>{ npc._id }
+              <li onClick={() => loadData(char)} key={uuid()}> 
+                <span>Name:</span>{ char.name }
+                <span>Id:</span>{ char.id }
+                <span>_Id:</span>{ char._id }
+                <span>Type:</span>{ char.choosed }
               </li>
             );
           })

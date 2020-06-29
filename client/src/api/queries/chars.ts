@@ -1,9 +1,9 @@
 import gql from 'graphql-tag';
 
 
-export const ALL_NPCS = gql`
+export const ALL_CHARS = gql`
   {
-    allNpcs {
+    allChars {
       id
       _id
       name
@@ -25,11 +25,14 @@ export const ALL_NPCS = gql`
           dialog
           action
           condition
-          next
         }
       }
       settings {
         time_of_occurance {
+          min
+          max
+        }
+        resp_time {
           min
           max
         }
@@ -45,16 +48,6 @@ export const ALL_NPCS = gql`
         defence
         attack
       }
-    }
-  }
-`;
-
-export const NPCS_PRESENTATION_LIST = gql`
-  {
-    allNpcs {
-      id
-      _id
-      name
     }
   }
 `;
