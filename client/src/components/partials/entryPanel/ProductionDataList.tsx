@@ -19,6 +19,7 @@ export const ProductionDataList: React.FC = () => {
   if (error) return <p> Error { error } </p>;
 
   const loadData = (data) => {
+    console.log('data', data);
     const internalData = prepareInternalCharData(data);
     console.log('internalData', internalData);
     dispatch(loadCharData(internalData));

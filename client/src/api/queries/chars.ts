@@ -13,6 +13,8 @@ export const ALL_CHARS = gql`
       move_type
       has_visible_level
       char_pic
+      mob_range
+      is_agressive_mob
       monologs {
         _id,
         content
@@ -25,6 +27,7 @@ export const ALL_CHARS = gql`
           dialog
           action
           condition
+          next
         }
       }
       settings {
@@ -47,6 +50,8 @@ export const ALL_CHARS = gql`
         dexterity
         defence
         attack
+        attack_range
+        attack_speed
       }
     }
   }

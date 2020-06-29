@@ -4,5 +4,8 @@ const camelcaseKeys = require('camelcase-keys');
 
 
 export const prepareInternalCharData = (charData: CharState) => {
-  return camelcaseKeys(deepCopy(charData), {deep: true});
+  console.log('before', charData);
+  const internalData = camelcaseKeys(deepCopy(charData), {deep: true});
+  console.log('prepareinternalData', internalData);
+  return internalData;
 };
