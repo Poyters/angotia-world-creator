@@ -16,6 +16,7 @@ export const typeDefs = gql`
     id: String!
     mob_range: String,
     is_agressive_mob: Boolean
+    settings: Settings
   }
 
   type Monolog {

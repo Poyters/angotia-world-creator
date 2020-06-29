@@ -1,0 +1,70 @@
+[
+  {
+    "_id": "1",
+    "id": "709bad14-7630-4c67-abd0-89d631921e04",
+    "npc": "Curabitur rutrum dolor vitae faucibus malesuada. Maecenas tincidunt tellus sed ultricies consequat. Maecenas aliquam varius lectus at convallis. Fusce pharetra pellentesque odio a ultrices.",
+    "player": [
+      {
+        "_id": "52352",
+        "action": null,
+        "condition": "TIME_MORE_THAN_21",
+        "dialog": "Mauris at blandit leo, id fermentum libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "id": "6d79b3d6-7d50-4c87-8fd8-27fe8421b8fd",
+        "next": "2"
+      },
+      {
+        "_id": "412",
+        "action": null,
+        "condition": null,
+        "dialog": "player response/dialog 1",
+        "id": "1521dd0d-7899-43e8-9da1-50b79c4727c9",
+        "next": "3"
+      }
+    ]
+  },
+  {
+    "_id": "2",
+    "id": "027876db-10a1-44b5-bd76-8bb0d7331d99",
+    "npc": "example char dialog number two",
+    "player": [
+      {
+        "_id": "52352",
+        "action": "OPEN_SHOP",
+        "condition": null,
+        "dialog": "Show my ur shop",
+        "id": "f370724a-86ef-4a0b-a3a6-9ab8ad674235",
+        "next": "1"
+      }
+    ]
+  },
+  {
+    "_id": "3",
+    "id": "fe53c4d4-479c-4039-bd7a-2c07d307b2fc",
+    "npc": "example char dialog number two",
+    "player": [
+      {
+        "_id": "3155",
+        "action": "KILL_PLAYER",
+        "condition": null,
+        "dialog": "Do not kill me, please!",
+        "id": "e9c9af19-f917-4020-8d3b-9c7d33e410e3",
+        "next": "exit"
+      }
+    ]
+  },
+  {
+    "_id": "4",
+    "id": "6f262411-a5dd-42a2-ae4d-0539f41d3928",
+    "npc": "example char invalid dialog. Invalid connections",
+    "player": [
+      {
+        "_id": "52352",
+        "action": null,
+        "condition": null,
+        "dialog": "tfawf",
+        "id": "d41d77d5-b0b9-4cec-a6b2-cdb50704b78a",
+        "next": "654"
+      }
+    ]
+  }
+]

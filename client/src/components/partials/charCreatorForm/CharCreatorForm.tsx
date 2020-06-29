@@ -32,10 +32,7 @@ export const CharCreatorForm: React.FC = () => {
   const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
   const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
   const actualMobRange: string = useSelector((state: IStore) => state.char.mobRange);
-  const charStore: string = useSelector((state: IStore) => state.char);
   const dispatch: Function = useDispatch();
-
-  console.log('charStore', charStore);
 
   const charPicStyles = {
     backgroundImage: `url('${charPicPath}')`

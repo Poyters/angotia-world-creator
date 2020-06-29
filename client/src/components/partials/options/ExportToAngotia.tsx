@@ -22,9 +22,8 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
     switch(type) {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
-        console.log('externalCharData', externalCharData);
         console.log(JSON.stringify(externalCharData));
-        addChar({ variables: { char: externalCharData } });
+        addChar({ variables: { ...externalCharData }});
       break;
     }
   };

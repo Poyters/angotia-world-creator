@@ -11,6 +11,9 @@ export const prepareExternalCharData = (charData: CharState) => {
   preparedCharData._id = preparedCharData.id;
   delete preparedCharData.id;
   preparedCharData.field_diamteter = parseInt(preparedCharData.field_diamteter);
+  Object.keys( preparedCharData.statistics).forEach(key => { 
+    preparedCharData.statistics[key] = parseInt(preparedCharData.statistics[key]);
+  });
 
   preparedCharData.monologs = preparedCharData.monologs?.map(monolog => {
     const newMonolog = deepCopy(monolog);
