@@ -5,6 +5,7 @@ import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
+import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
 import { GET_CHAR } from '../../../api/queries/getChar';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
@@ -18,24 +19,26 @@ interface IExportToAngotia {
 export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const { creator } = useContext(ContentContext);
   const [addChar] = useMutation(CREATE_CHAR);
+  const [updateChar] = useMutation(UPDATE_CHAR);
   const charData = useSelector((state: IStore) => state.char);
   console.log('charData.id', charData.id);
   const { loading, error, data } = useQuery(GET_CHAR, {
-    variables: { ...charData.id },
+    variables: { id: charData.id},
     skip: !charData.id
   });
 
   const exportHandler = (): void => {
     switch(type) {
       case 'char':
-        if (data) {
-          console.log('char exists');
-        } else if (error) {
-          console.log('err', error);
-        }
-
         const externalCharData = prepareExternalCharData(charData);
-        // addChar({ variables: { ...externalCharData }});
+
+        if (data) { // Char already exists id database
+          console.log('char exists', externalCharData);
+          updateChar({ variables: { id: charData.id, ...externalCharData}});
+        } else { // char doest't exists
+          console.log('char doesnt exists');
+          addChar({ variables: { ...externalCharData }});
+        }  
       break;
     }
   };

@@ -2,8 +2,8 @@ import gql from 'graphql-tag';
 
 
 export const GET_CHAR = gql`
-  query Char($type: String!) {
-    getChar(id: $type) {
+  query Char($id: ID!) {
+    getChar(id: $id) {
       id
       _id
       name

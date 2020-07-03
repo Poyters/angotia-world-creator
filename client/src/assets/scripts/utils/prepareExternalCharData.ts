@@ -7,11 +7,11 @@ export const prepareExternalCharData = (charData: CharState) => {
   let preparedCharData = deepCopy(charData);
 
   delete preparedCharData.temponaryPlayerDialogs;
-  preparedCharData = camelCaseToUnderscore(preparedCharData);
   preparedCharData._id = preparedCharData.internalId;
   delete preparedCharData.internalId;
+  preparedCharData = camelCaseToUnderscore(preparedCharData);
   delete preparedCharData.id;
-  preparedCharData.field_diamteter = parseInt(preparedCharData.field_diamteter);
+  preparedCharData.field_diameter = parseInt(preparedCharData.field_diameter);
   Object.keys( preparedCharData.statistics).forEach(key => { 
     preparedCharData.statistics[key] = parseInt(preparedCharData.statistics[key]);
   });
