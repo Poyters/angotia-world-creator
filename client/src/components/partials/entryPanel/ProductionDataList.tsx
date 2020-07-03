@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_CHARS } from '../../../api/queries/chars';
+import { ALL_CHARS } from '../../../api/queries/allChars';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
@@ -40,7 +40,7 @@ export const ProductionDataList: React.FC = () => {
               <li onClick={() => loadData(char)} key={uuid()}> 
                 <span>Name:</span>{ char.name }
                 <span>Id:</span>{ char.id }
-                <span>_Id:</span>{ char._id }
+                <span>Internal id:</span>{ char._id }
                 <span>Type:</span>{ char.choosed }
               </li>
             );

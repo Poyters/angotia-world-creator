@@ -8,7 +8,8 @@ export const prepareExternalCharData = (charData: CharState) => {
 
   delete preparedCharData.temponaryPlayerDialogs;
   preparedCharData = camelCaseToUnderscore(preparedCharData);
-  preparedCharData._id = preparedCharData.id;
+  preparedCharData._id = preparedCharData.internalId;
+  delete preparedCharData.internalId;
   delete preparedCharData.id;
   preparedCharData.field_diamteter = parseInt(preparedCharData.field_diamteter);
   Object.keys( preparedCharData.statistics).forEach(key => { 

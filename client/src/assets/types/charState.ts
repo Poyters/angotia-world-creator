@@ -4,7 +4,8 @@ import { ICharStatistic, ICharSettings } from '../interfaces/char';
 
 export type CharState = {
     name: string,
-    id: string,
+    id?: string,
+    internalId: string,
     fieldDiameter: number,
     mobRange: string,
     type: string,

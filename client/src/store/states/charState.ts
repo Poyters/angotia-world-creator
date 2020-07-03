@@ -5,7 +5,8 @@ import { CharState } from '../../assets/types/charState';
 
 export const charState: CharState = {
     name: '',
-    id: uuid(),
+    id: '',
+    internalId: uuid(),
     fieldDiameter: 0,
     type: '',
     choosed: '',

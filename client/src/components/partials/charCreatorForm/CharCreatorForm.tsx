@@ -27,7 +27,7 @@ export const CharCreatorForm: React.FC = () => {
   const charName: string = useSelector((state: IStore) => state.char.name);
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
   const charType: string = useSelector((state: IStore) => state.char.type);
-  const charId: string = useSelector((state: IStore) => state.char.id);
+  const charId: string = useSelector((state: IStore) => state.char.internalId);
   const charIsAgressiveMob: boolean = useSelector((state: IStore) => state.char.isAgressiveMob);
   const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
   const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
