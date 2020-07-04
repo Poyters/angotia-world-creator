@@ -3,7 +3,8 @@
     "save": {
         "label": "save",
         "json": "to json file",
-        "db": "to ur accout"
+        "db": "to ur accout",
+        "prodDb": "to Angotia"
     },
     "help": "help",
     "license": "license",

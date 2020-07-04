@@ -29,7 +29,7 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 						<li> { menu?.save.db } </li>
 						<li>
 							<ExportToAngotia
-								text={ menu?.save.json }
+								text={ menu?.save.prodDb }
 								type={type ? type : ''}
 							/>
 						</li>

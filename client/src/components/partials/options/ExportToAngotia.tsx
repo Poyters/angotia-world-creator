@@ -33,10 +33,10 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
         const externalCharData = prepareExternalCharData(charData);
 
         if (data) { // Char already exists id database
-          console.log('char exists', externalCharData);
-          updateChar({ variables: { id: charData.id, ...externalCharData}});
+          delete externalCharData._id;
+          console.log('externalCharData', JSON.stringify(externalCharData));
+          updateChar({ variables: { id: charData.id, char: externalCharData}});
         } else { // char doest't exists
-          console.log('char doesnt exists');
           addChar({ variables: { ...externalCharData }});
         }  
       break;
