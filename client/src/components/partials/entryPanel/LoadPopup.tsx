@@ -5,9 +5,10 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
-import { addNotification } from '../../../assets/scripts/notifications';
 import { ProductionDataList } from './ProductionDataList';
 import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareInternalCharData';
+import { isValidExternalCharData } from '../../../assets/scripts/utils/isValidExternalCharData';
+import { addNotification } from '../../../assets/scripts/notifications';
 
 interface ILoadPopup {
   isActive: Function,
@@ -46,9 +47,14 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             drawLoadedMap();
           break;
           case 'char':
-            const internalData = prepareInternalCharData(loadedData);
-            dispatch(loadCharData(internalData));
-            setRedirect(routes?.char);
+            if (isValidExternalCharData(loadedData)) {
+              const internalData = prepareInternalCharData(loadedData);
+              dispatch(loadCharData(internalData));
+              setRedirect(routes?.char);
+            } 
+            else {
+              addNotification('You are trying load invalid data', 'warning');
+            }
           break;
           default:
             addNotification('Unknown loaded data type', 'warning');

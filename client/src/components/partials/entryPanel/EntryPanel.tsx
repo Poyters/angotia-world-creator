@@ -89,10 +89,6 @@ export const EntryPanel: React.FC = () => {
             drawLoadedMap();
             
           break;
-          case 'char':
-            dispatch(loadCharData(loadedData));
-            setRedirect(routes?.char);
-          break;
         }
       };
 

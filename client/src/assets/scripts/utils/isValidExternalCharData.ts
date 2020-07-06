@@ -50,7 +50,18 @@ export const isValidExternalCharData = (data: any): boolean => {
       data?.statistics?.jink < 0 ||
       data?.statistics?.speed < 0 ||
       data?.statistics?.attack_range < 0 ||
-      data?.statistics?.attack_speed < 0
+      data?.statistics?.attack_speed < 0 ||
+      data?.statistics?.level === undefined ||
+      data?.statistics?.health === undefined ||
+      data?.statistics?.attack === undefined ||
+      data?.statistics?.defence === undefined ||
+      data?.statistics?.strength === undefined ||
+      data?.statistics?.dexterity === undefined ||
+      data?.statistics?.inteligence === undefined ||
+      data?.statistics?.jink === undefined ||
+      data?.statistics?.speed === undefined ||
+      data?.statistics?.attack_range === undefined ||
+      data?.statistics?.attack_speed === undefined
     ) ||
     (
       !data?.settings ||
