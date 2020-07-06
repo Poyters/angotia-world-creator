@@ -17,6 +17,10 @@
     & a, & > button {
       display: block; 
       outline: none; 
+
+      & label {
+        cursor: pointer;
+      }
     }
 
     & > button {

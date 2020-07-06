@@ -1,7 +1,8 @@
+import { deepCopy } from '../../assets/scripts/utils/deepCopy';
 import { mapState } from '../states/mapState';
 
 
-export const mapReducer = (state = mapState, action) => {
+export const mapReducer = (state = deepCopy(mapState), action) => {
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {

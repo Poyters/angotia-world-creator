@@ -1,7 +1,8 @@
+import { deepCopy } from '../../assets/scripts/utils/deepCopy';
 import { charState } from '../states/charState';
 
 
-export const charReducer = (state = charState, action) => {
+export const charReducer = (state = deepCopy(charState), action) => {
   switch(action.type) {
     case 'CHANGE_CHAR_TYPE':
       return {
@@ -80,6 +81,7 @@ export const charReducer = (state = charState, action) => {
         }
       };
     case 'LOAD_CHAR_DATA':
+      console.log(action.data);
       return {
         ...action.data
       };

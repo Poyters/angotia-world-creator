@@ -11,17 +11,14 @@ import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareIn
 
 export const ProductionDataList: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
-  const { loading, error, data } = useQuery(ALL_CHARS);
+  const { loading, data } = useQuery(ALL_CHARS);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
-  if (loading) return <p> Loading </p>;
-  if (error) return <p> Error { error } </p>;
+  if (loading) return <p> Loading... </p>;
 
   const loadData = (data) => {
-    console.log('data', data);
     const internalData = prepareInternalCharData(data);
-    console.log('internalData', internalData);
     dispatch(loadCharData(internalData));
     setRedirect(routes?.char);
   };
@@ -38,9 +35,8 @@ export const ProductionDataList: React.FC = () => {
           data?.allChars.map(char => {
             return (
               <li onClick={() => loadData(char)} key={uuid()}> 
-                <span>Name:</span>{ char.name }
-                <span>Id:</span>{ char.id }
                 <span>Internal id:</span>{ char._id }
+                <span>Name:</span>{ char.name }
                 <span>Type:</span>{ char.choosed }
               </li>
             );

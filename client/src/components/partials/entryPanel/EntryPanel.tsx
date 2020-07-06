@@ -13,6 +13,8 @@ import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { LoadPopup } from './LoadPopup';
+import { charState } from '../../../store/states/charState';
+import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
 
 
 let mapSizes: IPoint = {
@@ -29,6 +31,7 @@ export const EntryPanel: React.FC = () => {
   const [loadedDataType, setLoadedDataType] = useState<string>('');
   const [valMess, setValMess] = useState<string>('');
   const [redirect, setRedirect] = useState<null | string>(null);
+  const emptyCharState = deepCopy(charState);
   const dispatch = useDispatch();
 
   const loadDataHandler = (type: string) => {
@@ -65,6 +68,12 @@ export const EntryPanel: React.FC = () => {
       setRedirect(routes.creator);
     }
 
+  };
+
+  const newCharInstanceHanlder = (): void => {
+    console.log('emptyCharState', emptyCharState);
+    loadCharData(emptyCharState);
+    setRedirect(routes?.char);
   };
 
   const loadMap = (evt: any, type: string) => {
@@ -145,18 +154,19 @@ export const EntryPanel: React.FC = () => {
       </li>
       <li className="entryPanel__separator"> </li>
       <li>
-        <Link
-          to={`/${lang}/${routes.char}`}
-          className="t-paragraph1MediumLight"
-        >
-            { entryPanel?.createChar }
-        </Link>
-      </li>
-      <li>
         <a href="#">
           <label 
             className="t-paragraph1MediumLight"
-            onClick={() => loadDataHandler('char')}>
+            onClick={newCharInstanceHanlder}>
+            { entryPanel?.createChar }
+          </label>
+        </a>
+      </li>
+      <li>
+        <a href="#" onClick={() => loadDataHandler('char')}>
+          <label 
+            className="t-paragraph1MediumLight"
+          >
             { entryPanel?.loadChar }
           </label>
         </a>

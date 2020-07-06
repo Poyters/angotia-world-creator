@@ -1,7 +1,8 @@
+import { deepCopy } from '../../assets/scripts/utils/deepCopy';
 import { uiState } from '../states/uiState';
 
 
-export const uiReducer = (state = uiState, action) => {
+export const uiReducer = (state = deepCopy(uiState), action) => {
     switch(action.type) {
         case 'CHANGE_ACTION_NOTIFICATION':
             return {

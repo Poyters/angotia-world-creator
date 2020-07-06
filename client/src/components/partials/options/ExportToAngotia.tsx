@@ -42,7 +42,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           addNotification('Succesfully updated character');
         } else { // char doest't exists
           addChar({ variables: { ...externalCharData }});
-          addNotification('Succesfully added new character to Angotia');
+          addNotification('Succesfully added a new character to Angotia');
         }  
       break;
     }
