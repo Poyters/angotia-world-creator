@@ -81,7 +81,6 @@ export const charReducer = (state = deepCopy(charState), action) => {
         }
       };
     case 'LOAD_CHAR_DATA':
-      console.log(action.data);
       return {
         ...action.data
       };

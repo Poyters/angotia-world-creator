@@ -2,7 +2,6 @@ import React , { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-import { Link } from 'react-router-dom';
 import { MapSizeInput } from './MapSizeInput';
 import { setMapSizes, loadMapData } from '../../../store/actions/mapActions';
 import { loadCharData } from '../../../store/actions/charActions';
@@ -71,8 +70,7 @@ export const EntryPanel: React.FC = () => {
   };
 
   const newCharInstanceHanlder = (): void => {
-    console.log('emptyCharState', emptyCharState);
-    loadCharData(emptyCharState);
+    dispatch(loadCharData(emptyCharState));
     setRedirect(routes?.char);
   };
 
