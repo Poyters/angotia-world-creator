@@ -2,6 +2,7 @@ import React from 'react';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { SectionHeader } from '../partials/SectionHeader';
 import { EntryPanel } from '../partials/entryPanel/EntryPanel';
+import { Notifications } from '../partials/Notifications';
 import LangMenu from '../partials/LangMenu';
 
 
@@ -16,6 +17,7 @@ export const Home: React.FC = () => {
       </div>
       <CreditsFooter />
       <LangMenu />
+      <Notifications />
     </div>
   );
 };
