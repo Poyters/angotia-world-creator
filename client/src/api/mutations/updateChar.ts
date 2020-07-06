@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 
 export const UPDATE_CHAR = gql`
-  mutation UpdateChar(
+  mutation updateChar(
     $id: ID!,
     $name: String
     $type: String
@@ -33,7 +33,9 @@ export const UPDATE_CHAR = gql`
       is_agressive_mob: $is_agressive_mob,
       settings: $settings
     }) {
-      id
+      id,
+      name,
+      _id
     }
   }
 `;

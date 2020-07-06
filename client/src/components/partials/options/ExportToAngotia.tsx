@@ -9,6 +9,7 @@ import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
 import { GET_CHAR } from '../../../api/queries/getChar';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
+import { addNotification } from '../../../assets/scripts/notifications';
 
 
 interface IExportToAngotia {
@@ -21,8 +22,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const [addChar] = useMutation(CREATE_CHAR);
   const [updateChar] = useMutation(UPDATE_CHAR);
   const charData = useSelector((state: IStore) => state.char);
-  console.log('charData.id', charData.id);
-  const { loading, error, data } = useQuery(GET_CHAR, {
+  const { error, data } = useQuery(GET_CHAR, {
     variables: { id: charData.id},
     skip: !charData.id
   });
@@ -32,12 +32,17 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
 
+        if (error) {
+          addNotification(`Expected error during checking existing char: ${error}`, 'warning');
+        }
+
         if (data) { // Char already exists id database
           delete externalCharData._id;
-          console.log('externalCharData', JSON.stringify(externalCharData));
-          updateChar({ variables: { id: charData.id, char: externalCharData}});
+          updateChar({ variables: { id: charData.id, ...externalCharData}});
+          addNotification('Succesfully updated character');
         } else { // char doest't exists
           addChar({ variables: { ...externalCharData }});
+          addNotification('Succesfully added new character to Angotia');
         }  
       break;
     }
