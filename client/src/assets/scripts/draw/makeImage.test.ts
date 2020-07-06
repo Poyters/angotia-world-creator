@@ -6,8 +6,9 @@ describe("makeImage script", () => {
     expect(typeof makeImage).toBe('function');
   });
 
-	it("Create new image", () => {
-    expect(makeImage('') instanceof HTMLImageElement).toBe(true);
+	it("Create new image", async () => {
+    const img = await makeImage('');
+    expect(img instanceof HTMLImageElement).toBe(true);
   });
 
 });

@@ -5,6 +5,7 @@ import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
+import { addNotification } from '../../../assets/scripts/notifications';
 
 
 interface ISaveJsonOption {
@@ -24,10 +25,14 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
         saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');
+        addNotification('Succesfully saved character');
       break;
       case 'map':
-      default:
         saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');
+        addNotification('Succesfully saved map');
+      break;
+      default:
+        addNotification('Invalid save data type', 'warning');
     }
   };
 
