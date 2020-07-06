@@ -95,6 +95,10 @@ describe("isValidExternalCharData script", () => {
     _id: 'internal id'
   };
 
+  it("isEmptyMatrix is function", () => {
+		expect(typeof isValidExternalCharData).toEqual('function');
+	});
+
 	it("Check valid data", () => {
 		expect(isValidExternalCharData(validExternalData)).toBe(true);
   });

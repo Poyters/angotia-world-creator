@@ -13,7 +13,7 @@ export type CharState = {
     moveType: string,
     monologs: IMonolog[],
     dialogs: IDialog[],
-    temponaryPlayerDialogs: IPlayer[],
+    temponaryPlayerDialogs?: IPlayer[],
     isAgressiveMob: boolean,
     hasVisibleLevel: boolean,
     charPic: string,

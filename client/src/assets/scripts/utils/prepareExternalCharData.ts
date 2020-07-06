@@ -27,6 +27,7 @@ export const prepareExternalCharData = (charData: CharState) => {
     const newDialog = deepCopy(dialog);
     newDialog._id = newDialog.id;
     delete newDialog.id;
+    delete newDialog.connected_dialogs;
 
     newDialog.player = newDialog.player?.map(player => {
       const newPlayer = deepCopy(player);

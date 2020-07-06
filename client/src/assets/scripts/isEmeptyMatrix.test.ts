@@ -20,6 +20,9 @@ describe("isEmptyMatrix script", () => {
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 8]]]
 	];
 
+	it("isEmptyMatrix is function", () => {
+		expect(typeof isEmptyMatrix).toEqual('function');
+	});
 
 	it("Check if matrix is empty (it is)", () => {
     expect(isEmptyMatrix(emptyMatrix)).toBe(true);
