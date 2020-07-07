@@ -4,6 +4,9 @@ export const isValidExternalCharData = (data: any): boolean => {
     !data?.name ||
     !data?.type || 
     (
+      Object.keys(data).length === 0 && data.constructor === Object
+    ) ||
+    (
       !data?.choosed ||
       (
         data?.choosed !== 'npc' &&

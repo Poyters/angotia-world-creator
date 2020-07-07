@@ -8,7 +8,9 @@ export const Notifications: React.FC = () => {
 	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
 	const generateNotesList = (): any => {
-		const contentToRender = actionNotes.map(note => {
+		if (!Array.isArray(actionNotes)) return [];
+		
+		const contentToRender = actionNotes?.map(note => {
 			const specialClass = note.type === 'warning' ? 'notifications__note--warning' : '';
 
 			return (

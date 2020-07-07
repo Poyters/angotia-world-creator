@@ -20,7 +20,7 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
   const charData = useSelector((state: IStore) => state.char);
   const charName = useSelector((state: IStore) => state.char.name);
 
-  const saveMap = (): void => {
+  const saveData = (): void => {
     switch(type) {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
@@ -38,7 +38,7 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
 
   return (
     <span
-      onClick={(): void => saveMap()}
+      onClick={(): void => saveData()}
     > 
       {text ? text : creator?.panel?.options?.save?.content}  
     </span>
