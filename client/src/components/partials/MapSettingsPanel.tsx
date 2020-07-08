@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Arrow } from './Arrow';
 import { ActionInputField } from './ActionInputField';
 import { ContentContext } from '../../Template';
 import { setMapDesc, setMinEntryLevel, changeMapName } from '../../store/actions/mapActions';
@@ -12,7 +11,7 @@ export const MapSettingsPanel: React.FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const description: string = useSelector((state: IStore) => state.map.description);
 	const [descValue, setDescValue] = useState<string>(description);
-	const mapId: string = useSelector((state: IStore) => state.map.id);
+	const mapInternalId: string = useSelector((state: IStore) => state.map.internalId);
 	const minEntryLevel: number = useSelector((state: IStore) => state.map.minEntryLevel);
 	const boardName: string = useSelector((state: IStore) => state.map.mapName);
 	const dispatch = useDispatch();
@@ -36,7 +35,7 @@ export const MapSettingsPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
 						label={creator?.settingsPanel?.id}
-						inputValue={mapId}
+						inputValue={mapInternalId}
 						inputDisabled={true}
 					/>
 					<ActionInputField

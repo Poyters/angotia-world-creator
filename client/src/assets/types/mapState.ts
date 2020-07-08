@@ -4,7 +4,8 @@ import { IVertexWeight } from '../interfaces/vertex';
 
 
 export type MapState = {
-    id: string
+    id?: string
+    internalId: string,
     mapName: string,
     minEntryLevel: number,
     description: string,

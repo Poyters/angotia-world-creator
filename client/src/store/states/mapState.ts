@@ -3,7 +3,8 @@ import { MapState } from '../../assets/types/mapState';
 
 
 export const mapState: MapState = {
-    id: uuid(),
+    id: '',
+    internalId: uuid(),
     mapName: 'board name',
     minEntryLevel: 0,
     description: '',
