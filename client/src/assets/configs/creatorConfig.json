@@ -1,7 +1,7 @@
 {
     "map": {
         "fieldSize": 50,
-        "minSize": 8,
+        "minSize": 3,
         "maxSize": 100
     },
     "mapName": {

@@ -2,7 +2,6 @@ import { prepareExternalMapData } from './prepareExternalMapData';
 import { isValidExternalMapData } from './isValidExternalMapData';
 
 
-// DeepCopy should support int, string, float
 describe("prepareExternalMapData script", () => {
   const validInternalMapData = {
     id: '9',

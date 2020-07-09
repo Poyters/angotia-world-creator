@@ -5,6 +5,7 @@ import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 import { IStore } from '../../assets/interfaces/store';
 import uuid from 'uuid/v4';
+import { matrixToContentList } from '../../assets/scripts/utils/matrixToContentList';
 
 
 export const Map: React.FC = () => {
@@ -40,6 +41,20 @@ export const Map: React.FC = () => {
 
     setMapTop(marginTop);
     setMapLeft(marginLeft);
+
+    const xd = [
+      [
+        [[1,1],[1,1]],[[0,0],[0,0]],[[0,0],[0,0]]
+      ],
+      [
+        [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      ],
+      [
+        [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      ]
+    ];
+
+    matrixToContentList(xd);
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
