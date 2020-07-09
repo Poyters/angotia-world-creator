@@ -3,7 +3,7 @@ import { deepCopy } from './deepCopy';
 
 export const matrixToContentList = (matrix: any) => {
   console.log('matrixToContentList');
-  const contentList = [];
+  const contentList: any = [];
 
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
 
@@ -19,11 +19,26 @@ export const matrixToContentList = (matrix: any) => {
       ];
 
       squareMatrix.map((square: number, index: number) => {
-        console.log('square.index', square, index);
+        const xShift: number = index === 1 || index === 3 ?  1 : 0;
+        const yShift: number = index === 2 || index === 3 ? 1 : 0;
+        console.log('square.xs,ys', square, xShift, yShift);
+        if (square !== 0) {
+          const contentItem = {
+            x,
+            y,
+            xShift,
+            yShift,
+            value: square
+          };
+
+          contentList.push(contentItem);
+        }
       });
 
     });
   });
+
+  console.log('contentList', contentList);
 };
 
 
