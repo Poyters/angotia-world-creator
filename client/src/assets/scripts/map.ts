@@ -15,8 +15,6 @@ export const generateEmptyMapMatrix = ():Array<any> => {
 		});
 	});
 
-	console.log(JSON.stringify(newMatrix));
-
 	return newMatrix;
 };
 

@@ -1,16 +1,17 @@
 import { deepCopy } from './deepCopy';
+import { IContentList, IContentItem } from '../../interfaces/contentList';
+import uuid from 'uuid/v4';
 
 
-export const matrixToContentList = (matrix: any) => {
-  console.log('matrixToContentList');
-  const contentList: any = [];
-
+export const matrixToContentList = (matrix: any): IContentList => {
+  const contentList: IContentList = {
+    items: [],
+    pics: []
+  };
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
 
   copyOfmatrix.map((yAxis: Array<number>, y:number) => {
-    console.log('yAxis', yAxis);
     yAxis.map((field: number, x: number) => {
-      console.log('field.x', field, x);
       const squareMatrix: Array<number> = [
         field[0][0],
         field[0][1],
@@ -18,27 +19,56 @@ export const matrixToContentList = (matrix: any) => {
         field[1][1]
       ];
 
-      squareMatrix.map((square: number, index: number) => {
+      squareMatrix.map((square: number | string, index: number) => {
         const xShift: number = index === 1 || index === 3 ?  1 : 0;
         const yShift: number = index === 2 || index === 3 ? 1 : 0;
-        console.log('square.xs,ys', square, xShift, yShift);
-        if (square !== 0) {
-          const contentItem = {
+
+        // generate contentItem only from not empty matrix squares
+        if (square !== 0) { 
+          let contentItemValue: string | number = '';
+
+          // square is a image
+          if (square.toString().includes('data:image/')) {
+            let found: boolean = false;
+
+            for (const picItem of contentList.pics) {
+              const picKeyName = Object.keys(picItem)[0];
+              console.log('picKeyName', picKeyName);
+              if (picItem[picKeyName] === square) {
+                contentItemValue = `picId=${picKeyName}`;
+                found = true;
+              }
+            }
+
+            if (!found) { // image is not in pics it list
+              const picId = uuid();
+              const newPicItem = {
+                [picId]: square
+              };
+
+              contentItemValue = `picId=${picId}`;
+              contentList.pics.push(newPicItem);
+            }
+          } else { // square is not a image
+            contentItemValue = square;
+          }
+
+          const contentItem: IContentItem = {
             x,
             y,
             xShift,
             yShift,
-            value: square
+            value: contentItemValue
           };
 
-          contentList.push(contentItem);
+          contentList.items.push(contentItem);
         }
       });
 
     });
   });
 
-  console.log('contentList', contentList);
+  return contentList;
 };
 
 

@@ -42,19 +42,19 @@ export const Map: React.FC = () => {
     setMapTop(marginTop);
     setMapLeft(marginLeft);
 
-    const xd = [
+    const exampleMatrix3 = [
       [
-        [[1,1],[1,1]],[[0,0],[0,0]],[[0,0],[0,0]]
+        [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
       ],
       [
-        [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+        [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
       ],
       [
         [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
       ]
     ];
-
-    matrixToContentList(xd);
+    
+    matrixToContentList(exampleMatrix3);
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
