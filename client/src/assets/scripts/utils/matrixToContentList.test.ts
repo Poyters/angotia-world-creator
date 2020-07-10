@@ -170,8 +170,22 @@ describe("matrixToContentList script", () => {
   it("Check valid data; exampleMatrix3", () => {
     const copyOfMatrix = deepCopy(exampleMatrix3);
     const renderedContentList = matrixToContentList(copyOfMatrix);
-  
-		expect(renderedContentList).toEqual(contentList3);
+    const picItem = renderedContentList.pics[0];
+    const picKeyName = Object.keys(picItem)[0];
+
+    expect(renderedContentList.pics.length).toEqual(1);
+    expect(renderedContentList.items.length).toEqual(2);
+    expect(renderedContentList.items[0].x).toEqual(0);
+    expect(renderedContentList.items[0].y).toEqual(0);
+    expect(renderedContentList.items[0].xShift).toEqual(0);
+    expect(renderedContentList.items[0].yShift).toEqual(0);
+    expect(renderedContentList.items[1].x).toEqual(0);
+    expect(renderedContentList.items[1].y).toEqual(1);
+    expect(renderedContentList.items[1].xShift).toEqual(0);
+    expect(renderedContentList.items[1].yShift).toEqual(0);
+    expect(renderedContentList.pics[0][picKeyName]).toEqual(picItem[picKeyName]);
+    expect(renderedContentList.items[0].value).toEqual(`picId=${picKeyName}`);
+    expect(renderedContentList.items[1].value).toEqual(`picId=${picKeyName}`);
   });
 
 });
