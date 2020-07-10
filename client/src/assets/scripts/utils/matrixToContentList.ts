@@ -33,7 +33,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
 
             for (const picItem of contentList.pics) {
               const picKeyName = Object.keys(picItem)[0];
-              console.log('picKeyName', picKeyName);
+              
               if (picItem[picKeyName] === square) {
                 contentItemValue = `picId=${picKeyName}`;
                 found = true;

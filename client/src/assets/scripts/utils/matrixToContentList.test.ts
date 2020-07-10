@@ -128,30 +128,17 @@ describe("matrixToContentList script", () => {
     ]
   ];
 
-  const contentList3 = {
-    items: [
-      {
-        x: 0,
-        y: 0,
-        xShift: 0,
-        yShift: 0,
-        value: '8t309t3gj30g534'
-      },
-      {
-        x: 0,
-        y: 1,
-        xShift: 0,
-        yShift: 0,
-        value: '8t309t3gj30g534'
-      }
+  const exampleMatrix4 = [
+    [
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
-    pics: [
-      {
-        '8t309t3gj30g534': 'data:image/picblob'
-      }
+    [
+      [[0,0],[0,0]],[[0,'data:image/picblobexample'],[0,0]],[[0,0],[0,0]]
+    ],
+    [
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ]
-  };
-
+  ];
 
 	it("Check valid data; exampleMatrix1", () => {
     const copyOfMatrix = deepCopy(exampleMatrix1);
@@ -183,9 +170,25 @@ describe("matrixToContentList script", () => {
     expect(renderedContentList.items[1].y).toEqual(1);
     expect(renderedContentList.items[1].xShift).toEqual(0);
     expect(renderedContentList.items[1].yShift).toEqual(0);
-    expect(renderedContentList.pics[0][picKeyName]).toEqual(picItem[picKeyName]);
+    expect(renderedContentList.pics[0][picKeyName]).toEqual('data:image/picblob');
     expect(renderedContentList.items[0].value).toEqual(`picId=${picKeyName}`);
     expect(renderedContentList.items[1].value).toEqual(`picId=${picKeyName}`);
+  });
+
+  it("Check valid data; exampleMatrix4", () => {
+    const copyOfMatrix = deepCopy(exampleMatrix4);
+    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const picItem = renderedContentList.pics[0];
+    const picKeyName = Object.keys(picItem)[0];
+
+    expect(renderedContentList.pics.length).toEqual(1);
+    expect(renderedContentList.items.length).toEqual(1);
+    expect(renderedContentList.items[0].x).toEqual(1);
+    expect(renderedContentList.items[0].y).toEqual(1);
+    expect(renderedContentList.items[0].xShift).toEqual(1);
+    expect(renderedContentList.items[0].yShift).toEqual(0);
+    expect(renderedContentList.pics[0][picKeyName]).toEqual('data:image/picblobexample');
+    expect(renderedContentList.items[0].value).toEqual(`picId=${picKeyName}`);
   });
 
 });
