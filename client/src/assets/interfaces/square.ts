@@ -1,7 +1,7 @@
 export interface ISquareData {
 	x: number,
 	y: number,
-	xDelta: number,
-	yDelta: number,
+	xShift: number,
+	yShift: number,
 	id: string
 }

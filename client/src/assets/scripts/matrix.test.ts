@@ -46,9 +46,9 @@ describe("matrixToIds script", () => {
 	it("Update empty matrix by the other", () => {
 		const squareIds: ISquareData[] = matrixToIds(matrix);
 		const expectedOutput: ISquareData[] = [
-			{id: "0.0, 0.0", x: 0, xDelta: 0, y: 0, yDelta: 0}, 
-			{id: "1.1, 1.0", x: 1, xDelta: 1, y: 1, yDelta: 0}, 
-			{id: "2.0, 2.0", x: 2, xDelta: 0, y: 2, yDelta: 0}
+			{id: "0.0, 0.0", x: 0, xShift: 0, y: 0, yShift: 0}, 
+			{id: "1.1, 1.0", x: 1, xShift: 1, y: 1, yShift: 0}, 
+			{id: "2.0, 2.0", x: 2, xShift: 0, y: 2, yShift: 0}
 		];
 
 		expect(squareIds).toEqual(expectedOutput);

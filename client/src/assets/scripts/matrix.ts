@@ -52,14 +52,14 @@ export const matrixToIds = (matrix: any[]): ISquareData[] => {
   
 		squareMatrix.map((square: number, index: number) => {
 		  if (square === 1) {
-			const xDelta: number = index === 1 || index === 3 ? 1 : 0;
-			const yDelta: number = index === 2 || index === 3 ? 1 : 0;
+			const xShift: number = index === 1 || index === 3 ? 1 : 0;
+			const yShift: number = index === 2 || index === 3 ? 1 : 0;
 			const squareId: ISquareData = {
 				x: x,
 				y: y,
-				xDelta,
-				yDelta,
-				id: `${x}.${xDelta}, ${y}.${yDelta}`
+				xShift,
+				yShift,
+				id: `${x}.${xShift}, ${y}.${yShift}`
 			};
   
 			squareIds.push(squareId);
