@@ -64,7 +64,6 @@ export const matrixToContentList = (matrix: any): IContentList => {
           contentList.items.push(contentItem);
         }
       });
-
     });
   });
 
