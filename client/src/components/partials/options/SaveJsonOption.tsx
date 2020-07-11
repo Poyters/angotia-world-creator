@@ -5,6 +5,7 @@ import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../assets/scripts/utils/prepareExternalMapData';
 import { addNotification } from '../../../assets/scripts/notifications';
 
 
@@ -28,7 +29,8 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
         addNotification('Succesfully saved character');
       break;
       case 'map':
-        saveFile(JSON.stringify(mapData), `${mapName}.json`, 'text/json');
+        const externalMapData = prepareExternalMapData(mapData);
+        saveFile(JSON.stringify(externalMapData), `${mapName}.json`, 'text/json');
         addNotification('Succesfully saved map');
       break;
       default:

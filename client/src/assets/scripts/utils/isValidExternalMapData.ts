@@ -25,19 +25,15 @@ export const isValidExternalMapData = (data: any): boolean => {
       data?.size?.y < creatorConfig.map.minSize ||
       data?.size?.y > creatorConfig.map.maxSize
     ) ||
-    !Array.isArray(data?.block_matrix) ||
-    (
-      !data.passage ||
-      !data.passage.locations ||
-      !Array.isArray(data.passage.locations) ||
-      !data.passage.matrix ||
-      !Array.isArray(data.passage.matrix)
-    ) ||
-    (
-      !data.building ||
-      !data.building.matrix ||
-      !Array.isArray(data.building.matrix)
-    )
+    data?.block_matrix === null ||
+    data.passage === null ||
+    data.building === null ||
+    data.decoration === null ||
+    data.subsoil === null ||
+    data.npc === null ||
+    data.mob === null ||
+    data.se === null ||
+    data.vertex === null
   ) return false;
 
   return true;

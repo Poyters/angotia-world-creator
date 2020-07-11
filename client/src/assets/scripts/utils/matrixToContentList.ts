@@ -8,6 +8,9 @@ export const matrixToContentList = (matrix: any): IContentList => {
     items: [],
     pics: []
   };
+
+  if (!matrix || !Array.isArray(matrix)) return contentList;
+
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
 
   copyOfmatrix.map((yAxis: Array<number>, y:number) => {
