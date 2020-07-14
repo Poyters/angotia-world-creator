@@ -17,7 +17,7 @@ export const CREATE_MAP = gql`
     $se: InputSe
     $npc: InputNpc
     $mob: InputMob
-    $block_matrix: InputBlockMatrix
+    $block_matrix: InputBlock
     $vertex: InputVertex
   ) {
     createMap(Map: {
