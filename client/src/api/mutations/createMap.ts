@@ -8,16 +8,17 @@ export const CREATE_MAP = gql`
     $map_name: String
     $map_pic: String
     $visibility_range: Int
-    $size: Size
+    $size: InputSize
     $_id: String
-    $passage: Passage
-    $building: Building
-    $decoration: Decoration
-    $subsoil: Subsoil
-    $npc: Npc
-    $mob: Mob
-    $block_matrix: $BlockMatrix
-    $vertex: Vertex
+    $passage: InputPassage
+    $building: InputBuilding
+    $decoration: InputDecoration
+    $subsoil: InputSubsoil
+    $se: InputSe
+    $npc: InputNpc
+    $mob: InputMob
+    $block_matrix: InputBlockMatrix
+    $vertex: InputVertex
   ) {
     createMap(Map: {
       description: $description,

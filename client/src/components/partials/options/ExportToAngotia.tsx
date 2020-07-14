@@ -4,9 +4,12 @@ import { useSelector } from 'react-redux';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../assets/scripts/utils/prepareExternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
+import { CREATE_MAP } from '../../../api/mutations/createMap';
 import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
 import { GET_CHAR } from '../../../api/queries/getChar';
+import { GET_MAP } from '../../../api/queries/getMap';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { addNotification } from '../../../assets/scripts/notifications';
@@ -20,6 +23,7 @@ interface IExportToAngotia {
 export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const { creator } = useContext(ContentContext);
   const [addChar] = useMutation(CREATE_CHAR);
+  const [addMap] = useMutation(CREATE_MAP);
   const [updateChar] = useMutation(UPDATE_CHAR);
   const charData = useSelector((state: IStore) => state.char);
   const mapData = useSelector((state: IStore) => state.map);
@@ -33,6 +37,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   });
 
   const exportHandler = (): void => {
+    console.log('exportHandler', type);
     switch(type) {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
@@ -50,8 +55,8 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           addNotification('Succesfully added a new character to Angotia');
         }  
       break;
-      case 'char':
-        const externalMapData = prepareExternalCharData(charData);
+      case 'map':
+        const externalMapData = prepareExternalMapData(mapData);
 
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');
@@ -59,10 +64,10 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
 
         if (map.data) { // Char already exists id database
           delete externalMapData._id;
-          updateChar({ variables: { id: charData.id, ...externalMapData}});
+          // updateChar({ variables: { id: charData.id, ...externalMapData}});
           addNotification('Succesfully updated map');
         } else { // char doest't exists
-          addChar({ variables: { ...externalMapData }});
+          addMap({ variables: { ...externalMapData }});
           addNotification('Succesfully added a new map to Angotia');
         }  
       break;

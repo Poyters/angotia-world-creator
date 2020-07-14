@@ -5,13 +5,14 @@ import { matrixToContentList } from './matrixToContentList';
 
 
 export const prepareExternalMapData = (mapData: MapState | any) => {
+  console.log('mapData', mapData);
   let preparedMapData = deepCopy(mapData);
 
   preparedMapData._id = preparedMapData.internalId;
   delete preparedMapData.internalId;
   delete preparedMapData.id;
-  delete preparedMapData.passage.matrix;
-  delete preparedMapData.vertex.matrix;
+  delete preparedMapData.passage?.matrix;
+  delete preparedMapData.vertex?.matrix;
 
   preparedMapData = camelCaseToUnderscore(preparedMapData);
 
