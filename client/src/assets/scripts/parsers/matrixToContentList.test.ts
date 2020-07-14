@@ -1,5 +1,5 @@
 import { matrixToContentList } from './matrixToContentList';
-import { deepCopy } from './deepCopy';
+import { deepCopy } from '../utils/deepCopy';
 
 
 describe("matrixToContentList script", () => {

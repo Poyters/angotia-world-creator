@@ -1,5 +1,5 @@
 import { prepareExternalMapData } from './prepareExternalMapData';
-import { isValidExternalMapData } from './isValidExternalMapData';
+import { isValidExternalMapData } from '../utils/isValidExternalMapData';
 
 
 describe("prepareExternalMapData script", () => {

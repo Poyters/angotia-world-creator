@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
-import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
-import { prepareExternalMapData } from '../../../assets/scripts/utils/prepareExternalMapData';
+import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
 import { CREATE_MAP } from '../../../api/mutations/createMap';
 import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
@@ -37,7 +37,6 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   });
 
   const exportHandler = (): void => {
-    console.log('exportHandler', type);
     switch(type) {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);

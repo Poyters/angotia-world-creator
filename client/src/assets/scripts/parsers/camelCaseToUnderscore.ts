@@ -1,4 +1,4 @@
-import { deepCopy } from './deepCopy';
+import { deepCopy } from '../utils/deepCopy';
 
 
 export const camelCaseToUnderscore = (obj: any): any => {

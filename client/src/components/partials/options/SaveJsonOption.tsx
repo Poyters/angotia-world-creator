@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
-import { prepareExternalCharData } from '../../../assets/scripts/utils/prepareExternalCharData';
-import { prepareExternalMapData } from '../../../assets/scripts/utils/prepareExternalMapData';
+import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
 import { addNotification } from '../../../assets/scripts/notifications';
 
 

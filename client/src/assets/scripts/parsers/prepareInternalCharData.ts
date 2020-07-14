@@ -1,5 +1,5 @@
 import { CharState } from '../../types/charState';
-import { deepCopy } from './deepCopy';
+import { deepCopy } from '../utils/deepCopy';
 const camelcaseKeys = require('camelcase-keys');
 
 

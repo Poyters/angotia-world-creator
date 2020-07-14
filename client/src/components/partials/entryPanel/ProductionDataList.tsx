@@ -6,17 +6,16 @@ import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
 import { ContentContext } from '../../../Template';
-import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareInternalCharData';
+import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
 
 
 export const ProductionDataList: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
-  const { loading, data, error } = useQuery(ALL_CHARS);
+  const { loading, data } = useQuery(ALL_CHARS);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
   if (loading) return <p> Loading... </p>;
-  if (error) return <p> ${error} </p>;
 
   const loadData = (data) => {
     const internalData = prepareInternalCharData(data);

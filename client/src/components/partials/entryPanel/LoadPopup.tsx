@@ -6,7 +6,7 @@ import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { ProductionDataList } from './ProductionDataList';
-import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareInternalCharData';
+import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
 import { isValidExternalCharData } from '../../../assets/scripts/utils/isValidExternalCharData';
 import { addNotification } from '../../../assets/scripts/notifications';
 

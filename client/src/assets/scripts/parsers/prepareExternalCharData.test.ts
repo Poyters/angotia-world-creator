@@ -1,5 +1,5 @@
 import { prepareExternalCharData } from './prepareExternalCharData';
-import { isValidExternalCharData } from './isValidExternalCharData';
+import { isValidExternalCharData } from '../utils/isValidExternalCharData';
 
 
 // DeepCopy should support int, string, float
