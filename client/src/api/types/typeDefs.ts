@@ -106,4 +106,9 @@ export const typeDefs = gql`
     min: Int
     max: Int
   }
+
+  type Size {
+    x: Int
+    y: Int
+  }
 `;

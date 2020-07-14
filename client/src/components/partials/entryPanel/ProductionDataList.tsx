@@ -11,11 +11,12 @@ import { prepareInternalCharData } from '../../../assets/scripts/utils/prepareIn
 
 export const ProductionDataList: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
-  const { loading, data } = useQuery(ALL_CHARS);
+  const { loading, data, error } = useQuery(ALL_CHARS);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
   if (loading) return <p> Loading... </p>;
+  if (error) return <p> ${error} </p>;
 
   const loadData = (data) => {
     const internalData = prepareInternalCharData(data);

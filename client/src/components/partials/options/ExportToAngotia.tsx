@@ -22,7 +22,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const [addChar] = useMutation(CREATE_CHAR);
   const [updateChar] = useMutation(UPDATE_CHAR);
   const charData = useSelector((state: IStore) => state.char);
-  const { error, data } = useQuery(GET_CHAR, {
+  const char = useQuery(GET_CHAR, {
     variables: { id: charData.id},
     skip: !charData.id
   });
@@ -32,17 +32,33 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
       case 'char':
         const externalCharData = prepareExternalCharData(charData);
 
-        if (error) {
-          addNotification(`Expected error during checking existing char: ${error}`, 'warning');
+        if (char.error) {
+          addNotification(`Expected error during checking existing char: ${char.error}`, 'warning');
         }
 
-        if (data) { // Char already exists id database
+        if (char.data) { // Char already exists id database
           delete externalCharData._id;
           updateChar({ variables: { id: charData.id, ...externalCharData}});
           addNotification('Succesfully updated character');
         } else { // char doest't exists
           addChar({ variables: { ...externalCharData }});
           addNotification('Succesfully added a new character to Angotia');
+        }  
+      break;
+      case 'char':
+        const externalMapData = prepareExternalCharData(charData);
+
+        if (map.error) {
+          addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');
+        }
+
+        if (map.data) { // Char already exists id database
+          delete externalMapData._id;
+          updateChar({ variables: { id: charData.id, ...externalMapData}});
+          addNotification('Succesfully updated map');
+        } else { // char doest't exists
+          addChar({ variables: { ...externalMapData }});
+          addNotification('Succesfully added a new map to Angotia');
         }  
       break;
     }
