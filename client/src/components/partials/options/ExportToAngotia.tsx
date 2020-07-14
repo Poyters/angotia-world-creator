@@ -22,8 +22,13 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const [addChar] = useMutation(CREATE_CHAR);
   const [updateChar] = useMutation(UPDATE_CHAR);
   const charData = useSelector((state: IStore) => state.char);
+  const mapData = useSelector((state: IStore) => state.map);
   const char = useQuery(GET_CHAR, {
     variables: { id: charData.id},
+    skip: !charData.id
+  });
+  const map = useQuery(GET_MAP, {
+    variables: { id: mapData.id},
     skip: !charData.id
   });
 
