@@ -103,6 +103,73 @@ describe("contentListToMatrix script", () => {
     ]
   ];
 
+  const mixedContentList1 = {
+    items: [
+      {
+        x: 0,
+        y: 0,
+        xShift: 0,
+        yShift: 0,
+        value: 1
+      },
+      {
+        x: 1,
+        y: 0,
+        xShift: 0,
+        yShift: 0,
+        value: '2'
+      },
+      {
+        x: 2,
+        y: 1,
+        xShift: 1,
+        yShift: 0,
+        value: 3
+      },
+      {
+        x: 1,
+        y: 2,
+        xShift: 1,
+        yShift: 0,
+        value: '414safsefse0'
+      },
+      {
+        x: 0,
+        y: 1,
+        xShift: 0,
+        yShift: 0,
+        value: 'picId=85285ghobdfn-ga34e5g453g-34'
+      },
+      {
+        x: 0,
+        y: 1,
+        xShift: 1,
+        yShift: 0,
+        value: 'picId=85285ghobdfn-ga34e5g453g-34'
+      }
+    ],
+    pics: [
+      {
+        id: '85285ghobdfn-ga34e5g453g-34',
+        blob: 'data:/jp2gmdpicblobdata'
+      }
+    ]
+  };
+
+  const mixedMatrix1 = [
+    [
+      [[1,0],[0,0]],[['2',0],[0,0]],[[0,0],[0,0]]
+    ],
+    [
+      [['data:/jp2gmdpicblobdata','data:/jp2gmdpicblobdata'],[0,0]],
+      [[0,0],[0,0]],
+      [[0,3],[0,0]]
+    ],
+    [
+      [[0,0],[0,0]],[[0,'414safsefse0'],[0,0]],[[0,0],[0,0]]
+    ]
+  ];
+
   it("is a function", () => {
 		expect(typeof contentListToMatrix).toBe('function');
   });
@@ -121,5 +188,9 @@ describe("contentListToMatrix script", () => {
 
   it("numbersContentList2; return numbersMatrix2", () => {
 		expect(contentListToMatrix(numbersContentList2, mapSize)).toEqual(numbersMatrix2);
+  });
+
+  it("mixedContentList1; return mixedMatrix1", () => {
+		expect(contentListToMatrix(mixedContentList1, mapSize)).toEqual(mixedMatrix1);
   });
 });
