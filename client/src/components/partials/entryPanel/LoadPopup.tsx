@@ -7,6 +7,7 @@ import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { ProductionDataList } from './ProductionDataList';
 import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
+import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
 import { isValidExternalCharData } from '../../../assets/scripts/utils/isValidExternalCharData';
 import { addNotification } from '../../../assets/scripts/notifications';
 
@@ -42,7 +43,9 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
 
         switch (type) {
           case 'map':
-            dispatch(loadMapData(loadedData));
+            const internalData = prepareInternalMapData(loadedData);
+            console.log('internalData', internalData);
+            dispatch(loadMapData(internalData));
             setRedirect(routes?.creator);
             drawLoadedMap();
           break;

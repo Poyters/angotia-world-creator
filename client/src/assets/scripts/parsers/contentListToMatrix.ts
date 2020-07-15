@@ -5,7 +5,9 @@ import { generateEmptyMapMatrix } from '../map';
 
 export const contentListToMatrix = (
   contentList: IContentList, matrixSize: IMapSize
-): any[] => {
+): any[] | null => {
+  if (!contentList) return null;
+  
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
   for (const contentItem of contentList.items) {

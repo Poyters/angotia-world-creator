@@ -14,6 +14,7 @@ import { IStore } from '../../../assets/interfaces/store';
 import { LoadPopup } from './LoadPopup';
 import { charState } from '../../../store/states/charState';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
+import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
 
 
 let mapSizes: IPoint = {
@@ -84,7 +85,9 @@ export const EntryPanel: React.FC = () => {
 
         switch (type) {
           case 'map':
-            dispatch(loadMapData(loadedData));
+            const internalMapData = prepareInternalMapData(loadedData);
+            console.log('internalMapData', internalMapData);
+            dispatch(loadMapData(internalMapData));
             setRedirect(routes?.creator);
             drawLoadedMap();
             
