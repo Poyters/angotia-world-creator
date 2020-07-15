@@ -60,7 +60,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
             y,
             xShift,
             yShift,
-            value: contentItemValue
+            value: contentItemValue.toString()
           };
 
           contentList.items.push(contentItem);

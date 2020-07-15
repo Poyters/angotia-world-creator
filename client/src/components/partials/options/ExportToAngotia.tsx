@@ -5,6 +5,7 @@ import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
+import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
 import { CREATE_MAP } from '../../../api/mutations/createMap';
 import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
@@ -56,6 +57,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
       break;
       case 'map':
         const externalMapData = prepareExternalMapData(mapData);
+        console.log('prepareInternalMapData', prepareInternalMapData(externalMapData));
 
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');

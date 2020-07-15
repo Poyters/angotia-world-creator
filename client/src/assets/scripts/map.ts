@@ -2,9 +2,9 @@ import { store } from '../../index';
 import { IMapSize } from '../interfaces/map';
 
 
-export const generateEmptyMapMatrix = ():Array<any> => {
+export const generateEmptyMapMatrix = (inputMapSize?: IMapSize):Array<any> => {
 	const storeData = store.getState();
-	const mapSize: IMapSize = storeData.map.size;
+	const mapSize: IMapSize = inputMapSize ? inputMapSize : storeData.map.size;
 
 	const newMatrix: Array<any[]> = [...Array(mapSize.y)].map((): Array<any[]> => {
 		return [...Array(mapSize.x)].map((): Array<number[]> => {

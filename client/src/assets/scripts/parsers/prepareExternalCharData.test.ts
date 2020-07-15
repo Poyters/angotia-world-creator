@@ -74,6 +74,10 @@ describe("prepareExternalCharData script", () => {
     charPic: ""
   };
 
+  it("is a function", () => {
+		expect(typeof prepareExternalCharData).toBe('function');
+  });
+
 	it("Check valid data", () => {
     const externalData = prepareExternalCharData(validInternalData);
 		expect(isValidExternalCharData(externalData)).toBe(true);

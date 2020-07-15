@@ -22,28 +22,28 @@ describe("matrixToContentList script", () => {
         y: 0,
         xShift: 0,
         yShift: 0,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 1,
         yShift: 0,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 0,
         yShift: 1,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 1,
         yShift: 1,
-        value: 1
+        value: '1'
       }
     ],
     pics: []
@@ -68,35 +68,35 @@ describe("matrixToContentList script", () => {
         y: 0,
         xShift: 0,
         yShift: 0,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 1,
         yShift: 0,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 0,
         yShift: 1,
-        value: 1
+        value: '1'
       },
       {
         x: 0,
         y: 0,
         xShift: 1,
         yShift: 1,
-        value: 1
+        value: '1'
       },
       {
         x: 1,
         y: 1,
         xShift: 0,
         yShift: 0,
-        value: 2
+        value: '2'
       },
       {
         x: 1,
@@ -110,7 +110,7 @@ describe("matrixToContentList script", () => {
         y: 2,
         xShift: 1,
         yShift: 1,
-        value: 953
+        value: '953'
       }
     ],
     pics: []
@@ -218,13 +218,13 @@ describe("matrixToContentList script", () => {
     expect(renderedContentList?.items[0].y).toEqual(0);
     expect(renderedContentList?.items[0].xShift).toEqual(0);
     expect(renderedContentList?.items[0].yShift).toEqual(0);
-    expect(renderedContentList?.items[0].value).toEqual(1);
+    expect(renderedContentList?.items[0].value).toEqual('1');
 
     expect(renderedContentList?.items[1].x).toEqual(0);
     expect(renderedContentList?.items[1].y).toEqual(1);
     expect(renderedContentList?.items[1].xShift).toEqual(0);
     expect(renderedContentList?.items[1].yShift).toEqual(0);
-    expect(renderedContentList?.items[1].value).toEqual(1);
+    expect(renderedContentList?.items[1].value).toEqual('1');
 
     expect(renderedContentList?.items[2].x).toEqual(1);
     expect(renderedContentList?.items[2].y).toEqual(1);
