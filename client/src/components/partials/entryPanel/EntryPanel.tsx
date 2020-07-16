@@ -69,7 +69,7 @@ export const EntryPanel: React.FC = () => {
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
       setValMess("Value need to be integer, not float type.");
     }
-    else { //Redirect to map.html
+    else { //Redirect to /map
       setValMess("");
       mapSizes.x = mapSizeX;
       mapSizes.y = mapSizeY;
@@ -130,13 +130,12 @@ export const EntryPanel: React.FC = () => {
         </button>
       </li>
       <li>
-        <a href="#" onClick={() => loadDataHandler('map')}>
-          <label
-            className="t-paragraph1MediumLight"
-          >
-            { entryPanel?.loadMap }
-          </label>
-        </a>
+        <label
+          className="t-paragraph1MediumLight"
+          onClick={() => loadDataHandler('map')}
+        >
+          { entryPanel?.loadMap }
+        </label>
       </li>
       <li className="entryPanel__separator"> </li>
       <li>
@@ -149,13 +148,12 @@ export const EntryPanel: React.FC = () => {
         </a>
       </li>
       <li>
-        <a href="#" onClick={() => loadDataHandler('char')}>
-          <label 
-            className="t-paragraph1MediumLight"
-          >
-            { entryPanel?.loadChar }
-          </label>
-        </a>
+        <label 
+          className="t-paragraph1MediumLight"
+          onClick={() => loadDataHandler('char')}
+        >
+          { entryPanel?.loadChar }
+        </label>
       </li>
       <li>
         <a href={appConfig?.exitLink} id="closeBtn">

@@ -55,7 +55,7 @@ export const PassageOption: React.FC = () => {
             'MAP_PASSAGE_CANVAS', 
             changeMapPassageMatrix, 
             notifications?.options?.passage?.delete, 
-            '#fff', 
+            '', 
             'passage'
         );
     };

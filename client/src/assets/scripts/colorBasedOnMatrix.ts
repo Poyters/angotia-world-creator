@@ -8,19 +8,18 @@ import passagePicPath from '../images/passage.png';
 const fieldSize: number = creatorConfig.map.fieldSize;
 const squareSize: number = creatorConfig.map.fieldSize / 2;
 
-export const colorBasedOnMatrix = (
+export const colorBasedOnMatrix = async (
   matrix: Array<[]>, 
   canvasId: string, 
   color: string, 
   specialView?: string
-): void => {
+): Promise<void> => {
     const copyOfmatrix: Array<[]> = deepCopy(matrix);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
 
-    // TODO: replace .map by forEach
-    copyOfmatrix.map((yAxis: Array<number>, y:number) => {
-      yAxis.map((field: number, x: number) => {
+    await copyOfmatrix.forEach(async (yAxis: Array<number>, y:number) => {
+      await yAxis.forEach(async (field: number, x: number) => {
         const squareMatrix: Array<number> = [
           field[0][0],
           field[0][1],
@@ -28,7 +27,7 @@ export const colorBasedOnMatrix = (
           field[1][1]
         ];
   
-        squareMatrix.map(async (square: number, index: number) => {
+        await squareMatrix.forEach(async (square: any, index: number) => {
           if (square !== 0 && square) {
             const xDelta: number = index === 1 || index === 3 ?  squareSize : 0;
             const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
@@ -63,7 +62,7 @@ export const colorBasedOnMatrix = (
                 }
               break;
               case 'passage':
-                const passagePic = await makeImage(passagePicPath); //square is path to image
+                const passagePic = await makeImage(passagePicPath);
 
                 ctx.drawImage(passagePic, drawStartX, drawStartY);
               break;

@@ -37,7 +37,9 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
         const internalMapData = prepareInternalMapData(data);
         dispatch(loadMapData(internalMapData));
         setRedirect(routes?.creator);
-        drawLoadedMap();
+        setTimeout(() => {
+          drawLoadedMap();
+        }, 100);
       break;
     }
   };

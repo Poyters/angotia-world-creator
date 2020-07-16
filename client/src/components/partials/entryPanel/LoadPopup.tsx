@@ -47,7 +47,9 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             const internalData = prepareInternalMapData(loadedData);
             dispatch(loadMapData(internalData));
             setRedirect(routes?.creator);
-            drawLoadedMap();
+            setTimeout(() => {
+              drawLoadedMap();
+            }, 100);
           break;
           case 'char':
             if (isValidExternalCharData(loadedData)) {

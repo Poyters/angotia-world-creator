@@ -70,7 +70,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
             'MAP_PASSAGE_CANVAS', 
             changeMapPassageMatrix, 
             notifications?.options?.passage?.add, 
-            '#fff', 
+            '', 
             'passage'
         );
     };

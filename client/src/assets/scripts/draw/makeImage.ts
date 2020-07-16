@@ -1,6 +1,6 @@
-export const makeImage = async imgPath => {
-    const image = new Image();
-    image.src = imgPath;
-    
-    return image;
+export const makeImage = async (blob: any): Promise<any> => {
+  const image = new Image();
+  image.src = blob;
+
+  return image;
 };

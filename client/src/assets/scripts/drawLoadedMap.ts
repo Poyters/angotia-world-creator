@@ -6,7 +6,7 @@ import { deepCopy } from './utils/deepCopy';
 
 const blockSquaresColor = creatorConfig.blockSquareColor;
 
-export const drawLoadedMap = () => {
+export const drawLoadedMap = async () => {
   const storeData = store.getState();
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
@@ -19,7 +19,7 @@ export const drawLoadedMap = () => {
   const vertexWeightMatrix = deepCopy(storeData.map.vertex.matrix);
 
   // Draw block fields
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     blockMatrix, 
     'MAP_BLOCK_CANVAS', 
     blockSquaresColor, 
@@ -27,15 +27,15 @@ export const drawLoadedMap = () => {
   );
 
   // Draw passages
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     passageMatrix, 
     'MAP_PASSAGE_CANVAS', 
-    '#fff', 
-    ''
+    '', 
+    'passage'
   );
 
   // Draw buildings
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     buildingMatrix, 
     'MAP_BUILDING_CANVAS', 
     '', 
@@ -43,7 +43,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw decorations
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     decorationMatrix, 
     'MAP_DECORATION_CANVAS', 
     '', 
@@ -51,7 +51,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw subsoils
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     subsoilMatrix, 
     'MAP_SUBSOIL_CANVAS', 
     '', 
@@ -59,7 +59,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw NPCs
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     npcMatrix, 
     'MAP_NPC_CANVAS', 
     '', 
@@ -67,7 +67,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw MOBs
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     mobMatrix, 
     'MAP_MOB_CANVAS', 
     '', 
@@ -75,7 +75,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw vertex weights
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     vertexWeightMatrix, 
     'MAP_VERTEXWEIGHT_CANVAS',
     '', 
@@ -83,7 +83,7 @@ export const drawLoadedMap = () => {
   );
 
   // Draw se
-  colorBasedOnMatrix(
+  await colorBasedOnMatrix(
     seMatrix, 
     'MAP_SE_CANVAS',
     '', 
