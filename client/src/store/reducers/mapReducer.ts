@@ -3,6 +3,7 @@ import { mapState } from '../states/mapState';
 
 
 export const mapReducer = (state = deepCopy(mapState), action) => {
+    console.log('action.type', action.type, state);
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {
@@ -15,6 +16,7 @@ export const mapReducer = (state = deepCopy(mapState), action) => {
                 mapPic: action.path
             };
         case 'CHANGE_MAP_BLOCK_MATRIX':
+            console.log('newMatrix', action.newMatrix);
             return {
                 ...state,
                 blockMatrix: action.newMatrix
@@ -100,6 +102,7 @@ export const mapReducer = (state = deepCopy(mapState), action) => {
                 },
             };
         case 'LOAD_MAP_DATA':
+            console.log('inserted load data', action.mapData);
             return {
                 ...action.mapData
             };

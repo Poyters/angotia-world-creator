@@ -8,17 +8,6 @@ import { Notifications } from '../partials/Notifications';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { MapSettingsPanel } from '../partials/MapSettingsPanel';
-import { 
-  changeMapBlockMatrix, 
-  changeMapPassageMatrix, 
-  changeMapVertexWeightMatrix,
-  changeMapBuildingMatrix, 
-	changeMapDecorationMatrix, 
-	changeMapSubsoilMatrix, 
-	changeMapNpcMatrix, 
-  changeMapMobMatrix,
-  changeMapSeMatrix
-} from '../../store/actions/mapActions';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMapMatrix } from '../../assets/scripts/map';
 import { deepCopy } from '../../assets/scripts/utils/deepCopy';
@@ -31,15 +20,6 @@ export const Creator: React.FC = () => {
     const newEmptyMatrix = generateEmptyMapMatrix();
 
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
-		dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
   }, []);
 
   return (

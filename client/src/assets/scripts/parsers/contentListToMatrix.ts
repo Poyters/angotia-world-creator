@@ -7,7 +7,6 @@ export const contentListToMatrix = (
   contentList: IContentList, matrixSize: IMapSize
 ): any[] | null => {
   if (!contentList) return null;
-  
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
   for (const contentItem of contentList.items) {

@@ -3,18 +3,28 @@ import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { MapSizeInput } from './MapSizeInput';
-import { setMapSizes, loadMapData } from '../../../store/actions/mapActions';
+import { setMapSizes } from '../../../store/actions/mapActions';
 import { loadCharData } from '../../../store/actions/charActions';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import appConfig from '../../../assets/configs/appConfig.json';
 import { IPoint } from '../../../assets/interfaces/math';
-import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { LoadPopup } from './LoadPopup';
 import { charState } from '../../../store/states/charState';
 import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
+import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
+import { 
+  changeMapBlockMatrix, 
+  changeMapPassageMatrix, 
+  changeMapVertexWeightMatrix,
+  changeMapBuildingMatrix, 
+	changeMapDecorationMatrix, 
+	changeMapSubsoilMatrix, 
+	changeMapNpcMatrix, 
+  changeMapMobMatrix,
+  changeMapSeMatrix
+} from '../../../store/actions/mapActions';
 
 
 let mapSizes: IPoint = {
@@ -65,6 +75,17 @@ export const EntryPanel: React.FC = () => {
       mapSizes.y = mapSizeY;
 
       dispatch(setMapSizes(mapSizes));
+      const newEmptyMatrix = generateEmptyMapMatrix();
+      
+      dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
+      dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
       setRedirect(routes.creator);
     }
 
@@ -73,31 +94,6 @@ export const EntryPanel: React.FC = () => {
   const newCharInstanceHanlder = (): void => {
     dispatch(loadCharData(emptyCharState));
     setRedirect(routes?.char);
-  };
-
-  const loadMap = (evt: any, type: string) => {
-    const file = evt.target.files[0]; 
-    const reader = new FileReader();
-
-    reader.onload = (():any => {
-      return (e) => {
-        const loadedData = JSON.parse(e.target.result);
-
-        switch (type) {
-          case 'map':
-            const internalMapData = prepareInternalMapData(loadedData);
-            console.log('internalMapData', internalMapData);
-            dispatch(loadMapData(internalMapData));
-            setRedirect(routes?.creator);
-            drawLoadedMap();
-            
-          break;
-        }
-      };
-
-    })();
-
-    reader.readAsText(file);
   };
 
   const content = redirect !== null ? (
@@ -134,16 +130,9 @@ export const EntryPanel: React.FC = () => {
         </button>
       </li>
       <li>
-        <a href="#">
-          <input 
-              type="file" 
-              id="loadMapInput" 
-              className="g-hidenFileInput"
-              onChange={(event): void => loadMap(event, 'map')}
-          />
+        <a href="#" onClick={() => loadDataHandler('map')}>
           <label
             className="t-paragraph1MediumLight"
-            onClick={() => loadDataHandler('map')}
           >
             { entryPanel?.loadMap }
           </label>

@@ -11,6 +11,7 @@ import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareI
 import { isValidExternalCharData } from '../../../assets/scripts/utils/isValidExternalCharData';
 import { addNotification } from '../../../assets/scripts/notifications';
 
+
 interface ILoadPopup {
   isActive: Function,
   type: string

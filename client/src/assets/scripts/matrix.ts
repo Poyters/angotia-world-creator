@@ -50,8 +50,9 @@ export const matrixToIds = (matrix: any[]): ISquareData[] => {
 		  field[1][1]
 		];
   
-		squareMatrix.map((square: number, index: number) => {
-		  if (square === 1) {
+		squareMatrix.map((square: number | string, index: number) => {
+			// Dont check type
+		  if (square == 1) {
 			const xShift: number = index === 1 || index === 3 ? 1 : 0;
 			const yShift: number = index === 2 || index === 3 ? 1 : 0;
 			const squareId: ISquareData = {
