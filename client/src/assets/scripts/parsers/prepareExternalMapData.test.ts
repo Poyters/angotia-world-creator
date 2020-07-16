@@ -201,7 +201,7 @@ describe("prepareExternalMapData script", () => {
       matrix: seMatrix
     },
     vertex: {
-      locations: []
+      weights: []
     }
   };
 
@@ -226,7 +226,7 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList.items[0].xShift).toEqual(1);
     expect(renderedContentList.items[0].yShift).toEqual(0);
     expect(renderedContentList.pics[0].blob).toEqual('data:image/picblobexample');
-    expect(renderedContentList.items[0].value).toEqual(`picId=${picItem.id}`);
+    expect(renderedContentList.items[0].value).toEqual(`picId=${picItem._id}`);
   });
 
   it("Check valid data; size", () => {
@@ -293,8 +293,8 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[1].xShift).toEqual(0);
     expect(renderedContentList?.items[1].yShift).toEqual(0);
     expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblob');
-    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem.id}`);
-    expect(renderedContentList?.items[1].value).toEqual(`picId=${picItem.id}`);
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
+    expect(renderedContentList?.items[1].value).toEqual(`picId=${picItem._id}`);
   });
 
   it("Check valid data; subsoil", () => {
@@ -309,7 +309,7 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[0].xShift).toEqual(1);
     expect(renderedContentList?.items[0].yShift).toEqual(0);
     expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
-    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem.id}`);
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
   });
 
   it("Check valid data; npc", () => {
@@ -324,14 +324,14 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[0].xShift).toEqual(1);
     expect(renderedContentList?.items[0].yShift).toEqual(0);
     expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
-    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem.id}`);
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
   });
 
   it("Check valid data; mob ", () => {
     const externalData = prepareExternalMapData(validInternalMapData);
     const renderedContentList = externalData.mob;
-    const picId1 = renderedContentList?.pics[0].id;
-    const picId2 = renderedContentList?.pics[1].id;
+    const picId1 = renderedContentList?.pics[0]._id;
+    const picId2 = renderedContentList?.pics[1]._id;
 
     expect(renderedContentList?.pics.length).toEqual(2);
     expect(renderedContentList?.items.length).toEqual(8);

@@ -45,7 +45,6 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
         switch (type) {
           case 'map':
             const internalData = prepareInternalMapData(loadedData);
-            console.log('internalData', internalData);
             dispatch(loadMapData(internalData));
             setRedirect(routes?.creator);
             drawLoadedMap();
@@ -104,7 +103,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
         </section>
         {
           isActiveProduction ? (
-            <ProductionDataList />
+            <ProductionDataList type={type} />
           ) : null
         }
       </div>

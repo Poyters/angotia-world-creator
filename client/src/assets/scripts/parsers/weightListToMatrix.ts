@@ -9,6 +9,8 @@ export const weightListToMatrix = (
   if (!weightsList) return null;
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
+  if (weightsList.length === 0) return emptyMatrix;
+
   for (const weight of weightsList) {
     // eslint-disable-next-line max-len
     emptyMatrix[weight.y][weight.x][weight.yShift][weight.xShift] = 1;   

@@ -13,7 +13,6 @@ export const prepareInternalMapData = (mapData: MapState | any) => {
 
   const internalData = camelcaseKeys(dataCopy, {deep: true});
   const mapSize = internalData.size;
-  console.log('inside internal', internalData);
 
   internalData.blockMatrix = contentListToMatrix(internalData.blockMatrix, mapSize);
   internalData.building.matrix = contentListToMatrix(internalData.building, mapSize);

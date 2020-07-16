@@ -23,5 +23,21 @@ export const prepareExternalMapData = (mapData: MapState | any) => {
   preparedMapData.mob = matrixToContentList(preparedMapData.mob.matrix);
   preparedMapData.se = matrixToContentList(preparedMapData.se.matrix);
   
+  preparedMapData.passage.locations = preparedMapData.passage.locations.map(location => {
+    location._id = location.id;
+    delete location.id;
+
+    return location;
+  });
+
+  preparedMapData.vertex.weights = preparedMapData.vertex.weights.map(weight => {
+    weight._id = weight.id;
+    delete weight.id;
+
+    return weight;
+  });
+
+  preparedMapData.min_entry_level = parseInt(preparedMapData.min_entry_level);
+  
   return preparedMapData;
 };

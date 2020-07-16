@@ -57,7 +57,6 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
       break;
       case 'map':
         const externalMapData = prepareExternalMapData(mapData);
-        console.log('prepareInternalMapData', prepareInternalMapData(externalMapData));
 
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');

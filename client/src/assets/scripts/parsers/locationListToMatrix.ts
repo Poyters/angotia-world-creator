@@ -9,6 +9,8 @@ export const locationListToMatrix = (
   if (!locationsList) return null;
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
+  if (locationsList.length === 0) return emptyMatrix;
+
   for (const location of locationsList) {
     // eslint-disable-next-line max-len
     emptyMatrix[location.y][location.x][location.yShift][location.xShift] = 1;   

@@ -16,7 +16,7 @@ describe("contentListToMatrix script", () => {
     items: [],
     pics: [
       {
-        _id: '958390634',
+        id: '958390634',
         blob: 'afwfawgf'
       }
     ]
@@ -170,6 +170,36 @@ describe("contentListToMatrix script", () => {
     ]
   ];
 
+  const imgContentList1 = {
+    items: [
+      {
+        x: 0,
+        y: 0,
+        xShift: 0,
+        yShift: 0,
+        value: 'picId=837468534hg34g34'
+      }
+    ],
+    pics: [
+      {
+        id: '837468534hg34g34',
+        blob: 'datablobpicdata'
+      }
+    ]
+  };
+
+  const imgMatrix1 = [
+    [
+      [['datablobpicdata',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+    ],
+    [
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+    ],
+    [
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+    ]
+  ];
+
   it("is a function", () => {
 		expect(typeof contentListToMatrix).toBe('function');
   });
@@ -192,5 +222,9 @@ describe("contentListToMatrix script", () => {
 
   it("mixedContentList1; return mixedMatrix1", () => {
 		expect(contentListToMatrix(mixedContentList1, mapSize)).toEqual(mixedMatrix1);
+  });
+
+  it("imgContentList1; return imgMatrix1", () => {
+		expect(contentListToMatrix(imgContentList1, mapSize)).toEqual(imgMatrix1);
   });
 });

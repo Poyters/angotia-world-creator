@@ -36,7 +36,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
 
             for (const picItem of contentList.pics) {            
               if (picItem.blob === square) {
-                contentItemValue = `picId=${picItem.id}`;
+                contentItemValue = `picId=${picItem._id}`;
                 found = true;
               }
             }
@@ -44,7 +44,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
             if (!found) { // image is not in pics it list
               const picId = uuid();
               const newPicItem = {
-                id: picId,
+                _id: picId,
                 blob: square
               };
 

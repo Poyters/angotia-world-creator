@@ -9,6 +9,8 @@ export const contentListToMatrix = (
   if (!contentList) return null;
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
+  if (contentList.items.length === 0) return emptyMatrix;
+
   for (const contentItem of contentList.items) {
     if (contentItem.value.toString().includes('picId')) {
       const picId: string = contentItem.value
