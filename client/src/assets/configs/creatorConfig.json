@@ -64,9 +64,9 @@
         }
     ],
     "maxPicsWeight": {
-        "background": 200,
-        "mapTile": 10,
-        "char": 30
+        "background": 150,
+        "mapTile": 5,
+        "char": 25
     },
     "visibility": {
         "min": 3,

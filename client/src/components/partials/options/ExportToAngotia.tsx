@@ -5,10 +5,10 @@ import { ContentContext } from '../../../Template';
 import { IStore } from '../../../assets/interfaces/store';
 import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
-import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
 import { CREATE_MAP } from '../../../api/mutations/createMap';
 import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
+import { UPDATE_MAP } from '../../../api/mutations/updateMap';
 import { GET_CHAR } from '../../../api/queries/getChar';
 import { GET_MAP } from '../../../api/queries/getMap';
 import { useMutation } from '@apollo/react-hooks';
@@ -26,6 +26,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const [addChar] = useMutation(CREATE_CHAR);
   const [addMap] = useMutation(CREATE_MAP);
   const [updateChar] = useMutation(UPDATE_CHAR);
+  const [updateMap] = useMutation(UPDATE_MAP);
   const charData = useSelector((state: IStore) => state.char);
   const mapData = useSelector((state: IStore) => state.map);
   const char = useQuery(GET_CHAR, {
@@ -34,7 +35,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   });
   const map = useQuery(GET_MAP, {
     variables: { id: mapData.id},
-    skip: !charData.id
+    skip: !mapData.id
   });
 
   const exportHandler = (): void => {
@@ -64,7 +65,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
 
         if (map.data) { // Char already exists id database
           delete externalMapData._id;
-          // updateChar({ variables: { id: charData.id, ...externalMapData}});
+          updateMap({ variables: { id: mapData.id, ...externalMapData}});
           addNotification('Succesfully updated map');
         } else { // char doest't exists
           addMap({ variables: { ...externalMapData }});
