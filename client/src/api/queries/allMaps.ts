@@ -22,6 +22,10 @@ export const ALL_MAPS = gql`
           xShift
           y
           yShift
+          destination {
+            map_target_cords
+            map_target_id
+          }
         }
       }
       building {

@@ -62,7 +62,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');
         }
-
+        
         if (map.data) { // Char already exists id database
           delete externalMapData._id;
           updateMap({ variables: { id: mapData.id, ...externalMapData}});

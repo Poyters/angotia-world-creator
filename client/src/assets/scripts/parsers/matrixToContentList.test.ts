@@ -172,7 +172,6 @@ describe("matrixToContentList script", () => {
     const copyOfMatrix = deepCopy(exampleMatrix3);
     const renderedContentList = matrixToContentList(copyOfMatrix);
     const picItem = renderedContentList?.pics[0];
-    console.log(renderedContentList.pics);
 
     expect(renderedContentList?.pics.length).toEqual(1);
     expect(renderedContentList?.items.length).toEqual(2);
