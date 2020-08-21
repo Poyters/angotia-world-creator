@@ -4,7 +4,7 @@ Angotia Map Craetor (AMC) is tool for game developers or Map Creators to creatin
 
 ## Changelog
 
-### Version 1.0.0 (planned April 2020)
+### Version 1.1.0 (planned April 2021)
 - item
 
 ### Version 1.0.0 (17 July 2020)
@@ -14,6 +14,12 @@ Angotia Map Craetor (AMC) is tool for game developers or Map Creators to creatin
 - item
 
 ### Version alpha 1.0.0 (8 September 2019)
-- base awfaw
+- switch to web app 
+- switch map visualization from divs to canvas
 
-
+### Prototype 1.0.0 (December 2018)
+- create entry panel 
+- create base routing to /creator
+- add menu bar
+- generate map by divs
+- set up desktop version project in electron
