@@ -16,7 +16,7 @@ export const NotFound: React.FC = () => {
         <ComeBack
           addedClass='t-paragraph2Normal'
           url=''
-          description='Click here to come back to Angotia Map Creator'
+          description='Click here to come back to Angotia World Creator'
         />
       </article>
     </div>

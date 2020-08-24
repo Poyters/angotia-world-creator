@@ -1,11 +1,11 @@
 {
   "comeBack": "come back to creator",
   "toHelp": "go to help",
-  "title": "features",
+  "title": "Features",
   "description": "Below you can find precisly feature descriptions",
   "creatorPanel": {
     "title": "Creator Panel",
-    "exportOption": "Export - export created board to AMC admins",
+    "exportOption": "Export - export created board to AWC admins",
     "saveOption": "Save - save on your computer disc",
     "layers": "Layers - click to toggle layers backgroundImage, vertices, mobs, ncpc, decorations, buildings, subsoils)",
     "bgImage": "Background Image - set background image, for instance: hand-painted subsoil",
@@ -21,7 +21,7 @@
   "creator": {
     "title": "Creator",
     "notification": "Notification system provides notifications about current actions (left bottom corner)",
-    "logIn": "AMC - run only when you are log in (Poyters account). Here is auto-save (like in google disc)",
+    "logIn": "AWC - run only when you are log in (Poyters account). Here is auto-save (like in google disc)",
     "bookmarks": "Bookmarks - divides images source into smaller bookmarks depends on utility, eg. (npc, mob, decoration, building subsoil etc)",
     "imgsSource": "Images source (of chose bookmark) - gets images from database. These images are using to create map. At load larger image than field square it will be cut into smaller images (equal to field size). Also, at load images are loaded in queue (first fields and then squares)",
     "bookmarkLayers": "Bookmarks are connected to layers at the board. It means that pictures from specific bookmarks are setted below or above others. Here is the list (from number one - at the top, to the bottom): ",

@@ -22,7 +22,7 @@ export const CreatorPanel: React.FC = () => {
     <div className="optionsPanelWrapper">
       <nav className="optionsPanel">
         <header className="optionsPanel__title">
-          <span> AMC </span>
+          <span> AWC </span>
         </header>
         <Menu type='map'/>
         <ul className="optionsPanel__options">

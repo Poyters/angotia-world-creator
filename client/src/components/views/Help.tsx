@@ -25,7 +25,7 @@ export const Help: React.FC = () => {
           </div>
           <div className="g-sectionNav__elem g-sectionNav__elem--page t-paragraph6Normal">
             <Link to={`/${lang}/${routes.features}`}>
-              { help?.toFeatures }
+              { help?.goToFeatures }
             </Link>
           </div>
         </nav>

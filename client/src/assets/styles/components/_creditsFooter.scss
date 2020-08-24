@@ -31,13 +31,13 @@
 		}
 
 		&:before {
-			left: -8px;
+			left: -7px;
 			border-width: 0 8px 34px 0;
 			border-color: transparent $decorationColor2 transparent transparent;
 		}
 
 		&:after {
-			right: -8px;
+			right: -7px;
 			border-width: 34px 0 0 8px;
 			border-color: transparent transparent transparent $decorationColor2;
 		}

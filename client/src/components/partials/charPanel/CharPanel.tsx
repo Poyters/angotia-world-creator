@@ -8,7 +8,7 @@ export const CharPanel: React.FC = () => {
     <div className="optionsPanelWrapper">
       <nav className="optionsPanel">
         <header className="optionsPanel__title">
-          <span> AMC </span>
+          <span> AWC </span>
         </header>
         <Menu type='char' />
         <ul className="optionsPanel__options">

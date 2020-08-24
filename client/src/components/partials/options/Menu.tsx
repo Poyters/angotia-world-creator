@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { SaveJsonOption } from './SaveJsonOption';
 import { ExportToAngotia } from './ExportToAngotia';
+import appConfig from '../../../assets/configs/appConfig.json';
 
 
 interface IMenu {
@@ -46,6 +47,11 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 						{ menu?.license }
 					</Link>
 				</li>
+				<li> 
+					<Link to={`/${lang}/${routes.features}`}>
+						{ menu?.features }
+					</Link>
+				</li>
 				<li> { menu?.catalogs } </li>
 				<li className="separator">
 					<Link to={`/${lang}/${routes.home}`}>
@@ -53,9 +59,9 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 					</Link>
 				</li>
 				<li> 
-					<Link to='http://poyters.pl'>
+					<a href={appConfig.exitLink}>
 						{ menu?.exit }
-					</Link>
+					</a>
 				</li>
 			</ul>
 		</nav>

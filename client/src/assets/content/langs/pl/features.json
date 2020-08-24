@@ -5,7 +5,7 @@
   "description": "Poniżej znajdziesz dokładny opis właściwości programu",
   "creatorPanel": {
     "title": "Panel Kreatora",
-    "exportOption": "Export - wyeksportuj swoją mapę do administracji AMC",
+    "exportOption": "Export - wyeksportuj swoją mapę do administracji AWC",
     "saveOption": "Zapis - zapisuje mapę na dysku Twojego komputera",
     "layers": "Warstwy - kliknij aby zmienić widoczność danej warstwy",
     "bgImage": "Obraz tła - ustaw obraz tła, na przykład: ręcznie malowane podłoża",
@@ -21,7 +21,7 @@
   "creator": {
     "title": "Kreator",
     "notification": "System notyfikacji zapewnia notyfkiacje na temat obecnie przeprowadzanych akcji (lewy dolny róg)",
-    "logIn": "AMC - działa jedynie poprzez zalogowanie się (Konto Poyters). Mamy auto-zapis, więc nie musisz się martwić, o swój progress",
+    "logIn": "AWC - działa jedynie poprzez zalogowanie się (Konto Poyters). Mamy auto-zapis, więc nie musisz się martwić, o swój progress",
     "bookmarks": "Zakładki - wszystkie obrazy są podzielone według kategorii, na przykład: npc, mob, dekoracje, podłoża, budynki itp",
     "imgsSource": "Obrazy (z wybranej zakładki) - bazują na produkcyjnej bazie danych. One są używane do tworzenia wszystkich map. Możesz również załadować swoje własne obrazy. Jeśli łądujesz obraz większy niż rozmiar jednego pola, to będzie on podzielony na mniejsze kawałki.",
     "bookmarkLayers": "Zakładki są powiązane z wartstwami mapy. Oznacza to, że obrazy z jednej zakłądki mogą pojawiać się pod lub nad drugą Poniżej znajduje się kolejność zakładek (od numeru jeden - najwyżej, do najniższej): ",

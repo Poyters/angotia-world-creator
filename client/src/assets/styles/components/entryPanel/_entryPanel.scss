@@ -14,13 +14,13 @@
 
     text-align: center;
 
+    & label {
+      cursor: pointer;
+    }
+
     & a, & > button {
       display: block; 
       outline: none; 
-
-      & label {
-        cursor: pointer;
-      }
     }
 
     & > button {

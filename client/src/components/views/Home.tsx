@@ -10,7 +10,7 @@ export const Home: React.FC = () => {
   return (
     <div role="presentation" className="g-container g-container--borders">
       <SectionHeader 
-        headerTxt="Angotia Map Creator"
+        headerTxt="Angotia World Creator"
       />
       <div role="presentation" className="g-wrapper">
         <EntryPanel />
