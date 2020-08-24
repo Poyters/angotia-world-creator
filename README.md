@@ -1,4 +1,4 @@
-# Angotia Map Creator
+# Angotia World Creator
 
 Angotia World Creator (AWC) is tool for game developers or World Creators to creating fully functionally boards and characters for Angotia game. AWC provides professional UI and rapid work from browser. User can easly create board that is compress to svg (all graphic of board) and json file which contains all actions like, mobs, npcs, passage to another locations, blocked fields etc.
 
