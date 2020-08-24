@@ -1,31 +1,61 @@
 {
   "name": "angotia-map-creator",
-  "version": "1.0.0",
-  "description": "Angotia Map Craetor (AMC) is tool for game developers or Map Creators to creating fully functionally boards for Angotia game. AMC provides professional UI and rapid work. User can easly create board that is compress to svg (all graphic of board) and json file which contains all actions like, mobs, npcs, passage to another locations, blocked fields etc.",
-  "main": "index.js",
+  "version": "0.1.13",
+  "private": true,
   "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0"
+    "@apollo/react-hooks": "^3.1.5",
+    "@testing-library/react": "^9.5.0",
+    "@types/jest": "24.0.6",
+    "@types/node": "11.9.4",
+    "@types/react": "16.8.3",
+    "@types/react-dom": "16.8.2",
+    "apollo-boost": "^0.4.9",
+    "camelcase-keys": "^6.2.2",
+    "global": "^4.3.2",
+    "graphql": "^15.1.0",
+    "jest": "^25.3.0",
+    "node-gyp": "^5.1.0",
+    "node-sass": "^4.13.1",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "^3.4.1",
+    "redux": "^4.0.5",
+    "stylus": "^0.54.5",
+    "typescript": "^3.8.3",
+    "uuid": "^3.4.0"
   },
   "scripts": {
-    "build": "babel src -d dist",
-    "start": "npm run build && nodemon dist/server.js",
-    "serve": "npm run build && node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "./node_modules/.bin/eslint 'src/**'",
+    "lint-auto-fix": "./node_modules/.bin/eslint --fix 'src/**'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RafalKostecki/angotia-map-creator.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RafalKostecki/angotia-map-creator/issues"
-  },
-  "homepage": "https://github.com/RafalKostecki/angotia-map-creator#readme"
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@types/webpack-env": "^1.15.1",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "redux-mock-store": "^1.5.4"
+  }
 }
