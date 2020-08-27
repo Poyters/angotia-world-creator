@@ -9,6 +9,8 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Fix go to features menu item in help view
 - Delete express api
 - Handling empty matrix errors
+- Treat dialogs that point to themselves as invalid
+
 
 ### Version 1.0.0 (17 July 2020)
 - Add multiple options to save maps and chars (production DB or local json)
@@ -31,6 +33,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Add user visibility range at map
 - Create guard for max size added images
 - Create SE map layer
+
 
 ### Version beta 1.0.0 (10 March 2020)
 - Add conditionally dialogs

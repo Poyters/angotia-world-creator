@@ -18,9 +18,21 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     availableIds.push(charConfig?.dialogExit);
   }
 
+
   const isInvalid: boolean = connectedIds.some(el => !availableIds.includes(el)) || 
     hasInvalidConditions(beginDialog);
   if (isInvalid) connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);
+
+  // Dialog points to itself
+  if (connectedIds.includes(beginID)) {
+    const index = connectedIds.indexOf(beginID);
+
+    if (index > -1) {
+      connectedIds.splice(index, 1);
+    }
+
+    connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);
+  }
 
   return connectedIds;
 };

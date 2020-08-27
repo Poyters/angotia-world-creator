@@ -12,14 +12,14 @@ describe("findConnectedDialog script", () => {
         {
           id: '52352',
           dialog: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
-          next: 2,
+          next: '2',
           action: '',
           condition: 'TIME_MORE_THAN_21'
         },
         {
           id: '412',
           dialog: 'player response/dialog 1',
-          next: 3, 
+          next: '3', 
           action: '',
           condition: ''
         }
@@ -33,7 +33,7 @@ describe("findConnectedDialog script", () => {
         {
           id: '52352',
           dialog: 'Show my ur shop',
-          next: 1,
+          next: '1',
           action: 'OPEN_SHOP', 
           condition: 'INVALID'
         }
@@ -47,7 +47,7 @@ describe("findConnectedDialog script", () => {
         {
           id: 'afwaw23',
           dialog: 'Show my ur shop',
-          next: 1,
+          next: '1',
           action: 'OPEN_SHOP', 
           condition: ''
         }
@@ -62,6 +62,23 @@ describe("findConnectedDialog script", () => {
           id: 'afwaw23',
           dialog: 'Show my ur shop',
           next: '654',
+          action: 'OPEN_SHOP', 
+          condition: ''
+        }
+      ],
+      connectedDialogs: []
+    }
+  ];
+
+  const dataSet1: IDialog[] = [
+    {
+      id: '4',
+      npc: 'example char dialog number two',
+      player: [
+        {
+          id: 'afwaw23',
+          dialog: 'Show my ur shop',
+          next: '4',
           action: 'OPEN_SHOP', 
           condition: ''
         }
@@ -92,5 +109,9 @@ describe("findConnectedDialog script", () => {
 
   it('Give invalid dialog; beginId: 2/ conditions', () => {
     expect(findConnectedDialog(dataSet, '2')).toEqual(['1', `${charConfig.invalidPrefix}2`]);
+  });
+
+  it('Dialog points to itself; one dialog', () => {
+    expect(findConnectedDialog(dataSet1, '4')).toEqual([`${charConfig.invalidPrefix}4`]);
   });
 });
