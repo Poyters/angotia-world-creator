@@ -9,7 +9,7 @@ export const camelCaseToUnderscore = (obj: any): any => {
   for (let oldName in objCopy){
     const newName: string = oldName.replace(/([A-Z])/g, key => `_${key.toLowerCase()}`);
 
-    if (newName != oldName) {
+    if (newName !== oldName) {
       if (objCopy.hasOwnProperty(oldName)) {
         objCopy[newName] = objCopy[oldName];
         delete objCopy[oldName];
