@@ -27,7 +27,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
         const yShift: number = index === 2 || index === 3 ? 1 : 0;
 
         // generate contentItem only from not empty matrix squares
-        if (square != 0) { 
+        if (square !== 0 && square !== '0') { 
           let contentItemValue: string | number = '';
 
           // square is a image

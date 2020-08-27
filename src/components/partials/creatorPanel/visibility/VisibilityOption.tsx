@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { VisibilityPopup } from './VisibilityPopup';
 import { ContentContext } from '../../../../Template';
@@ -8,8 +7,7 @@ import { ContentContext } from '../../../../Template';
 export const VisibilityOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<Boolean>(false);
-    const range: number = useSelector(state => state.map.visibilityRange);
-
+    
     return (
         <>
             { isPopup ? ReactDOM.createPortal(
