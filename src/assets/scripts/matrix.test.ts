@@ -21,6 +21,14 @@ describe("updateMatrixByTheOther script", () => {
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
 	];
 
+	it("updateMatrixByTheOther is function", () => {
+    expect(typeof updateMatrixByTheOther).toEqual('function');
+	});
+
+	it("updateMatrixByTheOther catch empty matrix error", () => {
+		expect(updateMatrixByTheOther).toThrow(Error);
+	});
+
 	it("Update empty matrix by the other", () => {
 		const updatedMatrix: Array<[]> = updateMatrixByTheOther(emptyrootMatrix, updateMatrix, 1);
     expect(updatedMatrix).toEqual(updateMatrix);
@@ -41,7 +49,15 @@ describe("matrixToIds script", () => {
 		[[[1, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 1], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[1, 0], [0, 0]]]
-  ];
+	];
+	
+	it("matrixToIds is function", () => {
+    expect(typeof matrixToIds).toEqual('function');
+	});
+
+	it("matrixToIds return empty array", () => {
+    expect(matrixToIds([])).toEqual([]);
+	});
     
 	it("Update empty matrix by the other", () => {
 		const squareIds: ISquareData[] = matrixToIds(matrix);

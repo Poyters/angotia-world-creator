@@ -22,10 +22,15 @@ export const markSquare = (
   fillColor: string, 
   fillStyle?: string
 ) => {
+  if (!sourceMatrix || sourceMatrix.length === 0) {
+    throw new Error('Cannot mark square on empty matrix');
+  }
+
   const storeData = store.getState();
   const selectMatrix: Array<[]> = deepCopy(storeData.ui.select.matrix);
   const sourceMatrixCopy: Array<[]> = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1;
+  
   if (
     (fillStyle === 'image' || fillStyle === 'vertexWeight') && 
     pressedKey !== creatorConfig.secondOptionKeyCode

@@ -8,6 +8,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Rename Angotia Map Creator to Angotia World Creator
 - Fix go to features menu item in help view
 - Delete express api
+- Handling empty matrix errors
 
 ### Version 1.0.0 (17 July 2020)
 - Add multiple options to save maps and chars (production DB or local json)

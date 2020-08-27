@@ -8,6 +8,13 @@ export const updateMatrixByTheOther = (
 	upgradeMatrix: Array<IPoint[]>, 
 	setValue: number | string
 ): Array<[]> => {
+	if (
+		(!rootMatrix || rootMatrix.length === 0) ||
+		(!upgradeMatrix || upgradeMatrix.length === 0)
+	) {
+    throw new Error('Cannot update matrix by empty');
+	}
+	
 	const copyOfRootMatrix: Array<IPoint[]> = deepCopy(rootMatrix);
 	const copyOfUpgradeMatrix: Array<[]> = deepCopy(upgradeMatrix);
 
@@ -38,6 +45,8 @@ export const updateMatrixByTheOther = (
 
 
 export const matrixToIds = (matrix: any[]): ISquareData[] => {
+	if (!matrix || matrix.length === 0) return [];
+
 	const copyOfmatrix: Array<any> = deepCopy(matrix);
 	const squareIds: ISquareData[] = [];
   

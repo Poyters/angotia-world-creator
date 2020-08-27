@@ -8,8 +8,12 @@ describe("markSquare script", () => {
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
 	];
 
-	it("Update empty matrix by the other", () => {
-    	expect(typeof markSquare).toEqual('function');
+	it("markSquare is function", () => {
+    expect(typeof markSquare).toEqual('function');
+	});
+
+	it("markSquare catch empty matrix error", () => {
+		expect(markSquare).toThrow(Error);
 	});
 
 });
