@@ -138,7 +138,8 @@
     "newPlayerDialog": "Nowy dialog gracza",
     "submit": "Potwierdź",
     "edit": "Edytuj dialog",
-    "id": "ID - wygenerowane"
+    "id": "ID - wygenerowane",
+    "playerDialogErr": "Musisz dodać minimum jedną odpowiedź gracza"
   },
   "editPlayer": {
     "title": "Edytuj dialog gracza",

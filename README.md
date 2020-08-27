@@ -12,6 +12,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Treat dialogs that point to themselves as invalid
 - Load panels update data in real-time. It makes each user of program data version stick to each other
 - Fix changing dialog id during the creation process
+- A new dialog requires at least one player response
 
 
 ### Version 1.0.0 (17 July 2020)

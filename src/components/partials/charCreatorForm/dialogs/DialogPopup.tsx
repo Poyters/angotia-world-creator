@@ -18,6 +18,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) =
   const { char, notifications } = useContext(ContentContext);
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
+  const [playerDialogErr, setPlayerDialogErr] = useState<boolean>(false);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
@@ -33,6 +34,17 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) =
     }
     else setNpcTextErr(false);
   }, [npcText]);
+
+  useEffect((): void => {
+    if (
+      temponaryPlayerDialogs.length === 0 || 
+      !temponaryPlayerDialogs
+    ) {
+      setPlayerDialogErr(true);
+    }
+    else setPlayerDialogErr(false);
+  }, [temponaryPlayerDialogs]);
+
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -100,13 +112,20 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) =
             </span>
           ) : null
         }
-        <AddTemponaryPlayerDialog/>     
+        <AddTemponaryPlayerDialog/>    
+        {
+          (playerDialogErr) ? (
+            <span className="insertPopup--error">
+              { char?.dialogPopup?.playerDialogErr }
+            </span>
+          ) : null
+        } 
 
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
           onClick={(): void => submitHandler()} 
-          disabled={npcTextErr}
+          disabled={npcTextErr || playerDialogErr}
         > 
           { char?.dialogPopup?.submit }
         </button>

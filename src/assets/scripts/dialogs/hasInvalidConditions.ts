@@ -15,5 +15,6 @@ export const hasInvalidConditions = (dialog: IDialog | undefined): boolean => {
   });
 
   if (clearPlayerDialogs.length === 0 && conditionDialogs.length > 0) return true;
-  else return false;
+  
+  return false;
 };

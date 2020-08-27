@@ -138,7 +138,8 @@
     "newPlayerDialog": "New player dialog",
     "submit": "submit",
     "edit": "Edit dialog",
-    "id": "ID - auto generated"
+    "id": "ID - auto generated",
+    "playerDialogErr": "You need to add at least one player response"
   },
   "editPlayer": {
     "title": "Edit player dialog",
