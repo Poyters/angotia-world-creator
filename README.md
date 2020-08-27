@@ -10,6 +10,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Delete express api
 - Handling empty matrix errors
 - Treat dialogs that point to themselves as invalid
+- Load panels update data in real-time. It makes each user of program data version stick to each other
 
 
 ### Version 1.0.0 (17 July 2020)

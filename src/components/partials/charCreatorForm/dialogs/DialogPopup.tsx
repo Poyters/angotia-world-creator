@@ -37,13 +37,13 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-        if (event.key === 'Escape') closePopupHandler();
-        else if (event.key === 'Enter') submitHandler();
+      if (event.key === 'Escape') closePopupHandler();
+      else if (event.key === 'Enter') submitHandler();
     };
 
     document.addEventListener('keydown', keyPressHandler);
     return () => {
-        document.removeEventListener('keydown', keyPressHandler);
+      document.removeEventListener('keydown', keyPressHandler);
     };
   });
 

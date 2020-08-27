@@ -19,12 +19,13 @@ interface IProductionDataList {
 
 export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
   const { lang, routes } = useContext(ContentContext);
-  const char = useQuery(ALL_CHARS);
-  const map = useQuery(ALL_MAPS);
+  const char = useQuery(ALL_CHARS, {pollInterval: 1000});
+  const map = useQuery(ALL_MAPS, {pollInterval: 1000});
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
   if (char.loading || map.loading) return <p> Loading... </p>;
+  if (char.error || map.error) return <p> Couldn't load data </p>;
 
   const loadData = (data) => {
     switch (type) {
