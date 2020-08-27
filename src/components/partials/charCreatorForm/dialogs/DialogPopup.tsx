@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import uuid from 'uuid/v4';
 import { ActionInputField } from '../../ActionInputField';
 import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
@@ -12,11 +11,11 @@ import { IStore } from '../../../../assets/interfaces/store';
 
 interface IDialogPopup {
   togglePopup: Function
+  dialogId: string
 }
 
-export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup }) => {
+export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) => {
   const { char, notifications } = useContext(ContentContext);
-  const dialogId: string = uuid();
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);

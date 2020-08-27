@@ -11,6 +11,7 @@ import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
 import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogs';
 import { IStore } from '../../../../assets/interfaces/store';
+import uuid from 'uuid/v4';
 
 
 interface IDialogs {
@@ -42,7 +43,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
         />, document.body
       ) : null}
       { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
-        <DialogPopup togglePopup={setIsPopupOpen}/>, document.body
+        <DialogPopup togglePopup={setIsPopupOpen} dialogId={uuid()}/>, document.body
       ) : null}
       <div className="dialogs">
         <nav className="dialogs__nav">
