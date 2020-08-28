@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import uuid from 'uuid/v4';
 import './assets/styles/index.scss';
 import { Home } from './components/views/Home';
-import { Creator } from './components/views/Creator';
+import { MapCreator } from './components/views/MapCreator';
 import { CharCreator } from './components/views/CharCreator';
 import { Help } from './components/views/Help';
 import { License } from './components/views/License';
@@ -57,7 +57,7 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
               );
             })
           }
-          <Route path={`/${paramLang}/${content.routes.creator}`} component={Creator} />
+          <Route path={`/${paramLang}/${content.routes.creator}`} component={MapCreator} />
           <Route path={`/${paramLang}/${content.routes.char}`} component={CharCreator} />
           <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
           <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
