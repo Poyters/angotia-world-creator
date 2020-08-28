@@ -84,7 +84,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     const updatedDialogs = dialogsData.map((dlg: IDialog) => {
       if (dlg.id === dialogId) {
         dlg.player = dlg.player.filter(player => {
-          if (player.id !== id) return player;
+          return player.id !== id;
         });
       }
 

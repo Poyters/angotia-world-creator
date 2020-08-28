@@ -139,13 +139,11 @@ export const EntryPanel: React.FC = () => {
       </li>
       <li className="entryPanel__separator"> </li>
       <li>
-        <a href="#">
-          <label 
-            className="t-paragraph1MediumLight"
-            onClick={newCharInstanceHanlder}>
-            { entryPanel?.createChar }
-          </label>
-        </a>
+        <label 
+          className="t-paragraph1MediumLight"
+          onClick={newCharInstanceHanlder}>
+          { entryPanel?.createChar }
+        </label>
       </li>
       <li>
         <label 

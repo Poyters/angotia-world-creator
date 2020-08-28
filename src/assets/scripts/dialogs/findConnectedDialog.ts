@@ -20,8 +20,6 @@ export const findConnectedDialog = (dataSet: IDialog[], beginID: string): string
     hasInvalidConditions(beginDialog);
   if (isInvalid) connectedIds.push(`${charConfig.invalidPrefix}${beginID}`);
 
-  console.log(beginID, connectedIds);
-  console.log(hasInvalidConditions(beginDialog));
   // Dialog points to itself
   if (
     connectedIds.includes(beginID)

@@ -13,8 +13,8 @@ export const matrixToContentList = (matrix: any): IContentList => {
 
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
 
-  copyOfmatrix.map((yAxis: Array<number>, y:number) => {
-    yAxis.map((field: number, x: number) => {
+  copyOfmatrix.forEach((yAxis: Array<number>, y:number) => {
+    yAxis.forEach((field: number, x: number) => {
       const squareMatrix: Array<number> = [
         field[0][0],
         field[0][1],
@@ -22,7 +22,7 @@ export const matrixToContentList = (matrix: any): IContentList => {
         field[1][1]
       ];
 
-      squareMatrix.map((square: number | string, index: number) => {
+      squareMatrix.forEach((square: number | string, index: number) => {
         const xShift: number = index === 1 || index === 3 ?  1 : 0;
         const yShift: number = index === 2 || index === 3 ? 1 : 0;
 

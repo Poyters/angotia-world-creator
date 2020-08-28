@@ -50,8 +50,8 @@ export const matrixToIds = (matrix: any[]): ISquareData[] => {
 	const copyOfmatrix: Array<any> = deepCopy(matrix);
 	const squareIds: ISquareData[] = [];
   
-	copyOfmatrix.map((yAxis: Array<number>, y:number) => {
-	  yAxis.map((field: number, x: number) => {
+	copyOfmatrix.forEach((yAxis: Array<number>, y:number) => {
+	  yAxis.forEach((field: number, x: number) => {
 		const squareMatrix: Array<number> = [
 		  field[0][0],
 		  field[0][1],
@@ -59,7 +59,7 @@ export const matrixToIds = (matrix: any[]): ISquareData[] => {
 		  field[1][1]
 		];
   
-		squareMatrix.map((square: number | string, index: number) => {
+		squareMatrix.forEach((square: number | string, index: number) => {
 			// Dont check type
 		  if (square === 1 || square === '1') {
 			const xShift: number = index === 1 || index === 3 ? 1 : 0;

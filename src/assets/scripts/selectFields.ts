@@ -34,8 +34,8 @@ const selectField = (cursorPosition: IPoint) => {
   };
 
   if (
-    !mapNetsStatus.field && 
-    !mapNetsStatus.square || 
+    (!mapNetsStatus.field && 
+    !mapNetsStatus.square) || 
     selectType === 'none'
   ) return; //no nets, no select
 

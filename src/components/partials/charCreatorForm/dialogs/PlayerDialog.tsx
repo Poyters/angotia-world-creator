@@ -37,7 +37,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
 
   const deleteDialog = (): void => {
     const filteredDialogs = temponaryPlayerDialogs.filter(dialog => {
-      if (dialog.id !== playerId) return dialog;
+      return dialog.id !== playerId;
     });
 
     dispatch(changeTemponaryPlayerDialogs(filteredDialogs));

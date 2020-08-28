@@ -19,7 +19,6 @@ export const BlockOption: React.FC<IBlockOption> = ({
 }) => {
 	const { creator } = useContext(ContentContext);
 	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
-	const state = useSelector((state: IStore) => state);
 	const fillColor = creatorConfig.blockSquareColor;
 	const selectMatrix = useSelector((state: IStore) => state.ui.select.matrix);
 
@@ -29,7 +28,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 			if (selectNote) addNotification(selectNote, 'warning');
 			return;
 		}
-		console.log(state);
+
 		markSquare(
 			blockMatrix, 
 			'MAP_BLOCK_CANVAS', 
