@@ -29,7 +29,7 @@ export const LayersOption: React.FC = () => {
 
         setLayersToRender(ltr);
 
-    }, []);
+    }, [creator]);
 
     let isBackgroundVisible: boolean = true;
     const toggleBackground = (): void => {

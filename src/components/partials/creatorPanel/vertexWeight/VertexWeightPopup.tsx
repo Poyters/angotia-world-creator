@@ -38,7 +38,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
         }
         else setError(false);
 
-    }, [vertexWeightValue]);
+    }, [vertexWeightValue, vertexWeightMatrix]);
 
     useEffect(() => {
         const keyPressHandler = (event): void => {

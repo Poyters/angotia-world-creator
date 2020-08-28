@@ -40,7 +40,7 @@ export const Map: React.FC = () => {
 
     setMapTop(marginTop);
     setMapLeft(marginLeft);
-  }, []);
+  }, [mapSize, fieldSize]);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const generateLayers = () => {
