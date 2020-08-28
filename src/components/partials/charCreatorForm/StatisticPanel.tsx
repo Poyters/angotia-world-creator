@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Arrow } from '../Arrow';
 import { ActionInputField } from '../ActionInputField';
 import { ContentContext } from '../../../Template';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';

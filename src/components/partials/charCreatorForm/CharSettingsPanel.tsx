@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Arrow } from '../Arrow';
 import { ActionMaxMinField } from '../ActionMaxMinField';
 import { ChooseButtons } from '../ChooseButtons';
 import { ContentContext } from '../../../Template';

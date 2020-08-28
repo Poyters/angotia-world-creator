@@ -23,7 +23,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   );
 
   const updateDialog = (): void => {
-    temponaryPlayerDialogs.filter(data => {
+    temponaryPlayerDialogs.forEach(data => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
         data.next = next;

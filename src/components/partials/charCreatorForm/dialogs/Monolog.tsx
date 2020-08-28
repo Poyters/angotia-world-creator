@@ -21,7 +21,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
 
   const deleteMonolog = (id: string): void => {
     const filteredMonologs: IMonolog[] = monologsData.filter((monolog: IMonolog) => {
-      if (monolog.id !== id) return monolog;
+      return monolog.id !== id;
     });
 
     dispatch(changeMonologs(filteredMonologs));

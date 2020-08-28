@@ -21,9 +21,8 @@ export const MapCreator: React.FC = () => {
     const newEmptyMatrix = generateEmptyMapMatrix();
 
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
-
     drawLoadedMap();
-  }, []);
+  }, [dispatch]);
 
   return (
     <article className="creatorWrapper">

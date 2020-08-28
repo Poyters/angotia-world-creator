@@ -28,7 +28,7 @@ export const Dialog: React.FC<IDialog> = ({
 
   const deleteDialog = (id: string): void => {
     const filteredDialogs = dialogsData.filter(dialog => {
-      if (dialog.id !== id) return dialog;
+      return dialog.id !== id;
     });
 
     dispatch(changeDialogs(filteredDialogs));

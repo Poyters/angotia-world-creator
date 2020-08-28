@@ -9,7 +9,6 @@ import { Redirect } from 'react-router';
 import { ContentContext } from '../../../Template';
 import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
-import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 
 

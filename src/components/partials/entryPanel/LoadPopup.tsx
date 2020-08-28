@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext} from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { loadCharData } from '../../../store/actions/charActions';
-import { drawLoadedMap } from '../../../assets/scripts/drawLoadedMap';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { ProductionDataList } from './ProductionDataList';

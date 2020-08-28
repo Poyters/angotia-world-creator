@@ -60,7 +60,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
   };
 
   const editMonolog = (): void => {
-    monologsData.filter(monolog => {
+    monologsData.forEach(monolog => {
       if (monolog.id === monologId) {
         monolog.content = monologContent;
       }
