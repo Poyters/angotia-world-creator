@@ -86,7 +86,7 @@ const draw = (): void => {
 };
 
 
-const colorSquares = (rectanglePosition) => {
+const colorSquares = async (rectanglePosition) => {
   const storeData = store.getState();
   const selectMatrix: any[] = [...storeData.ui.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
@@ -125,13 +125,11 @@ const colorSquares = (rectanglePosition) => {
   }
 
   selectCanvasSquare(selectMatrix, rectangleSquarePoints.topLeft);
-  store.dispatch(changeMapSelectMatrix(selectMatrix));
+  await store.dispatch(changeMapSelectMatrix(selectMatrix));
 
-  setTimeout((): void => {
-    colorBasedOnMatrix(
-      selectMatrix, 
-      'MAP_SELECT_CANVAS', 
-      creatorConfig.selectColor
-    ); //TODO: make it async
-  }, 20);
+  colorBasedOnMatrix(
+    selectMatrix, 
+    'MAP_SELECT_CANVAS', 
+    creatorConfig.selectColor
+  ); //TODO: make it async
 };

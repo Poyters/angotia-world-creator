@@ -1,6 +1,7 @@
 import { IMapSize } from '../../interfaces/map.interface';
 import { IPassageLocation } from '../../interfaces/passage.interface';
 import { IVertexWeight } from '../../interfaces/vertex.interface';
+import { IStore } from '../../interfaces/store.interface';
 
 
 export const setMapSizes = (sizes: IMapSize) => ({
@@ -74,8 +75,7 @@ export const changeMapVertexWeights = (weights: IVertexWeight[]) => ({
     weights
 });
 
-// TODO: change :any to mapReduce interface
-export const loadMapData = (mapData: any) => ({
+export const loadMapData = (mapData: IStore) => ({
     type: 'LOAD_MAP_DATA',
     mapData
 });
