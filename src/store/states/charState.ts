@@ -1,8 +1,8 @@
 import uuid from 'uuid/v4';
-import { CharState } from '../../assets/types/charState';
+import { ICharState } from '../../assets/interfaces/charState.interface';
 
 
-export const charState: CharState = {
+export const charState: ICharState = {
     name: '',
     id: '',
     internalId: uuid(),

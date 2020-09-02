@@ -17,7 +17,7 @@ import {
 } from '../../../store/actions/charActions';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 
 
 export const CharCreatorForm: React.FC = () => {

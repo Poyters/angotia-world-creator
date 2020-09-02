@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IDialogPopup {

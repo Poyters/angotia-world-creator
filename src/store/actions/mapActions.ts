@@ -1,6 +1,6 @@
-import { IMapSize } from '../../assets/interfaces/map';
-import { IPassageLocation } from '../../assets/interfaces/passage';
-import { IVertexWeight } from '../../assets/interfaces/vertex';
+import { IMapSize } from '../../assets/interfaces/map.interface';
+import { IPassageLocation } from '../../assets/interfaces/passage.interface';
+import { IVertexWeight } from '../../assets/interfaces/vertex.interface';
 
 
 export const setMapSizes = (sizes: IMapSize) => ({

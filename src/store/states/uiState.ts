@@ -1,7 +1,7 @@
-import { UiState } from '../../assets/types/uiState';
+import { IUiState } from '../../assets/interfaces/uiState.interface';
 
 
-export const uiState: UiState = {
+export const uiState: IUiState = {
     actionNote: [],
     select: {
         type: "none", //none, square, field, mouse

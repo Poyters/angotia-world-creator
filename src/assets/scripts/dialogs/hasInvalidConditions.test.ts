@@ -1,5 +1,5 @@
 import { hasInvalidConditions } from './hasInvalidConditions';
-import { IDialog } from '../../interfaces/dialogs';
+import { IDialog } from '../../interfaces/dialogs.interface';
 
 
 describe("hasInvalidConditions script", () => {

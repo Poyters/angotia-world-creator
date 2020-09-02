@@ -1,13 +1,13 @@
 export interface IContentList {
-  items: IContentItem[],
+  items: IContentItem[]
   pics: any[]
 }
 
 export interface IContentItem {
-  x: number,
-  y: number,
-  xShift: number,
-  yShift: number,
+  x: number
+  y: number
+  xShift: number
+  yShift: number
   value: string | number
 }
 

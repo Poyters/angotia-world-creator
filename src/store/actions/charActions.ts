@@ -1,8 +1,8 @@
 import { store } from '../../index';
-import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs';
-import { ICharStatistic } from '../../assets/interfaces/char';
-import { IMinMaxField } from '../../assets/interfaces/math';
-import { CharState } from '../../assets/types/charState';
+import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs.interface';
+import { ICharStatistic } from '../../assets/interfaces/char.interface';
+import { IMinMaxField } from '../../assets/interfaces/math.interface';
+import { ICharState } from '../../assets/interfaces/charState.interface';
 
 
 export const changeCharType = (charType: string) => ({
@@ -81,7 +81,7 @@ export const setRespawnTime = (times: IMinMaxField) => ({
   times
 });
 
-export const loadCharData = (data: CharState) => ({
+export const loadCharData = (data: ICharState) => ({
   type: 'LOAD_CHAR_DATA',
   data
 });

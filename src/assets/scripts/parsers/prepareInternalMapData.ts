@@ -1,4 +1,4 @@
-import { MapState } from '../../types/mapState';
+import { IMapState } from '../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { contentListToMatrix } from './contentListToMatrix';
 import { locationListToMatrix } from './locationListToMatrix';
@@ -6,7 +6,7 @@ import { weightListToMatrix } from './weightListToMatrix';
 const camelcaseKeys = require('camelcase-keys');
 
 
-export const prepareInternalMapData = (mapData: MapState | any) => {
+export const prepareInternalMapData = (mapData: IMapState | any) => {
   const dataCopy = deepCopy(mapData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;

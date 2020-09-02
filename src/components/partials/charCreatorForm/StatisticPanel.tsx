@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../ActionInputField';
 import { ContentContext } from '../../../Template';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 import { 
   changeStatistics
 } from '../../../store/actions/charActions';

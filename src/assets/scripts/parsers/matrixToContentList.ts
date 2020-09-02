@@ -1,5 +1,5 @@
 import { deepCopy } from '../utils/deepCopy';
-import { IContentList, IContentItem } from '../../interfaces/contentList';
+import { IContentList, IContentItem } from '../../interfaces/contentList.interface';
 import uuid from 'uuid/v4';
 
 

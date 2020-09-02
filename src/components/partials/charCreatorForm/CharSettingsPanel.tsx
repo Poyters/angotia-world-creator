@@ -8,7 +8,7 @@ import {
 	setTimeOfOccurance,
 	setRespawnTime
 } from '../../../store/actions/charActions';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 
 
 export const CharSettingsPanel: React.FC = () => {

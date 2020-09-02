@@ -1,13 +1,13 @@
-export type UiState = {
-    actionNote: string[],
+export interface IUiState {
+    actionNote: string[]
     select: {
-        type: string,
+        type: string
         matrix: any[]
     },
     net: {
-        field: boolean,
+        field: boolean
         square: boolean
     },
-    language: string,
+    language: string
     statisticPanelIsOpen: boolean
 }

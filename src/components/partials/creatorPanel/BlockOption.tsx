@@ -5,7 +5,7 @@ import { isEmptyMatrix } from '../../../assets/scripts/isEmptyMatrix';
 import { addNotification } from '../../../assets/scripts/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 import { ContentContext } from '../../../Template';
 
 

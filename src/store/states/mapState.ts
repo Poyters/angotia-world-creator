@@ -1,8 +1,8 @@
 import uuid from 'uuid/v4';
-import { MapState } from '../../assets/types/mapState';
+import { IMapState } from '../../assets/interfaces/mapState.interface';
 
 
-export const mapState: MapState = {
+export const mapState: IMapState = {
     id: '',
     internalId: uuid(),
     mapName: 'board name',

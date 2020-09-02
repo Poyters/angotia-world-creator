@@ -1,5 +1,5 @@
-import { IVertexWeight } from '../../interfaces/vertex';
-import { IMapSize } from '../../interfaces/map';
+import { IVertexWeight } from '../../interfaces/vertex.interface';
+import { IMapSize } from '../../interfaces/map.interface';
 import { generateEmptyMapMatrix } from '../map';
 
 

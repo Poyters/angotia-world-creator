@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { IMonolog } from '../../../../assets/interfaces/dialogs';
+import { IMonolog } from '../../../../assets/interfaces/dialogs.interface';
 import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IMonologExplicit extends IMonolog {

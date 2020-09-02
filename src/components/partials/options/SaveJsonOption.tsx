@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { saveFile } from '../../../assets/scripts/files/saveFile';
 import { ContentContext } from '../../../Template';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
 import { addNotification } from '../../../assets/scripts/notifications';

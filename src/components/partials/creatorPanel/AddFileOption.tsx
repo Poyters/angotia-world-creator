@@ -5,7 +5,7 @@ import { setMapBg } from '../../../store/actions/mapActions';
 import { addNotification } from '../../../assets/scripts/notifications';
 import { sizeGuard } from '../../../assets/scripts/files/sizeGuard';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 
 
 export const AddFileOption: React.FC = () => {

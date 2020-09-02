@@ -1,8 +1,8 @@
-import { ISquareData } from './square';
+import { ISquareData } from './square.interface';
 
 export interface IPassageLocation extends ISquareData {
     destination: {
-        mapTargetId: number,
+        mapTargetId: number
         mapTargetCords: number
     }
 }

@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IPlayer } from '../../../../assets/interfaces/dialogs';
+import { IPlayer } from '../../../../assets/interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IPlayerDialog {

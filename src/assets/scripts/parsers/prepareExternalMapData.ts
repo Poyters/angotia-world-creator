@@ -1,10 +1,10 @@
-import { MapState } from '../../types/mapState';
+import { IMapState } from '../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { matrixToContentList } from './matrixToContentList';
 
 
-export const prepareExternalMapData = (mapData: MapState | any) => {
+export const prepareExternalMapData = (mapData: IMapState | any) => {
   let preparedMapData = deepCopy(mapData);
 
   preparedMapData._id = preparedMapData.internalId;

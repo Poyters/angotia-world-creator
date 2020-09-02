@@ -2,11 +2,11 @@ import { store } from '../../index';
 import { setNotification } from '../../store/actions/uiActions';
 import appConfig from '../configs/appConfig.json';
 import { deepCopy } from './utils/deepCopy';
-import { Note } from '../types/notifications';
+import { INote } from '../interfaces/notifications.interface';
 
 
 export const addNotification = (note: string, messageType?: string) => {
-  const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
+  const activeNotes: INote[] = deepCopy(store.getState().ui.actionNote);
 
   // A lack of note text
   if (!note) return;
@@ -22,7 +22,7 @@ export const addNotification = (note: string, messageType?: string) => {
 };
 
 function deleteNote () {
-  const activeNotes: Note[] = deepCopy(store.getState().ui.actionNote);
+  const activeNotes: INote[] = deepCopy(store.getState().ui.actionNote);
   activeNotes.pop();
 
   store.dispatch(setNotification(activeNotes));

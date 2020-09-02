@@ -1,5 +1,5 @@
 import { selectCanvasSquare, selectCanvasField } from './selectFields';
-import { IPoint } from '../interfaces/math';
+import { IPoint } from '../interfaces/math.interface';
 
 
 describe("selectCanvasSquare script", () => {

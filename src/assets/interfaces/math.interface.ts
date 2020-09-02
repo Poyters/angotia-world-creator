@@ -1,9 +1,9 @@
 export interface IPoint {
-	x: number,
+	x: number
 	y: number
 }
 
 export interface IMinMaxField {
-	min: number,
+	min: number
 	max: number
 }

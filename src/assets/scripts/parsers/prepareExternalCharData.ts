@@ -1,9 +1,9 @@
-import { CharState } from '../../types/charState';
+import { ICharState } from '../../interfaces/charState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 
 
-export const prepareExternalCharData = (charData: CharState) => {
+export const prepareExternalCharData = (charData: ICharState) => {
   let preparedCharData = deepCopy(charData);
 
   delete preparedCharData.temponaryPlayerDialogs;

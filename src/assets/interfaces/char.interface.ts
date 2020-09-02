@@ -1,4 +1,4 @@
-import { IMinMaxField } from './math';
+import { IMinMaxField } from './math.interface';
 
 
 export interface ICharStatistic {

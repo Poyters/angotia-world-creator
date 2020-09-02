@@ -9,9 +9,9 @@ import {
     changeMapVertexWeights 
 } from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
-import { ISquareData } from '../../../../assets/interfaces/square';
-import { IVertexWeight } from '../../../../assets/interfaces/vertex';
-import { IStore } from '../../../../assets/interfaces/store';
+import { ISquareData } from '../../../../assets/interfaces/square.interface';
+import { IVertexWeight } from '../../../../assets/interfaces/vertex.interface';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IVertexOption {

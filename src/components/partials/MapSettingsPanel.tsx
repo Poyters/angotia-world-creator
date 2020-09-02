@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from './ActionInputField';
 import { ContentContext } from '../../Template';
 import { setMapDesc, setMinEntryLevel, changeMapName } from '../../store/actions/mapActions';
-import { IStore } from '../../assets/interfaces/store';
+import { IStore } from '../../assets/interfaces/store.interface';
 
 
 export const MapSettingsPanel: React.FC = () => {

@@ -13,8 +13,8 @@ import { NotFound } from './components/views/NotFound';
 import { contents } from './assets/content/langs/index';
 import { changeLang } from './store/actions/uiActions';
 import appConfig from './assets/configs/appConfig.json';
-import { IRouteProps, IMatchParams } from './assets/interfaces/routing';
-import { Icontent } from './assets/interfaces/content';
+import { IRouteProps, IMatchParams } from './assets/interfaces/routing.interface';
+import { Icontent } from './assets/interfaces/content.interface';
 
 
 export let ContentContext;

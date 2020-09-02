@@ -1,9 +1,9 @@
 export interface IMapSize {
-	x: number,
+	x: number
 	y: number
 }
 
 export interface IMapNetStatus {
-    field: boolean,
+    field: boolean
     square: boolean
 }

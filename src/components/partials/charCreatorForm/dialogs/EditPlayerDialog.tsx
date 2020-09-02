@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../store/actions/charActions';
-import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs';
+import { IDialog, IPlayer } from '../../../../assets/interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IEditPlayerDialog {

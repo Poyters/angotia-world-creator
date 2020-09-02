@@ -20,7 +20,7 @@ import {
 	changeMapSeMatrix
 } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 
 
 const bookmarks: string[] = creatorConfig.bookmarks;
@@ -54,7 +54,7 @@ export const FilesPanel: React.FC = () => {
 
 		switch(currBookmark) { 
 			case 'building':
-				bookmarkImages.push(test1); //TODO: get images from database
+				bookmarkImages.push(test1);
 				bookmarkImages.push(test1min);
 				matrixTransformationMethod = changeMapBuildingMatrix;
 				sourceMatrix = buildingMatrix;

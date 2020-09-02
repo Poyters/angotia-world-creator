@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { ContentContext } from '../../../Template';
-import { IStore } from '../../../assets/interfaces/store';
+import { IStore } from '../../../assets/interfaces/store.interface';
 import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';

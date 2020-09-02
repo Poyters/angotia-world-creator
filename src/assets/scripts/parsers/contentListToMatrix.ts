@@ -1,5 +1,5 @@
-import { IContentList } from '../../interfaces/contentList';
-import { IMapSize } from '../../interfaces/map';
+import { IContentList } from '../../interfaces/contentList.interface';
+import { IMapSize } from '../../interfaces/map.interface';
 import { generateEmptyMapMatrix } from '../map';
 
 

@@ -1,7 +1,7 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { IPoint } from '../interfaces/math';
+import { IPoint } from '../interfaces/math.interface';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {

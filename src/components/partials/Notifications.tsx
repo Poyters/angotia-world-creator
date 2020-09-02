@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { IStore } from '../../assets/interfaces/store';
+import { IStore } from '../../assets/interfaces/store.interface';
 import uuid from 'uuid/v4';
 
 

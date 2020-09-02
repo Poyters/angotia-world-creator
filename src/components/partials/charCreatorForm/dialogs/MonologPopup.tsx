@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { ActionInputField } from '../../ActionInputField';
 import { changeMonologs } from '../../../../store/actions/charActions';
-import { IMonolog } from '../../../../assets/interfaces/dialogs';
+import { IMonolog } from '../../../../assets/interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 interface IMonologPopup {

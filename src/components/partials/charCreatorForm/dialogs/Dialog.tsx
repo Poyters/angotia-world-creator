@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
-import { IDialog } from '../../../../assets/interfaces/dialogs';
+import { IDialog } from '../../../../assets/interfaces/dialogs.interface';
 import { changeDialogs } from '../../../../store/actions/charActions';
 import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store';
+import { IStore } from '../../../../assets/interfaces/store.interface';
 
 
 export const Dialog: React.FC<IDialog> = ({ 
