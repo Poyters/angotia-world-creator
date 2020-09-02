@@ -131,5 +131,5 @@ const colorSquares = async (rectanglePosition) => {
     selectMatrix, 
     'MAP_SELECT_CANVAS', 
     creatorConfig.selectColor
-  ); //TODO: make it async
+  );
 };
