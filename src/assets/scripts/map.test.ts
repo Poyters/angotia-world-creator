@@ -1,5 +1,5 @@
 import { generateEmptyMapMatrix } from './map';
-import { isEmptyMatrix } from './isEmptyMatrix';
+import { isEmptyMatrix } from './utils/isEmptyMatrix';
 
 
 describe("generateEmptyMapMatrix script", () => {

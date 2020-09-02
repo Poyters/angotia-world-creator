@@ -1,7 +1,7 @@
-import { store } from '../../index';
-import creatorConfig from '../configs/creatorConfig.json';
-import { colorBasedOnMatrix } from './colorBasedOnMatrix';
-import { deepCopy } from './utils/deepCopy';
+import { store } from '../../../index';
+import creatorConfig from '../../configs/creatorConfig.json';
+import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
+import { deepCopy } from '../utils/deepCopy';
 
 
 const blockSquaresColor = creatorConfig.blockSquareColor;

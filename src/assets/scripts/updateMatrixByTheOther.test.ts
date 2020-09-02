@@ -1,4 +1,4 @@
-import { updateMatrixByTheOther, matrixToIds } from './matrix';
+import { updateMatrixByTheOther } from './updateMatrixByTheOther';
 import { ISquareData } from '../../interfaces/square.interface';
 
 
@@ -39,36 +39,6 @@ describe("updateMatrixByTheOther script", () => {
 			notEmptyRootMatrix, updateMatrix, 1
 		);
     expect(updatedMatrix[0][0]).toEqual([[1, 1], [1, 1]]);
-	});
-	
-});
-
-
-describe("matrixToIds script", () => {
-	const matrix: any[] = [
-		[[[1, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
-		[[[0, 0], [0, 0]], [[0, 1], [0, 0]], [[0, 0], [0, 0]]],
-		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[1, 0], [0, 0]]]
-	];
-	
-	it("matrixToIds is function", () => {
-    expect(typeof matrixToIds).toEqual('function');
-	});
-
-	it("matrixToIds return empty array", () => {
-    expect(matrixToIds([])).toEqual([]);
-	});
-    
-	it("Update empty matrix by the other", () => {
-		const squareIds: ISquareData[] = matrixToIds(matrix);
-		const expectedOutput: ISquareData[] = [
-			{id: "0.0, 0.0", x: 0, xShift: 0, y: 0, yShift: 0}, 
-			{id: "1.1, 1.0", x: 1, xShift: 1, y: 1, yShift: 0}, 
-			{id: "2.0, 2.0", x: 2, xShift: 0, y: 2, yShift: 0}
-		];
-
-		expect(squareIds).toEqual(expectedOutput);
-		expect(squareIds.length).toEqual(3);
 	});
 	
 });

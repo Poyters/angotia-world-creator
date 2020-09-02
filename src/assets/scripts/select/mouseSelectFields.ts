@@ -1,10 +1,10 @@
-import { store } from '../../index';
-import creatorConfig from '../configs/creatorConfig.json';
-import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { IPoint } from '../../interfaces/math.interface';
-import { IRect, IRectanglePosition } from '../../interfaces/figure.interface';
+import { store } from '../../../index';
+import creatorConfig from '../../configs/creatorConfig.json';
+import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
+import { IPoint } from '../../../interfaces/math.interface';
+import { IRect, IRectanglePosition } from '../../../interfaces/figure.interface';
 import { selectCanvasSquare } from './selectFields';
-import { colorBasedOnMatrix } from './colorBasedOnMatrix';
+import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
 
 
 let canvas: any;

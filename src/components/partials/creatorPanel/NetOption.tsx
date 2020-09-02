@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { drawMapNet } from '../../../assets/scripts/drawNetMap';
+import { drawMapNet } from '../../../assets/scripts/draw/drawNetMap';
 import { emptyMapCanvasCtx } from '../../../assets/scripts/map';
 import { addNotification } from '../../../assets/scripts/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';

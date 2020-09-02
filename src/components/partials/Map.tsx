@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { dragElement } from '../../assets/scripts/dragElement';
-import { selectFieldsHandler } from '../../assets/scripts/selectFields';
-import { mouseSelectFields } from '../../assets/scripts/mouseSelectFields';
+import { selectFieldsHandler } from '../../assets/scripts/select/selectFields';
+import { mouseSelectFields } from '../../assets/scripts/select/mouseSelectFields';
 import { IStore } from '../../interfaces/store.interface';
 import uuid from 'uuid/v4';
 

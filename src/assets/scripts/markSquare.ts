@@ -3,7 +3,7 @@ import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from './clearCanvas';
 import { emptyMapCanvasCtx } from './map';
 import { addNotification } from './notifications';
-import { updateMatrixByTheOther } from './matrix';
+import { updateMatrixByTheOther } from './updateMatrixByTheOther';
 import { deepCopy } from './utils/deepCopy';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
