@@ -1,5 +1,5 @@
 import { updateMatrixByTheOther, matrixToIds } from './matrix';
-import { ISquareData } from '../interfaces/square.interface';
+import { ISquareData } from '../../interfaces/square.interface';
 
 
 describe("updateMatrixByTheOther script", () => {

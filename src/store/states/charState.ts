@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import { ICharState } from '../../assets/interfaces/charState.interface';
+import { ICharState } from '../../interfaces/charState.interface';
 
 
 export const charState: ICharState = {

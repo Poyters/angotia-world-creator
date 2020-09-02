@@ -4,7 +4,7 @@ import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
 import { mouseSelectFields } from '../../assets/scripts/mouseSelectFields';
-import { IStore } from '../../assets/interfaces/store.interface';
+import { IStore } from '../../interfaces/store.interface';
 import uuid from 'uuid/v4';
 
 

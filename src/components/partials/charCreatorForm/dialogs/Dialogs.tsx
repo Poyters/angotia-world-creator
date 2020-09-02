@@ -9,8 +9,8 @@ import {
 import { ContentContext } from '../../../../Template';
 import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
-import { IMonolog, IDialog } from '../../../../assets/interfaces/dialogs.interface';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { IMonolog, IDialog } from '../../../../interfaces/dialogs.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 import uuid from 'uuid/v4';
 
 

@@ -1,4 +1,4 @@
-import { IMapState } from '../../interfaces/mapState.interface';
+import { IMapState } from '../../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { contentListToMatrix } from './contentListToMatrix';
 import { locationListToMatrix } from './locationListToMatrix';

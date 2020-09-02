@@ -1,5 +1,5 @@
-import { IPassageLocation } from '../../interfaces/passage.interface';
-import { IMapSize } from '../../interfaces/map.interface';
+import { IPassageLocation } from '../../../interfaces/passage.interface';
+import { IMapSize } from '../../../interfaces/map.interface';
 import { generateEmptyMapMatrix } from '../map';
 
 

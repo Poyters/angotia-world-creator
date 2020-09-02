@@ -2,7 +2,7 @@ import { store } from '../../index';
 import { setNotification } from '../../store/actions/uiActions';
 import appConfig from '../configs/appConfig.json';
 import { deepCopy } from './utils/deepCopy';
-import { INote } from '../interfaces/notifications.interface';
+import { INote } from '../../interfaces/notifications.interface';
 
 
 export const addNotification = (note: string, messageType?: string) => {

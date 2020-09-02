@@ -1,4 +1,4 @@
-import { IMapState } from '../../interfaces/mapState.interface';
+import { IMapState } from '../../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { matrixToContentList } from './matrixToContentList';

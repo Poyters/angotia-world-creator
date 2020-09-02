@@ -1,4 +1,4 @@
-import { Icontent } from '../../../interfaces/content.interface';
+import { Icontent } from '../../../../interfaces/content.interface';
 import char from './char.json';
 import global from './global.json';
 import entryPanel from './entryPanel.json';

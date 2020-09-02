@@ -5,9 +5,9 @@ import uuid from 'uuid/v4';
 import appConfig from '../../assets/configs/appConfig.json';
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
-import { IRouteProps, IMatchParams } from '../../assets/interfaces/routing.interface';
-import { Icontent } from '../../assets/interfaces/content.interface';
-import { IStore } from '../../assets/interfaces/store.interface';
+import { IRouteProps, IMatchParams } from '../../interfaces/routing.interface';
+import { Icontent } from '../../interfaces/content.interface';
+import { IStore } from '../../interfaces/store.interface';
 
 
 const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {

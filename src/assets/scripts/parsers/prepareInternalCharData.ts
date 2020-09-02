@@ -1,4 +1,4 @@
-import { ICharState } from '../../interfaces/charState.interface';
+import { ICharState } from '../../../interfaces/charState.interface';
 import { deepCopy } from '../utils/deepCopy';
 const camelcaseKeys = require('camelcase-keys');
 

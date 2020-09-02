@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { rootReducer } from './store/reducers/rootReducer';
 import * as serviceWorker from './serviceWorker';
 import { App } from './App';
-import { IStore } from './assets/interfaces/store.interface';
+import { IStore } from './interfaces/store.interface';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { client } from './api/apiInit';
 

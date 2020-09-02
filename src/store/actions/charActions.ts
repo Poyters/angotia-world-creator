@@ -1,8 +1,8 @@
 import { store } from '../../index';
-import { IDialog, IMonolog, IPlayer } from '../../assets/interfaces/dialogs.interface';
-import { ICharStatistic } from '../../assets/interfaces/char.interface';
-import { IMinMaxField } from '../../assets/interfaces/math.interface';
-import { ICharState } from '../../assets/interfaces/charState.interface';
+import { IDialog, IMonolog, IPlayer } from '../../interfaces/dialogs.interface';
+import { ICharStatistic } from '../../interfaces/char.interface';
+import { IMinMaxField } from '../../interfaces/math.interface';
+import { ICharState } from '../../interfaces/charState.interface';
 
 
 export const changeCharType = (charType: string) => ({

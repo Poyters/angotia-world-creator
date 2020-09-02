@@ -1,4 +1,4 @@
-import { IUiState } from '../../assets/interfaces/uiState.interface';
+import { IUiState } from '../../interfaces/uiState.interface';
 
 
 export const uiState: IUiState = {

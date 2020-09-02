@@ -1,5 +1,5 @@
 import charConfig from '../../configs/charConfig.json';
-import { IDialog } from '../../interfaces/dialogs.interface';
+import { IDialog } from '../../../interfaces/dialogs.interface';
 import { hasInvalidConditions } from './hasInvalidConditions';
 
 

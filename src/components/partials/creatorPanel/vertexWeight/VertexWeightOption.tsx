@@ -13,7 +13,7 @@ import {
     changeMapVertexWeights 
 } from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 
 
 let pressedKey: string | null = null;

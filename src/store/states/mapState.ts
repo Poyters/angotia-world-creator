@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import { IMapState } from '../../assets/interfaces/mapState.interface';
+import { IMapState } from '../../interfaces/mapState.interface';
 
 
 export const mapState: IMapState = {

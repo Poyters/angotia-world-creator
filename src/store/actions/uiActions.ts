@@ -1,5 +1,5 @@
-import { IMapNetStatus } from '../../assets/interfaces/map.interface';
-import { INote } from '../../assets/interfaces/notifications.interface';
+import { IMapNetStatus } from '../../interfaces/map.interface';
+import { INote } from '../../interfaces/notifications.interface';
 
 
 export const setNotification = (notifications: INote[]) => ({

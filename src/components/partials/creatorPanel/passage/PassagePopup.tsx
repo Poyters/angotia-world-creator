@@ -8,9 +8,9 @@ import {
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
-import { ISquareData } from '../../../../assets/interfaces/square.interface';
-import { IPassageLocation } from '../../../../assets/interfaces/passage.interface';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { ISquareData } from '../../../../interfaces/square.interface';
+import { IPassageLocation } from '../../../../interfaces/passage.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 
 
 interface IPassageOption {

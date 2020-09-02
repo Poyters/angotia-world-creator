@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { PlayerDialog } from './PlayerDialog';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IPlayer } from '../../../../assets/interfaces/dialogs.interface';
+import { IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 
 
 export const AddTemponaryPlayerDialog: React.FC = () => {

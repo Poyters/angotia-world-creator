@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import { IMapSize } from '../interfaces/map.interface';
+import { IMapSize } from '../../interfaces/map.interface';
 
 
 export const generateEmptyMapMatrix = (inputMapSize?: IMapSize):Array<any> => {

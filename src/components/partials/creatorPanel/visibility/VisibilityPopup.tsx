@@ -4,7 +4,7 @@ import { ContentContext } from '../../../../Template';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { addNotification } from '../../../../assets/scripts/notifications';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 
 
 interface IVisibilityPopup {

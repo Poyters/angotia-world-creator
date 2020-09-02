@@ -13,7 +13,7 @@ import {
     changeMapPassageMatrix, 
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
-import { IStore } from '../../../../assets/interfaces/store.interface';
+import { IStore } from '../../../../interfaces/store.interface';
 
 
 let pressedKey: string | null = null;
