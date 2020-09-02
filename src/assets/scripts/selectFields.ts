@@ -1,7 +1,6 @@
 import { store } from '../../index';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { mouseSelectFields } from './mouseSelectFields';
 import { IPoint } from '../interfaces/math';
 
 
@@ -58,8 +57,7 @@ const selectField = (cursorPosition: IPoint) => {
       selectCanvasSquare(selectMatrix, positionDelta);
     break;
     case "mouse":
-      mouseSelectFields();
-    break;
+      return; // Listener are applied on Map component initialization
     default:
       throw new Error('Invalid select map type.');
   }

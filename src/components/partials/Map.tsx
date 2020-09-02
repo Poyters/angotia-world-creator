@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
 import { dragElement } from '../../assets/scripts/dragElement';
 import { selectFieldsHandler } from '../../assets/scripts/selectFields';
+import { mouseSelectFields } from '../../assets/scripts/mouseSelectFields';
 import { IStore } from '../../assets/interfaces/store';
 import uuid from 'uuid/v4';
 
@@ -42,6 +43,10 @@ export const Map: React.FC = () => {
     setMapLeft(marginLeft);
   }, [mapSize, fieldSize]);
 
+  useEffect(() => {
+    mouseSelectFields();
+  }, []);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const generateLayers = () => {
     const contentToRender = creatorConfig.layers.map((layer: any) => {
@@ -67,8 +72,7 @@ export const Map: React.FC = () => {
         className="map__canvas map__canvas--main" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="mapCanvas" 
-        onClick={e => selectFieldsHandler(e)}
+        id="mapCanvas"
       > </canvas>
 
       <canvas 

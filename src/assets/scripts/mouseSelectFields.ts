@@ -33,7 +33,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const selectType: string = storeData.ui.select.type;
   const mapLeft: number = parseInt(map.style.left) || 0;
   const mapTop: number = parseInt(map.style.top) || 0;
-	
+
 	if (selectType !== "mouse") return;
 
   rect.startX = event.clientX - mapLeft;
