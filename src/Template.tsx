@@ -15,6 +15,7 @@ import { changeLang } from './store/actions/uiActions';
 import appConfig from './assets/configs/appConfig.json';
 import { IRouteProps, IMatchParams } from './interfaces/routing.interface';
 import { Icontent } from './interfaces/content.interface';
+import { MapCreationRules } from './components/views/MapCreationRules';
 
 
 export let ContentContext;
@@ -62,6 +63,7 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
           <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
           <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
           <Route path={`/${paramLang}/${content.routes.features}`} component={Features} />
+          <Route path={`/${paramLang}/${content.routes.mapCreationRules}`} component={MapCreationRules} />
           <Route component={NotFound}/>
         </Switch>
       </Router>

@@ -4,5 +4,6 @@
   "char": "char",
   "help": "help",
   "license": "license",
-  "features": "features"
+  "features": "features",
+  "mapCreationRules": "mapRules"
 }

@@ -52,6 +52,15 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 						{ menu?.features }
 					</Link>
 				</li>
+				{
+					type === 'map' ? (
+						<li> 
+							<Link to={`/${lang}/${routes.mapCreationRules}`}>
+								{ menu?.mapCreationRules }
+							</Link>
+						</li>
+					) : null
+				}
 				<li> { menu?.catalogs } </li>
 				<li className="separator">
 					<Link to={`/${lang}/${routes.home}`}>

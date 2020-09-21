@@ -19,6 +19,10 @@
 			margin: 10px 0;
 
 			text-indent: 17px;
+
+			& ul, ol {
+				text-indent: 0;
+			}
 		}
 
 		&--comeBack {

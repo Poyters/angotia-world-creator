@@ -19,6 +19,7 @@ interface IRoutes {
   license: string
   help: string
   features: string
+  mapCreationRules: string
 }
 
 interface IDig {

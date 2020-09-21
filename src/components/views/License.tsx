@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
+import { ContentContext } from '../../Template';
 
 
 export const License: React.FC = () => {
+  const { lang, routes } = useContext(ContentContext);
+
   return (
     <div className="textView">
       <article className="textView__content">
         <nav className="g-sectionNav">
           <div className="g-sectionNav__elem">
             <Link 
-              to='/creator' 
+              to={`/${lang}/${routes.creator}`}
               className="t-paragraph2Normal textView__content--comeBack"
             >
               Come back to Creator
