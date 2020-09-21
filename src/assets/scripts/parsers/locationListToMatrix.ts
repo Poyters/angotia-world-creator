@@ -9,7 +9,9 @@ export const locationListToMatrix = (
   if (!locationsList) return null;
   const emptyMatrix = generateEmptyMapMatrix(matrixSize);
 
-  if (locationsList.length === 0) return emptyMatrix;
+  if (locationsList.length === 0 || !Array.isArray(locationsList)) {
+    return emptyMatrix;
+  }
 
   for (const location of locationsList) {
     // eslint-disable-next-line max-len

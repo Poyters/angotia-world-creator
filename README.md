@@ -15,6 +15,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - A new dialog requires at least one player response
 - Fix come back to map creator problem. Right know, always user come back to drawed map
 - Fix a lack of first mouse selection issue
+- Add Map Creation Rules view
 
 
 ### Version 1.0.0 (17 July 2020)
