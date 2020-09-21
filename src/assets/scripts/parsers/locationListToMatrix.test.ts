@@ -30,6 +30,20 @@ describe("locationListToMatrix script", () => {
     }
   ];
 
+  const invalidLocation: IPassageLocation[] = [
+    {
+      destination: {
+        mapTargetCords: 4,
+        mapTargetId: 4
+      },
+      id: "3.0, 0.0",
+      x: 3,
+      xShift: 0,
+      y: 0,
+      yShift: 0
+    }
+  ];
+
   const multiplyLocations: IPassageLocation[] = [
     {
       destination: {
@@ -130,5 +144,10 @@ describe("locationListToMatrix script", () => {
   it("convert one location; array", () => {
     expect(locationListToMatrix(multiplyLocations, mapSize))
       .toEqual(multiplyLocationsMatrix);
+  });
+
+  it("convert invalid location; array", () => {
+    expect(locationListToMatrix(invalidLocation, mapSize))
+      .toEqual(null);
   });
 });
