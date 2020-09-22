@@ -3,7 +3,7 @@ import { IPassageLocation } from '../../../interfaces/passage.interface';
 
 
 describe("locationListToMatrix script", () => {
-  const mapSize = {x: 2, y: 2};
+  const mapSize = {x: 5, y: 5};
   const noArray: any = {
     destination: {
       mapTargetCords: 4,
@@ -36,8 +36,8 @@ describe("locationListToMatrix script", () => {
         mapTargetCords: 4,
         mapTargetId: 4
       },
-      id: "3.0, 0.0",
-      x: 3,
+      id: "6.0, 0.0",
+      x: 6,
       xShift: 0,
       y: 0,
       yShift: 0
@@ -104,28 +104,55 @@ describe("locationListToMatrix script", () => {
 
   const oneLocationMatrix = [
     [
-      [[0, 0], [0, 0]], [[1, 0], [0, 0]]
+      [[0, 0], [0, 0]], [[1, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ], 
     [
-      [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ]
   ];
 
   const multiplyLocationsMatrix = [
     [
-      [[1, 1], [1, 1]], [[1, 0], [0, 0]]
+      [[1, 1], [1, 1]], [[1, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ], 
     [
-      [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ]
   ];
 
   const emptyMatrix = [
     [
-      [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ], 
     [
-      [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
+    ],
+    [
+      [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
     ]
   ];
   
@@ -137,11 +164,11 @@ describe("locationListToMatrix script", () => {
 		expect(locationListToMatrix(oneLocation, mapSize)).toEqual(oneLocationMatrix);
   });
 
-  it("convert one location; array", () => {
+  it("convert noArray; invalid", () => {
 		expect(locationListToMatrix(noArray, mapSize)).toEqual(emptyMatrix);
   });
 
-  it("convert one location; array", () => {
+  it("convert multiply locations; array", () => {
     expect(locationListToMatrix(multiplyLocations, mapSize))
       .toEqual(multiplyLocationsMatrix);
   });

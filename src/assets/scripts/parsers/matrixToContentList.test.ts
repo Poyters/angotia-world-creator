@@ -154,6 +154,10 @@ describe("matrixToContentList script", () => {
     ]
   ];
 
+  it("is a function", () => {
+		expect(typeof matrixToContentList).toBe('function');
+  });
+
 	it("Check valid data; exampleMatrix1", () => {
     const copyOfMatrix = deepCopy(exampleMatrix1);
     const renderedContentList = matrixToContentList(copyOfMatrix);

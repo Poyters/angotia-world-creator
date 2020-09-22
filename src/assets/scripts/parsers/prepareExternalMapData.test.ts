@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable max-lines */
 import { prepareExternalMapData } from './prepareExternalMapData';
 import { isValidExternalMapData } from '../utils/isValidExternalMapData';
 
@@ -204,6 +206,10 @@ describe("prepareExternalMapData script", () => {
       weights: []
     }
   };
+
+  it("is a function", () => {
+		expect(typeof prepareExternalMapData).toBe('function');
+  });
 
 	it("Check valid data", () => {
     const externalData = prepareExternalMapData(validInternalMapData);

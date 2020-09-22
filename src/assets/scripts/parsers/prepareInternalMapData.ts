@@ -2,7 +2,6 @@ import { IMapState } from '../../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { contentListToMatrix } from './contentListToMatrix';
 import { locationListToMatrix } from './locationListToMatrix';
-import { weightListToMatrix } from './weightListToMatrix';
 const camelcaseKeys = require('camelcase-keys');
 
 
@@ -22,7 +21,7 @@ export const prepareInternalMapData = (mapData: IMapState | any) => {
   internalData.mob.matrix = contentListToMatrix(internalData.mob, mapSize);
   internalData.se.matrix = contentListToMatrix(internalData.se, mapSize);
   internalData.passage.matrix = locationListToMatrix(internalData.passage.locations, mapSize);
-  internalData.vertex.matrix = weightListToMatrix(internalData.vertex.weights, mapSize);
+  internalData.vertex.matrix = locationListToMatrix(internalData.vertex.weights, mapSize);
 
   delete internalData.building.items;
   delete internalData.building.pics;

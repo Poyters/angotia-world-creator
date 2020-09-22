@@ -1,4 +1,5 @@
 /src/assets/styles/**
 /src/assets/images/**
 /src/assets/configs/**
+/src/assets/scripts/**.test.ts
 /src/serviceWorker.ts
