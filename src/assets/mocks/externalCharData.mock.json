@@ -1,0 +1,38 @@
+{
+  "id": "29",
+  "_id": "1e5a4cd8-1172-4ba1-8b94-7564ef5f5437",
+  "name": "bardzo dziki pies",
+  "field_diameter": 0,
+  "type": "static",
+  "choosed": "mob",
+  "move_type": null,
+  "has_visible_level": true,
+  "char_pic": "charblob",
+  "mob_range": "king",
+  "is_agressive_mob": false,
+  "monologs": [],
+  "dialogs": [],
+  "settings": {
+    "time_of_occurance": {
+      "min": 0,
+      "max": 24
+    },
+    "resp_time": {
+      "min": 60,
+      "max": 130
+    }
+  },
+  "statistics": {
+    "strength": 0,
+    "speed": 0,
+    "level": 11,
+    "jink": 0,
+    "inteligence": 0,
+    "health": 1000,
+    "dexterity": 0,
+    "defence": 0,
+    "attack": 0,
+    "attack_range": 0,
+    "attack_speed": 100
+  }
+}
