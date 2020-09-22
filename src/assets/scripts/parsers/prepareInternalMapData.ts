@@ -5,7 +5,7 @@ import { locationListToMatrix } from './locationListToMatrix';
 const camelcaseKeys = require('camelcase-keys');
 
 
-export const prepareInternalMapData = (mapData: IMapState | any) => {
+export const prepareInternalMapData = (mapData: any): IMapState => {
   const dataCopy = deepCopy(mapData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;

@@ -1,7 +1,7 @@
 import { IMapSize } from '../../interfaces/map.interface';
 import { IPassageLocation } from '../../interfaces/passage.interface';
 import { IVertexWeight } from '../../interfaces/vertex.interface';
-import { IStore } from '../../interfaces/store.interface';
+import { IMapState } from '../../interfaces/mapState.interface';
 
 
 export const setMapSizes = (sizes: IMapSize) => ({
@@ -75,7 +75,7 @@ export const changeMapVertexWeights = (weights: IVertexWeight[]) => ({
     weights
 });
 
-export const loadMapData = (mapData: IStore) => ({
+export const loadMapData = (mapData: IMapState) => ({
     type: 'LOAD_MAP_DATA',
     mapData
 });
