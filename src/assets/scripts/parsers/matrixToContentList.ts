@@ -1,5 +1,5 @@
 import { deepCopy } from '../utils/deepCopy';
-import { IContentList, IContentItem } from '../../../interfaces/contentList.interface';
+import { IContentList, IContentItem, IContentPic } from '../../../interfaces/contentList.interface';
 import { findPicBlob } from '../findPicBlob';
 
 
@@ -43,9 +43,11 @@ export const matrixToContentList = (matrix: any): IContentList => {
             }
 
             if (!found) {
-              const newPicItem = {
+              const foundBlob: string | null = findPicBlob(square);
+
+              const newPicItem: IContentPic = {
                 _id: transformedSquare,
-                blob: findPicBlob(square)
+                blob: foundBlob ? foundBlob : 'ERROR - A LACK OF BLOB' 
               };
 
               contentList.pics.push(newPicItem);

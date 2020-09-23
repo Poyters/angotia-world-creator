@@ -1,6 +1,7 @@
-import { IContentList } from '../../../interfaces/contentList.interface';
+import { IContentList, IContentPic } from '../../../interfaces/contentList.interface';
 import { IMapSize } from '../../../interfaces/map.interface';
 import { generateEmptyMapMatrix } from '../map';
+import { addInternalImagesData } from '../addInternalImagesData';
 
 
 export const contentListToMatrix = (
@@ -12,14 +13,15 @@ export const contentListToMatrix = (
   if (contentList.items.length === 0) return emptyMatrix;
 
   for (const contentItem of contentList.items) {
-    if (contentItem.value.toString().includes('picId')) {
+    if (contentItem.value.toString().includes('picId=')) {
       const picId: string = contentItem.value
         .toString().replace('picId=', '');
 
       for (const picItem of contentList.pics) {
         if (picItem.id === picId) {
           // eslint-disable-next-line max-len
-          emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = picItem.id;
+          emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = contentItem.value;
+          addBlobToInternalImages(picId, contentList.pics);
           // add blob to images (store)
         }
       }
@@ -31,4 +33,22 @@ export const contentListToMatrix = (
   }
 
   return emptyMatrix;
+};
+
+const addBlobToInternalImages = (
+  picId: string, contentPics: IContentPic[]
+) => {
+  const blob: string | null = findExternalBlob(picId, contentPics);
+
+  if (blob) addInternalImagesData(blob);
+};
+
+const findExternalBlob = (
+  picId: string, contentPics: IContentPic[]
+): string | null => {
+  for (const picItem of contentPics) {
+    if (picItem.id === picId) return picItem.blob;
+  }
+
+  return null;
 };

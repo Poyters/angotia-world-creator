@@ -9,6 +9,12 @@ export const addInternalImagesData = (blob: string): string => {
   const storeData: IStore = store.getState();
   const imagesData = deepCopy(storeData.map.images);
 
+  for (const imageData of imagesData) {
+    if (imageData.blob === blob) {
+      return `picId=${imageData.id}`;
+    }
+  }
+
   const newImageInstance = {
     id: uuid(),
     blob

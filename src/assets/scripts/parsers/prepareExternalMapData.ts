@@ -37,6 +37,7 @@ export const prepareExternalMapData = (mapData: IMapState | any) => {
     return weight;
   });
 
+  delete preparedMapData.images;
   preparedMapData.min_entry_level = parseInt(preparedMapData.min_entry_level);
   
   return preparedMapData;

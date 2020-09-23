@@ -1,6 +1,6 @@
 export interface IContentList {
   items: IContentItem[]
-  pics: any[]
+  pics: IContentPic[]
 }
 
 export interface IContentItem {
@@ -11,6 +11,8 @@ export interface IContentItem {
   value: string | number
 }
 
-interface IContentPic {
-  [key: string]: string
+export interface IContentPic {
+  id?: string,
+  _id?: string,
+  blob: string
 }
