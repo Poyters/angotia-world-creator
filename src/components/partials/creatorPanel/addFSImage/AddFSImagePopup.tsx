@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import uuid from 'uuid/v4';
-import creatorConfig from '../../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../../assets/configs/creator.config.json';
 import { ContentContext } from '../../../../Template';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 

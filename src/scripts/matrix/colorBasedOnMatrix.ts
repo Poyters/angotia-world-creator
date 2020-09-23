@@ -1,4 +1,4 @@
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 import { deepCopy } from '../utils/deepCopy';
 import { drawCross, drawTriangle } from '../draw/drawShape';
 import { makeImage } from '../draw/makeImage';

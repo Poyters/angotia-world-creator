@@ -1,4 +1,4 @@
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 
 
 const squareSize: number = creatorConfig.map.fieldSize / 2;

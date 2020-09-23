@@ -1,6 +1,6 @@
 import { findConnectedDialog } from './findConnectedDialog';
 import { IDialog } from '../../interfaces/dialogs.interface';
-import charConfig from '../../assets/configs/charConfig.json';
+import charConfig from '../../assets/configs/char.config.json';
 
 
 describe("findConnectedDialog script", () => {

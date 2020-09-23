@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 import { markSquare } from '../../../../scripts/matrix/markSquare';
-import creatorConfig from '../../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../../assets/configs/creator.config.json';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 

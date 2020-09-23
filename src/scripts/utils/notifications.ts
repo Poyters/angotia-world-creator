@@ -1,6 +1,6 @@
 import { store } from '../../index';
 import { setNotification } from '../../store/actions/uiActions';
-import appConfig from '../../assets/configs/appConfig.json';
+import appConfig from '../../assets/configs/app.config.json';
 import { deepCopy } from './deepCopy';
 import { INote } from '../../interfaces/notifications.interface';
 

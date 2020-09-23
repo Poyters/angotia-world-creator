@@ -1,4 +1,4 @@
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 
 
 export const isValidExternalMapData = (data: any): boolean => {

@@ -5,7 +5,7 @@ import { emptyMapCanvasCtx } from '../canvas/emptyMapCanvasCtx';
 import { addNotification } from '../utils/notifications';
 import { updateMatrixByTheOther } from './updateMatrixByTheOther';
 import { deepCopy } from '../utils/deepCopy';
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IStore } from '../../interfaces/store.interface';
 

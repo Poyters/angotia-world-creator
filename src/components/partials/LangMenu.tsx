@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { withRouter } from "react-router";
 import uuid from 'uuid/v4';
-import appConfig from '../../assets/configs/appConfig.json';
+import appConfig from '../../assets/configs/app.config.json';
 import { enContent } from '../../assets/content/langs/en/index';
 import { plContent } from '../../assets/content/langs/pl/index';
 import { IRouteProps, IMatchParams } from '../../interfaces/routing.interface';

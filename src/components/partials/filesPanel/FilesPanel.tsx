@@ -1,7 +1,7 @@
 import React, { useState, useContext, CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
-import creatorConfig from '../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../assets/configs/creator.config.json';
 import { markSquare } from '../../../scripts/matrix/markSquare';
 import { deepCopy } from '../../../scripts/utils/deepCopy';
 import { CharButton } from './CharButton';

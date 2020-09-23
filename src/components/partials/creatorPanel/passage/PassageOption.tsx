@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import creatorConfig from '../../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../../assets/configs/creator.config.json';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 import { markSquare } from '../../../../scripts/matrix/markSquare';

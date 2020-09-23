@@ -1,7 +1,7 @@
 import { IVertexWeight } from '../../interfaces/vertex.interface';
 import { IPassageLocation } from '../../interfaces/passage.interface';
 import { IMapSize } from '../../interfaces/map.interface';
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 
 
 export const isValidLocation = (

@@ -4,7 +4,7 @@ import { ContentContext } from '../../../Template';
 import { setMapBg } from '../../../store/actions/mapActions';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { sizeGuard } from '../../../scripts/files/sizeGuard';
-import creatorConfig from '../../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../../assets/configs/creator.config.json';
 import { IStore } from '../../../interfaces/store.interface';
 
 

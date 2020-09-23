@@ -5,7 +5,7 @@ import { IDialog } from '../../../../interfaces/dialogs.interface';
 import { changeDialogs } from '../../../../store/actions/charActions';
 import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
-import charConfig from '../../../../assets/configs/charConfig.json';
+import charConfig from '../../../../assets/configs/char.config.json';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';

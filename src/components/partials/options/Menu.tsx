@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { SaveJsonOption } from './SaveJsonOption';
 import { ExportToAngotia } from './ExportToAngotia';
-import appConfig from '../../../assets/configs/appConfig.json';
+import appConfig from '../../../assets/configs/app.config.json';
 
 
 interface IMenu {

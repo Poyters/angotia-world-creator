@@ -1,4 +1,4 @@
-import charConfig from '../../assets/configs/charConfig.json';
+import charConfig from '../../assets/configs/char.config.json';
 import { IDialog } from '../../interfaces/dialogs.interface';
 import { hasInvalidConditions } from './hasInvalidConditions';
 

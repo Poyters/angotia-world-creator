@@ -12,7 +12,7 @@ import { Features } from './components/views/Features';
 import { NotFound } from './components/views/NotFound';
 import { contents } from './assets/content/langs/index';
 import { changeLang } from './store/actions/uiActions';
-import appConfig from './assets/configs/appConfig.json';
+import appConfig from './assets/configs/app.config.json';
 import { IRouteProps, IMatchParams } from './interfaces/routing.interface';
 import { Icontent } from './interfaces/content.interface';
 import { MapCreationRules } from './components/views/MapCreationRules';

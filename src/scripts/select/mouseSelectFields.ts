@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import creatorConfig from '../../assets/configs/creatorConfig.json';
+import creatorConfig from '../../assets/configs/creator.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../../interfaces/math.interface';
 import { IRect, IRectanglePosition } from '../../interfaces/figure.interface';
