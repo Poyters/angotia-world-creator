@@ -20,6 +20,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Fix a lack of first mouse selection issue
 - Add Map Creation Rules view
 - Validate Locations (passage and weight vertex) during parsing process
+- Delete explicit image blobs in matrices (internal map data) and keep only one copy of each blob with internal Ids. It makes updation matrices faster about 30% and decrease weight of internal map dataabout 60%
 
 
 ### Version 1.0.0 (17 July 2020)

@@ -1,9 +1,12 @@
 import { prepareInternalMapData } from './prepareInternalMapData';
 import extarnalMapDataMock from '../../mocks/externalMapData.mock.json';
+import { generateEmptyMapMatrix } from '../map';
+import { deepCopy } from '../utils/deepCopy';
 
 
 describe("prepareInternalMapData script", () => {
   const internalMapData: any = prepareInternalMapData(extarnalMapDataMock);
+  const emptyMatrix = generateEmptyMapMatrix(internalMapData.size);
 
   it("is a function", () => {
 		expect(typeof prepareInternalMapData).toBe('function');
@@ -59,6 +62,107 @@ describe("prepareInternalMapData script", () => {
 
   it("a lack of se.pics", () => {
 		expect(internalMapData.se.pics).toBe(undefined);
+  });
+
+  it("has internal iamges data", () => {
+		expect(Array.isArray(internalMapData.images)).toBe(true);
+  });
+
+  it("has all internal iamges data", () => {
+		expect(internalMapData.images.length).toBe(4);
+  });
+
+  it("proper image data, 1", () => {
+		expect(internalMapData.images[0]).toEqual({
+      id: extarnalMapDataMock.building.pics[0]._id,
+      blob: extarnalMapDataMock.building.pics[0].blob
+    });
+  });
+
+  it("proper image data, 2", () => {
+		expect(internalMapData.images[1]).toEqual({
+      id: extarnalMapDataMock.building.pics[1]._id,
+      blob: extarnalMapDataMock.building.pics[1].blob
+    });
+  });
+
+  it("proper image data, 3", () => {
+		expect(internalMapData.images[2]).toEqual({
+      id: extarnalMapDataMock.decoration.pics[0]._id,
+      blob: extarnalMapDataMock.decoration.pics[0].blob
+    });
+  });
+
+  it("proper image data, 4", () => {
+		expect(internalMapData.images[3]).toEqual({
+      id: extarnalMapDataMock.npc.pics[0]._id,
+      blob: extarnalMapDataMock.npc.pics[0].blob
+    });
+  });
+
+  it("has proper description", () => {
+		expect(internalMapData.description).toBe("mapa tuzmer, zawiera wiele obiektow");
+  });
+
+  it("has proper internalId", () => {
+		expect(internalMapData.internalId).toBe("4036b340-0e33-4df4-ab51-2a462e691b2d");
+  });
+
+  it("has proper minEntryLevel", () => {
+		expect(internalMapData.minEntryLevel).toBe(0);
+  });
+
+  it("has proper mapName", () => {
+		expect(internalMapData.mapName).toBe("Tuzmer");
+  });
+
+  it("has proper mapPic", () => {
+		expect(internalMapData.mapPic).toBe("map-pic-blob");
+  });
+
+  it("has proper visibilityRange", () => {
+		expect(internalMapData.visibilityRange).toBe(8);
+  });
+
+  it("has proper visibilityRange", () => {
+		expect(internalMapData.visibilityRange).toBe(8);
+  });
+
+  it("has proper size x", () => {
+		expect(internalMapData.size.x).toBe(7);
+  });
+
+  it("has proper size y", () => {
+		expect(internalMapData.size.y).toBe(7);
+  });
+
+  it("check out npc matrix", () => {
+    const npcMatrix = deepCopy(emptyMatrix);
+    npcMatrix[4][3][0][0] = 'picId=a149b67f-fa1b-4258-818f-dbfc0a1d1139';
+    npcMatrix[4][3][0][1] = 'picId=a149b67f-fa1b-4258-818f-dbfc0a1d1139';
+    npcMatrix[4][3][1][0] = 'picId=a149b67f-fa1b-4258-818f-dbfc0a1d1139';
+    npcMatrix[4][3][1][1] = 'picId=a149b67f-fa1b-4258-818f-dbfc0a1d1139';
+
+    expect(internalMapData.npc.matrix)
+      .toEqual(npcMatrix);
+  });
+
+  it("check out decoration matrix", () => {
+    const decorationMatrix = deepCopy(emptyMatrix);
+    decorationMatrix[2][3][0][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][3][1][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][4][0][0] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][4][0][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][4][1][0] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][4][1][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][5][0][0] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][5][0][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][5][1][0] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+    decorationMatrix[2][5][1][1] = 'picId=f9e745bb-0921-495b-8b6e-1f892fabf6ba';
+
+
+    expect(internalMapData.decoration.matrix)
+      .toEqual(decorationMatrix);
   });
 
 });

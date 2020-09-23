@@ -112,4 +112,5 @@ describe("prepareExternalMapData script", () => {
   it("a lack of attack_speed", () => {
 		expect(internalData.statistics.attack_speed).toBe(undefined);
   });
+
 });
