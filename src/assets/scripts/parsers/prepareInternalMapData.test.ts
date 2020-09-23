@@ -165,4 +165,29 @@ describe("prepareInternalMapData script", () => {
       .toEqual(decorationMatrix);
   });
 
+  it("check out building matrix", () => {
+    const buildingMatrix = deepCopy(emptyMatrix);
+    buildingMatrix[0][6][1][1] = 'picId=e7a576fb-d5fc-461e-8f3a-27c2e6edddf1';
+    buildingMatrix[3][4][0][0] = 'picId=e7a576fb-d5fc-461e-8f3a-27c2e6edddf1';
+
+    expect(internalMapData.building.matrix)
+      .toEqual(buildingMatrix);
+  });
+
+  it("check out passage matrix", () => {
+    const passageMatrix = deepCopy(emptyMatrix);
+    passageMatrix[0][3][0][0] = 1;
+   
+    expect(internalMapData.passage.matrix)
+      .toEqual(passageMatrix);
+  });
+
+  it("check out vertex matrix", () => {
+    const vertexMatrix = deepCopy(emptyMatrix);
+    vertexMatrix[4][3][0][0] = 1;
+   
+    expect(internalMapData.vertex.matrix)
+      .toEqual(vertexMatrix);
+  });
+
 });
