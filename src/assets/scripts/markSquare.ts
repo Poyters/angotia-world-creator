@@ -37,8 +37,6 @@ export const markSquare = (
     pressedKey !== creatorConfig.secondOptionKeyCode
   ) typeOfAction = fillColor;
 
-  console.log('fillColor', fillColor);
-
   const newMatrix: Array<[]> = deepCopy(
     updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction)
   );

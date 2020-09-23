@@ -3,7 +3,7 @@ import { mapState } from '../states/mapState';
 
 
 export const mapReducer = (state = deepCopy(mapState), action) => {
-    console.log('state before', state);
+    // console.log('state before', state);
     switch(action.type) {
         case 'CHANGE_MAP_SIZES':
             return {

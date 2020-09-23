@@ -1,8 +1,25 @@
 import { matrixToContentList } from './matrixToContentList';
 import { deepCopy } from '../utils/deepCopy';
+import { IInternalImageData } from '../../../interfaces/internalImageData.interface';
+import { MapPicData } from '../../../models/mapPicData.model';
 
 
 describe("matrixToContentList script", () => {
+  const internalImages: IInternalImageData[] = [
+    {
+      id: 'pic1',
+      blob: 'data:image/picblob'
+    },
+    {
+      id: 'pic2',
+      blob: 'data:image/picblobexample'
+    },
+    {
+      id: 'pic3',
+      blob: 'data:image/picblobexample2'
+    }
+  ];
+
   const exampleMatrix1 = [
     [
       [[1,1],[1,1]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -118,10 +135,10 @@ describe("matrixToContentList script", () => {
 
   const exampleMatrix3 = [
     [
-      [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      [[`${MapPicData.suffix}pic1`,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      [[`${MapPicData.suffix}pic1`,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -133,7 +150,7 @@ describe("matrixToContentList script", () => {
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [[0,0],[0,0]],[[0,'data:image/picblobexample'],[0,0]],[[0,0],[0,0]]
+      [[0,0],[0,0]],[[0,`${MapPicData.suffix}pic2`],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -146,11 +163,11 @@ describe("matrixToContentList script", () => {
     ],
     [
       [[1,0],[0,0]],
-      [['data:image/picblobexample','data:image/picblobexample'],['data:image/picblobexample','data:image/picblobexample']],
+      [[`${MapPicData.suffix}pic2`,`${MapPicData.suffix}pic2`],[`${MapPicData.suffix}pic2`,`${MapPicData.suffix}pic2`]],
       [['rafi jest git',0],[0,0]]
     ],
     [
-      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,'data:image/picblobexample2']]
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,`${MapPicData.suffix}pic3`]]
     ]
   ];
 
@@ -160,21 +177,21 @@ describe("matrixToContentList script", () => {
 
 	it("Check valid data; exampleMatrix1", () => {
     const copyOfMatrix = deepCopy(exampleMatrix1);
-    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const renderedContentList = matrixToContentList(copyOfMatrix, internalImages);
   
 		expect(renderedContentList).toEqual(contentList1);
   });
 
   it("Check valid data; exampleMatrix2", () => {
     const copyOfMatrix = deepCopy(exampleMatrix2);
-    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const renderedContentList = matrixToContentList(copyOfMatrix, internalImages);
   
 		expect(renderedContentList).toEqual(contentList2);
   });
 
   it("Check valid data; exampleMatrix3", () => {
     const copyOfMatrix = deepCopy(exampleMatrix3);
-    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const renderedContentList = matrixToContentList(copyOfMatrix, internalImages);
     const picItem = renderedContentList?.pics[0];
 
     expect(renderedContentList?.pics.length).toEqual(1);
@@ -194,7 +211,7 @@ describe("matrixToContentList script", () => {
 
   it("Check valid data; exampleMatrix4", () => {
     const copyOfMatrix = deepCopy(exampleMatrix4);
-    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const renderedContentList = matrixToContentList(copyOfMatrix, internalImages);
     const picItem = renderedContentList?.pics[0];
 
     expect(renderedContentList?.pics.length).toEqual(1);
@@ -209,7 +226,7 @@ describe("matrixToContentList script", () => {
 
   it("Check valid data; exampleMatrix5", () => {
     const copyOfMatrix = deepCopy(exampleMatrix5);
-    const renderedContentList = matrixToContentList(copyOfMatrix);
+    const renderedContentList = matrixToContentList(copyOfMatrix, internalImages);
     const picId1 = renderedContentList?.pics[0]._id;
     const picId2 = renderedContentList?.pics[1]._id;
 

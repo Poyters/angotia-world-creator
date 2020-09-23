@@ -161,7 +161,7 @@ describe("contentListToMatrix script", () => {
       [[1,0],[0,0]],[['2',0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [['data:/jp2gmdpicblobdata','data:/jp2gmdpicblobdata'],[0,0]],
+      [['picId=85285ghobdfn-ga34e5g453g-34','picId=85285ghobdfn-ga34e5g453g-34'],[0,0]],
       [[0,0],[0,0]],
       [[0,3],[0,0]]
     ],
@@ -190,7 +190,7 @@ describe("contentListToMatrix script", () => {
 
   const imgMatrix1 = [
     [
-      [['datablobpicdata',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      [['picId=837468534hg34g34',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -204,27 +204,27 @@ describe("contentListToMatrix script", () => {
 		expect(typeof contentListToMatrix).toBe('function');
   });
 
-	// it("emptyContentList1; return empty matrix", () => {
-	// 	expect(contentListToMatrix(emptyContentList1, mapSize)).toEqual(emptyMatrix1);
-  // });
+	it("emptyContentList1; return empty matrix", () => {
+		expect(contentListToMatrix(emptyContentList1, mapSize)).toEqual(emptyMatrix1);
+  });
 
-  // it("emptyContentList2; return empty matrix", () => {
-	// 	expect(contentListToMatrix(emptyContentList2, mapSize)).toEqual(emptyMatrix1);
-  // });
+  it("emptyContentList2; return empty matrix", () => {
+		expect(contentListToMatrix(emptyContentList2, mapSize)).toEqual(emptyMatrix1);
+  });
 
-  // it("numbersContentList1; return numbersMatrix1", () => {
-	// 	expect(contentListToMatrix(numbersContentList1, mapSize)).toEqual(numbersMatrix1);
-  // });
+  it("numbersContentList1; return numbersMatrix1", () => {
+		expect(contentListToMatrix(numbersContentList1, mapSize)).toEqual(numbersMatrix1);
+  });
 
-  // it("numbersContentList2; return numbersMatrix2", () => {
-	// 	expect(contentListToMatrix(numbersContentList2, mapSize)).toEqual(numbersMatrix2);
-  // });
+  it("numbersContentList2; return numbersMatrix2", () => {
+		expect(contentListToMatrix(numbersContentList2, mapSize)).toEqual(numbersMatrix2);
+  });
 
-  // it("mixedContentList1; return mixedMatrix1", () => {
-	// 	expect(contentListToMatrix(mixedContentList1, mapSize)).toEqual(mixedMatrix1);
-  // });
+  it("mixedContentList1; return mixedMatrix1", () => {
+		expect(contentListToMatrix(mixedContentList1, mapSize)).toEqual(mixedMatrix1);
+  });
 
-  // it("imgContentList1; return imgMatrix1", () => {
-	// 	expect(contentListToMatrix(imgContentList1, mapSize)).toEqual(imgMatrix1);
-  // });
+  it("imgContentList1; return imgMatrix1", () => {
+		expect(contentListToMatrix(imgContentList1, mapSize)).toEqual(imgMatrix1);
+  });
 });

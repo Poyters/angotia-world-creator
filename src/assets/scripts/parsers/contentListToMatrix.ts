@@ -2,6 +2,7 @@ import { IContentList, IContentPic } from '../../../interfaces/contentList.inter
 import { IMapSize } from '../../../interfaces/map.interface';
 import { generateEmptyMapMatrix } from '../map';
 import { addInternalImagesData } from '../addInternalImagesData';
+import { MapPicData } from '../../../models/mapPicData.model';
 
 
 export const contentListToMatrix = (
@@ -13,9 +14,9 @@ export const contentListToMatrix = (
   if (contentList.items.length === 0) return emptyMatrix;
 
   for (const contentItem of contentList.items) {
-    if (contentItem.value.toString().includes('picId=')) {
+    if (contentItem.value.toString().includes(MapPicData.suffix)) {
       const picId: string = contentItem.value
-        .toString().replace('picId=', '');
+        .toString().replace(MapPicData.suffix, '');
 
       for (const picItem of contentList.pics) {
         if (picItem.id === picId) {

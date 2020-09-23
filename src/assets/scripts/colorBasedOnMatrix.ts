@@ -4,6 +4,9 @@ import { drawCross, drawTriangle } from './draw/drawShape';
 import { makeImage } from './draw/makeImage';
 import passagePicPath from '../images/passage.png';
 import { findPicBlob } from './findPicBlob';
+import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IStore } from '../../interfaces/store.interface';
+import { store } from '../../index';
 
 
 const fieldSize: number = creatorConfig.map.fieldSize;
@@ -18,6 +21,8 @@ export const colorBasedOnMatrix = async (
     const copyOfmatrix: Array<[]> = deepCopy(matrix);
     const canvas: any = document.getElementById(canvasId);
     const ctx: any = canvas.getContext("2d");
+    const storeData: IStore = store.getState();
+    const internalImages: IInternalImageData[] = storeData.map.images;
 
     await copyOfmatrix.forEach(async (yAxis: Array<number>, y:number) => {
       await yAxis.forEach(async (field: number, x: number) => {
@@ -47,7 +52,7 @@ export const colorBasedOnMatrix = async (
                 ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
               case 'image':
-                const image = await makeImage(findPicBlob(square)); //square is path to image
+                const image = await makeImage(findPicBlob(square, internalImages)); //square is path to image
 
                 if (
                   image.width <= (fieldSize / 2) && 

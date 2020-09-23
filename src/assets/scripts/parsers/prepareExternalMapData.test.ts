@@ -2,6 +2,7 @@
 /* eslint-disable max-lines */
 import { prepareExternalMapData } from './prepareExternalMapData';
 import { isValidExternalMapData } from '../utils/isValidExternalMapData';
+import { MapPicData } from '../../../models/mapPicData.model';
 
 
 describe("prepareExternalMapData script", () => {
@@ -10,7 +11,7 @@ describe("prepareExternalMapData script", () => {
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [[0,0],[0,0]],[[0,'data:image/picblobexample'],[0,0]],[[0,0],[0,0]]
+      [[0,0],[0,0]],[[0, '1'],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -132,10 +133,10 @@ describe("prepareExternalMapData script", () => {
 
   const decorationMatrix = [
     [
-      [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      [[`${MapPicData.suffix}pic3`,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [['data:image/picblob',0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
+      [[`${MapPicData.suffix}pic3`,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -147,7 +148,7 @@ describe("prepareExternalMapData script", () => {
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
     [
-      [[0,0],[0,0]],[[0,'data:image/picblobexample'],[0,0]],[[0,0],[0,0]]
+      [[0,0],[0,0]],[[0,`${MapPicData.suffix}pic1`],[0,0]],[[0,0],[0,0]]
     ],
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -160,11 +161,11 @@ describe("prepareExternalMapData script", () => {
     ],
     [
       [[1,0],[0,0]],
-      [['data:image/picblobexample','data:image/picblobexample'],['data:image/picblobexample','data:image/picblobexample']],
+      [[`${MapPicData.suffix}pic1`,`${MapPicData.suffix}pic1`],[`${MapPicData.suffix}pic1`, `${MapPicData.suffix}pic1`]],
       [['rafi jest git',0],[0,0]]
     ],
     [
-      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,'data:image/picblobexample2']]
+      [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,`${MapPicData.suffix}pic2`]]
     ]
   ];
 
@@ -204,7 +205,21 @@ describe("prepareExternalMapData script", () => {
     },
     vertex: {
       weights: []
-    }
+    },
+    images: [
+      {
+        id: 'pic1',
+        blob: 'data:image/picblobexample'
+      },
+      {
+        id: 'pic2',
+        blob: 'data:image/picblobexample2'
+      },
+      {
+        id: 'pic3',
+        blob: 'data:image/picblob'
+      }
+    ]
   };
 
   it("is a function", () => {
@@ -219,20 +234,18 @@ describe("prepareExternalMapData script", () => {
   it("Check valid data; block matrix", () => {
     const externalData = prepareExternalMapData(validInternalMapData);
     const renderedContentList = externalData.block_matrix;
-		const picItem = renderedContentList.pics[0];
 
     expect(typeof externalData.block_matrix).toBe('object');
     expect(Array.isArray(externalData.block_matrix.items)).toBe(true);
     expect(Array.isArray(externalData.block_matrix.pics)).toBe(true);
 
-    expect(renderedContentList.pics.length).toEqual(1);
+    expect(renderedContentList.pics.length).toEqual(0);
     expect(renderedContentList.items.length).toEqual(1);
     expect(renderedContentList.items[0].x).toEqual(1);
     expect(renderedContentList.items[0].y).toEqual(1);
     expect(renderedContentList.items[0].xShift).toEqual(1);
     expect(renderedContentList.items[0].yShift).toEqual(0);
-    expect(renderedContentList.pics[0].blob).toEqual('data:image/picblobexample');
-    expect(renderedContentList.items[0].value).toEqual(`picId=${picItem._id}`);
+    expect(renderedContentList.items[0].value).toEqual('1');
   });
 
   it("Check valid data; size", () => {

@@ -4,6 +4,7 @@ import { deepCopy } from './utils/deepCopy';
 import uuid from 'uuid/v4';
 import { IStore } from '../../interfaces/store.interface';
 import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { MapPicData } from '../../models/mapPicData.model';
 
 
 export const addInternalImagesData = (blob: string): string => {
@@ -12,7 +13,7 @@ export const addInternalImagesData = (blob: string): string => {
 
   for (const imageData of imagesData) {
     if (imageData.blob === blob) {
-      return `picId=${imageData.id}`;
+      return `${MapPicData.suffix}${imageData.id}`;
     }
   }
 
@@ -24,5 +25,5 @@ export const addInternalImagesData = (blob: string): string => {
   imagesData.push(newImageInstance);
   store.dispatch(changeInternalImagesData(imagesData));
 
-  return `picId=${newImageInstance.id}`;
+  return `${MapPicData.suffix}${newImageInstance.id}`;
 };

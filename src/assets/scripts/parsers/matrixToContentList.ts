@@ -1,9 +1,11 @@
 import { deepCopy } from '../utils/deepCopy';
 import { IContentList, IContentItem, IContentPic } from '../../../interfaces/contentList.interface';
 import { findPicBlob } from '../findPicBlob';
+import { MapPicData } from '../../../models/mapPicData.model';
+import { IInternalImageData } from '../../../interfaces/internalImageData.interface';
 
 
-export const matrixToContentList = (matrix: any): IContentList => {
+export const matrixToContentList = (matrix: any, internalImages: IInternalImageData[]): IContentList => {
   const contentList: IContentList = {
     items: [],
     pics: []
@@ -30,24 +32,23 @@ export const matrixToContentList = (matrix: any): IContentList => {
         if (square !== 0 && square !== '0') { 
           let contentItemValue: string | number = '';
           // square is a image
-          if (square.toString().includes('picId=')) {
+          if (square.toString().includes(MapPicData.suffix)) {
             let found: boolean = false;
             // Img internal id
-            const transformedSquare: string = square.replace('picId=', '');
-
-            for (const picItem of contentList.pics) {  
-              console.log(picItem.id, transformedSquare);
+            const transformedSquare: string = square.replace(MapPicData.suffix, '');
+   
+            for (const picItem of contentList.pics) {
               if (picItem._id === transformedSquare) {
                 found = true;
               }
             }
 
             if (!found) {
-              const foundBlob: string | null = findPicBlob(square);
+              const foundBlob: string | null = findPicBlob(square, internalImages);
 
               const newPicItem: IContentPic = {
                 _id: transformedSquare,
-                blob: foundBlob ? foundBlob : 'ERROR - A LACK OF BLOB' 
+                blob: foundBlob ? foundBlob : MapPicData.missingBlobl
               };
 
               contentList.pics.push(newPicItem);

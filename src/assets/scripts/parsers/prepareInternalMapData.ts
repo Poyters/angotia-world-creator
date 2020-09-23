@@ -44,6 +44,6 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   delete internalData.se.items;
   delete internalData.se.pics;
 
-  console.log(JSON.stringify(internalData));
+  // console.log('internalData', JSON.stringify(internalData));
   return internalData;
 };
