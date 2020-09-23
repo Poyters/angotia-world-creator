@@ -7,7 +7,7 @@ import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/charConfig.json';
 import { ContentContext } from '../../../../Template';
-import { addNotification } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 
 

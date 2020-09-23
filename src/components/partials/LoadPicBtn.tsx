@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-import { sizeGuard } from '../../assets/scripts/files/sizeGuard';
-import { addNotification } from '../../assets/scripts/notifications';
+import { sizeGuard } from '../../scripts/files/sizeGuard';
+import { addNotification } from '../../scripts/utils/notifications';
 
 
 interface ILoadPicBtn {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { matrixToIds } from '../../../../assets/scripts/parsers/matrixToIds';
-import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
-import { markSquare } from '../../../../assets/scripts/markSquare';
+import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
+import { deepCopy } from '../../../../scripts/utils/deepCopy';
+import { markSquare } from '../../../../scripts/markSquare';
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 

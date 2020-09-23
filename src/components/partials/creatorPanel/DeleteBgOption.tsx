@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMapBg } from '../../../store/actions/mapActions';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../scripts/utils/notifications';
 import { ContentContext } from '../../../Template';
 
 

@@ -2,8 +2,8 @@ import React, { useState, useContext, CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
-import { markSquare } from '../../../assets/scripts/markSquare';
-import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
+import { markSquare } from '../../../scripts/markSquare';
+import { deepCopy } from '../../../scripts/utils/deepCopy';
 import { CharButton } from './CharButton';
 import test1 from '../../../assets/images/mapSources/building/test1.png';
 import test1min from '../../../assets/images/mapSources/building/test1min.png';
@@ -21,7 +21,7 @@ import {
 } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
-import { addInternalImagesData } from '../../../assets/scripts/addInternalImagesData';
+import { addInternalImagesData } from '../../../scripts/addInternalImagesData';
 
 
 const bookmarks: string[] = creatorConfig.bookmarks;

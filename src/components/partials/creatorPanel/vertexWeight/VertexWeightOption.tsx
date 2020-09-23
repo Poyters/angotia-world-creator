@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
-import { matrixToIds } from '../../../../assets/scripts/parsers/matrixToIds';
-import { deepCopy } from '../../../../assets/scripts/utils/deepCopy';
-import { markSquare } from '../../../../assets/scripts/markSquare';
-import { isEmptyMatrix } from '../../../../assets/scripts/utils/isEmptyMatrix';
-import { addNotification } from '../../../../assets/scripts/notifications';
+import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
+import { deepCopy } from '../../../../scripts/utils/deepCopy';
+import { markSquare } from '../../../../scripts/markSquare';
+import { isEmptyMatrix } from '../../../../scripts/validators/isEmptyMatrix';
+import { addNotification } from '../../../../scripts/utils/notifications';
 import { VertexWeightPopup } from './VertexWeightPopup';
 import { 
     changeMapVertexWeightMatrix, 

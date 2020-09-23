@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMapSelectType } from '../../../store/actions/uiActions';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../scripts/utils/notifications';
 import { ContentContext } from '../../../Template';
 
 

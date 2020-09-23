@@ -5,7 +5,7 @@ import { Dialog } from './Dialog';
 import { Monolog } from './Monolog';
 import { 
   findConnectedDialog 
-} from '../../../../assets/scripts/dialogs/findConnectedDialog';
+} from '../../../../scripts/dialogs/findConnectedDialog';
 import { ContentContext } from '../../../../Template';
 import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';

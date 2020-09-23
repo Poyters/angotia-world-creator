@@ -4,7 +4,7 @@ import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
-import { addNotification } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 
 

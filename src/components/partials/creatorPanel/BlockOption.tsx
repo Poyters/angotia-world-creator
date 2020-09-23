@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { markSquare } from '../../../assets/scripts/markSquare';
-import { isEmptyMatrix } from '../../../assets/scripts/utils/isEmptyMatrix';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { markSquare } from '../../../scripts/markSquare';
+import { isEmptyMatrix } from '../../../scripts/validators/isEmptyMatrix';
+import { addNotification } from '../../../scripts/utils/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';

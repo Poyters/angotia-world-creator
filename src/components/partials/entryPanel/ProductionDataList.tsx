@@ -7,8 +7,8 @@ import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
 import { ContentContext } from '../../../Template';
-import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
-import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
+import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
+import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { loadMapData } from '../../../store/actions/mapActions';
 
 

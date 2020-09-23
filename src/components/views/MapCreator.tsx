@@ -9,9 +9,9 @@ import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { MapSettingsPanel } from '../partials/MapSettingsPanel';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { generateEmptyMapMatrix } from '../../assets/scripts/map';
-import { deepCopy } from '../../assets/scripts/utils/deepCopy';
-import { drawLoadedMap } from '../../assets/scripts/draw/drawLoadedMap';
+import { generateEmptyMapMatrix } from '../../scripts/map';
+import { deepCopy } from '../../scripts/utils/deepCopy';
+import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
 
 
 export const MapCreator: React.FC = () => {

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IMonolog } from '../../../../interfaces/dialogs.interface';
 import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
-import { addNotification } from '../../../../assets/scripts/notifications';
+import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 
 

@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import uuid from 'uuid/v4';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { ContentContext } from '../../../../Template';
-import { sizeGuard } from '../../../../assets/scripts/files/sizeGuard';
+import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 
 
 interface IFSImageOption {

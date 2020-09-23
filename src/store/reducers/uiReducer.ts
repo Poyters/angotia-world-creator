@@ -1,4 +1,4 @@
-import { deepCopy } from '../../assets/scripts/utils/deepCopy';
+import { deepCopy } from '../../scripts/utils/deepCopy';
 import { uiState } from '../states/uiState';
 
 

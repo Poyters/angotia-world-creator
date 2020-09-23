@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { clearCanvas } from '../../../assets/scripts/clearCanvas';
+import { clearCanvas } from '../../../scripts/clearCanvas';
 import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../scripts/utils/notifications';
 
 
 interface IClearSelectedOption {

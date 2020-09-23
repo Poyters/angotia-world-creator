@@ -12,8 +12,8 @@ import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { LoadPopup } from './LoadPopup';
 import { charState } from '../../../store/states/charState';
-import { deepCopy } from '../../../assets/scripts/utils/deepCopy';
-import { generateEmptyMapMatrix } from '../../../assets/scripts/map';
+import { deepCopy } from '../../../scripts/utils/deepCopy';
+import { generateEmptyMapMatrix } from '../../../scripts/map';
 import { 
   changeMapBlockMatrix, 
   changeMapPassageMatrix, 

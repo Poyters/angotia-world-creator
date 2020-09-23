@@ -5,10 +5,10 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { ProductionDataList } from './ProductionDataList';
-import { prepareInternalCharData } from '../../../assets/scripts/parsers/prepareInternalCharData';
-import { prepareInternalMapData } from '../../../assets/scripts/parsers/prepareInternalMapData';
-import { isValidExternalCharData } from '../../../assets/scripts/utils/isValidExternalCharData';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
+import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
+import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
+import { addNotification } from '../../../scripts/utils/notifications';
 
 
 interface ILoadPopup {

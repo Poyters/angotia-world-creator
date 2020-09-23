@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
-import { prepareExternalCharData } from '../../../assets/scripts/parsers/prepareExternalCharData';
-import { prepareExternalMapData } from '../../../assets/scripts/parsers/prepareExternalMapData';
+import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
 import { CREATE_MAP } from '../../../api/mutations/createMap';
 import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
@@ -13,7 +13,7 @@ import { GET_CHAR } from '../../../api/queries/getChar';
 import { GET_MAP } from '../../../api/queries/getMap';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import { addNotification } from '../../../assets/scripts/notifications';
+import { addNotification } from '../../../scripts/utils/notifications';
 
 
 interface IExportToAngotia {
