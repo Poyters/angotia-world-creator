@@ -1,9 +1,9 @@
-import { generateEmptyMapMatrix } from './map';
-import { isEmptyMatrix } from './validators/isEmptyMatrix';
+import { generateEmptyMatrix } from './generateEmptyMatrix';
+import { isEmptyMatrix } from '../validators/isEmptyMatrix';
 
 
-describe("generateEmptyMapMatrix script", () => {
-  const newEmptyMatrix = generateEmptyMapMatrix();
+describe("generateEmptyMatrix script", () => {
+  const newEmptyMatrix = generateEmptyMatrix();
 
 	it("Check generate empty matrix", () => {
     expect(isEmptyMatrix(newEmptyMatrix)).toBe(true);

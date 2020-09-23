@@ -1,6 +1,6 @@
 import { store } from '../../index';
 import creatorConfig from '../../assets/configs/creatorConfig.json';
-import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
+import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { deepCopy } from '../utils/deepCopy';
 import { IStore } from '../../interfaces/store.interface';
 

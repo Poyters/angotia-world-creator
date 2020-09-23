@@ -1,6 +1,6 @@
 import { IPassageLocation } from '../../interfaces/passage.interface';
 import { IMapSize } from '../../interfaces/map.interface';
-import { generateEmptyMapMatrix } from '../map';
+import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
 import { IVertexWeight } from '../../interfaces/vertex.interface';
 import { isValidLocation } from '../validators/isValidLocation';
 
@@ -9,7 +9,7 @@ export const locationListToMatrix = (
   locationsList: IPassageLocation[] | IVertexWeight[], matrixSize: IMapSize
 ): any[] | null => {
   if (!locationsList) return null;
-  const emptyMatrix = generateEmptyMapMatrix(matrixSize);
+  const emptyMatrix = generateEmptyMatrix(matrixSize);
 
   if (locationsList.length === 0 || !Array.isArray(locationsList)) {
     return emptyMatrix;

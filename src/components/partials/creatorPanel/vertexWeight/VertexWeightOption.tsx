@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import creatorConfig from '../../../../assets/configs/creatorConfig.json';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
-import { markSquare } from '../../../../scripts/markSquare';
+import { markSquare } from '../../../../scripts/matrix/markSquare';
 import { isEmptyMatrix } from '../../../../scripts/validators/isEmptyMatrix';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { VertexWeightPopup } from './VertexWeightPopup';

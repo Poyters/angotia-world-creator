@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { clearCanvas } from '../../../scripts/clearCanvas';
+import { clearCanvas } from '../../../scripts/canvas/clearCanvas';
 import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 import { addNotification } from '../../../scripts/utils/notifications';

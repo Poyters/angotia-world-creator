@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { markSquare } from '../../../scripts/markSquare';
+import { markSquare } from '../../../scripts/matrix/markSquare';
 import { isEmptyMatrix } from '../../../scripts/validators/isEmptyMatrix';
 import { addNotification } from '../../../scripts/utils/notifications';
 import creatorConfig from '../../../assets/configs/creatorConfig.json';

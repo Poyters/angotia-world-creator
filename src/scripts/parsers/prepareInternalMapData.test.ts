@@ -1,12 +1,12 @@
 import { prepareInternalMapData } from './prepareInternalMapData';
 import extarnalMapDataMock from '../../assets/mocks/externalMapData.mock.json';
-import { generateEmptyMapMatrix } from '../map';
+import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
 import { deepCopy } from '../utils/deepCopy';
 
 
 describe("prepareInternalMapData script", () => {
   const internalMapData: any = prepareInternalMapData(extarnalMapDataMock);
-  const emptyMatrix = generateEmptyMapMatrix(internalMapData.size);
+  const emptyMatrix = generateEmptyMatrix(internalMapData.size);
 
   it("is a function", () => {
 		expect(typeof prepareInternalMapData).toBe('function');

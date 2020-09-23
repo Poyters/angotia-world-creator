@@ -4,7 +4,7 @@ import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../../interfaces/math.interface';
 import { IRect, IRectanglePosition } from '../../interfaces/figure.interface';
 import { selectCanvasSquare } from './selectFields';
-import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
+import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { IStore } from '../../interfaces/store.interface';
 
 

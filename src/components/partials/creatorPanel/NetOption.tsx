@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { drawMapNet } from '../../../scripts/draw/drawMapNet';
-import { emptyMapCanvasCtx } from '../../../scripts/map';
+import { emptyMapCanvasCtx } from '../../../scripts/canvas/emptyMapCanvasCtx';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';

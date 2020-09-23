@@ -1,7 +1,7 @@
 import { IContentList, IContentPic } from '../../interfaces/contentList.interface';
 import { IMapSize } from '../../interfaces/map.interface';
-import { generateEmptyMapMatrix } from '../map';
-import { addInternalImagesData } from '../addInternalImagesData';
+import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
+import { addInternalImagesData } from '../utils/addInternalImagesData';
 import { MapPicData } from '../../models/mapPicData.model';
 
 
@@ -9,7 +9,7 @@ export const contentListToMatrix = (
   contentList: IContentList, matrixSize: IMapSize
 ): any[] | null => {
   if (!contentList) return null;
-  const emptyMatrix = generateEmptyMapMatrix(matrixSize);
+  const emptyMatrix = generateEmptyMatrix(matrixSize);
 
   if (contentList.items.length === 0) return emptyMatrix;
 

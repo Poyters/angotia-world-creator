@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
-import { markSquare } from '../../../../scripts/markSquare';
+import { markSquare } from '../../../../scripts/matrix/markSquare';
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 

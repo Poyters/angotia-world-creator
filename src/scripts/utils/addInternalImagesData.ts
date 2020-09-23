@@ -1,10 +1,10 @@
-import { store } from '../index';
-import { changeInternalImagesData } from '../store/actions/mapActions';
-import { deepCopy } from './utils/deepCopy';
+import { store } from '../../index';
+import { changeInternalImagesData } from '../../store/actions/mapActions';
+import { deepCopy } from './../utils/deepCopy';
 import uuid from 'uuid/v4';
-import { IStore } from '../interfaces/store.interface';
-import { IInternalImageData } from '../interfaces/internalImageData.interface';
-import { MapPicData } from '../models/mapPicData.model';
+import { IStore } from '../../interfaces/store.interface';
+import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { MapPicData } from '../../models/mapPicData.model';
 
 
 export const addInternalImagesData = (blob: string): string => {

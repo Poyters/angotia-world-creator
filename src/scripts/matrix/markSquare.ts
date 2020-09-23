@@ -1,13 +1,13 @@
-import { store } from '../index';
+import { store } from '../../index';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
-import { clearCanvas } from './clearCanvas';
-import { emptyMapCanvasCtx } from './map';
-import { addNotification } from './utils/notifications';
+import { clearCanvas } from '../canvas/clearCanvas';
+import { emptyMapCanvasCtx } from '../canvas/emptyMapCanvasCtx';
+import { addNotification } from '../utils/notifications';
 import { updateMatrixByTheOther } from './updateMatrixByTheOther';
-import { deepCopy } from './utils/deepCopy';
-import creatorConfig from '../assets/configs/creatorConfig.json';
-import { changeMapSelectMatrix } from '../store/actions/uiActions';
-import { IStore } from '../interfaces/store.interface';
+import { deepCopy } from '../utils/deepCopy';
+import creatorConfig from '../../assets/configs/creatorConfig.json';
+import { changeMapSelectMatrix } from '../../store/actions/uiActions';
+import { IStore } from '../../interfaces/store.interface';
 
 
 let pressedKey: string | null = null;

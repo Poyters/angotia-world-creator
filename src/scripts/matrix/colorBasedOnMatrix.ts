@@ -1,12 +1,12 @@
-import creatorConfig from '../assets/configs/creatorConfig.json';
-import { deepCopy } from './utils/deepCopy';
-import { drawCross, drawTriangle } from './draw/drawShape';
-import { makeImage } from './draw/makeImage';
-import passagePicPath from '../assets/images/passage.png';
-import { findPicBlob } from './utils/findPicBlob';
-import { IInternalImageData } from '../interfaces/internalImageData.interface';
-import { IStore } from '../interfaces/store.interface';
-import { store } from '../index';
+import creatorConfig from '../../assets/configs/creatorConfig.json';
+import { deepCopy } from '../utils/deepCopy';
+import { drawCross, drawTriangle } from '../draw/drawShape';
+import { makeImage } from '../draw/makeImage';
+import passagePicPath from '../../assets/images/passage.png';
+import { findPicBlob } from '../utils/findPicBlob';
+import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IStore } from '../../interfaces/store.interface';
+import { store } from '../../index';
 
 
 const fieldSize: number = creatorConfig.map.fieldSize;

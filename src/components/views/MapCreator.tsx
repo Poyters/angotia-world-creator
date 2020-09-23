@@ -9,7 +9,7 @@ import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { MapSettingsPanel } from '../partials/MapSettingsPanel';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { generateEmptyMapMatrix } from '../../scripts/map';
+import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';
 import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
 
@@ -18,7 +18,7 @@ export const MapCreator: React.FC = () => {
   const dispatch = useDispatch();
   
   useEffect((): void => { //Create necessary empty matrix at the beginning
-    const newEmptyMatrix = generateEmptyMapMatrix();
+    const newEmptyMatrix = generateEmptyMatrix();
 
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
     drawLoadedMap();

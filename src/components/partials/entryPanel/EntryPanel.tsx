@@ -13,7 +13,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { LoadPopup } from './LoadPopup';
 import { charState } from '../../../store/states/charState';
 import { deepCopy } from '../../../scripts/utils/deepCopy';
-import { generateEmptyMapMatrix } from '../../../scripts/map';
+import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
 import { 
   changeMapBlockMatrix, 
   changeMapPassageMatrix, 
@@ -75,7 +75,7 @@ export const EntryPanel: React.FC = () => {
       mapSizes.y = mapSizeY;
 
       dispatch(setMapSizes(mapSizes));
-      const newEmptyMatrix = generateEmptyMapMatrix();
+      const newEmptyMatrix = generateEmptyMatrix();
       
       dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
       dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));

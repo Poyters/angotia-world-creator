@@ -1,5 +1,5 @@
-import { store } from '../index';
-import { IStore } from '../interfaces/store.interface';
+import { store } from '../../index';
+import { IStore } from '../../interfaces/store.interface';
 
 
 export const dragElement = (element: any) => {

@@ -1,5 +1,5 @@
-import { IPoint } from '../interfaces/math.interface';
-import { deepCopy } from './utils/deepCopy';
+import { IPoint } from '../../interfaces/math.interface';
+import { deepCopy } from '../utils/deepCopy';
 
 
 export const updateMatrixByTheOther = (
