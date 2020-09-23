@@ -23,6 +23,14 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   internalData.passage.matrix = locationListToMatrix(internalData.passage.locations, mapSize);
   internalData.vertex.matrix = locationListToMatrix(internalData.vertex.weights, mapSize);
 
+  internalData.images = [];
+  internalData.images.push(...internalData.building.pics);
+  internalData.images.push(...internalData.decoration.pics);
+  internalData.images.push(...internalData.subsoil.pics);
+  internalData.images.push(...internalData.npc.pics);
+  internalData.images.push(...internalData.mob.pics);
+  internalData.images.push(...internalData.se.pics);
+
   delete internalData.building.items;
   delete internalData.building.pics;
   delete internalData.decoration.items;
@@ -36,5 +44,6 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   delete internalData.se.items;
   delete internalData.se.pics;
 
+  console.log(JSON.stringify(internalData));
   return internalData;
 };

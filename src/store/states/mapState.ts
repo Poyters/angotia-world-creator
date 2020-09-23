@@ -40,5 +40,6 @@ export const mapState: IMapState = {
         matrix: [],
         weights: []
     },
-    visibilityRange: 8
+    visibilityRange: 8,
+    images: []
 };

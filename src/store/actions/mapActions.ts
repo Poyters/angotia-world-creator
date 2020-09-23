@@ -94,3 +94,8 @@ export const changeMapName = (mapName: string) => ({
     type: 'CHANGE_MAP_NAME',
     mapName
 });
+
+export const changeInternalImagesData = (imagesData: any) => ({
+    type: 'CHANGE_INTERNAL_IMAGES',
+    imagesData
+});

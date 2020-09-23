@@ -2,6 +2,7 @@ import { store } from '../../../index';
 import creatorConfig from '../../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../../store/actions/uiActions';
 import { IPoint } from '../../../interfaces/math.interface';
+import { IStore } from '../../../interfaces/store.interface';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -22,7 +23,7 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
 
 
 const selectField = (cursorPosition: IPoint) => {
-  const storeData = store.getState();
+  const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
   const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;

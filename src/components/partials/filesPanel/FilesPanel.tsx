@@ -21,6 +21,7 @@ import {
 } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
+import { addInternalImagesData } from '../../../assets/scripts/addInternalImagesData';
 
 
 const bookmarks: string[] = creatorConfig.bookmarks;
@@ -101,6 +102,7 @@ export const FilesPanel: React.FC = () => {
 
 		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
 			return (
+				// TODO: tutaj powinienem nie wrzucać img do markSquare, a dodać blob do images store, i tu zamiast img id do bloba
 				<li 
 					key={uuid()} 
 					style={imageStyle} 
@@ -109,7 +111,7 @@ export const FilesPanel: React.FC = () => {
 							`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
 							matrixTransformationMethod, 
 							`Added ${currBookmark}`, 
-							img, 
+							addInternalImagesData(img), // add blob to internal images, and return id to blob
 							'image'
 					)}
 				>

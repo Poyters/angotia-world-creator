@@ -7,6 +7,7 @@ import { updateMatrixByTheOther } from './updateMatrixByTheOther';
 import { deepCopy } from './utils/deepCopy';
 import creatorConfig from '../configs/creatorConfig.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
+import { IStore } from '../../interfaces/store.interface';
 
 
 let pressedKey: string | null = null;
@@ -26,7 +27,7 @@ export const markSquare = (
     throw new Error('Cannot mark square on empty matrix');
   }
 
-  const storeData = store.getState();
+  const storeData: IStore = store.getState();
   const selectMatrix: Array<[]> = deepCopy(storeData.ui.select.matrix);
   const sourceMatrixCopy: Array<[]> = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === creatorConfig.secondOptionKeyCode ? 0 : 1;
@@ -35,6 +36,8 @@ export const markSquare = (
     (fillStyle === 'image' || fillStyle === 'vertexWeight') && 
     pressedKey !== creatorConfig.secondOptionKeyCode
   ) typeOfAction = fillColor;
+
+  console.log('fillColor', fillColor);
 
   const newMatrix: Array<[]> = deepCopy(
     updateMatrixByTheOther(sourceMatrixCopy, selectMatrix, typeOfAction)

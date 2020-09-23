@@ -1,4 +1,5 @@
 import { store } from '../../index';
+import { IStore } from '../../interfaces/store.interface';
 
 
 export const dragElement = (element: any) => {
@@ -14,7 +15,7 @@ export const dragElement = (element: any) => {
   };
 
   const elementDrag = (e: MouseEvent): void => {
-    const storeData = store.getState();
+    const storeData: IStore = store.getState();
     const selectType = storeData.ui.select.type;
 
     if (selectType === 'mouse') return;

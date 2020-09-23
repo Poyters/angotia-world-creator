@@ -5,6 +5,7 @@ import { IPoint } from '../../../interfaces/math.interface';
 import { IRect, IRectanglePosition } from '../../../interfaces/figure.interface';
 import { selectCanvasSquare } from './selectFields';
 import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
+import { IStore } from '../../../interfaces/store.interface';
 
 
 let canvas: any;
@@ -29,7 +30,7 @@ export const mouseSelectFields = (): void => {
 
 
 const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
-	const storeData = store.getState();
+	const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
   const mapLeft: number = parseInt(map.style.left) || 0;
   const mapTop: number = parseInt(map.style.top) || 0;
@@ -43,7 +44,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 
 
 const mouseUp = (): void => {
-	const storeData = store.getState();
+	const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
 	
   if (selectType !== "mouse") return;
@@ -67,7 +68,7 @@ const mouseUp = (): void => {
 
 
 const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
-  const storeData = store.getState();
+  const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
   const mapLeft: number = parseInt(map.style.left) || 0;
   const mapTop: number = parseInt(map.style.top) || 0;
@@ -87,7 +88,7 @@ const draw = (): void => {
 
 
 const colorSquares = async (rectanglePosition) => {
-  const storeData = store.getState();
+  const storeData: IStore = store.getState();
   const selectMatrix: any[] = [...storeData.ui.select.matrix];
   const fieldSize: number = creatorConfig.map.fieldSize;
 

@@ -38,5 +38,6 @@ export interface IMapState {
         matrix: any[]
         weights: IVertexWeight[]
     }
-    visibilityRange: number
+    visibilityRange: number,
+    images: any[]
 };

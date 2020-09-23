@@ -37,4 +37,28 @@ describe("prepareInternalMapData script", () => {
 		expect(internalMapData.se.items).toBe(undefined);
   });
 
+  it("a lack of building.pics", () => {
+		expect(internalMapData.building.pics).toBe(undefined);
+  });
+
+  it("a lack of decoration.pics", () => {
+		expect(internalMapData.decoration.pics).toBe(undefined);
+  });
+
+  it("a lack of subsoil.pics", () => {
+		expect(internalMapData.subsoil.pics).toBe(undefined);
+  });
+
+  it("a lack of npc.pics", () => {
+		expect(internalMapData.npc.pics).toBe(undefined);
+  });
+
+  it("a lack of mob.pics", () => {
+		expect(internalMapData.mob.pics).toBe(undefined);
+  });
+
+  it("a lack of se.pics", () => {
+		expect(internalMapData.se.pics).toBe(undefined);
+  });
+
 });

@@ -3,6 +3,7 @@ import { deepCopy } from './utils/deepCopy';
 import { drawCross, drawTriangle } from './draw/drawShape';
 import { makeImage } from './draw/makeImage';
 import passagePicPath from '../images/passage.png';
+import { findPicBlob } from './findPicBlob';
 
 
 const fieldSize: number = creatorConfig.map.fieldSize;
@@ -46,7 +47,7 @@ export const colorBasedOnMatrix = async (
                 ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
               case 'image':
-                const image = await makeImage(square); //square is path to image
+                const image = await makeImage(findPicBlob(square)); //square is path to image
 
                 if (
                   image.width <= (fieldSize / 2) && 
@@ -84,3 +85,4 @@ export const colorBasedOnMatrix = async (
       });
     });
   };
+

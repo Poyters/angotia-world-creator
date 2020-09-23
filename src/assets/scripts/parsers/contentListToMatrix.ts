@@ -19,7 +19,8 @@ export const contentListToMatrix = (
       for (const picItem of contentList.pics) {
         if (picItem.id === picId) {
           // eslint-disable-next-line max-len
-          emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = picItem.blob;
+          emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = picItem.id;
+          // add blob to images (store)
         }
       }
     } else {

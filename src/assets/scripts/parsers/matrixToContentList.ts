@@ -1,6 +1,6 @@
 import { deepCopy } from '../utils/deepCopy';
 import { IContentList, IContentItem } from '../../../interfaces/contentList.interface';
-import uuid from 'uuid/v4';
+import { findPicBlob } from '../findPicBlob';
 
 
 export const matrixToContentList = (matrix: any): IContentList => {
@@ -22,35 +22,37 @@ export const matrixToContentList = (matrix: any): IContentList => {
         field[1][1]
       ];
 
-      squareMatrix.forEach((square: number | string, index: number) => {
+      squareMatrix.forEach((square: any, index: number) => {
         const xShift: number = index === 1 || index === 3 ?  1 : 0;
         const yShift: number = index === 2 || index === 3 ? 1 : 0;
 
         // generate contentItem only from not empty matrix squares
         if (square !== 0 && square !== '0') { 
           let contentItemValue: string | number = '';
-
           // square is a image
-          if (square.toString().includes('data:image/')) {
+          if (square.toString().includes('picId=')) {
             let found: boolean = false;
+            // Img internal id
+            const transformedSquare: string = square.replace('picId=', '');
 
-            for (const picItem of contentList.pics) {            
-              if (picItem.blob === square) {
-                contentItemValue = `picId=${picItem._id}`;
+            for (const picItem of contentList.pics) {  
+              console.log(picItem.id, transformedSquare);
+              if (picItem._id === transformedSquare) {
                 found = true;
               }
             }
 
-            if (!found) { // image is not in pics it list
-              const picId = uuid();
+            if (!found) {
               const newPicItem = {
-                _id: picId,
-                blob: square
+                _id: transformedSquare,
+                blob: findPicBlob(square)
               };
 
-              contentItemValue = `picId=${picId}`;
               contentList.pics.push(newPicItem);
             }
+
+            contentItemValue = square;
+
           } else { // square is not a image
             contentItemValue = square;
           }
@@ -71,5 +73,3 @@ export const matrixToContentList = (matrix: any): IContentList => {
 
   return contentList;
 };
-
-

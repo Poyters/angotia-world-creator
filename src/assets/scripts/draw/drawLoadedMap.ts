@@ -2,12 +2,13 @@ import { store } from '../../../index';
 import creatorConfig from '../../configs/creatorConfig.json';
 import { colorBasedOnMatrix } from '../colorBasedOnMatrix';
 import { deepCopy } from '../utils/deepCopy';
+import { IStore } from '../../../interfaces/store.interface';
 
 
 const blockSquaresColor = creatorConfig.blockSquareColor;
 
 export const drawLoadedMap = async () => {
-  const storeData = store.getState();
+  const storeData: IStore = store.getState();
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
   const buildingMatrix = deepCopy(storeData.map.building.matrix);
