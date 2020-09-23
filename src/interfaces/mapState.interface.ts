@@ -1,6 +1,7 @@
 import { IPoint } from './math.interface';
 import { IPassageLocation } from './passage.interface';
 import { IVertexWeight } from './vertex.interface';
+import { IInternalImageData } from './internalImageData.interface';
 
 
 export interface IMapState {
@@ -39,5 +40,5 @@ export interface IMapState {
         weights: IVertexWeight[]
     }
     visibilityRange: number,
-    images: any[]
+    images: IInternalImageData[]
 };
