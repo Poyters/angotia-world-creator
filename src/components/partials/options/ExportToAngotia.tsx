@@ -51,7 +51,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           delete externalCharData._id;
           updateChar({ variables: { id: charData.id, ...externalCharData}});
           addNotification('Succesfully updated character');
-        } else { // char doest't exists
+        } else { // Char doest't exists
           addChar({ variables: { ...externalCharData }});
           addNotification('Succesfully added a new character to Angotia');
         }  
@@ -63,11 +63,11 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');
         }
         
-        if (map.data) { // Char already exists id database
+        if (map.data) { // Map already exists id database
           delete externalMapData._id;
           updateMap({ variables: { id: mapData.id, ...externalMapData}});
           addNotification('Succesfully updated map');
-        } else { // char doest't exists
+        } else { // Map doest't exists
           addMap({ variables: { ...externalMapData }});
           addNotification('Succesfully added a new map to Angotia');
         }  
