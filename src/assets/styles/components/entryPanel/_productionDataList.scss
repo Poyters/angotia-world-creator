@@ -2,6 +2,10 @@
   margin: 15px;
   padding: 0;
   box-sizing: border-box;
+  max-height: 50vh;
+  overflow: auto;
+
+  @include scrollBar;
 
   & li {
     & span {

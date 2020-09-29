@@ -80,7 +80,10 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
           Load from
         </header>
         <section className="popupChooseBoxes">
-          <div className="popupChooseBoxes__box" onClick={() => setIsActiveProduction(true)}>
+          <div 
+            className={`popupChooseBoxes__box ${isActiveProduction ? 'popupChooseBoxes__box--active' : ''}`}
+            onClick={() => setIsActiveProduction(true)}
+          >
             production database
           </div>
           <div className="popupChooseBoxes__box">

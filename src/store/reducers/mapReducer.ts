@@ -9,6 +9,11 @@ export const mapReducer = (state = deepCopy(mapState), action) => {
                 ...state,
                 size: action.sizes
             };
+        case 'SET_MAP_DATABASE_ID':
+            return {
+                ...state,
+                id: action.dbId
+            };
         case 'SET_MAP_BACKGROUND':
             return {
                 ...state,

@@ -14,6 +14,12 @@ export const setMapBg = (path: string) => ({
     path
 });
 
+export const setMapDatabaseId = (dbId: string) => ({
+    type: 'SET_MAP_DATABASE_ID',
+    dbId
+});
+
+
 export const changeMapBlockMatrix = (newMatrix: Array<any>) => ({
     type: 'CHANGE_MAP_BLOCK_MATRIX',
     newMatrix
