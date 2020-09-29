@@ -10,8 +10,8 @@ export const sizeGuard = (file: any, maxValue: number): boolean | null => {
 
   if (file.size / 1000 < maxValue) { // To kilobytes
     return true;
-  } else {
-    addNotification(`Too weight! Max pic weight is ${maxValue} KB`, 'warning');
-    return false;
-  }
+  } 
+
+  addNotification(`Too weight! Max pic weight is ${maxValue} KB`, 'warning');
+  return false;
 };
