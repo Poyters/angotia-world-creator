@@ -4,7 +4,6 @@ import creatorConfig from '../../assets/configs/creator.config.json';
 export const isValidExternalMapData = (data: any): boolean => {
   if (
     !data ||
-    data.id ||
     Array.isArray(data) ||
     (
       Object.keys(data).length === 0 && data.constructor === Object

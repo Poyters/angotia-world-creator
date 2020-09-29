@@ -9,7 +9,6 @@ export const prepareExternalMapData = (mapData: IMapState | any) => {
 
   preparedMapData._id = preparedMapData.internalId;
   delete preparedMapData.internalId;
-  delete preparedMapData.id;
   delete preparedMapData.passage?.matrix;
   delete preparedMapData.vertex?.matrix;
 

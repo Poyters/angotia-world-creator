@@ -67,7 +67,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           delete externalMapData._id;
           updateMap({ variables: { id: mapData.id, ...externalMapData}});
           addNotification('Succesfully updated map');
-        } else { // Map doest't exists
+        } else { // Map doest't exists yet
           addMap({ variables: { ...externalMapData }});
           addNotification('Succesfully added a new map to Angotia');
         }  
