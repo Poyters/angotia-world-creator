@@ -68,7 +68,6 @@ describe("isValidExternalCharData script", () => {
     },
     _id: "58cc2998-9dfa-4905-b6e3-d12fa14af3f6",
     field_diameter: 0,
-    move_type: "",
     mob_range: "",
     is_agressive_mob: false,
     has_visible_level: true,

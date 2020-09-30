@@ -33,14 +33,6 @@ describe("prepareExternalMapData script", () => {
 		expect(internalData.type).toBe('static');
   });
 
-  it("has moveType", () => {
-		expect(internalData.moveType).toBe(null);
-  });
-
-  it("a lack of move_type", () => {
-		expect(internalData.move_type).toBe(undefined);
-  });
-
   it("has hasVisibleLevel", () => {
 		expect(internalData.hasVisibleLevel).toBe(true);
   });

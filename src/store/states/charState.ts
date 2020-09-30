@@ -9,7 +9,6 @@ export const charState: ICharState = {
     fieldDiameter: 0,
     type: '',
     choosed: '',
-    moveType: '',
     mobRange: '',
     monologs: [],
     dialogs: [],

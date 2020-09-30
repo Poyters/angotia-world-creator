@@ -54,7 +54,6 @@ describe("prepareExternalCharData script", () => {
     },
     internalId: "58cc2998-9dfa-4905-b6e3-d12fa14af3f6",
     fieldDiameter: 0,
-    moveType: "",
     mobRange: "",
     isAgressiveMob: false,
     hasVisibleLevel: true,
@@ -99,10 +98,6 @@ describe("prepareExternalCharData script", () => {
 		expect(externalData.fieldDiameter).toBe(undefined);
   });
 
-  it("Check a lack of moveType", () => {
-		expect(externalData.moveType).toBe(undefined);
-  });
-
   it("Check a lack of mobRange", () => {
 		expect(externalData.mobRange).toBe(undefined);
   });
@@ -137,10 +132,6 @@ describe("prepareExternalCharData script", () => {
 
   it("Check mob_range value", () => {
 		expect(externalData.mob_range).toBe('');
-  });
-
-  it("Check move_type value", () => {
-		expect(externalData.move_type).toBe('');
   });
 
   it("Check field_diameter value", () => {

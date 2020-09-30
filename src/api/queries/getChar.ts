@@ -10,7 +10,6 @@ export const GET_CHAR = gql`
       field_diameter
       type
       choosed
-      move_type
       has_visible_level
       char_pic
       mob_range

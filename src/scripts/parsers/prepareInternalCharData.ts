@@ -9,5 +9,9 @@ export const prepareInternalCharData = (charData: any): ICharState => {
   delete dataCopy._id;
 
   const internalData = camelcaseKeys(dataCopy, {deep: true});
+
+  if (internalData.monologs === null) internalData.monologs = [];
+  if (internalData.dialogs === null) internalData.dialogs = [];
+
   return internalData;
 };

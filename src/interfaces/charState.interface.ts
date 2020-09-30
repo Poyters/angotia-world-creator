@@ -10,7 +10,6 @@ export interface ICharState {
     mobRange: string
     type: string
     choosed: string
-    moveType: string
     monologs: IMonolog[]
     dialogs: IDialog[]
     temponaryPlayerDialogs?: IPlayer[]

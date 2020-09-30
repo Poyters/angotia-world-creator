@@ -20,14 +20,6 @@ export const isValidExternalCharData = (data: any): boolean => {
       data?.field_diameter === undefined
     ) ||
     (
-      data?.move_type === null ||
-      data?.move_type === undefined
-    ) ||
-    (
-      data?.mob_range === null ||
-      data?.mob_range === undefined
-    ) ||
-    (
       data?.is_agressive_mob === null ||
       data?.is_agressive_mob === undefined
     ) ||
@@ -39,8 +31,6 @@ export const isValidExternalCharData = (data: any): boolean => {
       data?.char_pic === null ||
       data?.char_pic === undefined
     ) ||
-    !Array.isArray(data?.monologs) ||
-    !Array.isArray(data?.dialogs) ||
     (
       !data?.statistics ||
       data?.statistics?.level < 1 ||
@@ -74,15 +64,7 @@ export const isValidExternalCharData = (data: any): boolean => {
       !data?.settings?.resp_time ||
       data?.settings?.resp_time?.min < 0 ||
       data?.settings?.resp_time?.max > 999999
-    ) ||
-    data?.id ||
-    data?.fieldDiameter ||
-    data?.moveType ||
-    data?.charPic ||
-    data?.hasVisibleLevel ||
-    data?.isAgressiveMob ||
-    data?.internalId ||
-    data?.mobRange
+    )
   ) return false;
 
   return true;
