@@ -15,6 +15,7 @@ import {
 import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
+import { Notification } from '../../../../models/notification.model';
 
 
 let pressedKey: string | null = null;
@@ -31,7 +32,7 @@ export const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification(notifications?.options?.vertex?.select, 'warning');
+            addNotification(notifications?.options?.vertex?.select, Notification.error);
             return;
         }
 

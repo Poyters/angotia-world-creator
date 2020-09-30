@@ -26,7 +26,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
   if (char.loading || map.loading) return <p> Loading... </p>;
   if (char.error || map.error) return <p> Couldn't load data </p>;
 
-  const loadData = (data) => {
+  const loadFromDb = (data) => {
     switch (type) {
       case 'char':
         const internalCharData = prepareInternalCharData(data);
@@ -53,7 +53,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
           type === 'char' ? (
             char.data?.allChars.map(char => {
               return (
-                <li onClick={() => loadData(char)} key={uuid()}> 
+                <li onClick={() => loadFromDb(char)} key={uuid()}> 
                   <span>Internal id:</span>{ char._id }
                   <span>Name:</span>{ char.name }
                   <span>Type:</span>{ char.choosed }
@@ -66,7 +66,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
           type === 'map' ? (
             map.data?.allMaps.map(mapData => {
               return (
-                <li onClick={() => loadData(mapData)} key={uuid()}> 
+                <li onClick={() => loadFromDb(mapData)} key={uuid()}> 
                   <span>Internal id:</span>{ mapData._id }
                   <span>Name:</span>{ mapData.map_name }
                 </li>

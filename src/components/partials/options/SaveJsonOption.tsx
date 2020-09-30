@@ -7,6 +7,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
 import { addNotification } from '../../../scripts/utils/notifications';
+import { Notification } from '../../../models/notification.model';
 
 
 interface ISaveJsonOption {
@@ -34,7 +35,7 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
         addNotification('Succesfully saved map');
       break;
       default:
-        addNotification('Invalid save data type', 'warning');
+        addNotification('Invalid save data type', Notification.error);
     }
   };
 

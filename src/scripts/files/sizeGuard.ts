@@ -1,4 +1,5 @@
 import { addNotification } from '../utils/notifications';
+import { Notification } from '../../models/notification.model';
 
 
 export const sizeGuard = (file: any, maxValue: number): boolean | null => {
@@ -12,6 +13,6 @@ export const sizeGuard = (file: any, maxValue: number): boolean | null => {
     return true;
   } 
 
-  addNotification(`Too weight! Max pic weight is ${maxValue} KB`, 'warning');
+  addNotification(`Too weight! Max pic weight is ${maxValue} KB`, Notification.error);
   return false;
 };

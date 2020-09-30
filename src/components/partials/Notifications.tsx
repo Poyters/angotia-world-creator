@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { IStore } from '../../interfaces/store.interface';
 import uuid from 'uuid/v4';
+import { Notification } from '../../models/notification.model';
 
 
 export const Notifications: React.FC = () => {
@@ -11,7 +12,7 @@ export const Notifications: React.FC = () => {
 		if (!Array.isArray(actionNotes)) return [];
 		
 		const contentToRender = actionNotes?.map(note => {
-			const specialClass = note.type === 'warning' ? 'notifications__note--warning' : '';
+			const specialClass = note.type === Notification.error ? 'notifications__note--warning' : '';
 
 			return (
 				<li 

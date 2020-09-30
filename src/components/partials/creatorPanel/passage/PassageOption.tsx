@@ -15,6 +15,7 @@ import {
 } from '../../../../store/actions/mapActions';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
+import { Notification } from '../../../../models/notification.model';
 
 
 let pressedKey: string | null = null;
@@ -31,7 +32,7 @@ export const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification(notifications?.options?.passage?.select, 'warning');
+            addNotification(notifications?.options?.passage?.select, Notification.error);
             return;
         }
 

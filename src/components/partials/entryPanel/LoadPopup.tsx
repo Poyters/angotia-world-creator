@@ -8,7 +8,9 @@ import { ProductionDataList } from './ProductionDataList';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
+import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
 import { addNotification } from '../../../scripts/utils/notifications';
+import { Notification } from '../../../models/notification.model';
 
 
 interface ILoadPopup {
@@ -33,7 +35,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
     };
   });
 
-  const load = (evt: any) => {
+  const loadByJson = (evt: any) => {
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
@@ -43,22 +45,26 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
 
         switch (type) {
           case 'map':
-            const internalData = prepareInternalMapData(loadedData);
-            dispatch(loadMapData(internalData));
-            setRedirect(routes?.creator);
+            if (isValidExternalMapData(loadedData)) {
+              const internalData = prepareInternalMapData(loadedData);
+              dispatch(loadMapData(internalData));
+              setRedirect(routes?.creator);
+            } else {
+              addNotification('You are trying to load invalid map data', Notification.error);
+            }
+            
           break;
           case 'char':
             if (isValidExternalCharData(loadedData)) {
               const internalData = prepareInternalCharData(loadedData);
               dispatch(loadCharData(internalData));
               setRedirect(routes?.char);
-            } 
-            else {
-              addNotification('You are trying load invalid data', 'warning');
+            } else {
+              addNotification('You are trying to load invalid char data', Notification.error);
             }
           break;
           default:
-            addNotification('Unknown loaded data type', 'warning');
+            addNotification('Unknown loaded data type', Notification.error);
         }
       };
 
@@ -93,7 +99,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             type="file" 
             id="loadInput" 
             className="g-hidenFileInput"
-            onChange={(event): void => load(event)}
+            onChange={(event): void => loadByJson(event)}
           /> 
           <label 
             className="popupChooseBoxes__box"

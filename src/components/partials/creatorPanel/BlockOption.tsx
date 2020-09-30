@@ -8,6 +8,7 @@ import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { ContentContext } from '../../../Template';
 import { Canvas } from '../../../models/canvas.model';
+import { Notification } from '../../../models/notification.model';
 
 
 interface IBlockOption {
@@ -26,7 +27,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
 
-			if (selectNote) addNotification(selectNote, 'warning');
+			if (selectNote) addNotification(selectNote, Notification.error);
 			return;
 		}
 

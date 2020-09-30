@@ -15,6 +15,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapDatabaseId } from '../../../store/actions/mapActions';
+import { Notification } from '../../../models/notification.model';
 
 
 interface IExportToAngotia {
@@ -51,7 +52,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
         const externalCharData = prepareExternalCharData(charData);
 
         if (char.error) {
-          addNotification(`Expected error during checking existing char: ${char.error}`, 'warning');
+          addNotification(`Expected error during checking existing char: ${char.error}`, Notification.error);
         }
 
         if (char.data) { // Char already exists id database
@@ -68,7 +69,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
         console.log(mapData);
 
         if (map.error) {
-          addNotification(`Expected error during checking existing map: ${map.error}`, 'warning');
+          addNotification(`Expected error during checking existing map: ${map.error}`, Notification.error);
         }
 
         if (map.data) { // Map already exists id database
