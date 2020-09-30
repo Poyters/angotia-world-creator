@@ -3,6 +3,7 @@ import creatorConfig from '../../assets/configs/creator.config.json';
 import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { deepCopy } from '../utils/deepCopy';
 import { IStore } from '../../interfaces/store.interface';
+import { Canvas } from '../../models/canvas.model';
 
 
 const blockSquaresColor = creatorConfig.blockSquareColor;
@@ -22,7 +23,7 @@ export const drawLoadedMap = async () => {
   // Draw block fields
   await colorBasedOnMatrix(
     blockMatrix, 
-    'MAP_BLOCK_CANVAS', 
+    Canvas.block, 
     blockSquaresColor, 
     'barrier'
   );
@@ -30,7 +31,7 @@ export const drawLoadedMap = async () => {
   // Draw passages
   await colorBasedOnMatrix(
     passageMatrix, 
-    'MAP_PASSAGE_CANVAS', 
+    Canvas.passage, 
     '', 
     'passage'
   );
@@ -38,7 +39,7 @@ export const drawLoadedMap = async () => {
   // Draw buildings
   await colorBasedOnMatrix(
     buildingMatrix, 
-    'MAP_BUILDING_CANVAS', 
+    Canvas.building, 
     '', 
     'image'
   );
@@ -46,7 +47,7 @@ export const drawLoadedMap = async () => {
   // Draw decorations
   await colorBasedOnMatrix(
     decorationMatrix, 
-    'MAP_DECORATION_CANVAS', 
+    Canvas.decoration, 
     '', 
     'image'
   );
@@ -54,7 +55,7 @@ export const drawLoadedMap = async () => {
   // Draw subsoils
   await colorBasedOnMatrix(
     subsoilMatrix, 
-    'MAP_SUBSOIL_CANVAS', 
+    Canvas.subsoil, 
     '', 
     'image'
   );
@@ -62,7 +63,7 @@ export const drawLoadedMap = async () => {
   // Draw NPCs
   await colorBasedOnMatrix(
     npcMatrix, 
-    'MAP_NPC_CANVAS', 
+    Canvas.npc, 
     '', 
     'image'
   );
@@ -70,7 +71,7 @@ export const drawLoadedMap = async () => {
   // Draw MOBs
   await colorBasedOnMatrix(
     mobMatrix, 
-    'MAP_MOB_CANVAS', 
+    Canvas.mob, 
     '', 
     'image'
   );
@@ -78,7 +79,7 @@ export const drawLoadedMap = async () => {
   // Draw vertex weights
   await colorBasedOnMatrix(
     vertexWeightMatrix, 
-    'MAP_VERTEXWEIGHT_CANVAS',
+    Canvas.vertexWeight,
     '', 
     'vertexWeight'
   );
@@ -86,7 +87,7 @@ export const drawLoadedMap = async () => {
   // Draw se
   await colorBasedOnMatrix(
     seMatrix, 
-    'MAP_SE_CANVAS',
+    Canvas.se,
     '', 
     'image'
   );

@@ -11,6 +11,7 @@ import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../interfaces/square.interface';
 import { IPassageLocation } from '../../../../interfaces/passage.interface';
 import { IStore } from '../../../../interfaces/store.interface';
+import { Canvas } from '../../../../models/canvas.model';
 
 
 interface IPassageOption {
@@ -67,7 +68,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
-            'MAP_PASSAGE_CANVAS', 
+            Canvas.passage, 
             changeMapPassageMatrix, 
             notifications?.options?.passage?.add, 
             '', 

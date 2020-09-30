@@ -5,7 +5,7 @@ import { dragElement } from '../../scripts/utils/dragElement';
 import { selectFieldsHandler } from '../../scripts/select/selectFields';
 import { mouseSelectFields } from '../../scripts/select/mouseSelectFields';
 import { IStore } from '../../interfaces/store.interface';
-import uuid from 'uuid/v4';
+import { Canvas } from '../../models/canvas.model';
 
 
 export const Map: React.FC = () => {
@@ -47,39 +47,20 @@ export const Map: React.FC = () => {
     mouseSelectFields();
   }, []);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const generateLayers = () => {
-    const contentToRender = creatorConfig.layers.map((layer: any) => {
-      return (
-        <canvas
-          key={uuid()}
-          className={`map__canvas map__canvas--${layer.type} js-mapLayer`}
-          data-layername={layer.name}
-          width={`${mapSize.x * fieldSize}`} 
-          height={`${mapSize.y * fieldSize}`} 
-          id={`MAP_${layer.type.toUpperCase()}_CANVAS`}
-        > </canvas>
-      );
-    });
-    
-    return contentToRender;
-  };
-
-
   return (
     <main className="map" style={mapStyles} id="map">
       <canvas 
         className="map__canvas map__canvas--main" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="mapCanvas"
+        id={Canvas.base}
       > </canvas>
 
       <canvas 
         className="map__canvas map__canvas--select" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_SELECT_CANVAS" 
+        id={Canvas.select} 
         onClick={e => selectFieldsHandler(e)}
       > </canvas>
 
@@ -88,7 +69,7 @@ export const Map: React.FC = () => {
         data-layername="disableFields" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_BLOCK_CANVAS"
+        id={Canvas.block}
       > </canvas>
 
       <canvas 
@@ -96,7 +77,7 @@ export const Map: React.FC = () => {
         data-layername="passage"
         width={`${mapSize.x * fieldSize}`}
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_PASSAGE_CANVAS"
+        id={Canvas.passage}
       > </canvas>
 
       <canvas 
@@ -104,7 +85,7 @@ export const Map: React.FC = () => {
         data-layername="buildings" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_BUILDING_CANVAS"
+        id={Canvas.building}
       > </canvas>
 
       <canvas 
@@ -112,7 +93,7 @@ export const Map: React.FC = () => {
         data-layername="decorations" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_DECORATION_CANVAS"
+        id={Canvas.decoration}
       > </canvas>
 
       <canvas 
@@ -120,7 +101,7 @@ export const Map: React.FC = () => {
         data-layername="subsoil" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_SUBSOIL_CANVAS"
+        id={Canvas.subsoil}
       > </canvas>
 
       <canvas 
@@ -128,7 +109,7 @@ export const Map: React.FC = () => {
         data-layername="npcs" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_NPC_CANVAS"
+        id={Canvas.npc}
       > </canvas>
 
       <canvas 
@@ -136,7 +117,7 @@ export const Map: React.FC = () => {
         data-layername="mobs" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_MOB_CANVAS"
+        id={Canvas.mob}
       > </canvas>
 
       <canvas 
@@ -144,7 +125,7 @@ export const Map: React.FC = () => {
         data-layername="speakingEnvironment" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_SE_CANVAS"
+        id={Canvas.se}
       > </canvas>
 
       <canvas 
@@ -152,7 +133,7 @@ export const Map: React.FC = () => {
         data-layername="vertexWeight" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id="MAP_VERTEXWEIGHT_CANVAS"
+        id={Canvas.vertexWeight}
       > </canvas>
     </main>
   );

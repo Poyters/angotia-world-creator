@@ -14,6 +14,7 @@ import {
 } from '../../../../store/actions/mapActions';
 import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
+import { Canvas } from '../../../../models/canvas.model';
 
 
 let pressedKey: string | null = null;
@@ -52,7 +53,7 @@ export const VertexWeightOption: React.FC = () => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'MAP_VERTEXWEIGHT_CANVAS', 
+            Canvas.vertexWeight, 
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.delete, 
             '', 

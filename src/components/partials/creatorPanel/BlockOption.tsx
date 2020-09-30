@@ -7,6 +7,7 @@ import creatorConfig from '../../../assets/configs/creator.config.json';
 import { changeMapBlockMatrix } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { ContentContext } from '../../../Template';
+import { Canvas } from '../../../models/canvas.model';
 
 
 interface IBlockOption {
@@ -31,7 +32,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 
 		markSquare(
 			blockMatrix, 
-			'MAP_BLOCK_CANVAS', 
+			Canvas.block, 
 			changeMapBlockMatrix, 
 			changeNote, 
 			fillColor, 

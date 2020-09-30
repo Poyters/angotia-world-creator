@@ -8,6 +8,7 @@ import { deepCopy } from '../utils/deepCopy';
 import creatorConfig from '../../assets/configs/creator.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IStore } from '../../interfaces/store.interface';
+import { Canvas } from '../../models/canvas.model';
 
 
 let pressedKey: string | null = null;
@@ -42,7 +43,7 @@ export const markSquare = (
   );
 
   store.dispatch(changeMatrixMethod(newMatrix));
-  clearCanvas("MAP_SELECT_CANVAS", changeMapSelectMatrix);
+  clearCanvas(Canvas.select, changeMapSelectMatrix);
 
   emptyMapCanvasCtx(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);

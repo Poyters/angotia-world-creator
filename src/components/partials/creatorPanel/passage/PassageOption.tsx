@@ -14,6 +14,7 @@ import {
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
 import { IStore } from '../../../../interfaces/store.interface';
+import { Canvas } from '../../../../models/canvas.model';
 
 
 let pressedKey: string | null = null;
@@ -52,7 +53,7 @@ export const PassageOption: React.FC = () => {
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
-            'MAP_PASSAGE_CANVAS', 
+            Canvas.passage, 
             changeMapPassageMatrix, 
             notifications?.options?.passage?.delete, 
             '', 

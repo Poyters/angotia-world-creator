@@ -12,6 +12,7 @@ import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../interfaces/square.interface';
 import { IVertexWeight } from '../../../../interfaces/vertex.interface';
 import { IStore } from '../../../../interfaces/store.interface';
+import { Canvas } from '../../../../models/canvas.model';
 
 
 interface IVertexOption {
@@ -71,7 +72,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
-            'MAP_VERTEXWEIGHT_CANVAS', 
+            Canvas.vertexWeight, 
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.add, 
             vertexWeightValue, 

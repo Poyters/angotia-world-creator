@@ -5,6 +5,7 @@ import { emptyMapCanvasCtx } from '../../../scripts/canvas/emptyMapCanvasCtx';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
+import { Canvas } from '../../../models/canvas.model';
 
 
 interface INetOption {
@@ -24,7 +25,7 @@ export const NetOption: React.FC<INetOption> = ({
   };
 
   useEffect((): void => {
-    const ctx: any = emptyMapCanvasCtx("mapCanvas");
+    const ctx: any = emptyMapCanvasCtx(Canvas.base);
     if (!ctx) return;
 
     switch(optionViewType) {

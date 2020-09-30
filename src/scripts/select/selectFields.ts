@@ -3,6 +3,7 @@ import creatorConfig from '../../assets/configs/creator.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../../interfaces/math.interface';
 import { IStore } from '../../interfaces/store.interface';
+import { Canvas } from '../../models/canvas.model';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
@@ -69,7 +70,7 @@ const selectField = (cursorPosition: IPoint) => {
 
 
 const colorChecked = (positionDelta: IPoint, type: string) => {
-  const canvas: any = document.getElementById("MAP_SELECT_CANVAS");
+  const canvas: any = document.getElementById(Canvas.select);
   const ctx: any = canvas.getContext("2d");
   let fieldSize: number = creatorConfig.map.fieldSize;
 

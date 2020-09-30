@@ -6,6 +6,7 @@ import { IRect, IRectanglePosition } from '../../interfaces/figure.interface';
 import { selectCanvasSquare } from './selectFields';
 import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { IStore } from '../../interfaces/store.interface';
+import { Canvas } from '../../models/canvas.model';
 
 
 let canvas: any;
@@ -20,7 +21,7 @@ let drag: boolean = false;
 
 export const mouseSelectFields = (): void => {
   const map: HTMLElement | null = document.getElementById("map");
-	canvas = document.getElementById('MAP_SELECT_CANVAS');
+	canvas = document.getElementById(Canvas.select);
   ctx = canvas.getContext('2d');
 	
 	canvas.addEventListener('mousedown', event => mouseDown(event, map), false);
@@ -130,7 +131,7 @@ const colorSquares = async (rectanglePosition) => {
 
   colorBasedOnMatrix(
     selectMatrix, 
-    'MAP_SELECT_CANVAS', 
+    Canvas.select, 
     creatorConfig.selectColor
   );
 };
