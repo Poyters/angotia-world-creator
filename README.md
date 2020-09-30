@@ -4,7 +4,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 
 ## Changelog
 
-### Version 1.2.0 (planned June 2022)
+### Version 1.2.0 (planned June 2021)
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
 

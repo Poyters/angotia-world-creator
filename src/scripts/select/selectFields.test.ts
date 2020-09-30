@@ -14,6 +14,10 @@ describe("selectCanvasSquare script", () => {
 		y: 4
 	};
 
+	it("is a function", () => {
+		expect(typeof selectCanvasSquare).toBe('function');
+	});
+
 	it("Check select square", () => {
 		selectCanvasSquare(exampleMatrix, examplePoint);
 		const square = exampleMatrix[2][1][0][0];
@@ -38,6 +42,10 @@ describe("selectCanvasField script", () => {
 		x: 2,
 		y: 4
 	};
+
+	it("is a function", () => {
+		expect(typeof selectCanvasField).toBe('function');
+	});
 
 	it("Check select filed", () => {
 		selectCanvasField(exampleMatrix, examplePoint);
