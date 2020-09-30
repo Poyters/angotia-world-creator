@@ -6,7 +6,7 @@
     z-index: 1;
 
     cursor: move;
-    border: 1px dotted $warningColor;
+    border: 1px dotted $errorColor;
     
     &__canvas {
         position: relative;
@@ -18,11 +18,18 @@
             z-index: 2;
         }
 
-        &--select, &--block, &--passage, &--building, &--decoration, &--subsoil, &--npc, &--mob, &--vertexWeight, &--se {
+        &--select,
+        &--block,
+        &--passage,
+        &--building,
+        &--decoration,
+        &--subsoil,
+        &--npc,
+        &--mob,
+        &--vertexWeight,
+        &--se {
             position: absolute;
         }
-
-        
 
         &--subsoil {
             z-index: 8;

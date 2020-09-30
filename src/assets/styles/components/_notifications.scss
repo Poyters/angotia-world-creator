@@ -20,8 +20,8 @@
         background-color: $decorationColor8;
         line-height: 16px;
 
-        &--warning {
-            color: $warningColor;
+        &--error {
+            color: $errorColor;
         }
     }
 }
