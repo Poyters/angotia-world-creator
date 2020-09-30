@@ -10,6 +10,10 @@ import { ContentContext } from '../../../Template';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { loadMapData } from '../../../store/actions/mapActions';
+import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
+import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
+import { addNotification } from '../../../scripts/utils/notifications';
+import { Notification } from '../../../models/notification.model';
 
 
 interface IProductionDataList {
@@ -26,17 +30,27 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
   if (char.loading || map.loading) return <p> Loading... </p>;
   if (char.error || map.error) return <p> Couldn't load data </p>;
 
-  const loadFromDb = (data) => {
+  const loadFromDb = (loadedData) => {
     switch (type) {
       case 'char':
-        const internalCharData = prepareInternalCharData(data);
-        dispatch(loadCharData(internalCharData));
-        setRedirect(routes?.char);
+        if (isValidExternalCharData(loadedData)) {
+          const internalCharData = prepareInternalCharData(loadedData);
+          dispatch(loadCharData(internalCharData));
+          setRedirect(routes?.char);
+        } else {
+          addNotification('You are trying to load invalid char data', Notification.error);
+        }
+        
       break;
       case 'map':
-        const internalMapData = prepareInternalMapData(data);
-        dispatch(loadMapData(internalMapData));
-        setRedirect(routes?.creator);
+        if (isValidExternalMapData(loadedData)) {
+          const internalMapData = prepareInternalMapData(loadedData);
+          dispatch(loadMapData(internalMapData));
+          setRedirect(routes?.creator);
+        } else {
+          addNotification('You are trying to load invalid map data', Notification.error);
+        }
+        
       break;
     }
   };

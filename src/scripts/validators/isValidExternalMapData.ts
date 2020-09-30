@@ -8,12 +8,10 @@ export const isValidExternalMapData = (data: any): boolean => {
     (
       Object.keys(data).length === 0 && data.constructor === Object
     ) ||
-    !data?.description ||
     !data?._id ||
     !data?.map_name ||
     !data?.min_entry_level === undefined ||
     parseInt(data?.min_entry_level) < 0 ||
-    !data?.map_pic ||
     !data?.visibility_range ||
     (
       !data?.size ||
