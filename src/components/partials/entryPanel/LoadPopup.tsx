@@ -41,7 +41,14 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
 
     reader.onload = (():any => {
       return (e) => {
-        const loadedData = JSON.parse(e.target.result);
+        let loadedData;
+
+        try {
+          loadedData = JSON.parse(e.target.result);
+        } catch {
+          addNotification('The file is not in json format', Notification.error);
+          return;
+        }
 
         switch (type) {
           case 'map':
