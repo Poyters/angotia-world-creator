@@ -69,4 +69,14 @@
 	padding-right: 10px;
 
 	@include scrollBar;
+
+	&__section {
+		margin: 25px 0 !important;
+
+		&--wideList {
+			& ol, ul {
+				padding-left: 15px;
+			}
+		}
+	}
 }

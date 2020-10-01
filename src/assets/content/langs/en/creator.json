@@ -76,5 +76,8 @@
         "submit": "submit"
       }
     }
+  },
+  "creationRules": {
+    "header": "Why we all need to follow the map creation rules? As users we do mistakes and program doesn't like them, especially other players if they would play on destroyed map. So, each map should be stict to some rules. It keeps all maps at the same format and guarantee reliability, correctness and protects from unplayable maps. Map that doesn't stick to below rules, cannot be exported to Angotia Admins (production mode)."
   }
 }

@@ -26,8 +26,9 @@ export const MapCreationRules: React.FC = () => {
           <section>
             Why we all need to follow the map creation rules? As users we do mistakes and program doesn't like them, especially other players if they would play on destroyed map. So, each map should be stict to some rules. It keeps all maps at the same format and guarantee reliability, correctness and protects from unplayable maps. Map that doesn't stick to below rules, cannot be exported to Angotia Admins (production mode).
           </section>
-          <section>
-            Creation rules:
+          <section 
+            className="scrollWrapper__section scrollWrapper__section--wideList"
+          >
             <ol>
               <li>Max MOBs quantity - at map should not be a huge amount of mobs due to potential lags. So you can add maximum 1 mob per 8 fields. It means that board 8x8 (contains 64 fields) can has max 8 mobs. </li>
               <li>Max NPCs quantity - map should has not contain too much NPC. Try to keep as much actions as you can in exists NPC or a small number of them. Maxium 1 NPC per 5 fields</li>
