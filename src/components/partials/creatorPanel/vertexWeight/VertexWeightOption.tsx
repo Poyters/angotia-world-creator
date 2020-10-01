@@ -16,6 +16,7 @@ import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { Notification } from '../../../../models/notification.model';
+import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
 let pressedKey: string | null = null;
@@ -27,7 +28,7 @@ export const VertexWeightOption: React.FC = () => {
     const [isPopup, setIsPopup] = useState<Boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
-    let vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
+    const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
     const vertexHandler = (): void => {
@@ -36,11 +37,11 @@ export const VertexWeightOption: React.FC = () => {
             return;
         }
 
-        pressedKey === mapConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey === mapConfig?.secondOptionKeyCode ? deleteVertices() : setIsPopup(true);
         pressedKey = null;
     };
     
-    const deletePassage = (): void => {
+    const deleteVertices = (): void => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {
@@ -58,7 +59,7 @@ export const VertexWeightOption: React.FC = () => {
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.delete, 
             '', 
-            'vertexWeight'
+            MatrixFillColor.vertexWeight
         );
     };
 

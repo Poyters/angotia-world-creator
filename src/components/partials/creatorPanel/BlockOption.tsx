@@ -9,6 +9,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { ContentContext } from '../../../Template';
 import { Canvas } from '../../../models/canvas.model';
 import { Notification } from '../../../models/notification.model';
+import { MatrixFillColor } from '../../../models/matrixFillColor.model';
 
 
 interface IBlockOption {
@@ -37,7 +38,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 			changeMapBlockMatrix, 
 			changeNote, 
 			fillColor, 
-			'barrier'
+			MatrixFillColor.barrier
 		);
 	};
 

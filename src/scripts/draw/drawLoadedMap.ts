@@ -4,6 +4,7 @@ import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { deepCopy } from '../utils/deepCopy';
 import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
+import { MatrixFillColor } from '../../models/matrixFillColor.model';
 
 
 const blockSquaresColor = mapConfig.blockSquareColor;
@@ -25,7 +26,7 @@ export const drawLoadedMap = async () => {
     blockMatrix, 
     Canvas.block, 
     blockSquaresColor, 
-    'barrier'
+    MatrixFillColor.barrier
   );
 
   // Draw passages
@@ -33,7 +34,7 @@ export const drawLoadedMap = async () => {
     passageMatrix, 
     Canvas.passage, 
     '', 
-    'passage'
+    MatrixFillColor.passage
   );
 
   // Draw buildings
@@ -41,7 +42,7 @@ export const drawLoadedMap = async () => {
     buildingMatrix, 
     Canvas.building, 
     '', 
-    'image'
+    MatrixFillColor.image
   );
 
   // Draw decorations
@@ -49,7 +50,7 @@ export const drawLoadedMap = async () => {
     decorationMatrix, 
     Canvas.decoration, 
     '', 
-    'image'
+    MatrixFillColor.image
   );
 
   // Draw subsoils
@@ -57,7 +58,7 @@ export const drawLoadedMap = async () => {
     subsoilMatrix, 
     Canvas.subsoil, 
     '', 
-    'image'
+    MatrixFillColor.image
   );
 
   // Draw NPCs
@@ -65,7 +66,7 @@ export const drawLoadedMap = async () => {
     npcMatrix, 
     Canvas.npc, 
     '', 
-    'image'
+    MatrixFillColor.image
   );
 
   // Draw MOBs
@@ -73,7 +74,7 @@ export const drawLoadedMap = async () => {
     mobMatrix, 
     Canvas.mob, 
     '', 
-    'image'
+    MatrixFillColor.image
   );
 
   // Draw vertex weights
@@ -81,7 +82,7 @@ export const drawLoadedMap = async () => {
     vertexWeightMatrix, 
     Canvas.vertexWeight,
     '', 
-    'vertexWeight'
+    MatrixFillColor.vertexWeight
   );
 
   // Draw se
@@ -89,6 +90,6 @@ export const drawLoadedMap = async () => {
     seMatrix, 
     Canvas.se,
     '', 
-    'image'
+    MatrixFillColor.image
   );
 };

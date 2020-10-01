@@ -12,6 +12,7 @@ import { ISquareData } from '../../../../interfaces/square.interface';
 import { IPassageLocation } from '../../../../interfaces/passage.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
+import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
 interface IPassageOption {
@@ -72,7 +73,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
             changeMapPassageMatrix, 
             notifications?.options?.passage?.add, 
             '', 
-            'passage'
+            MatrixFillColor.passage
         );
     };
 

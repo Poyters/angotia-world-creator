@@ -7,6 +7,7 @@ import { findPicBlob } from '../utils/findPicBlob';
 import { IInternalImageData } from '../../interfaces/internalImageData.interface';
 import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
+import { MatrixFillColor } from '../../models/matrixFillColor.model';
 
 
 const fieldSize: number = mapConfig.map.fieldSize;
@@ -41,17 +42,17 @@ export const colorBasedOnMatrix = async (
             const drawStartY = y*fieldSize + yDelta;
 
             switch(specialView) {
-              case 'barrier':
+              case MatrixFillColor.barrier:
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
-              case 'vertexWeight':
+              case MatrixFillColor.vertexWeight:
                 const vertexWeightColor: string = mapConfig.vertexWeight.color;
                 
                 drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
                 ctx.fillStyle = '#fff';
                 ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
-              case 'image':
+              case MatrixFillColor.image:
                 const image = await makeImage(findPicBlob(square, internalImages)); //square is path to image
 
                 if (
@@ -66,7 +67,7 @@ export const colorBasedOnMatrix = async (
                   }
                 }
               break;
-              case 'passage':
+              case MatrixFillColor.passage:
                 const passagePic = await makeImage(passagePicPath);
 
                 ctx.drawImage(passagePic, drawStartX, drawStartY);

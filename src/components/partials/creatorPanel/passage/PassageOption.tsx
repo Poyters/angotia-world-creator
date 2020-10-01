@@ -16,6 +16,7 @@ import {
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { Notification } from '../../../../models/notification.model';
+import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
 let pressedKey: string | null = null;
@@ -58,7 +59,7 @@ export const PassageOption: React.FC = () => {
             changeMapPassageMatrix, 
             notifications?.options?.passage?.delete, 
             '', 
-            'passage'
+            MatrixFillColor.passage
         );
     };
 

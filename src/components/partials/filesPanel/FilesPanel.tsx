@@ -22,6 +22,7 @@ import {
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { addInternalImagesData } from '../../../scripts/utils/addInternalImagesData';
+import { MatrixFillColor } from '../../../models/matrixFillColor.model';
 
 
 const bookmarks: string[] = mapConfig.bookmarks;
@@ -112,7 +113,7 @@ export const FilesPanel: React.FC = () => {
 							matrixTransformationMethod, 
 							`Added ${currBookmark}`, 
 							addInternalImagesData(img), // add blob to internal images, and return id to blob
-							'image'
+							MatrixFillColor.image
 					)}
 				>
 					<img src={img} alt='tile' />

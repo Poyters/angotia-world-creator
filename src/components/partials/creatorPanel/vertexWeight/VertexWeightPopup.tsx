@@ -13,6 +13,7 @@ import { ISquareData } from '../../../../interfaces/square.interface';
 import { IVertexWeight } from '../../../../interfaces/vertex.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
+import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
 interface IVertexOption {
@@ -76,7 +77,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
             changeMapVertexWeightMatrix, 
             notifications?.options?.vertex?.add, 
             vertexWeightValue, 
-            'vertexWeight'
+            MatrixFillColor.vertexWeight
         );
     };
 

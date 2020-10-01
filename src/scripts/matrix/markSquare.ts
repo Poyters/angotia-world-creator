@@ -9,6 +9,7 @@ import mapConfig from '../../assets/configs/map.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
+import { MatrixFillColor } from '../../models/matrixFillColor.model';
 
 
 let pressedKey: string | null = null;
@@ -34,7 +35,7 @@ export const markSquare = (
   let typeOfAction: number | string = pressedKey === mapConfig.secondOptionKeyCode ? 0 : 1;
   
   if (
-    (fillStyle === 'image' || fillStyle === 'vertexWeight') && 
+    (fillStyle === MatrixFillColor.image || fillStyle === MatrixFillColor.vertexWeight) && 
     pressedKey !== mapConfig.secondOptionKeyCode
   ) typeOfAction = fillColor;
 
