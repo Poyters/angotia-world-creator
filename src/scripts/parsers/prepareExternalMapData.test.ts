@@ -1,5 +1,3 @@
-/* eslint-disable max-lines */
-/* eslint-disable max-len */
 import { prepareExternalMapData } from './prepareExternalMapData';
 import { isValidExternalMapData } from '../validators/isValidExternalMapData';
 import { MapPicData } from '../../models/mapPicData.model';

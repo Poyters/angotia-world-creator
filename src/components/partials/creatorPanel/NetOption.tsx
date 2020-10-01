@@ -29,23 +29,23 @@ export const NetOption: React.FC<INetOption> = ({
     if (!ctx) return;
 
     switch(optionViewType) {
-      case 0: //all nets
+      case 0: // all nets
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: true}));
         addNotification(notifications?.options?.net?.squareField);
       break;
-      case 1: //field net
+      case 1: // field net
         drawMapNet(ctx, 0);
         dispatch(setMapNets({field: true, square: false}));
         addNotification(notifications?.options?.net?.field);
       break;
-      case 2: //square net;
+      case 2: // square net;
         drawMapNet(ctx, 1);
         dispatch(setMapNets({field: false, square: true}));
         addNotification(notifications?.options?.net?.square);
       break;
-      case 3:
+      case 3: // a lack of nets
         dispatch(setMapNets({field: false, square: false}));
         addNotification(notifications?.options?.net?.disabled);
         return;

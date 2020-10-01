@@ -7,6 +7,7 @@ import { selectCanvasSquare } from './selectFields';
 import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
+import { SelectType } from '../../models/selectType.model';
 
 
 let canvas: any;
@@ -36,7 +37,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const mapLeft: number = parseInt(map.style.left) || 0;
   const mapTop: number = parseInt(map.style.top) || 0;
 
-	if (selectType !== "mouse") return;
+	if (selectType !== SelectType.mouse) return;
 
   rect.startX = event.clientX - mapLeft;
   rect.startY = event.clientY - mapTop;
@@ -48,7 +49,7 @@ const mouseUp = (): void => {
 	const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
 	
-  if (selectType !== "mouse") return;
+  if (selectType !== SelectType.mouse) return;
   
   const rectanglePosition: IRectanglePosition = {
     topLeft: {
@@ -74,7 +75,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   const mapLeft: number = parseInt(map.style.left) || 0;
   const mapTop: number = parseInt(map.style.top) || 0;
 	
-	if (selectType !== "mouse" || !drag) return;
+	if (selectType !== SelectType.mouse || !drag) return;
 
   rect.width = (event.clientX - mapLeft) - rect.startX;
   rect.height = (event.clientY - mapTop) - rect.startY;

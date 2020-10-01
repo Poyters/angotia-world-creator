@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { setMapSelectType } from '../../../store/actions/uiActions';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { ContentContext } from '../../../Template';
+import { SelectType } from '../../../models/selectType.model';
 
 
 interface ISelectOption {
@@ -19,19 +20,19 @@ export const SelectOption: React.FC<ISelectOption> = ({
   useEffect((): void => {
     switch(selectType) {
       case 0:
-        dispatch(setMapSelectType('none'));
+        dispatch(setMapSelectType(SelectType.none));
         addNotification(notifications?.options?.select?.option);
       break;
       case 1:
-        dispatch(setMapSelectType('square'));
+        dispatch(setMapSelectType(SelectType.square));
         addNotification(notifications?.options?.select?.square);
       break;
       case 2: 
-      dispatch(setMapSelectType('field'));
+      dispatch(setMapSelectType(SelectType.field));
         addNotification(notifications?.options?.select?.field);
       break;
       case 3:
-        dispatch(setMapSelectType('mouse'));
+        dispatch(setMapSelectType(SelectType.mouse));
         addNotification(notifications?.options?.select?.mouse);
       break;
       default:

@@ -1,9 +1,10 @@
 import { store } from '../../index';
 import { IStore } from '../../interfaces/store.interface';
+import { SelectType } from '../../models/selectType.model';
 
 
-export const dragElement = (element: any) => {
-  let positions:Array<number> = [0, 0, 0, 0];
+export const dragElement = (element: any): void => {
+  const positions: Array<number> = [0, 0, 0, 0];
   
   const dragMouseDown = (e: MouseEvent): void => {
     e.preventDefault();
@@ -16,9 +17,9 @@ export const dragElement = (element: any) => {
 
   const elementDrag = (e: MouseEvent): void => {
     const storeData: IStore = store.getState();
-    const selectType = storeData.ui.select.type;
+    const selectType: string = storeData.ui.select.type;
 
-    if (selectType === 'mouse') return;
+    if (selectType === SelectType.mouse) return;
     
     e.preventDefault();
 
@@ -27,8 +28,8 @@ export const dragElement = (element: any) => {
     positions[2] = e.clientX;
     positions[3] = e.clientY;
 
-    element.style.top = (element.offsetTop - positions[1]) + "px";
-    element.style.left = (element.offsetLeft - positions[0]) + "px";
+    element.style.top = (element.offsetTop - positions[1]) + 'px';
+    element.style.left = (element.offsetLeft - positions[0]) + 'px';
   };
 
   const closeDragElement = (): void => {
