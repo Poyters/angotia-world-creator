@@ -1,5 +1,7 @@
 import uuid from 'uuid/v4';
 import { ICharState } from '../../interfaces/charState.interface';
+import { ChoosedChar } from '../../models/choosedChar.model';
+import { CharType } from '../../models/charType.model';
 
 
 export const charState: ICharState = {
@@ -7,8 +9,8 @@ export const charState: ICharState = {
     id: '',
     internalId: uuid(),
     fieldDiameter: 0,
-    type: '',
-    choosed: '',
+    type: CharType.static,
+    choosed: ChoosedChar.npc,
     mobRange: '',
     monologs: [],
     dialogs: [],

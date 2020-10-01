@@ -6,7 +6,7 @@ import { isValidExternalCharData } from '../validators/isValidExternalCharData';
 describe("prepareExternalCharData script", () => {
 	const validInternalData = {
     name: "Example",
-    type: "static",
+    type: "STATIC",
     choosed: "NPC",
     monologs: [
       {

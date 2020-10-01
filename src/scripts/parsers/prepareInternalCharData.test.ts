@@ -30,7 +30,7 @@ describe("prepareExternalMapData script", () => {
   });
 
   it("has type", () => {
-		expect(internalData.type).toBe('static');
+		expect(internalData.type).toBe('STATIC');
   });
 
   it("has hasVisibleLevel", () => {

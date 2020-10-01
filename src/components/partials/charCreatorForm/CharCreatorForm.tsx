@@ -19,6 +19,7 @@ import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { ChoosedChar } from '../../../models/choosedChar.model';
+import { CharType } from '../../../models/charType.model';
 
 
 export const CharCreatorForm: React.FC = () => {
@@ -143,7 +144,7 @@ export const CharCreatorForm: React.FC = () => {
                 ) : null
               }
 
-              { charType === 'moving'  && choosedChar !== ChoosedChar.se ? (
+              { charType === CharType.moving  && choosedChar !== ChoosedChar.se ? (
                 <ActionInputField
                   label={char?.form?.charType?.movingField}
                   inputValue={fieldDiameter}

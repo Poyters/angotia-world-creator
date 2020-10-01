@@ -5,7 +5,7 @@ import { isValidExternalCharData } from './isValidExternalCharData';
 describe("isValidExternalCharData script", () => {
 	const validExternalData = {
     name: "Example",
-    type: "static",
+    type: "STATIC",
     choosed: "NPC",
     monologs: [
       {
@@ -81,11 +81,11 @@ describe("isValidExternalCharData script", () => {
     name: 'Grzesiek'
   };
   const invalidExternalData3 = {
-    type: 'static',
+    type: 'STATIC',
     name: 'Grzesiek'
   };
   const invalidExternalData4 = {
-    type: 'static',
+    type: 'STATIC',
     name: 'Grzesiek',
     choosed: 'NPC'
   };

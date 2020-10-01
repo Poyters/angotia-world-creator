@@ -3,7 +3,7 @@
   "_id": "1e5a4cd8-1172-4ba1-8b94-7564ef5f5437",
   "name": "bardzo dziki pies",
   "field_diameter": 0,
-  "type": "static",
+  "type": "STATIC",
   "choosed": "MOB",
   "has_visible_level": true,
   "char_pic": "charblob",

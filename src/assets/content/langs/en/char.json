@@ -109,11 +109,11 @@
     "charType": {
       "types": [
         {
-          "id": "static",
+          "id": "STATIC",
           "label": "static"
         },
         {
-          "id": "moving",
+          "id": "MOVING",
           "label": "moving"
         }
       ],
