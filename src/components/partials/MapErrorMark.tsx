@@ -20,7 +20,10 @@ export const MapErrorMark: React.FC = () => {
               <span> ! </span>
             </div>
             <div className="mapErrorMark__message"> 
-              <span> { mapErrors.length } errors </span>
+              <span> 
+                { mapErrors.length }
+                { mapErrors.length > 1 ? ' errors' : ' error'} 
+              </span>
             </div>
           </aside>
         ) : null

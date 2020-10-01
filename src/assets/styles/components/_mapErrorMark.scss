@@ -29,12 +29,13 @@
     position: absolute;
     display: block;
     bottom: -45px;
-    left: -26px;
+    left: -28px;
     width: 55px;
 
     color: $errorColor;
     text-transform: uppercase;
     font-size: 10px;
+    text-align: center;
   }
 
   &__count {
