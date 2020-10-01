@@ -18,6 +18,7 @@ import {
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
+import { ChoosedChar } from '../../../models/choosedChar.model';
 
 
 export const CharCreatorForm: React.FC = () => {
@@ -83,7 +84,7 @@ export const CharCreatorForm: React.FC = () => {
                 payloadId='defence'
               />
               {
-                choosedChar !== 'se' ? (
+                choosedChar !== ChoosedChar.se ? (
                   <CornerButton 
                     name={char?.form?.addStatBtn}
                     clickEvent={() => dispatch(toggleStatisticPanel(true))}
@@ -110,7 +111,7 @@ export const CharCreatorForm: React.FC = () => {
                 choosed={charChoosed}
               />
               
-              { choosedChar === 'mob' ? (
+              { choosedChar === ChoosedChar.mob ? (
                   <>
                     <ChooseButtons 
                       types={char?.form?.isAgressiveMob?.types}
@@ -132,7 +133,7 @@ export const CharCreatorForm: React.FC = () => {
               }
 
               {
-                choosedChar !== 'se' ? (
+                choosedChar !== ChoosedChar.se ? (
                   <ChooseButtons 
                     types={char?.form?.charType?.types}
                     action={changeCharType}
@@ -142,7 +143,7 @@ export const CharCreatorForm: React.FC = () => {
                 ) : null
               }
 
-              { charType === 'moving'  && choosedChar !== 'se' ? (
+              { charType === 'moving'  && choosedChar !== ChoosedChar.se ? (
                 <ActionInputField
                   label={char?.form?.charType?.movingField}
                   inputValue={fieldDiameter}
@@ -152,7 +153,7 @@ export const CharCreatorForm: React.FC = () => {
               }           
             </div>
           </div>
-          { choosedChar === 'npc' || choosedChar === 'se' ? (
+          { choosedChar === ChoosedChar.npc || choosedChar === ChoosedChar.se ? (
               <Dialogs 
                 type={char?.form?.dialogs?.title}
                 addBtnText={char?.form?.dialogs?.addBtn}

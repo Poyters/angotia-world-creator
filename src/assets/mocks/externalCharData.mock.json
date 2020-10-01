@@ -4,7 +4,7 @@
   "name": "bardzo dziki pies",
   "field_diameter": 0,
   "type": "static",
-  "choosed": "mob",
+  "choosed": "MOB",
   "has_visible_level": true,
   "char_pic": "charblob",
   "mob_range": "king",

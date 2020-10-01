@@ -1,3 +1,6 @@
+import { ChoosedChar } from '../../models/choosedChar.model';
+
+
 export const isValidExternalCharData = (data: any): boolean => {
   if (
     Array.isArray(data) ||
@@ -9,9 +12,9 @@ export const isValidExternalCharData = (data: any): boolean => {
     (
       !data?.choosed ||
       (
-        data?.choosed !== 'npc' &&
-        data?.choosed !== 'mob' &&
-        data?.choosed !== 'se'
+        data?.choosed !== ChoosedChar.npc &&
+        data?.choosed !== ChoosedChar.mob &&
+        data?.choosed !== ChoosedChar.se
       )
     ) ||
     !data?._id || 

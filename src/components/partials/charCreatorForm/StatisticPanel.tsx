@@ -7,6 +7,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { 
   changeStatistics
 } from '../../../store/actions/charActions';
+import { ChoosedChar } from '../../../models/choosedChar.model';
 
 
 export const StatisticPanel: React.FC = () => {
@@ -25,7 +26,7 @@ export const StatisticPanel: React.FC = () => {
 	return (
 		<>
 			{
-				choosedChar !== 'se' ? (
+				choosedChar !== ChoosedChar.se ? (
 					<div 
 						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 						onClick={(): void => dispatch(toggleStatisticPanel(true))}
@@ -71,7 +72,7 @@ export const StatisticPanel: React.FC = () => {
               				payloadId='speed'
 						/>) : null
 					}
-					{ choosedChar === 'mob' && 
+					{ choosedChar === ChoosedChar.mob && 
 						isAgressiveMob ? (
 						<ActionInputField
 							label={char?.form?.inputs?.attackRange}
@@ -81,7 +82,7 @@ export const StatisticPanel: React.FC = () => {
 						/>) : null
 					}	
 
-					{ choosedChar === 'mob' ? (
+					{ choosedChar === ChoosedChar.mob ? (
 						<ActionInputField
 							label={char?.form?.inputs?.attackSpeed}
 							inputValue={charStatistics.attackSpeed}

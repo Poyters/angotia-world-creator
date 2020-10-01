@@ -9,6 +9,7 @@ import {
 	setRespawnTime
 } from '../../../store/actions/charActions';
 import { IStore } from '../../../interfaces/store.interface';
+import { ChoosedChar } from '../../../models/choosedChar.model';
 
 
 export const CharSettingsPanel: React.FC = () => {
@@ -35,7 +36,7 @@ export const CharSettingsPanel: React.FC = () => {
 				style={settingsPanelStyles}
 			>
 				<div className="g-sidePanel g-sidePanel--left">
-					{ choosedChar !== 'mob' ?
+					{ choosedChar !== ChoosedChar.mob ?
 						<ChooseButtons 
 							types={char?.settingsPanel?.hasVisibleLevel?.types}
 							action={setVisibleLevel}
@@ -44,7 +45,7 @@ export const CharSettingsPanel: React.FC = () => {
 							choosed={hasVisibleLevel}
 						/> : null
 					}
-					{ choosedChar === 'mob' ?
+					{ choosedChar === ChoosedChar.mob ?
 						<ActionMaxMinField
 							label='Respawn time (seconds)'
 							minValue={charSettings?.respTime?.min}

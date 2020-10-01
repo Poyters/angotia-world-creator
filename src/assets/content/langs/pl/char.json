@@ -67,15 +67,15 @@
     "char": {
       "types": [
         {
-          "id": "npc",
+          "id": "NPC",
           "label": "npc"
         },
         {
-          "id": "mob",
+          "id": "MOB",
           "label": "mob"
         },
         {
-          "id": "se",
+          "id": "SE",
           "label": "se"
         }
       ],

@@ -7,7 +7,7 @@ describe("prepareExternalCharData script", () => {
 	const validInternalData = {
     name: "Example",
     type: "static",
-    choosed: "npc",
+    choosed: "NPC",
     monologs: [
       {
         content: "i like juice",

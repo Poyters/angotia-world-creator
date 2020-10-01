@@ -6,7 +6,7 @@ describe("isValidExternalCharData script", () => {
 	const validExternalData = {
     name: "Example",
     type: "static",
-    choosed: "npc",
+    choosed: "NPC",
     monologs: [
       {
         content: "lubie cipqi",
@@ -75,7 +75,7 @@ describe("isValidExternalCharData script", () => {
   };
 
   const invalidExternalData1 = {
-    type: 'npc'
+    type: 'NPC'
   };
   const invalidExternalData2 = {
     name: 'Grzesiek'
@@ -87,7 +87,7 @@ describe("isValidExternalCharData script", () => {
   const invalidExternalData4 = {
     type: 'static',
     name: 'Grzesiek',
-    choosed: 'npc'
+    choosed: 'NPC'
   };
   const invalidExternalData5 = {
     id: 'database id',
