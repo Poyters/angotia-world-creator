@@ -1,0 +1,47 @@
+.mapErrorMark {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  z-index: 92;
+  width: 0;
+  height: 0;
+  right: 20px;
+  bottom: 40px;
+  justify-content: center;
+
+  border-style: solid;
+  border-width: 0 15px 26px 15px;
+  border-color: transparent transparent $errorColor transparent;
+
+  &:before {
+    position: absolute;
+    content: '';
+    z-index: -1;
+    top: 3px;
+
+    border-style: solid;
+    border-width: 0 13px 22px 13px;
+    border-color: transparent transparent $backgroundColor transparent;
+  }
+
+  &__message {
+    position: absolute;
+    display: block;
+    bottom: -45px;
+    left: -27px;
+    width: 55px;
+
+    color: $errorColor;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  &__count {
+    display: block;
+    margin-top: 4px;
+
+    font-size: 18px;
+    font-weight: 700;
+    color: $errorColor;
+  }
+}

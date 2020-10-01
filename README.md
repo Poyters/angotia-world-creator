@@ -8,6 +8,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
 - Protect before load invalid char and map, by JSON file or from production database
+- Create Map Creation Error system. Real-time map validation checker
 
 ### Version 1.1.0 (24 September 2020)
 - Rename Angotia Map Creator to Angotia World Creator

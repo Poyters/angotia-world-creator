@@ -12,10 +12,11 @@ import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';
 import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
-import { ErrorPanel } from '../../components/partials/ErrorPanel';
+import { ErrorPanel } from '../partials/ErrorPanel';
 import { findMapErrors } from '../../scripts/utils/errorSystem';
 import { IStore } from '../../interfaces/store.interface';
 import { IMapState } from '../../interfaces/mapState.interface';
+import { MapErrorMark } from '../partials/MapErrorMark';
 
 
 export const MapCreator: React.FC = () => {
@@ -45,6 +46,7 @@ export const MapCreator: React.FC = () => {
       <Notifications />
       <VersionMark />
       <ReportIssue />
+      <MapErrorMark />
     </article>
   );
 };
