@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 import { markSquare } from '../../../../scripts/matrix/markSquare';
-import creatorConfig from '../../../../assets/configs/creator.config.json';
+import mapConfig from '../../../../assets/configs/map.config.json';
 import { 
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
@@ -30,8 +30,8 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
     useEffect((): void => {
         if (
-            parseInt(vertexWeightValue) < creatorConfig?.vertexWeight?.min || 
-            parseInt(vertexWeightValue) > creatorConfig?.vertexWeight?.max || 
+            parseInt(vertexWeightValue) < mapConfig?.vertexWeight?.min || 
+            parseInt(vertexWeightValue) > mapConfig?.vertexWeight?.max || 
             !vertexWeightMatrix || 
             !Number(vertexWeightValue)
         ) {
@@ -92,7 +92,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     { creator?.panel?.options?.vertex?.desc }
-                    ({creatorConfig?.vertexWeight?.min} - {creatorConfig?.vertexWeight?.max})
+                    ({mapConfig?.vertexWeight?.min} - {mapConfig?.vertexWeight?.max})
                 </label>
                 <input 
                     type='text' 

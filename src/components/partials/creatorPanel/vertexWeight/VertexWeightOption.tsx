@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import creatorConfig from '../../../../assets/configs/creator.config.json';
+import mapConfig from '../../../../assets/configs/map.config.json';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 import { markSquare } from '../../../../scripts/matrix/markSquare';
@@ -36,7 +36,7 @@ export const VertexWeightOption: React.FC = () => {
             return;
         }
 
-        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey === mapConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
         pressedKey = null;
     };
     
@@ -75,7 +75,7 @@ export const VertexWeightOption: React.FC = () => {
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">
-                        { creatorConfig?.vertexWeight?.max }
+                        { mapConfig?.vertexWeight?.max }
 					</div>
 				</div>
 			</div>

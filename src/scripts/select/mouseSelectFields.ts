@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../../interfaces/math.interface';
 import { IRect, IRectanglePosition } from '../../interfaces/figure.interface';
@@ -83,7 +83,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
 };
 
 const draw = (): void => {
-  ctx.fillStyle = creatorConfig.selectColor;
+  ctx.fillStyle = mapConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 };
 
@@ -91,7 +91,7 @@ const draw = (): void => {
 const colorSquares = async (rectanglePosition) => {
   const storeData: IStore = store.getState();
   const selectMatrix: any[] = [...storeData.ui.select.matrix];
-  const fieldSize: number = creatorConfig.map.fieldSize;
+  const fieldSize: number = mapConfig.map.fieldSize;
 
   const rectangleSquarePoints: IRectanglePosition = {
     topLeft: {
@@ -132,6 +132,6 @@ const colorSquares = async (rectanglePosition) => {
   colorBasedOnMatrix(
     selectMatrix, 
     Canvas.select, 
-    creatorConfig.selectColor
+    mapConfig.selectColor
   );
 };

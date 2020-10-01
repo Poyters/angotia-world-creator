@@ -1,5 +1,5 @@
 import { store } from '../../index';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { IPoint } from '../../interfaces/math.interface';
 import { IStore } from '../../interfaces/store.interface';
@@ -27,7 +27,7 @@ const selectField = (cursorPosition: IPoint) => {
   const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
   const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
-  const fieldSize: number = creatorConfig.map.fieldSize;
+  const fieldSize: number = mapConfig.map.fieldSize;
   const mapNetsStatus = storeData.ui.net;
   let positionDelta: IPoint = {
     x: -1,
@@ -72,14 +72,14 @@ const selectField = (cursorPosition: IPoint) => {
 const colorChecked = (positionDelta: IPoint, type: string) => {
   const canvas: any = document.getElementById(Canvas.select);
   const ctx: any = canvas.getContext("2d");
-  let fieldSize: number = creatorConfig.map.fieldSize;
+  let fieldSize: number = mapConfig.map.fieldSize;
 
   if (type === 'square') fieldSize = fieldSize / 2;
   
   const posX: number = positionDelta.x * fieldSize;
   const posY: number = positionDelta.y * fieldSize;
 
-  ctx.fillStyle = creatorConfig.selectColor;
+  ctx.fillStyle = mapConfig.selectColor;
   ctx.fillRect(posX, posY, fieldSize, fieldSize);
   ctx.closePath();
   ctx.stroke();

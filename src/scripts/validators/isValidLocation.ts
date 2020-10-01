@@ -1,7 +1,7 @@
 import { IVertexWeight } from '../../interfaces/vertex.interface';
 import { IPassageLocation } from '../../interfaces/passage.interface';
 import { IMapSize } from '../../interfaces/map.interface';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 
 
 export const isValidLocation = (
@@ -20,10 +20,10 @@ export const isValidLocation = (
       !mapSize ||
       !mapSize.x ||
       !mapSize.y ||
-      mapSize.x < creatorConfig.map.minSize ||
-      mapSize.y < creatorConfig.map.minSize ||
-      mapSize.x > creatorConfig.map.maxSize ||
-      mapSize.y > creatorConfig.map.maxSize
+      mapSize.x < mapConfig.map.minSize ||
+      mapSize.y < mapConfig.map.minSize ||
+      mapSize.x > mapConfig.map.maxSize ||
+      mapSize.y > mapConfig.map.maxSize
     )
   ) return false;
 

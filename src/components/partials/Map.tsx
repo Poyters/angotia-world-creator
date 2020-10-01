@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { dragElement } from '../../scripts/utils/dragElement';
 import { selectFieldsHandler } from '../../scripts/select/selectFields';
 import { mouseSelectFields } from '../../scripts/select/mouseSelectFields';
@@ -14,7 +14,7 @@ export const Map: React.FC = () => {
   const [mapTop, setMapTop] = useState<number>(0);
   const [mapLeft, setMapLeft] = useState<number>(0);
 
-  const fieldSize: number = creatorConfig?.map?.fieldSize;
+  const fieldSize: number = mapConfig?.map?.fieldSize;
 
   interface IMapStyles {
     width: string,

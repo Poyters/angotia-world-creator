@@ -1,4 +1,4 @@
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { deepCopy } from '../utils/deepCopy';
 import { drawCross, drawTriangle } from '../draw/drawShape';
 import { makeImage } from '../draw/makeImage';
@@ -9,8 +9,8 @@ import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
 
 
-const fieldSize: number = creatorConfig.map.fieldSize;
-const squareSize: number = creatorConfig.map.fieldSize / 2;
+const fieldSize: number = mapConfig.map.fieldSize;
+const squareSize: number = mapConfig.map.fieldSize / 2;
 
 export const colorBasedOnMatrix = async (
   matrix: Array<[]>, 
@@ -45,7 +45,7 @@ export const colorBasedOnMatrix = async (
                 drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
               break;
               case 'vertexWeight':
-                const vertexWeightColor: string = creatorConfig.vertexWeight.color;
+                const vertexWeightColor: string = mapConfig.vertexWeight.color;
                 
                 drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
                 ctx.fillStyle = '#fff';

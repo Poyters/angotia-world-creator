@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ContentContext } from '../../../../Template';
-import creatorConfig from '../../../../assets/configs/creator.config.json';
+import mapConfig from '../../../../assets/configs/map.config.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
@@ -20,8 +20,8 @@ export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
 
     useEffect((): void => {
         if (
-            parseInt(visibility) < creatorConfig?.visibility?.min || 
-            parseInt(visibility) > creatorConfig?.visibility?.max ||
+            parseInt(visibility) < mapConfig?.visibility?.min || 
+            parseInt(visibility) > mapConfig?.visibility?.max ||
             !Number(visibility)
         ) {
             setError(true);
@@ -62,7 +62,7 @@ export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     { creator?.panel?.options?.visibility?.desc } 
-                    ({creatorConfig?.visibility?.min} - {creatorConfig?.visibility?.max})
+                    ({mapConfig?.visibility?.min} - {mapConfig?.visibility?.max})
                 </label>
                 <input 
                     type='text' 

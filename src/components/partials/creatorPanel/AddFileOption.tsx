@@ -4,7 +4,7 @@ import { ContentContext } from '../../../Template';
 import { setMapBg } from '../../../store/actions/mapActions';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { sizeGuard } from '../../../scripts/files/sizeGuard';
-import creatorConfig from '../../../assets/configs/creator.config.json';
+import mapConfig from '../../../assets/configs/map.config.json';
 import { IStore } from '../../../interfaces/store.interface';
 
 
@@ -18,7 +18,7 @@ export const AddFileOption: React.FC = () => {
     const reader = new FileReader();
 
     // Pic is too weight
-    if (!sizeGuard(file, creatorConfig.maxPicsWeight.background)) {
+    if (!sizeGuard(file, mapConfig.maxPicsWeight.background)) {
       return true;
     }
 

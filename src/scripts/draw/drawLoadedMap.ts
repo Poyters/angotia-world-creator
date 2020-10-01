@@ -1,12 +1,12 @@
 import { store } from '../../index';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
 import { deepCopy } from '../utils/deepCopy';
 import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
 
 
-const blockSquaresColor = creatorConfig.blockSquareColor;
+const blockSquaresColor = mapConfig.blockSquareColor;
 
 export const drawLoadedMap = async () => {
   const storeData: IStore = store.getState();

@@ -1,7 +1,7 @@
 import React, { useState, useContext, CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
-import creatorConfig from '../../../assets/configs/creator.config.json';
+import mapConfig from '../../../assets/configs/map.config.json';
 import { markSquare } from '../../../scripts/matrix/markSquare';
 import { deepCopy } from '../../../scripts/utils/deepCopy';
 import { CharButton } from './CharButton';
@@ -24,7 +24,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { addInternalImagesData } from '../../../scripts/utils/addInternalImagesData';
 
 
-const bookmarks: string[] = creatorConfig.bookmarks;
+const bookmarks: string[] = mapConfig.bookmarks;
 
 export const FilesPanel: React.FC = () => {
 	const { filesPanel } = useContext(ContentContext);
@@ -44,8 +44,8 @@ export const FilesPanel: React.FC = () => {
 	};
 
 	const imageStyle: CSSProperties = {
-		width: `${creatorConfig?.map?.fieldSize}px`,
-		height: `${creatorConfig?.map?.fieldSize}px`
+		width: `${mapConfig?.map?.fieldSize}px`,
+		height: `${mapConfig?.map?.fieldSize}px`
 	};
 	
 	const generateImages = (): any[] => {

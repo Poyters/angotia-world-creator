@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 import { MapSizeInput } from './MapSizeInput';
 import { setMapSizes } from '../../../store/actions/mapActions';
 import { loadCharData } from '../../../store/actions/charActions';
-import creatorConfig from '../../../assets/configs/creator.config.json';
+import mapConfig from '../../../assets/configs/map.config.json';
 import appConfig from '../../../assets/configs/app.config.json';
 import { IPoint } from '../../../interfaces/math.interface';
 import { ContentContext } from '../../../Template';
@@ -58,12 +58,12 @@ export const EntryPanel: React.FC = () => {
       setValMess("Value need to be number");
     }
     else if (
-      (mapSizeX >= creatorConfig.map.maxSize || mapSizeX < creatorConfig.map.minSize) || 
-      (mapSizeY >= creatorConfig.map.maxSize || mapSizeY < creatorConfig.map.minSize)
+      (mapSizeX >= mapConfig.map.maxSize || mapSizeX < mapConfig.map.minSize) || 
+      (mapSizeY >= mapConfig.map.maxSize || mapSizeY < mapConfig.map.minSize)
     ) {
       setValMess(
         // eslint-disable-next-line max-len
-        `Value need to be bigger or equal to ${creatorConfig.map.minSize} and smaller than ${creatorConfig.map.maxSize}`
+        `Value need to be bigger or equal to ${mapConfig.map.minSize} and smaller than ${mapConfig.map.maxSize}`
       );
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {

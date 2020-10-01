@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import creatorConfig from '../../../../assets/configs/creator.config.json';
+import mapConfig from '../../../../assets/configs/map.config.json';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 import { markSquare } from '../../../../scripts/matrix/markSquare';
@@ -36,7 +36,7 @@ export const PassageOption: React.FC = () => {
             return;
         }
 
-        pressedKey === creatorConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
+        pressedKey === mapConfig?.secondOptionKeyCode ? deletePassage() : setIsPopup(true);
         pressedKey = null;
     };
     

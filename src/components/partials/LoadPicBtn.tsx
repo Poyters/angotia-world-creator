@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 import { sizeGuard } from '../../scripts/files/sizeGuard';
 import { addNotification } from '../../scripts/utils/notifications';
 
@@ -21,7 +21,7 @@ export const LoadPicBtn: React.FC<ILoadPicBtn> = ({
     const file = evt.target.files[0]; 
     const reader = new FileReader();
 
-    if (!sizeGuard(file, creatorConfig.maxPicsWeight.char)) {
+    if (!sizeGuard(file, mapConfig.maxPicsWeight.char)) {
       return;
     }
 

@@ -1,4 +1,4 @@
-import creatorConfig from '../../assets/configs/creator.config.json';
+import mapConfig from '../../assets/configs/map.config.json';
 
 
 export const isValidExternalMapData = (data: any): boolean => {
@@ -17,10 +17,10 @@ export const isValidExternalMapData = (data: any): boolean => {
       !data?.size ||
       !data?.size?.x ||
       !data?.size?.y ||
-      data?.size?.x < creatorConfig.map.minSize ||
-      data?.size?.x > creatorConfig.map.maxSize ||
-      data?.size?.y < creatorConfig.map.minSize ||
-      data?.size?.y > creatorConfig.map.maxSize
+      data?.size?.x < mapConfig.map.minSize ||
+      data?.size?.x > mapConfig.map.maxSize ||
+      data?.size?.y < mapConfig.map.minSize ||
+      data?.size?.y > mapConfig.map.maxSize
     ) ||
     data?.block_matrix === null ||
     data.passage === null ||
