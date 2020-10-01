@@ -1,76 +1,119 @@
 {
-    "map": {
-        "fieldSize": 50,
-        "minSize": 3,
-        "maxSize": 100
-    },
-    "mapName": {
-        "minLength": 5,
-        "maxLength": 13
-    },
-    "selectColor": "rgba(0, 0, 0, 0.5)",
-    "blockSquareColor": "#7d190b",
-    "vertexWeight": {
-        "min": 1,
-        "max": 5,
-        "color": "#27427c"
-    },
-    "secondOptionKeyCode": "Control",
-    "bookmarks": [
-        "building",
-        "decoration",
-        "subsoil",
-        "npc",
-        "mob",
-        "se"
-    ],
-    "layers": [
-        {
-            "type": "block",
-            "name": "disable fields",
-            "color": "#7d190b"
-        },
-        {
-            "type": "passage",
-            "name": "passage"
-        },
-        {
-            "type": "building",
-            "name": "buildings"
-        },
-        {
-            "type": "decoration",
-            "name": "decorations"
-        },
-        {
-            "type": "subsoil",
-            "name": "subsoils"
-        },
-        {
-            "type": "npc",
-            "name": "npcs"
-        },
-        {
-            "type": "mob",
-            "name": "mobs"
-        },
-        {
-            "type": "se",
-            "name": "speaking environment"
-        },
-        {
-            "type": "vertexWeight",
-            "name": "vertex weight"
-        }
-    ],
-    "maxPicsWeight": {
-        "background": 150,
-        "mapTile": 5,
-        "char": 25
-    },
-    "visibility": {
-        "min": 3,
-        "max": 30,
-        "default": 8
-    }
+	"map": {
+		"fieldSize": 50,
+		"minSize": 3,
+		"maxSize": 100
+	},
+	"mapName": {
+		"minLength": 5,
+		"maxLength": 13
+	},
+	"selectColor": "rgba(0, 0, 0, 0.5)",
+	"blockSquareColor": "#7d190b",
+	"vertexWeight": {
+		"min": 1,
+		"max": 5,
+		"color": "#27427c"
+	},
+	"secondOptionKeyCode": "Control",
+	"bookmarks": [
+		"building",
+		"decoration",
+		"subsoil",
+		"npc",
+		"mob",
+		"se"
+	],
+	"layers": [
+		{
+			"type": "block",
+			"name": "disable fields",
+			"color": "#7d190b"
+		},
+		{
+			"type": "passage",
+			"name": "passage"
+		},
+		{
+			"type": "building",
+			"name": "buildings"
+		},
+		{
+			"type": "decoration",
+			"name": "decorations"
+		},
+		{
+			"type": "subsoil",
+			"name": "subsoils"
+		},
+		{
+			"type": "npc",
+			"name": "npcs"
+		},
+		{
+			"type": "mob",
+			"name": "mobs"
+		},
+		{
+			"type": "se",
+			"name": "speaking environment"
+		},
+		{
+			"type": "vertexWeight",
+			"name": "vertex weight"
+		}
+	],
+	"maxPicsWeight": {
+		"background": 150,
+		"mapTile": 5,
+		"char": 25
+	},
+	"visibility": {
+		"min": 3,
+		"max": 30,
+		"default": 8
+	},
+	"rules": {
+		"mob": {
+			"quantity": {
+				"max": 8
+			}
+		},
+		"npc": {
+			"quantity": {
+				"max": 5
+			}
+		},
+		"se": {
+			"quantity": {
+				"max": 4
+			}
+		},
+		"passage": {
+			"quantity": {
+				"max": 4
+			}
+		},
+		"block": {
+			"quantity": {
+				"max": 0.5
+			}
+		},
+		"mapName": {
+			"length": {
+				"min": 5,
+				"max": 20
+			}
+		},
+		"mapDescription": {
+			"length": {
+				"min": 100,
+				"max": 300
+			}
+		},
+		"entryLevel": {
+			"min": 0,
+			"max": 99
+		}
+	}
 }
