@@ -6,7 +6,7 @@ import { ContentContext } from '../../Template';
 
 
 export const MapCreationRules: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
+  const { lang, routes, creator } = useContext(ContentContext);
 
   return (
     <div className="textView">
@@ -24,7 +24,7 @@ export const MapCreationRules: React.FC = () => {
         <h1 className="g-sectionTitle">Map creation rules</h1>
         <div className="scrollWrapper">
           <section>
-            Why we all need to follow the map creation rules? As users we do mistakes and program doesn't like them, especially other players if they would play on destroyed map. So, each map should be stict to some rules. It keeps all maps at the same format and guarantee reliability, correctness and protects from unplayable maps. Map that doesn't stick to below rules, cannot be exported to Angotia Admins (production mode).
+            { creator?.creationRules?.header }
           </section>
           <section 
             className="scrollWrapper__section scrollWrapper__section--wideList"

@@ -76,5 +76,8 @@
         "submit": "potwierdź"
       }
     }
+  },
+  "creationRules": {
+    "header": "Dlaczego my wszyscy musimy podążać za zasadami tworzenia map? Jako użytkownicy, popełniamy błędy i programy ich nie lubią, a zwłaszcza inni gracze, gdy przeez nie nie mogą dalej prowadzić swojej rozgrywki. Tak więc, aby temu zapobiec, każda mapa, musi być zgodna z kilkoma wytycznymi. To wszystko utrzymuje mapy w stałej, jednej formule, która pozwala na bezproblemową i pozbawioną błędów (oby) rozgrywkę. Mapy, które nie są zgodne z zasadami, nie mogą zostać wyexportowane do Administratorów Angotii i dalej, do samej gry."
   }
 }
