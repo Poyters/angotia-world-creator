@@ -45,6 +45,11 @@ export const uiReducer = (state = deepCopy(uiState), action) => {
                 ...state,
                 errorPanelIsOpen: action.isOpen
             };
+        case 'CHANGE_MAP_CREATION_ERRORS':
+            return {
+                ...state,
+                mapCreationErrors: action.errorList
+            };
         default:
             return state;
     }

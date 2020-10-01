@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { CreatorPanel } from '../partials/creatorPanel/CreatorPanel';
 import { FilesPanel } from '../partials/filesPanel/FilesPanel';
 import { CreditsFooter } from '../partials/CreditsFooter';
@@ -13,17 +13,26 @@ import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';
 import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
 import { ErrorPanel } from '../../components/partials/ErrorPanel';
+import { findMapErrors } from '../../scripts/utils/errorSystem';
+import { IStore } from '../../interfaces/store.interface';
+import { IMapState } from '../../interfaces/mapState.interface';
 
 
 export const MapCreator: React.FC = () => {
   const dispatch = useDispatch();
+  const mapState: IMapState = useSelector((state: IStore) => state.map);
   
   useEffect((): void => { //Create necessary empty matrix at the beginning
     const newEmptyMatrix = generateEmptyMatrix();
 
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));
     drawLoadedMap();
+    
   }, [dispatch]);
+
+  useEffect(() => {
+    findMapErrors();
+  }, [mapState]);
 
   return (
     <article className="creatorWrapper">

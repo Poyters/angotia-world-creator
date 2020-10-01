@@ -32,10 +32,10 @@
       "delete": "Deleted background image"
     },
     "select": {
-      "option": "Select option is disable",
-      "square": "Select square type is enable",
-      "field": "Select field type is enable",
-      "mouse": "Select mouse type is enable"
+      "option": "Select option is disabled",
+      "square": "Select square type is enabled",
+      "field": "Select field type is enabled",
+      "mouse": "Select mouse type is enabled"
     },
     "passage": {
       "select": "Need to select fields",

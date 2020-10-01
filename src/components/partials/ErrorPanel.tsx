@@ -2,15 +2,13 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { IStore } from '../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../store/actions/uiActions';
-import { IMapState } from '../../interfaces/mapState.interface';
-import mapConfig from '../../assets/configs/map.config.json';
+import { MapCreationError } from '../../models/mapCreationError.model';
 
 
 export const ErrorPanel: React.FC = () => {
 	const isOpen: string = useSelector((state: IStore) => state.ui.errorPanelIsOpen);
-	const mapState: IMapState = useSelector((state: IStore) => state.map);
+	const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
 	const dispatch = useDispatch();
-	const rules = mapConfig.rules;
 
 	const errorPanelStyles = {
 		right: isOpen ? "0" : "-300px"
@@ -30,13 +28,8 @@ export const ErrorPanel: React.FC = () => {
 			>
 				<div className="g-sidePanel">
 					{ 
-						mapState.mapName.length < rules.mapName.length.min ? (
-							<span> map anme is too small </span>
-						) : null
-					}
-					{ 
-						mapState.mapName.length > rules.mapName.length.max ? (
-							<span> map anme is too long </span>
+						mapErrors.includes(MapCreationError.minEntryLevel) ? (
+							<span> entry level is too small </span>
 						) : null
 					}
 					<div

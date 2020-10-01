@@ -50,7 +50,7 @@ export const NetOption: React.FC<INetOption> = ({
         addNotification(notifications?.options?.net?.disabled);
         return;
     }
-  });
+  }, [dispatch, optionViewType, notifications]);
 
   const netOnOff: string = optionViewType === 3 ? 
     'option--off' : 'option--on'; //It determines icon color

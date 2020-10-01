@@ -38,7 +38,7 @@ export const SelectOption: React.FC<ISelectOption> = ({
       default:
         console.warn('Invalid selectType');
     }
-  });
+  }, [selectType, notifications, dispatch]);
 
   const changeSelectType = (): void => {
     if (selectType < selectTypeQuantity) setSelectType(selectType + 1);

@@ -36,3 +36,8 @@ export const toggleErrorPanel = (isOpen: boolean) => ({
     type: 'TOGGLE_ERROR_PANEL',
     isOpen
 });
+
+export const changeMapCreationErrors = (errorList: string[]) => ({
+    type: 'CHANGE_MAP_CREATION_ERRORS',
+    errorList
+});
