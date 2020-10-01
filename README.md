@@ -1,12 +1,13 @@
 # Angotia World Creator
 
-Angotia World Creator (AWC) is tool for game developers or World Creators to creating fully functionally boards and characters for Angotia game. AWC provides professional UI and rapid work from browser. User can easly create board that is compress to svg (all graphic of board) and json file which contains all actions like, mobs, npcs, passage to another locations, blocked fields etc.
+Angotia World Creator (AWC) is tool for game developers or World Creators to creating fully functionally boards and characters for Angotia game. AWC provides professional UI and rapid work from browser everywhere. 
 
 ## Changelog
 
 ### Version 1.2.0 (planned June 2021)
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
+- Protect before load invalid char and map, by JSON file or from production database
 
 ### Version 1.1.0 (24 September 2020)
 - Rename Angotia Map Creator to Angotia World Creator
@@ -21,7 +22,7 @@ Angotia World Creator (AWC) is tool for game developers or World Creators to cre
 - Fix a lack of first mouse selection issue
 - Add Map Creation Rules view
 - Validate Locations (passage and weight vertex) during parsing process
-- Delete explicit image blobs in matrices (internal map data) and keep only one copy of each blob with internal Ids. It makes updation matrices faster about 30% and decrease weight of internal map dataabout 60%
+- Delete explicit image blobs in matrices (internal map data) and keep only one copy of each blob with internal Ids. It makes updation matrices faster about 30% and decrease weight of internal map data about 60%
 
 
 ### Version 1.0.0 (17 July 2020)
