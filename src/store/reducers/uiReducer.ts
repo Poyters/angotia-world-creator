@@ -40,6 +40,11 @@ export const uiReducer = (state = deepCopy(uiState), action) => {
                 ...state,
                 statisticPanelIsOpen: action.isOpen
             };
+        case 'TOGGLE_ERROR_PANEL':
+            return {
+                ...state,
+                errorPanelIsOpen: action.isOpen
+            };
         default:
             return state;
     }

@@ -12,6 +12,7 @@ import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';
 import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
+import { ErrorPanel } from '../../components/partials/ErrorPanel';
 
 
 export const MapCreator: React.FC = () => {
@@ -31,6 +32,7 @@ export const MapCreator: React.FC = () => {
       <MapSettingsPanel />
       <Map />
       <CreditsFooter />
+      <ErrorPanel />
       <Notifications />
       <VersionMark />
       <ReportIssue />

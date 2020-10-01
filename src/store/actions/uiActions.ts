@@ -31,3 +31,8 @@ export const toggleStatisticPanel = (isOpen: boolean) => ({
     type: 'TOGGLE_STATISTIC_PANEL',
     isOpen
 });
+
+export const toggleErrorPanel = (isOpen: boolean) => ({
+    type: 'TOGGLE_ERROR_PANEL',
+    isOpen
+});

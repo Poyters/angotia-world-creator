@@ -13,5 +13,6 @@ export const uiState: IUiState = {
         square: true
     },
     language: 'en',
-    statisticPanelIsOpen: false
+    statisticPanelIsOpen: false,
+    errorPanelIsOpen: false
 };

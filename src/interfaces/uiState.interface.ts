@@ -10,4 +10,5 @@ export interface IUiState {
     },
     language: string
     statisticPanelIsOpen: boolean
+    errorPanelIsOpen: boolean
 }

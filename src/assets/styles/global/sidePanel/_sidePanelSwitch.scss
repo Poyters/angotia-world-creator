@@ -22,6 +22,11 @@
         left: 0;
     }
 
+    &--errorPanel {
+        top: calc(50% - 80px);
+        right: 0;
+    }
+
     &--charSettingsPanel {
         top: calc(50% - 80px);
         left: 0;
