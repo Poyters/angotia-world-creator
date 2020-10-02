@@ -9,8 +9,8 @@ export const mapState: IMapState = {
     minEntryLevel: 0,
     description: 'Example map description',
     size: {
-        x: 8,
-        y: 8
+        x: 12,
+        y: 12
     },
     mapPic: "",
     blockMatrix: [],
