@@ -27,11 +27,30 @@ export const ErrorPanel: React.FC = () => {
 				style={errorPanelStyles}
 			>
 				<div className="g-sidePanel">
-					{ 
-						mapErrors.includes(MapCreationError.minEntryLevel) ? (
-							<span> entry level is too small </span>
-						) : null
-					}
+					<header 
+						className="errorPanelHeader t-paragraph6Bold"
+					>
+						 Program occurs 
+						 <span 
+						 	className="errorPanelHeader__count t-paragraph3Bold"
+							> 
+						 	{ mapErrors.length }
+						 </span> 
+						 { mapErrors.length === 1 ? 'error' : 'errors'}:
+					</header>
+					<ol className="errorPanelList t-paragraph2Light">
+						{ 
+							mapErrors.includes(MapCreationError.minEntryLevel) ? (
+								<li> entry level is too small </li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.minEntryLevel) ? (
+								<li> entry level is too small </li>
+							) : null
+						}
+					</ol>
+					
 					<div
 						className="g-sidePanel__switch t-paragraph4Normal"
 						onClick={(): void => dispatch(toggleErrorPanel(false))}

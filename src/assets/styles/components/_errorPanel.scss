@@ -1,0 +1,22 @@
+.errorPanelHeader {
+  margin: 3px 3px 6px 3px;
+  
+  text-transform: uppercase;
+  color: $decorationColor1;
+
+  &__count {
+    display: inline-block;
+    padding: 0 3px;
+    transform: translateY(3px);
+
+    color: $errorColor;
+  }
+}
+
+
+.errorPanelList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 0 0 20px;
+}

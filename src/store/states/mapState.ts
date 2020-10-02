@@ -7,7 +7,7 @@ export const mapState: IMapState = {
     internalId: uuid(),
     mapName: 'board name',
     minEntryLevel: 0,
-    description: '',
+    description: 'Example map description',
     size: {
         x: 8,
         y: 8
