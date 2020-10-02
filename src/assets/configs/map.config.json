@@ -96,7 +96,7 @@
 		},
 		"block": {
 			"quantity": {
-				"max": 0.5
+				"max": 2
 			}
 		},
 		"name": {

@@ -83,6 +83,41 @@ export const ErrorPanel: React.FC = () => {
 								</li>
 							) : null
 						}
+						{ 
+							mapErrors.includes(MapCreationError.maxBlockQuantity) ? (
+								<li> 
+									Too much block squares. Max 1 per { rules.block.quantity.max } squares
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxPassageQuantity) ? (
+								<li> 
+									Too much passage squares. Max 1 per { rules.passage.quantity.max } squares
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxSeQuantity) ? (
+								<li> 
+									Too much se squares. Max 1 per { rules.se.quantity.max } squares
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxNpcQuantity) ? (
+								<li> 
+									Too much npcs squares. Max 1 per { rules.npc.quantity.max } squares
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxMobQuantity) ? (
+								<li> 
+									Too much mobs squares. Max 1 per { rules.mob.quantity.max } squares
+								</li>
+							) : null
+						}
 					</ol>
 					
 					<div

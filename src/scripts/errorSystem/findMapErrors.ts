@@ -4,12 +4,13 @@ import { IMapState } from '../../interfaces/mapState.interface';
 import mapConfig from '../../assets/configs/map.config.json';
 import { MapCreationError } from '../../models/mapCreationError.model';
 import { changeMapCreationErrors } from '../../store/actions/uiActions';
+import { countElementsInMatrix } from '../matrix/countElementsInMatrix';
 
 
 export const findMapErrors = (): void => {
-  console.log('here');
   const storeData: IStore = store.getState();
   const mapState: IMapState = storeData.map;
+  const squareQuantity: number = mapState.size.x * mapState.size.y * 4;
   const occuredErrors: string[] = [];
 
   if (mapState.minEntryLevel < mapConfig.rules.entryLevel.min) {
@@ -35,6 +36,31 @@ export const findMapErrors = (): void => {
   if (mapState.mapName.length > mapConfig.rules.name.length.max) {
     occuredErrors.push(MapCreationError.maxMapLength);
   }
+
+  if (
+    countElementsInMatrix(mapState.blockMatrix) > 
+    (squareQuantity / mapConfig.rules.block.quantity.max)
+  ) occuredErrors.push(MapCreationError.maxBlockQuantity);
+
+  if (
+    countElementsInMatrix(mapState.passage.matrix) > 
+    (squareQuantity / mapConfig.rules.passage.quantity.max)
+  ) occuredErrors.push(MapCreationError.maxPassageQuantity);
+
+  if (
+    countElementsInMatrix(mapState.se.matrix) > 
+    (squareQuantity / mapConfig.rules.se.quantity.max)
+  ) occuredErrors.push(MapCreationError.maxSeQuantity);
+
+  if (
+    countElementsInMatrix(mapState.npc.matrix) > 
+    (squareQuantity / mapConfig.rules.npc.quantity.max)
+  ) occuredErrors.push(MapCreationError.maxNpcQuantity);
+
+  if (
+    countElementsInMatrix(mapState.mob.matrix) > 
+    (squareQuantity / mapConfig.rules.mob.quantity.max)
+  ) occuredErrors.push(MapCreationError.maxMobQuantity);
 
   store.dispatch(changeMapCreationErrors(occuredErrors));
 };
