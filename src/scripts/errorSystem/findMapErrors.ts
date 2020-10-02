@@ -16,5 +16,25 @@ export const findMapErrors = (): void => {
     occuredErrors.push(MapCreationError.minEntryLevel);
   }
 
+  if (mapState.minEntryLevel > mapConfig.rules.entryLevel.max) {
+    occuredErrors.push(MapCreationError.maxEntryLevel);
+  }
+
+  if (mapState.description.length < mapConfig.rules.description.length.min) {
+    occuredErrors.push(MapCreationError.minDescriptionLength);
+  }
+
+  if (mapState.description.length > mapConfig.rules.description.length.max) {
+    occuredErrors.push(MapCreationError.maxDescriptionLength);
+  }
+
+  if (mapState.mapName.length < mapConfig.rules.name.length.min) {
+    occuredErrors.push(MapCreationError.minMapLength);
+  }
+
+  if (mapState.mapName.length > mapConfig.rules.name.length.max) {
+    occuredErrors.push(MapCreationError.maxMapLength);
+  }
+
   store.dispatch(changeMapCreationErrors(occuredErrors));
 };

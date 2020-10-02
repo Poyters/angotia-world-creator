@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IStore } from '../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../store/actions/uiActions';
 import { MapCreationError } from '../../models/mapCreationError.model';
+import mapConfig from '../../assets/configs/map.config.json';
 
 
 export const ErrorPanel: React.FC = () => {
 	const isOpen: string = useSelector((state: IStore) => state.ui.errorPanelIsOpen);
 	const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
 	const dispatch = useDispatch();
+	const rules = mapConfig.rules;
 
 	const errorPanelStyles = {
 		right: isOpen ? "0" : "-300px"
@@ -41,12 +43,44 @@ export const ErrorPanel: React.FC = () => {
 					<ol className="errorPanelList t-paragraph2Light">
 						{ 
 							mapErrors.includes(MapCreationError.minEntryLevel) ? (
-								<li> entry level is too small </li>
+								<li> 
+									Entry level must be larger than { rules.entryLevel.min }
+								</li>
 							) : null
 						}
 						{ 
-							mapErrors.includes(MapCreationError.minEntryLevel) ? (
-								<li> entry level is too small </li>
+							mapErrors.includes(MapCreationError.maxEntryLevel) ? (
+								<li> 
+									Entry level must be smaller than { rules.entryLevel.max }
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.minDescriptionLength) ? (
+								<li> 
+									Description must be larger than { rules.description.length.min }
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxDescriptionLength) ? (
+								<li> 
+									Description must be smaller than { rules.description.length.max }
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.minMapLength) ? (
+								<li> 
+									Map name must be larger than { rules.name.length.min }
+								</li>
+							) : null
+						}
+						{ 
+							mapErrors.includes(MapCreationError.maxMapLength) ? (
+								<li> 
+									Map name must be smaller than { rules.name.length.max }
+								</li>
 							) : null
 						}
 					</ol>

@@ -99,16 +99,16 @@
 				"max": 0.5
 			}
 		},
-		"mapName": {
+		"name": {
 			"length": {
 				"min": 5,
 				"max": 20
 			}
 		},
-		"mapDescription": {
+		"description": {
 			"length": {
-				"min": 100,
-				"max": 300
+				"min": 20,
+				"max": 250
 			}
 		},
 		"entryLevel": {

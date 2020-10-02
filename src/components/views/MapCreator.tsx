@@ -13,7 +13,7 @@ import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';
 import { drawLoadedMap } from '../../scripts/draw/drawLoadedMap';
 import { ErrorPanel } from '../partials/ErrorPanel';
-import { findMapErrors } from '../../scripts/utils/errorSystem';
+import { findMapErrors } from '../../scripts/errorSystem/findMapErrors';
 import { IStore } from '../../interfaces/store.interface';
 import { IMapState } from '../../interfaces/mapState.interface';
 import { MapErrorMark } from '../partials/MapErrorMark';
