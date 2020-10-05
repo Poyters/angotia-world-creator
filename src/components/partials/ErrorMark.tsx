@@ -4,7 +4,7 @@ import { IStore } from '../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../store/actions/uiActions';
 
 
-export const MapErrorMark: React.FC = () => {
+export const ErrorMark: React.FC = () => {
   const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
   const dispatch = useDispatch();
 
@@ -13,13 +13,13 @@ export const MapErrorMark: React.FC = () => {
       {
         mapErrors.length > 0 ? (
           <aside 
-            className="mapErrorMark"
+            className="rrorMark"
             onClick={(): void => dispatch(toggleErrorPanel(true))}
           >
-            <div className="mapErrorMark__count"> 
+            <div className="errorMark__count"> 
               <span> ! </span>
             </div>
-            <div className="mapErrorMark__message"> 
+            <div className="errorMark__message"> 
               <span> 
                 { mapErrors.length }
                 { mapErrors.length > 1 ? ' errors' : ' error'} 

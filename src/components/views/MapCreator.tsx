@@ -16,7 +16,7 @@ import { ErrorPanel } from '../partials/ErrorPanel';
 import { findMapErrors } from '../../scripts/errorSystem/findMapErrors';
 import { IStore } from '../../interfaces/store.interface';
 import { IMapState } from '../../interfaces/mapState.interface';
-import { MapErrorMark } from '../partials/MapErrorMark';
+import { ErrorMark } from '../partials/ErrorMark';
 
 
 export const MapCreator: React.FC = () => {
@@ -46,7 +46,7 @@ export const MapCreator: React.FC = () => {
       <Notifications />
       <VersionMark />
       <ReportIssue />
-      <MapErrorMark />
+      <ErrorMark />
     </article>
   );
 };
