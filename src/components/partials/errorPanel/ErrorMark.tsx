@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { IStore } from '../../interfaces/store.interface';
-import { toggleErrorPanel } from '../../store/actions/uiActions';
+import { IStore } from '../../../interfaces/store.interface';
+import { toggleErrorPanel } from '../../../store/actions/uiActions';
 
 
 export const ErrorMark: React.FC = () => {
@@ -13,7 +13,7 @@ export const ErrorMark: React.FC = () => {
       {
         mapErrors.length > 0 ? (
           <aside 
-            className="rrorMark"
+            className="errorMark"
             onClick={(): void => dispatch(toggleErrorPanel(true))}
           >
             <div className="errorMark__count"> 
