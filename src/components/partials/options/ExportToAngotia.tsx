@@ -3,6 +3,8 @@ import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
+import { IMapState } from '../../../interfaces/mapState.interface';
+import { ICharState } from '../../../interfaces/charState.interface';
 import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
 import { CREATE_CHAR } from '../../../api/mutations/createChar';
@@ -30,13 +32,13 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const [addMap] = useMutation(CREATE_MAP, {
     onCompleted({ createMap }) { //add database id to states
       dispatch(setMapDatabaseId(createMap.id));
-      console.log('data', createMap.id); 
     }
   });
   const [updateChar] = useMutation(UPDATE_CHAR);
   const [updateMap] = useMutation(UPDATE_MAP);
-  const charData = useSelector((state: IStore) => state.char);
-  const mapData = useSelector((state: IStore) => state.map);
+  const charData: ICharState = useSelector((state: IStore) => state.char);
+  const mapData: IMapState = useSelector((state: IStore) => state.map);
+  const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
   const char = useQuery(GET_CHAR, {
     variables: { id: charData.id },
     skip: !charData.id
@@ -66,10 +68,13 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
         break;
       case 'map':
         const externalMapData = prepareExternalMapData(mapData);
-        console.log(mapData);
 
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, Notification.error);
+          return;
+        } else if (mapErrors.length > 0) {
+          addNotification('Cannot export map with errors!', Notification.error);
+          return;
         }
 
         if (map.data) { // Map already exists id database
