@@ -74,5 +74,13 @@ export const findCharErrors = (): void => {
     occuredErrors.push(CharCreationError.isIntegerInteligence);
   }
 
+  if (charState.statistics.jink < rules.jink.min) {
+    occuredErrors.push(CharCreationError.minJink);
+  } else if (charState.statistics.jink > rules.jink.max) {
+    occuredErrors.push(CharCreationError.maxJink);
+  } else if (!Number.isInteger(+charState.statistics.jink)) {
+    occuredErrors.push(CharCreationError.isIntegerJink);
+  }
+
   store.dispatch(changeCharCreationErrors(occuredErrors));
 };

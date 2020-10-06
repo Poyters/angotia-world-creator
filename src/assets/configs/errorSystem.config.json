@@ -76,6 +76,10 @@
     "inteligence": {
       "min": 1,
       "max": 9999
+    },
+    "jink": {
+      "min": 1,
+      "max": 9999
     }
   }
 }

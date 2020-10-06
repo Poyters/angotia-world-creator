@@ -44,8 +44,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 							{
 								moduleType === AppModules.char ? charErrors.length : null
 							}
-						 </span> 
-						 errors
+						 </span> errors
 					</header>
 					<ol className="errorPanelList t-paragraph2Light">
 						{

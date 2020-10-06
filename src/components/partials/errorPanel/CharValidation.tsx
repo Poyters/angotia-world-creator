@@ -152,23 +152,44 @@ export const CharValidation: React.FC = () => {
         ) : null
       }
       {
-        charErrors.includes(CharCreationError.minDexterity) ? (
+        charErrors.includes(CharCreationError.minInteligence) ? (
           <li>
            Inteligence be larger than { rules.inteligence.min}
           </li>
         ) : null
       }
       {
-        charErrors.includes(CharCreationError.maxDexterity) ? (
+        charErrors.includes(CharCreationError.maxInteligence) ? (
           <li>
            Inteligence be smaller than { rules.inteligence.max}
           </li>
         ) : null
       }
       {
-        charErrors.includes(CharCreationError.isIntegerDexterity) ? (
+        charErrors.includes(CharCreationError.isIntegerInteligence) ? (
           <li>
            Inteligence is an invalid number
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.minJink) ? (
+          <li>
+           Jink be larger than { rules.jink.min}
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.maxJink) ? (
+          <li>
+           Jink be smaller than { rules.jink.max}
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.isIntegerJink) ? (
+          <li>
+           Jink is an invalid number
           </li>
         ) : null
       }

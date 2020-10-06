@@ -21,5 +21,8 @@ export enum CharCreationError {
   isIntegerDexterity = 'INTEGER_DEXTERITY_ERROR',
   minInteligence = 'MIN_INTELIGENCE_ERROR',
   maxInteligence= 'MAX_INTELIGENCE_ERROR',
-  isIntegerInteligence = 'INTEGER_INTELIGENCE_ERROR'
+  isIntegerInteligence = 'INTEGER_INTELIGENCE_ERROR',
+  minJink = 'MIN_JINK_ERROR',
+  maxJink = 'MAX_JINK_ERROR',
+  isIntegerJink = 'INTEGER_JINK_ERROR'
 }
