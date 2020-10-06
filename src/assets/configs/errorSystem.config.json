@@ -1,0 +1,48 @@
+{
+  "map": {
+    "mob": {
+      "quantity": {
+        "max": 8
+      }
+    },
+    "npc": {
+      "quantity": {
+        "max": 5
+      }
+    },
+    "se": {
+      "quantity": {
+        "max": 4
+      }
+    },
+    "passage": {
+      "quantity": {
+        "max": 4
+      }
+    },
+    "block": {
+      "quantity": {
+        "max": 2
+      }
+    },
+    "name": {
+      "length": {
+        "min": 5,
+        "max": 20
+      }
+    },
+    "description": {
+      "length": {
+        "min": 20,
+        "max": 250
+      }
+    },
+    "entryLevel": {
+      "min": 0,
+      "max": 99
+    }
+  },
+  "char": {
+    
+  }
+}

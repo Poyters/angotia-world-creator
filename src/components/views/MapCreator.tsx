@@ -47,7 +47,7 @@ export const MapCreator: React.FC = () => {
       <Notifications />
       <VersionMark />
       <ReportIssue />
-      <ErrorMark />
+      <ErrorMark moduleType={AppModules.map} />
     </article>
   );
 };

@@ -12,4 +12,5 @@ export interface IUiState {
     statisticPanelIsOpen: boolean
     errorPanelIsOpen: boolean
     mapCreationErrors: string[]
+    charCreationErrors: string[]
 }

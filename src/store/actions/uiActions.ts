@@ -41,3 +41,8 @@ export const changeMapCreationErrors = (errorList: string[]) => ({
     type: 'CHANGE_MAP_CREATION_ERRORS',
     errorList
 });
+
+export const changeCharCreationErrors = (errorList: string[]) => ({
+    type: 'CHANGE_CHAR_CREATION_ERRORS',
+    errorList
+});

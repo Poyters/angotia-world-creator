@@ -2,16 +2,20 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { IStore } from '../../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../../store/actions/uiActions';
+import { AppModules } from '../../../models/appModules.model';
+import { IApp } from '../../../interfaces/app.inteface';
 
 
-export const ErrorMark: React.FC = () => {
+export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
   const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
+  const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
   const dispatch = useDispatch();
 
   return (
     <>
       {
-        mapErrors.length > 0 ? (
+        (moduleType === AppModules.map && mapErrors.length > 0) ||
+        (moduleType === AppModules.char && charErrors.length > 0) ? (
           <aside 
             className="errorMark"
             onClick={(): void => dispatch(toggleErrorPanel(true))}
@@ -20,10 +24,22 @@ export const ErrorMark: React.FC = () => {
               <span> ! </span>
             </div>
             <div className="errorMark__message"> 
-              <span> 
-                { mapErrors.length }
-                { mapErrors.length > 1 ? ' errors' : ' error'} 
-              </span>
+              {
+                moduleType === AppModules.map ? (
+                  <span> 
+                    { mapErrors.length }
+                    { mapErrors.length > 1 ? ' errors' : ' error'} 
+                  </span>
+                ) : null
+              }
+              {
+                moduleType === AppModules.char ? (
+                  <span> 
+                    { charErrors.length }
+                    { charErrors.length > 1 ? ' errors' : ' error'} 
+                  </span>
+                ) : null
+              }
             </div>
           </aside>
         ) : null

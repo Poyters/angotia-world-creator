@@ -50,6 +50,11 @@ export const uiReducer = (state = deepCopy(uiState), action) => {
                 ...state,
                 mapCreationErrors: action.errorList
             };
+        case 'CHANGE_CHAR_CREATION_ERRORS':
+            return {
+                ...state,
+                charCreationErrors: action.errorList
+            };
         default:
             return state;
     }

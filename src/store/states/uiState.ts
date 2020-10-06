@@ -15,5 +15,6 @@ export const uiState: IUiState = {
     language: 'en',
     statisticPanelIsOpen: false,
     errorPanelIsOpen: false,
-    mapCreationErrors: []
+    mapCreationErrors: [],
+    charCreationErrors: []
 };
