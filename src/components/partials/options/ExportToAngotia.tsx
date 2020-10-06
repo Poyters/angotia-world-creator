@@ -39,6 +39,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const charData: ICharState = useSelector((state: IStore) => state.char);
   const mapData: IMapState = useSelector((state: IStore) => state.map);
   const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
+  const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
   const char = useQuery(GET_CHAR, {
     variables: { id: charData.id },
     skip: !charData.id
@@ -55,6 +56,10 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
 
         if (char.error) {
           addNotification(`Expected error during checking existing char: ${char.error}`, Notification.error);
+          return;
+        } else if (charErrors.length > 0) {
+          addNotification('Cannot export char with errors!', Notification.error);
+          return;
         }
 
         if (char.data) { // Char already exists id database
