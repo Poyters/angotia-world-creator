@@ -80,6 +80,14 @@
     "jink": {
       "min": 1,
       "max": 9999
+    },
+    "timeOfOccurance": {
+      "min": 0,
+      "max": 24
+    },
+    "respTime": {
+      "min": 30,
+      "max": 604800
     }
   }
 }

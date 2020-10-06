@@ -24,5 +24,19 @@ export enum CharCreationError {
   isIntegerInteligence = 'INTEGER_INTELIGENCE_ERROR',
   minJink = 'MIN_JINK_ERROR',
   maxJink = 'MAX_JINK_ERROR',
-  isIntegerJink = 'INTEGER_JINK_ERROR'
+  isIntegerJink = 'INTEGER_JINK_ERROR',
+  minTimeOfOccuranceMin = 'MIN_TIME_OF_OCCURANCE_MIN_ERROR',
+  maxTimeOfOccuranceMin = 'MAX_TIME_OF_OCCURANCE_MIN_ERROR',
+  minTimeOfOccuranceMax = 'MIN_TIME_OF_OCCURANCE_MAX_ERROR',
+  maxTimeOfOccuranceMax = 'MAX_TIME_OF_OCCURANCE_MAX_ERROR',
+  minMaxTimeOfOccurance = 'MIN_MAX_TIME_OF_OCCURANCE_ERROR',
+  isIntegerTimeOfOccuranceMin = 'INTEGER_TIME_OF_OCCURANCE_MIN_ERROR',
+  isIntegerTimeOfOccuranceMax = 'INTEGER_TIME_OF_OCCURANCE_MAX_ERROR',
+  minRespTimeMin = 'MIN_RESP_TIME_MIN_ERROR',
+  maxRespTimeMin = 'MAX_RESP_TIME_MIN_ERROR',
+  minRespTimeMax = 'MIN_RESP_TIME_MAX_ERROR',
+  maxRespTimeMax = 'MAX_RESP_TIME_MAX_ERROR',
+  minMaxRespTime = 'MIN_MAX_RESP_TIME_ERROR',
+  isIntegerRespTimeMin = 'INTEGER_RESP_TIME_MIN_ERROR',
+  isIntegerRespTimeMax = 'INTEGER_RESP_TIME_MAX_ERROR'
 }

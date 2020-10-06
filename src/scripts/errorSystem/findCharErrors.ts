@@ -82,5 +82,37 @@ export const findCharErrors = (): void => {
     occuredErrors.push(CharCreationError.isIntegerJink);
   }
 
+  if (charState.settings.timeOfOccurance.min < rules.timeOfOccurance.min) {
+    occuredErrors.push(CharCreationError.minTimeOfOccuranceMin);
+  } else if (charState.settings.timeOfOccurance.min > rules.timeOfOccurance.max) {
+    occuredErrors.push(CharCreationError.maxTimeOfOccuranceMin);
+  } else if (charState.settings.timeOfOccurance.max < rules.timeOfOccurance.min) {
+    occuredErrors.push(CharCreationError.minTimeOfOccuranceMax);
+  } else if (charState.settings.timeOfOccurance.max > rules.timeOfOccurance.max) {
+    occuredErrors.push(CharCreationError.maxTimeOfOccuranceMax);
+  } else if (charState.settings.timeOfOccurance.min >= charState.settings.timeOfOccurance.max) {
+    occuredErrors.push(CharCreationError.minMaxTimeOfOccurance);
+  } else if (!Number.isInteger(+charState.settings.timeOfOccurance.min)) {
+    occuredErrors.push(CharCreationError.isIntegerTimeOfOccuranceMin);
+  } else if (!Number.isInteger(+charState.settings.timeOfOccurance.max)) {
+    occuredErrors.push(CharCreationError.isIntegerTimeOfOccuranceMax);
+  }
+
+  if (charState.settings.respTime.min < rules.respTime.min) {
+    occuredErrors.push(CharCreationError.minRespTimeMin);
+  } else if (charState.settings.respTime.min > rules.respTime.max) {
+    occuredErrors.push(CharCreationError.maxRespTimeMin);
+  } else if (charState.settings.respTime.max < rules.respTime.min) {
+    occuredErrors.push(CharCreationError.minRespTimeMax);
+  } else if (charState.settings.respTime.max > rules.respTime.max) {
+    occuredErrors.push(CharCreationError.maxRespTimeMax);
+  } else if (charState.settings.respTime.min >= charState.settings.respTime.max) {
+    occuredErrors.push(CharCreationError.minMaxRespTime);
+  } else if (!Number.isInteger(+charState.settings.respTime.min)) {
+    occuredErrors.push(CharCreationError.isIntegerRespTimeMin);
+  } else if (!Number.isInteger(+charState.settings.respTime.max)) {
+    occuredErrors.push(CharCreationError.isIntegerRespTimeMax);
+  }
+
   store.dispatch(changeCharCreationErrors(occuredErrors));
 };
