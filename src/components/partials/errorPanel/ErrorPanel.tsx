@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { IStore } from '../../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../../store/actions/uiActions';
 import { MapValidation } from './MapValidation';
+import { CharValidation } from './CharValidation';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
 
@@ -44,6 +45,11 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 						{
 							moduleType === AppModules.map ? (
 								<MapValidation />
+							) : null
+						}
+						{
+							moduleType === AppModules.char ? (
+								<CharValidation />
 							) : null
 						}
 					</ol>

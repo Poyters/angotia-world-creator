@@ -5,7 +5,7 @@ import { CharType } from '../../models/charType.model';
 
 
 export const charState: ICharState = {
-    name: '',
+    name: 'Char name',
     id: '',
     internalId: uuid(),
     fieldDiameter: 0,
