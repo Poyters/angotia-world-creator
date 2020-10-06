@@ -52,6 +52,30 @@
     "level": {
       "min": 1,
       "max": 99
+    },
+    "health": {
+      "min": 1,
+      "max": 9999
+    },
+    "attack": {
+      "min": 1,
+      "max": 9999
+    },
+    "defence": {
+      "min": 1,
+      "max": 9999
+    },
+    "strength": {
+      "min": 1,
+      "max": 9999
+    },
+    "dexterity": {
+      "min": 1,
+      "max": 9999
+    },
+    "inteligence": {
+      "min": 1,
+      "max": 9999
     }
   }
 }

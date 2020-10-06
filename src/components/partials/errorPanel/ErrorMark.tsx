@@ -24,22 +24,11 @@ export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
               <span> ! </span>
             </div>
             <div className="errorMark__message"> 
-              {
-                moduleType === AppModules.map ? (
-                  <span> 
-                    { mapErrors.length }
-                    { mapErrors.length > 1 ? ' errors' : ' error'} 
-                  </span>
-                ) : null
-              }
-              {
-                moduleType === AppModules.char ? (
-                  <span> 
-                    { charErrors.length }
-                    { charErrors.length > 1 ? ' errors' : ' error'} 
-                  </span>
-                ) : null
-              }
+              <span> 
+                { moduleType === AppModules.map ? mapErrors.length : null }
+                { moduleType === AppModules.char ? charErrors.length : null }
+              </span>
+              errors
             </div>
           </aside>
         ) : null

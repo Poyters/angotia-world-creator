@@ -11,6 +11,7 @@ import { IApp } from '../../../interfaces/app.inteface';
 export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 	const isOpen: string = useSelector((state: IStore) => state.ui.errorPanelIsOpen);
 	const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
+	const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
 	const dispatch = useDispatch();
 
 	const errorPanelStyles = {
@@ -37,9 +38,14 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 						 <span 
 						 	className="errorPanelHeader__count t-paragraph3Bold"
 							> 
-						 	{ mapErrors.length }
+							{
+								moduleType === AppModules.map ? mapErrors.length : null
+							}
+							{
+								moduleType === AppModules.char ? charErrors.length : null
+							}
 						 </span> 
-						 { mapErrors.length === 1 ? 'error' : 'errors'}:
+						 errors
 					</header>
 					<ol className="errorPanelList t-paragraph2Light">
 						{
