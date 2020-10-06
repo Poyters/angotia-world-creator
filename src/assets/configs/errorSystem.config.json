@@ -81,6 +81,10 @@
       "min": 1,
       "max": 9999
     },
+    "attackSpeed": {
+      "min": 1,
+      "max": 9999
+    },
     "timeOfOccurance": {
       "min": 0,
       "max": 24

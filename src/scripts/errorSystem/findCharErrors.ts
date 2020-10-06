@@ -82,6 +82,14 @@ export const findCharErrors = (): void => {
     occuredErrors.push(CharCreationError.isIntegerJink);
   }
 
+  if (charState.statistics.attackSpeed < rules.attackSpeed.min) {
+    occuredErrors.push(CharCreationError.minAttackSpeed);
+  } else if (charState.statistics.attackSpeed > rules.attackSpeed.max) {
+    occuredErrors.push(CharCreationError.maxAttackSpeed);
+  } else if (!Number.isInteger(+charState.statistics.attackSpeed)) {
+    occuredErrors.push(CharCreationError.isIntegerAttackSpeed);
+  }
+
   if (charState.settings.timeOfOccurance.min < rules.timeOfOccurance.min) {
     occuredErrors.push(CharCreationError.minTimeOfOccuranceMin);
   } else if (charState.settings.timeOfOccurance.min > rules.timeOfOccurance.max) {

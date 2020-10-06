@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { IStore } from '../../../interfaces/store.interface';
@@ -189,7 +190,28 @@ export const CharValidation: React.FC = () => {
       {
         charErrors.includes(CharCreationError.isIntegerJink) ? (
           <li>
-           Jink is an invalid number
+            Jink is an invalid number
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.minAttackSpeed) ? (
+          <li>
+           Attack speed must be larger than { rules.attackSpeed.min}
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.maxAttackSpeed) ? (
+          <li>
+            Attack speed must be smaller than { rules.attackSpeed.max}
+          </li>
+        ) : null
+      }
+      {
+        charErrors.includes(CharCreationError.isIntegerAttackSpeed) ? (
+          <li>
+            Attack speed is an invalid number
           </li>
         ) : null
       }
