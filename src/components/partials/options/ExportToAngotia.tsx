@@ -17,6 +17,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapDatabaseId } from '../../../store/actions/mapActions';
+import { setCharDatabaseId } from '../../../store/actions/charActions';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
 
@@ -29,7 +30,11 @@ interface IExportToAngotia {
 export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   const { creator } = useContext(ContentContext);
   const dispatch = useDispatch();
-  const [addChar] = useMutation(CREATE_CHAR);
+  const [addChar] = useMutation(CREATE_CHAR, {
+    onCompleted({ createChar }) { //add database id to states
+      dispatch(setCharDatabaseId(createChar.id));
+    }
+  });
   const [addMap] = useMutation(CREATE_MAP, {
     onCompleted({ createMap }) { //add database id to states
       dispatch(setMapDatabaseId(createMap.id));

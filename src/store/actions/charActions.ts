@@ -85,3 +85,8 @@ export const loadCharData = (data: ICharState) => ({
   type: 'LOAD_CHAR_DATA',
   data
 });
+
+export const setCharDatabaseId = (dbId: string) => ({
+  type: 'SET_CHAR_DATABASE_ID',
+  dbId
+});

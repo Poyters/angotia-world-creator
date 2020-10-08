@@ -14,6 +14,11 @@ export const charReducer = (state = deepCopy(charState), action) => {
         ...state,
         choosed: action.char
       };
+    case 'SET_CHAR_DATABASE_ID':
+      return {
+          ...state,
+          id: action.dbId
+      };
     case 'CHANGE_MONOLOGS':
       return {
         ...state,
