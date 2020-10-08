@@ -8,6 +8,7 @@ import { prepareExternalCharData } from '../../../scripts/parsers/prepareExterna
 import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
+import { AppModules } from '../../../models/appModules.model';
 
 
 interface ISaveJsonOption {
@@ -24,12 +25,12 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
 
   const saveData = (): void => {
     switch(type) {
-      case 'char':
+      case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
         saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');
         addNotification('Succesfully saved character');
       break;
-      case 'map':
+      case AppModules.map:
         const externalMapData = prepareExternalMapData(mapData);
         saveFile(JSON.stringify(externalMapData), `${mapName}.json`, 'text/json');
         addNotification('Succesfully saved map');

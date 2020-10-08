@@ -4,13 +4,15 @@ import { ContentContext } from '../../../Template';
 import { SaveJsonOption } from './SaveJsonOption';
 import { ExportToAngotia } from './ExportToAngotia';
 import appConfig from '../../../assets/configs/app.config.json';
+import { AppModules } from '../../../models/appModules.model';
+import { IApp } from '../../../interfaces/app.inteface';
 
 
 interface IMenu {
 	type?: string
 }
 
-export const Menu: React.FC<IMenu> = ({ type }) => {
+export const Menu: React.FC<IApp> = ({ moduleType }) => {
 	const { menu, lang, routes } = useContext(ContentContext);
 
 	return (
@@ -24,14 +26,14 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 						<li> 
 							<SaveJsonOption
 								text={ menu?.save.json }
-								type={type ? type : ''}
+								type={moduleType ? moduleType : ''}
 							/>
 						</li>
 						<li> { menu?.save.db } </li>
 						<li>
 							<ExportToAngotia
 								text={ menu?.save.prodDb }
-								type={type ? type : ''}
+								type={moduleType ? moduleType : ''}
 							/>
 						</li>
 					</ul>
@@ -53,7 +55,7 @@ export const Menu: React.FC<IMenu> = ({ type }) => {
 					</Link>
 				</li>
 				{
-					type === 'map' ? (
+					moduleType === AppModules.map ? (
 						<li> 
 							<Link to={`/${lang}/${routes.mapCreationRules}`}>
 								{ menu?.mapCreationRules }

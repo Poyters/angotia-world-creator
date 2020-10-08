@@ -14,6 +14,7 @@ import { isValidExternalCharData } from '../../../scripts/validators/isValidExte
 import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
+import { AppModules } from '../../../models/appModules.model';
 
 
 interface IProductionDataList {
@@ -32,7 +33,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
 
   const loadFromDb = (loadedData) => {
     switch (type) {
-      case 'char':
+      case AppModules.char:
         if (isValidExternalCharData(loadedData)) {
           const internalCharData = prepareInternalCharData(loadedData);
           dispatch(loadCharData(internalCharData));
@@ -42,7 +43,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
         }
         
       break;
-      case 'map':
+      case AppModules.map:
         if (isValidExternalMapData(loadedData)) {
           const internalMapData = prepareInternalMapData(loadedData);
           dispatch(loadMapData(internalMapData));
@@ -64,7 +65,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
       }
       <ul className="productionDataList">
         { 
-          type === 'char' ? (
+          type === AppModules.char ? (
             char.data?.allChars.map(char => {
               return (
                 <li onClick={() => loadFromDb(char)} key={uuid()}> 
@@ -77,7 +78,7 @@ export const ProductionDataList: React.FC<IProductionDataList> = ({ type }) => {
           ) : null
         }
         { 
-          type === 'map' ? (
+          type === AppModules.map ? (
             map.data?.allMaps.map(mapData => {
               return (
                 <li onClick={() => loadFromDb(mapData)} key={uuid()}> 

@@ -11,6 +11,7 @@ import { isValidExternalCharData } from '../../../scripts/validators/isValidExte
 import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
+import { AppModules } from '../../../models/appModules.model';
 
 
 interface ILoadPopup {
@@ -51,7 +52,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
         }
 
         switch (type) {
-          case 'map':
+          case AppModules.map:
             if (isValidExternalMapData(loadedData)) {
               const internalData = prepareInternalMapData(loadedData);
               dispatch(loadMapData(internalData));
@@ -61,7 +62,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
             }
             
           break;
-          case 'char':
+          case AppModules.char:
             if (isValidExternalCharData(loadedData)) {
               const internalData = prepareInternalCharData(loadedData);
               dispatch(loadCharData(internalData));

@@ -25,6 +25,7 @@ import {
   changeMapMobMatrix,
   changeMapSeMatrix
 } from '../../../store/actions/mapActions';
+import { AppModules } from '../../../models/appModules.model';
 
 
 let mapSizes: IPoint = {
@@ -132,7 +133,7 @@ export const EntryPanel: React.FC = () => {
       <li>
         <label
           className="t-paragraph1MediumLight"
-          onClick={() => loadDataHandler('map')}
+          onClick={() => loadDataHandler(AppModules.map)}
         >
           { entryPanel?.loadMap }
         </label>
@@ -148,7 +149,7 @@ export const EntryPanel: React.FC = () => {
       <li>
         <label 
           className="t-paragraph1MediumLight"
-          onClick={() => loadDataHandler('char')}
+          onClick={() => loadDataHandler(AppModules.char)}
         >
           { entryPanel?.loadChar }
         </label>

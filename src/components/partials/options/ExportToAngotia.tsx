@@ -18,6 +18,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapDatabaseId } from '../../../store/actions/mapActions';
 import { Notification } from '../../../models/notification.model';
+import { AppModules } from '../../../models/appModules.model';
 
 
 interface IExportToAngotia {
@@ -51,7 +52,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
 
   const exportHandler = (): void => {
     switch (type) {
-      case 'char':
+      case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
 
         if (char.error) {
@@ -71,7 +72,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
           addNotification('Succesfully added a new character to Angotia');
         }
         break;
-      case 'map':
+      case AppModules.map:
         const externalMapData = prepareExternalMapData(mapData);
 
         if (map.error) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FullScreenOption } from '../options/FullScreenOption';
 import { Menu } from '../options/Menu';
+import { AppModules } from '../../../models/appModules.model';
 
 
 export const CharPanel: React.FC = () => {
@@ -10,7 +11,7 @@ export const CharPanel: React.FC = () => {
         <header className="optionsPanel__title">
           <span> AWC </span>
         </header>
-        <Menu type='char' />
+        <Menu moduleType={AppModules.char} />
         <ul className="optionsPanel__options">
           <li>
             <FullScreenOption />

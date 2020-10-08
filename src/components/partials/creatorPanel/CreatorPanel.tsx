@@ -13,6 +13,7 @@ import { AddFSImageOption } from './addFSImage/AddFSImageOption';
 import { VisibilityOption } from './visibility/VisibilityOption';
 import { Menu } from '../options/Menu';
 import { ContentContext } from '../../../Template';
+import { AppModules } from '../../../models/appModules.model';
 
 
 export const CreatorPanel: React.FC = () => {
@@ -24,7 +25,7 @@ export const CreatorPanel: React.FC = () => {
         <header className="optionsPanel__title">
           <span> AWC </span>
         </header>
-        <Menu type='map'/>
+        <Menu moduleType={AppModules.map} />
         <ul className="optionsPanel__options">
           <li>
             <LayersOption />
