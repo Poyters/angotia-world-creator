@@ -11,7 +11,7 @@ export const VisibilityOption: React.FC = () => {
     return (
         <>
             { isPopup ? ReactDOM.createPortal(
-                <VisibilityPopup closePopup={setIsPopup}/>, document.body
+                <VisibilityPopup isActivePopup={setIsPopup}/>, document.body
             ) : null}
             <div 
                 role="button" 

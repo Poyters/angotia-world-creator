@@ -6,16 +6,11 @@ import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IEditPlayerDialog } from '../../../../interfaces/dialogs.interface';
 
-
-interface IEditPlayerDialog {
-  dialogId: string,
-  playerId: string,
-  closePopup: Function
-}
 
 export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
-  { dialogId, playerId, closePopup }
+  { dialogId, playerId, isActivePopup }
 ) => {
   const { char, notifications } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
@@ -44,7 +39,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-      if (event.key === 'Escape') closePopup(false);
+      if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') submitHandler();
     };
 
@@ -76,23 +71,23 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     });
 
     dispatch(changeDialogs(updatedDialogs));
-    closePopup(false);
+    isActivePopup(false);
     addNotification(notifications?.dialogs?.player?.edit);
   };
 
   const deleteDialog = (id: string): void => {
-    const updatedDialogs = dialogsData.map((dlg: IDialog) => {
-      if (dlg.id === dialogId) {
-        dlg.player = dlg.player.filter(player => {
+    const updatedDialogs = dialogsData.map((dialog: IDialog) => {
+      if (dialog.id === dialogId) {
+        dialog.player = dialog.player.filter(player => {
           return player.id !== id;
         });
       }
 
-      return dlg;
+      return dialog;
     });
 
     dispatch(changeDialogs(updatedDialogs));
-    closePopup(false);
+    isActivePopup(false);
     addNotification(notifications?.dialogs?.player?.delete);
   };
 
@@ -105,7 +100,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         > delete </div> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => closePopup(false)}
+          onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { char?.editPlayer?.title }

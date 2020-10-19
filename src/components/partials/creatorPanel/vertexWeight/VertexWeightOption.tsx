@@ -66,7 +66,7 @@ export const VertexWeightOption: React.FC = () => {
     return (
         <>
             { isPopup ? ReactDOM.createPortal(
-                <VertexWeightPopup closePopup={setIsPopup}/>, document.body
+                <VertexWeightPopup isActivePopup={setIsPopup}/>, document.body
             ) : null}
             <div 
                 role="button" 

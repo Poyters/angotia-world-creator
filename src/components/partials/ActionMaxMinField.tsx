@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { IActionMaxMinField } from '../../interfaces/form.interface';
 
-
-interface IActionMaxMinField {
-  label: string,
-  inputType?: string
-  minValue?: number,
-  maxValue?: number,
-  action?: Function
-}
 
 export const ActionMaxMinField: React.FC<IActionMaxMinField> = (
   { label, inputType='text', minValue=0, maxValue=99, action }

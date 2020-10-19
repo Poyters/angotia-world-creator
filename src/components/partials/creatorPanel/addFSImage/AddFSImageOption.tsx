@@ -11,7 +11,7 @@ export const AddFSImageOption: React.FC = () => {
     return (
         <>
             { isPopup ? ReactDOM.createPortal(
-                <AddFSImagePopup closePopup={setIsPopup}/>, document.body
+                <AddFSImagePopup isActivePopup={setIsPopup}/>, document.body
             ) : null}
             <div 
                 role="button" 

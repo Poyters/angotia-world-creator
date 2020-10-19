@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
+import { IChooseButtons, IChooseType } from '../../interfaces/form.interface';
 
-
-type chooseType = {
-  label: string,
-  id: string | boolean | number
-}
-
-interface IChooseButtons {
-  types: chooseType[],
-  action: Function,
-  label?: string,
-  specialClass?: string,
-  choosed?: string | boolean | number
-}
 
 export const ChooseButtons: React.FC<IChooseButtons> = (
   { types, action, label, specialClass='', choosed='' }
@@ -33,7 +21,7 @@ export const ChooseButtons: React.FC<IChooseButtons> = (
     <div className={`chooseButtonsWrapper ${specialClass}`}>
       <header className="chooseButtonsHeader t-paragraph6Normal"> { label } </header>
       {
-        types.map((type: chooseType) => {
+        types.map((type: IChooseType) => {
           return (
             <div className="chooseButtons" key={uuid()}>
               <label 

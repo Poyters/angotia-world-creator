@@ -10,16 +10,13 @@ import {
 import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../interfaces/square.interface';
 import { IPassageLocation } from '../../../../interfaces/passage.interface';
+import { IPopup } from '../../../../interfaces/popup.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
-interface IPassageOption {
-    closePopup: Function
-}
-
-export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
+export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const { notifications } = useContext(ContentContext);
     const [mapTargetId, setMapTargetId] = useState<string>("");
     const [mapTargetCords, setMapTargetCords] = useState<string>("");
@@ -37,7 +34,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
 
     useEffect(() => {
         const keyPressHandler = (event): void => {
-            if (event.key === 'Escape') closePopup(false);
+            if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') insertPassage();
         };
 
@@ -65,7 +62,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
               }
         });
 
-        closePopup(false);
+        isActivePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
         markSquare(
             passageMatrix, 
@@ -82,7 +79,7 @@ export const PassagePopup: React.FC<IPassageOption> = ({ closePopup }) => {
             <div role="alert" className="insertPopup"> 
                 <div 
                     className="g-exitBtn g-exitBtn--popup"
-                    onClick={():void => closePopup(false)}
+                    onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light"> 
                     Add passage 

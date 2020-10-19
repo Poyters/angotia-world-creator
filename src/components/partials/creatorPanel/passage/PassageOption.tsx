@@ -66,7 +66,7 @@ export const PassageOption: React.FC = () => {
     return (
         <>
             { isPopup ? ReactDOM.createPortal(
-                <PassagePopup closePopup={setIsPopup}/>, document.body
+                <PassagePopup isActivePopup={setIsPopup}/>, document.body
             ) : null}
             <div 
                 className="passageOption" 

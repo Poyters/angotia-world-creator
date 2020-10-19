@@ -7,16 +7,11 @@ import { IMonolog } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IMonologPopup } from '../../../../interfaces/dialogs.interface';
 
-
-interface IMonologPopup {
-  togglePopup: Function,
-  monologData?: IMonolog,
-  setMonologData?: Function
-}
 
 export const MonologPopup: React.FC<IMonologPopup> = (
-  { togglePopup, monologData, setMonologData }
+  { isActivePopup, monologData, setMonologData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
   const monologId: string = monologData ? monologData.id : uuid();
@@ -39,7 +34,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-        if (event.key === 'Escape') togglePopup(false);
+        if (event.key === 'Escape') isActivePopup(false);
         else if (event.key === 'Enter') submitHandler();
     };
 
@@ -84,7 +79,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
       insertMonolog();
     }
 
-    togglePopup(false);
+    isActivePopup(false);
   };
 
   return (
@@ -92,7 +87,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
       <div role="alert" className="insertPopup"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => togglePopup(false)}
+          onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { char?.monolog?.add }

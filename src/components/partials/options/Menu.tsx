@@ -8,10 +8,6 @@ import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
 
 
-interface IMenu {
-	type?: string
-}
-
 export const Menu: React.FC<IApp> = ({ moduleType }) => {
 	const { menu, lang, routes } = useContext(ContentContext);
 

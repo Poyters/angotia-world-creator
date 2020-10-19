@@ -16,15 +16,7 @@ export const Map: React.FC = () => {
 
   const fieldSize: number = mapConfig?.map?.fieldSize;
 
-  interface IMapStyles {
-    width: string,
-    height: string,
-    top: string,
-    left: string
-    backgroundImage: string
-  }
-
-  const mapStyles: IMapStyles = {
+  const mapStyles = {
     width: `${mapSize.x * fieldSize}px`,
     height: `${mapSize.y * fieldSize}px`,
     top: `${mapTop}px`,

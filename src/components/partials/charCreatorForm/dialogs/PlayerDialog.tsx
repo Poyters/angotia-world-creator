@@ -5,11 +5,8 @@ import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActi
 import { IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IPlayerDialog } from '../../../../interfaces/dialogs.interface';
 
-
-interface IPlayerDialog {
-  playerId: string
-}
 
 export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const { char } = useContext(ContentContext);

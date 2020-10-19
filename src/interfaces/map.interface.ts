@@ -4,6 +4,12 @@ export interface IMapSize {
 }
 
 export interface IMapNetStatus {
-    field: boolean
-    square: boolean
+	field: boolean
+	square: boolean
+}
+
+export interface IMapSizeInput {
+	id: string,
+	currValue: number | string,
+	changeValue(value: any): void
 }

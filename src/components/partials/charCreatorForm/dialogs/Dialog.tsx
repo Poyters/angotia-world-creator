@@ -43,13 +43,13 @@ export const Dialog: React.FC<IDialog> = ({
   return (
     <>
       { isDialogPopup ? ReactDOM.createPortal(
-        <EditDialog dialogId={id} closePopup={setIsDialogPopup}/>, document.body
+        <EditDialog dialogId={id} isActivePopup={setIsDialogPopup}/>, document.body
       ) : null}
       { isPlayerPopup ? ReactDOM.createPortal(
         <EditPlayerDialog 
           dialogId={id} 
           playerId={playerId} 
-          closePopup={setIsPlayerPopup}
+          isActivePopup={setIsPlayerPopup}
         />, document.body
       ) : null}
       <div 

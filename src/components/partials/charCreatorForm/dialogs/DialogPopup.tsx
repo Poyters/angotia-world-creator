@@ -7,14 +7,10 @@ import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IDialogPopup } from '../../../../interfaces/dialogs.interface';
 
 
-interface IDialogPopup {
-  togglePopup: Function
-  dialogId: string
-}
-
-export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) => {
+export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId }) => {
   const { char, notifications } = useContext(ContentContext);
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
@@ -74,12 +70,12 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ togglePopup, dialogId }) =
     if (npcTextErr) return;
 
     insertDialog();
-    togglePopup(false);
+    isActivePopup(false);
     dispatch(changeTemponaryPlayerDialogs([]));
   };
 
   const closePopupHandler = (): void => {
-    togglePopup(false);
+    isActivePopup(false);
     dispatch(changeTemponaryPlayerDialogs([]));
   };
 

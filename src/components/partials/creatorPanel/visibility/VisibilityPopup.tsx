@@ -5,13 +5,10 @@ import mapConfig from '../../../../assets/configs/map.config.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IPopup } from '../../../../interfaces/popup.interface';
 
 
-interface IVisibilityPopup {
-    closePopup: Function
-}
-
-export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
+export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const dafaultRange: string = useSelector((state: IStore) => state.map.visibilityRange);
     const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
@@ -32,7 +29,7 @@ export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
 
     useEffect(() => {
         const keyPressHandler = (event): void => {
-            if (event.key === 'Escape') closePopup(false);
+            if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') submitVisibility();
         };
 
@@ -46,7 +43,7 @@ export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
         if (error) return;
         
         dispatch(setVisibilityRange(parseInt(visibility)));
-        closePopup(false);
+        isActivePopup(false);
         addNotification(notifications?.visibility?.change);
     };
 
@@ -55,7 +52,7 @@ export const VisibilityPopup: React.FC<IVisibilityPopup> = ({ closePopup }) => {
             <div role="alert" className="insertPopup">
                 <div 
                     className="g-exitBtn g-exitBtn--popup"
-                    onClick={():void => closePopup(false)}
+                    onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
                     { creator?.panel?.options?.visibility?.title } 

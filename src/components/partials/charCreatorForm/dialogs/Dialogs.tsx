@@ -11,13 +11,9 @@ import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
 import { IMonolog, IDialog } from '../../../../interfaces/dialogs.interface';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IDialogs } from '../../../../interfaces/dialogs.interface';
 import uuid from 'uuid/v4';
 
-
-interface IDialogs {
-  type: string,
-  addBtnText: string
-}
 
 export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
   const { char } = useContext(ContentContext);
@@ -37,13 +33,13 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
     <>
       { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
         <MonologPopup 
-          togglePopup={setIsPopupOpen} 
+          isActivePopup={setIsPopupOpen} 
           monologData={monologData}
           setMonologData={setMonologData}
         />, document.body
       ) : null}
       { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
-        <DialogPopup togglePopup={setIsPopupOpen} dialogId={uuid()}/>, document.body
+        <DialogPopup isActivePopup={setIsPopupOpen} dialogId={uuid()}/>, document.body
       ) : null}
       <div className="dialogs">
         <nav className="dialogs__nav">
@@ -86,7 +82,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
                 return <Monolog 
                   id={monolog.id}
                   content={monolog.content}
-                  togglePopup={setIsPopupOpen}
+                  isActivePopup={setIsPopupOpen}
                   setPopupData={setMonologData}
                   key={monolog.id}
                 />;

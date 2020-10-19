@@ -1,13 +1,9 @@
 import React from 'react';
 
 
-interface IArrow {
-    additionalClass?: string
-}
-
-export const Arrow: React.FC<IArrow> = ({ additionalClass='' }) => {
+export const Arrow: React.FC = () => {
 
     return (
-        <div className={`arrow ${additionalClass}`}></div>
+        <div className='arrow'></div>
     );
 };

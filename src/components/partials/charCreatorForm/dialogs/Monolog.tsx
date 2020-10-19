@@ -5,15 +5,11 @@ import { changeMonologs } from '../../../../store/actions/charActions';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IMonologExplicit } from '../../../../interfaces/dialogs.interface';
 
-
-interface IMonologExplicit extends IMonolog {
-  togglePopup: Function,
-  setPopupData: Function
-}
 
 export const Monolog: React.FC<IMonologExplicit> = (
-  { id, content, togglePopup, setPopupData }
+  { id, content, isActivePopup, setPopupData }
 ) => {
   const { char, notifications } = useContext(ContentContext);
   const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
@@ -35,7 +31,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
     };
     
     setPopupData(monologData);
-    togglePopup(true);
+    isActivePopup(true);
   };
 
 

@@ -3,13 +3,10 @@ import uuid from 'uuid/v4';
 import mapConfig from '../../../../assets/configs/map.config.json';
 import { ContentContext } from '../../../../Template';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
+import { IPopup } from '../../../../interfaces/popup.interface';
 
 
-interface IFSImageOption {
-  closePopup: Function
-}
-
-export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
+export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
   const { creator } = useContext(ContentContext);
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
@@ -18,7 +15,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-      if (event.key === 'Escape') closePopup(false);
+      if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') insertImage();
     };
 
@@ -54,7 +51,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
 
     console.log('Insert image process');
 
-    closePopup(false);
+    isActivePopup(false);
   };
 
 
@@ -63,7 +60,7 @@ export const AddFSImagePopup: React.FC<IFSImageOption> = ({ closePopup }) => {
       <div role="alert" className="insertPopup">
         <div
           className="g-exitBtn g-exitBtn--popup"
-          onClick={(): void => closePopup(false)}
+          onClick={(): void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           {creator?.panel?.options?.addFSImage?.title}

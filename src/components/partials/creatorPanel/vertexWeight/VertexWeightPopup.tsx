@@ -14,13 +14,10 @@ import { IVertexWeight } from '../../../../interfaces/vertex.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
+import { IPopup } from '../../../../interfaces/popup.interface';
 
 
-interface IVertexOption {
-    closePopup: Function
-}
-
-export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
+export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const { notifications, creator } = useContext(ContentContext);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
@@ -44,7 +41,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
 
     useEffect(() => {
         const keyPressHandler = (event): void => {
-            if (event.key === 'Escape') closePopup(false);
+            if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') insertVertexWeight();
         };
 
@@ -69,7 +66,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
               }
         });
 
-        closePopup(false);
+        isActivePopup(false);
         dispatch(changeMapVertexWeights(vertexWeights));
         markSquare(
             vertexWeightMatrix, 
@@ -86,7 +83,7 @@ export const VertexWeightPopup: React.FC<IVertexOption> = ({ closePopup }) => {
             <div role="alert" className="insertPopup"> 
                 <div 
                     className="g-exitBtn g-exitBtn--popup"
-                    onClick={():void => closePopup(false)}
+                    onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
                     { creator?.panel?.options?.vertex?.title }

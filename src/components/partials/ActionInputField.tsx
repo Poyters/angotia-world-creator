@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { IActionInputField } from '../../interfaces/form.interface';
 
-
-interface IActionInputField {
-  label: string,
-  inputType?: string
-  inputValue?: string | number
-  inputDisabled?: boolean,
-  action?: Function,
-  payloadId?: any
-}
 
 export const ActionInputField: React.FC<IActionInputField> = (
   { label, inputType='text', inputValue='', inputDisabled=false, action, payloadId }

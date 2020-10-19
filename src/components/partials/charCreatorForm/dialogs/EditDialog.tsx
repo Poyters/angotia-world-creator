@@ -7,14 +7,10 @@ import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
+import { IDialogPopup } from '../../../../interfaces/dialogs.interface';
 
 
-interface IEditDialog {
-  dialogId: string,
-  closePopup: Function
-}
-
-export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
+export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) => {
   const { char, notifications } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
@@ -38,7 +34,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-      if (event.key === 'Escape') closePopup(false);
+      if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') submitHandler();
     };
 
@@ -68,7 +64,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
 
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
-    closePopup(false);
+    isActivePopup(false);
     addNotification(notifications?.dialogs?.edit);
   };
 
@@ -77,7 +73,7 @@ export const EditDialog: React.FC<IEditDialog> = ({ dialogId, closePopup }) => {
       <div role="alert" className="insertPopup insertPopup--dialog"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => closePopup(false)}
+          onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { char?.dialogPopup?.edit }
