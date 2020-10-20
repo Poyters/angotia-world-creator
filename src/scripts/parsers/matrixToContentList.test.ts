@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import { matrixToContentList } from './matrixToContentList';
 import { deepCopy } from '../utils/deepCopy';
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IInternalImageData } from '../../interfaces/images.interface';
 import { MapPicData } from '../../models/mapPicData.model';
 
 

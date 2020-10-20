@@ -1,5 +1,5 @@
 import { findPicBlob } from './findPicBlob';
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IInternalImageData } from '../../interfaces/images.interface';
 
 
 describe("findPicBlob script", () => {

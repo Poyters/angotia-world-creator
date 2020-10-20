@@ -1,4 +1,4 @@
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IInternalImageData } from '../../interfaces/images.interface';
 import { MapPicData } from '../../models/mapPicData.model';
 
 

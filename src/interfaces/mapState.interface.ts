@@ -1,7 +1,7 @@
 import { IPoint } from './math.interface';
 import { IPassageLocation } from './passage.interface';
 import { IVertexWeight } from './vertex.interface';
-import { IInternalImageData } from './internalImageData.interface';
+import { IInternalImageData } from './images.interface';
 
 
 export interface IMapState {

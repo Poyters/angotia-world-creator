@@ -2,7 +2,7 @@ import { deepCopy } from '../utils/deepCopy';
 import { IContentList, IContentItem, IContentPic } from '../../interfaces/contentList.interface';
 import { findPicBlob } from '../utils/findPicBlob';
 import { MapPicData } from '../../models/mapPicData.model';
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IInternalImageData } from '../../interfaces/images.interface';
 
 
 export const matrixToContentList = (matrix: any, internalImages: IInternalImageData[]): IContentList => {

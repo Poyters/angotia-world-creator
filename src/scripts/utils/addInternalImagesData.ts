@@ -3,7 +3,7 @@ import { changeInternalImagesData } from '../../store/actions/mapActions';
 import { deepCopy } from './../utils/deepCopy';
 import uuid from 'uuid/v4';
 import { IStore } from '../../interfaces/store.interface';
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
+import { IInternalImageData } from '../../interfaces/images.interface';
 import { MapPicData } from '../../models/mapPicData.model';
 
 

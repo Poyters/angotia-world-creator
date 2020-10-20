@@ -4,14 +4,15 @@ import { drawCross, drawTriangle } from '../draw/drawShape';
 import { makeImage } from '../draw/makeImage';
 import passagePicPath from '../../assets/images/passage.png';
 import { findPicBlob } from '../utils/findPicBlob';
-import { IInternalImageData } from '../../interfaces/internalImageData.interface';
 import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
+import { ICachedImage, IInternalImageData } from '../../interfaces/images.interface';
 
 
 const fieldSize: number = mapConfig.map.fieldSize;
 const squareSize: number = mapConfig.map.fieldSize / 2;
+const cachedImages: ICachedImage[] = [];
 
 export const colorBasedOnMatrix = (
   matrix: Array<[]>,
@@ -53,12 +54,12 @@ export const colorBasedOnMatrix = (
               ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
             case MatrixFillColor.image:
-              const foundImage = cachedImages.filter(imageData => {
+              let image: HTMLImageElement;
+              const foundImage: ICachedImage[] = cachedImages.filter(imageData => {
                 return imageData.id === square;
               });
               
-              let image;
-
+              // Images are unique, we found max one image
               if (foundImage.length === 1) {
                 image = foundImage[0].object;
               } else {
@@ -68,38 +69,43 @@ export const colorBasedOnMatrix = (
                     id: square,
                     object: image
                   });
-                };
-                
+                }; 
               }
 
               if (image.complete) {
-                if (
-                  image.width <= (fieldSize / 2) &&
-                  image.height <= (fieldSize / 2)
-                ) {
-                  ctx.drawImage(image, drawStartX, drawStartY);
-                } else if (index === 0) {
-                  ctx.drawImage(image, drawStartX, drawStartY);
-                }
+                drawImage(image, ctx, drawStartX, drawStartY, index);
+              } else {
+                image.onload = () => {
+                  drawImage(image, ctx, drawStartX, drawStartY, index);
+                };
               }
-
-              image.onload = () => {
-                if (
-                  image.width <= (fieldSize / 2) &&
-                  image.height <= (fieldSize / 2)
-                ) {
-                  ctx.drawImage(image, drawStartX, drawStartY);
-                } else if (index === 0) {
-                  ctx.drawImage(image, drawStartX, drawStartY);
-                }
-              };
               break;
             case MatrixFillColor.passage:
-              const passagePic = makeImage(passagePicPath);
+              let passagePic: HTMLImageElement;
+              const foundPassage: ICachedImage[] = cachedImages.filter(imageData => {
+                return imageData.id === MatrixFillColor.passage;
+              });
+              
+              // Images are unique, we found max one image
+              if (foundPassage.length === 1) {
+                passagePic = foundPassage[0].object;
+              } else {
+                passagePic = makeImage(passagePicPath); //square is path to image
+                passagePic.onload = () => {
+                  cachedImages.push({
+                    id: MatrixFillColor.passage,
+                    object: passagePic
+                  });
+                }; 
+              }
 
-              passagePic.onload = () => {
+              if (passagePic.complete) {
                 ctx.drawImage(passagePic, drawStartX, drawStartY);
-              };
+              } else {
+                passagePic.onload = () => {
+                  ctx.drawImage(passagePic, drawStartX, drawStartY);
+                };
+              }
               break;
             default:
               ctx.fillStyle = color;
@@ -120,5 +126,15 @@ export const colorBasedOnMatrix = (
   });
 };
 
-const cachedImages: any[] = [];
-
+const drawImage = (
+  image: HTMLImageElement, ctx: any, drawStartX: number, drawStartY: number, index?: number
+) => {
+  if (
+    image.width <= (fieldSize / 2) &&
+    image.height <= (fieldSize / 2)
+  ) {
+    ctx.drawImage(image, drawStartX, drawStartY);
+  } else if (index === 0) {
+    ctx.drawImage(image, drawStartX, drawStartY);
+  }
+};

@@ -13,6 +13,10 @@ To set up project on your personal computer you need to clone repository (`git c
 - Protect before load invalid char and map, by JSON file or from production database
 - Create Creation Error system. Real-time map and char validation checker. It will be also used in case of Item AWC module
 - Write a whole project documentation (product docs and for developers)
+- Fix not appearing images at first load (Firefox)
+- Fix canvas flashes after layer update
+- Fix no-show passage problem after first iteration
+- Make loading map faster about 50%
 
 ### Version 1.1.0 (24 September 2020)
 - Rename Angotia Map Creator to Angotia World Creator
