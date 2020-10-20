@@ -54,7 +54,7 @@ export const colorBasedOnMatrix = (
               break;
             case MatrixFillColor.image:
               const foundImage = cachedImages.filter(imageData => {
-                if (imageData.id === square) return imageData.object;
+                return imageData.id === square;
               });
               
               let image;
@@ -72,7 +72,6 @@ export const colorBasedOnMatrix = (
                 
               }
 
-              console.log('here2', image.complete, image);
               if (image.complete) {
                 if (
                   image.width <= (fieldSize / 2) &&
@@ -83,9 +82,8 @@ export const colorBasedOnMatrix = (
                   ctx.drawImage(image, drawStartX, drawStartY);
                 }
               }
-              
+
               image.onload = () => {
-                console.log('here1', image.width, image.height);
                 if (
                   image.width <= (fieldSize / 2) &&
                   image.height <= (fieldSize / 2)
