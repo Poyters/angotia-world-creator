@@ -1,4 +1,4 @@
-export const makeImage = async (blob: any): Promise<any> => {
+export const makeImage = (blob: any): HTMLImageElement => {
   const image = new Image();
   image.src = blob;
 

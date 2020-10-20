@@ -13,81 +13,114 @@ import { MatrixFillColor } from '../../models/matrixFillColor.model';
 const fieldSize: number = mapConfig.map.fieldSize;
 const squareSize: number = mapConfig.map.fieldSize / 2;
 
-export const colorBasedOnMatrix = async (
-  matrix: Array<[]>, 
-  canvasId: string, 
-  color: string, 
+export const colorBasedOnMatrix = (
+  matrix: Array<[]>,
+  canvasId: string,
+  color: string,
   specialView?: string
-): Promise<void> => {
-    const copyOfmatrix: Array<[]> = deepCopy(matrix);
-    const canvas: any = document.getElementById(canvasId);
-    const ctx: any = canvas.getContext("2d");
-    const storeData: IStore = store.getState();
-    const internalImages: IInternalImageData[] = storeData.map.images;
+): void => {
+  const copyOfmatrix: Array<[]> = deepCopy(matrix);
+  const canvas: any = document.getElementById(canvasId);
+  const ctx: any = canvas.getContext("2d");
+  const storeData: IStore = store.getState();
+  const internalImages: IInternalImageData[] = storeData.map.images;
 
-    await copyOfmatrix.forEach(async (yAxis: Array<number>, y:number) => {
-      await yAxis.forEach(async (field: number, x: number) => {
-        const squareMatrix: Array<number> = [
-          field[0][0],
-          field[0][1],
-          field[1][0],
-          field[1][1]
-        ];
-  
-        await squareMatrix.forEach(async (square: any, index: number) => {
-          if (square !== 0 && square) {
-            const xDelta: number = index === 1 || index === 3 ?  squareSize : 0;
-            const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
-            const drawStartX = x*fieldSize + xDelta;
-            const drawStartY = y*fieldSize + yDelta;
+  copyOfmatrix.forEach((yAxis: Array<number>, y: number) => {
+    yAxis.forEach((field: number, x: number) => {
+      const squareMatrix: Array<number> = [
+        field[0][0],
+        field[0][1],
+        field[1][0],
+        field[1][1]
+      ];
 
-            switch(specialView) {
-              case MatrixFillColor.barrier:
-                drawCross(ctx, x*fieldSize + xDelta, y*fieldSize + yDelta);
+      squareMatrix.forEach((square: any, index: number) => {
+        if (square !== 0 && square) {
+          const xDelta: number = index === 1 || index === 3 ? squareSize : 0;
+          const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
+          const drawStartX = x * fieldSize + xDelta;
+          const drawStartY = y * fieldSize + yDelta;
+
+          switch (specialView) {
+            case MatrixFillColor.barrier:
+              drawCross(ctx, x * fieldSize + xDelta, y * fieldSize + yDelta);
               break;
-              case MatrixFillColor.vertexWeight:
-                const vertexWeightColor: string = mapConfig.vertexWeight.color;
+            case MatrixFillColor.vertexWeight:
+              const vertexWeightColor: string = mapConfig.vertexWeight.color;
+
+              drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
+              ctx.fillStyle = '#fff';
+              ctx.fillText(square, drawStartX + 10, drawStartY + 18);
+              break;
+            case MatrixFillColor.image:
+              const foundImage = cachedImages.filter(imageData => {
+                if (imageData.id === square) return imageData.object;
+              });
+              
+              let image;
+
+              if (foundImage.length === 1) {
+                image = foundImage[0].object;
+              } else {
+                image = makeImage(findPicBlob(square, internalImages)); //square is path to image
+                image.onload = () => {
+                  cachedImages.push({
+                    id: square,
+                    object: image
+                  });
+                };
                 
-                drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
-                ctx.fillStyle = '#fff';
-                ctx.fillText(square, drawStartX + 10, drawStartY + 18);
-              break;
-              case MatrixFillColor.image:
-                const image = await makeImage(findPicBlob(square, internalImages)); //square is path to image
+              }
 
+              console.log('here2', image.complete, image);
+              if (image.complete) {
                 if (
-                  image.width <= (fieldSize / 2) && 
+                  image.width <= (fieldSize / 2) &&
                   image.height <= (fieldSize / 2)
-                ) { //square size
+                ) {
+                  ctx.drawImage(image, drawStartX, drawStartY);
+                } else if (index === 0) {
                   ctx.drawImage(image, drawStartX, drawStartY);
                 }
-                else { //field size
-                  if (index === 0) {
-                    ctx.drawImage(image, drawStartX, drawStartY);
-                  }
+              }
+              
+              image.onload = () => {
+                console.log('here1', image.width, image.height);
+                if (
+                  image.width <= (fieldSize / 2) &&
+                  image.height <= (fieldSize / 2)
+                ) {
+                  ctx.drawImage(image, drawStartX, drawStartY);
+                } else if (index === 0) {
+                  ctx.drawImage(image, drawStartX, drawStartY);
                 }
+              };
               break;
-              case MatrixFillColor.passage:
-                const passagePic = await makeImage(passagePicPath);
+            case MatrixFillColor.passage:
+              const passagePic = makeImage(passagePicPath);
 
+              passagePic.onload = () => {
                 ctx.drawImage(passagePic, drawStartX, drawStartY);
+              };
               break;
-              default:
-                ctx.fillStyle = color;
-                ctx.fillRect(
-                  x*fieldSize + xDelta, 
-                  y*fieldSize + yDelta, 
-                  fieldSize / 2 , 
-                  fieldSize / 2
-                );
-                ctx.closePath();
-                ctx.stroke();
+            default:
+              ctx.fillStyle = color;
+              ctx.fillRect(
+                x * fieldSize + xDelta,
+                y * fieldSize + yDelta,
+                fieldSize / 2,
+                fieldSize / 2
+              );
+              ctx.closePath();
+              ctx.stroke();
               break;
-            }
           }
-        });
-  
+        }
       });
+
     });
-  };
+  });
+};
+
+const cachedImages: any[] = [];
 

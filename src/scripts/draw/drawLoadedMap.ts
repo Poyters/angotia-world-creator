@@ -9,7 +9,7 @@ import { MatrixFillColor } from '../../models/matrixFillColor.model';
 
 const blockSquaresColor = mapConfig.blockSquareColor;
 
-export const drawLoadedMap = async () => {
+export const drawLoadedMap = () => {
   const storeData: IStore = store.getState();
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
@@ -22,7 +22,7 @@ export const drawLoadedMap = async () => {
   const vertexWeightMatrix = deepCopy(storeData.map.vertex.matrix);
 
   // Draw block fields
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     blockMatrix, 
     Canvas.block, 
     blockSquaresColor, 
@@ -30,7 +30,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw passages
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     passageMatrix, 
     Canvas.passage, 
     '', 
@@ -38,7 +38,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw buildings
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     buildingMatrix, 
     Canvas.building, 
     '', 
@@ -46,7 +46,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw decorations
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     decorationMatrix, 
     Canvas.decoration, 
     '', 
@@ -54,7 +54,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw subsoils
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     subsoilMatrix, 
     Canvas.subsoil, 
     '', 
@@ -62,7 +62,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw NPCs
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     npcMatrix, 
     Canvas.npc, 
     '', 
@@ -70,7 +70,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw MOBs
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     mobMatrix, 
     Canvas.mob, 
     '', 
@@ -78,7 +78,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw vertex weights
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     vertexWeightMatrix, 
     Canvas.vertexWeight,
     '', 
@@ -86,7 +86,7 @@ export const drawLoadedMap = async () => {
   );
 
   // Draw se
-  await colorBasedOnMatrix(
+  colorBasedOnMatrix(
     seMatrix, 
     Canvas.se,
     '', 
