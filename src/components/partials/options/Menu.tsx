@@ -22,14 +22,14 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 						<li> 
 							<SaveJsonOption
 								text={ menu?.save.json }
-								type={moduleType ? moduleType : ''}
+								moduleType={moduleType}
 							/>
 						</li>
 						<li> { menu?.save.db } </li>
 						<li>
 							<ExportToAngotia
 								text={ menu?.save.prodDb }
-								type={moduleType ? moduleType : ''}
+								moduleType={moduleType}
 							/>
 						</li>
 					</ul>

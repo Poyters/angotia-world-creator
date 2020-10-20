@@ -6,19 +6,15 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Canvas } from '../../../models/canvas.model';
 
 
-interface IClearSelectedOption {
-  note?: string
-}
-
-export const ClearSelectedOption: React.FC<IClearSelectedOption> = ({ 
-  note 
+export const ClearSelectedOption = (props: { 
+	note?: string
 }) => {
   const { creator } = useContext(ContentContext);
 
   const clearSelected = (): void => {
     clearCanvas(Canvas.select, changeMapSelectMatrix);
 
-    if (note) addNotification(note);
+    if (props.note) addNotification(props.note);
 	};
 
   return (

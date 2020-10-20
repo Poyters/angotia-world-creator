@@ -16,6 +16,7 @@ import { VertexWeightOption } from '../partials/creatorPanel/vertexWeight/Vertex
 import { SaveJsonOption } from '../partials/options/SaveJsonOption';
 import { DeleteBgOption }from '../partials/creatorPanel/DeleteBgOption';
 import { ContentContext } from '../../Template';
+import { AppModules } from '../../models/appModules.model';
 
 
 export const Features: React.FC = () => {
@@ -60,7 +61,7 @@ export const Features: React.FC = () => {
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal">
-                <SaveJsonOption />
+                <SaveJsonOption moduleType={AppModules.map}/>
               </div>
               { features?.creatorPanel?.saveOption }
             </li>

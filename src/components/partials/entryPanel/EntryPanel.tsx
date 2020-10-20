@@ -28,7 +28,7 @@ import {
 import { AppModules } from '../../../models/appModules.model';
 
 
-let mapSizes: IPoint = {
+const mapSizes: IPoint = {
   x: 0,
   y: 0
 };
@@ -39,14 +39,14 @@ export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [mapX, setMapX] = useState<number>(mapSize.x);
   const [mapY, setMapY] = useState<number>(mapSize.y);
-  const [loadedDataType, setLoadedDataType] = useState<string>('');
+  const [loadedDataType, setLoadedDataType] = useState<any>('');
   const [valMess, setValMess] = useState<string>('');
   const [redirect, setRedirect] = useState<null | string>(null);
   const emptyCharState = deepCopy(charState);
   const dispatch = useDispatch();
 
-  const loadDataHandler = (type: string) => {
-    setLoadedDataType(type);
+  const loadDataHandler = (moduleType: string) => {
+    setLoadedDataType(moduleType);
     setIsActiveLoadPopup(true);
   };
 
@@ -167,7 +167,7 @@ export const EntryPanel: React.FC = () => {
   return (
     <>
       { isActiveLoadPopup ? ReactDOM.createPortal(
-        <LoadPopup isActive={setIsActiveLoadPopup} type={loadedDataType}/>, document.body
+        <LoadPopup isActivePopup={setIsActiveLoadPopup} moduleType={loadedDataType}/>, document.body
       ) : null}
      { content }
     </>

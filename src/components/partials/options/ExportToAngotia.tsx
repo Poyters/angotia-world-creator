@@ -20,14 +20,14 @@ import { setMapDatabaseId } from '../../../store/actions/mapActions';
 import { setCharDatabaseId } from '../../../store/actions/charActions';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
+import { IApp } from '../../../interfaces/app.inteface';
 
 
 interface IExportToAngotia {
-  type?: string,
   text?: string
 }
 
-export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
+export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) => {
   const { creator } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [addChar] = useMutation(CREATE_CHAR, {
@@ -56,7 +56,7 @@ export const ExportToAngotia: React.FC<IExportToAngotia> = ({ type, text }) => {
   });
 
   const exportHandler = (): void => {
-    switch (type) {
+    switch (moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
 

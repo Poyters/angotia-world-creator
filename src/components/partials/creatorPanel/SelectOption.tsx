@@ -6,12 +6,8 @@ import { ContentContext } from '../../../Template';
 import { SelectType } from '../../../models/selectType.model';
 
 
-interface ISelectOption {
-  selectTypeQuantity: number
-}
-
-export const SelectOption: React.FC<ISelectOption> = ({ 
-  selectTypeQuantity
+export const SelectOption = (props: { 
+	selectTypeQuantity: number
 }) => {
   const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
@@ -41,7 +37,7 @@ export const SelectOption: React.FC<ISelectOption> = ({
   }, [selectType, notifications, dispatch]);
 
   const changeSelectType = (): void => {
-    if (selectType < selectTypeQuantity) setSelectType(selectType + 1);
+    if (selectType < props.selectTypeQuantity) setSelectType(selectType + 1);
     else setSelectType(0);
   };
 

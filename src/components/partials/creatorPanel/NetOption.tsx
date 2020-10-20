@@ -8,19 +8,15 @@ import { ContentContext } from '../../../Template';
 import { Canvas } from '../../../models/canvas.model';
 
 
-interface INetOption {
-  viewTypeQuantity: number
-}
-
-export const NetOption: React.FC<INetOption> = ({ 
-  viewTypeQuantity
+export const NetOption = (props: { 
+	viewTypeQuantity: number
 }) => {
   const { creator, notifications } = useContext(ContentContext);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
   const changeViewType = (): void => {
-    if (optionViewType === viewTypeQuantity) setOptionViewType(0);
+    if (optionViewType === props.viewTypeQuantity) setOptionViewType(0);
     else setOptionViewType(optionViewType + 1);
   };
 

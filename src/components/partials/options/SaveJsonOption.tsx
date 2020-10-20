@@ -9,14 +9,14 @@ import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternal
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
+import { IApp } from '../../../interfaces/app.inteface';
 
 
 interface ISaveJsonOption {
-  type?: string,
   text?: string
 }
 
-export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
+export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => {
   const { creator } = useContext(ContentContext);
   const mapData = useSelector((state: IStore) => state.map);
   const mapName = useSelector((state: IStore) => state.map.mapName);
@@ -24,7 +24,7 @@ export const SaveJsonOption: React.FC<ISaveJsonOption> = ({ type, text }) => {
   const charName = useSelector((state: IStore) => state.char.name);
 
   const saveData = (): void => {
-    switch(type) {
+    switch(moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
         saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');

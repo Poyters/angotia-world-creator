@@ -12,14 +12,11 @@ import { isValidExternalMapData } from '../../../scripts/validators/isValidExter
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
+import { IPopup } from '../../../interfaces/popup.interface';
+import { IApp } from '../../../interfaces/app.inteface';
 
 
-interface ILoadPopup {
-  isActive: Function,
-  type: string
-}
-
-export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
+export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const { lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
@@ -27,7 +24,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
-      if (event.key === 'Escape') isActive(false);
+      if (event.key === 'Escape') isActivePopup(false);
     };
 
     document.addEventListener('keydown', keyPressHandler);
@@ -51,7 +48,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
           return;
         }
 
-        switch (type) {
+        switch (moduleType) {
           case AppModules.map:
             if (isValidExternalMapData(loadedData)) {
               const internalData = prepareInternalMapData(loadedData);
@@ -88,7 +85,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
       <div role="alert" className="insertPopup">
         <div
           className="g-exitBtn g-exitBtn--popup"
-          onClick={(): void => isActive(false)}
+          onClick={(): void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           Load from
@@ -118,7 +115,7 @@ export const LoadPopup: React.FC<ILoadPopup> = ({ isActive, type }) => {
         </section>
         {
           isActiveProduction ? (
-            <ProductionDataList type={type} />
+            <ProductionDataList moduleType={moduleType} />
           ) : null
         }
       </div>

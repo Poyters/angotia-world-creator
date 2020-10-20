@@ -12,13 +12,8 @@ import { Notification } from '../../../models/notification.model';
 import { MatrixFillColor } from '../../../models/matrixFillColor.model';
 
 
-interface IBlockOption {
-	selectNote?: string,
-	changeNote?: string
-}
-
-export const BlockOption: React.FC<IBlockOption> = ({ 
-	selectNote, changeNote
+export const BlockOption = (props: { 
+	selectNote?: string, changeNote?: string 
 }) => {
 	const { creator } = useContext(ContentContext);
 	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
@@ -28,7 +23,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
 
-			if (selectNote) addNotification(selectNote, Notification.error);
+			if (props.selectNote) addNotification(props.selectNote, Notification.error);
 			return;
 		}
 
@@ -36,7 +31,7 @@ export const BlockOption: React.FC<IBlockOption> = ({
 			blockMatrix, 
 			Canvas.block, 
 			changeMapBlockMatrix, 
-			changeNote, 
+			props.changeNote, 
 			fillColor, 
 			MatrixFillColor.barrier
 		);
