@@ -1,11 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ILinkButton } from '../../interfaces/button.interface';
 
-
-interface ILinkButton {
-  link: string,
-  buttonText: string
-}
 
 export const LinkButton: React.FC<ILinkButton> = ({link, buttonText}) => {
 

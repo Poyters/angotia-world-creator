@@ -3,13 +3,8 @@ import { useDispatch } from 'react-redux';
 import mapConfig from '../../assets/configs/map.config.json';
 import { sizeGuard } from '../../scripts/files/sizeGuard';
 import { addNotification } from '../../scripts/utils/notifications';
+import { ILoadPicBtn } from '../../interfaces/button.interface';
 
-
-interface ILoadPicBtn {
-  name: string,
-  clickEvent?: Function,
-  note?: string
-}
 
 export const LoadPicBtn: React.FC<ILoadPicBtn> = ({ 
   name, clickEvent, note

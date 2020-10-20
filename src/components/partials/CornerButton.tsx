@@ -1,12 +1,8 @@
 import React from 'react';
+import { IButton } from '../../interfaces/button.interface';
 
 
-interface ICornerButton {
-  name: string,
-  clickEvent?: Function
-}
-
-export const CornerButton: React.FC<ICornerButton> = ({ name, clickEvent }) => {
+export const CornerButton: React.FC<IButton> = ({ name, clickEvent }) => {
   const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
 
   return (
