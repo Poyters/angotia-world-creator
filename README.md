@@ -7,7 +7,7 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ## Changelog
 
-### Version 1.2.0 (planned June 2021)
+### Version 1.2.0 (planned August 2021)
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
 - Protect before load invalid char and map, by JSON file or from production database

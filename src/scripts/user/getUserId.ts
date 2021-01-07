@@ -1,0 +1,1 @@
+export const getUserId = (): string | null => localStorage.getItem('userId');
