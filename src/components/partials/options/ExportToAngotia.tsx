@@ -21,6 +21,7 @@ import { setCharDatabaseId } from '../../../store/actions/charActions';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { getUserId } from '../../../scripts/user/getUserId';
 
 
 interface IExportToAngotia {
@@ -56,6 +57,10 @@ export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) =
   });
 
   const exportHandler = (): void => {
+    const userId = getUserId() ?? '';
+
+    console.log('userId', userId);
+
     switch (moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
