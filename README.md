@@ -18,6 +18,7 @@ To set up project on your personal computer you need to clone repository (`git c
 - Fix no-show passage problem after first iteration
 - Make loading map faster about 50%
 - Add local User ID
+- Switch from production to requested data type in Angotia Catalogs API
 
 ### Version 1.1.0 (24 September 2020)
 - Rename Angotia Map Creator to Angotia World Creator
