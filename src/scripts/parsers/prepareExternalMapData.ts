@@ -2,9 +2,11 @@ import { IMapState } from '../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { matrixToContentList } from './matrixToContentList';
+import { getUserId } from '../user/getUserId';
 
 
 export const prepareExternalMapData = (mapData: IMapState | any) => {
+  const userId = getUserId() ?? '';
   let preparedMapData = deepCopy(mapData);
 
   preparedMapData._id = preparedMapData.internalId;
@@ -38,6 +40,8 @@ export const prepareExternalMapData = (mapData: IMapState | any) => {
 
   delete preparedMapData.images;
   preparedMapData.min_entry_level = parseInt(preparedMapData.min_entry_level);
+
+  preparedMapData.author = userId;
   
   return preparedMapData;
 };

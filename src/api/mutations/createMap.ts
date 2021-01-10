@@ -1,28 +1,30 @@
 import gql from 'graphql-tag';
 
 
-export const CREATE_MAP = gql`
-  mutation CreateMap(
+export const CREATE_REQ_MAP = gql`
+  mutation CreateRequestedMap(
     $description: String
     $min_entry_level: Int
+    $author: String
     $map_name: String
     $map_pic: String
     $visibility_range: Int
-    $size: InputSize
+    $size: InputRequestedSize
     $_id: String
-    $passage: InputPassage
-    $building: InputBuilding
-    $decoration: InputDecoration
-    $subsoil: InputSubsoil
-    $se: InputSe
-    $npc: InputNpc
-    $mob: InputMob
-    $block_matrix: InputBlock
-    $vertex: InputVertex
+    $passage: InputRequestedPassage
+    $building: InputRequestedBuilding
+    $decoration: InputRequestedDecoration
+    $subsoil: InputRequestedSubsoil
+    $se: InputRequestedSe
+    $npc: InputRequestedNpc
+    $mob: InputRequestedMob
+    $block_matrix: InputRequestedBlock
+    $vertex: InputRequestedVertex
   ) {
-    createMap(Map: {
+    createRequestedMap(Map: {
       description: $description,
       min_entry_level: $min_entry_level,
+      author: $author,
       map_name: $map_name,
       map_pic: $map_pic,
       visibility_range: $visibility_range,

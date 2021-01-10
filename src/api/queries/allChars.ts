@@ -1,10 +1,11 @@
 import gql from 'graphql-tag';
 
 
-export const ALL_CHARS = gql`
+export const ALL_REQ_CHARS = gql`
   {
-    allChars {
+    allRequestedChars {
       id
+      author
       _id
       name
       field_diameter

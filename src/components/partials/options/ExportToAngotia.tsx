@@ -7,12 +7,12 @@ import { IMapState } from '../../../interfaces/mapState.interface';
 import { ICharState } from '../../../interfaces/charState.interface';
 import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
-import { CREATE_CHAR } from '../../../api/mutations/createChar';
-import { CREATE_MAP } from '../../../api/mutations/createMap';
-import { UPDATE_CHAR } from '../../../api/mutations/updateChar';
-import { UPDATE_MAP } from '../../../api/mutations/updateMap';
-import { GET_CHAR } from '../../../api/queries/getChar';
-import { GET_MAP } from '../../../api/queries/getMap';
+import { CREATE_REQ_CHAR } from '../../../api/mutations/createChar';
+import { CREATE_REQ_MAP } from '../../../api/mutations/createMap';
+import { UPDATE_REQ_CHAR } from '../../../api/mutations/updateChar';
+import { UPDATE_REQ_MAP } from '../../../api/mutations/updateMap';
+import { GET_REQ_CHAR } from '../../../api/queries/getChar';
+import { GET_REQ_MAP } from '../../../api/queries/getMap';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { addNotification } from '../../../scripts/utils/notifications';
@@ -21,7 +21,6 @@ import { setCharDatabaseId } from '../../../store/actions/charActions';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
-import { getUserId } from '../../../scripts/user/getUserId';
 
 
 interface IExportToAngotia {
@@ -31,36 +30,32 @@ interface IExportToAngotia {
 export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) => {
   const { creator } = useContext(ContentContext);
   const dispatch = useDispatch();
-  const [addChar] = useMutation(CREATE_CHAR, {
-    onCompleted({ createChar }) { //add database id to states
-      dispatch(setCharDatabaseId(createChar.id));
+  const [addChar] = useMutation(CREATE_REQ_CHAR, {
+    onCompleted({ createRequestedChar }) { //add database id to states
+      dispatch(setCharDatabaseId(createRequestedChar.id));
     }
   });
-  const [addMap] = useMutation(CREATE_MAP, {
-    onCompleted({ createMap }) { //add database id to states
-      dispatch(setMapDatabaseId(createMap.id));
+  const [addMap] = useMutation(CREATE_REQ_MAP, {
+    onCompleted({ createRequestedMap }) { //add database id to states
+      dispatch(setMapDatabaseId(createRequestedMap.id));
     }
   });
-  const [updateChar] = useMutation(UPDATE_CHAR);
-  const [updateMap] = useMutation(UPDATE_MAP);
+  const [updateChar] = useMutation(UPDATE_REQ_CHAR);
+  const [updateMap] = useMutation(UPDATE_REQ_MAP);
   const charData: ICharState = useSelector((state: IStore) => state.char);
   const mapData: IMapState = useSelector((state: IStore) => state.map);
   const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
   const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
-  const char = useQuery(GET_CHAR, {
+  const char = useQuery(GET_REQ_CHAR, {
     variables: { id: charData.id },
     skip: !charData.id
   });
-  const map = useQuery(GET_MAP, {
+  const map = useQuery(GET_REQ_MAP, {
     variables: { id: mapData.id },
     skip: !mapData.id
   });
 
   const exportHandler = (): void => {
-    const userId = getUserId() ?? '';
-
-    console.log('userId', userId);
-
     switch (moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
@@ -98,6 +93,7 @@ export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) =
           updateMap({ variables: { id: mapData.id, ...externalMapData } });
           addNotification('Succesfully updated map');
         } else { // Map doest't exists yet
+          console.log('externalMapData', externalMapData);
           addMap({ variables: { ...externalMapData } });
           addNotification('Succesfully added a new map to Angotia');
         }

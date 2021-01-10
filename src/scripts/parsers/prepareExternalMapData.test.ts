@@ -403,4 +403,10 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[7].yShift).toEqual(1);
     expect(renderedContentList?.items[7].value).toEqual(`picId=${picId2}`);
   });
+
+  it("Check if added author", () => {
+    const externalData = prepareExternalMapData(validInternalMapData);
+
+    expect(typeof externalData.author).toBe('string');
+  });
 });

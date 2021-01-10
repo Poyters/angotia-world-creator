@@ -1,23 +1,23 @@
 import gql from 'graphql-tag';
 
 
-export const UPDATE_CHAR = gql`
-  mutation updateChar(
+export const UPDATE_REQ_CHAR = gql`
+  mutation updateRequestedChar(
     $id: ID!,
     $name: String
     $type: String
     $choosed: String
-    $monologs: [InputMonolog]
-    $dialogs: [InputDialog]
-    $statistics: InputStatistics
+    $monologs: [InputRequestedMonolog]
+    $dialogs: [InputRequestedDialog]
+    $statistics: InputRequestedStatistics
     $field_diameter: Int
     $has_visible_level: Boolean
     $char_pic: String
     $mob_range: String,
     $is_agressive_mob: Boolean
-    $settings: InputSettings
+    $settings: InputRequestedSettings
   ) {
-    updateChar(id: $id, char: {
+    updateRequestedChar(id: $id, char: {
       name: $name,
       type: $type,
       choosed: $choosed,

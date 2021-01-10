@@ -1,10 +1,11 @@
 import gql from 'graphql-tag';
 
 
-export const GET_MAP = gql`
-  query Map($id: ID!) {
-    getMap(id: $id) {
+export const GET_REQ_MAP = gql`
+  query RequestedMap($id: ID!) {
+    getRequestedMap(id: $id) {
       _id
+      author
       description
       min_entry_level
       map_name

@@ -1,10 +1,11 @@
 import gql from 'graphql-tag';
 
 
-export const ALL_MAPS = gql`
+export const ALL_REQ_MAPS = gql`
   {
-    allMaps {
+    allRequestedMaps {
       id
+      author
       _id
       description
       min_entry_level

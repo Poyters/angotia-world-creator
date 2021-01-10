@@ -1,9 +1,11 @@
 import { ICharState } from '../../interfaces/charState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
+import { getUserId } from '../user/getUserId';
 
 
 export const prepareExternalCharData = (charData: ICharState) => {
+  const userId = getUserId() ?? '';
   let preparedCharData = deepCopy(charData);
 
   delete preparedCharData.temponaryPlayerDialogs;
@@ -38,6 +40,8 @@ export const prepareExternalCharData = (charData: ICharState) => {
     });
     return newDialog;
   });
+
+  preparedCharData.author = userId;
 
   return preparedCharData;
 };

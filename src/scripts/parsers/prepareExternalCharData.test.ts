@@ -226,4 +226,8 @@ describe("prepareExternalCharData script", () => {
       }
     ]);
   });
+
+  it("Check if added author", () => {
+    expect(typeof externalData.author).toBe('string');
+  });
 });

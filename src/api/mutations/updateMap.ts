@@ -1,26 +1,26 @@
 import gql from 'graphql-tag';
 
 
-export const UPDATE_MAP = gql`
-  mutation updateMap(
+export const UPDATE_REQ_MAP = gql`
+  mutation updateRequestedMap(
     $id: ID!,
     $description: String
     $min_entry_level: Int
     $map_name: String
     $map_pic: String
     $visibility_range: Int
-    $size: InputSize
-    $passage: InputPassage
-    $building: InputBuilding
-    $decoration: InputDecoration
-    $subsoil: InputSubsoil
-    $se: InputSe
-    $npc: InputNpc
-    $mob: InputMob
-    $block_matrix: InputBlock
-    $vertex: InputVertex
+    $size: InputRequestedSize
+    $passage: InputRequestedPassage
+    $building: InputRequestedBuilding
+    $decoration: InputRequestedDecoration
+    $subsoil: InputRequestedSubsoil
+    $se: InputRequestedSe
+    $npc: InputRequestedNpc
+    $mob: InputRequestedMob
+    $block_matrix: InputRequestedBlock
+    $vertex: InputRequestedVertex
   ) {
-    updateMap(id: $id, map: {
+    updateRequestedMap(id: $id, map: {
       description: $description,
       min_entry_level: $min_entry_level,
       map_name: $map_name,

@@ -1,10 +1,11 @@
 import gql from 'graphql-tag';
 
 
-export const GET_CHAR = gql`
-  query Char($id: ID!) {
-    getChar(id: $id) {
+export const GET_REQ_CHAR = gql`
+  query RequestedChar($id: ID!) {
+    getRequestedChar(id: $id) {
       id
+      author
       _id
       name
       field_diameter
