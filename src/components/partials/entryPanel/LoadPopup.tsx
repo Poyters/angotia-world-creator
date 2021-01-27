@@ -5,6 +5,7 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
 import { ProductionDataList } from './ProductionDataList';
+import { AccountDataList } from './AccountDataList';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
@@ -21,6 +22,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
   const [isActiveProduction, setIsActiveProduction] = useState<boolean>(false);
+  const [isActiveAccount, setIsActiveAccount] = useState<boolean>(false);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -32,6 +34,16 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
       document.removeEventListener('keydown', keyPressHandler);
     };
   });
+
+  const switchToProd = () => {
+    setIsActiveProduction(true);
+    setIsActiveAccount(false);
+  };
+
+  const switchToAccount = () => {
+    setIsActiveProduction(false);
+    setIsActiveAccount(true);
+  };
 
   const loadByJson = (evt: any) => {
     const file = evt.target.files[0]; 
@@ -93,11 +105,14 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         <section className="popupChooseBoxes">
           <div 
             className={`popupChooseBoxes__box ${isActiveProduction ? 'popupChooseBoxes__box--active' : ''}`}
-            onClick={() => setIsActiveProduction(true)}
+            onClick={switchToProd}
           >
             production database
           </div>
-          <div className="popupChooseBoxes__box">
+          <div
+            className={`popupChooseBoxes__box ${isActiveAccount ? 'popupChooseBoxes__box--active' : ''}`}
+            onClick={switchToAccount}
+          >
             private account
           </div>
           <input 
@@ -116,6 +131,11 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         {
           isActiveProduction ? (
             <ProductionDataList moduleType={moduleType} />
+          ) : null
+        }
+        {
+          isActiveAccount ? (
+            <AccountDataList moduleType={moduleType} />
           ) : null
         }
       </div>

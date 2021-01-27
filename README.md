@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (planned August 2021)
+- Create loading popup for items from Private account
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
 - Protect before load invalid char and map, by JSON file or from production database
@@ -109,7 +110,7 @@ To set up project on your personal computer you need to clone repository (`git c
 - Create layers system
 
 
-### Prototype 1.0.0 (December 2018)
+### Prototype 1.0.0 (30 December 2018)
 - Create entry panel 
 - Create base routing to /creator
 - Add menu bar
