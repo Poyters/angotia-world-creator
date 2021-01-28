@@ -1,9 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ActionInputField } from './ActionInputField';
-import { ContentContext } from '../../Template';
-import { setMapDesc, setMinEntryLevel, changeMapName } from '../../store/actions/mapActions';
-import { IStore } from '../../interfaces/store.interface';
+import { ActionInputField } from '../ActionInputField';
+import { ContentContext } from '../../../Template';
+import { setMapDesc, setMinEntryLevel, changeMapName } from '../../../store/actions/mapActions';
+import { IStore } from '../../../interfaces/store.interface';
+import { IPoint } from '../../../interfaces/math.interface';
 
 
 export const MapSettingsPanel: React.FC = () => {
@@ -13,6 +14,7 @@ export const MapSettingsPanel: React.FC = () => {
 	const [descValue, setDescValue] = useState<string>(description);
 	const mapInternalId: string = useSelector((state: IStore) => state.map.internalId);
 	const minEntryLevel: number = useSelector((state: IStore) => state.map.minEntryLevel);
+	const mapSize: IPoint = useSelector((state: IStore) => state.map.size);
 	const boardName: string = useSelector((state: IStore) => state.map.mapName);
 	const dispatch = useDispatch();
 
@@ -36,6 +38,11 @@ export const MapSettingsPanel: React.FC = () => {
 					<ActionInputField
 						label={creator?.settingsPanel?.id}
 						inputValue={mapInternalId}
+						inputDisabled={true}
+					/>
+					<ActionInputField
+						label={creator?.settingsPanel?.size}
+						inputValue={`${mapSize.x} x ${mapSize.y}`}
 						inputDisabled={true}
 					/>
 					<ActionInputField

@@ -7,7 +7,7 @@ import { Map } from '../partials/Map';
 import { Notifications } from '../partials/Notifications';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
-import { MapSettingsPanel } from '../partials/MapSettingsPanel';
+import { MapSettingsPanel } from '../partials/creatorPanel/MapSettingsPanel';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';

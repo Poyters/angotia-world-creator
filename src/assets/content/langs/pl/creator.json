@@ -5,7 +5,8 @@
     "id": "ID - automatycznie wygenerowany",
     "description": "opis",
     "minLevel": "minimalny poziom wejścia",
-    "boardName": "nazwa mapy"
+    "boardName": "nazwa mapy",
+    "size": "rozmiar mapy"
   },
   "panel": {
     "buttons": {

@@ -5,7 +5,8 @@
     "id": "ID - auto generated",
     "description": "descrition",
     "minLevel": "minimum entry level",
-    "boardName": "map name"
+    "boardName": "map name",
+    "size": "map size"
   },
   "panel": {
     "buttons": {
