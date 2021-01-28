@@ -1,0 +1,16 @@
+.charSprite {
+  display: flex;
+  width: auto;
+  height: 240px;
+  max-height: 240px;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $decorationColor11;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  color: $errorColor;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}

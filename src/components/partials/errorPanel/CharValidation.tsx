@@ -313,6 +313,13 @@ export const CharValidation: React.FC = () => {
           </li>
         ) : null
       }
+      {
+        charErrors.includes(CharCreationError.isCharPic) ? (
+          <li>
+           Character sprite is required
+          </li>
+        ) : null
+      }
       
     </>
   );

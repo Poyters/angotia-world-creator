@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../ActionInputField';
-import { LoadPicBtn } from '../LoadPicBtn';
+import { CharSprite } from './CharSprite';
 import { CornerButton } from '../CornerButton';
 import { ChooseButtons } from '../ChooseButtons';
 import { Dialogs } from './dialogs/Dialogs';
 import { 
   changeCharType, 
   changeChar, 
-  isAgressiveMob, 
-  setCharPic, 
+  isAgressiveMob,
   changeStatistics,
   changeName,
   changeFieldDiameter,
@@ -23,9 +22,8 @@ import { CharType } from '../../../models/charType.model';
 
 
 export const CharCreatorForm: React.FC = () => {
-  const { char, notifications } = useContext(ContentContext);
+  const { char } = useContext(ContentContext);
   const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
-  const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
   const charName: string = useSelector((state: IStore) => state.char.name);
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
   const charType: string = useSelector((state: IStore) => state.char.type);
@@ -35,10 +33,6 @@ export const CharCreatorForm: React.FC = () => {
   const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
   const actualMobRange: string = useSelector((state: IStore) => state.char.mobRange);
   const dispatch: Function = useDispatch();
-
-  const charPicStyles = {
-    backgroundImage: `url('${charPicPath}')`
-  };
 
   return (
     <main className="charCreatorFormWrapper">
@@ -94,16 +88,7 @@ export const CharCreatorForm: React.FC = () => {
               }
             </div>
             <div className="charFormPanel">
-              <div 
-                className="charFormPanel__graphice"
-                style={charPicStyles}
-              />
-              
-              <LoadPicBtn 
-                name={char?.form?.importPicBtn}
-                clickEvent={setCharPic}
-                note={notifications?.char?.loadedGraphice}
-              />
+              <CharSprite />
               
               <ChooseButtons 
                 types={char?.form?.char?.types}

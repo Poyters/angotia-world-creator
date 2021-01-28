@@ -16,6 +16,8 @@ export const findCharErrors = (): void => {
     occuredErrors.push(CharCreationError.minNameLength);
   } else if (charState.name.length > rules.name.length.max) {
     occuredErrors.push(CharCreationError.maxNameLength);
+  } else if (!charState.charPic || charState.charPic === '') {
+    occuredErrors.push(CharCreationError.isCharPic);
   }
 
   if (charState.statistics.level < rules.level.min) {

@@ -41,5 +41,6 @@ export enum CharCreationError {
   maxRespTimeMax = 'MAX_RESP_TIME_MAX_ERROR',
   minMaxRespTime = 'MIN_MAX_RESP_TIME_ERROR',
   isIntegerRespTimeMin = 'INTEGER_RESP_TIME_MIN_ERROR',
-  isIntegerRespTimeMax = 'INTEGER_RESP_TIME_MAX_ERROR'
+  isIntegerRespTimeMax = 'INTEGER_RESP_TIME_MAX_ERROR',
+  isCharPic = 'CHAR_PIC_ERROR'
 }
