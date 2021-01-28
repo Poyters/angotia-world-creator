@@ -21,11 +21,11 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
       return dialog.id === playerId;
     }) : undefined;
   const dispatch: Function = useDispatch();
-  const [dialog, setDialog] = useState<string>(playerData ? playerData.dialog : '');
+  const [dialog, setDialog] = useState<string>(playerData?.dialog || '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
-  const [next, setNext] = useState<string>(playerData ? playerData.next : '');
-  const [action, setAction] = useState<string>(playerData ? playerData.action : '');
-  const [condition, setCondition] = useState<string>(playerData ? playerData.condition : '');
+  const [next, setNext] = useState<string>(playerData?.next || '');
+  const [action, setAction] = useState<string>(playerData?.action || '');
+  const [condition, setCondition] = useState<string>(playerData?.condition || '');
 
   useEffect((): void => {
     if (

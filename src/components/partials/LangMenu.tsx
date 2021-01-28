@@ -41,7 +41,10 @@ const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
               key={uuid()} 
               onClick={() => changeLanguage(lang)}
               className={`${
-                (lang === currLang || (lang === 'en' && currLang === '')) ? 'labelMark--lang' : ''
+                (
+                  lang === currLang || 
+                  (lang === 'en' && currLang === '')
+                ) ? 'labelMark--lang' : ''
               }`}
             > 
               { lang } 

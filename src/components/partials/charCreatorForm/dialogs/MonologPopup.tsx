@@ -15,8 +15,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
 ) => {
   const { char, notifications } = useContext(ContentContext);
   const monologId: string = monologData ? monologData.id : uuid();
-  const [monologContent, setMonologContent] = useState<string>(
-    monologData ? monologData.content : '');
+  const [monologContent, setMonologContent] = useState<string>(monologData?.content || '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
   const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
   const dispatch: Function = useDispatch();
