@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_REQ_CHARS } from '../../../api/queries/allReqChars';
-import { ALL_REQ_MAPS } from '../../../api/queries/allReqMaps';
+import { GET__REQ_CHARS_BY_AUTHOR } from '../../../api/queries/getReqCharsByAuthor';
+import { GET__REQ_MAPS_BY_AUTHOR } from '../../../api/queries/getReqMapsByAuthor';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
@@ -16,12 +16,21 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { getUserId } from '../../../scripts/user/getUserId';
 
 
 export const AccountDataList: React.FC<IApp> = ({ moduleType }) => {
   const { lang, routes } = useContext(ContentContext);
-  const char = useQuery(ALL_REQ_CHARS, {pollInterval: 1000});
-  const map = useQuery(ALL_REQ_MAPS, {pollInterval: 1000});
+  const userId = getUserId() ?? '';
+  console.log('userId', userId);
+  const char = useQuery(GET__REQ_CHARS_BY_AUTHOR, {
+    variables: { author_id: userId },
+    pollInterval: 1000
+  });
+  const map = useQuery(GET__REQ_MAPS_BY_AUTHOR, {
+    variables: { author_id: userId },
+    pollInterval: 1000
+  });
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
 
@@ -63,7 +72,7 @@ export const AccountDataList: React.FC<IApp> = ({ moduleType }) => {
       <ul className="productionDataList">
         { 
           moduleType === AppModules.char ? (
-            char.data?.allRequestedChars.map(char => {
+            char.data?.getRequestedCharsByAuthor.map(char => {
               return (
                 <li onClick={() => loadFromDb(char)} key={uuid()}> 
                   <span>Internal id:</span>{ char._id }
@@ -76,7 +85,7 @@ export const AccountDataList: React.FC<IApp> = ({ moduleType }) => {
         }
         { 
           moduleType === AppModules.map ? (
-            map.data?.allRequestedMaps.map(mapData => {
+            map.data?.getRequestedMapsByAuthor.map(mapData => {
               return (
                 <li onClick={() => loadFromDb(mapData)} key={uuid()}> 
                   <span>Internal id:</span>{ mapData._id }

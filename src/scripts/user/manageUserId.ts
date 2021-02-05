@@ -11,6 +11,5 @@ export const manageUserId = (): string => {
     storage.setItem('userId', newUserId);
   }
 
-  console.log(existingUserId, newUserId);
   return existingUserId || newUserId;
 };

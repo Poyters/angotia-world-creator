@@ -25,7 +25,6 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 								moduleType={moduleType}
 							/>
 						</li>
-						<li> { menu?.save.db } </li>
 						<li>
 							<ExportToAngotia
 								text={ menu?.save.prodDb }
