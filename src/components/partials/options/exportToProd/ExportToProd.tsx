@@ -1,34 +1,38 @@
 
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ContentContext } from '../../../Template';
-import { IStore } from '../../../interfaces/store.interface';
-import { IMapState } from '../../../interfaces/mapState.interface';
-import { ICharState } from '../../../interfaces/charState.interface';
-import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
-import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
-import { CREATE_REQ_CHAR } from '../../../api/mutations/createReqChar';
-import { CREATE_REQ_MAP } from '../../../api/mutations/createReqMap';
-import { UPDATE_REQ_CHAR } from '../../../api/mutations/updateReqChar';
-import { UPDATE_REQ_MAP } from '../../../api/mutations/updateReqMap';
-import { GET_REQ_CHAR } from '../../../api/queries/getReqChar';
-import { GET_REQ_MAP } from '../../../api/queries/getReqMap';
+import { ContentContext } from '../../../../Template';
+import { IStore } from '../../../../interfaces/store.interface';
+import { IMapState } from '../../../../interfaces/mapState.interface';
+import { ICharState } from '../../../../interfaces/charState.interface';
+import { prepareExternalCharData } from '../../../../scripts/parsers/prepareExternalCharData';
+import { prepareExternalMapData } from '../../../../scripts/parsers/prepareExternalMapData';
+import { CREATE_REQ_CHAR } from '../../../../api/mutations/char/createReqChar';
+import { CREATE_REQ_MAP } from '../../../../api/mutations/map/createReqMap';
+import { UPDATE_REQ_CHAR } from '../../../../api/mutations/char/updateReqChar';
+import { UPDATE_REQ_MAP } from '../../../../api/mutations/map/updateReqMap';
+import { GET_REQ_CHAR } from '../../../../api/queries/char/getReqChar';
+import { GET_REQ_MAP } from '../../../../api/queries/map/getReqMap';
 import { useMutation } from '@apollo/react-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import { addNotification } from '../../../scripts/utils/notifications';
-import { setMapDatabaseId } from '../../../store/actions/mapActions';
-import { setCharDatabaseId } from '../../../store/actions/charActions';
-import { Notification } from '../../../models/notification.model';
-import { AppModules } from '../../../models/appModules.model';
-import { IApp } from '../../../interfaces/app.inteface';
+import { addNotification } from '../../../../scripts/utils/notifications';
+import { setMapDatabaseId } from '../../../../store/actions/mapActions';
+import { setCharDatabaseId } from '../../../../store/actions/charActions';
+import { Notification } from '../../../../models/notification.model';
+import { AppModules } from '../../../../models/appModules.model';
+import { IApp } from '../../../../interfaces/app.inteface';
+import { ExportAlert } from './ExportAlert';
 
 
-interface IExportToAngotia {
+interface IExportToProd {
   text?: string
 }
 
-export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) => {
+export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
   const { creator } = useContext(ContentContext);
+  const [isActivePopup, setIsActivePopup] = useState<boolean>(false);
+  const [isLicenseAccepted, setIsLicenseAccepted] = useState<boolean>(false);
   const dispatch = useDispatch();
   const [addChar] = useMutation(CREATE_REQ_CHAR, {
     onCompleted({ createRequestedChar }) { //add database id to states
@@ -54,6 +58,12 @@ export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) =
     variables: { id: mapData.id },
     skip: !mapData.id
   });
+
+  useEffect(() => {
+    if (!isLicenseAccepted) return;
+
+    exportHandler();
+  }, [isLicenseAccepted]);
 
   const exportHandler = (): void => {
     switch (moduleType) {
@@ -102,10 +112,18 @@ export const ExportToAngotia = ({ moduleType, text }: IExportToAngotia & IApp) =
   };
 
   return (
-    <span
-      onClick={(): void => exportHandler()}
-    >
-      {text ? text : creator?.panel?.options?.save?.content}
-    </span>
+    <>
+      { isActivePopup && ReactDOM.createPortal(
+        <ExportAlert 
+          isActivePopup={setIsActivePopup}
+          isAccepted={setIsLicenseAccepted}
+        />, document.body)
+      }
+      <span
+        onClick={() => setIsActivePopup(true)}
+      >
+        {text ? text : creator?.panel?.options?.save?.content}
+      </span>
+    </>
   );
 };

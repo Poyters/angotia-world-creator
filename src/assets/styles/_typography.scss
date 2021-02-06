@@ -129,3 +129,17 @@
 		@include paragraph(16px, 18px, 700);
 	}
 }
+
+.t-anhor1 {
+	&Light {
+		@include paragraph(16px, 18px, 200, inherit, underline $decorationColor1 double);
+	}
+	
+	&Normal {
+		@include paragraph(16px, 18px, 400, inherit, underline $decorationColor1 double);
+	}
+
+	&Bold {
+		@include paragraph(16px, 18px, 700, inherit, underline $decorationColor1 double);
+	}
+}

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { SaveJsonOption } from './SaveJsonOption';
-import { ExportToAngotia } from './ExportToAngotia';
+import { ExportToProd } from './exportToProd/ExportToProd';
 import appConfig from '../../../assets/configs/app.config.json';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
@@ -26,7 +26,7 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 							/>
 						</li>
 						<li>
-							<ExportToAngotia
+							<ExportToProd
 								text={ menu?.save.prodDb }
 								moduleType={moduleType}
 							/>

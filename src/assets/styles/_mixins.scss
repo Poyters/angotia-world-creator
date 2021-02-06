@@ -1,7 +1,15 @@
-@mixin paragraph($fontSize, $lineHeight, $fontWeight) {
+@mixin paragraph(
+	$fontSize,
+	$lineHeight,
+	$fontWeight,
+	$fontColor: inherit,
+	$textDecor: none
+) {
 	font-size: $fontSize;
 	line-height: $lineHeight;
 	font-weight: $fontWeight;
+	color: $fontColor;
+	text-decoration: $textDecor;
 }
 
 @mixin scrollBar {

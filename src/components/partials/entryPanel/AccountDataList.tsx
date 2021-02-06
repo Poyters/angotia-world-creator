@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { GET__REQ_CHARS_BY_AUTHOR } from '../../../api/queries/getReqCharsByAuthor';
-import { GET__REQ_MAPS_BY_AUTHOR } from '../../../api/queries/getReqMapsByAuthor';
+import { GET__REQ_CHARS_BY_AUTHOR } from '../../../api/queries/char/getReqCharsByAuthor';
+import { GET__REQ_MAPS_BY_AUTHOR } from '../../../api/queries/map/getReqMapsByAuthor';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';

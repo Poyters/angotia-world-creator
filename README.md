@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (planned June 2021)
+- Create accept license popup during exporting product to Angotia Resources Admins
 - Refactor conditional empty string
 - Fix a lack of Character Sprite export error
 - Add readonly map size to Map Creator settings panel

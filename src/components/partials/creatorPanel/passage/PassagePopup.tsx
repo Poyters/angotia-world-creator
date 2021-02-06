@@ -64,7 +64,6 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
 
         isActivePopup(false);
         dispatch(changeMapPassageLocations(passageLocations));
-        console.log('here', MatrixFillColor.passage);
         markSquare(
             passageMatrix, 
             Canvas.passage, 
