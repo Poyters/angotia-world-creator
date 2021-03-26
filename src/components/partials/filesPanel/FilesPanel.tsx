@@ -180,7 +180,7 @@ export const FilesPanel: React.FC = () => {
 					}
 					
 					<div 
-						className="filesPanel__switch t-paragraph4Normal" 
+						className="filesPanel__switch t-paragraph5Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>

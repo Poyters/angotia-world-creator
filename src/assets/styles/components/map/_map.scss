@@ -6,7 +6,7 @@
     z-index: 1;
 
     cursor: move;
-    border: 1px dotted $errorColor;
+    border: 2px dotted $errorColor;
     
     &__canvas {
         position: relative;

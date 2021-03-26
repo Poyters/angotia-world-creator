@@ -4,12 +4,12 @@
   position: relative;
   padding:  0 5px;
 
-  &:hover {
-    background-color: $decorationColor5;
-  }
-
   &:hover > .menu__content {
     display: flex;
+  }
+
+  &:hover > .menu__label {
+    color: $decorationColor1;
   }
 
   &__label {
@@ -27,18 +27,19 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
-    top: 25px;
+    top: 30px;
     left: 0;
     z-index: 90;
 
     list-style-type: none;
-    box-shadow: 1px 2px 5px $decorationColor9;
+    background-color: $decorationColor2;
+    box-shadow: 1px 1px 5px $decorationColor15;
 
     & > li {
       position: relative;
       padding: 3px 7px;
 
-      background-color: $decorationColor5;
+      // background-color: $decorationColor5;
       text-transform: uppercase;
       white-space: nowrap;
       transition: $shortEasyAnimation1;
@@ -56,6 +57,10 @@
         }
       }
 
+      &:hover a {
+        color: $decorationColor1;
+      }
+
       &:first-child {
         padding-top: 8px;
       }
@@ -64,7 +69,8 @@
 }
 
 .separator {
-  padding-top: 6px !important;
+  padding-top: 10px !important;
+  margin-top: 6px !important;
 
   &:before {
     position: absolute;
@@ -84,7 +90,7 @@
   &:hover {
     color: inherit !important;
 
-    background-color: $decorationColor14 !important;
+    background-color: $decorationColor11 !important;
   }
 }
 
@@ -101,8 +107,8 @@
     padding: 4px 1px;
 
     list-style-type: none;
-    background-color: $decorationColor14;
-    box-shadow: 2px 2px 3px $decorationColor9;
+    background-color: $decorationColor2;
+    box-shadow: 1px 1px 5px $decorationColor15;
 
     &:hover > .menu__content {
       display: flex;

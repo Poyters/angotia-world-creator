@@ -2,36 +2,18 @@
     display: flex;
     position: absolute;
     right: 0;
-    bottom: -10px;
+    bottom: 0;
     z-index: 10;
-    padding: 4px 7px;
+    padding: 6px 10px;
 
     color: $fontColor1;
     letter-spacing: 1px;
     background-color: $decorationColor5;
-    box-shadow: 1px 1px 5px $decorationColor9;
-
-    &:before {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: -49px;
-
-        border-style: solid;
-        border-width: 0 0 21px 50px;
-        border-color: transparent transparent $decorationColor5 transparent;
-    }
+    box-shadow: 1px 1px 5px $decorationColor15;
 
     &--bottomLeft {
         left: 0;
         right: auto;
-
-        &:before {
-            left: auto;
-            right: -49px;
-            border-width: 21px 0 0 50px;
-            border-color: transparent transparent transparent $decorationColor5;
-        }
     }
 
     &--link {

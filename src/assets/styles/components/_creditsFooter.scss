@@ -17,29 +17,19 @@
 	&__box {
 		flex: 0 0 auto;
 		position: relative;
-		padding: 8px 25px;
+		padding: 5px 15px;
 
 		background-color: $decorationColor2; 
+		text-transform: uppercase;
+		box-shadow: 1px 1px 5px $decorationColor15;
+	}
 
-		&:before, &:after {
-			position: absolute;
-			content: '';
-			top: 0;
-			width: 0;
-			height: 0;
-			border-style: solid;
-		}
+	& a {
+		display: flex;
+		align-items: center;
 
-		&:before {
-			left: -7px;
-			border-width: 0 8px 34px 0;
-			border-color: transparent $decorationColor2 transparent transparent;
-		}
-
-		&:after {
-			right: -7px;
-			border-width: 34px 0 0 8px;
-			border-color: transparent transparent transparent $decorationColor2;
+		& img {
+			margin-right: 10px;
 		}
 	}
 }

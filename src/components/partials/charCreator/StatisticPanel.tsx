@@ -93,7 +93,7 @@ export const StatisticPanel: React.FC = () => {
 					}
 
 					<div
-						className="g-sidePanel__switch t-paragraph4Normal"
+						className="g-sidePanel__switch t-paragraph5Normal"
 						onClick={(): void => dispatch(toggleStatisticPanel(false))}
 					>
 						<span>

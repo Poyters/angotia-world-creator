@@ -69,7 +69,7 @@ export const MapSettingsPanel: React.FC = () => {
 					</div>
 
 					<div
-						className="g-sidePanel__switch t-paragraph4Normal" 
+						className="g-sidePanel__switch t-paragraph5Normal" 
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>

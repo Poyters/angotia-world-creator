@@ -17,22 +17,22 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 			<ul className="menu__content t-paragraph2Light">
 				<li className="extended">
 					{ menu?.save.label }
-				<nav className="submenu t-paragraph6Light">
-					<ul>
-						<li> 
-							<SaveJsonOption
-								text={ menu?.save.json }
-								moduleType={moduleType}
-							/>
-						</li>
-						<li>
-							<ExportToProd
-								text={ menu?.save.prodDb }
-								moduleType={moduleType}
-							/>
-						</li>
-					</ul>
-				</nav>
+					<nav className="submenu t-paragraph6Light">
+						<ul>
+							<li> 
+								<SaveJsonOption
+									text={ menu?.save.json }
+									moduleType={moduleType}
+								/>
+							</li>
+							<li>
+								<ExportToProd
+									text={ menu?.save.prodDb }
+									moduleType={moduleType}
+								/>
+							</li>
+						</ul>
+					</nav>
 				</li>
 				<li>
 					<Link to={`/${lang}/${routes.help}`}>

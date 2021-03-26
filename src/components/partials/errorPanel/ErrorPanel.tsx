@@ -60,7 +60,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 					</ol>
 					
 					<div
-						className="g-sidePanel__switch t-paragraph4Normal"
+						className="g-sidePanel__switch g-sidePanel__switch--left t-paragraph5Normal"
 						onClick={(): void => dispatch(toggleErrorPanel(false))}
 					>
 						<span>

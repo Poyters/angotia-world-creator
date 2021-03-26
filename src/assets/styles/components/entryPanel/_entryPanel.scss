@@ -6,6 +6,8 @@
   transform: translateY(-50px);
 
   background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid $decorationColor1;
+  border-bottom: 1px solid $decorationColor1;
 
   & li {
     display: flex;
@@ -126,8 +128,8 @@
       position: absolute;
       content: '';
       top: 0;
-      left: calc(50% - 25px);
-      width: 50px;
+      left: calc(50% - 40px);
+      width: 80px;
       height: 1px;
 
       background-color: $decorationColor1;

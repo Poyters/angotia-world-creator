@@ -7,9 +7,15 @@ body {
 	overflow-y: hidden;
 	position: relative;
 
-  	background-color: $backgroundColor;
+  background-color: $backgroundColor;
 	font-family: 'Roboto', sans-serif;
 	color: $fontColor;
+
+	&:fullscreen,
+	&:-moz-full-screen,
+	&:-webkit-full-screen {
+    background-color: $backgroundColor;
+	}
 }
 
 a {

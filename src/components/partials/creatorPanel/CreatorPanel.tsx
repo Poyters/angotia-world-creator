@@ -14,6 +14,7 @@ import { VisibilityOption } from './visibility/VisibilityOption';
 import { Menu } from '../options/Menu';
 import { ContentContext } from '../../../Template';
 import { AppModules } from '../../../models/appModules.model';
+import logo24x24 from '../../../assets/images/logo-24x24.png';
 
 
 export const CreatorPanel: React.FC = () => {
@@ -23,6 +24,7 @@ export const CreatorPanel: React.FC = () => {
     <div className="optionsPanelWrapper">
       <nav className="optionsPanel">
         <header className="optionsPanel__title">
+          <img src={logo24x24} />
           <span> AWC </span>
         </header>
         <Menu moduleType={AppModules.map} />

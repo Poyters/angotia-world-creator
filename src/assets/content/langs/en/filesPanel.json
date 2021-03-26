@@ -1,6 +1,6 @@
 {
   "switch": "Files panel",
-  "close": "Hide files panel",
+  "close": "Close files panel",
   "charButton": {
     "load": "load",
     "edit": "edit",
