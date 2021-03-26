@@ -168,17 +168,6 @@ export const FilesPanel: React.FC = () => {
 						</ul>
 					</div>
 
-					{
-						currBookmark === 'mob' ||
-						currBookmark === 'npc' ? (
-							<div 
-								className="filesPanel__switch filesPanel__switch--char t-paragraph5Normal" 
-							>
-								<CharButton />
-							</div>
-						) : null
-					}
-					
 					<div 
 						className="filesPanel__switch t-paragraph5Normal" 
 						onClick={(): void => setIsOpen(false)}

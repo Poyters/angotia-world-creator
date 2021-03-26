@@ -35,18 +35,20 @@
 	padding:  0 5px;
 	height: 100%;
 
-  &:hover {
-    background-color: $decorationColor5;
-  }
-
   &:hover > .layersMenu__content {
     display: flex;
+  }
+
+  &:hover > .layersMenu__label {
+    color: $decorationColor1;
   }
 
   &__label {
     display: flex;
     height: 100%;
     align-items: center;
+    padding-bottom: 10px;
+    transform: translateY(3px);
 
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -58,18 +60,18 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
-    top: 20px;
+    top: 26px;
     left: 0;
     z-index: 90;
 
     list-style-type: none;
-    box-shadow: 1px 2px 5px $decorationColor9;
+    background-color: $decorationColor2;
+    box-shadow: 1px 1px 5px $decorationColor15;
 
     & > li {
       position: relative;
       padding: 3px 7px;
 
-      background-color: $decorationColor5;
       text-transform: uppercase;
       white-space: nowrap;
       transition: $shortEasyAnimation1;
