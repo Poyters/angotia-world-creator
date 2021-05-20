@@ -8,7 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (planned June 2021)
-- AWC-279, Change blue decoration color to more bright
+- AWC-278, Change blue decoration color to more bright
 - Create accept license popup during exporting product to Angotia Resources Admins
 - Refactor conditional empty string
 - Fix a lack of Character Sprite export error
