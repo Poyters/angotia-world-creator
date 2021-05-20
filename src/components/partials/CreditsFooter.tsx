@@ -10,7 +10,7 @@ export const CreditsFooter: React.FC = () => {
     <footer className="t-paragraph5Normal creditsFooter">
       <div className="creditsFooter__box">
         <a href={appConfig.author.link}>
-          <img src={logo16x16} />
+          <img src={logo16x16} alt="Logo" />
           <span>
             {`${appConfig?.author?.name} ${appConfig?.author?.startedYear}-${currentYear}`}
           </span>
