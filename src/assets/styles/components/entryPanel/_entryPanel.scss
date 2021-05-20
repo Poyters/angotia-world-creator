@@ -1,159 +1,88 @@
 .entryPanel {
-  display: block;
+  display: flex;
   flex: 1;
   margin: 30px 0;
   padding: 15px 0;
-  transform: translateY(-50px);
+  justify-content: center;
 
   background-color: rgba(0, 0, 0, 0.2);
   border-top: 1px solid $decorationColor1;
   border-bottom: 1px solid $decorationColor1;
 
-  & li {
+  &__menu {
     display: flex;
-    margin: 12px 15px;
-    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
 
-    text-align: center;
+    list-style-type: none;
 
-    & label {
-      cursor: pointer;
-    }
+    & > li {
+      margin: 10px 0;
 
-    & a, & > button {
-      display: block; 
-      outline: none; 
-    }
+      & a {
+        cursor: pointer;
+        transition: $shortEasyAnimation1;
 
-    & > button {
-      background-color: inherit;
-      border: none;
-      cursor: pointer;
-      outline: 0;
-      color: inherit;
-      transition: $shortEasyAnimation1;
-
-      &:hover, &:active, &:focus{
-        outline: 0;
-        outline: none;
-        -webkit-appearance: none;
-        border: none;
-      }
-    
-    }
-
-    &:last-child {
-      margin-top: 40px;	
-    }
-  }
-
-  &__createBoard {
-    display: block;
-
-    transition: $shortEasyAnimation1;
-    outline: none;
-
-    &:focus-within {
-      .entryPanel__sizeBoard {
-        height: 35px;
-        margin: 20px 0;
-        opacity: 1;
-
-        font-size: 12px;
-
-        & button {
-          font-size: inherit;
-
-          &:before {
-            border-width: 0 4px 35px 0;
-          }
-
-          &:after {
-            border-width: 35px 0 0 4px;
-          }
+        &:hover {
+          color: $decorationColor1;
         }
       }
-
-      .entryPanel__validationInfo {
-        display: block;  
-      }
-    }
-  }
-
-  &__sizeBoard {
-    display: flex;
-    margin: 0;
-    justify-content: center;
-    height: 0;
-    opacity: 0;
-
-    transition: $shortEasyAnimation1;
-    font-size: 0px;
-    word-spacing: 3px;
-
-    & span {
-      margin: 3px 10px;
-    }
-
-    & input, & button {
-      color: $fontColor1;
-      border: none;
-      background-color: $decorationColor;
-      outline: none;
-    }
-
-    & input {
-      flex: 0 1 auto;
-      max-width: 35px;
-      padding: 10px 20px;
-
-      text-align: center;
-    }
-  }
-
-  &__validationInfo {
-    display: none;
-    height: 14px;
-    margin-top: -14px;
-    
-    transition: $shortEasyAnimation1;
-    color: $errorColor;
-  }
-
-  &__separator {
-    position: relative;
-    height: 1px;
-
-    &:before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: calc(50% - 40px);
-      width: 80px;
-      height: 1px;
-
-      background-color: $decorationColor1;
     }
   }
 }
 
-.startBtn {
-  flex: 0 1 auto;
-  position: relative;
-  margin: 0 20px; 
-  padding: 0 20px;
-  
-  font-size: 12px;
-  text-transform: uppercase;
-  transition: $shortEasyAnimation1;
-  font-weight: 700;
-  letter-spacing: 2px;
-  background-color: $decorationColor;
-  outline: none;
+.extendedItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 
   &:hover {
-    cursor: pointer;  
-    background-color: $decorationColor1;
-    color: $backgroundColor;
+    color: inherit;
+
+    & > .extendedItem__submenu {
+      display: flex;
+      width: 100px;
+      opacity: 1;
+    }
   }
+
+  &__submenu {
+    display: flex;
+    width: 0;
+    opacity: 0;
+
+    transition: $shortEasyAnimation1;
+    text-transform: uppercase;
+
+    & ul {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin: 0 0 0 20px;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+
+      list-style-type: none;
+
+      & li {
+        margin: 0 5px;
+
+        cursor: pointer;
+        transition: $shortEasyAnimation1;
+
+        &:hover {
+          color: $decorationColor1;
+        }
+      }
+    }
+  }
+}
+
+.separatedItem {
+  padding: 10px 25px 0 25px;
+  border-top: 1px solid $decorationColor7;
 }
