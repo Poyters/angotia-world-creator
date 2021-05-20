@@ -31,6 +31,8 @@
 
             cursor: pointer;
             transform: $shortEasyAnimation1;
+            text-transform: uppercase;
+            font-weight: 700;
 
             &:hover {
                 color: $decorationColor1;
