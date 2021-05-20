@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { App } from './App';
 import { IStore } from './interfaces/store.interface';
 import { ApolloProvider } from '@apollo/react-hooks';
-import { client } from './api/apiInit';
+import { client } from './api/angotiaResources/apiInit';
 
 
 export const store: IStore = createStore(rootReducer);

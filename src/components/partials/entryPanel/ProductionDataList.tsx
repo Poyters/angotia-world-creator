@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_CHARS } from '../../../api/queries/char/allChars';
-import { ALL_MAPS } from '../../../api/queries/map/allMaps';
+import { ALL_CHARS } from '../../../api/angotiaResources/queries/char/allChars';
+import { ALL_MAPS } from '../../../api/angotiaResources/queries/map/allMaps';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
