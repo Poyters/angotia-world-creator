@@ -4,7 +4,6 @@ import { Redirect } from 'react-router';
 import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
-import { ProductionDataList } from './ProductionDataList';
 import { AccountDataList } from './AccountDataList';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
@@ -16,6 +15,7 @@ import { AppModules } from '../../../models/appModules.model';
 import { IPopup } from '../../../interfaces/popup.interface';
 import { IApp } from '../../../interfaces/app.inteface';
 import { ProductionCharList } from './ProductionCharList';
+import { ProductionMapList } from './ProductionMapList';
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
@@ -129,11 +129,11 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             json
           </label>
         </section>
-        {/* {
-          isActiveProduction ? (
-            <ProductionDataList moduleType={moduleType} />
+        {
+          isActiveProduction && moduleType === AppModules.map ? (
+            <ProductionMapList />
           ) : null
-        } */}
+        }
         {
           isActiveProduction && moduleType === AppModules.char ? (
             <ProductionCharList />

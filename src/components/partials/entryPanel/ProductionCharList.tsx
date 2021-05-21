@@ -38,7 +38,7 @@ export const ProductionCharList: React.FC = () => {
           <Redirect to={`/${lang}/${redirect}`}/>
         ) : null
       }
-      <ul className="productionDataList">
+      <ul className="loadedDataList">
         { 
           char.data?.allChars.map(char => {
             return (

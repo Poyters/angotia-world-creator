@@ -69,7 +69,7 @@ export const AccountDataList: React.FC<IApp> = ({ moduleType }) => {
           <Redirect to={`/${lang}/${redirect}`}/>
         ) : null
       }
-      <ul className="productionDataList">
+      <ul className="loadedDataList">
         { 
           moduleType === AppModules.char ? (
             char.data?.getRequestedCharsByAuthor.map(char => {

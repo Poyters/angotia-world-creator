@@ -1,0 +1,28 @@
+.loadedDataList {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 25px;
+  box-sizing: border-box;
+  max-height: 50vh;
+  overflow: auto;
+
+  @include scrollBar;
+  list-style-type: symbols;
+
+  & li {
+    margin: 2px 0;
+    
+    & span {
+      margin: 0 5px 0 10px;
+
+      text-transform: uppercase;
+      color: $fontColor;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    color: $fontColor1;
+  }
+}

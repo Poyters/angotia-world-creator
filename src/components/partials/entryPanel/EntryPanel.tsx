@@ -1,6 +1,5 @@
 import React , { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { AppModules } from '../../../models/appModules.model';
@@ -11,7 +10,6 @@ export const EntryPanel: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [loadedDataType, setLoadedDataType] = useState<any>('');
-  const dispatch = useDispatch();
 
   const loadDataHandler = (moduleType: string) => {
     console.log('loadDataHandler', moduleType);
