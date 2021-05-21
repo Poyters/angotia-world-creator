@@ -22,14 +22,11 @@ import { getUserId } from '../../../scripts/user/getUserId';
 export const AccountDataList: React.FC<IApp> = ({ moduleType }) => {
   const { lang, routes } = useContext(ContentContext);
   const userId = getUserId() ?? '';
-  console.log('userId', userId);
   const char = useQuery(GET__REQ_CHARS_BY_AUTHOR, {
-    variables: { author_id: userId },
-    pollInterval: 1000
+    variables: { author_id: userId }
   });
   const map = useQuery(GET__REQ_MAPS_BY_AUTHOR, {
-    variables: { author_id: userId },
-    pollInterval: 1000
+    variables: { author_id: userId }
   });
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();

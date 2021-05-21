@@ -16,6 +16,7 @@ import { IPopup } from '../../../interfaces/popup.interface';
 import { IApp } from '../../../interfaces/app.inteface';
 import { ProductionCharList } from './ProductionCharList';
 import { ProductionMapList } from './ProductionMapList';
+import { AccountCharList } from './AccountCharList';
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
@@ -140,8 +141,8 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
           ) : null
         }
         {
-          isActiveAccount ? (
-            <AccountDataList moduleType={moduleType} />
+          isActiveAccount && moduleType === AppModules.char ? (
+            <AccountCharList />
           ) : null
         }
       </div>
