@@ -6,6 +6,7 @@ import { AppModules } from '../../../models/appModules.model';
 import { LoadPopup } from './LoadPopup';
 import { CreateChar } from './CreateChar';
 import uuid from 'uuid/v4';
+import { CreateMap } from './CreateMap';
 
 export const EntryPanel: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
@@ -41,7 +42,7 @@ export const EntryPanel: React.FC = () => {
             <span> Create </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
-                <li key={uuid()}> Map </li>
+                <CreateMap />
                 <CreateChar />
                 <li key={uuid()}> Item </li>
               </ul>
