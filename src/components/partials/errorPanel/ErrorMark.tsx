@@ -7,8 +7,8 @@ import { IApp } from '../../../interfaces/app.inteface';
 
 
 export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
-  const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
-  const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
+  const mapErrors = useSelector((state: IStore) => state.ui.mapCreationErrors);
+  const charErrors = useSelector((state: IStore) => state.ui.charCreationErrors);
   const dispatch = useDispatch();
 
   return (

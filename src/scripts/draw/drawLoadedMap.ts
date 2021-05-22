@@ -10,7 +10,7 @@ import { MatrixFillColor } from '../../models/matrixFillColor.model';
 const blockSquaresColor = mapConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
-  const storeData: IStore = store.getState();
+  const storeData = store.getState() as IStore;
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
   const buildingMatrix = deepCopy(storeData.map.building.matrix);

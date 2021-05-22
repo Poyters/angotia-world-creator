@@ -29,7 +29,7 @@ export const markSquare = (
     throw new Error('Cannot mark square on empty matrix');
   }
 
-  const storeData: IStore = store.getState();
+  const storeData = store.getState() as IStore;
   const selectMatrix: Array<[]> = deepCopy(storeData.ui.select.matrix);
   const sourceMatrixCopy: Array<[]> = deepCopy(sourceMatrix);
   let typeOfAction: number | string = pressedKey === mapConfig.secondOptionKeyCode ? 0 : 1;

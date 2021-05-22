@@ -8,7 +8,7 @@ import { countElementsInMatrix } from '../matrix/countElementsInMatrix';
 
 
 export const findMapErrors = (): void => {
-  const storeData: IStore = store.getState();
+  const storeData = store.getState() as IStore;
   const mapState: IMapState = storeData.map;
   const squareQuantity: number = mapState.size.x * mapState.size.y * 4;
   const occuredErrors: string[] = [];

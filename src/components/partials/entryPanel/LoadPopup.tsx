@@ -16,6 +16,7 @@ import { IApp } from '../../../interfaces/app.inteface';
 import { ProductionCharList } from './ProductionCharList';
 import { ProductionMapList } from './ProductionMapList';
 import { AccountCharList } from './AccountCharList';
+import { AccountMapList } from './AccountMapList' ;
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
@@ -137,6 +138,11 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         {
           isActiveProduction && moduleType === AppModules.char ? (
             <ProductionCharList />
+          ) : null
+        }
+        {
+          isActiveAccount && moduleType === AppModules.map ? (
+            <AccountMapList />
           ) : null
         }
         {

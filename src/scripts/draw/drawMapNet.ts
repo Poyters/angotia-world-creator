@@ -7,7 +7,7 @@ import { IStore } from '../../interfaces/store.interface';
 const fieldSize: number = mapConfig.map.fieldSize;
 
 export const drawMapNet = (ctx: any, type: number) => {
-  const storeData: IStore = store.getState();
+  const storeData = store.getState() as IStore;
   const mapSize: IMapSize = storeData.map.size;
 
   const mapSizeX: number = mapSize.x*fieldSize;

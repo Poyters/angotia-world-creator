@@ -7,7 +7,7 @@ import { changeCharCreationErrors } from '../../store/actions/uiActions';
 
 
 export const findCharErrors = (): void => {
-  const storeData: IStore = store.getState();
+  const storeData = store.getState() as IStore;
   const charState: ICharState = storeData.char;
   const occuredErrors: string[] = [];
   const rules = errorSystemConfig.char;

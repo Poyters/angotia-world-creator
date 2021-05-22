@@ -4,7 +4,7 @@ import { IStore } from '../../interfaces/store.interface';
 
 
 export const generateEmptyMatrix = (inputMapSize?: IMapSize):Array<any> => {
-	const storeData: IStore = store.getState();
+	const storeData = store.getState() as IStore;
 	const mapSize: IMapSize = inputMapSize ? inputMapSize : storeData.map.size;
 
 	const newMatrix: Array<any[]> = [...Array(mapSize.y)].map((): Array<any[]> => {
