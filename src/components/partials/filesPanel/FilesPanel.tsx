@@ -50,7 +50,7 @@ export const FilesPanel: React.FC = () => {
 	
 	const generateImages = (): any[] => {
 		const bookmarkImages: string[] = [];
-		let matrixTransformationMethod: Function;
+		let matrixTransformationMethod;
 		let sourceMatrix: any[];
 
 		switch(currBookmark) { 

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../../Template';
 
 interface IExportAlert {
-  isAccepted: Function
+  isAccepted: (...args: any[]) => void
 }
 
 export const ExportAlert = ({ isActivePopup, isAccepted }: IExportAlert & IPopup) => {

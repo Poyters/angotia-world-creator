@@ -20,7 +20,7 @@ document.addEventListener('keyup', () => pressedKey = null);
 export const markSquare = (
   sourceMatrix: Array<[]>, 
   sourceMatrixCanvas: string, 
-  changeMatrixMethod: Function, 
+  changeMatrixMethod: (...args: any[]) => void, 
   note: string | null | undefined, 
   fillColor: string, 
   fillStyle?: string
