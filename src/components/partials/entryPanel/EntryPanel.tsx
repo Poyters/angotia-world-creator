@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ContentContext } from '../../../Template';
 import { AppModules } from '../../../models/appModules.model';
 import { LoadPopup } from './LoadPopup';
+import { CreateChar } from './CreateChar';
 import uuid from 'uuid/v4';
 
 export const EntryPanel: React.FC = () => {
@@ -15,18 +16,6 @@ export const EntryPanel: React.FC = () => {
     console.log('loadDataHandler', moduleType);
     setLoadedDataType(moduleType);
     setIsActiveLoadPopup(true);
-  };
-
-  const createModules = () => {
-    const modules: any = [];
-
-    for (const module in AppModules) {
-      modules.push(
-        <li key={uuid()}> { module } </li>
-      );
-    }
-
-    return modules;
   };
 
   const loadModules = () => {
@@ -52,7 +41,9 @@ export const EntryPanel: React.FC = () => {
             <span> Create </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
-                { createModules() }
+                <li key={uuid()}> Map </li>
+                <CreateChar />
+                <li key={uuid()}> Item </li>
               </ul>
             </nav>
           </li>

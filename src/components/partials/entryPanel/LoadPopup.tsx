@@ -23,8 +23,8 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const { lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
-  const [isActiveProduction, setIsActiveProduction] = useState<boolean>(false);
-  const [isActiveAccount, setIsActiveAccount] = useState<boolean>(false);
+  const [isActiveProduction, setIsActiveProduction] = useState(false);
+  const [isActiveAccount, setIsActiveAccount] = useState(false);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
