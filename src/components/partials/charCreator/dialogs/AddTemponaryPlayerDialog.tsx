@@ -13,7 +13,7 @@ export const AddTemponaryPlayerDialog: React.FC = () => {
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
-  );
+  ) || [];
 
   const addPlayerDialogHandler = (): void => {
     const newDialogs: IPlayer[] = [

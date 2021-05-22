@@ -19,7 +19,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
-  );
+  ) || [];
 
   useEffect((): void => {
     if (

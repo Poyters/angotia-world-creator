@@ -1,5 +1,7 @@
+import { INote } from './note.interface';
+
 export interface IUiState {
-    actionNote: string[]
+    actionNote: INote[]
     select: {
         type: string
         matrix: any[]

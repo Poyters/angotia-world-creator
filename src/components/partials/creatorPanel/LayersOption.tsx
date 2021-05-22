@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
 import { ContentContext } from '../../../Template';
+import { IStore } from '../../../interfaces/store.interface';
 
 
 export const LayersOption: React.FC = () => {
     const { creator } = useContext(ContentContext);  
     const [layersToRender, setLayersToRender] = useState<any>(null);
-    const mapBackgorund = useSelector(state =>  state.map.mapPic);
+    const mapBackgorund = useSelector((state: IStore) => state.map.mapPic);
 
 
     useEffect((): void => {

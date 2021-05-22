@@ -17,7 +17,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const dispatch: Function = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
-  );
+  ) || [];
 
   const updateDialog = (): void => {
     temponaryPlayerDialogs.forEach(data => {

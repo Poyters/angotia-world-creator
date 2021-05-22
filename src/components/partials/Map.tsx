@@ -24,7 +24,7 @@ export const Map: React.FC = () => {
     backgroundImage: `url('${mapPic}')`
   };
 
-  useEffect((): void => {
+  useEffect(() => {
     dragElement(document.getElementById("map"));
     const winHeight: number = window.innerHeight;
     const winWidth: number = window.innerWidth;

@@ -64,7 +64,7 @@ export const MapSettingsPanel: React.FC = () => {
 							className="g-separeTextarea__area g-separeTextarea__area--mapDesc"
 							value={descValue}
 							onChange={e => setDescValue(e.target.value)}
-							onBlur={():void => dispatch(setMapDesc(descValue))}
+							onBlur={() => dispatch(setMapDesc(descValue))}
 						/>
 					</div>
 

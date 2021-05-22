@@ -18,7 +18,7 @@ export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
         (moduleType === AppModules.char && charErrors.length > 0) ? (
           <aside 
             className="errorMark"
-            onClick={(): void => dispatch(toggleErrorPanel(true))}
+            onClick={() => dispatch(toggleErrorPanel(true))}
           >
             <div className="errorMark__count"> 
               <span> ! </span>

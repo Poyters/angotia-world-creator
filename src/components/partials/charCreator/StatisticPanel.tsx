@@ -13,11 +13,11 @@ import { CharType } from '../../../models/charType.model';
 
 export const StatisticPanel: React.FC = () => {
 	const { char } = useContext(ContentContext);
-	const isOpen: string = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
-	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
-	const charType: string = useSelector((state: IStore) => state.char.type);
+	const isOpen = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
+	const choosedChar = useSelector((state: IStore) => state.char.choosed);
+	const charType = useSelector((state: IStore) => state.char.type);
 	const charStatistics = useSelector((state: IStore) => state.char.statistics);
-	const isAgressiveMob: string = useSelector((state: IStore) => state.char.isAgressiveMob);
+	const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
@@ -30,7 +30,7 @@ export const StatisticPanel: React.FC = () => {
 				choosedChar !== ChoosedChar.se ? (
 					<div
 						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
-						onClick={(): void => dispatch(toggleStatisticPanel(true))}
+						onClick={() => dispatch(toggleStatisticPanel(true))}
 					>
 						{ char?.statisticPanel?.open}
 					</div>
@@ -94,7 +94,7 @@ export const StatisticPanel: React.FC = () => {
 
 					<div
 						className="g-sidePanel__switch t-paragraph5Normal"
-						onClick={(): void => dispatch(toggleStatisticPanel(false))}
+						onClick={() => dispatch(toggleStatisticPanel(false))}
 					>
 						<span>
 							{char?.statisticPanel?.close}

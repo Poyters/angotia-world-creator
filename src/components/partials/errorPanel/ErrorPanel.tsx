@@ -9,9 +9,9 @@ import { IApp } from '../../../interfaces/app.inteface';
 
 
 export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
-	const isOpen: string = useSelector((state: IStore) => state.ui.errorPanelIsOpen);
-	const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
-	const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
+	const isOpen = useSelector((state: IStore) => state.ui.errorPanelIsOpen);
+	const mapErrors = useSelector((state: IStore) => state.ui.mapCreationErrors);
+	const charErrors = useSelector((state: IStore) => state.ui.charCreationErrors);
 	const dispatch = useDispatch();
 
 	const errorPanelStyles = {
@@ -22,7 +22,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 		<>
 			<div
 				className="g-sidePanelSwitch g-sidePanelSwitch--errorPanel t-paragraph4Normal"
-				onClick={(): void => dispatch(toggleErrorPanel(true))}
+				onClick={() => dispatch(toggleErrorPanel(true))}
 			>
 				Error panel
 			</div>
@@ -61,7 +61,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 					
 					<div
 						className="g-sidePanel__switch g-sidePanel__switch--left t-paragraph5Normal"
-						onClick={(): void => dispatch(toggleErrorPanel(false))}
+						onClick={() => dispatch(toggleErrorPanel(false))}
 					>
 						<span>
 							Close error panel

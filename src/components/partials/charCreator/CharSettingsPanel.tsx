@@ -27,7 +27,7 @@ export const CharSettingsPanel: React.FC = () => {
 		<>
 			<div 
 				className="g-sidePanelSwitch g-sidePanelSwitch--charSettingsPanel t-paragraph4Normal" 
-				onClick={(): void => setIsOpen(true)}
+				onClick={() => setIsOpen(true)}
 			> 
 				{ char?.settingsPanel?.open }
 			</div>
@@ -62,7 +62,7 @@ export const CharSettingsPanel: React.FC = () => {
 
 					<div 
 						className="g-sidePanel__switch t-paragraph5Normal" 
-						onClick={(): void => setIsOpen(false)}
+						onClick={() => setIsOpen(false)}
 					>
 						<span>
 							{ char?.settingsPanel?.close }

@@ -9,3 +9,5 @@ export const rootReducer = combineReducers({
     ui: uiReducer,
     char: charReducer
 });
+
+export type RootState = ReturnType<typeof rootReducer>

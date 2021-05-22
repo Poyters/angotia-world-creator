@@ -9,16 +9,16 @@ import { IPopup } from '../../../../interfaces/popup.interface';
 
 
 export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
-    const dafaultRange: string = useSelector((state: IStore) => state.map.visibilityRange);
+    const defaultRange = useSelector((state: IStore) => state.map.visibilityRange);
     const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
-    const [visibility, setVisibility] = useState<string>(dafaultRange);
+    const [visibility, setVisibility] = useState(defaultRange);
     const dispatch = useDispatch();
 
     useEffect((): void => {
         if (
-            parseInt(visibility) < mapConfig?.visibility?.min || 
-            parseInt(visibility) > mapConfig?.visibility?.max ||
+            visibility < mapConfig?.visibility?.min || 
+            visibility > mapConfig?.visibility?.max ||
             !Number(visibility)
         ) {
             setError(true);
@@ -42,7 +42,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const submitVisibility = ():void => {
         if (error) return;
         
-        dispatch(setVisibilityRange(parseInt(visibility)));
+        dispatch(setVisibilityRange(visibility));
         isActivePopup(false);
         addNotification(notifications?.visibility?.change);
     };
@@ -64,7 +64,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 <input 
                     type='text' 
                     value={visibility} 
-                    onChange={e => setVisibility(e.target.value)}
+                    onChange={e => setVisibility(parseInt(e.target.value))}
                 />
                 {
                     (error) ? (

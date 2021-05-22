@@ -20,7 +20,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
-  );
+  ) || [];
 
   useEffect((): void => {
     if (
