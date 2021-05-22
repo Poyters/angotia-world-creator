@@ -15,7 +15,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData?.npc || '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const temponaryPlayerDialogs: IPlayer[] = useSelector(

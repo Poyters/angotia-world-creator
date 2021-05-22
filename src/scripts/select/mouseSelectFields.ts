@@ -18,7 +18,7 @@ const rect: IRect = {
   width: 0,
   height: 0
 };
-let drag: boolean = false;
+let drag = false;
 
 export const mouseSelectFields = (): void => {
   const map: HTMLElement | null = document.getElementById("map");

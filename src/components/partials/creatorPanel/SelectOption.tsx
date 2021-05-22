@@ -11,7 +11,7 @@ export const SelectOption = (props: {
 }) => {
   const { creator, notifications } = useContext(ContentContext);
   const [selectType, setSelectType] = useState<number>(0);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect((): void => {
     switch(selectType) {

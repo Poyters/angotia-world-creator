@@ -10,7 +10,7 @@ import { IStore } from '../../../../interfaces/store.interface';
 
 export const AddTemponaryPlayerDialog: React.FC = () => {
   const { char } = useContext(ContentContext);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];

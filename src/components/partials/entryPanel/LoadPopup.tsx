@@ -4,7 +4,6 @@ import { Redirect } from 'react-router';
 import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { ContentContext } from '../../../Template';
-import { AccountDataList } from './AccountDataList';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';

@@ -29,7 +29,10 @@ export const ExportAlert = ({ isActivePopup, isAccepted }: IExportAlert & IPopup
         <p>
           You are trying to export item to Angotia.
           Angotia Admins will check out your product and accept it or decline.
-          To proceed it, you need to accept <Link to={`/${lang}/${routes.license}`} className="t-anhor1Bold"> Angotia World Creator license</Link>. 
+          To proceed it, you need to accept 
+          <Link to={`/${lang}/${routes.license}`} className="t-anhor1Bold"> 
+            Angotia World Creator license
+          </Link>. 
         </p>
         <button 
           type="submit" 

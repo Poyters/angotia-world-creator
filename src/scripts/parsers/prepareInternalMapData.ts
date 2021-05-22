@@ -2,7 +2,7 @@ import { IMapState } from '../../interfaces/mapState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { contentListToMatrix } from './contentListToMatrix';
 import { locationListToMatrix } from './locationListToMatrix';
-const camelcaseKeys = require('camelcase-keys');
+import camelcaseKeys from 'camelcase-keys';
 
 
 export const prepareInternalMapData = (mapData: any): IMapState => {

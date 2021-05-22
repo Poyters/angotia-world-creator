@@ -102,7 +102,8 @@ export const FilesPanel: React.FC = () => {
 
 		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
 			return (
-				// TODO: tutaj powinienem nie wrzucać img do markSquare, a dodać blob do images store, i tu zamiast img id do bloba
+				// TODO: tutaj powinienem nie wrzucać img do
+				// markSquare, a dodać blob do images store, i tu zamiast img id do bloba
 				<li 
 					key={uuid()} 
 					style={imageStyle} 

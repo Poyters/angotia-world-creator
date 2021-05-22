@@ -1,6 +1,6 @@
 import { ICharState } from '../../interfaces/charState.interface';
 import { deepCopy } from '../utils/deepCopy';
-const camelcaseKeys = require('camelcase-keys');
+import camelcaseKeys from 'camelcase-keys';
 
 
 export const prepareInternalCharData = (charData: any): ICharState => {

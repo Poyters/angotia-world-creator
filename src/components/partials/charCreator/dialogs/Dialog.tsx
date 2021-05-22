@@ -15,16 +15,16 @@ export const Dialog: React.FC<IDialog> = ({
   id, 
   npc, 
   player, 
-  validatorFunc=():void=>{},
+  validatorFunc = () => { /* do nothing */ },
   connectedDialogs,
-  clearValidator=():void=>{}
+  clearValidator = () => { /* do nothing */ },
 }) => {
   const { char, notifications } = useContext(ContentContext);
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
 
   const deleteDialog = (id: string): void => {
     const filteredDialogs = dialogsData.filter(dialog => {

@@ -26,4 +26,4 @@ function deleteNote () {
   activeNotes.pop();
 
   store.dispatch(setNotification(activeNotes));
-};
+}

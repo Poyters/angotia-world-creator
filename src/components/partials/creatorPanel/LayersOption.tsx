@@ -32,7 +32,7 @@ export const LayersOption: React.FC = () => {
 
     }, [creator]);
 
-    let isBackgroundVisible: boolean = true;
+    let isBackgroundVisible = true;
     const toggleBackground = (): void => {
         const map: any = document.getElementById('map');
         const button: any = document.getElementById(`backgroundBtn`);

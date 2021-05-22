@@ -33,8 +33,8 @@ export const matrixToContentList = (matrix: any, internalImages: IInternalImageD
           let contentItemValue: string | number = '';
           // square is a image
           if (square.toString().includes(MapPicData.suffix)) {
-            let found: boolean = false;
-            // Img internal id
+            let found = false;
+            // Image internal id
             const transformedSquare: string = square.replace(MapPicData.suffix, '');
    
             for (const picItem of contentList.pics) {

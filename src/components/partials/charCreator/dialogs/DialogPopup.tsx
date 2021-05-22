@@ -16,7 +16,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const [playerDialogErr, setPlayerDialogErr] = useState<boolean>(false);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];

@@ -3,7 +3,11 @@
         "browser": true,
         "es6": true
     },
-    "extends": [],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -33,6 +37,9 @@
         "react/jsx-uses-vars": 2,
         "react/react-in-jsx-scope": 2,
         "@typescript-eslint/no-unused-vars": 2,
-        "no-restricted-globals": 2
+        "no-restricted-globals": 2,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "no-case-declarations": 0,
+        "@typescript-eslint/no-explicit-any": 0
     }
 }

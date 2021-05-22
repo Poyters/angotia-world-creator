@@ -6,7 +6,7 @@ import { ContentContext } from '../../../../Template';
 
 export const VisibilityOption: React.FC = () => {
     const { creator } = useContext(ContentContext);
-    const [isPopup, setIsPopup] = useState<Boolean>(false);
+    const [isPopup, setIsPopup] = useState<boolean>(false);
     
     return (
         <>

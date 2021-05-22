@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IPlayer } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IPlayerDialog } from '../../../../interfaces/dialogs.interface';
@@ -14,8 +13,8 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   const [next, setNext] = useState<string>('');
   const [action, setAction] = useState<string>('');
   const [condition, setCondition] = useState<string>('');
-  const dispatch: Function = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+  const dispatch = useDispatch();
+  const temponaryPlayerDialogs = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];
 

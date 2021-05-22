@@ -25,7 +25,7 @@ document.addEventListener('keyup', () => pressedKey = null);
 
 export const VertexWeightOption: React.FC = () => {
     const { notifications, creator } = useContext(ContentContext);
-    const [isPopup, setIsPopup] = useState<Boolean>(false);
+    const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
     const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));

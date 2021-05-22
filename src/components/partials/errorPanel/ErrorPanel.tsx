@@ -34,17 +34,15 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 					<header 
 						className="errorPanelHeader t-paragraph6Bold"
 					>
-						 Program occurs 
-						 <span 
-						 	className="errorPanelHeader__count t-paragraph3Bold"
-							> 
+						Program occurs 
+						<span className="errorPanelHeader__count t-paragraph3Bold"> 
 							{
 								moduleType === AppModules.map ? mapErrors.length : null
 							}
 							{
 								moduleType === AppModules.char ? charErrors.length : null
 							}
-						 </span> errors
+						</span> errors
 					</header>
 					<ol className="errorPanelList t-paragraph2Light">
 						{

@@ -20,7 +20,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     .find((dialog: IPlayer): boolean => {
       return dialog.id === playerId;
     }) : undefined;
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
   const [dialog, setDialog] = useState<string>(playerData?.dialog || '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
   const [next, setNext] = useState<string>(playerData?.next || '');

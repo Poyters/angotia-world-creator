@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { ActionInputField } from '../../ActionInputField';
 import { changeMonologs } from '../../../../store/actions/charActions';
-import { IMonolog } from '../../../../interfaces/dialogs.interface';
 import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
@@ -17,8 +16,8 @@ export const MonologPopup: React.FC<IMonologPopup> = (
   const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(monologData?.content || '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
-  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
-  const dispatch: Function = useDispatch();
+  const monologsData = useSelector((state: IStore) => state.char.monologs);
+  const dispatch = useDispatch();
 
 
   useEffect((): void => {

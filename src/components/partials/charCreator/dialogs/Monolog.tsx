@@ -13,7 +13,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
 ) => {
   const { char, notifications } = useContext(ContentContext);
   const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
-  const dispatch: Function = useDispatch();
+  const dispatch = useDispatch();
 
   const deleteMonolog = (id: string): void => {
     const filteredMonologs: IMonolog[] = monologsData.filter((monolog: IMonolog) => {

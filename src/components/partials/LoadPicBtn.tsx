@@ -9,8 +9,10 @@ import { ILoadPicBtn } from '../../interfaces/button.interface';
 export const LoadPicBtn: React.FC<ILoadPicBtn> = ({ 
   name, clickEvent, note
 }) => {
-  const dispatchedClickEvent: Function = clickEvent ? clickEvent : () => {};
-  const dispatch: Function = useDispatch();
+  const dispatchedClickEvent = clickEvent ? clickEvent : () => {
+    // do nothing
+  };
+  const dispatch = useDispatch();
 
   const handleFileSelect = (evt: any) => {
     const file = evt.target.files[0]; 

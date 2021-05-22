@@ -25,10 +25,10 @@ document.addEventListener('keyup', () => pressedKey = null);
 
 export const PassageOption: React.FC = () => {
     const { notifications } = useContext(ContentContext);
-    const [isPopup, setIsPopup] = useState<Boolean>(false);
+    const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
-    let passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
+    const passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
     const passageHandler = (): void => {
