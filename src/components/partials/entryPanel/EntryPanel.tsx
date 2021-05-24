@@ -14,7 +14,6 @@ export const EntryPanel: React.FC = () => {
   const [loadedDataType, setLoadedDataType] = useState<any>('');
 
   const loadDataHandler = (moduleType: string) => {
-    console.log('loadDataHandler', moduleType);
     setLoadedDataType(moduleType);
     setIsActiveLoadPopup(true);
   };

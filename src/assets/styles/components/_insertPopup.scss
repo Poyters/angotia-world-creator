@@ -17,6 +17,29 @@
         }
     }
 
+    &__content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+        & > input {
+            height: 40px !important;
+            max-width: 80px;
+            margin: 0 10px !important;
+
+            text-align: center;
+            font-weight: 700;
+        }
+    }
+
+    &__errorMess {
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
     &__label {
         margin-top: 10px;
 
@@ -61,7 +84,7 @@
     }
 
     &--error {
-        font-size: 12px;
+        font-size: 14px;
         color: $errorColor;
         letter-spacing: 1px;
     }

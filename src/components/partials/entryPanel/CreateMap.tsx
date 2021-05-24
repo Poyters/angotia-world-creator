@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid/v4';
 import { useSelector, useDispatch } from 'react-redux';
@@ -38,9 +38,13 @@ export const CreateMap: React.FC = () => {
   const [valMess, setValMess] = useState<string>('');
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    mapSizeValidation();
+  }, [mapX, mapY]);
+
   const mapSizeValidation = ():void => {
-    const mapSizeX: number = typeof mapX === "number" ? mapX : parseInt(mapX);
-    const mapSizeY: number = typeof mapY === "number" ? mapY : parseInt(mapY);
+    const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
+    const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
     
     if ((typeof mapSizeX !== "number" || isNaN(mapSizeX)) || 
     (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
@@ -58,26 +62,32 @@ export const CreateMap: React.FC = () => {
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
       setValMess("Value need to be integer, not float type.");
     }
-    else { //Redirect to /map
+    else {
       setValMess("");
-      mapSizes.x = mapSizeX;
-      mapSizes.y = mapSizeY;
-
-      dispatch(setMapSizes(mapSizes));
-      const newEmptyMatrix = generateEmptyMatrix();
-      
-      dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
-      dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
-      setRedirect(routes.creator);
     }
+  };
 
+  const createMap = () => {
+    const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
+    const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
+
+    setValMess("");
+    mapSizes.x = mapSizeX;
+    mapSizes.y = mapSizeY;
+
+    dispatch(setMapSizes(mapSizes));
+    const newEmptyMatrix = generateEmptyMatrix();
+    
+    dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
+    setRedirect(routes.creator);
   };
 
   return (
@@ -97,21 +107,30 @@ export const CreateMap: React.FC = () => {
               <header className="insertPopup__header t-paragraph3Light">
                 Create map
               </header>
-              <MapSizeInput
-                currValue={mapX}
-                changeValue={setMapX}
-                id="yMapSize"
-              />
-              <span className="t-paragraph3Normal">x</span>
-              <MapSizeInput
-                currValue={mapY}
-                changeValue={setMapY}
-                id="yMapSize"
-              />
-              <div className="startBtn" onClick={mapSizeValidation}>
-                start
+              <div className="insertPopup__content">
+                <MapSizeInput
+                  currValue={mapX}
+                  changeValue={setMapX}
+                  id="yMapSize"
+                />
+                <span className="t-paragraph3Normal">x</span>
+                <MapSizeInput
+                  currValue={mapY}
+                  changeValue={setMapY}
+                  id="yMapSize"
+                />
               </div>
-              { valMess }
+              <div className="insertPopup__errorMess insertPopup--error"> 
+                { valMess }
+              </div>
+              <button 
+                type="submit" 
+                className="insertPopup__submit t-paragraphLight" 
+                onClick={createMap} 
+                disabled={!!valMess}
+              > 
+                start
+              </button>
             </div>
           </div>, document.body
         ) : null

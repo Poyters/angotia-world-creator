@@ -13,7 +13,6 @@ export const MapSizeInput: React.FC<IMapSizeInput> = ({
       value={currValue}
       id={id}
       onChange={e => changeValue(e.target.value)}
-      onClick={(): void => changeValue('')}
     />
   );
 };
