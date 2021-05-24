@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { ALL_MAPS } from '../../../api/angotiaResources/queries/map/allMaps';
+import { useQuery, useLazyQuery } from '@apollo/react-hooks';
+import { GET_MAP } from '../../../api/angotiaResources/queries/map/getMap';
+import { ALL_MAPS_BASE_INFO } from '../../../api/angotiaResources/queries/map/allMapsBaseInfo';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
@@ -14,9 +15,15 @@ import { Notification } from '../../../models/notification.model';
 
 export const ProductionMapList: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
-  const map = useQuery(ALL_MAPS);
+  const map = useQuery(ALL_MAPS_BASE_INFO);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
+  const [getMap, { called }] = useLazyQuery(GET_MAP, {
+    onCompleted: data => {
+      console.log('data ', data);
+      loadFromDb(data.getMap);
+    }
+  });
 
   if (map.loading) return <p> Loading maps... </p>;
   if (map.error) return <p> Couldn't load maps </p>;
@@ -31,6 +38,26 @@ export const ProductionMapList: React.FC = () => {
     }
   };
 
+ 
+  // console.log('data', data, called, loading);
+
+
+  // if (called && !loading && data.getMap) {
+  //   loadFromDb(data.getMap);
+  // }
+
+  const load = (id) => {
+    console.log('id', id, called);
+    if (called) return;
+
+    getMap({
+      variables: {
+        id: id
+      }
+    });
+  };
+  
+
   return (
     <>
       {
@@ -42,7 +69,7 @@ export const ProductionMapList: React.FC = () => {
         { 
           map.data?.allMaps.map(mapData => {
             return (
-              <li onClick={() => loadFromDb(mapData)} key={uuid()}> 
+              <li onClick={() => load(mapData.id)} key={uuid()}> 
                 <span>Internal id:</span>{ mapData._id }
                 <span>Name:</span>{ mapData.map_name }
               </li>
