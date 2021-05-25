@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { GET__REQ_MAPS_BY_AUTHOR } from '../../../api/angotiaResources/queries/map/getReqMapsByAuthor';
+import { GET_REQ_MAP } from '../../../api/angotiaResources/queries/map/getReqMap';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
@@ -21,6 +22,9 @@ export const AccountMapList: React.FC = () => {
   });
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
+  const [getReqMap, { called }] = useLazyQuery(GET_REQ_MAP, {
+    onCompleted: data => loadFromDb(data.getRequestedMap)
+  });
 
   if (map.loading) return <p> Loading... </p>;
   if (map.error) return <p> Couldn't load data </p>;
@@ -35,6 +39,14 @@ export const AccountMapList: React.FC = () => {
     }
   };
 
+  const loadChoosedMap = (id: string) => {
+    if (called) return;
+
+    getReqMap({
+      variables: { id }
+    });
+  };
+
   return (
     <>
       {
@@ -46,7 +58,7 @@ export const AccountMapList: React.FC = () => {
         { 
           map.data?.getRequestedMapsByAuthor.map(mapData => {
             return (
-              <li onClick={() => loadFromDb(mapData)} key={uuid()}> 
+              <li onClick={() => loadChoosedMap(mapData.id)} key={uuid()}> 
                 <span>Internal id:</span>{ mapData._id }
                 <span>Name:</span>{ mapData.map_name }
               </li>

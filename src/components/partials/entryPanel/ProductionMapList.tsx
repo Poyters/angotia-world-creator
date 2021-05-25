@@ -34,7 +34,7 @@ export const ProductionMapList = () => {
     }
   };
 
-   const loadChoosedMap = (id: string) => {
+  const loadChoosedMap = (id: string) => {
     if (called) return;
 
     getMap({
