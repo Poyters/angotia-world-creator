@@ -4,29 +4,13 @@ import uuid from 'uuid/v4';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { ContentContext } from '../../../Template';
-import { IPoint } from '../../../interfaces/math.interface';
 import { IStore } from '../../../interfaces/store.interface';
 import { MapSizeInput } from './MapSizeInput';
-import { setMapSizes } from '../../../store/actions/mapActions';
+import { mapState } from '../../../store/states/mapState';
 import { deepCopy } from '../../../scripts/utils/deepCopy';
+import { loadMapData } from '../../../store/actions/mapActions';
 import mapConfig from '../../../assets/configs/map.config.json';
-import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
-import { 
-  changeMapBlockMatrix, 
-  changeMapPassageMatrix, 
-  changeMapVertexWeightMatrix,
-  changeMapBuildingMatrix, 
-	changeMapDecorationMatrix, 
-	changeMapSubsoilMatrix, 
-	changeMapNpcMatrix, 
-  changeMapMobMatrix,
-  changeMapSeMatrix
-} from '../../../store/actions/mapActions';
-
-const mapSizes: IPoint = {
-  x: 0,
-  y: 0
-};
+import { IMapState } from '../../../interfaces/mapState.interface';
 
 export const CreateMap: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
@@ -37,6 +21,7 @@ export const CreateMap: React.FC = () => {
   const [mapY, setMapY] = useState<number>(mapSize.y);
   const [valMess, setValMess] = useState<string>('');
   const dispatch = useDispatch();
+  const emptyMapState: IMapState = deepCopy(mapState);
 
   useEffect(() => {
     mapSizeValidation();
@@ -72,21 +57,10 @@ export const CreateMap: React.FC = () => {
     const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
 
     setValMess("");
-    mapSizes.x = mapSizeX;
-    mapSizes.y = mapSizeY;
+    emptyMapState.size.x = mapSizeX;
+    emptyMapState.size.y = mapSizeY;
 
-    dispatch(setMapSizes(mapSizes));
-    const newEmptyMatrix = generateEmptyMatrix();
-    
-    dispatch(changeMapBlockMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapPassageMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapVertexWeightMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapBuildingMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapDecorationMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapSubsoilMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapNpcMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapMobMatrix(deepCopy(newEmptyMatrix)));
-    dispatch(changeMapSeMatrix(deepCopy(newEmptyMatrix)));
+    dispatch(loadMapData(emptyMapState));
     setRedirect(routes.creator);
   };
 
