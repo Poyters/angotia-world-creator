@@ -26,9 +26,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "no-multiple-empty-lines": ["error", {
-            "max": 2
-        }],
+        "no-multiple-empty-lines": 2,
         "max-len": ["error", 110],
         "semi": ["error", "always"],
         "max-lines": ["error", 260],

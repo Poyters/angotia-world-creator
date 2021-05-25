@@ -12,17 +12,13 @@ import { isValidExternalMapData } from '../../../scripts/validators/isValidExter
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 
-
-export const ProductionMapList: React.FC = () => {
+export const ProductionMapList = () => {
   const { lang, routes } = useContext(ContentContext);
   const map = useQuery(ALL_MAPS_BASE_INFO);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
   const [getMap, { called }] = useLazyQuery(GET_MAP, {
-    onCompleted: data => {
-      console.log('data ', data);
-      loadFromDb(data.getMap);
-    }
+    onCompleted: data => loadFromDb(data.getMap)
   });
 
   if (map.loading) return <p> Loading maps... </p>;
@@ -38,25 +34,13 @@ export const ProductionMapList: React.FC = () => {
     }
   };
 
- 
-  // console.log('data', data, called, loading);
-
-
-  // if (called && !loading && data.getMap) {
-  //   loadFromDb(data.getMap);
-  // }
-
-  const load = (id) => {
-    console.log('id', id, called);
+   const loadChoosedMap = (id: string) => {
     if (called) return;
 
     getMap({
-      variables: {
-        id: id
-      }
+      variables: { id }
     });
   };
-  
 
   return (
     <>
@@ -69,7 +53,7 @@ export const ProductionMapList: React.FC = () => {
         { 
           map.data?.allMaps.map(mapData => {
             return (
-              <li onClick={() => load(mapData.id)} key={uuid()}> 
+              <li onClick={() => loadChoosedMap(mapData.id)} key={uuid()}> 
                 <span>Internal id:</span>{ mapData._id }
                 <span>Name:</span>{ mapData.map_name }
               </li>
