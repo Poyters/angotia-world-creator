@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (planned June 2021)
+- AWC-257, Optimize entry panel api requests. Decrease transferred data
 - AWC-263, Rewrite a whole load panel to the newest version of React and speed up loading entry panel
 - AWC-278, Change blue decoration color to more bright
 - Create accept license popup during exporting product to Angotia Resources Admins
