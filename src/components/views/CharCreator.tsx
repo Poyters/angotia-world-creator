@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { CharPanel } from '../partials/charPanel/CharPanel';
 import { CreditsFooter } from '../partials/CreditsFooter';
-import { Notifications } from '../partials/Notifications';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { CharCreatorForm } from '../partials/charCreator/CharCreatorForm';
@@ -30,7 +29,6 @@ export const CharCreator: React.FC = () => {
       <StatisticPanel />
       <CharSettingsPanel />
       <CreditsFooter />
-      <Notifications />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.char} />

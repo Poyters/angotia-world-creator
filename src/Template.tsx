@@ -16,6 +16,7 @@ import appConfig from './assets/configs/app.config.json';
 import { IRouteProps, IMatchParams } from './interfaces/routing.interface';
 import { Icontent } from './interfaces/content.interface';
 import { MapCreationRules } from './components/views/MapCreationRules';
+import { Notifications } from './components/partials/Notifications';
 
 
 export let ContentContext;
@@ -44,6 +45,7 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
 
   return (
     <ContentContext.Provider value={content}>
+      <Notifications />
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

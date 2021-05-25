@@ -4,7 +4,6 @@ import { CreatorPanel } from '../partials/creatorPanel/CreatorPanel';
 import { FilesPanel } from '../partials/filesPanel/FilesPanel';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { Map } from '../partials/Map';
-import { Notifications } from '../partials/Notifications';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { MapSettingsPanel } from '../partials/creatorPanel/MapSettingsPanel';
@@ -43,7 +42,6 @@ export const MapCreator: React.FC = () => {
       <MapSettingsPanel />
       <Map />
       <CreditsFooter />
-      <Notifications />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.map} />
