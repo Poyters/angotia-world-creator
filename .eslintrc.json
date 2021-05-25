@@ -34,7 +34,7 @@
         "react/jsx-uses-react": 2,
         "react/jsx-uses-vars": 2,
         "react/react-in-jsx-scope": 2,
-        "@typescript-eslint/no-unused-vars": 2,
+        "@typescript-eslint/no-unused-vars": 1,
         "no-restricted-globals": 2,
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "no-case-declarations": 0,
