@@ -7,7 +7,7 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ## Changelog
 
-### Version 1.2.0 (24 June 2021)
+### Version 1.2.0 (22 June 2021)
 - AWC-282, Enable open specific map by id
 - AWC-258, Clear all data before create map or char
 - AWC-257, Optimize entry panel api requests. Decrease transferred data
@@ -21,7 +21,7 @@ To set up project on your personal computer you need to clone repository (`git c
 - Save production map id to external map file type, so we can update map by downloaded json file
 - Fix update map issue after first creation. Earlier, exported to Angotia map couldn't was updated till reload it
 - Protect before load invalid char and map, by JSON file or from production database
-- Create Creation Error system. Real-time map and char validation checker. It will be also used in case of Item AWC module
+- Create Creation Error system. Real-time map and char validation checker
 - Write a whole project documentation (product docs and for developers)
 - Fix not appearing images at first load (Firefox)
 - Fix canvas flashes after layer update
