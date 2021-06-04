@@ -17,6 +17,7 @@ import { IRouteProps, IMatchParams } from './interfaces/routing.interface';
 import { Icontent } from './interfaces/content.interface';
 import { MapCreationRules } from './components/views/MapCreationRules';
 import { Notifications } from './components/partials/Notifications';
+import { LoadRequestedMap } from './components/views/LoadRequestedMap';
 
 
 export let ContentContext;
@@ -66,6 +67,7 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
           <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
           <Route path={`/${paramLang}/${content.routes.features}`} component={Features} />
           <Route path={`/${paramLang}/${content.routes.mapCreationRules}`} component={MapCreationRules} />
+          <Route path={`/${paramLang}/load-req-map`} component={LoadRequestedMap} />
           <Route component={NotFound}/>
         </Switch>
       </Router>

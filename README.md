@@ -7,7 +7,8 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ## Changelog
 
-### Version 1.2.0 (planned June 2021)
+### Version 1.2.0 (24 June 2021)
+- AWC-282, Enable open specific map by id
 - AWC-258, Clear all data before create map or char
 - AWC-257, Optimize entry panel api requests. Decrease transferred data
 - AWC-263, Rewrite a whole load panel to the newest version of React and speed up loading entry panel
