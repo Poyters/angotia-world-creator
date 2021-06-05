@@ -6,6 +6,7 @@ import { ExportToProd } from './exportToProd/ExportToProd';
 import appConfig from '../../../assets/configs/app.config.json';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { MapPreview } from './MapPreview';
 
 
 export const Menu: React.FC<IApp> = ({ moduleType }) => {
@@ -34,6 +35,13 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 						</ul>
 					</nav>
 				</li>
+				{
+					moduleType === AppModules.map ? (
+						<li> 
+							<MapPreview />
+						</li>
+					) : null
+				}
 				<li>
 					<Link to={`/${lang}/${routes.help}`}>
 						{ menu?.help }

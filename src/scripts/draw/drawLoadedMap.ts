@@ -11,6 +11,8 @@ const blockSquaresColor = mapConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
   const storeData = store.getState() as IStore;
+  console.log('storeData', storeData);
+  
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
   const buildingMatrix = deepCopy(storeData.map.building.matrix);
