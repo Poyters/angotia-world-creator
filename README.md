@@ -7,7 +7,8 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ## Changelog
 
-### Version 1.2.0 (22 June 2021)
+### Version 1.2.0 (21 June 2021)
+- AWC-285, Enable open characters by opening special AWC url
 - AWC-282, Enable open specific map by id
 - AWC-258, Clear all data before create map or char
 - AWC-257, Optimize entry panel api requests. Decrease transferred data

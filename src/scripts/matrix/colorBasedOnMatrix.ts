@@ -7,7 +7,7 @@ import { findPicBlob } from '../utils/findPicBlob';
 import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
-import { ICachedImage, IInternalImageData } from '../../interfaces/images.interface';
+import { ICachedImage } from '../../interfaces/images.interface';
 
 
 const fieldSize: number = mapConfig.map.fieldSize;
@@ -19,12 +19,12 @@ export const colorBasedOnMatrix = (
   canvasId: string,
   color: string,
   specialView?: string
-): void => {
+) => {
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
   const canvas: any = document.getElementById(canvasId);
   const ctx = canvas.getContext("2d");
   const storeData = store.getState() as IStore;
-  const internalImages: IInternalImageData[] = storeData.map.images;
+  const internalImages = storeData.map.images;
 
   copyOfmatrix.forEach((yAxis: Array<number>, y: number) => {
     yAxis.forEach((field: number, x: number) => {
@@ -55,7 +55,7 @@ export const colorBasedOnMatrix = (
               break;
             case MatrixFillColor.image:
               let image: HTMLImageElement;
-              const foundImage: ICachedImage[] = cachedImages.filter(imageData => {
+              const foundImage = cachedImages.filter(imageData => {
                 return imageData.id === square;
               });
               
@@ -82,7 +82,7 @@ export const colorBasedOnMatrix = (
               break;
             case MatrixFillColor.passage:
               let passagePic: HTMLImageElement;
-              const foundPassage: ICachedImage[] = cachedImages.filter(imageData => {
+              const foundPassage = cachedImages.filter(imageData => {
                 return imageData.id === MatrixFillColor.passage;
               });
               
