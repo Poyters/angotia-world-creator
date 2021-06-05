@@ -3,7 +3,7 @@ import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
 
 const link = new HttpLink({
-  uri: 'http://0.0.0.0:4000/graphiql',
+  uri: process.env.ANGOTIA_RESOURCES_URL,
 });
 
 export const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
