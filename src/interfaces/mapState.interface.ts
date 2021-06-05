@@ -41,4 +41,4 @@ export interface IMapState {
     }
     visibilityRange: number,
     images: IInternalImageData[]
-};
+}

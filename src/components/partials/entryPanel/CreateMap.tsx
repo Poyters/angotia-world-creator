@@ -11,6 +11,7 @@ import { deepCopy } from '../../../scripts/utils/deepCopy';
 import { loadMapData } from '../../../store/actions/mapActions';
 import mapConfig from '../../../assets/configs/map.config.json';
 import { IMapState } from '../../../interfaces/mapState.interface';
+import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
 
 export const CreateMap: React.FC = () => {
   const { lang, routes } = useContext(ContentContext);
@@ -55,10 +56,20 @@ export const CreateMap: React.FC = () => {
   const createMap = () => {
     const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
     const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
+    const newEmptyMatrix = generateEmptyMatrix();
 
     setValMess("");
     emptyMapState.size.x = mapSizeX;
     emptyMapState.size.y = mapSizeY;
+    emptyMapState.blockMatrix = deepCopy(newEmptyMatrix);
+    emptyMapState.passage.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.building.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.decoration.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.subsoil.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.npc.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.mob.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.se.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.vertex.matrix = deepCopy(newEmptyMatrix);
 
     dispatch(loadMapData(emptyMapState));
     setRedirect(routes.creator);
