@@ -18,15 +18,11 @@ export const createMapBlob = async () => {
 
   
   const mapSize = deepCopy(storeData.map.size);
-  console.log('sizes', mapSize.x, mapConfig.map.fieldSize);
   mapSize.x = mapSize.x * mapConfig.map.fieldSize;
   mapSize.y = mapSize.y * mapConfig.map.fieldSize;
-  console.log('mapSize', mapSize);
 
   const combinedLayers = combineCanvases(layersList, mapSize);
-  console.log('combinedLayers', combinedLayers);
   const combinedLayersImage = await createAnImageSafely(combinedLayers);
-  console.log('combinedLayersImage', combinedLayersImage);
 
   const mapCanvas = document.createElement('canvas');
   mapCanvas.width = mapSize.x;

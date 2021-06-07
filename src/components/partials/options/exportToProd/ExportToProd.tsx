@@ -99,12 +99,10 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
         }
 
         if (map.data) { // Map already exists id database
-          console.log('update');
           delete externalMapData._id;
           updateMap({ variables: { id: mapData.id, ...externalMapData } });
           addNotification('Succesfully updated map');
         } else { // Map doest't exists yet
-          console.log('adding');
           addMap({ variables: { ...externalMapData } });
           addNotification('Succesfully added a new map to Angotia');
         }

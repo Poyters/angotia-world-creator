@@ -56,7 +56,10 @@ export const CreateMap: React.FC = () => {
   const createMap = () => {
     const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
     const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
-    const newEmptyMatrix = generateEmptyMatrix();
+    const newEmptyMatrix = generateEmptyMatrix({
+      x: mapSizeX,
+      y: mapSizeY
+    });
 
     setValMess("");
     emptyMapState.size.x = mapSizeX;
