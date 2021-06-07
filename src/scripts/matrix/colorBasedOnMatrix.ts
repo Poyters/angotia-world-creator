@@ -20,7 +20,6 @@ export const colorBasedOnMatrix = (
   color: string,
   specialView?: string
 ) => {
-  console.log('canvasId', canvasId);
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
   const canvas: any = document.getElementById(canvasId);
   const ctx = canvas.getContext("2d");
@@ -64,7 +63,7 @@ export const colorBasedOnMatrix = (
               if (foundImage.length === 1) {
                 image = foundImage[0].object;
               } else {
-                image = makeImage(findPicBlob(square, internalImages)); //square is path to image
+                image = makeImage(findPicBlob(square, internalImages) || ''); //square is path to image
                 image.onload = () => {
                   cachedImages.push({
                     id: square,
