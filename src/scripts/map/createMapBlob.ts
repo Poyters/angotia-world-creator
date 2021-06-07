@@ -16,7 +16,6 @@ export const createMapBlob = async () => {
     Canvas.decoration
   ];
 
-  
   const mapSize = deepCopy(storeData.map.size);
   mapSize.x = mapSize.x * mapConfig.map.fieldSize;
   mapSize.y = mapSize.y * mapConfig.map.fieldSize;

@@ -18,6 +18,7 @@ export const createAnImageSafely = async (blob: string) => {
     const image = await makeImagePromise(blob);
     return image as HTMLImageElement;
   } catch (error) {
-    console.error(error);
+    console.error('Cannot make image', error);
+    return null;
   }
 };

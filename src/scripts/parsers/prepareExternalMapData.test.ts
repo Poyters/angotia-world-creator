@@ -228,189 +228,189 @@ describe("prepareExternalMapData script", () => {
 		expect(typeof prepareExternalMapData).toBe('function');
   });
 
-	// it("Check valid data", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-	// 	expect(isValidExternalMapData(externalData)).toBe(true);
-  // });
+	it("Check valid data", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+		expect(isValidExternalMapData(externalData)).toBe(true);
+  }, 6000);
 
-  // it("Check valid data; block matrix", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   const renderedContentList = externalData.block_matrix;
+  it("Check valid data; block matrix", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    const renderedContentList = externalData.block_matrix;
 
-  //   expect(typeof externalData.block_matrix).toBe('object');
-  //   expect(Array.isArray(externalData.block_matrix.items)).toBe(true);
-  //   expect(Array.isArray(externalData.block_matrix.pics)).toBe(true);
+    expect(typeof externalData.block_matrix).toBe('object');
+    expect(Array.isArray(externalData.block_matrix.items)).toBe(true);
+    expect(Array.isArray(externalData.block_matrix.pics)).toBe(true);
 
-  //   expect(renderedContentList.pics.length).toEqual(0);
-  //   expect(renderedContentList.items.length).toEqual(1);
-  //   expect(renderedContentList.items[0].x).toEqual(1);
-  //   expect(renderedContentList.items[0].y).toEqual(1);
-  //   expect(renderedContentList.items[0].xShift).toEqual(1);
-  //   expect(renderedContentList.items[0].yShift).toEqual(0);
-  //   expect(renderedContentList.items[0].value).toEqual('1');
-  // });
+    expect(renderedContentList.pics.length).toEqual(0);
+    expect(renderedContentList.items.length).toEqual(1);
+    expect(renderedContentList.items[0].x).toEqual(1);
+    expect(renderedContentList.items[0].y).toEqual(1);
+    expect(renderedContentList.items[0].xShift).toEqual(1);
+    expect(renderedContentList.items[0].yShift).toEqual(0);
+    expect(renderedContentList.items[0].value).toEqual('1');
+  });
 
-  // it("Check valid data; size", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.size.x).toEqual(3);
-  //   expect(externalData.size.y).toEqual(3);
-  // });
+  it("Check valid data; size", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.size.x).toEqual(3);
+    expect(externalData.size.y).toEqual(3);
+  });
 
-  // it("Check valid data; _id", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData._id).toEqual('05fe7586-f0dc-4265-ad9d-3fef4017a479');
-  // });
+  it("Check valid data; _id", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData._id).toEqual('05fe7586-f0dc-4265-ad9d-3fef4017a479');
+  });
 
-  // it("Check valid data; map name", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.map_name).toBe('example-map');
-  // });
+  it("Check valid data; map name", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.map_name).toBe('example-map');
+  });
 
-  // it("Check valid data; map pic", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.map_pic).toBe('map pic path');
-  // });
+  it("Check valid data; map pic", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.map_pic).toBe('map pic path');
+  });
 
-  // it("Check valid data; visibility range", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.visibility_range).toBe(8);
-  // });
+  it("Check valid data; visibility range", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.visibility_range).toBe(8);
+  });
 
-  // it("Check valid data; description", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.description).toBe('example map desc');
-  // });
+  it("Check valid data; description", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.description).toBe('example map desc');
+  });
 
-  // it("Check valid data; min entry level", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.min_entry_level).toBe(0);
-  // });
+  it("Check valid data; min entry level", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.min_entry_level).toBe(0);
+  });
 
-  // it("Check valid data; se", () => {  
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.se.items).toEqual(seContentList.items);
-  //   expect(externalData.se.pics).toEqual(seContentList.pics);
-  // });
+  it("Check valid data; se", async () => {  
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.se.items).toEqual(seContentList.items);
+    expect(externalData.se.pics).toEqual(seContentList.pics);
+  });
 
-  // it("Check valid data; building", () => {  
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   expect(externalData.building.items).toEqual(buildingContentList.items);
-  //   expect(externalData.building.pics).toEqual(buildingContentList.pics);
-  // });
+  it("Check valid data; building", async () => {  
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    expect(externalData.building.items).toEqual(buildingContentList.items);
+    expect(externalData.building.pics).toEqual(buildingContentList.pics);
+  });
 
-  // it("Check valid data; decoration", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   const renderedContentList = externalData.decoration;
-  //   const picItem = renderedContentList?.pics[0];
+  it("Check valid data; decoration", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    const renderedContentList = externalData.decoration;
+    const picItem = renderedContentList?.pics[0];
 
-  //   expect(renderedContentList?.pics.length).toEqual(1);
-  //   expect(renderedContentList?.items.length).toEqual(2);
-  //   expect(renderedContentList?.items[0].x).toEqual(0);
-  //   expect(renderedContentList?.items[0].y).toEqual(0);
-  //   expect(renderedContentList?.items[0].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[0].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[1].x).toEqual(0);
-  //   expect(renderedContentList?.items[1].y).toEqual(1);
-  //   expect(renderedContentList?.items[1].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[1].yShift).toEqual(0);
-  //   expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblob');
-  //   expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
-  //   expect(renderedContentList?.items[1].value).toEqual(`picId=${picItem._id}`);
-  // });
+    expect(renderedContentList?.pics.length).toEqual(1);
+    expect(renderedContentList?.items.length).toEqual(2);
+    expect(renderedContentList?.items[0].x).toEqual(0);
+    expect(renderedContentList?.items[0].y).toEqual(0);
+    expect(renderedContentList?.items[0].xShift).toEqual(0);
+    expect(renderedContentList?.items[0].yShift).toEqual(0);
+    expect(renderedContentList?.items[1].x).toEqual(0);
+    expect(renderedContentList?.items[1].y).toEqual(1);
+    expect(renderedContentList?.items[1].xShift).toEqual(0);
+    expect(renderedContentList?.items[1].yShift).toEqual(0);
+    expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblob');
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
+    expect(renderedContentList?.items[1].value).toEqual(`picId=${picItem._id}`);
+  });
 
-  // it("Check valid data; subsoil", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   const renderedContentList = externalData.subsoil;
-  //   const picItem = renderedContentList?.pics[0];
+  it("Check valid data; subsoil", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    const renderedContentList = externalData.subsoil;
+    const picItem = renderedContentList?.pics[0];
 
-  //   expect(renderedContentList?.pics.length).toEqual(1);
-  //   expect(renderedContentList?.items.length).toEqual(1);
-  //   expect(renderedContentList?.items[0].x).toEqual(1);
-  //   expect(renderedContentList?.items[0].y).toEqual(1);
-  //   expect(renderedContentList?.items[0].xShift).toEqual(1);
-  //   expect(renderedContentList?.items[0].yShift).toEqual(0);
-  //   expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
-  //   expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
-  // });
+    expect(renderedContentList?.pics.length).toEqual(1);
+    expect(renderedContentList?.items.length).toEqual(1);
+    expect(renderedContentList?.items[0].x).toEqual(1);
+    expect(renderedContentList?.items[0].y).toEqual(1);
+    expect(renderedContentList?.items[0].xShift).toEqual(1);
+    expect(renderedContentList?.items[0].yShift).toEqual(0);
+    expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
+  });
 
-  // it("Check valid data; npc", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   const renderedContentList = externalData.npc;
-  //   const picItem = renderedContentList?.pics[0];
+  it("Check valid data; npc", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    const renderedContentList = externalData.npc;
+    const picItem = renderedContentList?.pics[0];
 
-  //   expect(renderedContentList?.pics.length).toEqual(1);
-  //   expect(renderedContentList?.items.length).toEqual(1);
-  //   expect(renderedContentList?.items[0].x).toEqual(1);
-  //   expect(renderedContentList?.items[0].y).toEqual(1);
-  //   expect(renderedContentList?.items[0].xShift).toEqual(1);
-  //   expect(renderedContentList?.items[0].yShift).toEqual(0);
-  //   expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
-  //   expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
-  // });
+    expect(renderedContentList?.pics.length).toEqual(1);
+    expect(renderedContentList?.items.length).toEqual(1);
+    expect(renderedContentList?.items[0].x).toEqual(1);
+    expect(renderedContentList?.items[0].y).toEqual(1);
+    expect(renderedContentList?.items[0].xShift).toEqual(1);
+    expect(renderedContentList?.items[0].yShift).toEqual(0);
+    expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
+    expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
+  });
 
-  // it("Check valid data; mob ", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
-  //   const renderedContentList = externalData.mob;
-  //   const picId1 = renderedContentList?.pics[0]._id;
-  //   const picId2 = renderedContentList?.pics[1]._id;
+  it("Check valid data; mob ", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
+    const renderedContentList = externalData.mob;
+    const picId1 = renderedContentList?.pics[0]._id;
+    const picId2 = renderedContentList?.pics[1]._id;
 
-  //   expect(renderedContentList?.pics.length).toEqual(2);
-  //   expect(renderedContentList?.items.length).toEqual(8);
-  //   expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
-  //   expect(renderedContentList?.pics[1].blob).toEqual('data:image/picblobexample2');
+    expect(renderedContentList?.pics.length).toEqual(2);
+    expect(renderedContentList?.items.length).toEqual(8);
+    expect(renderedContentList?.pics[0].blob).toEqual('data:image/picblobexample');
+    expect(renderedContentList?.pics[1].blob).toEqual('data:image/picblobexample2');
 
-  //   expect(renderedContentList?.items[0].x).toEqual(0);
-  //   expect(renderedContentList?.items[0].y).toEqual(0);
-  //   expect(renderedContentList?.items[0].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[0].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[0].value).toEqual('1');
+    expect(renderedContentList?.items[0].x).toEqual(0);
+    expect(renderedContentList?.items[0].y).toEqual(0);
+    expect(renderedContentList?.items[0].xShift).toEqual(0);
+    expect(renderedContentList?.items[0].yShift).toEqual(0);
+    expect(renderedContentList?.items[0].value).toEqual('1');
 
-  //   expect(renderedContentList?.items[1].x).toEqual(0);
-  //   expect(renderedContentList?.items[1].y).toEqual(1);
-  //   expect(renderedContentList?.items[1].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[1].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[1].value).toEqual('1');
+    expect(renderedContentList?.items[1].x).toEqual(0);
+    expect(renderedContentList?.items[1].y).toEqual(1);
+    expect(renderedContentList?.items[1].xShift).toEqual(0);
+    expect(renderedContentList?.items[1].yShift).toEqual(0);
+    expect(renderedContentList?.items[1].value).toEqual('1');
 
-  //   expect(renderedContentList?.items[2].x).toEqual(1);
-  //   expect(renderedContentList?.items[2].y).toEqual(1);
-  //   expect(renderedContentList?.items[2].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[2].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[2].value).toEqual(`picId=${picId1}`);
+    expect(renderedContentList?.items[2].x).toEqual(1);
+    expect(renderedContentList?.items[2].y).toEqual(1);
+    expect(renderedContentList?.items[2].xShift).toEqual(0);
+    expect(renderedContentList?.items[2].yShift).toEqual(0);
+    expect(renderedContentList?.items[2].value).toEqual(`picId=${picId1}`);
 
-  //   expect(renderedContentList?.items[3].x).toEqual(1);
-  //   expect(renderedContentList?.items[3].y).toEqual(1);
-  //   expect(renderedContentList?.items[3].xShift).toEqual(1);
-  //   expect(renderedContentList?.items[3].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[3].value).toEqual(`picId=${picId1}`);
+    expect(renderedContentList?.items[3].x).toEqual(1);
+    expect(renderedContentList?.items[3].y).toEqual(1);
+    expect(renderedContentList?.items[3].xShift).toEqual(1);
+    expect(renderedContentList?.items[3].yShift).toEqual(0);
+    expect(renderedContentList?.items[3].value).toEqual(`picId=${picId1}`);
 
-  //   expect(renderedContentList?.items[4].x).toEqual(1);
-  //   expect(renderedContentList?.items[4].y).toEqual(1);
-  //   expect(renderedContentList?.items[4].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[4].yShift).toEqual(1);
-  //   expect(renderedContentList?.items[4].value).toEqual(`picId=${picId1}`);
+    expect(renderedContentList?.items[4].x).toEqual(1);
+    expect(renderedContentList?.items[4].y).toEqual(1);
+    expect(renderedContentList?.items[4].xShift).toEqual(0);
+    expect(renderedContentList?.items[4].yShift).toEqual(1);
+    expect(renderedContentList?.items[4].value).toEqual(`picId=${picId1}`);
 
-  //   expect(renderedContentList?.items[5].x).toEqual(1);
-  //   expect(renderedContentList?.items[5].y).toEqual(1);
-  //   expect(renderedContentList?.items[5].xShift).toEqual(1);
-  //   expect(renderedContentList?.items[5].yShift).toEqual(1);
-  //   expect(renderedContentList?.items[5].value).toEqual(`picId=${picId1}`);
+    expect(renderedContentList?.items[5].x).toEqual(1);
+    expect(renderedContentList?.items[5].y).toEqual(1);
+    expect(renderedContentList?.items[5].xShift).toEqual(1);
+    expect(renderedContentList?.items[5].yShift).toEqual(1);
+    expect(renderedContentList?.items[5].value).toEqual(`picId=${picId1}`);
 
-  //   expect(renderedContentList?.items[6].x).toEqual(2);
-  //   expect(renderedContentList?.items[6].y).toEqual(1);
-  //   expect(renderedContentList?.items[6].xShift).toEqual(0);
-  //   expect(renderedContentList?.items[6].yShift).toEqual(0);
-  //   expect(renderedContentList?.items[6].value).toEqual('rafi jest git');
+    expect(renderedContentList?.items[6].x).toEqual(2);
+    expect(renderedContentList?.items[6].y).toEqual(1);
+    expect(renderedContentList?.items[6].xShift).toEqual(0);
+    expect(renderedContentList?.items[6].yShift).toEqual(0);
+    expect(renderedContentList?.items[6].value).toEqual('rafi jest git');
 
-  //   expect(renderedContentList?.items[7].x).toEqual(2);
-  //   expect(renderedContentList?.items[7].y).toEqual(2);
-  //   expect(renderedContentList?.items[7].xShift).toEqual(1);
-  //   expect(renderedContentList?.items[7].yShift).toEqual(1);
-  //   expect(renderedContentList?.items[7].value).toEqual(`picId=${picId2}`);
-  // });
+    expect(renderedContentList?.items[7].x).toEqual(2);
+    expect(renderedContentList?.items[7].y).toEqual(2);
+    expect(renderedContentList?.items[7].xShift).toEqual(1);
+    expect(renderedContentList?.items[7].yShift).toEqual(1);
+    expect(renderedContentList?.items[7].value).toEqual(`picId=${picId2}`);
+  });
 
-  // it("Check if added author", () => {
-  //   const externalData = prepareExternalMapData(validInternalMapData);
+  it("Check if added author", async () => {
+    const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
 
-  //   expect(typeof externalData.author).toBe('string');
-  // });
+    expect(typeof externalData.author).toBe('string');
+  });
 });
