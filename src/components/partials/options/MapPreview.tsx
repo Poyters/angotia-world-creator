@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import { createMapBlob } from '../../../scripts/map/createMapBlob';
 import { MapPreviewPopup } from './MapPreviewPopup';
 
 export const MapPreview = () => {
-  const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
-  const [mapBlob, setMapBlob] = useState<string>('');
-
-  const preview = async () => {
-    const previewBlob = await createMapBlob();
-    setMapBlob(previewBlob);
-    setIsActiveLoadPopup(true);
-  };
+  const [isActiveLoadPopup, setIsActiveLoadPopup] = useState(false);
 
   return (
     <>
       { isActiveLoadPopup ? ReactDOM.createPortal(
-        <MapPreviewPopup isActivePopup={setIsActiveLoadPopup} mapBlob={mapBlob} />, document.body
+        <MapPreviewPopup isActivePopup={setIsActiveLoadPopup} />, document.body
       ) : null}
       <span
-        onClick={() => preview()}
+        onClick={() => setIsActiveLoadPopup(true)}
       > 
         Preview
       </span>

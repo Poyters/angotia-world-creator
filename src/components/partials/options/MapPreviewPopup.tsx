@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { IPopup } from '../../../interfaces/popup.interface';
+import { createMapBlob } from '../../../scripts/map/createMapBlob';
 
-interface IMapBlob {
-  mapBlob: string
-}
+export const MapPreviewPopup = ({ isActivePopup }: IPopup) => {
+  const [mapBlob, setMapBlob] = useState<string>('');
 
-export const MapPreviewPopup = ({ isActivePopup, mapBlob }: IPopup & IMapBlob) => {
+  useEffect(() => {
+    preview();
+  }, []);
+
+  const preview = async () => {
+    const previewBlob = await createMapBlob();
+    setMapBlob(previewBlob);
+  };
+
   return (
     <div className="g-container g-container--popup">
       <div role="alert" className="insertPopup">
@@ -16,7 +24,13 @@ export const MapPreviewPopup = ({ isActivePopup, mapBlob }: IPopup & IMapBlob) =
         <header className="insertPopup__header t-paragraph3Light">
           Map preview
         </header>
-        <img src={mapBlob} />
+        <div className="insertPopup__imageContainer">
+          {
+            !mapBlob ? (
+              <p> Loading... </p>
+            ): <img src={mapBlob} />
+          }
+        </div>
       </div>
     </div>
   );

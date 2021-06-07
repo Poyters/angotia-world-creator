@@ -77,6 +77,17 @@
         }
     }
 
+    &__imageContainer {
+        max-height: 500px;
+
+        overflow: auto;
+
+        & img {
+            max-width: 2000px;
+            max-height: 2000px;
+        }
+    }
+
     &--dialog {
         min-width: 450px;
         max-width: 700px;
