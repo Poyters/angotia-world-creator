@@ -3,9 +3,10 @@ import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { matrixToContentList } from './matrixToContentList';
 import { getUserId } from '../user/getUserId';
+import { createMapBlob } from '../map/createMapBlob';
 
 
-export const prepareExternalMapData = (mapData: IMapState | any) => {
+export const prepareExternalMapData = async (mapData: IMapState | any) => {
   const userId = getUserId() ?? '';
   let preparedMapData = deepCopy(mapData);
 
@@ -13,6 +14,7 @@ export const prepareExternalMapData = (mapData: IMapState | any) => {
   delete preparedMapData.internalId;
   delete preparedMapData.passage?.matrix;
   delete preparedMapData.vertex?.matrix;
+  preparedMapData.combinedLayersBlob = await createMapBlob();
 
   preparedMapData = camelCaseToUnderscore(preparedMapData);
 

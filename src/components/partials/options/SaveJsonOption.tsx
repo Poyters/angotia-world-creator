@@ -23,7 +23,7 @@ export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => 
   const charData = useSelector((state: IStore) => state.char);
   const charName = useSelector((state: IStore) => state.char.name);
 
-  const saveData = (): void => {
+  const saveData = async () => {
     switch(moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
@@ -31,7 +31,7 @@ export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => 
         addNotification('Succesfully saved character');
       break;
       case AppModules.map:
-        const externalMapData = prepareExternalMapData(mapData);
+        const externalMapData = await prepareExternalMapData(mapData);
         saveFile(JSON.stringify(externalMapData), `${mapName}.json`, 'text/json');
         addNotification('Succesfully saved map');
       break;
@@ -42,7 +42,7 @@ export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => 
 
   return (
     <span
-      onClick={(): void => saveData()}
+      onClick={() => saveData()}
     > 
       {text ? text : creator?.panel?.options?.save?.content}  
     </span>

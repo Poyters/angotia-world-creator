@@ -65,7 +65,7 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
     exportHandler();
   }, [isLicenseAccepted]);
 
-  const exportHandler = (): void => {
+  const exportHandler = async () => {
     switch (moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
@@ -88,7 +88,7 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
         }
         break;
       case AppModules.map:
-        const externalMapData = prepareExternalMapData(mapData);
+        const externalMapData = await prepareExternalMapData(mapData);
 
         if (map.error) {
           addNotification(`Expected error during checking existing map: ${map.error}`, Notification.error);
