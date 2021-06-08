@@ -70,5 +70,14 @@
   },
   "CREATED_MAP_BLOB": {
     "message": "Created map blob"
+  },
+  "SAVING_FILE": {
+    "message": "Saving file"
+  },
+  "CHECK_FILE_SIZE": {
+    "message": "Check file size"
+  },
+  "CHECK_FILE_SIZE_INVALID_FILE": {
+    "message": "Occured invalid file during checking size"
   }
 }
