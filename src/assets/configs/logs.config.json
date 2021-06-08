@@ -79,5 +79,32 @@
   },
   "CHECK_FILE_SIZE_INVALID_FILE": {
     "message": "Occured invalid file during checking size"
+  },
+  "FIND_CHAR_ERRORS": {
+    "message": "Find char errors"
+  },
+  "FIND_MAP_ERRORS": {
+    "message": "Find map errors"
+  },
+  "CREATING_AN_IMAGE_SAFELY": {
+    "message": "Creating an image safely"
+  },
+  "CREATING_AN_IMAGE_SAFELY_ERROR": {
+    "message": "Cannot create an image safely. An error occured"
+  },
+  "CREATED_SAFE_IMAGE": {
+    "message": "Created safe image"
+  },
+  "DRAWING_MAP_NET": {
+    "message": "Drawing a map net (grid)"
+  },
+  "DRAWED_MAP_NET": {
+    "message": "Drawed map net (grid)"
+  },
+  "DRAWING_LOADED_MAP": {
+    "message": "Drawing loaded map"
+  },
+  "DRAWED_LOADED_MAP": {
+    "message": "Drawed loaded map"
   }
 }

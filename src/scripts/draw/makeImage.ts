@@ -1,3 +1,5 @@
+import { log } from '../utils/log';
+
 export const makeImage = (blob: string): HTMLImageElement => {
   const image = new Image();
   image.src = blob;
@@ -14,11 +16,16 @@ const makeImagePromise = (blob: string) =>
   });
 
 export const createAnImageSafely = async (blob: string) => {
+  log('CREATING_AN_IMAGE_SAFELY');
+
   try {
     const image = await makeImagePromise(blob);
+    log('CREATED_SAFE_IMAGE');
+
     return image as HTMLImageElement;
   } catch (error) {
-    console.error('Cannot make image', error);
+    log('CREATING_AN_IMAGE_SAFELY_ERROR');
+
     return null;
   }
 };

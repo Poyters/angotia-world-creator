@@ -5,9 +5,12 @@ import errorSystemConfig from '../../assets/configs/errorSystem.config.json';
 import { MapCreationError } from '../../models/mapCreationError.model';
 import { changeMapCreationErrors } from '../../store/actions/uiActions';
 import { countElementsInMatrix } from '../matrix/countElementsInMatrix';
+import { log } from '../utils/log';
 
 
 export const findMapErrors = (): void => {
+  log('FIND_MAP_ERRORS');
+
   const storeData = store.getState() as IStore;
   const mapState: IMapState = storeData.map;
   const squareQuantity: number = mapState.size.x * mapState.size.y * 4;

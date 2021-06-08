@@ -4,9 +4,12 @@ import { ICharState } from '../../interfaces/charState.interface';
 import errorSystemConfig from '../../assets/configs/errorSystem.config.json';
 import { CharCreationError } from '../../models/charCreationError.model';
 import { changeCharCreationErrors } from '../../store/actions/uiActions';
+import { log } from '../utils/log';
 
 
 export const findCharErrors = (): void => {
+  log('FIND_CHAR_ERRORS');
+
   const storeData = store.getState() as IStore;
   const charState: ICharState = storeData.char;
   const occuredErrors: string[] = [];

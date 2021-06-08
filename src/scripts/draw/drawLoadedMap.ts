@@ -5,11 +5,14 @@ import { deepCopy } from '../utils/deepCopy';
 import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
+import { log } from '../utils/log';
 
 
 const blockSquaresColor = mapConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
+  log('DRAWING_LOADED_MAP');
+
   const storeData = store.getState() as IStore;
   
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
@@ -93,4 +96,6 @@ export const drawLoadedMap = () => {
     '', 
     MatrixFillColor.image
   );
+
+  log('DRAWED_LOADED_MAP');
 };
