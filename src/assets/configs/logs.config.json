@@ -112,5 +112,17 @@
   },
   "DIALOG_HAS_INVALID_CONDITIONS": {
     "message": "Check if dialog has invalid conditions"
+  },
+  "CLEAR_CANVAS": {
+    "message": "Clear canvas"
+  },
+  "COMBINE_CANVASES_START": {
+    "message": "Canvases began to be joined"
+  },
+  "COMBINE_CANVASES_END": {
+    "message": "Canvases were combined"
+  },
+  "CLEAR_CANVAS_CONTEXT": {
+    "message": "Clear canvas context"
   }
 }

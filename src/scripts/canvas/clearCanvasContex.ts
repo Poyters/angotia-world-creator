@@ -1,8 +1,13 @@
-export const emptyMapCanvasCtx = (canvasId: string) => {
+import { log } from '../utils/log';
+
+
+export const clearCanvasContex = (canvasId: string) => {
+	log('CLEAR_CANVAS_CONTEXT');
+
 	const canvas: any = document.getElementById(canvasId);
 	if (!canvas) return;
 
-	const context: any = canvas.getContext("2d");
+	const context = canvas.getContext("2d");
 
 	context.save();
 	context.setTransform(1, 0, 0, 1, 0, 0);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { drawMapNet } from '../../../scripts/draw/drawMapNet';
-import { emptyMapCanvasCtx } from '../../../scripts/canvas/emptyMapCanvasCtx';
+import { clearCanvasContex } from '../../../scripts/canvas/clearCanvasContex';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';
 import { ContentContext } from '../../../Template';
@@ -21,7 +21,7 @@ export const NetOption = (props: {
   };
 
   useEffect((): void => {
-    const ctx: any = emptyMapCanvasCtx(Canvas.base);
+    const ctx: any = clearCanvasContex(Canvas.base);
     if (!ctx) return;
 
     switch(optionViewType) {

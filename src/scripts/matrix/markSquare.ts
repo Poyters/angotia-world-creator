@@ -1,7 +1,7 @@
 import { store } from '../../index';
 import { colorBasedOnMatrix } from './colorBasedOnMatrix';
 import { clearCanvas } from '../canvas/clearCanvas';
-import { emptyMapCanvasCtx } from '../canvas/emptyMapCanvasCtx';
+import { clearCanvasContex } from '../canvas/clearCanvasContex';
 import { addNotification } from '../utils/notifications';
 import { updateMatrixByTheOther } from './updateMatrixByTheOther';
 import { deepCopy } from '../utils/deepCopy';
@@ -46,7 +46,7 @@ export const markSquare = (
   store.dispatch(changeMatrixMethod(newMatrix));
   clearCanvas(Canvas.select, changeMapSelectMatrix);
 
-  emptyMapCanvasCtx(sourceMatrixCanvas);
+  clearCanvasContex(sourceMatrixCanvas);
   colorBasedOnMatrix(newMatrix, sourceMatrixCanvas, fillColor, fillStyle);
 
   if (note) addNotification(note);

@@ -1,7 +1,10 @@
 import { IPoint } from '../../interfaces/math.interface';
+import { log } from '../utils/log';
 
 
 export const combineCanvases = (canvasList: string[], mapSize: IPoint) => {
+  log('COMBINE_CANVASES_START');
+
   const canvases = canvasList.map(canvas => {
     return document.getElementById(canvas) as HTMLCanvasElement;
   });
@@ -16,5 +19,6 @@ export const combineCanvases = (canvasList: string[], mapSize: IPoint) => {
     destinationContext?.drawImage(canvas, 0, 0);
   }
 
+  log('COMBINE_CANVASES_END');
   return destinationCanvas.toDataURL();
 };
