@@ -5,9 +5,11 @@ import uuid from 'uuid/v4';
 import { IStore } from '../../interfaces/store.interface';
 import { IInternalImageData } from '../../interfaces/images.interface';
 import { MapPicData } from '../../models/mapPicData.model';
+import { log } from '../utils/log';
 
 
 export const addInternalImagesData = (blob: string): string => {
+  log('ADD_INTERNAL_IMAGES_DATA');
   const storeData: IStore = store.getState();
   const imagesData: IInternalImageData[] = deepCopy(storeData.map.images);
 

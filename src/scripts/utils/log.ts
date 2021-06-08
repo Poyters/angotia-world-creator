@@ -4,7 +4,6 @@ import { isEmptyObject } from "./isEmptyObject";
 import { Log } from "../../models/log.model";
 
 export const log = (logId: string, additionalData = {}) => {
-  console.log('process.env.REACT_APP_APPLICATION_LOGS', process.env.REACT_APP_APPLICATION_LOGS, Log.enabled);
   if (process.env.REACT_APP_APPLICATION_LOGS !== Log.enabled) return;
 
   const logMessage = logsConfig?.[logId]?.message;

@@ -13,5 +13,11 @@
   },
   "IS_LOCATION_VALID": {
     "message": "Checked if location is valid"
+  },
+  "FIND_PIC_BLOB": {
+    "message": "Finding picture blob inside internal images data..."
+  },
+  "ADD_INTERNAL_IMAGES_DATA": {
+    "message": "Adding picture blob to internal images data..."
   }
 }
