@@ -1,7 +1,10 @@
 import mapConfig from '../../assets/configs/map.config.json';
+import { log } from '../utils/log';
 
 
 export const isValidExternalMapData = (data: any): boolean => {
+  let result = true;
+
   if (
     !data ||
     Array.isArray(data) ||
@@ -31,7 +34,9 @@ export const isValidExternalMapData = (data: any): boolean => {
     data.mob === null ||
     data.se === null ||
     data.vertex === null
-  ) return false;
+  ) result = false;
 
-  return true;
+  log("IS_VALID_EXTERNAL_MAP_DATA", { result });
+
+  return result;
 };

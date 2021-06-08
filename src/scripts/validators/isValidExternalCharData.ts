@@ -1,7 +1,10 @@
 import { ChoosedChar } from '../../models/choosedChar.model';
+import { log } from '../utils/log';
 
 
 export const isValidExternalCharData = (data: any): boolean => {
+  let result = true;
+
   if (
     Array.isArray(data) ||
     !data?.name ||
@@ -68,7 +71,9 @@ export const isValidExternalCharData = (data: any): boolean => {
       data?.settings?.resp_time?.min < 0 ||
       data?.settings?.resp_time?.max > 999999
     )
-  ) return false;
+  ) result = false;
 
-  return true;
+  log("IS_VALID_EXTERNAL_CHAR_DATA", { result });
+
+  return result;
 };

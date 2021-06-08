@@ -1,0 +1,17 @@
+{
+  "UNKNOWN_LOG": {
+    "message": "Unknown log"
+  },
+  "IS_EMPTY_MATRIX": {
+    "message": "Checked if matrix is empty"
+  },
+  "IS_VALID_EXTERNAL_CHAR_DATA": {
+    "message": "Checked if external char data is valid"
+  },
+  "IS_VALID_EXTERNAL_MAP_DATA": {
+    "message": "Checked if external map data is valid"
+  },
+  "IS_LOCATION_VALID": {
+    "message": "Checked if location is valid"
+  }
+}
