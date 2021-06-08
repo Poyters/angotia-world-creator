@@ -5,6 +5,7 @@ export const CREATE_REQ_MAP = gql`
   mutation CreateRequestedMap(
     $description: String
     $min_entry_level: Int
+    $combined_layers_blob: String
     $author: String
     $map_name: String
     $map_pic: String
@@ -38,7 +39,8 @@ export const CREATE_REQ_MAP = gql`
       mob: $mob,
       se: $se,
       block_matrix: $block_matrix,
-      vertex: $vertex
+      vertex: $vertex,
+      combined_layers_blob: $combined_layers_blob
     }) {
       id
     }

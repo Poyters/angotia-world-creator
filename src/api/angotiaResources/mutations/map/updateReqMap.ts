@@ -8,6 +8,7 @@ export const UPDATE_REQ_MAP = gql`
     $min_entry_level: Int
     $map_name: String
     $map_pic: String
+    $combined_layers_blob: String
     $visibility_range: Int
     $size: InputRequestedSize
     $passage: InputRequestedPassage
@@ -35,7 +36,8 @@ export const UPDATE_REQ_MAP = gql`
       mob: $mob,
       se: $se,
       block_matrix: $block_matrix,
-      vertex: $vertex
+      vertex: $vertex,
+      combined_layers_blob: $combined_layers_blob
     }) {
       id,
       map_name,
