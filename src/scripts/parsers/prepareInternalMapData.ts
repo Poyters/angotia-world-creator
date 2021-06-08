@@ -26,13 +26,14 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   internalData.passage.matrix = locationListToMatrix(internalData.passage.locations, mapSize);
   internalData.vertex.matrix = locationListToMatrix(internalData.vertex.weights, mapSize);
 
-  internalData.images = [];
-  internalData.images.push(...internalData.building.pics);
-  internalData.images.push(...internalData.decoration.pics);
-  internalData.images.push(...internalData.subsoil.pics);
-  internalData.images.push(...internalData.npc.pics);
-  internalData.images.push(...internalData.mob.pics);
-  internalData.images.push(...internalData.se.pics);
+  internalData.images = [
+    ...internalData.building.pics,
+    ...internalData.decoration.pics,
+    ...internalData.subsoil.pics,
+    ...internalData.npc.pics,
+    ...internalData.mob.pics,
+    ...internalData.se.pics
+  ];
 
   delete internalData.building.items;
   delete internalData.building.pics;

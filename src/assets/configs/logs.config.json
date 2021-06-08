@@ -26,11 +26,11 @@
   "GOT_USER_ID": {
     "message": "Got user id"
   },
+  "CREATE_INTERNAL_IMAGE_DATA": {
+    "message": "Not found saved image. Create internal image data"
+  },
   "FORCE_GET_USER_ID": {
     "message": "Force getting user id..."
-  },
-  "PARSING_CAMELCASE_TO_UNDERSCORE": {
-    "message": "Parsing camelcase to underscore..."
   },
   "PARSING_CONTENT_LIST_TO_MATRIX": {
     "message": "Parsing content list to matrix..."

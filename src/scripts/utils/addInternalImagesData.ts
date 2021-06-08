@@ -19,6 +19,7 @@ export const addInternalImagesData = (blob: string): string => {
     }
   }
 
+  log('CREATE_INTERNAL_IMAGE_DATA');
   const newImageInstance: IInternalImageData = {
     id: uuid(),
     blob

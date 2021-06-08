@@ -1,10 +1,7 @@
 import { deepCopy } from '../utils/deepCopy';
-import { log } from '../utils/log';
 
 
 export const camelCaseToUnderscore = (obj: any): any => {
-  log('PARSING_CAMELCASE_TO_UNDERSCORE');
-
   if (typeof obj !== "object") return obj;
 
   const objCopy: any = deepCopy(obj);

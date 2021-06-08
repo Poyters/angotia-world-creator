@@ -1,4 +1,4 @@
 export enum MapPicData {
   suffix = 'picId=',
-  missingBlobl = 'ERROR - MISSING BLOB'
+  missingBlob = 'ERROR - MISSING BLOB'
 }

@@ -47,11 +47,11 @@ export const matrixToContentList = (matrix: any, internalImages: IInternalImageD
             }
 
             if (!found) {
-              const foundBlob: string | null = findPicBlob(square, internalImages);
+              const foundBlob = findPicBlob(square, internalImages);
 
               const newPicItem: IContentPic = {
                 _id: transformedSquare,
-                blob: foundBlob ? foundBlob : MapPicData.missingBlobl
+                blob: foundBlob ? foundBlob : MapPicData.missingBlob
               };
 
               contentList.pics.push(newPicItem);

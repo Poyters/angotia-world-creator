@@ -1,4 +1,4 @@
-import { IContentList, IContentPic } from '../../interfaces/contentList.interface';
+import { IContentList } from '../../interfaces/contentList.interface';
 import { IMapSize } from '../../interfaces/map.interface';
 import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
 import { addInternalImagesData } from '../utils/addInternalImagesData';
@@ -11,7 +11,10 @@ export const contentListToMatrix = (
 ): any[] | null => {
   if (!contentList) return null;
 
-  log('PARSING_CONTENT_LIST_TO_MATRIX');
+  log('PARSING_CONTENT_LIST_TO_MATRIX', { 
+    contentListItems: contentList?.items?.length ?? 0,
+    contentListPics: contentList?.pics?.length ?? 0
+  });
 
   const emptyMatrix = generateEmptyMatrix(matrixSize);
 
@@ -26,8 +29,6 @@ export const contentListToMatrix = (
         if (picItem.id === picId) {
           // eslint-disable-next-line max-len
           emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = contentItem.value;
-          addBlobToInternalImages(picId, contentList.pics);
-          // add blob to images (store)
         }
       }
     } else {
@@ -37,25 +38,14 @@ export const contentListToMatrix = (
     
   }
 
+  for (const picItem of contentList.pics) {
+    if (picItem.id) {
+      // Add image blobs to map store cache
+      addInternalImagesData(picItem.blob);
+    }
+  }
+
   log('PARSED_CONTENT_LIST_TO_MATRIX');
 
   return emptyMatrix;
-};
-
-const addBlobToInternalImages = (
-  picId: string, contentPics: IContentPic[]
-) => {
-  const blob = findExternalBlob(picId, contentPics);
-
-  if (blob) addInternalImagesData(blob);
-};
-
-const findExternalBlob = (
-  picId: string, contentPics: IContentPic[]
-) => {
-  for (const picItem of contentPics) {
-    if (picItem.id === picId) return picItem.blob;
-  }
-
-  return null;
 };

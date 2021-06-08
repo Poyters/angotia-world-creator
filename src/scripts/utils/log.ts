@@ -24,6 +24,6 @@ export const log = (logId: string, additionalData = {}) => {
     : `| ${JSON.stringify(additionalData)}`;
 
   console.log(
-    `${date.toLocaleString("pl-PL")} | ${logMessage} ${additionalInfo}`
+    `${date.toLocaleString("pl-PL")} | ${logId} | ${logMessage} ${additionalInfo}`
   );
 };
