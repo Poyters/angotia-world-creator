@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (21 June 2021)
+- AWC-291, Delete adding blobs to internal images cache during transforming content list to matrix (make loading map faster about 70%)
 - AWC-285, Create application logs mechanism
 - AWC-204, Convert all static map layers to one canvas
 - AWC-285, Enable open characters by opening special AWC url
@@ -29,7 +30,6 @@ To set up project on your personal computer you need to clone repository (`git c
 - Fix not appearing images at first load (Firefox)
 - Fix canvas flashes after layer update
 - Fix no-show passage problem after first iteration
-- Make loading map faster about 50%
 - Add local User ID
 - Switch from production to requested data type in Angotia Catalogs API
 
