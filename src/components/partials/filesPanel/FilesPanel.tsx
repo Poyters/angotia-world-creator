@@ -107,7 +107,7 @@ export const FilesPanel: React.FC = () => {
 				<li 
 					key={uuid()} 
 					style={imageStyle} 
-					onClick={(): void => markSquare(
+					onClick={() => markSquare(
 							sourceMatrix, 
 							`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
 							matrixTransformationMethod, 

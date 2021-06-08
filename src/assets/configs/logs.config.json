@@ -124,5 +124,17 @@
   },
   "CLEAR_CANVAS_CONTEXT": {
     "message": "Clear canvas context"
+  },
+  "COLOR_BASED_ON_MATRIX_START": {
+    "message": "Started coloring canvas based on matrix"
+  },
+  "COLOR_BASED_ON_MATRIX_END": {
+    "message": "Finished coloring canvas based on matrix"
+  },
+  "PARSED_CONTENT_LIST_TO_MATRIX": {
+    "message": "Parsed content list to matrix"
+  },
+  "PREPARED_INTERNAL_MAP_DATA": {
+    "message": "Prepared internal map data"
   }
 }

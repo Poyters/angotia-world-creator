@@ -37,20 +37,22 @@ export const contentListToMatrix = (
     
   }
 
+  log('PARSED_CONTENT_LIST_TO_MATRIX');
+
   return emptyMatrix;
 };
 
 const addBlobToInternalImages = (
   picId: string, contentPics: IContentPic[]
 ) => {
-  const blob: string | null = findExternalBlob(picId, contentPics);
+  const blob = findExternalBlob(picId, contentPics);
 
   if (blob) addInternalImagesData(blob);
 };
 
 const findExternalBlob = (
   picId: string, contentPics: IContentPic[]
-): string | null => {
+) => {
   for (const picItem of contentPics) {
     if (picItem.id === picId) return picItem.blob;
   }

@@ -48,6 +48,8 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   delete internalData.se.pics;
 
   if (internalData.description === null) internalData.description = '';
+
+  log('PREPARED_INTERNAL_MAP_DATA');
   
   return internalData;
 };

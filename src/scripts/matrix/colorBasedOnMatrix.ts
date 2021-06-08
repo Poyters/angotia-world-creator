@@ -8,6 +8,7 @@ import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
 import { ICachedImage } from '../../interfaces/images.interface';
+import { log } from '../utils/log';
 
 
 const fieldSize: number = mapConfig.map.fieldSize;
@@ -20,6 +21,8 @@ export const colorBasedOnMatrix = (
   color: string,
   specialView?: string
 ) => {
+  log('COLOR_BASED_ON_MATRIX_START', { canvasId });
+
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
   const canvas: any = document.getElementById(canvasId);
   const ctx = canvas.getContext("2d");
@@ -124,6 +127,8 @@ export const colorBasedOnMatrix = (
 
     });
   });
+
+  log('COLOR_BASED_ON_MATRIX_END', { canvasId });
 };
 
 const drawImage = (

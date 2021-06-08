@@ -9,9 +9,9 @@ import { log } from '../utils/log';
 
 
 export const addInternalImagesData = (blob: string): string => {
-  log('ADD_INTERNAL_IMAGES_DATA');
   const storeData: IStore = store.getState();
   const imagesData: IInternalImageData[] = deepCopy(storeData.map.images);
+  log('ADD_INTERNAL_IMAGES_DATA', { blobLength: blob?.length, imagesDataQuantity: imagesData?.length ?? 0 });
 
   for (const imageData of imagesData) {
     if (imageData.blob === blob) {
