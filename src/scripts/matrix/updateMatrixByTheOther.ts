@@ -1,5 +1,6 @@
 import { IPoint } from '../../interfaces/math.interface';
 import { deepCopy } from '../utils/deepCopy';
+import { log } from '../utils/log';
 
 
 export const updateMatrixByTheOther = (
@@ -7,6 +8,8 @@ export const updateMatrixByTheOther = (
 	upgradeMatrix: Array<IPoint[]>, 
 	setValue: number | string
 ): Array<[]> => {
+	log('UPDATING_MATRIX_BY_THE_OTHER');
+	
 	if (
 		(!rootMatrix || rootMatrix.length === 0) ||
 		(!upgradeMatrix || upgradeMatrix.length === 0)

@@ -1,9 +1,12 @@
 import { store } from '../../index';
 import { IMapSize } from '../../interfaces/map.interface';
 import { IStore } from '../../interfaces/store.interface';
+import { log } from '../utils/log';
 
 
 export const generateEmptyMatrix = (inputMapSize?: IMapSize):Array<any> => {
+	log('GENERATING_EMPTY_MATRIX', { inputMapSize });
+
 	const storeData = store.getState() as IStore;
 	const mapSize: IMapSize = inputMapSize ? inputMapSize : storeData.map.size;
 

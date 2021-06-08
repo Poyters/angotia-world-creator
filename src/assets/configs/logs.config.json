@@ -55,5 +55,20 @@
   },
   "PREPARING_INTERNAL_MAP_DATA": {
     "message": "Preparing internal map data..."
+  },
+  "COUNTED_ITEMS_IN_MATRIX": {
+    "message": "Counted items in matrix"
+  },
+  "GENERATING_EMPTY_MATRIX": {
+    "message": "Generating empty matrix..."
+  },
+  "UPDATING_MATRIX_BY_THE_OTHER": {
+    "message": "Updating matrix by the other..."
+  },
+  "CREATING_MAP_BLOB": {
+    "message": "Creating map blob..."
+  },
+  "CREATED_MAP_BLOB": {
+    "message": "Created map blob"
   }
 }
