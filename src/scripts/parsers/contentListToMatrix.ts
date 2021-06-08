@@ -1,7 +1,6 @@
 import { IContentList } from '../../interfaces/contentList.interface';
 import { IMapSize } from '../../interfaces/map.interface';
 import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
-import { addInternalImagesData } from '../utils/addInternalImagesData';
 import { MapPicData } from '../../models/mapPicData.model';
 import { log } from '../utils/log';
 
@@ -36,13 +35,6 @@ export const contentListToMatrix = (
       emptyMatrix[contentItem.y][contentItem.x][contentItem.yShift][contentItem.xShift] = contentItem.value;
     }
     
-  }
-
-  for (const picItem of contentList.pics) {
-    if (picItem.id) {
-      // Add image blobs to map store cache
-      addInternalImagesData(picItem.blob);
-    }
   }
 
   log('PARSED_CONTENT_LIST_TO_MATRIX');
