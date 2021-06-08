@@ -4,13 +4,13 @@ import { SectionHeader } from '../partials/SectionHeader';
 import { EntryPanel } from '../partials/entryPanel/EntryPanel';
 
 import LangMenu from '../partials/LangMenu';
-import { manageUserId } from '../../scripts/user/manageUserId';
+import { forceGetUserId } from '../../scripts/user/forceGetUserId';
 
 
 export const Home: React.FC = () => {
   useEffect(() => {
-    // Generate a userId if des not exist
-    manageUserId();
+    // Generate a userId if does not exist
+    forceGetUserId();
   }, []);
 
   return (

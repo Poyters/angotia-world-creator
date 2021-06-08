@@ -19,5 +19,14 @@
   },
   "ADD_INTERNAL_IMAGES_DATA": {
     "message": "Adding picture blob to internal images data..."
+  },
+  "CREATED_USER_ID": {
+    "message": "Created user id"
+  },
+  "GOT_USER_ID": {
+    "message": "Got user id"
+  },
+  "FORCE_GET_USER_ID": {
+    "message": "Force getting user id..."
   }
 }
