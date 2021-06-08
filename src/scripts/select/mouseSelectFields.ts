@@ -21,7 +21,7 @@ const rect: IRect = {
 let drag = false;
 
 export const mouseSelectFields = (): void => {
-  const map: HTMLElement | null = document.getElementById("map");
+  const map: HTMLElement | null = document.getElementById('map');
 	canvas = document.getElementById(Canvas.select);
   ctx = canvas.getContext('2d');
 	
@@ -83,7 +83,7 @@ const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
   draw();
 };
 
-const draw = (): void => {
+const draw = () => {
   ctx.fillStyle = mapConfig.selectColor;
   ctx.fillRect(rect.startX, rect.startY, rect.width, rect.height);
 };
@@ -91,8 +91,8 @@ const draw = (): void => {
 
 const colorSquares = async (rectanglePosition) => {
   const storeData: IStore = store.getState();
-  const selectMatrix: any[] = [...storeData.ui.select.matrix];
-  const fieldSize: number = mapConfig.map.fieldSize;
+  const selectMatrix = [...storeData.ui.select.matrix];
+  const fieldSize = mapConfig.map.fieldSize;
 
   const rectangleSquarePoints: IRectanglePosition = {
     topLeft: {

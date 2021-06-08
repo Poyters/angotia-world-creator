@@ -106,5 +106,11 @@
   },
   "DRAWED_LOADED_MAP": {
     "message": "Drawed loaded map"
+  },
+  "FIND_CONNECTED_DIALOGS": {
+    "message": "Find connected dialogs"
+  },
+  "DIALOG_HAS_INVALID_CONDITIONS": {
+    "message": "Check if dialog has invalid conditions"
   }
 }

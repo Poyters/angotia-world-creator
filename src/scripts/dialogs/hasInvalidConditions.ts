@@ -1,6 +1,9 @@
 import { IDialog } from '../../interfaces/dialogs.interface';
+import { log } from '../utils/log';
 
-export const hasInvalidConditions = (dialog: IDialog | undefined): boolean => {
+export const hasInvalidConditions = (dialog: IDialog | undefined) => {
+  log('DIALOG_HAS_INVALID_CONDITIONS', { id: dialog?.id });
+
   if (dialog === undefined || dialog.player.length === 0) return false;
 
   const clearPlayerDialogs = dialog.player.filter(player => {
