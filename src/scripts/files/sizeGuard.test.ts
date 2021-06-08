@@ -27,6 +27,6 @@ describe("sizeGuard script", () => {
   });
 
   it("Doesn't allow add image/invalid props", () => {
-    expect(sizeGuard({}, 100)).toBe(null);
+    expect(sizeGuard({}, 100)).toBe(false);
   });
 });
