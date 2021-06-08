@@ -2,9 +2,12 @@ import { ICharState } from '../../interfaces/charState.interface';
 import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { getUserId } from '../user/getUserId';
+import { log } from '../utils/log';
 
 
 export const prepareExternalCharData = (charData: ICharState) => {
+  log('PREPARING_EXTERNAL_CHAR_DATA');
+
   const userId = getUserId() ?? '';
   let preparedCharData = deepCopy(charData);
 

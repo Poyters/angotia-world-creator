@@ -3,6 +3,7 @@ import { IContentList, IContentItem, IContentPic } from '../../interfaces/conten
 import { findPicBlob } from '../utils/findPicBlob';
 import { MapPicData } from '../../models/mapPicData.model';
 import { IInternalImageData } from '../../interfaces/images.interface';
+import { log } from '../utils/log';
 
 
 export const matrixToContentList = (matrix: any, internalImages: IInternalImageData[]): IContentList => {
@@ -12,6 +13,8 @@ export const matrixToContentList = (matrix: any, internalImages: IInternalImageD
   };
 
   if (!matrix || !Array.isArray(matrix)) return contentList;
+
+  log('PARSING_MATRIX_TO_CONTENT_LIST');
 
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
 

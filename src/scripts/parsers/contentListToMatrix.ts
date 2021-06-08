@@ -3,12 +3,16 @@ import { IMapSize } from '../../interfaces/map.interface';
 import { generateEmptyMatrix } from '../matrix/generateEmptyMatrix';
 import { addInternalImagesData } from '../utils/addInternalImagesData';
 import { MapPicData } from '../../models/mapPicData.model';
+import { log } from '../utils/log';
 
 
 export const contentListToMatrix = (
   contentList: IContentList, matrixSize: IMapSize
 ): any[] | null => {
   if (!contentList) return null;
+
+  log('PARSING_CONTENT_LIST_TO_MATRIX');
+
   const emptyMatrix = generateEmptyMatrix(matrixSize);
 
   if (contentList.items.length === 0) return emptyMatrix;

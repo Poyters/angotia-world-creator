@@ -3,9 +3,12 @@ import { deepCopy } from '../utils/deepCopy';
 import { contentListToMatrix } from './contentListToMatrix';
 import { locationListToMatrix } from './locationListToMatrix';
 import camelcaseKeys from 'camelcase-keys';
+import { log } from '../utils/log';
 
 
 export const prepareInternalMapData = (mapData: any): IMapState => {
+  log('PREPARING_INTERNAL_MAP_DATA');
+
   const dataCopy = deepCopy(mapData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;

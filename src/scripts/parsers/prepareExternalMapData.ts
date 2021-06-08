@@ -4,9 +4,12 @@ import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { matrixToContentList } from './matrixToContentList';
 import { getUserId } from '../user/getUserId';
 import { createMapBlob } from '../map/createMapBlob';
+import { log } from '../utils/log';
 
 
 export const prepareExternalMapData = async (mapData: IMapState | any, globalBlob?: string) => {
+  log('PREPARING_EXTERNAL_MAP_DATA');
+
   const userId = getUserId() ?? '';
   let preparedMapData = deepCopy(mapData);
 

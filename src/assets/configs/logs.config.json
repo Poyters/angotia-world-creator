@@ -28,5 +28,32 @@
   },
   "FORCE_GET_USER_ID": {
     "message": "Force getting user id..."
+  },
+  "PARSING_CAMELCASE_TO_UNDERSCORE": {
+    "message": "Parsing camelcase to underscore..."
+  },
+  "PARSING_CONTENT_LIST_TO_MATRIX": {
+    "message": "Parsing content list to matrix..."
+  },
+  "PARSING_LOCATION_LIST_TO_MATRIX": {
+    "message": "Parsing location list to matrix..."
+  },
+  "PARSING_MATRIX_TO_CONTENT_LIST": {
+    "message": "Parsing matrix to content list..."
+  },
+  "PARSING_MATRIX_TO_IDS": {
+    "message": "Parsing matrix to ids..."
+  },
+  "PREPARING_EXTERNAL_CHAR_DATA": {
+    "message": "Preparing external char data..."
+  },
+  "PREPARING_EXTERNAL_MAP_DATA": {
+    "message": "Preparing external map data..."
+  },
+  "PREPARING_INTERNAL_CHAR_DATA": {
+    "message": "Preparing internal char data..."
+  },
+  "PREPARING_INTERNAL_MAP_DATA": {
+    "message": "Preparing internal map data..."
   }
 }
