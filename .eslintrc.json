@@ -30,7 +30,7 @@
         "max-len": ["error", 100],
         "quotes": [2, "single", { "avoidEscape": true }],
         "semi": ["error", "always"],
-        "max-lines": ["error", 250],
+        "max-lines": ["error", 200],
         "no-var": "error",
         "react/jsx-uses-react": 2,
         "react/jsx-uses-vars": 2,
