@@ -105,7 +105,7 @@ const colorSquares = async (rectanglePosition) => {
     }
   };
 
-  //We need to find out real topLeft and bottomRight corner (due to reverse drawing)
+  // We need to find out real topLeft and bottomRight corner (due to reverse drawing)
   const xSmaller: number = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
     rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
   const xBigger: number = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 

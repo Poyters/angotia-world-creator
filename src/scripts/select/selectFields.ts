@@ -39,7 +39,7 @@ const selectField = (cursorPosition: IPoint) => {
     (!mapNetsStatus.field && 
     !mapNetsStatus.square) || 
     selectType === SelectType.none
-  ) return; //no nets, no select
+  ) return; // no nets, no select
 
 
   switch(selectType) {
@@ -111,5 +111,5 @@ export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoin
   selectMatrix[fieldPosition.y][fieldPosition.x] = [
     [1, 1],
     [1, 1]
-  ]; //Select whole field
+  ]; // Select whole field
 };

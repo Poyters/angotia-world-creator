@@ -35,12 +35,12 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
   const [isLicenseAccepted, setIsLicenseAccepted] = useState<boolean>(false);
   const dispatch = useDispatch();
   const [addChar] = useMutation(CREATE_REQ_CHAR, {
-    onCompleted({ createRequestedChar }) { //add database id to states
+    onCompleted({ createRequestedChar }) { // add database id to states
       dispatch(setCharDatabaseId(createRequestedChar.id));
     }
   });
   const [addMap] = useMutation(CREATE_REQ_MAP, {
-    onCompleted({ createRequestedMap }) { //add database id to states
+    onCompleted({ createRequestedMap }) { // add database id to states
       dispatch(setMapDatabaseId(createRequestedMap.id));
     }
   });

@@ -49,7 +49,7 @@ export const NetOption = (props: {
   }, [dispatch, optionViewType, notifications]);
 
   const netOnOff: string = optionViewType === 3 ? 
-    'option--off' : 'option--on'; //It determines icon color
+    'option--off' : 'option--on'; // It determines icon color
 
   return (
     <div 

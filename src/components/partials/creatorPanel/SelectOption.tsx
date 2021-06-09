@@ -42,7 +42,7 @@ export const SelectOption = (props: {
   };
 
   const selectOnOff: string = selectType !== 0 ? 
-    'option--on' : 'option--off'; //It determines icon color
+    'option--on' : 'option--off'; // It determines icon color
 
   return (
     <div 

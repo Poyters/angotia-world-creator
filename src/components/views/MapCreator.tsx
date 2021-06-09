@@ -23,7 +23,7 @@ export const MapCreator: React.FC = () => {
   const dispatch = useDispatch();
   const mapState: IMapState = useSelector((state: IStore) => state.map);
   
-  useEffect((): void => { //Create necessary empty matrix at the beginning
+  useEffect((): void => { // Create necessary empty matrix at the beginning
     const newEmptyMatrix = generateEmptyMatrix();
 
     dispatch(changeMapSelectMatrix(deepCopy(newEmptyMatrix)));

@@ -34,7 +34,7 @@ export const updateMatrixByTheOther = (
 					const fieldArray: number = squareIndex >= 2 ? 1 : 0;
 					const squarePos: number = fieldArray === 0 ? squareIndex : squareIndex - 2;
 
-					//add new values to the rootMatrix
+					// add new values to the rootMatrix
 					copyOfRootMatrix[y][x][fieldArray][squarePos] = setValue; 
 				}
 			});

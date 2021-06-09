@@ -44,7 +44,7 @@ export const FullScreenOption: React.FC = () => {
     if (key === 'F11') setFs(!fs);
   };
 
-  const fsOnOff: string = fs ? 'option--on' : 'option--off'; //It determines icon color
+  const fsOnOff: string = fs ? 'option--on' : 'option--off'; // It determines icon color
 
   return (
     <div role="button" className={`option option--fullScreen ${fsOnOff}`} onClick={clickHandler}>

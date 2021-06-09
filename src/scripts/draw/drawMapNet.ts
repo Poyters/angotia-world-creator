@@ -19,11 +19,11 @@ export const drawMapNet = (ctx: any, type: number) => {
     
   ctx.beginPath();
 
-  if (type === 0) { //field
+  if (type === 0) { // field
     ctx.setLineDash([]);
     ctx.strokeStyle = '#bbb';
   } 
-  else { //square
+  else { // square
     ctx.setLineDash([2, 6]);
     ctx.strokeStyle = '#666';
   } 

@@ -94,7 +94,7 @@ export const colorBasedOnMatrix = (
               if (foundPassage.length === 1) {
                 passagePic = foundPassage[0].object;
               } else {
-                passagePic = makeImage(passagePicPath); //square is path to image
+                passagePic = makeImage(passagePicPath); // square is path to image
                 passagePic.onload = () => {
                   cachedImages.push({
                     id: MatrixFillColor.passage,
