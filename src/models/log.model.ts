@@ -1,4 +1,4 @@
 export enum Log {
-  enabled = "ENABLED",
-  disabled = "DISABLED"
+  enabled = 'ENABLED',
+  disabled = 'DISABLED'
 }

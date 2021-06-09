@@ -40,7 +40,7 @@ export const FilesPanel: React.FC = () => {
 	const seMatrix = deepCopy(useSelector((state: IStore) => state.map.se.matrix));
 
 	const filesPanelStyles = {
-		right: isOpen ? "0" : "-300px"
+		right: isOpen ? '0' : '-300px'
 	};
 
 	const imageStyle: CSSProperties = {

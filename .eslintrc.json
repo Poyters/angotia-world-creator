@@ -28,6 +28,7 @@
     "rules": {
         "no-multiple-empty-lines": 2,
         "max-len": ["error", 100],
+        "quotes": [2, "single", { "avoidEscape": true }],
         "semi": ["error", "always"],
         "max-lines": ["error", 260],
         "no-var": "error",

@@ -35,7 +35,7 @@ export const LayersOption: React.FC = () => {
     let isBackgroundVisible = true;
     const toggleBackground = (): void => {
         const map: any = document.getElementById('map');
-        const button: any = document.getElementById(`backgroundBtn`);
+        const button: any = document.getElementById('backgroundBtn');
 
         if (isBackgroundVisible) map.style.backgroundImage = '';
         else map.style.backgroundImage = `url('${mapBackgorund}')`;
@@ -56,8 +56,8 @@ export const LayersOption: React.FC = () => {
                     computedDisplay : layer.style.display;
                 const button: any = document.getElementById(`${name}Btn`);
 
-                if (display === 'block') layer.style.display = "none";
-                else layer.style.display = "block";
+                if (display === 'block') layer.style.display = 'none';
+                else layer.style.display = 'block';
 
                 button.classList.toggle('disableLayer');
  

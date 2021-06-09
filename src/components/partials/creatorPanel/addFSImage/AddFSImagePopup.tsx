@@ -10,7 +10,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
   const { creator } = useContext(ContentContext);
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
-  const [fileName, setFileName] = useState<string>("");
+  const [fileName, setFileName] = useState<string>('');
   const [currBookmark, setCurrBookmark] = useState<string>(mapConfig?.bookmarks[0]);
 
   useEffect(() => {

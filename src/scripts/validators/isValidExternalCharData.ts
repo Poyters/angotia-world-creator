@@ -73,7 +73,7 @@ export const isValidExternalCharData = (data: any): boolean => {
     )
   ) result = false;
 
-  log("IS_VALID_EXTERNAL_CHAR_DATA", { result });
+  log('IS_VALID_EXTERNAL_CHAR_DATA', { result });
 
   return result;
 };

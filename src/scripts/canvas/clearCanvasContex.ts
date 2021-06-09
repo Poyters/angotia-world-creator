@@ -7,7 +7,7 @@ export const clearCanvasContex = (canvasId: string) => {
 	const canvas: any = document.getElementById(canvasId);
 	if (!canvas) return;
 
-	const context = canvas.getContext("2d");
+	const context = canvas.getContext('2d');
 
 	context.save();
 	context.setTransform(1, 0, 0, 1, 0, 0);

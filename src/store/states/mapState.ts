@@ -12,7 +12,7 @@ export const mapState: IMapState = {
         x: 12,
         y: 12
     },
-    mapPic: "",
+    mapPic: '',
     blockMatrix: [],
     passage: {
         locations: [],

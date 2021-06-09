@@ -30,7 +30,7 @@ export const isValidLocation = (
     )
   ) result = false;
 
-  log("IS_LOCATION_VALID", { result });
+  log('IS_LOCATION_VALID', { result });
 
   return result;
 };

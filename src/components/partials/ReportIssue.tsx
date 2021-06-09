@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import appConfig from "../../assets/configs/app.config.json";
+import appConfig from '../../assets/configs/app.config.json';
 import { ContentContext } from '../../Template';
 
 

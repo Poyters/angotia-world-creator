@@ -19,7 +19,7 @@ export const MapSettingsPanel: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const settingsPanelStyles = {
-		left: isOpen ? "0" : "-300px"
+		left: isOpen ? '0' : '-300px'
 	};
 
 	return (

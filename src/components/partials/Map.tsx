@@ -25,7 +25,7 @@ export const Map: React.FC = () => {
   };
 
   useEffect(() => {
-    dragElement(document.getElementById("map"));
+    dragElement(document.getElementById('map'));
     const winHeight: number = window.innerHeight;
     const winWidth: number = window.innerWidth;
     const marginTop: number = (winHeight - (mapSize.y * fieldSize)) / 2;

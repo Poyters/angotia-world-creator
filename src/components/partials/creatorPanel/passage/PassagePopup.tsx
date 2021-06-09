@@ -18,8 +18,8 @@ import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const { notifications } = useContext(ContentContext);
-    const [mapTargetId, setMapTargetId] = useState<string>("");
-    const [mapTargetCords, setMapTargetCords] = useState<string>("");
+    const [mapTargetId, setMapTargetId] = useState<string>('');
+    const [mapTargetCords, setMapTargetCords] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);

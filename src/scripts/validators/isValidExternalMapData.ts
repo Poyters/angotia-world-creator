@@ -36,7 +36,7 @@ export const isValidExternalMapData = (data: any): boolean => {
     data.vertex === null
   ) result = false;
 
-  log("IS_VALID_EXTERNAL_MAP_DATA", { result });
+  log('IS_VALID_EXTERNAL_MAP_DATA', { result });
 
   return result;
 };

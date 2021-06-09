@@ -8,7 +8,7 @@ export const saveFile = (data: any, filename: string, type: string) => {
     if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else { // Others
-        const a = document.createElement("a");
+        const a = document.createElement('a');
         const url: string = URL.createObjectURL(file);
         a.href = url;
         a.download = filename;

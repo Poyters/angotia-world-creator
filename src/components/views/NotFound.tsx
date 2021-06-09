@@ -11,7 +11,7 @@ export const NotFound = ({ title, description }) => {
          { title || "Page doesn't exists!" }
         </h2>
         <p className="notFound--errorNote t-paragraph3Light">
-          { description || "Propably you typed wrong url" }
+          { description || 'Propably you typed wrong url' }
         </p>
         <ComeBack
           addedClass='t-paragraph2Normal'

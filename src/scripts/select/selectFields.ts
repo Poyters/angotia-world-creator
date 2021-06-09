@@ -8,7 +8,7 @@ import { SelectType } from '../../models/selectType.model';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
-  const map: any = document.getElementById("map");
+  const map: any = document.getElementById('map');
   let mapLeft: number = parseInt(map.style.left);
   let mapTop: number = parseInt(map.style.top);
 
@@ -72,7 +72,7 @@ const selectField = (cursorPosition: IPoint) => {
 
 const colorChecked = (positionDelta: IPoint, type: string): void => {
   const canvas: any = document.getElementById(Canvas.select);
-  const ctx: any = canvas.getContext("2d");
+  const ctx: any = canvas.getContext('2d');
   let fieldSize: number = mapConfig.map.fieldSize;
 
   if (type === SelectType.square) fieldSize = fieldSize / 2;

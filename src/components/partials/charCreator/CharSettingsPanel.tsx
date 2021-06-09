@@ -20,7 +20,7 @@ export const CharSettingsPanel: React.FC = () => {
 	const hasVisibleLevel: boolean = useSelector((state: IStore) => state.char.hasVisibleLevel);
 
 	const settingsPanelStyles = {
-		left: isOpen ? "0" : "-300px"
+		left: isOpen ? '0' : '-300px'
 	};
 
 	return (

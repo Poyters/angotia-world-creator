@@ -21,7 +21,7 @@ export const StatisticPanel: React.FC = () => {
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
-		left: isOpen ? "0" : "-300px"
+		left: isOpen ? '0' : '-300px'
 	};
 
 	return (

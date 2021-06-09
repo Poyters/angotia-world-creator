@@ -34,7 +34,7 @@ export const AddFileOption: React.FC = () => {
     addNotification(notifications?.addBg);
   };
 
-  const optionOnOff: string = mapPic === "" ? 'option--off' : 'option--on';
+  const optionOnOff: string = mapPic === '' ? 'option--off' : 'option--on';
 
   return (
     <>

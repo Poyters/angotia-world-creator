@@ -15,7 +15,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 	const dispatch = useDispatch();
 
 	const errorPanelStyles = {
-		right: isOpen ? "0" : "-300px"
+		right: isOpen ? '0' : '-300px'
 	};
 
 	return (

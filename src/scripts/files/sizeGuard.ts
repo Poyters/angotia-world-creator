@@ -8,7 +8,7 @@ export const sizeGuard = (file: any, maxValue: number)  => {
 
   if (!file || !file.size || !maxValue) {
     log('CHECK_FILE_SIZE_INVALID_FILE');
-    addNotification(`Invalid file! size cannot be checked`, Notification.error);
+    addNotification('Invalid file! size cannot be checked', Notification.error);
 
     return false;
   }

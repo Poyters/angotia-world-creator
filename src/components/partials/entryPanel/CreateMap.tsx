@@ -29,12 +29,12 @@ export const CreateMap: React.FC = () => {
   }, [mapX, mapY]);
 
   const mapSizeValidation = ():void => {
-    const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
-    const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
+    const mapSizeX = typeof mapX === 'number' ? mapX : parseInt(mapX);
+    const mapSizeY = typeof mapY === 'number' ? mapY : parseInt(mapY);
     
-    if ((typeof mapSizeX !== "number" || isNaN(mapSizeX)) || 
-    (typeof mapSizeY !== "number" || isNaN(mapSizeY))) {
-      setValMess("Value need to be number");
+    if ((typeof mapSizeX !== 'number' || isNaN(mapSizeX)) || 
+    (typeof mapSizeY !== 'number' || isNaN(mapSizeY))) {
+      setValMess('Value need to be number');
     }
     else if (
       (mapSizeX >= mapConfig.map.maxSize || mapSizeX < mapConfig.map.minSize) || 
@@ -46,22 +46,22 @@ export const CreateMap: React.FC = () => {
       );
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
-      setValMess("Value need to be integer, not float type.");
+      setValMess('Value need to be integer, not float type.');
     }
     else {
-      setValMess("");
+      setValMess('');
     }
   };
 
   const createMap = () => {
-    const mapSizeX = typeof mapX === "number" ? mapX : parseInt(mapX);
-    const mapSizeY = typeof mapY === "number" ? mapY : parseInt(mapY);
+    const mapSizeX = typeof mapX === 'number' ? mapX : parseInt(mapX);
+    const mapSizeY = typeof mapY === 'number' ? mapY : parseInt(mapY);
     const newEmptyMatrix = generateEmptyMatrix({
       x: mapSizeX,
       y: mapSizeY
     });
 
-    setValMess("");
+    setValMess('');
     emptyMapState.size.x = mapSizeX;
     emptyMapState.size.y = mapSizeY;
     emptyMapState.blockMatrix = deepCopy(newEmptyMatrix);
