@@ -106,13 +106,17 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         </header>
         <section className="popupChooseBoxes">
           <div 
-            className={`popupChooseBoxes__box ${isActiveProduction ? 'popupChooseBoxes__box--active' : ''}`}
+            className={
+              `popupChooseBoxes__box ${isActiveProduction ? 'popupChooseBoxes__box--active' : ''}`
+            }
             onClick={switchToProd}
           >
             production database
           </div>
           <div
-            className={`popupChooseBoxes__box ${isActiveAccount ? 'popupChooseBoxes__box--active' : ''}`}
+            className={
+              `popupChooseBoxes__box ${isActiveAccount ? 'popupChooseBoxes__box--active' : ''}`
+            }
             onClick={switchToAccount}
           >
             private account

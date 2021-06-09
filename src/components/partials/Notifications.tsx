@@ -12,7 +12,8 @@ export const Notifications: React.FC = () => {
 		if (!Array.isArray(actionNotes)) return [];
 		
 		const contentToRender = actionNotes?.map(note => {
-			const specialClass = note.type === Notification.error ? 'notifications__note--error' : '';
+			const specialClass = note.type === Notification.error ? 
+				'notifications__note--error' : '';
 
 			return (
 				<li 

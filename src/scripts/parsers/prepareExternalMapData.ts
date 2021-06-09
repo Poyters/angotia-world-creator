@@ -21,13 +21,27 @@ export const prepareExternalMapData = async (mapData: IMapState | any, globalBlo
   
   preparedMapData = camelCaseToUnderscore(preparedMapData);
 
-  preparedMapData.block_matrix = matrixToContentList(preparedMapData.block_matrix, preparedMapData.images);
-  preparedMapData.building = matrixToContentList(preparedMapData.building.matrix, preparedMapData.images);
-  preparedMapData.decoration = matrixToContentList(preparedMapData.decoration.matrix, preparedMapData.images);
-  preparedMapData.subsoil = matrixToContentList(preparedMapData.subsoil.matrix, preparedMapData.images);
-  preparedMapData.npc = matrixToContentList(preparedMapData.npc.matrix, preparedMapData.images);
-  preparedMapData.mob = matrixToContentList(preparedMapData.mob.matrix, preparedMapData.images);
-  preparedMapData.se = matrixToContentList(preparedMapData.se.matrix, preparedMapData.images);
+  preparedMapData.block_matrix = matrixToContentList(
+    preparedMapData.block_matrix, preparedMapData.images
+  );
+  preparedMapData.building = matrixToContentList(
+    preparedMapData.building.matrix, preparedMapData.images
+  );
+  preparedMapData.decoration = matrixToContentList(
+    preparedMapData.decoration.matrix, preparedMapData.images
+  );
+  preparedMapData.subsoil = matrixToContentList(
+    preparedMapData.subsoil.matrix, preparedMapData.images
+  );
+  preparedMapData.npc = matrixToContentList(
+    preparedMapData.npc.matrix, preparedMapData.images
+  );
+  preparedMapData.mob = matrixToContentList(
+    preparedMapData.mob.matrix, preparedMapData.images
+  );
+  preparedMapData.se = matrixToContentList(
+    preparedMapData.se.matrix, preparedMapData.images
+  );
   
   preparedMapData.passage.locations = preparedMapData.passage.locations.map(location => {
     location._id = location.id;

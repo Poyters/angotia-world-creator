@@ -66,7 +66,8 @@ export const colorBasedOnMatrix = (
               if (foundImage.length === 1) {
                 image = foundImage[0].object;
               } else {
-                image = makeImage(findPicBlob(square, internalImages) || ''); //square is path to image
+                // square is path to image
+                image = makeImage(findPicBlob(square, internalImages) || ''); 
                 image.onload = () => {
                   cachedImages.push({
                     id: square,

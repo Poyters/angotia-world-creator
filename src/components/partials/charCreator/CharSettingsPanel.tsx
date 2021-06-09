@@ -26,7 +26,8 @@ export const CharSettingsPanel: React.FC = () => {
 	return (
 		<>
 			<div 
-				className="g-sidePanelSwitch g-sidePanelSwitch--charSettingsPanel t-paragraph4Normal" 
+				className=
+					"g-sidePanelSwitch g-sidePanelSwitch--charSettingsPanel t-paragraph4Normal"
 				onClick={() => setIsOpen(true)}
 			> 
 				{ char?.settingsPanel?.open }

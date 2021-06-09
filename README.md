@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.2.0 (21 June 2021)
+- AWC-219, Add more EsLint rules
 - AWC-291, Delete adding blobs to internal images cache during transforming content list to matrix (make loading map faster about 70%)
 - AWC-285, Create application logs mechanism
 - AWC-204, Convert all static map layers to one canvas

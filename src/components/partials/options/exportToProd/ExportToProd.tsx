@@ -71,7 +71,10 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
         const externalCharData = prepareExternalCharData(charData);
 
         if (char.error) {
-          addNotification(`Expected error during checking existing char: ${char.error}`, Notification.error);
+          addNotification(
+            `Expected error during checking existing char: ${char.error}`,
+            Notification.error
+          );
           return;
         } else if (charErrors.length > 0) {
           addNotification('Cannot export char with errors!', Notification.error);
@@ -91,7 +94,10 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
         const externalMapData = await prepareExternalMapData(mapData);
 
         if (map.error) {
-          addNotification(`Expected error during checking existing map: ${map.error}`, Notification.error);
+          addNotification(
+            `Expected error during checking existing map: ${map.error}`,
+            Notification.error
+          );
           return;
         } else if (mapErrors.length > 0) {
           addNotification('Cannot export map with errors!', Notification.error);

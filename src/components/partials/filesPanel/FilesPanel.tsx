@@ -108,12 +108,13 @@ export const FilesPanel: React.FC = () => {
 					key={uuid()} 
 					style={imageStyle} 
 					onClick={() => markSquare(
-							sourceMatrix, 
-							`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
-							matrixTransformationMethod, 
-							`Added ${currBookmark}`, 
-							addInternalImagesData(img), // add blob to internal images, and return id to blob
-							MatrixFillColor.image
+						sourceMatrix, 
+						`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
+						matrixTransformationMethod, 
+						`Added ${currBookmark}`, 
+						// Add blob to internal images, and return id to blob
+						addInternalImagesData(img),
+						MatrixFillColor.image
 					)}
 				>
 					<img src={img} alt='tile' />

@@ -6,7 +6,9 @@ import { IInternalImageData } from '../../interfaces/images.interface';
 import { log } from '../utils/log';
 
 
-export const matrixToContentList = (matrix: any, internalImages: IInternalImageData[]): IContentList => {
+export const matrixToContentList = (
+  matrix: any, internalImages: IInternalImageData[]
+): IContentList => {
   const contentList: IContentList = {
     items: [],
     pics: []

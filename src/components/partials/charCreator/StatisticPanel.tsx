@@ -29,7 +29,8 @@ export const StatisticPanel: React.FC = () => {
 			{
 				choosedChar !== ChoosedChar.se ? (
 					<div
-						className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
+						className=
+							"g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
 						onClick={() => dispatch(toggleStatisticPanel(true))}
 					>
 						{ char?.statisticPanel?.open}

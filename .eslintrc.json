@@ -27,7 +27,7 @@
     ],
     "rules": {
         "no-multiple-empty-lines": 2,
-        "max-len": ["error", 110],
+        "max-len": ["error", 100],
         "semi": ["error", "always"],
         "max-lines": ["error", 260],
         "no-var": "error",

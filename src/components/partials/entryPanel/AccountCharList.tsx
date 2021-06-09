@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
-import { GET__REQ_CHARS_BY_AUTHOR } from '../../../api/angotiaResources/queries/char/getReqCharsByAuthor';
+import { 
+  GET__REQ_CHARS_BY_AUTHOR
+} from '../../../api/angotiaResources/queries/char/getReqCharsByAuthor';
 import { GET_REQ_CHAR } from '../../../api/angotiaResources/queries/char/getReqChar';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';

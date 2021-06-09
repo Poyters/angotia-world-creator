@@ -66,7 +66,9 @@ export const Template: React.FC<IRouteProps<IMatchParams>> = props => {
           <Route path={`/${paramLang}/${content.routes.help}`} component={Help} />
           <Route path={`/${paramLang}/${content.routes.license}`} component={License} />
           <Route path={`/${paramLang}/${content.routes.features}`} component={Features} />
-          <Route path={`/${paramLang}/${content.routes.mapCreationRules}`} component={MapCreationRules} />
+          <Route 
+            path={`/${paramLang}/${content.routes.mapCreationRules}`}
+            component={MapCreationRules} />
           <Route path={`/${paramLang}/load-req-map`} component={LoadRequestedMap} />
           <Route path={`/${paramLang}/load-req-char`} component={LoadRequestedChar} />
           <Route component={NotFound}/>
