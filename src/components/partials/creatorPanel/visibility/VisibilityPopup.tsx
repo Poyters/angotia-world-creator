@@ -53,7 +53,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    { creator?.panel?.options?.visibility?.title } 
+                    { 'creator?.panel?.options?.visibility?.title' } 
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
                     { 'creator?.panel?.options?.visibility?.desc' } 

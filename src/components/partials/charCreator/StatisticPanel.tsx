@@ -31,7 +31,7 @@ export const StatisticPanel: React.FC = () => {
 							"g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
 						onClick={() => dispatch(toggleStatisticPanel(true))}
 					>
-						{ char?.statisticPanel?.open}
+						{ 'char?.statisticPanel?.open' }
 					</div>
 				) : null
 			}

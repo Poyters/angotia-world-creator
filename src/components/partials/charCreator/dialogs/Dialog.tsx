@@ -65,12 +65,12 @@ export const Dialog: React.FC<IDialog> = ({
         >
           <p> 
             <span className="t-paragraph5Light"> 
-              { char?.dialog?.dialogId }
+              { 'char?.dialog?.dialogId' }
             </span> { id } 
           </p>
           <p> 
             <span className="t-paragraph5Light">
-              { char?.dialog?.npcDialog }
+              { 'char?.dialog?.npcDialog' }
             </span> { npc } 
           </p>
         </div>
@@ -84,19 +84,19 @@ export const Dialog: React.FC<IDialog> = ({
               >
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char?.dialog?.playerId }
+                    { 'char?.dialog?.playerId' }
                   </span> { dialogData.id } 
                 </p>
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char?.dialog?.playerDialog }
+                    { 'char?.dialog?.playerDialog' }
                   </span> { dialogData.dialog } 
                 </p>
                 {
                   dialogData.action !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
-                        { char?.dialog?.action }
+                        { 'char?.dialog?.action' }
                       </span> { dialogData.action } 
                     </p>
                   ) : null
@@ -105,14 +105,14 @@ export const Dialog: React.FC<IDialog> = ({
                   dialogData.condition !== '' ? (
                     <p> 
                       <span className="t-paragraph5Light"> 
-                        { char?.dialog?.condition }
+                        { 'char?.dialog?.condition' }
                       </span> { dialogData.condition } 
                     </p>
                   ) : null
                 }
                 <p> 
                   <span className="t-paragraph5Light"> 
-                    { char?.dialog?.next }
+                    { 'char?.dialog?.next' }
                   </span> { dialogData.next } 
                 </p>
               </div>

@@ -13,7 +13,7 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;
 
-  const internalData = camelcaseKeys(dataCopy, {deep: true});
+  const internalData = camelcaseKeys(dataCopy, { deep: true });
   const mapSize = internalData.size;
 
   internalData.blockMatrix = contentListToMatrix(internalData.blockMatrix, mapSize);

@@ -151,7 +151,7 @@ export const FilesPanel: React.FC = () => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
 			> 
-				{ filesPanel.switch }
+				{ 'filesPanel.switch' }
 			</div>
 			<aside className="g-sidePanelWrapper" style={filesPanelStyles}>
 				<div className="filesPanel">

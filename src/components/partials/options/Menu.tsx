@@ -14,7 +14,7 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 			<header className="menu__label t-paragraph6Normal"> { 'menu?.label' } </header>
 			<ul className="menu__content t-paragraph2Light">
 				<li className="extended">
-					{ menu?.save.label }
+					{ 'menu?.save.label' }
 					<nav className="submenu t-paragraph6Light">
 						<ul>
 							<li> 

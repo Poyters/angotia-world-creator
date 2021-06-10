@@ -113,7 +113,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
           className="insertPopup__submit t-paragraphLight"
           onClick={insertImage} disabled={!isLoadedImage}
         >
-          {creator?.panel?.options?.addFSImage?.submit}
+          { 'creator?.panel?.options?.addFSImage?.submit' }
         </button>
       </div>
     </div>
