@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { IMonolog } from '../../../../interfaces/dialogs.interface';
 import { changeMonologs } from '../../../../store/actions/charActions';
-import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IMonologExplicit } from '../../../../interfaces/dialogs.interface';
@@ -11,7 +10,6 @@ import { IMonologExplicit } from '../../../../interfaces/dialogs.interface';
 export const Monolog: React.FC<IMonologExplicit> = (
   { id, content, isActivePopup, setPopupData }
 ) => {
-  const { char, notifications } = useContext(ContentContext);
   const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
   const dispatch = useDispatch();
 
@@ -21,7 +19,7 @@ export const Monolog: React.FC<IMonologExplicit> = (
     });
 
     dispatch(changeMonologs(filteredMonologs));
-    addNotification(notifications?.monologs?.delete);
+    addNotification('notifications?.monologs?.delete');
   };
 
   const editMonolog = (): void => {
@@ -39,12 +37,12 @@ export const Monolog: React.FC<IMonologExplicit> = (
     <section className="dialog">
       <p> 
         <span className="t-paragraph5Light"> 
-          { char?.monolog?.id }
+          { 'char?.monolog?.id' }
         </span> { id } 
       </p>
       <p> 
         <span className="t-paragraph5Light">
-          { char?.monolog?.content }
+          { 'char?.monolog?.content' }
         </span> { content } 
       </p>
       <div 

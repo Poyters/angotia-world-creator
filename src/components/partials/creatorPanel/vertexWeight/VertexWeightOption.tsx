@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import mapConfig from '../../../../assets/configs/map.config.json';
@@ -12,7 +12,6 @@ import {
     changeMapVertexWeightMatrix, 
     changeMapVertexWeights 
 } from '../../../../store/actions/mapActions';
-import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { Notification } from '../../../../models/notification.model';
@@ -24,7 +23,6 @@ document.addEventListener('keydown', event => pressedKey = event.key);
 document.addEventListener('keyup', () => pressedKey = null);
 
 export const VertexWeightOption: React.FC = () => {
-    const { notifications, creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
@@ -33,7 +31,7 @@ export const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification(notifications?.options?.vertex?.select, Notification.error);
+            addNotification('notifications?.options?.vertex?.select, Notification.error');
             return;
         }
 
@@ -57,7 +55,7 @@ export const VertexWeightOption: React.FC = () => {
             vertexWeightMatrix, 
             Canvas.vertexWeight, 
             changeMapVertexWeightMatrix, 
-            notifications?.options?.vertex?.delete, 
+            'notifications?.options?.vertex?.delete', 
             '', 
             MatrixFillColor.vertexWeight
         );
@@ -72,7 +70,7 @@ export const VertexWeightOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => vertexHandler()} 
-                data-title={ creator?.panel?.options?.vertex?.dataTitle }
+                data-title={ 'creator?.panel?.options?.vertex?.dataTitle' }
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">

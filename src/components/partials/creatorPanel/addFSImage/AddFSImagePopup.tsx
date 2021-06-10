@@ -1,13 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import uuid from 'uuid/v4';
 import mapConfig from '../../../../assets/configs/map.config.json';
-import { ContentContext } from '../../../../Template';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 import { IPopup } from '../../../../interfaces/popup.interface';
 
 
 export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
-  const { creator } = useContext(ContentContext);
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [fileName, setFileName] = useState<string>('');
@@ -54,7 +52,6 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     isActivePopup(false);
   };
 
-
   return (
     <div className="g-container g-container--popup">
       <div role="alert" className="insertPopup">
@@ -63,10 +60,10 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
           onClick={(): void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          {creator?.panel?.options?.addFSImage?.title}
+          { 'creator?.panel?.options?.addFSImage?.title' }
         </header>
         <label className="insertPopup__label t-paragraph6Light">
-          {creator?.panel?.options?.addFSImage?.image}
+          { 'creator?.panel?.options?.addFSImage?.image' }
         </label>
         <input
           type="file"
@@ -78,12 +75,12 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
         {
           (!isLoadedImage) ? (
             <span className="insertPopup--error">
-              {creator?.panel?.options?.addFSImage?.error}
+              { 'creator?.panel?.options?.addFSImage?.error' }
             </span>
           ) : null
         }
         <label className="insertPopup__label t-paragraph6Light">
-          {creator?.panel?.options?.addFSImage?.category}
+          { 'creator?.panel?.options?.addFSImage?.category' }
         </label>
         <div
           className="addFSImageSelect"

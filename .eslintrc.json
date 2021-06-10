@@ -41,6 +41,7 @@
         "@typescript-eslint/explicit-module-boundary-types": 0,
         "no-case-declarations": 0,
         "@typescript-eslint/no-explicit-any": 0,
-        "spaced-comment": ["error", "always"]
+        "spaced-comment": ["error", "always"],
+        "object-curly-spacing": ["error", "always"]
     }
 }

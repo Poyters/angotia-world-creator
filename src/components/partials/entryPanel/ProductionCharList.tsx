@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { ALL_CHARS_BASE_INFO } from '../../../api/angotiaResources/queries/char/allCharsBaseInfo';
 import { GET_CHAR } from '../../../api/angotiaResources/queries/char/getChar';
@@ -6,7 +6,6 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
-import { ContentContext } from '../../../Template';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
 import { addNotification } from '../../../scripts/utils/notifications';
@@ -14,7 +13,6 @@ import { Notification } from '../../../models/notification.model';
 
 
 export const ProductionCharList: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
   const char = useQuery(ALL_CHARS_BASE_INFO);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
@@ -29,7 +27,7 @@ export const ProductionCharList: React.FC = () => {
     if (isValidExternalCharData(loadedData)) {
       const internalCharData = prepareInternalCharData(loadedData);
       dispatch(loadCharData(internalCharData));
-      setRedirect(routes?.char);
+      setRedirect('routes?.char');
     } else {
       addNotification('You are trying to load invalid char data', Notification.error);
     }
@@ -47,7 +45,7 @@ export const ProductionCharList: React.FC = () => {
     <>
       {
         redirect !== null ? (
-          <Redirect to={`/${lang}/${redirect}`}/>
+          <Redirect to={`/${redirect}`}/>
         ) : null
       }
       <ul className="loadedDataList">

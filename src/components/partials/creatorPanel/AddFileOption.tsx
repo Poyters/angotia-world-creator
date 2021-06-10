@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ContentContext } from '../../../Template';
 import { setMapBg } from '../../../store/actions/mapActions';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { sizeGuard } from '../../../scripts/files/sizeGuard';
@@ -9,7 +8,6 @@ import { IStore } from '../../../interfaces/store.interface';
 
 
 export const AddFileOption: React.FC = () => {
-  const { creator, notifications } = useContext(ContentContext);
   const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
@@ -31,7 +29,7 @@ export const AddFileOption: React.FC = () => {
     })();
 
     reader.readAsDataURL(file);
-    addNotification(notifications?.addBg);
+    addNotification('notifications?.addBg');
   };
 
   const optionOnOff: string = mapPic === '' ? 'option--off' : 'option--on';
@@ -48,7 +46,7 @@ export const AddFileOption: React.FC = () => {
       <label 
         className={optionOnOff} 
         htmlFor="file" 
-        data-title={creator?.panel?.options?.addFile?.dataTitle}
+        data-title={'creator?.panel?.options?.addFile?.dataTitle'}
       > </label>
     </>
   );

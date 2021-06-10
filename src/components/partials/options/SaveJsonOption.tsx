@@ -1,8 +1,7 @@
 
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { saveFile } from '../../../scripts/files/saveFile';
-import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { prepareExternalCharData } from '../../../scripts/parsers/prepareExternalCharData';
 import { prepareExternalMapData } from '../../../scripts/parsers/prepareExternalMapData';
@@ -17,7 +16,6 @@ interface ISaveJsonOption {
 }
 
 export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => {
-  const { creator } = useContext(ContentContext);
   const mapData = useSelector((state: IStore) => state.map);
   const mapName = useSelector((state: IStore) => state.map.mapName);
   const charData = useSelector((state: IStore) => state.char);
@@ -44,7 +42,7 @@ export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => 
     <span
       onClick={() => saveData()}
     > 
-      {text ? text : creator?.panel?.options?.save?.content}  
+      { text ? text : 'creator?.panel?.options?.save?.content' }  
     </span>
   );
 };

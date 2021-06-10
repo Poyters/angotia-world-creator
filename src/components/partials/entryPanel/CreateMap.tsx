@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid/v4';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { MapSizeInput } from './MapSizeInput';
 import { mapState } from '../../../store/states/mapState';
@@ -14,7 +13,6 @@ import { IMapState } from '../../../interfaces/mapState.interface';
 import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
 
 export const CreateMap: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
   const [redirect, setRedirect] = useState<null | string>(null);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const mapSize = useSelector((state: IStore) => state.map.size);
@@ -75,14 +73,14 @@ export const CreateMap: React.FC = () => {
     emptyMapState.vertex.matrix = deepCopy(newEmptyMatrix);
 
     dispatch(loadMapData(emptyMapState));
-    setRedirect(routes.creator);
+    setRedirect('routes.creator');
   };
 
   return (
     <>
       {
         redirect !== null ? (
-          <Redirect to={`/${lang}/${redirect}`}/>
+          <Redirect to={`/${redirect}`}/>
         ) : null
       }
       { isOpenPopup ? ReactDOM.createPortal(

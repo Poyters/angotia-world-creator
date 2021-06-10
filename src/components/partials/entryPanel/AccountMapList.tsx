@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { 
   GET__REQ_MAPS_BY_AUTHOR
@@ -7,7 +7,6 @@ import { GET_REQ_MAP } from '../../../api/angotiaResources/queries/map/getReqMap
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
-import { ContentContext } from '../../../Template';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
@@ -17,7 +16,6 @@ import { getUserId } from '../../../scripts/user/getUserId';
 
 
 export const AccountMapList: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
   const userId = getUserId() ?? '';
   const map = useQuery(GET__REQ_MAPS_BY_AUTHOR, {
     variables: { author_id: userId }
@@ -35,7 +33,7 @@ export const AccountMapList: React.FC = () => {
     if (isValidExternalMapData(loadedData)) {
       const internalMapData = prepareInternalMapData(loadedData);
       dispatch(loadMapData(internalMapData));
-      setRedirect(routes?.creator);
+      setRedirect('routes?.creator');
     } else {
       addNotification('You are trying to load invalid map data', Notification.error);
     }
@@ -53,7 +51,7 @@ export const AccountMapList: React.FC = () => {
     <>
       {
         redirect !== null ? (
-          <Redirect to={`/${lang}/${redirect}`}/>
+          <Redirect to={`/${redirect}`}/>
         ) : null
       }
       <ul className="loadedDataList">

@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { ActionInputField } from '../../ActionInputField';
 import { changeMonologs } from '../../../../store/actions/charActions';
-import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IMonologPopup } from '../../../../interfaces/dialogs.interface';
@@ -12,7 +11,6 @@ import { IMonologPopup } from '../../../../interfaces/dialogs.interface';
 export const MonologPopup: React.FC<IMonologPopup> = (
   { isActivePopup, monologData, setMonologData }
 ) => {
-  const { char, notifications } = useContext(ContentContext);
   const monologId: string = monologData ? monologData.id : uuid();
   const [monologContent, setMonologContent] = useState<string>(monologData?.content || '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
@@ -49,7 +47,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    addNotification(notifications?.monologs?.add);
+    addNotification('notifications?.monologs?.add');
   };
 
   const editMonolog = (): void => {
@@ -60,7 +58,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    addNotification(notifications?.monologs?.edit);
+    addNotification('notifications?.monologs?.edit');
     if (setMonologData) setMonologData(null);
   };
 
@@ -88,7 +86,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char?.monolog?.add }
+          { 'char?.monolog?.add' }
         </header>
         <ActionInputField
           label='ID - auto generated'
@@ -96,7 +94,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.monolog?.content }
+          { 'char?.monolog?.content' }
         </label>
         <textarea
           value={monologContent} 
@@ -105,7 +103,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
         {
           (monologCtnErr) ? (
             <span className="insertPopup--error">
-              { char?.monolog?.contentErr }
+              { 'char?.monolog?.contentErr' }
             </span>
           ) : null
         }
@@ -116,7 +114,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           onClick={submitHandler} 
           disabled={monologCtnErr}
         > 
-          { char?.monolog?.submit } 
+          { 'char?.monolog?.submit' } 
         </button>
       </div>
     </div>

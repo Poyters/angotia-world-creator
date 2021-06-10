@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { matrixToIds } from '../../../../scripts/parsers/matrixToIds';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
@@ -7,7 +7,6 @@ import {
     changeMapPassageMatrix, 
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
-import { ContentContext } from '../../../../Template';
 import { ISquareData } from '../../../../interfaces/square.interface';
 import { IPassageLocation } from '../../../../interfaces/passage.interface';
 import { IPopup } from '../../../../interfaces/popup.interface';
@@ -17,7 +16,6 @@ import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 
 
 export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
-    const { notifications } = useContext(ContentContext);
     const [mapTargetId, setMapTargetId] = useState<string>('');
     const [mapTargetCords, setMapTargetCords] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
@@ -68,7 +66,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
             passageMatrix, 
             Canvas.passage, 
             changeMapPassageMatrix, 
-            notifications?.options?.passage?.add, 
+            'notifications?.options?.passage?.add', 
             '', 
             MatrixFillColor.passage
         );

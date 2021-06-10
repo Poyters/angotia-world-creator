@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import mapConfig from '../../../../assets/configs/map.config.json';
@@ -8,7 +8,6 @@ import { markSquare } from '../../../../scripts/matrix/markSquare';
 import { isEmptyMatrix } from '../../../../scripts/validators/isEmptyMatrix';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { PassagePopup } from './PassagePopup';
-import { ContentContext } from '../../../../Template';
 import { 
     changeMapPassageMatrix, 
     changeMapPassageLocations 
@@ -24,7 +23,6 @@ document.addEventListener('keydown', event => pressedKey = event.key);
 document.addEventListener('keyup', () => pressedKey = null);
 
 export const PassageOption: React.FC = () => {
-    const { notifications } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
@@ -33,7 +31,7 @@ export const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification(notifications?.options?.passage?.select, Notification.error);
+            addNotification('notifications?.options?.passage?.select, Notification.error');
             return;
         }
 
@@ -57,7 +55,7 @@ export const PassageOption: React.FC = () => {
             passageMatrix, 
             Canvas.passage, 
             changeMapPassageMatrix, 
-            notifications?.options?.passage?.delete, 
+            'notifications?.options?.passage?.delete', 
             '', 
             MatrixFillColor.passage
         );

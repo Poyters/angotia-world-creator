@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
 import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
-import { ContentContext } from '../../../Template';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
@@ -20,7 +19,6 @@ import { AccountMapList } from './AccountMapList' ;
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
-  const { lang, routes } = useContext(ContentContext);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState<null | string>(null);
   const [isActiveProduction, setIsActiveProduction] = useState(false);
@@ -67,7 +65,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalMapData(loadedData)) {
               const internalData = prepareInternalMapData(loadedData);
               dispatch(loadMapData(internalData));
-              setRedirect(routes?.creator);
+              setRedirect('routes?.creator');
             } else {
               addNotification('You are trying to load invalid map data', Notification.error);
             }
@@ -77,7 +75,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalCharData(loadedData)) {
               const internalData = prepareInternalCharData(loadedData);
               dispatch(loadCharData(internalData));
-              setRedirect(routes?.char);
+              setRedirect('routes?.char');
             } else {
               addNotification('You are trying to load invalid char data', Notification.error);
             }
@@ -93,7 +91,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   };
 
   const content = redirect !== null ? (
-    <Redirect to={`/${lang}/${redirect}`}/>
+    <Redirect to={`/${redirect}`}/>
   ) : (
     <div className="g-container g-container--popup">
       <div role="alert" className="insertPopup">

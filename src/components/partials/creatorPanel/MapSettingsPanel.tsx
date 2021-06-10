@@ -1,14 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../ActionInputField';
-import { ContentContext } from '../../../Template';
 import { setMapDesc, setMinEntryLevel, changeMapName } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { IPoint } from '../../../interfaces/math.interface';
 
 
 export const MapSettingsPanel: React.FC = () => {
-	const { creator } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const description: string = useSelector((state: IStore) => state.map.description);
 	const [descValue, setDescValue] = useState<string>(description);
@@ -28,7 +26,7 @@ export const MapSettingsPanel: React.FC = () => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
 			> 
-				{ creator?.settingsPanel?.open }
+				{ 'creator?.settingsPanel?.open' }
 			</div>
 			<aside 
 				className="g-sidePanelWrapper g-sidePanelWrapper--left" 
@@ -36,29 +34,29 @@ export const MapSettingsPanel: React.FC = () => {
 			>
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
-						label={creator?.settingsPanel?.id}
+						label={'creator?.settingsPanel?.id'}
 						inputValue={mapInternalId}
 						inputDisabled={true}
 					/>
 					<ActionInputField
-						label={creator?.settingsPanel?.size}
+						label={'creator?.settingsPanel?.size'}
 						inputValue={`${mapSize.x} x ${mapSize.y}`}
 						inputDisabled={true}
 					/>
 					<ActionInputField
-						label={creator?.settingsPanel?.boardName}
+						label={'creator?.settingsPanel?.boardName'}
 						inputValue={boardName}
 						action={changeMapName}
 					/>
 					<ActionInputField
-						label={creator?.settingsPanel?.minLevel}
+						label={'creator?.settingsPanel?.minLevel'}
 						inputValue={minEntryLevel}
 						action={setMinEntryLevel}
 					/>
 
 					<div className="g-separeTextarea">
 						<label className="g-separeTextarea__label t-paragraph6Light">
-							{ creator?.settingsPanel?.description }
+							{ 'creator?.settingsPanel?.description' }
 						</label>
 						<textarea
 							className="g-separeTextarea__area g-separeTextarea__area--mapDesc"
@@ -73,7 +71,7 @@ export const MapSettingsPanel: React.FC = () => {
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>
-							{ creator?.settingsPanel?.close }
+							{ 'creator?.settingsPanel?.close' }
 						</span>
 					</div>
 				</div>

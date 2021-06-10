@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { PlayerDialog } from './PlayerDialog';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IPlayer } from '../../../../interfaces/dialogs.interface';
-import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 
 
 export const AddTemponaryPlayerDialog: React.FC = () => {
-  const { char } = useContext(ContentContext);
   const dispatch = useDispatch();
   const temponaryPlayerDialogs: IPlayer[] = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
@@ -36,13 +34,13 @@ export const AddTemponaryPlayerDialog: React.FC = () => {
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
         >
-          { char?.dialogPopup?.playerDialogs }
+          { 'char?.dialogPopup?.playerDialogs' }
         </header>
         <div 
           className="playerDialogsHeader__add t-paragraph5Normal"
           onClick={():void => addPlayerDialogHandler() }
         >
-          { char?.dialogPopup?.newPlayerDialog }
+          { 'char?.dialogPopup?.newPlayerDialog' }
         </div>
 
       </nav>

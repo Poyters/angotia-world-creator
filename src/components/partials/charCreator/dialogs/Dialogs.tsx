@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector } from 'react-redux';
 import { Dialog } from './Dialog';
@@ -6,7 +6,6 @@ import { Monolog } from './Monolog';
 import { 
   findConnectedDialog 
 } from '../../../../scripts/dialogs/findConnectedDialog';
-import { ContentContext } from '../../../../Template';
 import { MonologPopup } from './MonologPopup';
 import { DialogPopup } from './DialogPopup';
 import { IMonolog, IDialog } from '../../../../interfaces/dialogs.interface';
@@ -16,7 +15,6 @@ import uuid from 'uuid/v4';
 
 
 export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
-  const { char } = useContext(ContentContext);
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
@@ -31,14 +29,14 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
 
   return (
     <>
-      { isPopupOpen && type === char.form.monologs.title ? ReactDOM.createPortal(
+      { isPopupOpen && type === 'char.form.monologs.title' ? ReactDOM.createPortal(
         <MonologPopup 
           isActivePopup={setIsPopupOpen} 
           monologData={monologData}
           setMonologData={setMonologData}
         />, document.body
       ) : null}
-      { isPopupOpen && type === char.form.dialogs.title ? ReactDOM.createPortal(
+      { isPopupOpen && type === 'char.form.dialogs.title' ? ReactDOM.createPortal(
         <DialogPopup isActivePopup={setIsPopupOpen} dialogId={uuid()}/>, document.body
       ) : null}
       <div className="dialogs">
@@ -55,7 +53,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
           </ul>
         </nav>
         {
-          type === char?.form?.dialogs?.title ? (
+          type === 'char?.form?.dialogs?.title' ? (
             dialogsData.length > 0 ? (
               dialogsData.map((dialog: IDialog) => {
                 return <Dialog 
@@ -70,13 +68,13 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                  { char?.form?.lackOf } { type }
+                  { 'char?.form?.lackOf' } { type }
               </p>
             )
           ) : null
         }
         {
-          type === char?.form?.monologs?.title ? (
+          type === 'char?.form?.monologs?.title' ? (
             monologsData.length > 0 ? (
               monologsData.map((monolog: IMonolog) => {
                 return <Monolog 
@@ -89,7 +87,7 @@ export const Dialogs: React.FC<IDialogs> = ({ type, addBtnText }) => {
               })
             ) : (
               <p className='dialogs--none t-paragraph5Normal'>
-                { char?.form?.lackOf } { type }
+                { 'char?.form?.lackOf' } { type }
               </p>
             )
           ) : null

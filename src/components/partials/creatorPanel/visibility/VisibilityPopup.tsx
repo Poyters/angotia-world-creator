@@ -1,6 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { ContentContext } from '../../../../Template';
 import mapConfig from '../../../../assets/configs/map.config.json';
 import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
@@ -10,7 +9,6 @@ import { IPopup } from '../../../../interfaces/popup.interface';
 
 export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const defaultRange = useSelector((state: IStore) => state.map.visibilityRange);
-    const { creator, notifications } = useContext(ContentContext);
     const [error, setError] = useState<boolean>(false);
     const [visibility, setVisibility] = useState(defaultRange);
     const dispatch = useDispatch();
@@ -44,7 +42,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
         
         dispatch(setVisibilityRange(visibility));
         isActivePopup(false);
-        addNotification(notifications?.visibility?.change);
+        addNotification('notifications?.visibility?.change');
     };
 
     return (
@@ -58,7 +56,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     { creator?.panel?.options?.visibility?.title } 
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    { creator?.panel?.options?.visibility?.desc } 
+                    { 'creator?.panel?.options?.visibility?.desc' } 
                     ({mapConfig?.visibility?.min} - {mapConfig?.visibility?.max})
                 </label>
                 <input 
@@ -69,7 +67,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                            { creator?.panel?.options?.visibility?.error } 
+                            { 'creator?.panel?.options?.visibility?.error' } 
                         </span>
                     ) : null
                 }                
@@ -80,7 +78,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={submitVisibility} 
                     disabled={error}
                 > 
-                    {creator?.panel?.options?.visibility?.submit} 
+                    { 'creator?.panel?.options?.visibility?.submit' } 
                 </button>
             </div>
         </div>

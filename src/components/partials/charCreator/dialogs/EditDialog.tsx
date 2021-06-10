@@ -1,17 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
-import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IDialogPopup } from '../../../../interfaces/dialogs.interface';
 
 
 export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) => {
-  const { char, notifications } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined= dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
@@ -65,7 +63,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     isActivePopup(false);
-    addNotification(notifications?.dialogs?.edit);
+    addNotification('notifications?.dialogs?.edit');
   };
 
   return (
@@ -76,15 +74,15 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
           onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char?.dialogPopup?.edit }
+          { 'char?.dialogPopup?.edit' }
         </header>
         <ActionInputField
-          label={char?.dialogPopup?.id}
+          label={'char?.dialogPopup?.id'}
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.dialogPopup?.npcDialog }
+          { 'char?.dialogPopup?.npcDialog' }
         </label>
         <textarea
           value={npcText} 
@@ -93,7 +91,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { char?.dialogPopup?.npcTextErr }
+              { 'char?.dialogPopup?.npcTextErr' }
             </span>
           ) : null
         }   
@@ -106,7 +104,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
           onClick={submitHandler} 
           disabled={npcTextErr}
         > 
-          { char?.dialogPopup?.submit } 
+          { 'char?.dialogPopup?.submit' } 
         </button>
       </div>
     </div>

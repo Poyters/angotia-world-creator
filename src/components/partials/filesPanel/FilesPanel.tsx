@@ -1,4 +1,4 @@
-import React, { useState, useContext, CSSProperties } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
 import mapConfig from '../../../assets/configs/map.config.json';
@@ -18,7 +18,6 @@ import {
 	changeMapMobMatrix ,
 	changeMapSeMatrix
 } from '../../../store/actions/mapActions';
-import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 import { addInternalImagesData } from '../../../scripts/utils/addInternalImagesData';
 import { MatrixFillColor } from '../../../models/matrixFillColor.model';
@@ -27,7 +26,6 @@ import { MatrixFillColor } from '../../../models/matrixFillColor.model';
 const bookmarks: string[] = mapConfig.bookmarks;
 
 export const FilesPanel: React.FC = () => {
-	const { filesPanel } = useContext(ContentContext);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 	const buildingMatrix = deepCopy(useSelector((state: IStore) => state.map.building.matrix));
@@ -132,13 +130,13 @@ export const FilesPanel: React.FC = () => {
 				<li 
 					key={uuid()} 
 					onClick={(): void => setCurrBookmark(bookmark)} 
-					style={{color: currBookmark === bookmark ? 
-							'#27427c' : 'inherit'}}
+					style={{ color: currBookmark === bookmark ? 
+							'#27427c' : 'inherit' }}
 				> 
 					{ 
-						!filesPanel?.bookmarks[bookmark] ||
-						filesPanel?.bookmarks[bookmark]?.length <= 0 ?
-						bookmark : filesPanel?.bookmarks[bookmark]
+						!'filesPanel?.bookmarks[bookmark]' ||
+						'filesPanel?.bookmarks[bookmark]'.length <= 0 ?
+						bookmark : 'filesPanel?.bookmarks[bookmark]'
 					} 
 				</li>
 			);
@@ -174,7 +172,7 @@ export const FilesPanel: React.FC = () => {
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>
-							{ filesPanel.close }
+							{ 'filesPanel.close' }
 						</span>
 					</div>
 				</div>

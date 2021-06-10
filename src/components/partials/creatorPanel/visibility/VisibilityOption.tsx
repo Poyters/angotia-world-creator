@@ -1,11 +1,9 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { VisibilityPopup } from './VisibilityPopup';
-import { ContentContext } from '../../../../Template';
 
 
 export const VisibilityOption: React.FC = () => {
-    const { creator } = useContext(ContentContext);
     const [isPopup, setIsPopup] = useState<boolean>(false);
     
     return (
@@ -17,7 +15,7 @@ export const VisibilityOption: React.FC = () => {
                 role="button" 
                 className="option" 
                 onClick={(): void => setIsPopup(true)} 
-                data-title={creator?.panel?.options?.visibility?.dataTitle}
+                data-title={'creator?.panel?.options?.visibility?.dataTitle'}
             >
                 <div className="visibilityOption"> </div>
             </div>

@@ -1,13 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { LoadPicBtn } from '../LoadPicBtn';
 import { setCharPic } from '../../../store/actions/charActions';
-import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 
 
 export const CharSprite = () => {
-  const { char, notifications } = useContext(ContentContext);
   const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
 
   const charPicStyles = {
@@ -30,9 +28,9 @@ export const CharSprite = () => {
       </div>
       
       <LoadPicBtn 
-        name={char?.form?.importPicBtn}
+        name={'char?.form?.importPicBtn'}
         clickEvent={setCharPic}
-        note={notifications?.char?.loadedGraphice}
+        note={'notifications?.char?.loadedGraphice'}
       />
     </>
   );

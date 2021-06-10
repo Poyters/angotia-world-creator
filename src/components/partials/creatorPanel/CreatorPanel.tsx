@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FullScreenOption } from '../options/FullScreenOption';
 import { NetOption } from './NetOption';
 import { SelectOption } from './SelectOption';
@@ -12,14 +12,11 @@ import { DeleteBgOption } from './DeleteBgOption';
 import { AddFSImageOption } from './addFSImage/AddFSImageOption';
 import { VisibilityOption } from './visibility/VisibilityOption';
 import { Menu } from '../options/Menu';
-import { ContentContext } from '../../../Template';
 import { AppModules } from '../../../models/appModules.model';
 import logo24x24 from '../../../assets/images/logo-24x24.png';
 
 
 export const CreatorPanel: React.FC = () => {
-  const { notifications } = useContext(ContentContext);
-  
   return (
     <div className="optionsPanelWrapper">
       <nav className="optionsPanel">
@@ -53,13 +50,13 @@ export const CreatorPanel: React.FC = () => {
           </li>
           <li>
             <ClearSelectedOption 
-              note={notifications?.options?.clearSelected?.cleared}
+              note={'notifications?.options?.clearSelected?.cleared'}
             />
           </li>
           <li>
             <BlockOption
-              selectNote={notifications?.options?.block?.select}
-              changeNote={notifications?.options?.block?.change}
+              selectNote={'notifications?.options?.block?.select'}
+              changeNote={'notifications?.options?.block?.change'}
             />
           </li>
           <li>

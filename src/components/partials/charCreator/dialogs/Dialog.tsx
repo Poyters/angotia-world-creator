@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactDOM from 'react-dom';
 import { IDialog } from '../../../../interfaces/dialogs.interface';
@@ -6,7 +6,6 @@ import { changeDialogs } from '../../../../store/actions/charActions';
 import { EditDialog } from './EditDialog';
 import { EditPlayerDialog } from './EditPlayerDialog';
 import charConfig from '../../../../assets/configs/char.config.json';
-import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 
@@ -19,7 +18,6 @@ export const Dialog: React.FC<IDialog> = ({
   connectedDialogs,
   clearValidator = () => { /* do nothing */ },
 }) => {
-  const { char, notifications } = useContext(ContentContext);
   const [isDialogPopup, setIsDialogPopup] = useState<boolean>(false);
   const [isPlayerPopup, setIsPlayerPopup] = useState<boolean>(false);
   const [playerId, setPlayerId] = useState<string>('');
@@ -32,7 +30,7 @@ export const Dialog: React.FC<IDialog> = ({
     });
 
     dispatch(changeDialogs(filteredDialogs));
-    addNotification(notifications?.dialogs?.delete);
+    addNotification('notifications?.dialogs?.delete');
   };
 
   const openPlayerPopupHandler = (id: string): void => {

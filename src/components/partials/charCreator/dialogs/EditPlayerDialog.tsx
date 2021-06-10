@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../store/actions/charActions';
 import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
-import { ContentContext } from '../../../../Template';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IEditPlayerDialog } from '../../../../interfaces/dialogs.interface';
@@ -12,7 +11,6 @@ import { IEditPlayerDialog } from '../../../../interfaces/dialogs.interface';
 export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   { dialogId, playerId, isActivePopup }
 ) => {
-  const { char, notifications } = useContext(ContentContext);
   const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
   const dialogData: IDialog | undefined = dialogsData
     .find((dialog: IDialog): boolean => dialog.id === dialogId);
@@ -72,7 +70,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     isActivePopup(false);
-    addNotification(notifications?.dialogs?.player?.edit);
+    addNotification('notifications?.dialogs?.player?.edit');
   };
 
   const deleteDialog = (id: string): void => {
@@ -88,7 +86,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
 
     dispatch(changeDialogs(updatedDialogs));
     isActivePopup(false);
-    addNotification(notifications?.dialogs?.player?.delete);
+    addNotification('notifications?.dialogs?.player?.delete');
   };
 
   return (
@@ -103,7 +101,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           onClick={():void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { char?.editPlayer?.title }
+          { 'char?.editPlayer?.title' }
         </header>
         <ActionInputField
           label='ID - auto generated'
@@ -111,7 +109,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.editPlayer?.playerDialog }
+          { 'char?.editPlayer?.playerDialog' }
         </label>
         <textarea
           value={dialog} 
@@ -120,13 +118,13 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         {
           (dialogErr) ? (
             <span className="insertPopup--error">
-              { char?.editPlayer?.playerDialogErr }
+              { 'char?.editPlayer?.playerDialogErr' }
             </span>
           ) : null
         }   
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.editPlayer?.action }
+          { 'char?.editPlayer?.action' }
         </label>
         <input
           value={action} 
@@ -134,7 +132,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         /> 
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.editPlayer?.next }
+          { 'char?.editPlayer?.next' }
         </label>
         <input
           value={next} 
@@ -142,7 +140,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         />  
 
         <label className="insertPopup__label t-paragraph6Light">
-          { char?.editPlayer?.condition }
+          { 'char?.editPlayer?.condition' }
         </label>
         <input
           value={condition} 
@@ -155,7 +153,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           onClick={submitHandler} 
           disabled={dialogErr}
         > 
-          { char?.editPlayer?.submit }
+          { 'char?.editPlayer?.submit' }
         </button>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { 
   GET__REQ_CHARS_BY_AUTHOR
@@ -8,7 +8,6 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
 import { Redirect } from 'react-router';
-import { ContentContext } from '../../../Template';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
 import { addNotification } from '../../../scripts/utils/notifications';
@@ -17,7 +16,6 @@ import { getUserId } from '../../../scripts/user/getUserId';
 
 
 export const AccountCharList: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
   const userId = getUserId() ?? '';
   const char = useQuery(GET__REQ_CHARS_BY_AUTHOR, {
     variables: { author_id: userId }
@@ -35,7 +33,7 @@ export const AccountCharList: React.FC = () => {
     if (isValidExternalCharData(loadedData)) {
       const internalCharData = prepareInternalCharData(loadedData);
       dispatch(loadCharData(internalCharData));
-      setRedirect(routes?.char);
+      setRedirect('routes?.char');
     } else {
       addNotification('You are trying to load invalid char data', Notification.error);
     }
@@ -53,7 +51,7 @@ export const AccountCharList: React.FC = () => {
     <>
       {
         redirect !== null ? (
-          <Redirect to={`/${lang}/${redirect}`}/>
+          <Redirect to={`/${redirect}`}/>
         ) : null
       }
       <ul className="loadedDataList">

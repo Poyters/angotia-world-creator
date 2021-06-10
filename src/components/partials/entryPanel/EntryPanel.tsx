@@ -1,7 +1,6 @@
-import React , { useState, useContext } from 'react';
+import React , { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
-import { ContentContext } from '../../../Template';
 import { AppModules } from '../../../models/appModules.model';
 import { LoadPopup } from './LoadPopup';
 import { CreateChar } from './CreateChar';
@@ -9,7 +8,6 @@ import uuid from 'uuid/v4';
 import { CreateMap } from './CreateMap';
 
 export const EntryPanel: React.FC = () => {
-  const { lang, routes } = useContext(ContentContext);
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [loadedDataType, setLoadedDataType] = useState<any>('');
 
@@ -56,10 +54,10 @@ export const EntryPanel: React.FC = () => {
             </nav>
           </li>
           <li className="separatedItem t-paragraph1MediumLight">
-            <Link to={`/${lang}/${routes.license}`}> License </Link>
+            <Link to={`/${'routes.license'}`}> License </Link>
           </li>
           <li className="t-paragraph1MediumLight">
-            <Link to={`/${lang}/${routes.help}`}> Help </Link>
+            <Link to={`/${'routes.help'}`}> Help </Link>
           </li>
           <li className="separatedItem">
             <a href="https://poyters.pl/">Exit</a>

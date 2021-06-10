@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import uuid from 'uuid/v4';
-import { ContentContext } from '../../../Template';
 import { IStore } from '../../../interfaces/store.interface';
 
 
 export const LayersOption: React.FC = () => {
-    const { creator } = useContext(ContentContext);  
     const [layersToRender, setLayersToRender] = useState<any>(null);
     const mapBackgorund = useSelector((state: IStore) => state.map.mapPic);
 
@@ -23,14 +21,14 @@ export const LayersOption: React.FC = () => {
                     key={uuid()} 
                     onClick={(): void => toggleLayer(layerName)}
                 >
-                    { creator?.panel?.options?.layers[layerName] }
+                    { 'creator?.panel?.options?.layers[layerName]' }
                 </li>
             );
         });
 
         setLayersToRender(ltr);
 
-    }, [creator]);
+    });
 
     let isBackgroundVisible = true;
     const toggleBackground = (): void => {
@@ -68,14 +66,14 @@ export const LayersOption: React.FC = () => {
     return (
         <div className="layersMenu">
             <header className="layersMenu__label t-paragraph6Normal">
-                {creator?.panel?.options?.layers?.title}    
+                { 'creator?.panel?.options?.layers?.title' }    
             </header>
             <ul className="layersMenu__content t-paragraph2Light">
                 <li 
                     id="backgroundBtn" 
                     onClick={toggleBackground}
                 >
-                    { creator?.panel?.options?.layers?.bg }
+                    { 'creator?.panel?.options?.layers?.bg' }
                 </li>
                 { layersToRender }
             </ul>

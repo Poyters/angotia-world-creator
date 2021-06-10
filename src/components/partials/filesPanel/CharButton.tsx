@@ -1,10 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ContentContext } from '../../../Template';
 
 
 export const CharButton: React.FC = () => {
-  const { filesPanel, lang, routes } = useContext(ContentContext);
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
 
   const charMenuStyles = {
@@ -22,13 +20,13 @@ export const CharButton: React.FC = () => {
         <ul>
           <li>
             <Link
-              to={`/${lang}/${routes.char}`}
+              to={`/${'routes.char'}`}
             >
-              { filesPanel?.charButton?.load }
+              { 'filesPanel?.charButton?.load' }
             </Link>
           </li>
           <li>
-            { filesPanel?.charButton?.edit }
+            { 'filesPanel?.charButton?.edit' }
           </li>
         </ul>
       </nav>
@@ -38,7 +36,7 @@ export const CharButton: React.FC = () => {
         onMouseLeave={() => setIsMenuVisible(false)}
       >
         <span>
-          { filesPanel?.charButton?.char }
+          { 'filesPanel?.charButton?.char' }
         </span>
       </div>
     </div>

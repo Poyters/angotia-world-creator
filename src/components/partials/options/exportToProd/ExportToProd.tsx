@@ -1,8 +1,7 @@
 
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IMapState } from '../../../../interfaces/mapState.interface';
 import { ICharState } from '../../../../interfaces/charState.interface';
@@ -30,7 +29,6 @@ interface IExportToProd {
 }
 
 export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
-  const { creator } = useContext(ContentContext);
   const [isActivePopup, setIsActivePopup] = useState<boolean>(false);
   const [isLicenseAccepted, setIsLicenseAccepted] = useState<boolean>(false);
   const dispatch = useDispatch();
@@ -127,7 +125,7 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
       <span
         onClick={() => setIsActivePopup(true)}
       >
-        {text ? text : creator?.panel?.options?.save?.content}
+        { text ? text : 'creator?.panel?.options?.save?.content' }
       </span>
     </>
   );

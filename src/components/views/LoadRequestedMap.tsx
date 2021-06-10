@@ -1,16 +1,14 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_REQ_MAP } from '../../api/angotiaResources/queries/map/getReqMap';
 import { Redirect } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { loadMapData } from '../../store/actions/mapActions';
 import { isValidExternalMapData } from '../../scripts/validators/isValidExternalMapData';
-import { ContentContext } from '../../Template';
 import { prepareInternalMapData } from '../../scripts/parsers/prepareInternalMapData';
 import { NotFound } from './NotFound';
 
 export const LoadRequestedMap = () => {
-  const { lang, routes } = useContext(ContentContext);
   const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
   const search = window.location.search;
@@ -25,7 +23,7 @@ export const LoadRequestedMap = () => {
     if (isValidExternalMapData(loadedData)) {
       const internalMapData = prepareInternalMapData(loadedData);
       dispatch(loadMapData(internalMapData));
-      setRedirect(routes?.creator);
+      setRedirect('routes?.creator');
     }
   };
 
@@ -33,7 +31,7 @@ export const LoadRequestedMap = () => {
     <>
       {
         redirect !== null ? (
-          <Redirect to={`/${lang}/${redirect}`}/>
+          <Redirect to={`/${redirect}`}/>
         ) : null
       }
       {

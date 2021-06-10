@@ -1,20 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
-import { ContentContext } from '../../Template';
 
 
 export const MapCreationRules: React.FC = () => {
-  const { lang, routes, creator } = useContext(ContentContext);
-
   return (
     <div className="textView">
       <article className="textView__content">
         <nav className="g-sectionNav">
           <div className="g-sectionNav__elem">
             <Link 
-              to={`/${lang}/${routes.creator}`}
+              to={`/${'routes.creator'}`}
               className="t-paragraph2Normal textView__content--comeBack"
             >
               Come back to Creator
@@ -24,7 +21,7 @@ export const MapCreationRules: React.FC = () => {
         <h1 className="g-sectionTitle">Map creation rules</h1>
         <div className="scrollWrapper">
           <section>
-            { creator?.creationRules?.header }
+            { 'creator?.creationRules?.header' }
           </section>
           <section 
             className="scrollWrapper__section scrollWrapper__section--wideList"

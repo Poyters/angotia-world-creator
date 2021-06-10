@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { ContentContext } from '../../../../Template';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IPlayerDialog } from '../../../../interfaces/dialogs.interface';
 
 
 export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
-  const { char } = useContext(ContentContext);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
   const [action, setAction] = useState<string>('');
@@ -42,12 +40,12 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   return (
     <section className="playerDialog">
       <ActionInputField
-        label={char?.dialog?.playerId}
+        label={'char?.dialog?.playerId'}
         inputValue={playerId}
         inputDisabled={true}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char?.dialog?.playerDialog }
+        { 'char?.dialog?.playerDialog' }
       </label>
       <textarea
         value={newDialogText} 
@@ -55,21 +53,21 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char?.dialog?.action }
+        { 'char?.dialog?.action' }
       </label>
       <input 
         onChange={e => setAction(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char?.dialog?.next }
+        { 'char?.dialog?.next' }
       </label>
       <input 
         onChange={e => setNext(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { char?.dialog?.condition }
+        { 'char?.dialog?.condition' }
       </label>
       <input 
         onChange={e => setCondition(e.target.value)}
