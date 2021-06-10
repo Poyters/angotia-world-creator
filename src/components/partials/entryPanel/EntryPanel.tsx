@@ -12,7 +12,7 @@ import routesConfig from '../../../assets/configs/routes.config.json';
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [loadedDataType, setLoadedDataType] = useState<any>('');
-  const { t } = useTranslation(['entryPanel']);
+  const { t } = useTranslation(['entryPanel', 'common']);
 
   const loadDataHandler = (moduleType: string) => {
     setLoadedDataType(moduleType);
@@ -24,7 +24,12 @@ export const EntryPanel: React.FC = () => {
 
     for (const module in AppModules) {
       modules.push(
-        <li key={uuid()} onClick={()=> loadDataHandler(module.toUpperCase())}> { module } </li>
+        <li 
+          key={uuid()}
+          onClick={()=> loadDataHandler(module.toUpperCase())}
+        > 
+          { t(`common:${module}`) }
+        </li>
       );
     }
 

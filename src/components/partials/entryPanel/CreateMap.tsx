@@ -12,6 +12,7 @@ import mapConfig from '../../../assets/configs/map.config.json';
 import { IMapState } from '../../../interfaces/mapState.interface';
 import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { useTranslation } from 'react-i18next';
 
 export const CreateMap: React.FC = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
@@ -22,6 +23,7 @@ export const CreateMap: React.FC = () => {
   const [valMess, setValMess] = useState<string>('');
   const dispatch = useDispatch();
   const emptyMapState: IMapState = deepCopy(mapState);
+  const { t } = useTranslation(['common']);
 
   useEffect(() => {
     mapSizeValidation();
@@ -123,7 +125,7 @@ export const CreateMap: React.FC = () => {
         ) : null
       }
       <li key={uuid()} onClick={() => setIsOpenPopup(true)}>
-        Map      
+        { t('common:map') }        
       </li>
     </>
   );
