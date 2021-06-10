@@ -1,19 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router';
-import uuid from 'uuid/v4';
-import appConfig from '../../assets/configs/app.config.json';
-import { enContent } from '../../assets/content/langs/en/index';
-import { plContent } from '../../assets/content/langs/pl/index';
-import { IRouteProps, IMatchParams } from '../../interfaces/routing.interface';
-import { Icontent } from '../../interfaces/content.interface';
-import { IStore } from '../../interfaces/store.interface';
 import { useTranslation } from 'react-i18next';
 
 
-const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
-  const { t, i18n } = useTranslation();
-  const currLang: string = useSelector((state: IStore) => state.ui.language);
+export const LangMenu = () => {
+  const { i18n } = useTranslation();
+
+  const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -21,17 +13,27 @@ const LangMenu: React.FC<IRouteProps<IMatchParams>> = props => {
 
   return (
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
-      <button type="button" onClick={() => changeLanguage('en')}>
+      <button
+        type="button"
+        onClick={() => changeLanguage('en')}
+        className={getLanguage() === 'en' ?'labelMark--lang' : ''}
+      >
         en
       </button>
-      <button type="button" onClick={() => changeLanguage('pl')}>
+      <button 
+        type="button"
+        onClick={() => changeLanguage('pl')}
+        className={getLanguage() === 'pl' ?'labelMark--lang' : ''}
+      >
         pl
       </button>
-      <button type="button" onClick={() => changeLanguage('fr')}>
+      <button 
+        type="button"
+        onClick={() => changeLanguage('fr')}
+        className={getLanguage() === 'fr' ?'labelMark--lang' : ''}
+      >
         fr
       </button>
     </aside>
   );
 };
-
-export default withRouter(LangMenu);

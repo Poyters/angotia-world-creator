@@ -3,7 +3,7 @@ import { CreditsFooter } from '../partials/CreditsFooter';
 import { SectionHeader } from '../partials/SectionHeader';
 import { EntryPanel } from '../partials/entryPanel/EntryPanel';
 
-import LangMenu from '../partials/LangMenu';
+import { LangMenu } from '../partials/LangMenu';
 import { forceGetUserId } from '../../scripts/user/forceGetUserId';
 
 

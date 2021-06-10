@@ -1,0 +1,12 @@
+{
+  "create": {
+    "label": "Stwórz",
+    "map": "Mapę",
+    "char": "Postać",
+    "item": "Przedmiot"
+  },
+  "load": "Wczytaj",
+  "license": "Licencja",
+  "help": "Pomoc",
+  "exit": "Wyjście"
+}

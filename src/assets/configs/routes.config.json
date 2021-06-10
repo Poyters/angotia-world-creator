@@ -5,5 +5,7 @@
   "license": "license",
   "features": "features",
   "mapCreationRules": "map-creation-rules",
-  "home": ""
+  "home": "",
+  "loadReqMap": "load-req-map",
+  "loadReqChar": "load-req-char"
 }

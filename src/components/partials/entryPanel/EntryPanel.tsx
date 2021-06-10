@@ -12,7 +12,7 @@ import routesConfig from '../../../assets/configs/routes.config.json';
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [loadedDataType, setLoadedDataType] = useState<any>('');
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation(['entryPanel']);
 
   const loadDataHandler = (moduleType: string) => {
     setLoadedDataType(moduleType);
@@ -39,18 +39,17 @@ export const EntryPanel: React.FC = () => {
        <nav className="entryPanel">
         <ul className="entryPanel__menu">
           <li className="t-paragraph1MediumLight extendedItem">
-            { t('Welcome to React') }
-            <span> Create </span>
+            <span> { t('entryPanel:create.label') } </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
                 <CreateMap />
                 <CreateChar />
-                <li key={uuid()}> Item </li>
+                <li key={uuid()}> { t('entryPanel:create.item') } </li>
               </ul>
             </nav>
           </li>
           <li className="t-paragraph1MediumLight extendedItem">
-            <span> Load </span>
+            <span> { t('entryPanel:load') } </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
                 { loadModules() }
@@ -58,13 +57,13 @@ export const EntryPanel: React.FC = () => {
             </nav>
           </li>
           <li className="separatedItem t-paragraph1MediumLight">
-            <Link to={`/${routesConfig.license}`}> License </Link>
+            <Link to={`/${routesConfig.license}`}> { t('entryPanel:license') } </Link>
           </li>
           <li className="t-paragraph1MediumLight">
-            <Link to={`/${routesConfig.help}`}> Help </Link>
+            <Link to={`/${routesConfig.help}`}> { t('entryPanel:help') } </Link>
           </li>
           <li className="separatedItem">
-            <a href="https://poyters.pl/">Exit</a>
+            <a href="https://poyters.pl/"> { t('entryPanel:exit') } </a>
           </li>
         </ul>
 

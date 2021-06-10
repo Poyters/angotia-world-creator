@@ -26,25 +26,20 @@
     }
 
     &--langs {
-        & span {
-            margin: 0 5px;
-
-            cursor: pointer;
-            transform: $shortEasyAnimation1;
+        & button {
+            background-color: transparent;
+            border: none;
+            color: $fontColor;
             text-transform: uppercase;
-            font-weight: 700;
+            cursor: pointer;
 
             &:hover {
                 color: $decorationColor1;
-            }
-
-            &:last-child {
-                margin-right: 10px;
             }
         }
     }
 
     &--lang {
-        color: $decorationColor1;
+        color: $decorationColor1 !important;
     }
 }

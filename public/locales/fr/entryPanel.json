@@ -1,0 +1,12 @@
+{
+  "create": {
+    "label": "Créer",
+    "map": "Carte",
+    "char": "Personnage",
+    "item": "Item"
+  },
+  "load": "Charge",
+  "license": "Licence",
+  "help": "Aider",
+  "exit": "Sortir"
+}

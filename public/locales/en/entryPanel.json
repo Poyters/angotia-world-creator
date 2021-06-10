@@ -1,0 +1,12 @@
+{
+  "create": {
+    "label": "Create",
+    "map": "Map",
+    "char": "Char",
+    "item": "Item"
+  },
+  "load": "Load",
+  "license": "License",
+  "help": "Help",
+  "exit": "Exit"
+}

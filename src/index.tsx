@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -17,7 +17,9 @@ const runApp = () => {
   ReactDOM.render(
     <Provider store={store}>
       <ApolloProvider client={client}>
-        <App />
+        <Suspense fallback={null}>
+          <App />
+        </Suspense>
       </ApolloProvider>
     </Provider>, document.getElementById('root')
   );

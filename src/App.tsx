@@ -12,6 +12,7 @@ import { MapCreationRules } from './components/views/MapCreationRules';
 import { Notifications } from './components/partials/Notifications';
 import { LoadRequestedMap } from './components/views/LoadRequestedMap';
 import { LoadRequestedChar } from './components/views/LoadRequestedChar';
+import routesConfig from './assets/configs/routes.config.json';
 
 
 export const App: React.FC = () => {
@@ -21,16 +22,16 @@ export const App: React.FC = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path={'/map-creator'} component={MapCreator} />
-          <Route path={'char-creator'} component={CharCreator} />
-          <Route path={'help'} component={Help} />
-          <Route path={'license'} component={License} />
-          <Route path={'features'} component={Features} />
+          <Route path={`/${routesConfig.mapCreator}`} component={MapCreator} />
+          <Route path={`/${routesConfig.charCreator}`} component={CharCreator} />
+          <Route path={`/${routesConfig.help}`} component={Help} />
+          <Route path={`/${routesConfig.license}`} component={License} />
+          <Route path={`/${routesConfig.features}`} component={Features} />
           <Route 
-            path={'/map-creation-rules'}
+            path={`/${routesConfig.mapCreationRules}`}
             component={MapCreationRules} />
-          <Route path={'/load-req-map'} component={LoadRequestedMap} />
-          <Route path={'/load-req-char'} component={LoadRequestedChar} />
+          <Route path={`/${routesConfig.loadReqMap}`} component={LoadRequestedMap} />
+          <Route path={`/${routesConfig.loadReqChar}`} component={LoadRequestedChar} />
           <Route component={NotFound}/>
         </Switch>
       </Router>
