@@ -6,10 +6,12 @@ import { LoadPopup } from './LoadPopup';
 import { CreateChar } from './CreateChar';
 import uuid from 'uuid/v4';
 import { CreateMap } from './CreateMap';
+import { useTranslation } from 'react-i18next';
 
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
   const [loadedDataType, setLoadedDataType] = useState<any>('');
+  const { t, i18n } = useTranslation();
 
   const loadDataHandler = (moduleType: string) => {
     setLoadedDataType(moduleType);
@@ -36,6 +38,7 @@ export const EntryPanel: React.FC = () => {
        <nav className="entryPanel">
         <ul className="entryPanel__menu">
           <li className="t-paragraph1MediumLight extendedItem">
+            { t('Welcome to React') }
             <span> Create </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
