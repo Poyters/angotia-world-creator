@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
+import routesConfig from '../../assets/configs/routes.config.json';
 
 
 export const MapCreationRules: React.FC = () => {
@@ -11,7 +12,7 @@ export const MapCreationRules: React.FC = () => {
         <nav className="g-sectionNav">
           <div className="g-sectionNav__elem">
             <Link 
-              to={`/${'routes.creator'}`}
+              to={`/${routesConfig.mapCreator}`}
               className="t-paragraph2Normal textView__content--comeBack"
             >
               Come back to Creator

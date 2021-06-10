@@ -7,6 +7,7 @@ import { CreateChar } from './CreateChar';
 import uuid from 'uuid/v4';
 import { CreateMap } from './CreateMap';
 import { useTranslation } from 'react-i18next';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
@@ -57,10 +58,10 @@ export const EntryPanel: React.FC = () => {
             </nav>
           </li>
           <li className="separatedItem t-paragraph1MediumLight">
-            <Link to={`/${'routes.license'}`}> License </Link>
+            <Link to={`/${routesConfig.license}`}> License </Link>
           </li>
           <li className="t-paragraph1MediumLight">
-            <Link to={`/${'routes.help'}`}> Help </Link>
+            <Link to={`/${routesConfig.help}`}> Help </Link>
           </li>
           <li className="separatedItem">
             <a href="https://poyters.pl/">Exit</a>

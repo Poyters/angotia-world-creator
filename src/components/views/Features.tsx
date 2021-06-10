@@ -16,6 +16,7 @@ import { VertexWeightOption } from '../partials/creatorPanel/vertexWeight/Vertex
 import { SaveJsonOption } from '../partials/options/SaveJsonOption';
 import { DeleteBgOption }from '../partials/creatorPanel/DeleteBgOption';
 import { AppModules } from '../../models/appModules.model';
+import routesConfig from '../../assets/configs/routes.config.json';
 
 
 export const Features: React.FC = () => {
@@ -25,7 +26,7 @@ export const Features: React.FC = () => {
         <nav className="g-sectionNav">
           <div className="g-sectionNav__elem">
             <Link 
-              to={`/${'routes.creator'}`} 
+              to={`/${routesConfig.mapCreator}`} 
               className="t-paragraph2Normal textView__content--comeBack"
             >
               { 'features?.comeBack' }
@@ -34,7 +35,7 @@ export const Features: React.FC = () => {
           <div 
             className="g-sectionNav__elem g-sectionNav__elem--page t-paragraph6Normal"
           >
-            <Link to={`/${'routes.help'}`} >
+            <Link to={`/${routesConfig.help}`} >
               { 'features?.toHelp' }
             </Link>
           </div>

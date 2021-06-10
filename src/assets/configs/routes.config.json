@@ -1,3 +1,9 @@
 {
-  "mapCreator": "map-creator"
+  "mapCreator": "map-creator",
+  "charCreator": "char-creator",
+  "help": "help",
+  "license": "license",
+  "features": "features",
+  "mapCreationRules": "map-creation-rules",
+  "home": ""
 }

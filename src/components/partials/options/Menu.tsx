@@ -6,6 +6,7 @@ import appConfig from '../../../assets/configs/app.config.json';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
 import { MapPreview } from './MapPreview';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const Menu: React.FC<IApp> = ({ moduleType }) => {
@@ -40,24 +41,24 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 					) : null
 				}
 				<li>
-					<Link to={`/${'routes.help'}`}>
+					<Link to={`/${routesConfig.help}`}>
 						{ 'menu?.help' }
 					</Link>	
 				</li>
 				<li> 
-					<Link to={`/${'routes.license'}`}>
+					<Link to={`/${routesConfig.license}`}>
 						{ 'menu?.license' }
 					</Link>
 				</li>
 				<li> 
-					<Link to={`/${'routes.features'}`}>
+					<Link to={`/${routesConfig.features}`}>
 						{ 'menu?.features' }
 					</Link>
 				</li>
 				{
 					moduleType === AppModules.map ? (
 						<li> 
-							<Link to={`/${'routes.mapCreationRules'}`}>
+							<Link to={`/${routesConfig.mapCreationRules }`}>
 								{ 'menu?.mapCreationRules' }
 							</Link>
 						</li>
@@ -65,7 +66,7 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 				}
 				<li> { 'menu?.catalogs' } </li>
 				<li className="separator">
-					<Link to={`/${'routes.home'}`}>
+					<Link to={`/${routesConfig.home}`}>
 						{ 'menu?.backToMenu' }
 					</Link>
 				</li>

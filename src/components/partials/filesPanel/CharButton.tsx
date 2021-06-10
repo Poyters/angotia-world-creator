@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const CharButton: React.FC = () => {
@@ -20,7 +21,7 @@ export const CharButton: React.FC = () => {
         <ul>
           <li>
             <Link
-              to={`/${'routes.char'}`}
+              to={`/${routesConfig.charCreator}`}
             >
               { 'filesPanel?.charButton?.load' }
             </Link>

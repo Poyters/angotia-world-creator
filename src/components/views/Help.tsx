@@ -5,6 +5,7 @@ import { VersionMark } from '../partials/VersionMark';
 import { NetOption } from '../partials/creatorPanel/NetOption';
 import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
 import { BlockOption }from '../partials/creatorPanel/BlockOption';
+import routesConfig from '../../assets/configs/routes.config.json';
 
 
 export const Help: React.FC = () => {
@@ -14,14 +15,14 @@ export const Help: React.FC = () => {
         <nav className="g-sectionNav">
           <div className="g-sectionNav__elem">
             <Link 
-              to={`/${'routes.creator'}`}
+              to={`/${routesConfig.mapCreator}`}
               className="t-paragraph2Normal textView__content--comeBack"
             >
               { 'help?.comeBack' }
             </Link>
           </div>
           <div className="g-sectionNav__elem g-sectionNav__elem--page t-paragraph6Normal">
-            <Link to={`/${'routes.features'}`}>
+            <Link to={`/${routesConfig.features}`}>
               { 'help?.goToFeatures' }
             </Link>
           </div>

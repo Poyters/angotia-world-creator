@@ -11,6 +11,7 @@ import { loadMapData } from '../../../store/actions/mapActions';
 import mapConfig from '../../../assets/configs/map.config.json';
 import { IMapState } from '../../../interfaces/mapState.interface';
 import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 export const CreateMap: React.FC = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
@@ -73,7 +74,7 @@ export const CreateMap: React.FC = () => {
     emptyMapState.vertex.matrix = deepCopy(newEmptyMatrix);
 
     dispatch(loadMapData(emptyMapState));
-    setRedirect('routes.creator');
+    setRedirect(routesConfig.mapCreator);
   };
 
   return (
