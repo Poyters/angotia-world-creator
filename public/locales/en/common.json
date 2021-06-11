@@ -4,5 +4,6 @@
   "item": "Item",
   "name": "Name",
   "indernalId": "Internal id",
-  "type": "type"
+  "type": "type",
+  "reportIssue": "Report issue"
 }

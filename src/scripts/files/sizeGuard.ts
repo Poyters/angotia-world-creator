@@ -1,6 +1,7 @@
 import { addNotification } from '../utils/notifications';
 import { Notification } from '../../models/notification.model';
 import { log } from '../utils/log';
+import i18n from '../../i18n';
 
 
 export const sizeGuard = (file: any, maxValue: number)  => {
@@ -18,6 +19,7 @@ export const sizeGuard = (file: any, maxValue: number)  => {
     return true;
   } 
 
-  addNotification(`Too weight! Max pic weight is ${maxValue} KB`, Notification.error);
+  console.log('store', i18n.store);
+  addNotification(i18n.t('files.tooWeight'), Notification.error);
   return false;
 };

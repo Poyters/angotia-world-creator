@@ -9,32 +9,30 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { useTranslation } from 'react-i18next';
 
 
-interface ISaveJsonOption {
-  text?: string
-}
-
-export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => {
+export const SaveJsonOption = ({ moduleType }: IApp) => {
   const mapData = useSelector((state: IStore) => state.map);
   const mapName = useSelector((state: IStore) => state.map.mapName);
   const charData = useSelector((state: IStore) => state.char);
   const charName = useSelector((state: IStore) => state.char.name);
+  const { t } = useTranslation(['save']);
 
   const saveData = async () => {
     switch(moduleType) {
       case AppModules.char:
         const externalCharData = prepareExternalCharData(charData);
         saveFile(JSON.stringify(externalCharData), `${charName}.json`, 'text/json');
-        addNotification('Succesfully saved character');
+        addNotification(t('save:char.success'));
       break;
       case AppModules.map:
         const externalMapData = await prepareExternalMapData(mapData);
         saveFile(JSON.stringify(externalMapData), `${mapName}.json`, 'text/json');
-        addNotification('Succesfully saved map');
+        addNotification(t('save:map.success'));
       break;
       default:
-        addNotification('Invalid save data type', Notification.error);
+        addNotification(t('save:invalidType'), Notification.error);
     }
   };
 
@@ -42,7 +40,7 @@ export const SaveJsonOption = ({ moduleType, text }: ISaveJsonOption & IApp) => 
     <span
       onClick={() => saveData()}
     > 
-      { text ? text : 'creator?.panel?.options?.save?.content' }  
+      { t('save:computerTitle') }  
     </span>
   );
 };

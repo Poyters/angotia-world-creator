@@ -1,0 +1,11 @@
+{
+  "label": "menu",
+  "save": "save",
+  "help": "help",
+  "license": "license",
+  "features": "features",
+  "mapCreationRules": "map creation rules",
+  "resources": "resources",
+  "back": "back to menu",
+  "exit": "exit"
+}

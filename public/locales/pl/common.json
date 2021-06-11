@@ -4,5 +4,6 @@
   "item": "Przedmiot",
   "name": "Nazwa",
   "indernalId": "Wew. identyfikator",
-  "type": "typ"
+  "type": "typ",
+  "reportIssue": "Zgłoś błąd"
 }

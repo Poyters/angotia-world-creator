@@ -7,26 +7,29 @@ import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
 import { MapPreview } from './MapPreview';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { useTranslation } from 'react-i18next';
 
 
 export const Menu: React.FC<IApp> = ({ moduleType }) => {
+	const { t } = useTranslation(['menu']);
+
 	return (
 		<nav className="menu">
-			<header className="menu__label t-paragraph6Normal"> { 'menu?.label' } </header>
+			<header className="menu__label t-paragraph6Normal"> 
+				{ t('menu:label') }
+			</header>
 			<ul className="menu__content t-paragraph2Light">
 				<li className="extended">
-					{ 'menu?.save.label' }
+					{ t('menu:save') }
 					<nav className="submenu t-paragraph6Light">
 						<ul>
 							<li> 
 								<SaveJsonOption
-									text={ 'menu?.save.json' }
 									moduleType={moduleType}
 								/>
 							</li>
 							<li>
 								<ExportToProd
-									text={ 'menu?.save.prodDb' }
 									moduleType={moduleType}
 								/>
 							</li>
@@ -42,37 +45,37 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 				}
 				<li>
 					<Link to={`/${routesConfig.help}`}>
-						{ 'menu?.help' }
+					{ t('menu:help') }
 					</Link>	
 				</li>
 				<li> 
 					<Link to={`/${routesConfig.license}`}>
-						{ 'menu?.license' }
+					{ t('menu:license') }
 					</Link>
 				</li>
 				<li> 
 					<Link to={`/${routesConfig.features}`}>
-						{ 'menu?.features' }
+						{ t('menu:save') }
 					</Link>
 				</li>
 				{
 					moduleType === AppModules.map ? (
 						<li> 
 							<Link to={`/${routesConfig.mapCreationRules }`}>
-								{ 'menu?.mapCreationRules' }
+								{ t('menu:mapCreationRules') }
 							</Link>
 						</li>
 					) : null
 				}
-				<li> { 'menu?.catalogs' } </li>
+				<li> { t('menu:resources') } </li>
 				<li className="separator">
 					<Link to={`/${routesConfig.home}`}>
-						{ 'menu?.backToMenu' }
+						{ t('menu:back') }
 					</Link>
 				</li>
 				<li> 
 					<a href={appConfig.exitLink}>
-						{ 'menu?.exit' }
+						{ t('menu:exit') }
 					</a>
 				</li>
 			</ul>

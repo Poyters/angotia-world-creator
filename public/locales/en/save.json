@@ -1,0 +1,23 @@
+{
+  "map": {
+    "success": "Successfully saved map",
+    "exportError": "Expected error during checking existing char",
+    "protectErrors": "Cannot export char with errors!",
+    "exportUpdate": "Succesfully updated character",
+    "exportAdd": "Succesfully added a new character to Angotia"
+  },
+  "char": {
+    "success": "Successfully saved character",
+    "exportError": "Expected error during checking existing char",
+    "protectErrors": "Cannot export char with errors!",
+    "exportUpdate": "Succesfully updated character",
+    "exportAdd": "Succesfully added a new character to Angotia"
+  },
+  "invalidType": "Cannot recognize data type",
+  "computerTitle": "to computer",
+  "exportTitle": "in Angotia",
+  "exportAlert": "Export alert",
+  "exportWarning": "You are trying to export product to game. Angotia Admins will check out your product and accept (add to game) it or decline. To proceed it, you need to accept",
+  "acceptLicense": "Accept license",
+  "licenseName": "Angotia World Creator license"
+}

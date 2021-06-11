@@ -22,13 +22,11 @@ import { Notification } from '../../../../models/notification.model';
 import { AppModules } from '../../../../models/appModules.model';
 import { IApp } from '../../../../interfaces/app.inteface';
 import { ExportAlert } from './ExportAlert';
+import { useTranslation } from 'react-i18next';
 
 
-interface IExportToProd {
-  text?: string
-}
-
-export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
+export const ExportToProd = ({ moduleType }: IApp) => {
+  const { t } = useTranslation(['menu']);
   const [isActivePopup, setIsActivePopup] = useState<boolean>(false);
   const [isLicenseAccepted, setIsLicenseAccepted] = useState<boolean>(false);
   const dispatch = useDispatch();
@@ -69,46 +67,44 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
         const externalCharData = prepareExternalCharData(charData);
 
         if (char.error) {
-          addNotification(
-            `Expected error during checking existing char: ${char.error}`,
+          addNotification(t('save:char.exportError'),
             Notification.error
           );
           return;
         } else if (charErrors.length > 0) {
-          addNotification('Cannot export char with errors!', Notification.error);
+          addNotification(t('save:char.protectErrors'), Notification.error);
           return;
         }
 
         if (char.data) { // Char already exists id database
           delete externalCharData._id;
           updateChar({ variables: { id: charData.id, ...externalCharData } });
-          addNotification('Succesfully updated character');
+          addNotification(t('save:char.exportUpdate'));
         } else { // Char doest't exists
           addChar({ variables: { ...externalCharData } });
-          addNotification('Succesfully added a new character to Angotia');
+          addNotification(t('save:char.exportAdd'));
         }
         break;
       case AppModules.map:
         const externalMapData = await prepareExternalMapData(mapData);
 
         if (map.error) {
-          addNotification(
-            `Expected error during checking existing map: ${map.error}`,
+          addNotification(t('save:map.exportError'),
             Notification.error
           );
           return;
         } else if (mapErrors.length > 0) {
-          addNotification('Cannot export map with errors!', Notification.error);
+          addNotification(t('save:map.protectErrors'), Notification.error);
           return;
         }
 
         if (map.data) { // Map already exists id database
           delete externalMapData._id;
           updateMap({ variables: { id: mapData.id, ...externalMapData } });
-          addNotification('Succesfully updated map');
+          addNotification(t('save:map.exportUpdate'));
         } else { // Map doest't exists yet
           addMap({ variables: { ...externalMapData } });
-          addNotification('Succesfully added a new map to Angotia');
+          addNotification(t('save:map.exportAdd'));
         }
         break;
     }
@@ -125,7 +121,7 @@ export const ExportToProd = ({ moduleType, text }: IExportToProd & IApp) => {
       <span
         onClick={() => setIsActivePopup(true)}
       >
-        { text ? text : 'creator?.panel?.options?.save?.content' }
+        { t('save:exportTitle') }  
       </span>
     </>
   );

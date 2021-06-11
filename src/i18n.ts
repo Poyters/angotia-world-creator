@@ -10,10 +10,11 @@ i18n
     debug: true,
     lng: 'en',
     fallbackLng: 'en',
-    whitelist: ['en', 'pl', 'fr'],
+    supportedLngs: ['en', 'pl', 'fr'],
     interpolation: {
       escapeValue: false,
     },
+    defaultNS: 'common',
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },

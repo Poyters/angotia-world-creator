@@ -1,0 +1,23 @@
+{
+  "map": {
+    "success": "Pomyślnie zapisano mapę",
+    "exportError": "Wystąpił problem podczas przeszukiwania map użytkownika",
+    "protectErrors": "Nie można eksportować map z błędami",
+    "exportUpdate": "Pomyślnie updated character",
+    "exportAdd": "Pomyślnie wyeksportowano mape do Angotii"
+  },
+  "char": {
+    "success": "Pomyślnie zapisano postać",
+    "exportError": "Wystąpił problem podczas przeszukiwania postaci użytkownika",
+    "protectErrors": "Nie można eksportować postaci z błędami",
+    "exportUpdate": "Pomyślnie zaktualizowano postać",
+    "exportAdd": "Pomyślnie wyeksportowano postać to Angotia"
+  },
+  "invalidType": "Nie rozpoznano typu danych",
+  "computerTitle": "na komputerze",
+  "exportTitle": "do Angoti",
+  "exportAlert": "Export komunikat",
+  "exportWarning": "Próbujesz wyeksportować produkt do gry. Administratorzy Angotii sprawdzą twój produkt i zaakceptują (dodadzą do gry) go lub odrzucą. Aby to zrobić, musisz zaakceptować ",
+  "acceptLicense": "Zaakceptuj licencje",
+  "licenseName": "Angotia World Creator licencję"
+}

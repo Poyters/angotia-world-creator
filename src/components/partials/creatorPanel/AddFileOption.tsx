@@ -16,7 +16,7 @@ export const AddFileOption: React.FC = () => {
     const reader = new FileReader();
 
     // Pic is too weight
-    if (!sizeGuard(file, mapConfig.maxPicsWeight.background)) {
+    if (!sizeGuard(file, 50)) {
       return true;
     }
 

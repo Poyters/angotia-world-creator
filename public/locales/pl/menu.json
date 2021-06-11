@@ -1,0 +1,11 @@
+{
+  "label": "menu",
+  "save": "zapisz",
+  "help": "pomoc",
+  "license": "licencja",
+  "features": "funkcje",
+  "mapCreationRules": "zasady kreacji map",
+  "resources": "zasoby",
+  "back": "wróc do menu",
+  "exit": "wyjdź"
+}
