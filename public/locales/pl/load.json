@@ -1,9 +1,13 @@
 {
   "map": {
-    "invalidData": "Próba załadowania niepoprawnej mapy"
+    "invalidData": "Próba załadowania niepoprawnej mapy",
+    "loading": "Ładowanie listy map...",
+    "loadError": "Nie można było załadować listy map"
   },
   "char": {
-    "invalidData": "Próba załadowania niepoprawnej postaci"
+    "invalidData": "Próba załadowania niepoprawnej postaci",
+    "loading": "Ładnowanie listy postaci...",
+    "loadError": "Nie można było załadować listy postaci"
   },
   "title": "Wczytaj z",
   "prodDb": "produkcyjnej bazy",

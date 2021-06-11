@@ -7,6 +7,7 @@ import { prepareInternalCharData } from '../../scripts/parsers/prepareInternalCh
 import { isValidExternalCharData } from '../../scripts/validators/isValidExternalCharData';
 import { loadCharData } from '../../store/actions/charActions';
 import { NotFound } from './NotFound';
+import routesConfig from '../../assets/configs/routes.config.json';
 
 export const LoadRequestedChar = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
@@ -23,7 +24,7 @@ export const LoadRequestedChar = () => {
     if (isValidExternalCharData(loadedData)) {
       const internalCharData = prepareInternalCharData(loadedData);
       dispatch(loadCharData(internalCharData));
-      setRedirect('routes?.char');
+      setRedirect(routesConfig.charCreator);
     }
   };
 

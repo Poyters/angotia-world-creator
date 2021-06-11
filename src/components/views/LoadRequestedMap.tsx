@@ -7,6 +7,8 @@ import { loadMapData } from '../../store/actions/mapActions';
 import { isValidExternalMapData } from '../../scripts/validators/isValidExternalMapData';
 import { prepareInternalMapData } from '../../scripts/parsers/prepareInternalMapData';
 import { NotFound } from './NotFound';
+import routesConfig from '../../assets/configs/routes.config.json';
+
 
 export const LoadRequestedMap = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
@@ -23,7 +25,7 @@ export const LoadRequestedMap = () => {
     if (isValidExternalMapData(loadedData)) {
       const internalMapData = prepareInternalMapData(loadedData);
       dispatch(loadMapData(internalMapData));
-      setRedirect('routes?.creator');
+      setRedirect(routesConfig.mapCreator);
     }
   };
 

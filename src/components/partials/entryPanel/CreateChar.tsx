@@ -6,6 +6,7 @@ import { loadCharData } from '../../../store/actions/charActions';
 import { charState } from '../../../store/states/charState';
 import { deepCopy } from '../../../scripts/utils/deepCopy';
 import { useTranslation } from 'react-i18next';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const CreateChar: React.FC = () => {
@@ -16,7 +17,7 @@ export const CreateChar: React.FC = () => {
 
   const newCharInstanceHanlder = (): void => {
     dispatch(loadCharData(emptyCharState));
-    setRedirect('routes?.char');
+    setRedirect(routesConfig.charCreator);
   };
 
   return (

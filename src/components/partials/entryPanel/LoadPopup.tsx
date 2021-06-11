@@ -17,6 +17,7 @@ import { ProductionMapList } from './ProductionMapList';
 import { AccountCharList } from './AccountCharList';
 import { AccountMapList } from './AccountMapList' ;
 import { useTranslation } from 'react-i18next';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
@@ -67,7 +68,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalMapData(loadedData)) {
               const internalData = prepareInternalMapData(loadedData);
               dispatch(loadMapData(internalData));
-              setRedirect('routes?.creator');
+              setRedirect(routesConfig.mapCreator);
             } else {
               addNotification(t('load:map.invalidData'), Notification.error);
             }
@@ -77,7 +78,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalCharData(loadedData)) {
               const internalData = prepareInternalCharData(loadedData);
               dispatch(loadCharData(internalData));
-              setRedirect('routes?.char');
+              setRedirect(routesConfig.charCreator);
             } else {
               addNotification(t('load:char.invalidData'), Notification.error);
             }
