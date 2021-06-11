@@ -3,13 +3,16 @@ import uuid from 'uuid/v4';
 import mapConfig from '../../../../assets/configs/map.config.json';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 import { IPopup } from '../../../../interfaces/popup.interface';
+import { Bookmarks } from '../../../../models/bookmarks.model';
 
+
+const bookmarks = Object.keys(Bookmarks);
 
 export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [fileName, setFileName] = useState<string>('');
-  const [currBookmark, setCurrBookmark] = useState<string>(mapConfig?.bookmarks[0]);
+  const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -90,14 +93,14 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
           {
             (isSelectOpen) ? (
               <ul>
-                { mapConfig?.bookmarks.map((bookmark: string) => {
+                { bookmarks.map((bookmark: string) => {
                   if (bookmark !== currBookmark) {
                     return (
                       <li
                         onClick={(): void => setCurrBookmark(bookmark)}
                         key={uuid()}
                       >
-                        { bookmark}
+                        { bookmark }
                       </li>
                     );
                   }

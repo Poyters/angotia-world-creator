@@ -1,3 +1,15 @@
 {
-  "tooWeight": "Too weight! Max pic weight is KB"
+  "tooWeight": "Too weight! Max pic weight is KB",
+  "panel": {
+    "label": "Files Panel",
+    "bookmarks": {
+      "building": "buildings",
+      "decoration": "decorations",
+      "subsoil": "terrain",
+      "npc": "NPC",
+      "mob": "MOB",
+      "se": "speaking environment"
+    },
+    "added": "Added {{ bookmark }}"
+  }
 }

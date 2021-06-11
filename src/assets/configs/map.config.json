@@ -16,14 +16,6 @@
 		"color": "#27427c"
 	},
 	"secondOptionKeyCode": "Control",
-	"bookmarks": [
-		"building",
-		"decoration",
-		"subsoil",
-		"npc",
-		"mob",
-		"se"
-	],
 	"layers": [
 		{
 			"type": "block",

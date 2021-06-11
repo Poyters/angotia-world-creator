@@ -1,3 +1,15 @@
 {
-  "tooWeight": "Obraz jest zbyt duży. Maksymalna waga to {{ max }} KB"
+  "tooWeight": "Obraz jest zbyt duży. Maksymalna waga to {{ max }} KB",
+  "panel": {
+    "label": "Files Panel",
+    "bookmarks": {
+      "building": "budynki",
+      "decoration": "dekoracje",
+      "subsoil": "teren",
+      "npc": "NPC",
+      "mob": "potwory",
+      "se": "speaking environment"
+    },
+    "added": "Added {{ bookmark }}"
+  }
 }

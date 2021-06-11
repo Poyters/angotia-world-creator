@@ -5,5 +5,9 @@
   "name": "Nazwa",
   "indernalId": "Wew. identyfikator",
   "type": "typ",
-  "reportIssue": "Zgłoś błąd"
+  "reportIssue": "Zgłoś błąd",
+  "loading": "Ładowanie...",
+  "load": "załaduj",
+  "edit": "edytuj",
+  "close": "close"
 }

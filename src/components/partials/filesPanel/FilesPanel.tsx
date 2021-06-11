@@ -21,11 +21,15 @@ import {
 import { IStore } from '../../../interfaces/store.interface';
 import { addInternalImagesData } from '../../../scripts/utils/addInternalImagesData';
 import { MatrixFillColor } from '../../../models/matrixFillColor.model';
+import { useTranslation } from 'react-i18next';
+import { Bookmarks } from '../../../models/bookmarks.model';
+import { Canvas } from '../../../models/canvas.model';
 
 
-const bookmarks: string[] = mapConfig.bookmarks;
+const bookmarks = Object.keys(Bookmarks);
 
 export const FilesPanel: React.FC = () => {
+	const { t } = useTranslation(['files', 'common']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 	const buildingMatrix = deepCopy(useSelector((state: IStore) => state.map.building.matrix));
@@ -107,9 +111,11 @@ export const FilesPanel: React.FC = () => {
 					style={imageStyle} 
 					onClick={() => markSquare(
 						sourceMatrix, 
-						`MAP_${currBookmark.toUpperCase()}_CANVAS`, 
+						Canvas[currBookmark], 
 						matrixTransformationMethod, 
-						`Added ${currBookmark}`, 
+						t('files:panel.added', { 
+							bookmark: t(`files:panel.bookmarks.${currBookmark}`) 
+						}), 
 						// Add blob to internal images, and return id to blob
 						addInternalImagesData(img),
 						MatrixFillColor.image
@@ -123,8 +129,8 @@ export const FilesPanel: React.FC = () => {
 		return imagesToRender;
 	};
 
-	const generateBookmarks = (): any[] => {
-		const bookmarksToRender: any[] = bookmarks.map(
+	const generateBookmarks = () => {
+		const bookmarksToRender = bookmarks.map(
 			(bookmark: string) => {
 			return (
 				<li 
@@ -134,9 +140,7 @@ export const FilesPanel: React.FC = () => {
 							'#27427c' : 'inherit' }}
 				> 
 					{ 
-						!'filesPanel?.bookmarks[bookmark]' ||
-						'filesPanel?.bookmarks[bookmark]'.length <= 0 ?
-						bookmark : 'filesPanel?.bookmarks[bookmark]'
+						t(`files:panel.bookmarks.${bookmark}`)
 					} 
 				</li>
 			);
@@ -151,7 +155,7 @@ export const FilesPanel: React.FC = () => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
 				onClick={(): void => setIsOpen(true)}
 			> 
-				{ 'filesPanel.switch' }
+				{ t('files:panel.label') }
 			</div>
 			<aside className="g-sidePanelWrapper" style={filesPanelStyles}>
 				<div className="filesPanel">
@@ -172,7 +176,7 @@ export const FilesPanel: React.FC = () => {
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>
-							{ 'filesPanel.close' }
+							{ t('common:close') }
 						</span>
 					</div>
 				</div>

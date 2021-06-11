@@ -5,5 +5,9 @@
   "name": "Name",
   "indernalId": "Internal id",
   "type": "type",
-  "reportIssue": "Report issue"
+  "reportIssue": "Report issue",
+  "loading": "Loading...",
+  "load": "load",
+  "edit": "edit",
+  "close": "zamknij"
 }

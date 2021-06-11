@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { useTranslation } from 'react-i18next';
 
 
 export const CharButton: React.FC = () => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false);
+  const { t } = useTranslation(['map', 'common']);
 
   const charMenuStyles = {
     opacity: isMenuVisible ? 1 : 0
@@ -23,11 +25,11 @@ export const CharButton: React.FC = () => {
             <Link
               to={`/${routesConfig.charCreator}`}
             >
-              { 'filesPanel?.charButton?.load' }
+              { t('common:load') }
             </Link>
           </li>
           <li>
-            { 'filesPanel?.charButton?.edit' }
+            { t('common:edit') }
           </li>
         </ul>
       </nav>
@@ -37,7 +39,7 @@ export const CharButton: React.FC = () => {
         onMouseLeave={() => setIsMenuVisible(false)}
       >
         <span>
-          { 'filesPanel?.charButton?.char' }
+          { t('common:char') }
         </span>
       </div>
     </div>
