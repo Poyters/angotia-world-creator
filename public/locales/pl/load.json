@@ -1,0 +1,14 @@
+{
+  "map": {
+    "invalidData": "Próba załadowania niepoprawnej mapy"
+  },
+  "char": {
+    "invalidData": "Próba załadowania niepoprawnej postaci"
+  },
+  "title": "Wczytaj z",
+  "prodDb": "produkcyjnej bazy",
+  "account": "konta",
+  "computer": "komputera",
+  "isNotJson": "Plik nie jest w formacie JSON",
+  "invalidLoadType": "Próba załadowania nieznanego typu danych"
+}

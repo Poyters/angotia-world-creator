@@ -16,6 +16,7 @@ import { ProductionCharList } from './ProductionCharList';
 import { ProductionMapList } from './ProductionMapList';
 import { AccountCharList } from './AccountCharList';
 import { AccountMapList } from './AccountMapList' ;
+import { useTranslation } from 'react-i18next';
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
@@ -23,6 +24,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const [redirect, setRedirect] = useState<null | string>(null);
   const [isActiveProduction, setIsActiveProduction] = useState(false);
   const [isActiveAccount, setIsActiveAccount] = useState(false);
+  const { t } = useTranslation(['load']);
 
   useEffect(() => {
     const keyPressHandler = (event): void => {
@@ -56,7 +58,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         try {
           loadedData = JSON.parse(e.target.result);
         } catch {
-          addNotification('The file is not in json format', Notification.error);
+          addNotification(t('load:isNotJson'), Notification.error);
           return;
         }
 
@@ -67,7 +69,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
               dispatch(loadMapData(internalData));
               setRedirect('routes?.creator');
             } else {
-              addNotification('You are trying to load invalid map data', Notification.error);
+              addNotification(t('load:map.invalidData'), Notification.error);
             }
             
           break;
@@ -77,11 +79,11 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
               dispatch(loadCharData(internalData));
               setRedirect('routes?.char');
             } else {
-              addNotification('You are trying to load invalid char data', Notification.error);
+              addNotification(t('load:char.invalidData'), Notification.error);
             }
           break;
           default:
-            addNotification('Unknown loaded data type', Notification.error);
+            addNotification(t('load:invalidLoadType'), Notification.error);
         }
       };
 
@@ -100,7 +102,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
           onClick={(): void => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          Load from
+          { t('load:title') }
         </header>
         <section className="popupChooseBoxes">
           <div 
@@ -109,7 +111,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             }
             onClick={switchToProd}
           >
-            production database
+            { t('load:prodDb') }
           </div>
           <div
             className={
@@ -117,7 +119,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             }
             onClick={switchToAccount}
           >
-            private account
+            { t('load:account') }
           </div>
           <input 
             type="file" 
@@ -129,7 +131,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             className="popupChooseBoxes__box"
             htmlFor="loadInput"
           >
-            json
+            { t('load:computer') }
           </label>
         </section>
         {

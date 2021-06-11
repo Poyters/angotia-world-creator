@@ -23,7 +23,7 @@ export const CreateMap: React.FC = () => {
   const [valMess, setValMess] = useState<string>('');
   const dispatch = useDispatch();
   const emptyMapState: IMapState = deepCopy(mapState);
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['common', 'create']);
 
   useEffect(() => {
     mapSizeValidation();
@@ -35,19 +35,21 @@ export const CreateMap: React.FC = () => {
     
     if ((typeof mapSizeX !== 'number' || isNaN(mapSizeX)) || 
     (typeof mapSizeY !== 'number' || isNaN(mapSizeY))) {
-      setValMess('Value need to be number');
+      setValMess(t('create:map.isNotNumber'));
     }
     else if (
       (mapSizeX >= mapConfig.map.maxSize || mapSizeX < mapConfig.map.minSize) || 
       (mapSizeY >= mapConfig.map.maxSize || mapSizeY < mapConfig.map.minSize)
     ) {
       setValMess(
-        // eslint-disable-next-line max-len
-        `Value need to be bigger or equal to ${mapConfig.map.minSize} and smaller than ${mapConfig.map.maxSize}`
+        t('create:map.minMax', { 
+          min: mapConfig.map.minSize,
+          max: mapConfig.map.maxSize 
+        })
       );
     }
     else if (mapSizeX % 1 !== 0 || mapSizeY % 1 !== 0) {
-      setValMess('Value need to be integer, not float type.');
+      setValMess(t('create:map.isNotInteger'));
     }
     else {
       setValMess('');
@@ -94,7 +96,7 @@ export const CreateMap: React.FC = () => {
                 onClick={() => setIsOpenPopup(false)}
               > </div>
               <header className="insertPopup__header t-paragraph3Light">
-                Create map
+              { t('create:map.title') } 
               </header>
               <div className="insertPopup__content">
                 <MapSizeInput
@@ -118,7 +120,7 @@ export const CreateMap: React.FC = () => {
                 onClick={createMap} 
                 disabled={!!valMess}
               > 
-                start
+                { t('create:map.start') } 
               </button>
             </div>
           </div>, document.body

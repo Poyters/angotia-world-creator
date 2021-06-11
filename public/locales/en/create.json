@@ -1,0 +1,9 @@
+{
+  "map": {
+    "title": "Create map",
+    "start": "start",
+    "isNotInteger": "Value need to be integer, not float type",
+    "isNotNumber": "Value need to be number",
+    "minMax": "Value need to be bigger or equal to {{min}} and smaller than {{max}}"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "map": {
+    "invalidData": "You are trying to load invalid map data",
+    "loading": "Loading maps...",
+    "loadError": "Could not load maps"
+  },
+  "char": {
+    "invalidData": "You are trying to load invalid char data",
+    "loading": "Loading chars...",
+    "loadError": "Could not load chars"
+  },
+  "title": "Load from",
+  "prodDb": "production database",
+  "account": "private account",
+  "computer": "computer",
+  "isNotJson": "The file is not in json format",
+  "invalidLoadType": "Unknown loaded data type"
+}

@@ -13,6 +13,8 @@ import { isValidExternalMapData } from '../../../scripts/validators/isValidExter
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { getUserId } from '../../../scripts/user/getUserId';
+import { useTranslation } from 'react-i18next';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const AccountMapList: React.FC = () => {
@@ -25,17 +27,18 @@ export const AccountMapList: React.FC = () => {
   const [getReqMap, { called }] = useLazyQuery(GET_REQ_MAP, {
     onCompleted: data => loadFromDb(data.getRequestedMap)
   });
+  const { t } = useTranslation(['load', 'common']);
 
-  if (map.loading) return <p> Loading... </p>;
-  if (map.error) return <p> Couldn't load data </p>;
+  if (map.loading) return <p> { t('load:map.loading') } </p>;
+  if (map.error) return <p> { t('load:map.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {
     if (isValidExternalMapData(loadedData)) {
       const internalMapData = prepareInternalMapData(loadedData);
       dispatch(loadMapData(internalMapData));
-      setRedirect('routes?.creator');
+      setRedirect(routesConfig.mapCreator);
     } else {
-      addNotification('You are trying to load invalid map data', Notification.error);
+      addNotification(t('load:map.invalidData'), Notification.error);
     }
   };
 
@@ -59,8 +62,8 @@ export const AccountMapList: React.FC = () => {
           map.data?.getRequestedMapsByAuthor.map(mapData => {
             return (
               <li onClick={() => loadChoosedMap(mapData.id)} key={uuid()}> 
-                <span>Internal id:</span>{ mapData._id }
-                <span>Name:</span>{ mapData.map_name }
+                <span> { t('common:indernalId') }: </span>{ mapData._id }
+                <span> { t('common:name') }: </span>{ mapData.map_name }
               </li>
             );
           })

@@ -1,5 +1,8 @@
 {
   "map": "Map",
   "char": "Char",
-  "item": "Item"
+  "item": "Item",
+  "name": "Name",
+  "indernalId": "Internal id",
+  "type": "type"
 }

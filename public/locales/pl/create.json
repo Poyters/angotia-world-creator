@@ -1,0 +1,9 @@
+{
+  "map": {
+    "title": "Stwórz mapę",
+    "start": "start",
+    "isNotInteger": "Wielkość musi być liczbą całkowitą",
+    "isNotNumber": "Wartość musi być liczbą",
+    "minMax": "Wartość musi być równa lub większa niż {{min}} i mniejsza od {{max}}"
+  }
+}

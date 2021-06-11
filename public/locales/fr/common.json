@@ -1,5 +1,8 @@
 {
   "map": "Carte",
   "char": "Personnage",
-  "item": "Item"
+  "item": "Item",
+  "name": "Nom",
+  "indernalId": "Identifiant interne",
+  "type": "Genre"
 }

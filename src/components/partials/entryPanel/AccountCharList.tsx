@@ -13,6 +13,8 @@ import { isValidExternalCharData } from '../../../scripts/validators/isValidExte
 import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { getUserId } from '../../../scripts/user/getUserId';
+import { useTranslation } from 'react-i18next';
+import routesConfig from '../../../assets/configs/routes.config.json';
 
 
 export const AccountCharList: React.FC = () => {
@@ -25,17 +27,18 @@ export const AccountCharList: React.FC = () => {
   const [getReqChar, { called }] = useLazyQuery(GET_REQ_CHAR, {
     onCompleted: data => loadFromDb(data.getRequestedChar)
   });
+  const { t } = useTranslation(['load', 'common']);
 
-  if (char.loading) return <p> Loading chars... </p>;
-  if (char.error) return <p> Couldn't load chars </p>;
+  if (char?.loading) return <p> { t('load:char.loading') } </p>;
+  if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {
     if (isValidExternalCharData(loadedData)) {
       const internalCharData = prepareInternalCharData(loadedData);
       dispatch(loadCharData(internalCharData));
-      setRedirect('routes?.char');
+      setRedirect(routesConfig.charCreator);
     } else {
-      addNotification('You are trying to load invalid char data', Notification.error);
+      addNotification(t('load:char.invalidData'), Notification.error);
     }
   };
 
@@ -59,9 +62,9 @@ export const AccountCharList: React.FC = () => {
           char.data?.getRequestedCharsByAuthor.map(char => {
             return (
               <li onClick={() => loadChoosedChar(char.id)} key={uuid()}> 
-                <span>Internal id:</span>{ char._id }
-                <span>Name:</span>{ char.name }
-                <span>Type:</span>{ char.choosed }
+                <span> { t('common:indernalId') }: </span>{ char._id }
+                <span> { t('common:name') }: </span>{ char.name }
+                <span> { t('common:type') }: </span>{ char.choosed }
               </li>
             );
           })

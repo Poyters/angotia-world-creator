@@ -1,5 +1,8 @@
 {
   "map": "Mapa",
   "char": "Postać",
-  "item": "Przedmiot"
+  "item": "Przedmiot",
+  "name": "Nazwa",
+  "indernalId": "Wew. identyfikator",
+  "type": "typ"
 }
