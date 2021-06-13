@@ -4,130 +4,132 @@ import { useSelector } from 'react-redux';
 import { IStore } from '../../../interfaces/store.interface';
 import { CharCreationError } from '../../../models/charCreationError.model';
 import errorSystemConfig from '../../../assets/configs/errorSystem.config.json';
+import { useTranslation } from 'react-i18next';
 
 
 export const CharValidation: React.FC = () => {
   const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
   const rules = errorSystemConfig.char;
+  const { t } = useTranslation(['map']);
 
   return (
     <>
       {
         charErrors.includes(CharCreationError.minNameLength) ? (
           <li>
-            Char name must be larger than { rules.name.length.min} characters
+            { t('map:validation.minNameLength', { min: rules.name.length.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxNameLength) ? (
           <li>
-            Char name must be smaller than { rules.name.length.max} characters
+            { t('map:validation.maxNameLength', { max: rules.name.length.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minLevel) ? (
           <li>
-           Level must be larger than { rules.level.min}
+            { t('map:validation.minLevel', { min: rules.level.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxLevel) ? (
           <li>
-           Level must be smaller than { rules.level.max}
+            { t('map:validation.maxLevel', { max: rules.level.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerLevel) ? (
           <li>
-           Level must is an invalid number
+            { t('map:validation.isIntegerLevel') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minHealth) ? (
           <li>
-           Health must be larger than { rules.health.min}
+            { t('map:validation.minHealth', { min: rules.health.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxHealth) ? (
           <li>
-           Health must be smaller than { rules.health.max}
+            { t('map:validation.maxHealth', { max: rules.health.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerHealth) ? (
           <li>
-           Health is an invalid number
+            { t('map:validation.isIntegerHealth') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minAttack) ? (
           <li>
-           Attack must be larger than { rules.attack.min}
+            { t('map:validation.minAttack', { min: rules.attack.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxAttack) ? (
           <li>
-           Attack must be smaller than { rules.attack.max}
+            { t('map:validation.maxAttack', { max: rules.attack.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerAttack) ? (
           <li>
-           Attack is an invalid number
+            { t('map:validation.isIntegerAttack') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minDefence) ? (
           <li>
-           Defence must be larger than { rules.defence.min}
+            { t('map:validation.minDefence', { min: rules.defence.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxDefence) ? (
           <li>
-           Defence must be smaller than { rules.defence.max}
+            { t('map:validation.maxDefence', { max: rules.defence.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerDefence) ? (
           <li>
-           Defence is an invalid number
+            { t('map:validation.isIntegerDefence') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minStrength) ? (
           <li>
-           Strength must be larger than { rules.strength.min}
+            { t('map:validation.minStrength', { min: rules.strength.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxStrength) ? (
           <li>
-           Strength must be smaller than { rules.strength.max}
+            { t('map:validation.maxStrength', { max: rules.strength.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerStrength) ? (
           <li>
-           Strength is an invalid number
+            { t('map:validation.isIntegerStrength') }
           </li>
         ) : null
       }

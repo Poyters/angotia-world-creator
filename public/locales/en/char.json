@@ -1,5 +1,21 @@
 {
   "validation": {
-    
+    "minNameLength": "Char name must be larger than {{ min }} characters",
+    "maxNameLength": "Char name must be smaller than {{ max }} characters",
+    "minLevel": "Level must be larger than {{ min }}",
+    "maxLevel": "Level must be smaller than {{ max }}",
+    "isIntegerLevel": "Level must is an invalid number",
+    "minHealth": "Health must be larger than {{ min }}",
+    "maxHealth": "Health must be smaller than {{ max }}",
+    "isIntegerHealth": "Health is an invalid number",
+    "minAttack": "Attack must be larger than {{ min }}",
+    "maxAttack": "Attack must be smaller than {{ max }}",
+    "isIntegerAttack": "Attack is an invalid number",
+    "minDefence": "Defence must be larger than {{ min }}",
+    "maxDefence": "Defence must be smaller than {{ max }}",
+    "isIntegerDefence": "Defence is an invalid number",
+    "minStrength": "Strength must be larger than {{ min }}",
+    "maxStrength": "Strength must be smaller than {{ max }}",
+    "isIntegerStrength": "Strength is an invalid number"
   }
 }
