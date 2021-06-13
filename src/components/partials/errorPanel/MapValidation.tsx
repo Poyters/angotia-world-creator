@@ -3,88 +3,90 @@ import { useSelector } from 'react-redux';
 import { IStore } from '../../../interfaces/store.interface';
 import { MapCreationError } from '../../../models/mapCreationError.model';
 import errorSystemConfig from '../../../assets/configs/errorSystem.config.json';
+import { useTranslation } from 'react-i18next';
 
 
 export const MapValidation: React.FC = () => {
   const mapErrors: string[] = useSelector((state: IStore) => state.ui.mapCreationErrors);
   const rules = errorSystemConfig.map;
+  const { t } = useTranslation(['map']);
 
   return (
     <>
       {
         mapErrors.includes(MapCreationError.minEntryLevel) ? (
           <li>
-            Entry level must be larger than { rules.entryLevel.min}
+            { t('map:validation.minEntryLvl', { min: rules.entryLevel.min }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxEntryLevel) ? (
           <li>
-            Entry level must be smaller than { rules.entryLevel.max}
+            { t('map:validation.minEntryLvl', { max: rules.entryLevel.max }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.minDescriptionLength) ? (
           <li>
-            Description must be larger than { rules.description.length.min} characters
+            { t('map:validation.minDescription', { min: rules.description.length.min }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxDescriptionLength) ? (
           <li>
-            Description must be smaller than { rules.description.length.max} characters
+            { t('map:validation.maxDescription', { max: rules.description.length.max }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.minMapLength) ? (
           <li>
-            Map name must be larger than { rules.name.length.min}  characters
+            { t('map:validation.minName', { min: rules.name.length.min }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxMapLength) ? (
           <li>
-            Map name must be smaller than { rules.name.length.max} characters
+            { t('map:validation.maxName', { max: rules.name.length.max }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxBlockQuantity) ? (
           <li>
-            Too much block squares. Max 1 per { rules.block.quantity.max} squares
+            { t('map:validation.maxBlockQuantity', { max: rules.block.quantity.max }) }  
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxPassageQuantity) ? (
           <li>
-            Too much passage squares. Max 1 per { rules.passage.quantity.max} squares
+            { t('map:validation.maxPassageQuantity', { max: rules.passage.quantity.max }) }    
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxSeQuantity) ? (
           <li>
-            Too much se squares. Max 1 per { rules.se.quantity.max} squares
+            { t('map:validation.maxSeQuantity', { max: rules.se.quantity.max }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxNpcQuantity) ? (
           <li>
-            Too much npcs squares. Max 1 per { rules.npc.quantity.max} squares
+            { t('map:validation.maxNpcQuantity', { max: rules.npc.quantity.max }) }
           </li>
         ) : null
       }
       {
         mapErrors.includes(MapCreationError.maxMobQuantity) ? (
           <li>
-            Too much mobs squares. Max 1 per { rules.mob.quantity.max} squares
+            { t('map:validation.maxMobQuantity', { max: rules.mob.quantity.max }) }
           </li>
         ) : null
       }

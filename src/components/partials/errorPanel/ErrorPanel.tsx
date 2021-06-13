@@ -6,6 +6,7 @@ import { MapValidation } from './MapValidation';
 import { CharValidation } from './CharValidation';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { useTranslation } from 'react-i18next';
 
 
 export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
@@ -13,6 +14,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 	const mapErrors = useSelector((state: IStore) => state.ui.mapCreationErrors);
 	const charErrors = useSelector((state: IStore) => state.ui.charCreationErrors);
 	const dispatch = useDispatch();
+	const { t } = useTranslation(['common', 'errors']);
 
 	const errorPanelStyles = {
 		right: isOpen ? '0' : '-300px'
@@ -24,7 +26,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 				className="g-sidePanelSwitch g-sidePanelSwitch--errorPanel t-paragraph4Normal"
 				onClick={() => dispatch(toggleErrorPanel(true))}
 			>
-				Error panel
+				{ t('errors:panel.label') }
 			</div>
 			<aside
 				className="g-sidePanelWrapper"
@@ -34,7 +36,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 					<header 
 						className="errorPanelHeader t-paragraph6Bold"
 					>
-						Program occurs 
+						{ t('errors:panel.occurs') }
 						<span className="errorPanelHeader__count t-paragraph3Bold"> 
 							{
 								moduleType === AppModules.map ? mapErrors.length : null
@@ -42,7 +44,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 							{
 								moduleType === AppModules.char ? charErrors.length : null
 							}
-						</span> errors
+						</span> { t('common:errors') }
 					</header>
 					<ol className="errorPanelList t-paragraph2Light">
 						{
@@ -62,7 +64,7 @@ export const ErrorPanel: React.FC<IApp> = ({ moduleType }) => {
 						onClick={() => dispatch(toggleErrorPanel(false))}
 					>
 						<span>
-							Close error panel
+							{ t('common:close') }
 						</span>
 					</div>
 				</div>

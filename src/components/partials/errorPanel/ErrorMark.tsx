@@ -4,12 +4,14 @@ import { IStore } from '../../../interfaces/store.interface';
 import { toggleErrorPanel } from '../../../store/actions/uiActions';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
+import { useTranslation } from 'react-i18next';
 
 
 export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
   const mapErrors = useSelector((state: IStore) => state.ui.mapCreationErrors);
   const charErrors = useSelector((state: IStore) => state.ui.charCreationErrors);
   const dispatch = useDispatch();
+  const { t } = useTranslation(['common']);
 
   return (
     <>
@@ -28,7 +30,7 @@ export const ErrorMark: React.FC<IApp> = ({ moduleType }) => {
                 { moduleType === AppModules.map ? mapErrors.length : null }
                 { moduleType === AppModules.char ? charErrors.length : null }
               </span>
-              errors
+              { t('common:errors') }
             </div>
           </aside>
         ) : null

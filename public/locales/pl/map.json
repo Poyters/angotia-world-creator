@@ -1,0 +1,25 @@
+{ 
+  "preview": "Podgląd mapy",
+  "layers": {
+    "disableFields": "zablokowane pola",
+    "building": "budynki",
+    "decoration": "dekoracje",
+    "subsoil": "teren",
+    "npc": "NPC",
+    "mob": "MOB",
+    "se": "interaktywne środ."
+  },
+  "validation": {
+    "minEntryLvl": "Poziom wejścia musi być większy niż {{ min }}",
+    "maxEntryLvl": "Poziom wejścia musi być mniejszy niż {{ max }}",
+    "minDescription": "Opis musi być dłuższy niż {{ min }} znaków",
+    "maxDescription": "Opis musi byc krótszy niż {{ max }} znaków",
+    "minName": "Nazwa mapy musi być dłuższa niż {{ min }} znaków",
+    "maxName": "Nazwa mapy musi być krótsza niż {{ max }} znaków",
+    "maxBlockQuantity": "Zbyt wiele zablokowanych pól Maks 1 na {{ max }} ćwiartek",
+    "maxPassageQuantity": "Zbyt wiele przejść Maks 1 na {{ max }} ćwiartek",
+    "maxSeQuantity": "Zbyt dużo interaktywnego środowiska. Maks 1 na {{ max }} ćwiartek",
+    "maxNpcQuantity": "Zbyt wielu NPC. Maks 1 na {{ max }} ćwiartek",
+    "maxMobQuantity": "Zbyt wiele potworów. Maks 1 na {{ max }} ćwiartek"
+  }
+}

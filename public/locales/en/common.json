@@ -9,5 +9,6 @@
   "loading": "Loading...",
   "load": "load",
   "edit": "edit",
-  "close": "zamknij"
+  "close": "close",
+  "errors": "errors"
 }

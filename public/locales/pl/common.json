@@ -9,5 +9,6 @@
   "loading": "Ładowanie...",
   "load": "załaduj",
   "edit": "edytuj",
-  "close": "close"
+  "close": "zamknij",
+  "errors": "błędy"
 }

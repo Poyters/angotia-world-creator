@@ -1,3 +1,25 @@
 { 
-  "preview": "Map preview"
+  "preview": "Map preview",
+  "layers": {
+    "disableFields": "disable fields",
+    "building": "buildings",
+    "decoration": "decorations",
+    "subsoil": "terrain",
+    "npc": "NPC",
+    "mob": "MOB",
+    "se": "SE"
+  },
+  "validation": {
+    "minEntryLvl": "Entry level must be larger than {{ min }}",
+    "maxEntryLvl": "Entry level must be smaller than {{ max }}",
+    "minDescription": "Description must be larger than {{ min }} characters",
+    "maxDescription": "Description must be smaller than {{ max }} characters",
+    "minName": "Map name must be larger than {{ min }}  characters",
+    "maxName": " Map name must be smaller than {{ max }} characters",
+    "maxBlockQuantity": "Too much block squares. Max 1 per {{ max }} squares",
+    "maxPassageQuantity": "Too much passage squares. Max 1 per {{ max }} squares",
+    "maxSeQuantity": "Too much se squares. Max 1 per {{ max }} squares",
+    "maxNpcQuantity": "Too much npcs squares. Max 1 per {{ max }} squares",
+    "maxMobQuantity": "Too much mobs squares. Max 1 per {{ max }} squares"
+  }
 }
