@@ -136,189 +136,189 @@ export const CharValidation: React.FC = () => {
       {
         charErrors.includes(CharCreationError.minDexterity) ? (
           <li>
-           Dexterity must be larger than { rules.dexterity.min}
+            { t('map:validation.minDexterity', { min: rules.dexterity.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxDexterity) ? (
           <li>
-           Dexterity must be smaller than { rules.dexterity.max}
+            { t('map:validation.maxDexterity', { max: rules.dexterity.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerDexterity) ? (
           <li>
-           Dexterity is an invalid number
+            { t('map:validation.isIntegerDexterity') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minInteligence) ? (
           <li>
-           Inteligence must be larger than { rules.inteligence.min}
+            { t('map:validation.minInteligence', { min: rules.inteligence.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxInteligence) ? (
           <li>
-           Inteligence must be smaller than { rules.inteligence.max}
+            { t('map:validation.maxInteligence', { max: rules.inteligence.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerInteligence) ? (
           <li>
-           Inteligence is an invalid number
+            { t('map:validation.isIntegerInteligence') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minJink) ? (
           <li>
-           Jink must be larger than { rules.jink.min}
+            { t('map:validation.minJink', { min: rules.jink.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxJink) ? (
           <li>
-           Jink must be smaller than { rules.jink.max}
+            { t('map:validation.maxJink', { max: rules.jink.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerJink) ? (
           <li>
-            Jink is an invalid number
+            { t('map:validation.isIntegerJink') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minAttackSpeed) ? (
           <li>
-           Attack speed must be larger than { rules.attackSpeed.min}
+            { t('map:validation.minAttackSpeed', { min: rules.attackSpeed.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxAttackSpeed) ? (
           <li>
-            Attack speed must be smaller than { rules.attackSpeed.max}
+            { t('map:validation.maxAttackSpeed', { max: rules.attackSpeed.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerAttackSpeed) ? (
           <li>
-            Attack speed is an invalid number
+            { t('map:validation.isIntegerAttackSpeed') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minTimeOfOccuranceMin) ? (
           <li>
-           Time of occurance min must be larger than { rules.timeOfOccurance.min}
+            { t('map:validation.minTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxTimeOfOccuranceMin) ? (
           <li>
-           Time of occurance min must be smaller than { rules.timeOfOccurance.max}
+            { t('map:validation.maxTimeOfOccuranceMin', { max: rules.timeOfOccurance.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minTimeOfOccuranceMax) ? (
           <li>
-           Time of occurance max must be larger than { rules.timeOfOccurance.min}
+            { t('map:validation.maxTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxTimeOfOccuranceMax) ? (
           <li>
-           Time of occurance max must be smaller than { rules.timeOfOccurance.max}
+            { t('map:validation.maxTimeOfOccuranceMax', { max: rules.timeOfOccurance.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minMaxTimeOfOccurance) ? (
           <li>
-           Time of occurance min value must be smaller than max value
+            { t('map:validation.maxTimeOfOccuranceMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerTimeOfOccuranceMin) ? (
           <li>
-           Time of occurance min is an invalid number
+            { t('map:validation.isIntegerTimeOfOccuranceMin') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerTimeOfOccuranceMax) ? (
           <li>
-           Time of occurance max is an invalid number
+            { t('map:validation.isIntegerTimeOfOccuranceMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minRespTimeMin) ? (
           <li>
-           Resp time min must be larger than { rules.respTime.min}
+            { t('map:validation.minRespTimeMin', { min: rules.respTime.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxRespTimeMin) ? (
           <li>
-           Resp time min must be smaller than { rules.respTime.max}
+            { t('map:validation.maxRespTimeMin', { max: rules.respTime.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minRespTimeMax) ? (
           <li>
-           Resp time max must be larger than { rules.respTime.min}
+            { t('map:validation.minRespTimeMax', { min: rules.respTime.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxRespTimeMax) ? (
           <li>
-           Resp time max must be smaller than { rules.respTime.max}
+            { t('map:validation.maxRespTimeMax', { max: rules.respTime.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minMaxRespTime) ? (
           <li>
-           Resp time min value must be smaller than max value
+            { t('map:validation.minMaxRespTime') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerRespTimeMin) ? (
           <li>
-           Resp time min is an invalid number
+            { t('map:validation.isIntegerRespTimeMin') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerRespTimeMax) ? (
           <li>
-           Resp time max is an invalid number
+            { t('map:validation.isIntegerRespTimeMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isCharPic) ? (
           <li>
-           Character sprite is required
+            { t('map:validation.isCharPic') }
           </li>
         ) : null
       }
