@@ -13,7 +13,7 @@
     "minEntryLvl": "Poziom wejścia musi być większy niż {{ min }}",
     "maxEntryLvl": "Poziom wejścia musi być mniejszy niż {{ max }}",
     "minDescription": "Opis musi być dłuższy niż {{ min }} znaków",
-    "maxDescription": "Opis musi byc krótszy niż {{ max }} znaków",
+    "maxDescription": "Opis musi być krótszy niż {{ max }} znaków",
     "minName": "Nazwa mapy musi być dłuższa niż {{ min }} znaków",
     "maxName": "Nazwa mapy musi być krótsza niż {{ max }} znaków",
     "maxBlockQuantity": "Zbyt wiele zablokowanych pól Maks 1 na {{ max }} ćwiartek",
