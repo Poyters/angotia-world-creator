@@ -1,5 +1,6 @@
 {
   "tooWeight": "Obraz jest zbyt duży. Maksymalna waga to {{ max }} KB",
+  "invalidFile": "Nieprawidłowy plik! Nie można sprawdzić rozmiaru",
   "panel": {
     "label": "Files Panel",
     "bookmarks": {

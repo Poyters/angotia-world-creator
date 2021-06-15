@@ -7,7 +7,6 @@ import {
     changeMapPassageMatrix, 
     changeMapPassageLocations 
 } from '../../../../store/actions/mapActions';
-import { ISquareData } from '../../../../interfaces/square.interface';
 import { IPassageLocation } from '../../../../interfaces/passage.interface';
 import { IPopup } from '../../../../interfaces/popup.interface';
 import { IStore } from '../../../../interfaces/store.interface';

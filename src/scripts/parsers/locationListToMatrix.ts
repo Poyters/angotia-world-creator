@@ -21,8 +21,8 @@ export const locationListToMatrix = (
 
   for (const location of locationsList) {
     if (!isValidLocation(location, matrixSize)) return null;
-    // eslint-disable-next-line max-len
-    emptyMatrix[location.y][location.x][location.yShift][location.xShift] = 1;   
+    
+    emptyMatrix[location.y][location.x][location.yShift][location.xShift] = 1;  
   }
 
   return emptyMatrix;

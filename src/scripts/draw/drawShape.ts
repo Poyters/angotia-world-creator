@@ -3,7 +3,6 @@ import mapConfig from '../../assets/configs/map.config.json';
 
 const squareSize: number = mapConfig.map.fieldSize / 2;
 
-
 export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string): void => {
     ctx.setLineDash([]);
     ctx.strokeStyle = fillColor;

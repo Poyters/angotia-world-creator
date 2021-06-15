@@ -26,7 +26,7 @@ import { useTranslation } from 'react-i18next';
 
 
 export const ExportToProd = ({ moduleType }: IApp) => {
-  const { t } = useTranslation(['menu']);
+  const { t } = useTranslation(['save']);
   const [isActivePopup, setIsActivePopup] = useState<boolean>(false);
   const [isLicenseAccepted, setIsLicenseAccepted] = useState<boolean>(false);
   const dispatch = useDispatch();

@@ -1,5 +1,6 @@
 {
   "tooWeight": "Too weight! Max pic weight is KB",
+  "invalidFile": "Invalid file! Size cannot be checked",
   "panel": {
     "label": "Files Panel",
     "bookmarks": {
