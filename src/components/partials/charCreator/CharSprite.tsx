@@ -3,10 +3,12 @@ import { useSelector } from 'react-redux';
 import { LoadPicBtn } from '../LoadPicBtn';
 import { setCharPic } from '../../../store/actions/charActions';
 import { IStore } from '../../../interfaces/store.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const CharSprite = () => {
-  const charPicPath: string = useSelector((state: IStore) => state.char.charPic);
+  const { t } = useTranslation(['char', 'common']);
+  const charPicPath = useSelector((state: IStore) => state.char.charPic);
 
   const charPicStyles = {
     backgroundImage: `url('${charPicPath}')`
@@ -20,17 +22,17 @@ export const CharSprite = () => {
       >
         {
           !charPicPath && (
-            <div>
-              Need to import a character sprite
-            </div>
+            <span>
+              { t('char:sprite.error') }
+            </span>
           ) 
         }
       </div>
       
       <LoadPicBtn 
-        name={'char?.form?.importPicBtn'}
+        name={t('char:sprite.btn')}
         clickEvent={setCharPic}
-        note={'notifications?.char?.loadedGraphice'}
+        note={t('char:sprite.add')}
       />
     </>
   );

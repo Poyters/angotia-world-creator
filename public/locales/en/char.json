@@ -56,5 +56,10 @@
     "speed": "speed",
     "attackRange": "attack range",
     "attackSpeed": "attack speed"
+  },
+  "sprite": {
+    "error": "Need to import a character sprite",
+    "add": "Added char sprite",
+    "btn": "Load char sprite"
   }
 }
