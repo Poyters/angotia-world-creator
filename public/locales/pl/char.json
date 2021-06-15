@@ -44,5 +44,17 @@
     "isIntegerRespTimeMin": "Minimalny czas odrodzenia musi być liczbą",
     "isIntegerRespTimeMax": "Maksymalny czas odrodzenia musi być liczbą",
     "isCharPic": "Sprite postaci jest wymagany"
+  },
+  "statisticPanel": {
+    "title": "Panel statystyk"
+  },
+  "statistics": {
+    "strength": "siła",
+    "dexterity": "zręczność",
+    "inteligence": "inteligencja",
+    "jink": "unik",
+    "speed": "prędkość",
+    "attackRange": "zasięg ataku",
+    "attackSpeed": "prędkość ataku"
   }
 }

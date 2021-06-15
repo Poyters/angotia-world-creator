@@ -10,315 +10,315 @@ import { useTranslation } from 'react-i18next';
 export const CharValidation: React.FC = () => {
   const charErrors: string[] = useSelector((state: IStore) => state.ui.charCreationErrors);
   const rules = errorSystemConfig.char;
-  const { t } = useTranslation(['map']);
+  const { t } = useTranslation(['char']);
 
   return (
     <>
       {
         charErrors.includes(CharCreationError.minNameLength) ? (
           <li>
-            { t('map:validation.minNameLength', { min: rules.name.length.min }) }
+            { t('char:validation.minNameLength', { min: rules.name.length.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxNameLength) ? (
           <li>
-            { t('map:validation.maxNameLength', { max: rules.name.length.max }) }
+            { t('char:validation.maxNameLength', { max: rules.name.length.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minLevel) ? (
           <li>
-            { t('map:validation.minLevel', { min: rules.level.min }) }
+            { t('char:validation.minLevel', { min: rules.level.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxLevel) ? (
           <li>
-            { t('map:validation.maxLevel', { max: rules.level.max }) }
+            { t('char:validation.maxLevel', { max: rules.level.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerLevel) ? (
           <li>
-            { t('map:validation.isIntegerLevel') }
+            { t('char:validation.isIntegerLevel') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minHealth) ? (
           <li>
-            { t('map:validation.minHealth', { min: rules.health.min }) }
+            { t('char:validation.minHealth', { min: rules.health.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxHealth) ? (
           <li>
-            { t('map:validation.maxHealth', { max: rules.health.max }) }
+            { t('char:validation.maxHealth', { max: rules.health.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerHealth) ? (
           <li>
-            { t('map:validation.isIntegerHealth') }
+            { t('char:validation.isIntegerHealth') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minAttack) ? (
           <li>
-            { t('map:validation.minAttack', { min: rules.attack.min }) }
+            { t('char:validation.minAttack', { min: rules.attack.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxAttack) ? (
           <li>
-            { t('map:validation.maxAttack', { max: rules.attack.max }) }
+            { t('char:validation.maxAttack', { max: rules.attack.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerAttack) ? (
           <li>
-            { t('map:validation.isIntegerAttack') }
+            { t('char:validation.isIntegerAttack') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minDefence) ? (
           <li>
-            { t('map:validation.minDefence', { min: rules.defence.min }) }
+            { t('char:validation.minDefence', { min: rules.defence.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxDefence) ? (
           <li>
-            { t('map:validation.maxDefence', { max: rules.defence.max }) }
+            { t('char:validation.maxDefence', { max: rules.defence.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerDefence) ? (
           <li>
-            { t('map:validation.isIntegerDefence') }
+            { t('char:validation.isIntegerDefence') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minStrength) ? (
           <li>
-            { t('map:validation.minStrength', { min: rules.strength.min }) }
+            { t('char:validation.minStrength', { min: rules.strength.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxStrength) ? (
           <li>
-            { t('map:validation.maxStrength', { max: rules.strength.max }) }
+            { t('char:validation.maxStrength', { max: rules.strength.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerStrength) ? (
           <li>
-            { t('map:validation.isIntegerStrength') }
+            { t('char:validation.isIntegerStrength') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minDexterity) ? (
           <li>
-            { t('map:validation.minDexterity', { min: rules.dexterity.min }) }
+            { t('char:validation.minDexterity', { min: rules.dexterity.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxDexterity) ? (
           <li>
-            { t('map:validation.maxDexterity', { max: rules.dexterity.max }) }
+            { t('char:validation.maxDexterity', { max: rules.dexterity.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerDexterity) ? (
           <li>
-            { t('map:validation.isIntegerDexterity') }
+            { t('char:validation.isIntegerDexterity') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minInteligence) ? (
           <li>
-            { t('map:validation.minInteligence', { min: rules.inteligence.min }) }
+            { t('char:validation.minInteligence', { min: rules.inteligence.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxInteligence) ? (
           <li>
-            { t('map:validation.maxInteligence', { max: rules.inteligence.max }) }
+            { t('char:validation.maxInteligence', { max: rules.inteligence.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerInteligence) ? (
           <li>
-            { t('map:validation.isIntegerInteligence') }
+            { t('char:validation.isIntegerInteligence') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minJink) ? (
           <li>
-            { t('map:validation.minJink', { min: rules.jink.min }) }
+            { t('char:validation.minJink', { min: rules.jink.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxJink) ? (
           <li>
-            { t('map:validation.maxJink', { max: rules.jink.max }) }
+            { t('char:validation.maxJink', { max: rules.jink.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerJink) ? (
           <li>
-            { t('map:validation.isIntegerJink') }
+            { t('char:validation.isIntegerJink') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minAttackSpeed) ? (
           <li>
-            { t('map:validation.minAttackSpeed', { min: rules.attackSpeed.min }) }
+            { t('char:validation.minAttackSpeed', { min: rules.attackSpeed.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxAttackSpeed) ? (
           <li>
-            { t('map:validation.maxAttackSpeed', { max: rules.attackSpeed.max }) }
+            { t('char:validation.maxAttackSpeed', { max: rules.attackSpeed.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerAttackSpeed) ? (
           <li>
-            { t('map:validation.isIntegerAttackSpeed') }
+            { t('char:validation.isIntegerAttackSpeed') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minTimeOfOccuranceMin) ? (
           <li>
-            { t('map:validation.minTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
+            { t('char:validation.minTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxTimeOfOccuranceMin) ? (
           <li>
-            { t('map:validation.maxTimeOfOccuranceMin', { max: rules.timeOfOccurance.max }) }
+            { t('char:validation.maxTimeOfOccuranceMin', { max: rules.timeOfOccurance.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minTimeOfOccuranceMax) ? (
           <li>
-            { t('map:validation.maxTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
+            { t('char:validation.maxTimeOfOccuranceMin', { min: rules.timeOfOccurance.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxTimeOfOccuranceMax) ? (
           <li>
-            { t('map:validation.maxTimeOfOccuranceMax', { max: rules.timeOfOccurance.max }) }
+            { t('char:validation.maxTimeOfOccuranceMax', { max: rules.timeOfOccurance.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minMaxTimeOfOccurance) ? (
           <li>
-            { t('map:validation.maxTimeOfOccuranceMax') }
+            { t('char:validation.maxTimeOfOccuranceMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerTimeOfOccuranceMin) ? (
           <li>
-            { t('map:validation.isIntegerTimeOfOccuranceMin') }
+            { t('char:validation.isIntegerTimeOfOccuranceMin') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerTimeOfOccuranceMax) ? (
           <li>
-            { t('map:validation.isIntegerTimeOfOccuranceMax') }
+            { t('char:validation.isIntegerTimeOfOccuranceMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minRespTimeMin) ? (
           <li>
-            { t('map:validation.minRespTimeMin', { min: rules.respTime.min }) }
+            { t('char:validation.minRespTimeMin', { min: rules.respTime.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxRespTimeMin) ? (
           <li>
-            { t('map:validation.maxRespTimeMin', { max: rules.respTime.max }) }
+            { t('char:validation.maxRespTimeMin', { max: rules.respTime.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minRespTimeMax) ? (
           <li>
-            { t('map:validation.minRespTimeMax', { min: rules.respTime.min }) }
+            { t('char:validation.minRespTimeMax', { min: rules.respTime.min }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.maxRespTimeMax) ? (
           <li>
-            { t('map:validation.maxRespTimeMax', { max: rules.respTime.max }) }
+            { t('char:validation.maxRespTimeMax', { max: rules.respTime.max }) }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.minMaxRespTime) ? (
           <li>
-            { t('map:validation.minMaxRespTime') }
+            { t('char:validation.minMaxRespTime') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerRespTimeMin) ? (
           <li>
-            { t('map:validation.isIntegerRespTimeMin') }
+            { t('char:validation.isIntegerRespTimeMin') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isIntegerRespTimeMax) ? (
           <li>
-            { t('map:validation.isIntegerRespTimeMax') }
+            { t('char:validation.isIntegerRespTimeMax') }
           </li>
         ) : null
       }
       {
         charErrors.includes(CharCreationError.isCharPic) ? (
           <li>
-            { t('map:validation.isCharPic') }
+            { t('char:validation.isCharPic') }
           </li>
         ) : null
       }

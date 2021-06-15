@@ -44,5 +44,17 @@
     "isIntegerRespTimeMin": "Resp time min is an invalid number",
     "isIntegerRespTimeMax": "Resp time max is an invalid number",
     "isCharPic": "Character sprite is required"
+  },
+  "statisticPanel": {
+    "title": "Statistic Panel"
+  },
+  "statistics": {
+    "strength": "strength",
+    "dexterity": "dexterity",
+    "inteligence": "inteligence",
+    "jink": "jink",
+    "speed": "speed",
+    "attackRange": "attack range",
+    "attackSpeed": "attack speed"
   }
 }

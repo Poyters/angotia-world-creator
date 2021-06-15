@@ -8,9 +8,11 @@ import {
 } from '../../../store/actions/charActions';
 import { ChoosedChar } from '../../../models/choosedChar.model';
 import { CharType } from '../../../models/charType.model';
+import { useTranslation } from 'react-i18next';
 
 
 export const StatisticPanel: React.FC = () => {
+	const { t } = useTranslation(['char', 'common']);
 	const isOpen = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
 	const choosedChar = useSelector((state: IStore) => state.char.choosed);
 	const charType = useSelector((state: IStore) => state.char.type);
@@ -31,7 +33,7 @@ export const StatisticPanel: React.FC = () => {
 							"g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
 						onClick={() => dispatch(toggleStatisticPanel(true))}
 					>
-						{ 'char?.statisticPanel?.open' }
+						{ t('char:statisticPanel.title') }
 					</div>
 				) : null
 			}
@@ -41,32 +43,32 @@ export const StatisticPanel: React.FC = () => {
 			>
 				<div className="g-sidePanel g-sidePanel--left">
 					<ActionInputField
-						label={'char?.form?.inputs?.strength'}
+						label={t('char:statistics.strength')}
 						inputValue={charStatistics.strength}
 						action={changeStatistics}
 						payloadId='strength'
 					/>
 					<ActionInputField
-						label={'char?.form?.inputs?.dexterity'}
+						label={t('char:statistics.dexterity')}
 						inputValue={charStatistics.dexterity}
 						action={changeStatistics}
 						payloadId='dexterity'
 					/>
 					<ActionInputField
-						label={'char?.form?.inputs?.inteligence'}
+						label={t('char:statistics.inteligence')}
 						inputValue={charStatistics.inteligence}
 						action={changeStatistics}
 						payloadId='inteligence'
 					/>
 					<ActionInputField
-						label={'char?.form?.inputs?.jink'}
+						label={t('char:statistics.jink')}
 						inputValue={charStatistics.jink}
 						action={changeStatistics}
 						payloadId='jink'
 					/>
 					{charType === CharType.moving ? (
 						<ActionInputField
-							label={'char?.form?.inputs?.speed'}
+							label={t('char:statistics.speed')}
 							inputValue={charStatistics.speed}
 							action={changeStatistics}
 							payloadId='speed'
@@ -75,7 +77,7 @@ export const StatisticPanel: React.FC = () => {
 					{choosedChar === ChoosedChar.mob &&
 						isAgressiveMob ? (
 							<ActionInputField
-								label={'char?.form?.inputs?.attackRange'}
+								label={t('char:statistics.attackRange')}
 								inputValue={charStatistics.attackRange}
 								action={changeStatistics}
 								payloadId='attackRange'
@@ -84,7 +86,7 @@ export const StatisticPanel: React.FC = () => {
 
 					{choosedChar === ChoosedChar.mob ? (
 						<ActionInputField
-							label={'char?.form?.inputs?.attackSpeed'}
+							label={t('char:statistics.attackSpeed')}
 							inputValue={charStatistics.attackSpeed}
 							action={changeStatistics}
 							payloadId='attackSpeed'
@@ -96,7 +98,7 @@ export const StatisticPanel: React.FC = () => {
 						onClick={() => dispatch(toggleStatisticPanel(false))}
 					>
 						<span>
-							{'char?.statisticPanel?.close'}
+							{ t('common:close') }
 						</span>
 					</div>
 				</div>
