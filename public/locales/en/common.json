@@ -11,5 +11,6 @@
   "edit": "edit",
   "close": "close",
   "errors": "errors",
-  "submit": "submit"
+  "submit": "submit",
+  "id": "id"
 }

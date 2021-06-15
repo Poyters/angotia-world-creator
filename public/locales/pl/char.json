@@ -55,6 +55,20 @@
     "jink": "unik",
     "speed": "prędkość",
     "attackRange": "zasięg ataku",
-    "attackSpeed": "prędkość ataku"
+    "attackSpeed": "prędkość ataku",
+    "level": "poziom",
+    "health": "zdrowie",
+    "attack": "atak",
+    "defence": "obrona"
+  },
+  "sprite": {
+    "error": "Należy dodac sprite postaci",
+    "add": "Dodano sprite postaci",
+    "btn": "Załaduj sprite postaci"
+  },
+  "creator": {
+    "title": "Kreator postaci",
+    "name": "imie",
+    "moreStats": "więcej statystyk"
   }
 }

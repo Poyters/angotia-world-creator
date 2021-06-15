@@ -8,7 +8,7 @@ import { Dialogs } from './dialogs/Dialogs';
 import { 
   changeCharType, 
   changeChar, 
-  isAgressiveMob,
+  setIsAgressiveMob,
   changeStatistics,
   changeName,
   changeFieldDiameter,
@@ -18,18 +18,20 @@ import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { ChoosedChar } from '../../../models/choosedChar.model';
 import { CharType } from '../../../models/charType.model';
+import { useTranslation } from 'react-i18next';
 
 
 export const CharCreatorForm: React.FC = () => {
-  const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
-  const charName: string = useSelector((state: IStore) => state.char.name);
+  const { t } = useTranslation(['char', 'common']);
+  const choosedChar = useSelector((state: IStore) => state.char.choosed);
+  const name = useSelector((state: IStore) => state.char.name);
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
-  const charType: string = useSelector((state: IStore) => state.char.type);
-  const charId: string = useSelector((state: IStore) => state.char.internalId);
-  const charIsAgressiveMob: boolean = useSelector((state: IStore) => state.char.isAgressiveMob);
-  const charChoosed: string = useSelector((state: IStore) => state.char.choosed);
-  const fieldDiameter: number = useSelector((state: IStore) => state.char.fieldDiameter);
-  const actualMobRange: string = useSelector((state: IStore) => state.char.mobRange);
+  const charType = useSelector((state: IStore) => state.char.type);
+  const internalId = useSelector((state: IStore) => state.char.internalId);
+  const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
+  const charChoosed = useSelector((state: IStore) => state.char.choosed);
+  const fieldDiameter = useSelector((state: IStore) => state.char.fieldDiameter);
+  const actualMobRange = useSelector((state: IStore) => state.char.mobRange);
   const dispatch = useDispatch();
 
   return (
@@ -37,41 +39,41 @@ export const CharCreatorForm: React.FC = () => {
       <div className="charCreatorFormContentWrapper">
         <div role="presentation" className="charCreatorFormContentWrapper__decorations"></div>
         <header className="charCreatorHeader t-paragraph7Light">
-          char.form.title
+          { t('char:creator.title') }
         </header>
         <div className="charCreatorForm">
           <div className="charCreatorForm__row">
             <div className="charFormPanel charFormPanel--left">
               <ActionInputField
-                inputValue={charName}
-                label={'char?.form?.inputs?.name'}
+                inputValue={name}
+                label={t('char:creator.name')}
                 action={changeName}
               />
               <ActionInputField
-                label={'char?.form?.inputs?.id'}
-                inputValue={charId}
+                label={t('common:id')}
+                inputValue={internalId}
                 inputDisabled={true}
               />
               <ActionInputField
-                label={'char?.form?.inputs?.lvl'}
+                label={t('char:statistics.level')}
                 inputValue={charStatistics.level}
                 action={changeStatistics}
                 payloadId='level'
               />
               <ActionInputField
-                label={'char?.form?.inputs?.health'}
+                label={t('char:statistics.health')}
                 inputValue={charStatistics.health}
                 action={changeStatistics}
                 payloadId='health'
               />
               <ActionInputField
-                label='Attack'
+                label={t('char:statistics.attack')}
                 inputValue={charStatistics.attack}
                 action={changeStatistics}
                 payloadId='attack'
               />
               <ActionInputField
-                label='Defence'
+                label={t('char:statistics.defence')}
                 inputValue={charStatistics.defence}
                 action={changeStatistics}
                 payloadId='defence'
@@ -79,7 +81,7 @@ export const CharCreatorForm: React.FC = () => {
               {
                 choosedChar !== ChoosedChar.se ? (
                   <CornerButton 
-                    name={'char?.form?.addStatBtn'}
+                    name={t('char:creator.moreStats')}
                     clickEvent={() => dispatch(toggleStatisticPanel(true))}
                   />
                 ) : null
@@ -99,10 +101,10 @@ export const CharCreatorForm: React.FC = () => {
                   <>
                     <ChooseButtons 
                       types={[]}
-                      action={isAgressiveMob}
+                      action={setIsAgressiveMob}
                       label={'char?.form?.isAgressiveMob?.title'}
                       specialClass='chooseButtonsWrapper--smaller'
-                      choosed={charIsAgressiveMob}
+                      choosed={isAgressiveMob}
                     />
 
                     <ChooseButtons 

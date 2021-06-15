@@ -55,11 +55,20 @@
     "jink": "jink",
     "speed": "speed",
     "attackRange": "attack range",
-    "attackSpeed": "attack speed"
+    "attackSpeed": "attack speed",
+    "level": "level",
+    "health": "health",
+    "attack": "attack",
+    "defence": "defence"
   },
   "sprite": {
     "error": "Need to import a character sprite",
     "add": "Added char sprite",
     "btn": "Load char sprite"
+  },
+  "creator": {
+    "title": "Char creator",
+    "name": "name",
+    "moreStats": "more statistics"
   }
 }
