@@ -16,6 +16,7 @@ import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { Notification } from '../../../../models/notification.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
+import { useTranslation } from 'react-i18next';
 
 
 let pressedKey: string | null = null;
@@ -23,6 +24,7 @@ document.addEventListener('keydown', event => pressedKey = event.key);
 document.addEventListener('keyup', () => pressedKey = null);
 
 export const PassageOption: React.FC = () => {
+    const { t } = useTranslation(['notifications']);
     const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const passageMatrix = useSelector((state: IStore) => state.map.passage.matrix);
@@ -31,7 +33,7 @@ export const PassageOption: React.FC = () => {
 
     const passageHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification('notifications?.options?.passage?.select, Notification.error');
+            addNotification(t('notifications:notes.select.noneSelected'), Notification.error);
             return;
         }
 
@@ -55,7 +57,7 @@ export const PassageOption: React.FC = () => {
             passageMatrix, 
             Canvas.passage, 
             changeMapPassageMatrix, 
-            'notifications?.options?.passage?.delete', 
+            t('notifications:notes.portal.delete'), 
             '', 
             MatrixFillColor.passage
         );
@@ -68,8 +70,7 @@ export const PassageOption: React.FC = () => {
             ) : null}
             <div 
                 className="passageOption" 
-                onClick={passageHandler} 
-                data-title="add/delete passage"
+                onClick={passageHandler}
             > </div>
         </>
     );

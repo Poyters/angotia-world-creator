@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setMapBg } from '../../../store/actions/mapActions';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { sizeGuard } from '../../../scripts/files/sizeGuard';
-import mapConfig from '../../../assets/configs/map.config.json';
 import { IStore } from '../../../interfaces/store.interface';
+import { useTranslation } from 'react-i18next';
 
 
-export const AddFileOption: React.FC = () => {
+export const AddBgOption: React.FC = () => {
+  const { t } = useTranslation(['notifications']);
   const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
@@ -29,7 +30,7 @@ export const AddFileOption: React.FC = () => {
     })();
 
     reader.readAsDataURL(file);
-    addNotification('notifications?.addBg');
+    addNotification(t('notifications:notes.background.add'));
   };
 
   const optionOnOff: string = mapPic === '' ? 'option--off' : 'option--on';
@@ -46,7 +47,6 @@ export const AddFileOption: React.FC = () => {
       <label 
         className={optionOnOff} 
         htmlFor="file" 
-        data-title={'creator?.panel?.options?.addFile?.dataTitle'}
       > </label>
     </>
   );

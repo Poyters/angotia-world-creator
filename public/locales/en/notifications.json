@@ -4,7 +4,8 @@
       "none": "Turned off select tool",
       "square": "Select by square",
       "field": "Select by field",
-      "mouse": "Select by mouse"
+      "mouse": "Select by mouse",
+      "noneSelected": "Need to select spot at first"
     },
     "net": {
       "none": "The map grid has been hidden",
@@ -15,6 +16,21 @@
     "layers": {
       "on": "{{ layer }} layer is visible",
       "off": "{{ layer }} layer is invisible"
+    },
+    "background": {
+      "delete": "Deleted background image",
+      "add": "Added background image"
+    },
+    "visibility": {
+      "change": "The visibility range of the player on the map has been changed"
+    },
+    "vertex": {
+      "delete": "Terrain difficulty marks have been removed",
+      "add": "Terrain difficulty marks have been added"
+    },
+    "portal": {
+      "delete": "Portals have been removed",
+      "add": "Portals have been added"
     }
   }
 }

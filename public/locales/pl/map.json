@@ -25,5 +25,27 @@
     "maxSeQuantity": "Zbyt dużo interaktywnego środowiska. Maks 1 na {{ max }} ćwiartek",
     "maxNpcQuantity": "Zbyt wielu NPC. Maks 1 na {{ max }} ćwiartek",
     "maxMobQuantity": "Zbyt wiele potworów. Maks 1 na {{ max }} ćwiartek"
+  },
+  "visibility": {
+    "title": "Zasięg widoczności",
+    "description": "Ustaw zasięg widoczności gracza ({{ min }} - {{ max }})",
+    "error": "Ustaw prawidłową wartość"
+  },
+  "vertex": {
+    "title": "Znaczniki trudności terenu",
+    "description": "Ustaw znaczniki trudności terenu ({{ min }} - {{ max }})",
+    "error": "Ustaw prawidłową wartość"
+  },
+  "portal": {
+    "title": "Dodaj portale",
+    "target": "Identyfikator docelowej mapy",
+    "coords": "Koordynaty docelowej mapy",
+    "error": "Wypełnij wszystkie pola"
+  },
+  "fsImage": {
+    "title": "Dodał własne zasoby",
+    "layer": "Przypisz do warstwy",
+    "load": "Załaduj obraz z komputera",
+    "error": "Załaduj prawidłowy obraz"
   }
 }

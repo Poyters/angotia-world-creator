@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
-import { ExportOption } from '../partials/creatorPanel/ExportOption';
 import { FullScreenOption } from '../partials/options/FullScreenOption';
 import { NetOption } from '../partials/creatorPanel/NetOption';
 import { SelectOption } from '../partials/creatorPanel/SelectOption';
-import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
+import { AddBgOption } from '../partials/creatorPanel/AddBgOption';
 import { ClearSelectedOption } from '../partials/creatorPanel/ClearSelectedOption';
 import { BlockOption } from '../partials/creatorPanel/BlockOption';
 import { LayersOption } from '../partials/creatorPanel/LayersOption';
@@ -53,12 +52,6 @@ export const Features: React.FC = () => {
           <ul className="featuresList featuresList--withoutMarks">
             <li>
               <div className="iconWrapper iconWrapper--normal">
-                <ExportOption />
-              </div>
-              { 'features?.creatorPanel?.exportOption' } 
-            </li>
-            <li>
-              <div className="iconWrapper iconWrapper--normal">
                 <SaveJsonOption moduleType={AppModules.map}/>
               </div>
               { 'features?.creatorPanel?.saveOption' }
@@ -71,7 +64,7 @@ export const Features: React.FC = () => {
             </li>
             <li>
               <div className="iconWrapper iconWrapper--normal iconWrapper--margin">
-                <AddFileOption />
+                <AddBgOption />
               </div>
               { 'features?.creatorPanel?.bgImage' }
             </li>

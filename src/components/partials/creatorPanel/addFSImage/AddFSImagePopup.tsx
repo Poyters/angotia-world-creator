@@ -4,11 +4,13 @@ import mapConfig from '../../../../assets/configs/map.config.json';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 import { IPopup } from '../../../../interfaces/popup.interface';
 import { Bookmarks } from '../../../../models/bookmarks.model';
+import { useTranslation } from 'react-i18next';
 
 
 const bookmarks = Object.keys(Bookmarks);
 
 export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
+  const { t } = useTranslation(['common', 'map', 'notifications']);
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [fileName, setFileName] = useState<string>('');
@@ -60,13 +62,13 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
       <div role="alert" className="insertPopup">
         <div
           className="g-exitBtn g-exitBtn--popup"
-          onClick={(): void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { 'creator?.panel?.options?.addFSImage?.title' }
+          { t('map:fsImage.title') }
         </header>
         <label className="insertPopup__label t-paragraph6Light">
-          { 'creator?.panel?.options?.addFSImage?.image' }
+          { t('map:fsImage.load') }
         </label>
         <input
           type="file"
@@ -78,12 +80,12 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
         {
           (!isLoadedImage) ? (
             <span className="insertPopup--error">
-              { 'creator?.panel?.options?.addFSImage?.error' }
+              { t('map:fsImage.error') }
             </span>
           ) : null
         }
         <label className="insertPopup__label t-paragraph6Light">
-          { 'creator?.panel?.options?.addFSImage?.category' }
+          { t('map:fsImage.layer') }
         </label>
         <div
           className="addFSImageSelect"
@@ -116,7 +118,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
           className="insertPopup__submit t-paragraphLight"
           onClick={insertImage} disabled={!isLoadedImage}
         >
-          { 'creator?.panel?.options?.addFSImage?.submit' }
+          { t('common:submit') } 
         </button>
       </div>
     </div>

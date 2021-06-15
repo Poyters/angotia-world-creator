@@ -25,5 +25,27 @@
     "maxSeQuantity": "Too much se squares. Max 1 per {{ max }} squares",
     "maxNpcQuantity": "Too much npcs squares. Max 1 per {{ max }} squares",
     "maxMobQuantity": "Too much mobs squares. Max 1 per {{ max }} squares"
+  },
+  "visibility": {
+    "title": "Visibility range",
+    "description": "Set the visibility range of the player at the map ({{ min }} - {{ max }})",
+    "error": "Set proper value"
+  },
+  "vertex": {
+    "title": "Terrain difficulty mark",
+    "description": "Set terrain difficulty marks ({{ min }} - {{ max }})",
+    "error": "Set proper value"
+  },
+  "portal": {
+    "title": "Add portals",
+    "target": "Target map id ",
+    "coords": "Target map coordinations",
+    "error": "Fill all fields"
+  },
+  "fsImage": {
+    "title": "Add own resources",
+    "layer": "Assing to layer",
+    "load": "Load image from computer",
+    "error": "Load proper image"
   }
 }

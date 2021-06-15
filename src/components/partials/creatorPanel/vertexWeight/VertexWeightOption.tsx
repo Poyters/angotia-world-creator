@@ -16,6 +16,7 @@ import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { Notification } from '../../../../models/notification.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
+import { useTranslation } from 'react-i18next';
 
 
 let pressedKey: string | null = null;
@@ -23,6 +24,7 @@ document.addEventListener('keydown', event => pressedKey = event.key);
 document.addEventListener('keyup', () => pressedKey = null);
 
 export const VertexWeightOption: React.FC = () => {
+    const { t } = useTranslation(['notifications']);
     const [isPopup, setIsPopup] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
     const vertexWeightMatrix = useSelector((state: IStore) => state.map.vertex.matrix);
@@ -31,7 +33,7 @@ export const VertexWeightOption: React.FC = () => {
 
     const vertexHandler = (): void => {
         if (isEmptyMatrix(selectMatrix)) {
-            addNotification('notifications?.options?.vertex?.select, Notification.error');
+            addNotification(t('notifications:notes.select.noneSelected'), Notification.error);
             return;
         }
 
@@ -55,7 +57,7 @@ export const VertexWeightOption: React.FC = () => {
             vertexWeightMatrix, 
             Canvas.vertexWeight, 
             changeMapVertexWeightMatrix, 
-            'notifications?.options?.vertex?.delete', 
+            t('notifications:notes.vertex.delete'), 
             '', 
             MatrixFillColor.vertexWeight
         );
@@ -69,8 +71,7 @@ export const VertexWeightOption: React.FC = () => {
             <div 
                 role="button" 
                 className="option" 
-                onClick={(): void => vertexHandler()} 
-                data-title={ 'creator?.panel?.options?.vertex?.dataTitle' }
+                onClick={() => vertexHandler()}
             >
 				<div className="vertexWeightOption">
 					<div className="vertexWeightOption__number">

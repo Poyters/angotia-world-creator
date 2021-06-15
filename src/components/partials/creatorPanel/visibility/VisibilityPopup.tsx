@@ -5,9 +5,11 @@ import { setVisibilityRange } from '../../../../store/actions/mapActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IPopup } from '../../../../interfaces/popup.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
+    const { t } = useTranslation(['common', 'map', 'notifications']);
     const defaultRange = useSelector((state: IStore) => state.map.visibilityRange);
     const [error, setError] = useState<boolean>(false);
     const [visibility, setVisibility] = useState(defaultRange);
@@ -42,7 +44,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
         
         dispatch(setVisibilityRange(visibility));
         isActivePopup(false);
-        addNotification('notifications?.visibility?.change');
+        addNotification(t('notifications:notes.visibility.change'));
     };
 
     return (
@@ -53,11 +55,15 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    { 'creator?.panel?.options?.visibility?.title' } 
+                    { t('map:visibility.title') }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    { 'creator?.panel?.options?.visibility?.desc' } 
-                    ({mapConfig?.visibility?.min} - {mapConfig?.visibility?.max})
+                    { 
+                        t('map:visibility.description', {
+                            min: mapConfig?.visibility?.min,
+                            max: mapConfig?.visibility?.max
+                        }) 
+                    }
                 </label>
                 <input 
                     type='text' 
@@ -67,7 +73,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                            { 'creator?.panel?.options?.visibility?.error' } 
+                            { t('map:visibility.error') }
                         </span>
                     ) : null
                 }                
@@ -78,7 +84,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={submitVisibility} 
                     disabled={error}
                 > 
-                    { 'creator?.panel?.options?.visibility?.submit' } 
+                    { t('common:submit') }
                 </button>
             </div>
         </div>

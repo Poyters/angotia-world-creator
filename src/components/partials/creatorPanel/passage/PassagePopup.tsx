@@ -13,9 +13,11 @@ import { IPopup } from '../../../../interfaces/popup.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
+import { useTranslation } from 'react-i18next';
 
 
 export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
+    const { t } = useTranslation(['common', 'map', 'notifications']);
     const [mapTargetId, setMapTargetId] = useState<string>('');
     const [mapTargetCords, setMapTargetCords] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
@@ -31,7 +33,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     }, [mapTargetId, mapTargetCords]);
 
     useEffect(() => {
-        const keyPressHandler = (event): void => {
+        const keyPressHandler = (event) => {
             if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') insertPassage();
         };
@@ -42,10 +44,10 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
         };
     });
 
-    const insertPassage = (): void => {
+    const insertPassage = () => {
         if (error) return;
         
-        const potentialLocations: ISquareData[] = matrixToIds(selectMatrix);
+        const potentialLocations = matrixToIds(selectMatrix);
         potentialLocations.forEach(location => {
             if (!passageLocations.some(e => e.id === location.id)) {
                 const newLocation: IPassageLocation = {
@@ -66,7 +68,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
             passageMatrix, 
             Canvas.passage, 
             changeMapPassageMatrix, 
-            'notifications?.options?.passage?.add', 
+            t('notifications:notes.portal.add'), 
             '', 
             MatrixFillColor.passage
         );
@@ -80,10 +82,10 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light"> 
-                    Add passage 
+                { t('map:portal.title') }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    Target map id 
+                    { t('map:portal.target') }
                 </label>
                 <input 
                     type='text' 
@@ -91,7 +93,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onChange={e => setMapTargetId(e.target.value)}
                 />
                 <label className="insertPopup__label t-paragraph6Light">
-                    Target map coordinations 
+                    { t('map:vertex.coords') }
                 </label>
                 <input 
                     type='text' 
@@ -100,7 +102,9 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 />
                 {
                     (error) ? (
-                        <span className="insertPopup--error">Fill all fields</span>
+                        <span className="insertPopup--error">
+                            { t('map:vertex.error') }
+                        </span>
                     ) : null
                 }
 
@@ -110,7 +114,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={insertPassage} 
                     disabled={error}
                 > 
-                    submit 
+                    { t('common:submit') } 
                 </button>
             </div>
         </div>

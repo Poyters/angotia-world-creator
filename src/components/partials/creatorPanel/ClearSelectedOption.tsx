@@ -5,13 +5,11 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Canvas } from '../../../models/canvas.model';
 
 
-export const ClearSelectedOption = (props: { 
-	note?: string
-}) => {
+export const ClearSelectedOption = () => {
   const clearSelected = (): void => {
     clearCanvas(Canvas.select, changeMapSelectMatrix);
 
-    if (props.note) addNotification(props.note);
+    addNotification('props.note');
 	};
 
   return (

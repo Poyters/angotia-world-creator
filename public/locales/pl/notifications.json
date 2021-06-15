@@ -4,7 +4,8 @@
       "none": "Wyłączono narzędzie zaznaczeń",
       "square": "Zaznacz ćwiartkami",
       "field": "Zaznacz polami",
-      "mouse": "Zaznacz myszką"
+      "mouse": "Zaznacz myszką",
+      "noneSelected": "Najpierw zaznacz obszar na mapie"
     },
     "net": {
       "none": "Siatka mapy została ukryta",
@@ -15,6 +16,21 @@
     "layers": {
       "on": "Warstwa {{ layer }} jest widoczna",
       "off": "Warstwa {{ layer }} została ukryta"
+    },
+    "background": {
+      "delete": "Usunięto obraz tła",
+      "add": "Dodano obraz tła"
+    },
+    "visibility": {
+      "change": "Zmieniono zasięg widoczności gracza na mapie"
+    },
+    "vertex": {
+      "delete": "Usunięto znaczniki trudności terenu",
+      "add": "Dodano znaczniki trudności terenu"
+    },
+    "portal": {
+      "delete": "Usunięto portale",
+      "add": "Dodano portale"
     }
   }
 }

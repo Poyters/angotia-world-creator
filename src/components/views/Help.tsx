@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
 import { NetOption } from '../partials/creatorPanel/NetOption';
-import { AddFileOption } from '../partials/creatorPanel/AddFileOption';
+import { AddBgOption } from '../partials/creatorPanel/AddBgOption';
 import { BlockOption }from '../partials/creatorPanel/BlockOption';
 import routesConfig from '../../assets/configs/routes.config.json';
 
@@ -47,7 +47,7 @@ export const Help: React.FC = () => {
           <section>
             { 'help?.bg' }
             <div className="iconWrapper iconWrapper--down"> 
-              <AddFileOption />
+              <AddBgOption />
             </div>{ 'help?.bg1' }
           </section>
 

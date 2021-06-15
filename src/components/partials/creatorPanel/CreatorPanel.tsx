@@ -2,7 +2,7 @@ import React from 'react';
 import { FullScreenOption } from '../options/FullScreenOption';
 import { NetOption } from './NetOption';
 import { SelectOption } from './SelectOption';
-import { AddFileOption } from './AddFileOption';
+import { AddBgOption } from './AddBgOption';
 import { ClearSelectedOption } from './ClearSelectedOption';
 import { BlockOption } from './BlockOption';
 import { LayersOption } from './LayersOption';
@@ -30,7 +30,7 @@ export const CreatorPanel: React.FC = () => {
             <LayersOption />
           </li>
           <li>
-            <AddFileOption />
+            <AddBgOption />
           </li>
           <li>
             <DeleteBgOption />
@@ -49,15 +49,10 @@ export const CreatorPanel: React.FC = () => {
             />
           </li>
           <li>
-            <ClearSelectedOption 
-              note={'notifications?.options?.clearSelected?.cleared'}
-            />
+            <ClearSelectedOption />
           </li>
           <li>
-            <BlockOption
-              selectNote={'notifications?.options?.block?.select'}
-              changeNote={'notifications?.options?.block?.change'}
-            />
+            <BlockOption  />
           </li>
           <li>
             <PassageOption />

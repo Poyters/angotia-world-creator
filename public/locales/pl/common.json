@@ -10,5 +10,6 @@
   "load": "załaduj",
   "edit": "edytuj",
   "close": "zamknij",
-  "errors": "błędy"
+  "errors": "błędy",
+  "submit": "potwierdź"
 }

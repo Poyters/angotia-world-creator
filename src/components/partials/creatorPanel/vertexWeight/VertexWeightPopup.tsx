@@ -14,9 +14,11 @@ import { IStore } from '../../../../interfaces/store.interface';
 import { Canvas } from '../../../../models/canvas.model';
 import { MatrixFillColor } from '../../../../models/matrixFillColor.model';
 import { IPopup } from '../../../../interfaces/popup.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
+    const { t } = useTranslation(['common', 'map', 'notifications']);
     const [vertexWeightValue, setVertexWeightValue] = useState<string>('');
     const [error, setError] = useState<boolean>(false);
     const selectMatrix = deepCopy(useSelector((state: IStore) => state.ui.select.matrix));
@@ -70,7 +72,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
             vertexWeightMatrix, 
             Canvas.vertexWeight, 
             changeMapVertexWeightMatrix, 
-            'notifications?.options?.vertex?.add', 
+            t('notifications:notes.vertex.add'), 
             vertexWeightValue, 
             MatrixFillColor.vertexWeight
         );
@@ -84,11 +86,15 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onClick={():void => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
-                    { 'creator?.panel?.options?.vertex?.title' }
+                    { t('map:vertex.title') }
                 </header>
                 <label className="insertPopup__label t-paragraph6Light">
-                    { 'creator?.panel?.options?.vertex?.desc' }
-                    ({mapConfig?.vertexWeight?.min} - {mapConfig?.vertexWeight?.max})
+                    { 
+                        t('map:vertex.description', {
+                            min: mapConfig?.vertexWeight?.min,
+                            max: mapConfig?.vertexWeight?.max
+                        }) 
+                    }
                 </label>
                 <input 
                     type='text' 
@@ -98,7 +104,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                           { 'creator?.panel?.options?.vertex?.error' }
+                           { t('map:vertex.error') }
                         </span>
                     ) : null
                 }
@@ -108,7 +114,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     className="insertPopup__submit t-paragraphLight" 
                     onClick={insertVertexWeight} disabled={error}
                 > 
-                    { 'creator?.panel?.options?.vertex?.submit' }
+                    { t('common:submit') }
                 </button>
             </div>
         </div>

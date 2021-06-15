@@ -4,7 +4,6 @@ import uuid from 'uuid/v4';
 import { IStore } from '../../../interfaces/store.interface';
 import { useTranslation } from 'react-i18next';
 import { addNotification } from '../../../scripts/utils/notifications';
-import { capitalizeFirstLetter } from '../../../scripts/utils/capitalizeFirstLetter';
 
 
 export const LayersOption: React.FC = () => {

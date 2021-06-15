@@ -10,5 +10,6 @@
   "load": "load",
   "edit": "edit",
   "close": "close",
-  "errors": "errors"
+  "errors": "errors",
+  "submit": "submit"
 }

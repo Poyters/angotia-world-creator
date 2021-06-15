@@ -11,9 +11,7 @@ import { Notification } from '../../../models/notification.model';
 import { MatrixFillColor } from '../../../models/matrixFillColor.model';
 
 
-export const BlockOption = (props: { 
-	selectNote?: string, changeNote?: string 
-}) => {
+export const BlockOption = () => {
 	const blockMatrix = useSelector((state: IStore) => state.map.blockMatrix);
 	const fillColor = mapConfig.blockSquareColor;
 	const selectMatrix = useSelector((state: IStore) => state.ui.select.matrix);
@@ -21,7 +19,7 @@ export const BlockOption = (props: {
 	const blockHandler = (): void => {
 		if (isEmptyMatrix(selectMatrix)) {
 
-			if (props.selectNote) addNotification(props.selectNote, Notification.error);
+			addNotification('props.selectNote', Notification.error);
 			return;
 		}
 
@@ -29,7 +27,7 @@ export const BlockOption = (props: {
 			blockMatrix, 
 			Canvas.block, 
 			changeMapBlockMatrix, 
-			props.changeNote, 
+			'props.changeNote', 
 			fillColor, 
 			MatrixFillColor.barrier
 		);
