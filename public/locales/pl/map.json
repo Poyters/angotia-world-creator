@@ -1,13 +1,17 @@
 { 
   "preview": "Podgląd mapy",
+  "layersTitle": "Warstwy",
   "layers": {
-    "disableFields": "zablokowane pola",
-    "building": "budynki",
-    "decoration": "dekoracje",
-    "subsoil": "teren",
-    "npc": "NPC",
-    "mob": "MOB",
-    "se": "interaktywne środ."
+    "bg": "Tło",
+    "passage": "Przejścia",
+    "disableFields": "Zablokowane pola",
+    "buildings": "Budynki",
+    "decorations": "Dekoracje",
+    "subsoil": "Podłoże",
+    "npcs": "NPC",
+    "mobs": "Potwory",
+    "speakingEnvironment": "Inter. środowisko",
+    "vertexWeight": "Trudność terenu"
   },
   "validation": {
     "minEntryLvl": "Poziom wejścia musi być większy niż {{ min }}",

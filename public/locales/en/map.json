@@ -1,13 +1,17 @@
 { 
   "preview": "Map preview",
+  "layersTitle": "Layers",
   "layers": {
-    "disableFields": "disable fields",
-    "building": "buildings",
-    "decoration": "decorations",
-    "subsoil": "terrain",
-    "npc": "NPC",
-    "mob": "MOB",
-    "se": "SE"
+    "bg": "Background",
+    "passage": "Passages",
+    "disableFields": "Disabled fields",
+    "buildings": "Buildings",
+    "decorations": "Decorations",
+    "subsoil": "Terrain",
+    "npcs": "NPC",
+    "mobs": "MOB",
+    "speakingEnvironment": "SE",
+    "vertexWeight": "Terrain difficulty "
   },
   "validation": {
     "minEntryLvl": "Entry level must be larger than {{ min }}",

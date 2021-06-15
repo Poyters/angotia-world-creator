@@ -1,0 +1,20 @@
+{
+  "notes": {
+    "select": {
+      "none": "Wyłączono narzędzie zaznaczeń",
+      "square": "Zaznacz ćwiartkami",
+      "field": "Zaznacz polami",
+      "mouse": "Zaznacz myszką"
+    },
+    "net": {
+      "none": "Siatka mapy została ukryta",
+      "square": "Siatka typu ćwiartek jest widoczna",
+      "field": "Siatka typu pól jest widoczna",
+      "all": "Wszystkie siatki mapy są widoczne"
+    },
+    "layers": {
+      "on": "Warstwa {{ layer }} jest widoczna",
+      "off": "Warstwa {{ layer }} została ukryta"
+    }
+  }
+}

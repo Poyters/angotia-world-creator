@@ -5,11 +5,13 @@ import { clearCanvasContex } from '../../../scripts/canvas/clearCanvasContex';
 import { addNotification } from '../../../scripts/utils/notifications';
 import { setMapNets } from '../../../store/actions/uiActions';
 import { Canvas } from '../../../models/canvas.model';
+import { useTranslation } from 'react-i18next';
 
 
 export const NetOption = (props: { 
 	viewTypeQuantity: number
 }) => {
+  const { t } = useTranslation(['notifications']);
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
@@ -27,21 +29,21 @@ export const NetOption = (props: {
         drawMapNet(ctx, 1);
         drawMapNet(ctx, 0);
         dispatch(setMapNets({ field: true, square: true }));
-        addNotification('notifications?.options?.net?.squareField');
+        addNotification(t('notifications:notes.net.all'));
       break;
       case 1: // field net
         drawMapNet(ctx, 0);
         dispatch(setMapNets({ field: true, square: false }));
-        addNotification('notifications?.options?.net?.field');
+        addNotification(t('notifications:notes.net.field'));
       break;
       case 2: // square net;
         drawMapNet(ctx, 1);
         dispatch(setMapNets({ field: false, square: true }));
-        addNotification('notifications?.options?.net?.square');
+        addNotification(t('notifications:notes.net.square'));
       break;
       case 3: // a lack of nets
         dispatch(setMapNets({ field: false, square: false }));
-        addNotification('notifications?.options?.net?.disabled');
+        addNotification(t('notifications:notes.net.none'));
         return;
     }
   }, [dispatch, optionViewType]);

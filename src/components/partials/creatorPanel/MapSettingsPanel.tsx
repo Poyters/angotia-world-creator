@@ -4,9 +4,11 @@ import { ActionInputField } from '../ActionInputField';
 import { setMapDesc, setMinEntryLevel, changeMapName } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { IPoint } from '../../../interfaces/math.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const MapSettingsPanel: React.FC = () => {
+	const { t } = useTranslation(['common']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const description: string = useSelector((state: IStore) => state.map.description);
 	const [descValue, setDescValue] = useState<string>(description);
@@ -71,7 +73,7 @@ export const MapSettingsPanel: React.FC = () => {
 						onClick={(): void => setIsOpen(false)}
 					>
 						<span>
-							{ 'creator?.settingsPanel?.close' }
+							{ t('common:close') }
 						</span>
 					</div>
 				</div>

@@ -1,0 +1,20 @@
+{
+  "notes": {
+    "select": {
+      "none": "Turned off select tool",
+      "square": "Select by square",
+      "field": "Select by field",
+      "mouse": "Select by mouse"
+    },
+    "net": {
+      "none": "The map grid has been hidden",
+      "square": "Only square-type map grid is active",
+      "field": "Only field-type map grid is active",
+      "all": "All map nets are visible"
+    },
+    "layers": {
+      "on": "{{ layer }} layer is visible",
+      "off": "{{ layer }} layer is invisible"
+    }
+  }
+}
