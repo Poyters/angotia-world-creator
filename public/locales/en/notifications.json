@@ -5,7 +5,8 @@
       "square": "Select by square",
       "field": "Select by field",
       "mouse": "Select by mouse",
-      "noneSelected": "Need to select spot at first"
+      "noneSelected": "Need to select spot at first",
+      "clear": "The map selection has been cleared"
     },
     "net": {
       "none": "The map grid has been hidden",
@@ -31,6 +32,9 @@
     "portal": {
       "delete": "Portals have been removed",
       "add": "Portals have been added"
+    },
+    "block": {
+      "changed": "Blocked fields have been changed"
     }
   }
 }

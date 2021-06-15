@@ -5,7 +5,8 @@
       "square": "Zaznacz ćwiartkami",
       "field": "Zaznacz polami",
       "mouse": "Zaznacz myszką",
-      "noneSelected": "Najpierw zaznacz obszar na mapie"
+      "noneSelected": "Najpierw zaznacz obszar na mapie",
+      "clear": "Wyczyszczono zaznaczenie mapy"
     },
     "net": {
       "none": "Siatka mapy została ukryta",
@@ -31,6 +32,9 @@
     "portal": {
       "delete": "Usunięto portale",
       "add": "Dodano portale"
+    },
+    "block": {
+      "changed": "Zmieniono zablokowane pola"
     }
   }
 }
