@@ -92,7 +92,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                     onChange={e => setMapTargetId(e.target.value)}
                 />
                 <label className="insertPopup__label t-paragraph6Light">
-                    { t('map:vertex.coords') }
+                    { t('map:portal.coords') }
                 </label>
                 <input 
                     type='text' 
@@ -102,7 +102,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                 {
                     (error) ? (
                         <span className="insertPopup--error">
-                            { t('map:vertex.error') }
+                            { t('map:portal.error') }
                         </span>
                     ) : null
                 }

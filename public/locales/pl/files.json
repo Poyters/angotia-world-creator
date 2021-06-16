@@ -9,8 +9,8 @@
       "subsoil": "teren",
       "npc": "NPC",
       "mob": "potwory",
-      "se": "speaking environment"
+      "se": "interaktywne środowisko"
     },
-    "added": "Added {{ bookmark }}"
+    "added": "Dodano {{ bookmark }}"
   }
 }
