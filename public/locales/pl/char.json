@@ -69,7 +69,9 @@
   "creator": {
     "title": "Kreator postaci",
     "name": "imie",
-    "moreStats": "więcej statystyk"
+    "moreStats": "więcej statystyk",
+    "isMobAggressive": "czy potwór jest agresywny?",
+    "fieldDiameter": "średnica pola"
   },
   "dialogs": {
     "title": "Dialogi",
@@ -101,5 +103,24 @@
     "timeOfOccurance": "Czas występowania",
     "respawnTime": "Czas odrodzenia (w sekundach)",
     "hasVisibleLevel": "Ma widoczny poziom?"
+  },
+  "types": {
+    "label": "Character type",
+    "npc": "NPC",
+    "mob": "MOB",
+    "se": "SE"
+  },
+  "mobRange": {
+    "title": "Range",
+    "casual": "zwykły",
+    "special": "specjalny",
+    "lider": "lider",
+    "boss": "boss",
+    "king": "król"
+  },
+  "moveType": {
+    "title": "Typ ruchu",
+    "static": "statyczny",
+    "moving": "ruchomy"
   }
 }

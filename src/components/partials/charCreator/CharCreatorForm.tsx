@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../ActionInputField';
@@ -20,6 +21,7 @@ import { CharType } from '../../../models/charType.model';
 import { CharMoveType } from '../../../models/charMoveType.model';
 import { useTranslation } from 'react-i18next';
 import { Monologs } from './monologs/Monologs';
+import { MobRange } from '../../../models/mobRange.model';
 
 
 export const CharCreatorForm: React.FC = () => {
@@ -95,36 +97,66 @@ export const CharCreatorForm: React.FC = () => {
                 types={[
                   {
                     id: CharType.npc,
-                    label: t('char:settings.respawnTime')
+                    label: t('char:types.npc')
                   },
                   {
                     id: CharType.mob,
-                    label: 'mob'
+                    label: t('char:types.mob')
                   },
                   {
                     id: CharType.se,
-                    label: 'se'
+                    label: t('char:types.se')
                   }
                 ]}
                 action={changeChar}
-                label={'char?.form?.char?.label'}
+                label={t('char:types.label')}
                 choosed={charChoosed}
               />
               
               { charType === CharType.mob ? (
                   <>
                     <ChooseButtons 
-                      types={[]}
+                      types={[
+                        {
+                          id: true,
+                          label: t('common:yes')
+                        },
+                        {
+                          id: false,
+                          label: t('common:no')
+                        }
+                      ]}
                       action={setIsAgressiveMob}
-                      label={'char?.form?.isAgressiveMob?.title'}
+                      label={t('char:creator.isMobAggressive')}
                       specialClass='chooseButtonsWrapper--smaller'
                       choosed={isAgressiveMob}
                     />
 
                     <ChooseButtons 
-                      types={[]}
+                      types={[
+                        {
+                          id: MobRange.casual,
+                          label: t('char:mobRange.casual')
+                        },
+                        {
+                          id: MobRange.special,
+                          label: t('char:mobRange.special')
+                        },
+                        {
+                          id: MobRange.lider,
+                          label: t('char:mobRange.lider')
+                        },
+                        {
+                          id: MobRange.boss,
+                          label: t('char:mobRange.boss')
+                        },
+                        {
+                          id: MobRange.king,
+                          label: t('char:mobRange.king')
+                        }
+                      ]}
                       action={setMobRange}
-                      label={'char?.form?.mobRange?.title'}
+                      label={t('char:mobRange.title')}
                       specialClass='chooseButtonsWrapper--smaller'
                       choosed={actualMobRange}
                     />
@@ -135,9 +167,18 @@ export const CharCreatorForm: React.FC = () => {
               {
                 charType !== CharType.se ? (
                   <ChooseButtons 
-                    types={[]}
+                    types={[
+                      {
+                        id: CharMoveType.static,
+                        label: t('char:moveType.static')
+                      },
+                      {
+                        id: CharMoveType.moving,
+                        label: t('char:moveType.moving')
+                      }
+                    ]}
                     action={changeCharType}
-                    label={'char?.form?.charType?.label'}
+                    label={t('char:moveType.title')}
                     choosed={charMoveType}
                   />
                 ) : null
@@ -145,7 +186,7 @@ export const CharCreatorForm: React.FC = () => {
 
               { charMoveType === CharMoveType.moving  && charType !== CharType.se ? (
                 <ActionInputField
-                  label={'char?.form?.charType?.movingField'}
+                  label={t('char:creator.fieldDiameter')}
                   inputValue={fieldDiameter}
                   action={changeFieldDiameter}
                 />

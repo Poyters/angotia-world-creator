@@ -69,7 +69,9 @@
   "creator": {
     "title": "Char creator",
     "name": "name",
-    "moreStats": "more statistics"
+    "moreStats": "more statistics",
+    "isMobAggressive": "is mob aggressive?",
+    "fieldDiameter": "field diameter"
   },
   "dialogs": {
     "title": "Dialogs",
@@ -103,8 +105,22 @@
     "hasVisibleLevel": "Has visible level?"
   },
   "types": {
-    "npm": "NPC",
+    "label": "Character type",
+    "npc": "NPC",
     "mob": "MOB",
     "se": "SE"
+  },
+  "mobRange": {
+    "title": "Range",
+    "casual": "casual",
+    "special": "special",
+    "lider": "lider",
+    "boss": "boss",
+    "king": "king"
+  },
+  "moveType": {
+    "title": "Move type",
+    "static": "static",
+    "moving": "moving"
   }
 }
