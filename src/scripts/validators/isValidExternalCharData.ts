@@ -1,4 +1,4 @@
-import { ChoosedChar } from '../../models/choosedChar.model';
+import { CharType } from '../../models/charType.model';
 import { log } from '../utils/log';
 
 
@@ -15,9 +15,9 @@ export const isValidExternalCharData = (data: any): boolean => {
     (
       !data?.choosed ||
       (
-        data?.choosed !== ChoosedChar.npc &&
-        data?.choosed !== ChoosedChar.mob &&
-        data?.choosed !== ChoosedChar.se
+        data?.choosed !== CharType.npc &&
+        data?.choosed !== CharType.mob &&
+        data?.choosed !== CharType.se
       )
     ) ||
     !data?._id || 

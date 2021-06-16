@@ -8,7 +8,7 @@ import {
 	setRespawnTime
 } from '../../../store/actions/charActions';
 import { IStore } from '../../../interfaces/store.interface';
-import { ChoosedChar } from '../../../models/choosedChar.model';
+import { CharType } from '../../../models/charType.model';
 import { useTranslation } from 'react-i18next';
 
 
@@ -16,7 +16,7 @@ export const SettingsPanel: React.FC = () => {
 	const { t } = useTranslation(['common', 'char']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const charSettings = useSelector((state: IStore) => state.char.settings);
-	const choosedChar = useSelector((state: IStore) => state.char.choosed);
+	const charType = useSelector((state: IStore) => state.char.choosed);
 	const hasVisibleLevel = useSelector((state: IStore) => state.char.hasVisibleLevel);
 
 	const settingsPanelStyles = {
@@ -37,7 +37,7 @@ export const SettingsPanel: React.FC = () => {
 				style={settingsPanelStyles}
 			>
 				<div className="g-sidePanel g-sidePanel--left">
-					{ choosedChar !== ChoosedChar.mob ?
+					{ charType !== CharType.mob ?
 						<ChooseButtons 
 							types={[
 								{
@@ -55,7 +55,7 @@ export const SettingsPanel: React.FC = () => {
 							choosed={hasVisibleLevel}
 						/> : null
 					}
-					{ choosedChar === ChoosedChar.mob ?
+					{ charType === CharType.mob ?
 						<ActionMaxMinField
 							label={t('char:settings.respawnTime')}
 							minValue={charSettings?.respTime?.min}

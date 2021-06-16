@@ -101,5 +101,10 @@
     "timeOfOccurance": "Time of occurance",
     "respawnTime": "Respawn time (seconds)",
     "hasVisibleLevel": "Has visible level?"
+  },
+  "types": {
+    "npm": "NPC",
+    "mob": "MOB",
+    "se": "SE"
   }
 }

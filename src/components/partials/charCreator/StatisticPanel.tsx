@@ -6,16 +6,16 @@ import { IStore } from '../../../interfaces/store.interface';
 import {
 	changeStatistics
 } from '../../../store/actions/charActions';
-import { ChoosedChar } from '../../../models/choosedChar.model';
-import { CharType } from '../../../models/charType.model';
+import { CharMoveType } from '../../../models/charMoveType.model';
 import { useTranslation } from 'react-i18next';
+import { CharType } from '../../../models/charType.model';
 
 
 export const StatisticPanel: React.FC = () => {
 	const { t } = useTranslation(['char', 'common']);
 	const isOpen = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
-	const choosedChar = useSelector((state: IStore) => state.char.choosed);
-	const charType = useSelector((state: IStore) => state.char.type);
+	const charType = useSelector((state: IStore) => state.char.choosed);
+	const charMoveType = useSelector((state: IStore) => state.char.type);
 	const charStatistics = useSelector((state: IStore) => state.char.statistics);
 	const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
 	const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const StatisticPanel: React.FC = () => {
 	return (
 		<>
 			{
-				choosedChar !== ChoosedChar.se ? (
+				charType !== CharType.se ? (
 					<div
 						className=
 							"g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal"
@@ -66,7 +66,7 @@ export const StatisticPanel: React.FC = () => {
 						action={changeStatistics}
 						payloadId='jink'
 					/>
-					{charType === CharType.moving ? (
+					{ charMoveType === CharMoveType.moving ? (
 						<ActionInputField
 							label={t('char:statistics.speed')}
 							inputValue={charStatistics.speed}
@@ -74,7 +74,7 @@ export const StatisticPanel: React.FC = () => {
 							payloadId='speed'
 						/>) : null
 					}
-					{choosedChar === ChoosedChar.mob &&
+					{ charType === CharType.mob &&
 						isAgressiveMob ? (
 							<ActionInputField
 								label={t('char:statistics.attackRange')}
@@ -84,7 +84,7 @@ export const StatisticPanel: React.FC = () => {
 							/>) : null
 					}
 
-					{choosedChar === ChoosedChar.mob ? (
+					{ charType === CharType.mob ? (
 						<ActionInputField
 							label={t('char:statistics.attackSpeed')}
 							inputValue={charStatistics.attackSpeed}

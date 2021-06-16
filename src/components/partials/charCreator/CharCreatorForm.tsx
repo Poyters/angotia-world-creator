@@ -16,18 +16,18 @@ import {
 } from '../../../store/actions/charActions';
 import { toggleStatisticPanel } from '../../../store/actions/uiActions';
 import { IStore } from '../../../interfaces/store.interface';
-import { ChoosedChar } from '../../../models/choosedChar.model';
 import { CharType } from '../../../models/charType.model';
+import { CharMoveType } from '../../../models/charMoveType.model';
 import { useTranslation } from 'react-i18next';
 import { Monologs } from './monologs/Monologs';
 
 
 export const CharCreatorForm: React.FC = () => {
   const { t } = useTranslation(['char', 'common']);
-  const choosedChar = useSelector((state: IStore) => state.char.choosed);
+  const charType = useSelector((state: IStore) => state.char.choosed);
   const name = useSelector((state: IStore) => state.char.name);
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
-  const charType = useSelector((state: IStore) => state.char.type);
+  const charMoveType = useSelector((state: IStore) => state.char.type);
   const internalId = useSelector((state: IStore) => state.char.internalId);
   const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
   const charChoosed = useSelector((state: IStore) => state.char.choosed);
@@ -80,7 +80,7 @@ export const CharCreatorForm: React.FC = () => {
                 payloadId='defence'
               />
               {
-                choosedChar !== ChoosedChar.se ? (
+                charType !== CharType.se ? (
                   <CornerButton 
                     name={t('char:creator.moreStats')}
                     clickEvent={() => dispatch(toggleStatisticPanel(true))}
@@ -92,13 +92,26 @@ export const CharCreatorForm: React.FC = () => {
               <CharSprite />
               
               <ChooseButtons 
-                types={[]}
+                types={[
+                  {
+                    id: CharType.npc,
+                    label: t('char:settings.respawnTime')
+                  },
+                  {
+                    id: CharType.mob,
+                    label: 'mob'
+                  },
+                  {
+                    id: CharType.se,
+                    label: 'se'
+                  }
+                ]}
                 action={changeChar}
                 label={'char?.form?.char?.label'}
                 choosed={charChoosed}
               />
               
-              { choosedChar === ChoosedChar.mob ? (
+              { charType === CharType.mob ? (
                   <>
                     <ChooseButtons 
                       types={[]}
@@ -120,17 +133,17 @@ export const CharCreatorForm: React.FC = () => {
               }
 
               {
-                choosedChar !== ChoosedChar.se ? (
+                charType !== CharType.se ? (
                   <ChooseButtons 
                     types={[]}
                     action={changeCharType}
                     label={'char?.form?.charType?.label'}
-                    choosed={charType}
+                    choosed={charMoveType}
                   />
                 ) : null
               }
 
-              { charType === CharType.moving  && choosedChar !== ChoosedChar.se ? (
+              { charMoveType === CharMoveType.moving  && charType !== CharType.se ? (
                 <ActionInputField
                   label={'char?.form?.charType?.movingField'}
                   inputValue={fieldDiameter}
@@ -140,7 +153,7 @@ export const CharCreatorForm: React.FC = () => {
               }           
             </div>
           </div>
-          { choosedChar === ChoosedChar.npc || choosedChar === ChoosedChar.se ? (
+          { charType === CharType.npc || charType === CharType.se ? (
               <Dialogs />
             ) : null
           }
