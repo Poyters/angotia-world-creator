@@ -100,7 +100,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
       <div role="alert" className="insertPopup">
         <div
           className="g-exitBtn g-exitBtn--popup"
-          onClick={(): void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { t('load:title') }

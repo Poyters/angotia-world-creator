@@ -13,7 +13,7 @@ export const SelectOption = (props: {
   const [selectType, setSelectType] = useState<number>(0);
   const dispatch = useDispatch();
 
-  useEffect((): void => {
+  useEffect(() => {
     switch(selectType) {
       case 0:
         dispatch(setMapSelectType(SelectType.none));

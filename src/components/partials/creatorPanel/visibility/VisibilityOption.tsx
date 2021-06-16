@@ -14,7 +14,7 @@ export const VisibilityOption: React.FC = () => {
             <div 
                 role="button" 
                 className="option" 
-                onClick={(): void => setIsPopup(true)} 
+                onClick={() => setIsPopup(true)} 
             >
                 <div className="visibilityOption"> </div>
             </div>

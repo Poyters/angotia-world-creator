@@ -3,23 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IDialogPopup } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId }) => {
+  const { t } = useTranslation(['char', 'common', 'notifications']);
   const [npcText, setNpcText] = useState<string>('');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
   const [playerDialogErr, setPlayerDialogErr] = useState<boolean>(false);
-  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
+  const dialogsData = useSelector((state: IStore) => state.char.dialogs);
   const dispatch = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+  const temponaryPlayerDialogs = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];
 
-  useEffect((): void => {
+  useEffect(() => {
     if (
       npcText.length === 0 || 
       !npcText
@@ -29,7 +30,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
     else setNpcTextErr(false);
   }, [npcText]);
 
-  useEffect((): void => {
+  useEffect(() => {
     if (
       temponaryPlayerDialogs.length === 0 || 
       !temponaryPlayerDialogs
@@ -52,7 +53,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
     };
   });
 
-  const insertDialog = (): void => {
+  const insertDialog = () => {
     dialogsData.push({
       id: dialogId,
       npc: npcText,
@@ -61,10 +62,10 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
     });
 
     dispatch(changeDialogs(dialogsData));
-    addNotification('notifications?.dialogs?.add');
+    addNotification(t('notifications:notes.dialogs.add'));
   };
 
-  const submitHandler = (): void => {
+  const submitHandler = () => {
     if (npcTextErr) return;
 
     insertDialog();
@@ -72,7 +73,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
     dispatch(changeTemponaryPlayerDialogs([]));
   };
 
-  const closePopupHandler = (): void => {
+  const closePopupHandler = () => {
     isActivePopup(false);
     dispatch(changeTemponaryPlayerDialogs([]));
   };
@@ -85,15 +86,15 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
           onClick={closePopupHandler}
         > </div>
         <header className="insertPopup__header insertPopup__header--dialog t-paragraph3Light">
-          { 'char?.dialogPopup?.add' }
+          { t('char:dialogs.create') }
         </header>
         <ActionInputField
-          label='ID - auto generated'
+          label={t('common:autoId')} 
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.dialogPopup?.npcDialog' }
+          { t('char:dialogs.npcDialog') }
         </label>
         <textarea
           value={npcText} 
@@ -102,7 +103,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { 'char?.dialogPopup?.npcTextErr' }
+              { t('char:dialogs.npcDialogErr') }
             </span>
           ) : null
         }
@@ -110,7 +111,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
         {
           (playerDialogErr) ? (
             <span className="insertPopup--error">
-              { 'char?.dialogPopup?.playerDialogErr' }
+              { t('char:dialogs.lackOfPlayerDialogs') }
             </span>
           ) : null
         } 
@@ -118,10 +119,10 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
         <button 
           type="submit" 
           className="insertPopup__submit t-paragraphLight" 
-          onClick={(): void => submitHandler()} 
+          onClick={() => submitHandler()} 
           disabled={npcTextErr || playerDialogErr}
         > 
-          { 'char?.dialogPopup?.submit' }
+          { t('common:submit') }
         </button>
       </div>
     </div>

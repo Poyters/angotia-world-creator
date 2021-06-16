@@ -35,6 +35,16 @@
     },
     "block": {
       "changed": "Zmieniono zablokowane pola"
+    },
+    "monologs": {
+      "add": "Monolog został dodany",
+      "delete": "Monolog został usunięty",
+      "edit": "Monolog został zedytowany"
+    },
+    "dialogs": {
+      "add": "Dialog został dodany",
+      "delete": "Dialog został usunięty",
+      "edit": "Dialog został zedytowany"
     }
   }
 }

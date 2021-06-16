@@ -1,10 +1,11 @@
 .charSprite {
   display: flex;
   width: auto;
-  height: 240px;
-  max-height: 240px;
+  min-width: 192px;
+  min-height: 288px;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 
   background-color: $decorationColor11;
   background-repeat: no-repeat;
@@ -13,4 +14,5 @@
   color: $errorColor;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
 }

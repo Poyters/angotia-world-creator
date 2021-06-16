@@ -49,7 +49,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     reader.readAsDataURL(file);
   };
 
-  const insertImage = (): void => {
+  const insertImage = () => {
     if (!isLoadedImage) return;
 
     console.log('Insert image process');
@@ -89,7 +89,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
         </label>
         <div
           className="addFSImageSelect"
-          onClick={(): void => setIsSelectOpen(!isSelectOpen)}
+          onClick={() => setIsSelectOpen(!isSelectOpen)}
         >
           <span> {currBookmark} </span>
           {
@@ -99,7 +99,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
                   if (bookmark !== currBookmark) {
                     return (
                       <li
-                        onClick={(): void => setCurrBookmark(bookmark)}
+                        onClick={() => setCurrBookmark(bookmark)}
                         key={uuid()}
                       >
                         { bookmark }

@@ -9,13 +9,13 @@ import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
 
 
-export const CreateChar: React.FC = () => {
+export const CreateChar = () => {
   const [redirect, setRedirect] = useState<null | string>(null);
   const emptyCharState = deepCopy(charState);
   const dispatch = useDispatch();
   const { t } = useTranslation(['common']);
 
-  const newCharInstanceHanlder = (): void => {
+  const newCharInstanceHanlder = () => {
     dispatch(loadCharData(emptyCharState));
     setRedirect(routesConfig.charCreator);
   };

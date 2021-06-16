@@ -26,7 +26,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
-    useEffect((): void => {
+    useEffect(() => {
         if (
             parseInt(vertexWeightValue) < mapConfig?.vertexWeight?.min || 
             parseInt(vertexWeightValue) > mapConfig?.vertexWeight?.max || 
@@ -51,7 +51,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
         };
     });
 
-    const insertVertexWeight = (): void => {
+    const insertVertexWeight = () => {
         if (error) return;
 
         const potentialWeights: ISquareData[] = matrixToIds(selectMatrix);

@@ -9,14 +9,16 @@ import { DialogPopup } from './DialogPopup';
 import { IDialog } from '../../../../interfaces/dialogs.interface';
 import { IStore } from '../../../../interfaces/store.interface';
 import uuid from 'uuid/v4';
+import { useTranslation } from 'react-i18next';
 
 
 export const Dialogs = () => {
+  const { t } = useTranslation(['char', 'common']);
   const [connectedDialogs, setConnectedDialogs] = useState<Array<string | number>>([]);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
-  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
+  const dialogsData = useSelector((state: IStore) => state.char.dialogs);
 
-  const dialogsValidator = (beginId: string): void => {
+  const dialogsValidator = (beginId: string) => {
     setConnectedDialogs(
       findConnectedDialog(dialogsData, beginId)
     );
@@ -30,12 +32,14 @@ export const Dialogs = () => {
       <div className="dialogs">
         <nav className="dialogs__nav">
           <ul>
-            <li className="t-paragraph8Light"> { 'type' } </li>
+            <li className="t-paragraph8Light">
+              { t('char:dialogs.title') }
+            </li>
             <li className="t-paragraph5Normal">
               <span 
                 onClick={() => setIsPopupOpen(true)}
               > 
-                { 'addBtnText' } 
+                { t('common:create') } 
               </span>
             </li>
           </ul>
@@ -55,7 +59,7 @@ export const Dialogs = () => {
             })
           ) : (
             <p className='dialogs--none t-paragraph5Normal'>
-                { 'char?.form?.lackOf' } { 'type' }
+              { t('char:dialogs.lack') }
             </p>
           )
         }

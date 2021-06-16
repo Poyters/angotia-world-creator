@@ -2,22 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { changeDialogs } from '../../../../store/actions/charActions';
-import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IEditPlayerDialog } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   { dialogId, playerId, isActivePopup }
 ) => {
-  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
-  const dialogData: IDialog | undefined = dialogsData
-    .find((dialog: IDialog): boolean => dialog.id === dialogId);
-  const playerData: IPlayer | undefined = dialogData ? dialogData.player
-    .find((dialog: IPlayer): boolean => {
-      return dialog.id === playerId;
-    }) : undefined;
+  const { t } = useTranslation(['char', 'common']);
+  const dialogsData = useSelector((state: IStore) => state.char.dialogs);
+  const dialogData = dialogsData.find(dialog => dialog.id === dialogId);
+  const playerData = dialogData?.player?.find(dialog => dialog.id === playerId);
   const dispatch = useDispatch();
   const [dialog, setDialog] = useState<string>(playerData?.dialog || '');
   const [dialogErr, setDialogErr] = useState<boolean>(false);
@@ -25,7 +22,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   const [action, setAction] = useState<string>(playerData?.action || '');
   const [condition, setCondition] = useState<string>(playerData?.condition || '');
 
-  useEffect((): void => {
+  useEffect(() => {
     if (
       dialog.length === 0 || 
       !dialog
@@ -36,7 +33,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   }, [dialog]);
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
       if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') submitHandler();
     };
@@ -50,11 +47,9 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
   const submitHandler = (): void => {
     if (!dialogData || dialogErr) return;
 
-    const playerDataId = dialogData.player.findIndex((dialog: IPlayer): boolean => {
-      return dialog.id === playerId;
-    });
+    const playerDataId = dialogData.player.findIndex(playerDialog => playerDialog.id === playerId);
 
-    const updatedDialogs = dialogsData.map((dlg: IDialog) => {
+    const updatedDialogs = dialogsData.map(dlg => {
       if (dlg.id === dialogId) {
         dlg.player[playerDataId] = {
           ...dlg.player[playerDataId],
@@ -73,8 +68,8 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     addNotification('notifications?.dialogs?.player?.edit');
   };
 
-  const deleteDialog = (id: string): void => {
-    const updatedDialogs = dialogsData.map((dialog: IDialog) => {
+  const deleteDialog = (id: string) => {
+    const updatedDialogs = dialogsData.map(dialog => {
       if (dialog.id === dialogId) {
         dialog.player = dialog.player.filter(player => {
           return player.id !== id;
@@ -94,22 +89,25 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
       <div role="alert" className="insertPopup insertPopup--dialog">
         <div
           className="g-deleteBtn"
-          onClick={():void => deleteDialog(playerId)}
-        > delete </div> 
+          onClick={() => deleteDialog(playerId)}
+        > 
+          {t('common:delete')}
+        </div> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
+
         <header className="insertPopup__header t-paragraph3Light">
-          { 'char?.editPlayer?.title' }
+          { t('char:dialogs.editPlayerDialog') }
         </header>
         <ActionInputField
-          label='ID - auto generated'
+          label={t('common:autoId')} 
           inputValue={playerId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.editPlayer?.playerDialog' }
+          { t('char:dialogs.playerDialog') }
         </label>
         <textarea
           value={dialog} 
@@ -118,13 +116,13 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         {
           (dialogErr) ? (
             <span className="insertPopup--error">
-              { 'char?.editPlayer?.playerDialogErr' }
+              { t('char:dialogs.error') }
             </span>
           ) : null
         }   
 
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.editPlayer?.action' }
+          { t('char:dialogs.action') }
         </label>
         <input
           value={action} 
@@ -132,7 +130,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         /> 
 
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.editPlayer?.next' }
+          { t('char:dialogs.next') }
         </label>
         <input
           value={next} 
@@ -140,7 +138,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
         />  
 
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.editPlayer?.condition' }
+          { t('char:dialogs.condition') }
         </label>
         <input
           value={condition} 
@@ -153,7 +151,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
           onClick={submitHandler} 
           disabled={dialogErr}
         > 
-          { 'char?.editPlayer?.submit' }
+          { t('common:submit') } 
         </button>
       </div>
     </div>

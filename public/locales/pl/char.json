@@ -70,5 +70,30 @@
     "title": "Kreator postaci",
     "name": "imie",
     "moreStats": "więcej statystyk"
+  },
+  "dialogs": {
+    "title": "Dialogi",
+    "playerId": "Id gracza",
+    "playerDialog": "Dialog gracza",
+    "editPlayerDialog": "Edytuj dialog gracza",
+    "playerDialogs": "Dialogi gracza",
+    "newPlayerDialog": "Utwórz dialog gracza",
+    "lack": "Brak dialogów",
+    "npcDialog": "Dialog NPC",
+    "action": "Akcja",
+    "condition": "Warunek",
+    "next": "Kolejny (dialog id)",
+    "create": "Utwórz dialog",
+    "npcDialogErr": "Uzupełnij dialog NPC",
+    "lackOfPlayerDialogs": "Należy stworzyć minimum 1 dialog gracza",
+    "edit": "Edytuj dialog",
+    "error": "Wypełnij pole"
+  },
+  "monologs": {
+    "title": "Monologi",
+    "id": "Id monologu",
+    "lack": "Brak monologów",
+    "create": "Utwórz monolog",
+    "error": "Wypełnij pole"
   }
 }

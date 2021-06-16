@@ -15,7 +15,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const [visibility, setVisibility] = useState(defaultRange);
     const dispatch = useDispatch();
 
-    useEffect((): void => {
+    useEffect(() => {
         if (
             visibility < mapConfig?.visibility?.min || 
             visibility > mapConfig?.visibility?.max ||

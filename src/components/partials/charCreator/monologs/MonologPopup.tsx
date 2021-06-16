@@ -20,7 +20,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
   const dispatch = useDispatch();
 
 
-  useEffect((): void => {
+  useEffect(() => {
     if (
       !monologContent ||
       monologContent.length === 0

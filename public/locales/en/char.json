@@ -74,7 +74,20 @@
   "dialogs": {
     "title": "Dialogs",
     "playerId": "Player id",
-    "lack": "A lack of dialogs"
+    "playerDialog": "Player dialog",
+    "editPlayerDialog": "Edit player dialog",
+    "playerDialogs": "Player dialogs",
+    "newPlayerDialog": "New player dialog",
+    "lack": "A lack of dialogs",
+    "npcDialog": "NPC dialog",
+    "action": "Action",
+    "condition": "Condition",
+    "next": "Next",
+    "create": "Create dialog",
+    "npcDialogErr": "Type NPC dialog",
+    "lackOfPlayerDialogs": "Need to create at least one player dialog",
+    "edit": "Edit dialog",
+    "error": "Fill field"
   },
   "monologs": {
     "title": "Monologs",

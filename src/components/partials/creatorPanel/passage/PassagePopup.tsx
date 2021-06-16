@@ -25,7 +25,7 @@ export const PassagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
-    useEffect((): void => {
+    useEffect(() => {
         if (!mapTargetId || !mapTargetCords) setError(true);
         else setError(false);
 

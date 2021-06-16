@@ -5,15 +5,17 @@ import { PlayerDialog } from './PlayerDialog';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IPlayer } from '../../../../interfaces/dialogs.interface';
 import { IStore } from '../../../../interfaces/store.interface';
+import { useTranslation } from 'react-i18next';
 
 
-export const AddTemponaryPlayerDialog: React.FC = () => {
+export const AddTemponaryPlayerDialog = () => {
+  const { t } = useTranslation(['char', 'common']);
   const dispatch = useDispatch();
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+  const temponaryPlayerDialogs = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];
 
-  const addPlayerDialogHandler = (): void => {
+  const addPlayerDialogHandler = () => {
     const newDialogs: IPlayer[] = [
       ...temponaryPlayerDialogs,
       {
@@ -34,20 +36,20 @@ export const AddTemponaryPlayerDialog: React.FC = () => {
         <header 
           className="playerDialogsHeader__title t-paragraph5Light"
         >
-          { 'char?.dialogPopup?.playerDialogs' }
+          { t('char:dialogs.playerDialogs') }
         </header>
         <div 
           className="playerDialogsHeader__add t-paragraph5Normal"
-          onClick={():void => addPlayerDialogHandler() }
+          onClick={() => addPlayerDialogHandler() }
         >
-          { 'char?.dialogPopup?.newPlayerDialog' }
+          { t('char:dialogs.newPlayerDialog') }
         </div>
 
       </nav>
       
       <div className="playerDialogsWrapper">
         { 
-          temponaryPlayerDialogs.map((playerDialog: IPlayer) => {
+          temponaryPlayerDialogs.map(playerDialog => {
             return <PlayerDialog playerId={playerDialog.id} key={playerDialog.id} />;
           })
         }

@@ -12,5 +12,9 @@
   "close": "zamknij",
   "errors": "błędy",
   "submit": "potwierdź",
-  "id": "identyfikator"
+  "id": "identyfikator",
+  "create": "utwórz",
+  "content": "treść",
+  "autoId": "ID - auto. wygenerowane",
+  "delete": "usuń"
 }

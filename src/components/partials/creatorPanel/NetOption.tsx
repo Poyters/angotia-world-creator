@@ -20,7 +20,7 @@ export const NetOption = (props: {
     else setOptionViewType(optionViewType + 1);
   };
 
-  useEffect((): void => {
+  useEffect(() => {
     const ctx: any = clearCanvasContex(Canvas.base);
     if (!ctx) return;
 

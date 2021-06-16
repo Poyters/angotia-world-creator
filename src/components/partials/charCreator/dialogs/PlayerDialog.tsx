@@ -18,7 +18,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];
 
-  const updateDialog = (): void => {
+  const updateDialog = () => {
     temponaryPlayerDialogs.forEach(data => {
       if (data.id === playerId) {
         data.dialog = newDialogText;
@@ -31,7 +31,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
     dispatch(changeTemponaryPlayerDialogs(temponaryPlayerDialogs));
   };
 
-  const deleteDialog = (): void => {
+  const deleteDialog = () => {
     const filteredDialogs = temponaryPlayerDialogs.filter(dialog => {
       return dialog.id !== playerId;
     });
@@ -47,7 +47,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         inputDisabled={true}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { 'char?.dialog?.playerDialog' }
+        { t('char:dialogs.playerDialog') }
       </label>
       <textarea
         value={newDialogText} 
@@ -55,21 +55,21 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { 'char?.dialog?.action' }
+        { t('char:dialogs.action') }
       </label>
       <input 
         onChange={e => setAction(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { 'char?.dialog?.next' }
+        { t('char:dialogs.next') }
       </label>
       <input 
         onChange={e => setNext(e.target.value)}
         onMouseLeave={updateDialog}
       />
       <label className="insertPopup__label t-paragraph6Light">
-        { 'char?.dialog?.condition' }
+        { t('char:dialogs.condition') }
       </label>
       <input 
         onChange={e => setCondition(e.target.value)}

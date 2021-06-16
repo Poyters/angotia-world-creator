@@ -31,7 +31,7 @@ export const VertexWeightOption: React.FC = () => {
     const vertexWeights = deepCopy(useSelector((state: IStore) => state.map.vertex.weights));
     const dispatch = useDispatch(); 
 
-    const vertexHandler = (): void => {
+    const vertexHandler = () => {
         if (isEmptyMatrix(selectMatrix)) {
             addNotification(t('notifications:notes.select.noneSelected'), Notification.error);
             return;
@@ -41,7 +41,7 @@ export const VertexWeightOption: React.FC = () => {
         pressedKey = null;
     };
     
-    const deleteVertices = (): void => {
+    const deleteVertices = () => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {

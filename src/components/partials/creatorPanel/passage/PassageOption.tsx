@@ -31,7 +31,7 @@ export const PassageOption: React.FC = () => {
     const passageLocations = deepCopy(useSelector((state: IStore) => state.map.passage.locations));
     const dispatch = useDispatch(); 
 
-    const passageHandler = (): void => {
+    const passageHandler = () => {
         if (isEmptyMatrix(selectMatrix)) {
             addNotification(t('notifications:notes.select.noneSelected'), Notification.error);
             return;
@@ -41,7 +41,7 @@ export const PassageOption: React.FC = () => {
         pressedKey = null;
     };
     
-    const deletePassage = (): void => {
+    const deletePassage = () => {
         const deleteLocations = matrixToIds(selectMatrix);
 
         deleteLocations.forEach(location => {

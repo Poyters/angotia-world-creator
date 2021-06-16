@@ -15,5 +15,6 @@
   "id": "id",
   "create": "create",
   "content": "content",
-  "autoId": "ID - auto generated"
+  "autoId": "ID - auto generated",
+  "delete": "delete"
 }

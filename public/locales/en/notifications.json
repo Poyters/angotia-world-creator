@@ -40,6 +40,11 @@
       "add": "The monolog has been added",
       "delete": "The monolog has been deleted",
       "edit": "The monolog has been edited"
+    },
+    "dialogs": {
+      "add": "The dialog has been added",
+      "delete": "The dialog has been deleted",
+      "edit": "The dialog has been edited"
     }
   }
 }

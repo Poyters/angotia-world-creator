@@ -3,24 +3,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../../ActionInputField';
 import { AddTemponaryPlayerDialog } from './AddTemponaryPlayerDialog';
 import { changeDialogs, changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
-import { IDialog, IPlayer } from '../../../../interfaces/dialogs.interface';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IDialogPopup } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) => {
-  const dialogsData: IDialog[] = useSelector((state: IStore) => state.char.dialogs);
-  const dialogData: IDialog | undefined= dialogsData
-    .find((dialog: IDialog): boolean => dialog.id === dialogId);
+  const { t } = useTranslation(['char', 'common']);
+  const dialogsData = useSelector((state: IStore) => state.char.dialogs);
+  const dialogData = dialogsData.find(dialog  => dialog.id === dialogId);
   const dispatch = useDispatch();
   const [npcText, setNpcText] = useState<string>(dialogData?.npc || '');
   const [npcTextErr, setNpcTextErr] = useState<boolean>(false);
-  const temponaryPlayerDialogs: IPlayer[] = useSelector(
+  const temponaryPlayerDialogs = useSelector(
     (state: IStore) => state.char.temponaryPlayerDialogs
   ) || [];
 
-  useEffect((): void => {
+  useEffect(() => {
     if (
       npcText.length === 0 || 
       !npcText
@@ -31,7 +31,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
   }, [npcText]);
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
       if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') submitHandler();
     };
@@ -42,10 +42,10 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
     };
   });
 
-  const submitHandler = (): void => {
+  const submitHandler = () => {
     if (npcTextErr) return;
 
-    const updatedDialogs = dialogsData.map((dialog: IDialog) => {
+    const updatedDialogs = dialogsData.map(dialog => {
       if (dialog.id === dialogId) {
         dialog = {
           ...dialog,
@@ -63,7 +63,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
     dispatch(changeDialogs(updatedDialogs));
     dispatch(changeTemponaryPlayerDialogs([]));
     isActivePopup(false);
-    addNotification('notifications?.dialogs?.edit');
+    addNotification(t('notifications:notes.dialogs.edit'));
   };
 
   return (
@@ -71,18 +71,18 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
       <div role="alert" className="insertPopup insertPopup--dialog"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { 'char?.dialogPopup?.edit' }
+          { t('char:dialogs.edit') }
         </header>
         <ActionInputField
-          label={'char?.dialogPopup?.id'}
+          label={t('common:id')} 
           inputValue={dialogId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.dialogPopup?.npcDialog' }
+          { t('char:dialogs.npcDialog') }
         </label>
         <textarea
           value={npcText} 
@@ -91,7 +91,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
         {
           (npcTextErr) ? (
             <span className="insertPopup--error">
-              { 'char?.dialogPopup?.npcTextErr' }
+              { t('char:dialogs.npcDialogErr') }
             </span>
           ) : null
         }   
@@ -104,7 +104,7 @@ export const EditDialog: React.FC<IDialogPopup> = ({ dialogId, isActivePopup }) 
           onClick={submitHandler} 
           disabled={npcTextErr}
         > 
-          { 'char?.dialogPopup?.submit' } 
+          { t('common:submit') } 
         </button>
       </div>
     </div>

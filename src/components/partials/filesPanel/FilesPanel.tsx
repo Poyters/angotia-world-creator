@@ -135,7 +135,7 @@ export const FilesPanel: React.FC = () => {
 			return (
 				<li 
 					key={uuid()} 
-					onClick={(): void => setCurrBookmark(bookmark)} 
+					onClick={() => setCurrBookmark(bookmark)} 
 					style={{ color: currBookmark === bookmark ? 
 							'#27427c' : 'inherit' }}
 				> 
@@ -153,7 +153,7 @@ export const FilesPanel: React.FC = () => {
 		<>
 			<div 
 				className="g-sidePanelSwitch g-sidePanelSwitch--filesPanel t-paragraph4Normal" 
-				onClick={(): void => setIsOpen(true)}
+				onClick={() => setIsOpen(true)}
 			> 
 				{ t('files:panel.label') }
 			</div>

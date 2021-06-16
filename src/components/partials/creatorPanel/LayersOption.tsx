@@ -12,7 +12,7 @@ export const LayersOption: React.FC = () => {
     const mapBackgorund = useSelector((state: IStore) => state.map.mapPic);
 
 
-    useEffect((): void => {
+    useEffect(() => {
         const layers = document.getElementsByClassName('js-mapLayer');
 
         const ltr = Array.from(layers).map((layer: any) => {
@@ -22,7 +22,7 @@ export const LayersOption: React.FC = () => {
                 <li 
                     id={`${layerName}Btn`}
                     key={uuid()} 
-                    onClick={(): void => toggleLayer(layerName)}
+                    onClick={() => toggleLayer(layerName)}
                 >
                     { t(`map:layers.${layerName}`)}
                 </li>
@@ -34,7 +34,7 @@ export const LayersOption: React.FC = () => {
     }, []);
 
     let isBackgroundVisible = true;
-    const toggleBackground = (): void => {
+    const toggleBackground = () => {
         const map: any = document.getElementById('map');
         const button: any = document.getElementById('backgroundBtn');
 
@@ -45,7 +45,7 @@ export const LayersOption: React.FC = () => {
         isBackgroundVisible = !isBackgroundVisible;
     };
 
-    const toggleLayer = (layerName: string): void => {
+    const toggleLayer = (layerName: string) => {
         const layers: HTMLCollectionOf<Element> = document.getElementsByClassName('js-mapLayer');
 
         Array.from(layers).forEach((layer: any) => {
