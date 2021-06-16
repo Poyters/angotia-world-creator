@@ -20,7 +20,7 @@ const rect: IRect = {
 };
 let drag = false;
 
-export const mouseSelectFields = (): void => {
+export const mouseSelectFields = () => {
   const map: HTMLElement | null = document.getElementById('map');
 	canvas = document.getElementById(Canvas.select);
   ctx = canvas.getContext('2d');
@@ -45,7 +45,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 };
 
 
-const mouseUp = (): void => {
+const mouseUp = () => {
 	const storeData: IStore = store.getState();
   const selectType: string = storeData.ui.select.type;
 	

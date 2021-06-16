@@ -11,5 +11,5 @@ export interface IMapNetStatus {
 export interface IMapSizeInput {
 	id: string,
 	currValue: number | string,
-	changeValue(value: any): void
+	changeValue(value: any)
 }

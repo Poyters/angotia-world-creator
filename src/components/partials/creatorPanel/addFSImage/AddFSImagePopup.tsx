@@ -17,7 +17,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
   const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
       if (event.key === 'Escape') isActivePopup(false);
       else if (event.key === 'Enter') insertImage();
     };

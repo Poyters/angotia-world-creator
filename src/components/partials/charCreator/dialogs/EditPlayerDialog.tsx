@@ -44,7 +44,7 @@ export const EditPlayerDialog: React.FC<IEditPlayerDialog> = (
     };
   });
 
-  const submitHandler = (): void => {
+  const submitHandler = () => {
     if (!dialogData || dialogErr) return;
 
     const playerDataId = dialogData.player.findIndex(playerDialog => playerDialog.id === playerId);

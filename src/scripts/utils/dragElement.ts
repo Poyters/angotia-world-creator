@@ -3,10 +3,10 @@ import { IStore } from '../../interfaces/store.interface';
 import { SelectType } from '../../models/selectType.model';
 
 
-export const dragElement = (element: any): void => {
+export const dragElement = (element: any) => {
   const positions: Array<number> = [0, 0, 0, 0];
   
-  const dragMouseDown = (e: MouseEvent): void => {
+  const dragMouseDown = (e: MouseEvent) => {
     e.preventDefault();
 
     positions[2] = e.clientX;
@@ -15,7 +15,7 @@ export const dragElement = (element: any): void => {
     document.onmousemove = elementDrag;
   };
 
-  const elementDrag = (e: MouseEvent): void => {
+  const elementDrag = (e: MouseEvent) => {
     const storeData: IStore = store.getState();
     const selectType: string = storeData.ui.select.type;
 
@@ -32,7 +32,7 @@ export const dragElement = (element: any): void => {
     element.style.left = (element.offsetLeft - positions[0]) + 'px';
   };
 
-  const closeDragElement = (): void => {
+  const closeDragElement = () => {
     // stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;

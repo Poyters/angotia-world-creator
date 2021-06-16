@@ -12,7 +12,7 @@ const mockedStore = mockStore(store);
 
 configure({ adapter: new Adapter() });
 
-describe('FilesPanel component', (): void => {
+describe('FilesPanel component', () => {
   const filesPanel: any = shallow(
     <Provider store={mockedStore}>
       <FilesPanel />

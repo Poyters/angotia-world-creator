@@ -1,9 +1,9 @@
 import mapConfig from '../../assets/configs/map.config.json';
 
 
-const squareSize: number = mapConfig.map.fieldSize / 2;
+const squareSize = mapConfig.map.fieldSize / 2;
 
-export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string): void => {
+export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string) => {
     ctx.setLineDash([]);
     ctx.strokeStyle = fillColor;
     ctx.fillStyle = fillColor;
@@ -20,7 +20,7 @@ export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string):
 };
 
 
-export const drawCross = (ctx: any, x: number, y: number): void => {
+export const drawCross = (ctx: any, x: number, y: number) => {
     ctx.setLineDash([]);
     ctx.strokeStyle = mapConfig.blockSquareColor;
   

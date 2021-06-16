@@ -21,7 +21,7 @@ export const MapPreviewPopup = ({ isActivePopup }: IPopup) => {
       <div role="alert" className="insertPopup">
         <div
           className="g-exitBtn g-exitBtn--popup"
-          onClick={(): void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
           { t('map:preview') }

@@ -28,7 +28,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const { t } = useTranslation(['load']);
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
       if (event.key === 'Escape') isActivePopup(false);
     };
 
@@ -126,7 +126,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             type="file" 
             id="loadInput" 
             className="g-hidenFileInput"
-            onChange={(event): void => loadByJson(event)}
+            onChange={(event) => loadByJson(event)}
           /> 
           <label 
             className="popupChooseBoxes__box"

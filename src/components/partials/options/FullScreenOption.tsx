@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 
-const runFullScreen = (): void => {
+const runFullScreen = () => {
   if (isFullScreen()) return;
 
 	if (document.body.requestFullscreen)
 		document.body.requestFullscreen();
 };
 
-const closeFullScreen = (): void => {
+const closeFullScreen = () => {
   if (!isFullScreen()) return;
 
   if (document.exitFullscreen) document.exitFullscreen();
@@ -29,7 +29,7 @@ export const FullScreenOption: React.FC = () => {
   const [fs, setFs] = useState<boolean>(false);
   document.addEventListener('keydown', event => externalFSChange(event.key));
 
-  const clickHandler = (): void => {
+  const clickHandler = () => {
     if (fs) {
       closeFullScreen();
       setFs(false);
@@ -40,7 +40,7 @@ export const FullScreenOption: React.FC = () => {
     }
   };
 
-  const externalFSChange = (key: string): void => {
+  const externalFSChange = (key: string) => {
     if (key === 'F11') setFs(!fs);
   };
 

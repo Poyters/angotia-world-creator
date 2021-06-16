@@ -40,7 +40,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     }, [vertexWeightValue, vertexWeightMatrix]);
 
     useEffect(() => {
-        const keyPressHandler = (event): void => {
+        const keyPressHandler = (event) => {
             if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') insertVertexWeight();
         };
@@ -83,7 +83,7 @@ export const VertexWeightPopup: React.FC<IPopup> = ({ isActivePopup }) => {
             <div role="alert" className="insertPopup"> 
                 <div 
                     className="g-exitBtn g-exitBtn--popup"
-                    onClick={():void => isActivePopup(false)}
+                    onClick={() => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
                     { t('map:vertex.title') }

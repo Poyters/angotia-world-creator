@@ -30,7 +30,7 @@ export const ActionMaxMinField: React.FC<IActionMaxMinField> = (
             className="minMaxInput__input" 
             type={inputType}
             value={currMin}
-            onChange={(e): void => setCurrMin(e.target.value)}
+            onChange={e => setCurrMin(e.target.value)}
             onBlur={actionHandler}
           />
           <label className="minMaxInput__label t-paragraph5Light"> min </label>
@@ -40,7 +40,7 @@ export const ActionMaxMinField: React.FC<IActionMaxMinField> = (
             className="minMaxInput__input" 
             type={inputType} 
             value={currMax}
-            onChange={(e): void => setCurrMax(e.target.value)}
+            onChange={e => setCurrMax(e.target.value)}
             onBlur={actionHandler}
           />
           <label className="minMaxInput__label t-paragraph5Light"> max </label>

@@ -29,7 +29,7 @@ export const ActionInputField: React.FC<IActionInputField> = (
         type={inputType} 
         value={currValue}
         disabled={inputDisabled}
-        onChange={(e): void => setCurrValue(e.target.value)}
+        onChange={e => setCurrValue(e.target.value)}
         onBlur={actionHandler}
       />
     </div>

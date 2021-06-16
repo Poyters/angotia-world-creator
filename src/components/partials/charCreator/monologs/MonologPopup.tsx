@@ -31,7 +31,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
   }, [monologContent]);
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
         if (event.key === 'Escape') isActivePopup(false);
         else if (event.key === 'Enter') submitHandler();
     };

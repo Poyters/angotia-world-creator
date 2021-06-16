@@ -70,7 +70,7 @@ const selectField = (cursorPosition: IPoint) => {
 };
 
 
-const colorChecked = (positionDelta: IPoint, type: string): void => {
+const colorChecked = (positionDelta: IPoint, type: string) => {
   const canvas: any = document.getElementById(Canvas.select);
   const ctx: any = canvas.getContext('2d');
   let fieldSize: number = mapConfig.map.fieldSize;
@@ -89,7 +89,7 @@ const colorChecked = (positionDelta: IPoint, type: string): void => {
 
 export const selectCanvasSquare = (
   selectMatrix: Array<any>, squarePosition: IPoint
-): void => {
+) => {
   // squarePosition determines x and y axis 
   // of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
   
@@ -107,7 +107,7 @@ export const selectCanvasSquare = (
 };
 
 
-export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint): void => {
+export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint) => {
   selectMatrix[fieldPosition.y][fieldPosition.x] = [
     [1, 1],
     [1, 1]

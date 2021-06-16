@@ -15,7 +15,7 @@ export const NetOption = (props: {
   const [optionViewType, setOptionViewType] = useState<number>(0);
   const dispatch = useDispatch();
 
-  const changeViewType = (): void => {
+  const changeViewType = () => {
     if (optionViewType === props.viewTypeQuantity) setOptionViewType(0);
     else setOptionViewType(optionViewType + 1);
   };

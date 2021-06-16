@@ -29,7 +29,7 @@ export const CreateMap: React.FC = () => {
     mapSizeValidation();
   }, [mapX, mapY]);
 
-  const mapSizeValidation = ():void => {
+  const mapSizeValidation = () => {
     const mapSizeX = typeof mapX === 'number' ? mapX : parseInt(mapX);
     const mapSizeY = typeof mapY === 'number' ? mapY : parseInt(mapY);
     

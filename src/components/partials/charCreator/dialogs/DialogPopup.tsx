@@ -42,7 +42,7 @@ export const DialogPopup: React.FC<IDialogPopup> = ({ isActivePopup, dialogId })
 
 
   useEffect(() => {
-    const keyPressHandler = (event): void => {
+    const keyPressHandler = (event) => {
       if (event.key === 'Escape') closePopupHandler();
       else if (event.key === 'Enter') submitHandler();
     };

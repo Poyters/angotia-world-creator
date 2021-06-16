@@ -7,7 +7,7 @@ import { changeCharCreationErrors } from '../../store/actions/uiActions';
 import { log } from '../utils/log';
 
 
-export const findCharErrors = (): void => {
+export const findCharErrors = () => {
   log('FIND_CHAR_ERRORS');
 
   const storeData = store.getState() as IStore;

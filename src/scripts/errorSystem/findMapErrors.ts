@@ -8,7 +8,7 @@ import { countElementsInMatrix } from '../matrix/countElementsInMatrix';
 import { log } from '../utils/log';
 
 
-export const findMapErrors = (): void => {
+export const findMapErrors = () => {
   log('FIND_MAP_ERRORS');
 
   const storeData = store.getState() as IStore;

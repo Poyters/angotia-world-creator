@@ -9,7 +9,7 @@ export const DeleteBgOption: React.FC = () => {
   const { t } = useTranslation(['map', 'notifications']);
   const dispatch = useDispatch();
 
-  const deleteBg = (): void => {
+  const deleteBg = () => {
     dispatch(setMapBg(''));
     addNotification(t('notifications:notes.background.delete'));
   };

@@ -10,7 +10,7 @@ export const ChooseButtons: React.FC<IChooseButtons> = (
   const [currChecked, setCurrChecked] = useState<string | boolean | number>(choosed);
   const dispatch = useDispatch();
 
-  const changeChecked = (option: string | boolean | number): void => {
+  const changeChecked = (option: string | boolean | number) => {
     const choosedOption = currChecked === option ? '' : option;
     
     setCurrChecked(choosedOption);

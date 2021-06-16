@@ -36,7 +36,7 @@ export const SelectOption = (props: {
     }
   }, [selectType, dispatch]);
 
-  const changeSelectType = (): void => {
+  const changeSelectType = () => {
     if (selectType < props.selectTypeQuantity) setSelectType(selectType + 1);
     else setSelectType(0);
   };

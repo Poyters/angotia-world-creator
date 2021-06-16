@@ -28,7 +28,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
     }, [visibility]);
 
     useEffect(() => {
-        const keyPressHandler = (event): void => {
+        const keyPressHandler = (event) => {
             if (event.key === 'Escape') isActivePopup(false);
             else if (event.key === 'Enter') submitVisibility();
         };
@@ -39,7 +39,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
         };
     });
 
-    const submitVisibility = ():void => {
+    const submitVisibility = () => {
         if (error) return;
         
         dispatch(setVisibilityRange(visibility));
@@ -52,7 +52,7 @@ export const VisibilityPopup: React.FC<IPopup> = ({ isActivePopup }) => {
             <div role="alert" className="insertPopup">
                 <div 
                     className="g-exitBtn g-exitBtn--popup"
-                    onClick={():void => isActivePopup(false)}
+                    onClick={() => isActivePopup(false)}
                 > </div>
                 <header className="insertPopup__header t-paragraph3Light">
                     { t('map:visibility.title') }

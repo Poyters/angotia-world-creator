@@ -54,7 +54,7 @@ export const Dialogs = () => {
                 key={dialog.id}
                 validatorFunc={dialogsValidator}
                 connectedDialogs={connectedDialogs}
-                clearValidator={(): void => setConnectedDialogs([])}
+                clearValidator={() => setConnectedDialogs([])}
               />;
             })
           ) : (
