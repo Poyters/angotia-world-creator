@@ -12,5 +12,6 @@
   "close": "close",
   "errors": "errors",
   "submit": "submit",
-  "id": "id"
+  "id": "id",
+  "create": "create"
 }

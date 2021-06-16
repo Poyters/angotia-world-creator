@@ -70,5 +70,13 @@
     "title": "Char creator",
     "name": "name",
     "moreStats": "more statistics"
+  },
+  "dialogs": {
+    "title": "Dialogs",
+    "playerId": "Player id"
+  },
+  "monologs": {
+    "title": "Monologs",
+    "lack": "A lack of monologs"
   }
 }

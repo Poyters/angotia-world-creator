@@ -19,6 +19,7 @@ import { IStore } from '../../../interfaces/store.interface';
 import { ChoosedChar } from '../../../models/choosedChar.model';
 import { CharType } from '../../../models/charType.model';
 import { useTranslation } from 'react-i18next';
+import { Monologs } from './monologs/Monologs';
 
 
 export const CharCreatorForm: React.FC = () => {
@@ -140,16 +141,10 @@ export const CharCreatorForm: React.FC = () => {
             </div>
           </div>
           { choosedChar === ChoosedChar.npc || choosedChar === ChoosedChar.se ? (
-              <Dialogs 
-                type={'char?.form?.dialogs?.title'}
-                addBtnText={'char?.form?.dialogs?.addBtn'}
-              />
+              <Dialogs />
             ) : null
           }
-          <Dialogs 
-            type={'char?.form?.monologs?.title'}
-            addBtnText={'char?.form?.monologs?.addBtn'}
-          />
+          <Monologs />
         </div>
       </div>
     </main>

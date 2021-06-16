@@ -4,9 +4,11 @@ import { ActionInputField } from '../../ActionInputField';
 import { changeTemponaryPlayerDialogs } from '../../../../store/actions/charActions';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IPlayerDialog } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
+  const { t } = useTranslation(['char', 'common']);
   const [newDialogText, setNewDialogText] = useState<string>('');
   const [next, setNext] = useState<string>('');
   const [action, setAction] = useState<string>('');
@@ -40,7 +42,7 @@ export const PlayerDialog: React.FC<IPlayerDialog> = ({ playerId }) => {
   return (
     <section className="playerDialog">
       <ActionInputField
-        label={'char?.dialog?.playerId'}
+        label={t('char:dialogs.playerId')}
         inputValue={playerId}
         inputDisabled={true}
       />
