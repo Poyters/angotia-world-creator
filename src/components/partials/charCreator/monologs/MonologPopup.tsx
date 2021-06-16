@@ -6,12 +6,14 @@ import { changeMonologs } from '../../../../store/actions/charActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IMonologPopup } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const MonologPopup: React.FC<IMonologPopup> = (
   { isActivePopup, monologData, setMonologData }
 ) => {
-  const monologId: string = monologData ? monologData.id : uuid();
+  const { t } = useTranslation(['char', 'common', 'notifications']);
+  const monologId: string = monologData?.id ?? uuid();
   const [monologContent, setMonologContent] = useState<string>(monologData?.content || '');
   const [monologCtnErr, setMonologCtnErr] = useState<boolean>(false);
   const monologsData = useSelector((state: IStore) => state.char.monologs);
@@ -40,17 +42,17 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     };
   });
 
-  const insertMonolog = (): void => {
+  const insertMonolog = () => {
     monologsData.push({
       id: monologId,
       content: monologContent
     });
 
     dispatch(changeMonologs(monologsData));
-    addNotification('notifications?.monologs?.add');
+    addNotification(t('notifications:notes.monologs.add'));
   };
 
-  const editMonolog = (): void => {
+  const editMonolog = () => {
     monologsData.forEach(monolog => {
       if (monolog.id === monologId) {
         monolog.content = monologContent;
@@ -58,11 +60,11 @@ export const MonologPopup: React.FC<IMonologPopup> = (
     });
 
     dispatch(changeMonologs(monologsData));
-    addNotification('notifications?.monologs?.edit');
+    addNotification(t('notifications:notes.monologs.edit'));
     if (setMonologData) setMonologData(null);
   };
 
-  const submitHandler = (): void => {
+  const submitHandler = () => {
     if (monologCtnErr) return;
     
     if (
@@ -83,18 +85,18 @@ export const MonologPopup: React.FC<IMonologPopup> = (
       <div role="alert" className="insertPopup"> 
         <div 
           className="g-exitBtn g-exitBtn--popup"
-          onClick={():void => isActivePopup(false)}
+          onClick={() => isActivePopup(false)}
         > </div>
         <header className="insertPopup__header t-paragraph3Light">
-          { 'char?.monolog?.add' }
+          { t('char:monologs.create') }
         </header>
         <ActionInputField
-          label='ID - auto generated'
+          label={t('common:autoId')} 
           inputValue={monologId}
           inputDisabled={true}
         />
         <label className="insertPopup__label t-paragraph6Light">
-          { 'char?.monolog?.content' }
+          { t('common:content') } 
         </label>
         <textarea
           value={monologContent} 
@@ -103,7 +105,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
         {
           (monologCtnErr) ? (
             <span className="insertPopup--error">
-              { 'char?.monolog?.contentErr' }
+              { t('char:monologs.error') }
             </span>
           ) : null
         }
@@ -114,7 +116,7 @@ export const MonologPopup: React.FC<IMonologPopup> = (
           onClick={submitHandler} 
           disabled={monologCtnErr}
         > 
-          { 'char?.monolog?.submit' } 
+          { t('common:submit') } 
         </button>
       </div>
     </div>

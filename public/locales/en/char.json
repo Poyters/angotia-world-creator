@@ -73,10 +73,14 @@
   },
   "dialogs": {
     "title": "Dialogs",
-    "playerId": "Player id"
+    "playerId": "Player id",
+    "lack": "A lack of dialogs"
   },
   "monologs": {
     "title": "Monologs",
-    "lack": "A lack of monologs"
+    "id": "Monolog id",
+    "lack": "A lack of monologs",
+    "create": "Create monolog",
+    "error": "Fill field"
   }
 }

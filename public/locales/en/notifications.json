@@ -35,6 +35,11 @@
     },
     "block": {
       "changed": "Blocked fields have been changed"
+    },
+    "monologs": {
+      "add": "The monolog has been added",
+      "delete": "The monolog has been deleted",
+      "edit": "The monolog has been edited"
     }
   }
 }

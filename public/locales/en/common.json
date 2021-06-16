@@ -13,5 +13,7 @@
   "errors": "errors",
   "submit": "submit",
   "id": "id",
-  "create": "create"
+  "create": "create",
+  "content": "content",
+  "autoId": "ID - auto generated"
 }

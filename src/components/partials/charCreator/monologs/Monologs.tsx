@@ -12,7 +12,7 @@ export const Monologs = () => {
   const { t } = useTranslation(['char', 'common']);
   const [isPopupOpen, setIsPopupOpen] = useState<boolean>(false);
   const [monologData, setMonologData] = useState<IMonolog | undefined>(undefined);
-  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
+  const monologsData = useSelector((state: IStore) => state.char.monologs);
 
   return (
     <>
@@ -31,7 +31,7 @@ export const Monologs = () => {
             </li>
             <li className="t-paragraph5Normal">
               <span 
-                onClick={(): void => setIsPopupOpen(true)}
+                onClick={() => setIsPopupOpen(true)}
               > 
                 { t('common:create') } 
               </span>
@@ -40,7 +40,7 @@ export const Monologs = () => {
         </nav>
         {
           monologsData.length > 0 ? (
-            monologsData.map((monolog: IMonolog) => {
+            monologsData.map((monolog) => {
               return <Monolog 
                 id={monolog.id}
                 content={monolog.content}

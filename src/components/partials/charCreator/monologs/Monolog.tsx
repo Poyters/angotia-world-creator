@@ -5,24 +5,24 @@ import { changeMonologs } from '../../../../store/actions/charActions';
 import { addNotification } from '../../../../scripts/utils/notifications';
 import { IStore } from '../../../../interfaces/store.interface';
 import { IMonologExplicit } from '../../../../interfaces/dialogs.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const Monolog: React.FC<IMonologExplicit> = (
   { id, content, isActivePopup, setPopupData }
 ) => {
-  const monologsData: IMonolog[] = useSelector((state: IStore) => state.char.monologs);
+  const { t } = useTranslation(['common', 'notifications']);
+  const monologsData = useSelector((state: IStore) => state.char.monologs);
   const dispatch = useDispatch();
 
-  const deleteMonolog = (id: string): void => {
-    const filteredMonologs: IMonolog[] = monologsData.filter((monolog: IMonolog) => {
-      return monolog.id !== id;
-    });
+  const deleteMonolog = (id: string) => {
+    const filteredMonologs = monologsData.filter(monolog => monolog.id !== id);
 
     dispatch(changeMonologs(filteredMonologs));
-    addNotification('notifications?.monologs?.delete');
+    addNotification(t('notifications:notes.monologs.delete'));
   };
 
-  const editMonolog = (): void => {
+  const editMonolog = () => {
     const monologData: IMonolog = {
       id,
       content
@@ -37,21 +37,21 @@ export const Monolog: React.FC<IMonologExplicit> = (
     <section className="dialog">
       <p> 
         <span className="t-paragraph5Light"> 
-          { 'char?.monolog?.id' }
+          { t('common:id') } 
         </span> { id } 
       </p>
       <p> 
         <span className="t-paragraph5Light">
-          { 'char?.monolog?.content' }
+          { t('common:content') } 
         </span> { content } 
       </p>
       <div 
         className="g-exitBtn g-exitBtn--dialog"
-        onClick={():void => deleteMonolog(id)}
+        onClick={() => deleteMonolog(id)}
       > </div>
       <div 
         className="g-editBtn g-editBtn--dialog"
-        onClick={():void => editMonolog()}
+        onClick={() => editMonolog()}
       >
         <div className="g-editBtn__gum"></div>
       </div>
