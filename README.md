@@ -7,6 +7,9 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ## Changelog
 
+### Version 1.3.0 (16 June 2021)
+- AWC-287, Rewrite and redesign Export to Angotia Admins option
+
 ### Version 1.2.0 (16 June 2021)
 - AWC-221, Rewrite current translation system to i18n
 - AWC-219, Add more EsLint rules
