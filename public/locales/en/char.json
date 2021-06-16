@@ -95,5 +95,11 @@
     "lack": "A lack of monologs",
     "create": "Create monolog",
     "error": "Fill field"
+  },
+  "settings": {
+    "title": "Settings panel",
+    "timeOfOccurance": "Time of occurance",
+    "respawnTime": "Respawn time (seconds)",
+    "hasVisibleLevel": "Has visible level?"
   }
 }

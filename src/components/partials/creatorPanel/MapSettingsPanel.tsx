@@ -3,19 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { ActionInputField } from '../ActionInputField';
 import { setMapDesc, setMinEntryLevel, changeMapName } from '../../../store/actions/mapActions';
 import { IStore } from '../../../interfaces/store.interface';
-import { IPoint } from '../../../interfaces/math.interface';
 import { useTranslation } from 'react-i18next';
 
 
 export const MapSettingsPanel: React.FC = () => {
 	const { t } = useTranslation(['common']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
-	const description: string = useSelector((state: IStore) => state.map.description);
+	const description = useSelector((state: IStore) => state.map.description);
 	const [descValue, setDescValue] = useState<string>(description);
-	const mapInternalId: string = useSelector((state: IStore) => state.map.internalId);
-	const minEntryLevel: number = useSelector((state: IStore) => state.map.minEntryLevel);
-	const mapSize: IPoint = useSelector((state: IStore) => state.map.size);
-	const boardName: string = useSelector((state: IStore) => state.map.mapName);
+	const mapInternalId = useSelector((state: IStore) => state.map.internalId);
+	const minEntryLevel = useSelector((state: IStore) => state.map.minEntryLevel);
+	const mapSize = useSelector((state: IStore) => state.map.size);
+	const boardName = useSelector((state: IStore) => state.map.mapName);
 	const dispatch = useDispatch();
 
 	const settingsPanelStyles = {
@@ -26,7 +25,7 @@ export const MapSettingsPanel: React.FC = () => {
 		<>
 			<div 
 				className="g-sidePanelSwitch g-sidePanelSwitch--statisticPanel t-paragraph4Normal" 
-				onClick={(): void => setIsOpen(true)}
+				onClick={() => setIsOpen(true)}
 			> 
 				{ 'creator?.settingsPanel?.open' }
 			</div>
@@ -70,7 +69,7 @@ export const MapSettingsPanel: React.FC = () => {
 
 					<div
 						className="g-sidePanel__switch t-paragraph5Normal" 
-						onClick={(): void => setIsOpen(false)}
+						onClick={() => setIsOpen(false)}
 					>
 						<span>
 							{ t('common:close') }

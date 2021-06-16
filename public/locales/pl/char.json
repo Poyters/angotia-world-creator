@@ -95,5 +95,11 @@
     "lack": "Brak monologów",
     "create": "Utwórz monolog",
     "error": "Wypełnij pole"
+  },
+  "settings": {
+    "title": "Panel ustawień",
+    "timeOfOccurance": "Czas występowania",
+    "respawnTime": "Czas odrodzenia (w sekundach)",
+    "hasVisibleLevel": "Ma widoczny poziom?"
   }
 }

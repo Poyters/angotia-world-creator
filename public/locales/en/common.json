@@ -16,5 +16,7 @@
   "create": "create",
   "content": "content",
   "autoId": "ID - auto generated",
-  "delete": "delete"
+  "delete": "delete",
+  "yes": "yes",
+  "no": "no"
 }

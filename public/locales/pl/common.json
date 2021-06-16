@@ -16,5 +16,7 @@
   "create": "utwórz",
   "content": "treść",
   "autoId": "ID - auto. wygenerowane",
-  "delete": "usuń"
+  "delete": "usuń",
+  "yes": "tak",
+  "no": "nie"
 }

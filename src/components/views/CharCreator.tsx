@@ -6,7 +6,7 @@ import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { CharCreatorForm } from '../partials/charCreator/CharCreatorForm';
 import { StatisticPanel } from '../partials/charCreator/StatisticPanel';
-import { CharSettingsPanel } from '../partials/charCreator/CharSettingsPanel';
+import { SettingsPanel } from '../partials/charCreator/SettingsPanel';
 import { ErrorMark } from '../partials/errorPanel/ErrorMark';
 import { AppModules } from '../../models/appModules.model';
 import { ErrorPanel } from '../partials/errorPanel/ErrorPanel';
@@ -27,7 +27,7 @@ export const CharCreator: React.FC = () => {
       <CharPanel />
       <CharCreatorForm />
       <StatisticPanel />
-      <CharSettingsPanel />
+      <SettingsPanel />
       <CreditsFooter />
       <VersionMark />
       <ReportIssue />

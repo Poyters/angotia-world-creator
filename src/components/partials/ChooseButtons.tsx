@@ -34,7 +34,7 @@ export const ChooseButtons: React.FC<IChooseButtons> = (
                   chooseButtons__input
                   ${currChecked === type.id ? 'chooseButtons__input--active' : ''}
                 `}
-                onClick={():void => changeChecked(type.id)}
+                onClick={() => changeChecked(type.id)}
               > </div>
             </div>
           );

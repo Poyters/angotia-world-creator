@@ -9,13 +9,15 @@ import {
 } from '../../../store/actions/charActions';
 import { IStore } from '../../../interfaces/store.interface';
 import { ChoosedChar } from '../../../models/choosedChar.model';
+import { useTranslation } from 'react-i18next';
 
 
-export const CharSettingsPanel: React.FC = () => {
+export const SettingsPanel: React.FC = () => {
+	const { t } = useTranslation(['common', 'char']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const charSettings = useSelector((state: IStore) => state.char.settings);
-	const choosedChar: string = useSelector((state: IStore) => state.char.choosed);
-	const hasVisibleLevel: boolean = useSelector((state: IStore) => state.char.hasVisibleLevel);
+	const choosedChar = useSelector((state: IStore) => state.char.choosed);
+	const hasVisibleLevel = useSelector((state: IStore) => state.char.hasVisibleLevel);
 
 	const settingsPanelStyles = {
 		left: isOpen ? '0' : '-300px'
@@ -28,7 +30,7 @@ export const CharSettingsPanel: React.FC = () => {
 					"g-sidePanelSwitch g-sidePanelSwitch--charSettingsPanel t-paragraph4Normal"
 				onClick={() => setIsOpen(true)}
 			> 
-				{ 'char?.settingsPanel?.open' }
+				{ t('char:settings.title') }
 			</div>
 			<aside 
 				className="g-sidePanelWrapper g-sidePanelWrapper--left" 
@@ -37,23 +39,32 @@ export const CharSettingsPanel: React.FC = () => {
 				<div className="g-sidePanel g-sidePanel--left">
 					{ choosedChar !== ChoosedChar.mob ?
 						<ChooseButtons 
-							types={[]}
+							types={[
+								{
+									id: true,
+									label: t('common:yes')
+								},
+								{
+									id: false,
+									label: t('common:no')
+								}
+							]}
 							action={setVisibleLevel}
-							label={'char?.settingsPanel?.hasVisibleLevel?.title'}
+							label={t('char:settings.hasVisibleLevel')}
 							specialClass='chooseButtonsWrapper--charSettingsPanel'
 							choosed={hasVisibleLevel}
 						/> : null
 					}
 					{ choosedChar === ChoosedChar.mob ?
 						<ActionMaxMinField
-							label='Respawn time (seconds)'
+							label={t('char:settings.respawnTime')}
 							minValue={charSettings?.respTime?.min}
 							maxValue={charSettings?.respTime?.max}
 							action={setRespawnTime}
 						/> : null
 					}	
 					<ActionMaxMinField
-						label='Time of occurance'
+						label={t('char:settings.timeOfOccurance')}
 						minValue={charSettings?.timeOfOccurance?.min}
 						maxValue={charSettings?.timeOfOccurance?.max}
 						action={setTimeOfOccurance}
@@ -64,7 +75,7 @@ export const CharSettingsPanel: React.FC = () => {
 						onClick={() => setIsOpen(false)}
 					>
 						<span>
-							{ 'char?.settingsPanel?.close' }
+							{ t('common:close') }
 						</span>
 					</div>
 				</div>
