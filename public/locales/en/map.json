@@ -47,5 +47,12 @@
     "layer": "Assing to layer",
     "load": "Load image from computer",
     "error": "Load proper image"
+  },
+  "settings": {
+    "title": "Settings panel",
+    "description": "description",
+    "mapName": "map name",
+    "size": "size",
+    "minEntryLevel": "Min entry level"
   }
 }

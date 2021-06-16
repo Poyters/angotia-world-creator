@@ -47,5 +47,12 @@
     "layer": "Przypisz do warstwy",
     "load": "Załaduj obraz z komputera",
     "error": "Załaduj prawidłowy obraz"
+  },
+  "settings": {
+    "title": "Panel ustawień",
+    "description": "opis",
+    "mapName": "nazwa mapy",
+    "size": "mapy",
+    "minEntryLevel": "Minimalny poziom wejścia"
   }
 }
