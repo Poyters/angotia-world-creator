@@ -2,7 +2,7 @@ import { selectCanvasSquare, selectCanvasField } from './selectFields';
 import { IPoint } from '../../interfaces/math.interface';
 
 
-describe("selectCanvasSquare script", () => {
+describe('selectCanvasSquare script', () => {
 	const exampleMatrix: any[] = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
@@ -14,11 +14,11 @@ describe("selectCanvasSquare script", () => {
 		y: 4
 	};
 
-	it("is a function", () => {
+	it('is a function', () => {
 		expect(typeof selectCanvasSquare).toBe('function');
 	});
 
-	it("Check select square", () => {
+	it('Check select square', () => {
 		selectCanvasSquare(exampleMatrix, examplePoint);
 		const square = exampleMatrix[2][1][0][0];
 
@@ -27,7 +27,7 @@ describe("selectCanvasSquare script", () => {
 
 });
 
-describe("selectCanvasField script", () => {
+describe('selectCanvasField script', () => {
 	const exampleMatrix: any[] = [
 		[
 			[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]
@@ -43,11 +43,11 @@ describe("selectCanvasField script", () => {
 		y: 4
 	};
 
-	it("is a function", () => {
+	it('is a function', () => {
 		expect(typeof selectCanvasField).toBe('function');
 	});
 
-	it("Check select filed", () => {
+	it('Check select filed', () => {
 		selectCanvasField(exampleMatrix, examplePoint);
 		const field = exampleMatrix[4][2];
 		const selectedField = [

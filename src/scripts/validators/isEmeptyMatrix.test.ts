@@ -1,7 +1,7 @@
 import { isEmptyMatrix } from './isEmptyMatrix';
 
 
-describe("isEmptyMatrix script", () => {
+describe('isEmptyMatrix script', () => {
 	const emptyMatrix: any[] = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
@@ -16,15 +16,15 @@ describe("isEmptyMatrix script", () => {
 
 	const notEmptyMatrixMix: any[] = [
 		[[[0.12222, '12412412'], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
-		[[[0, 0], [0, 0]], [[0, `araw`], [0, 0]], [[0, 0], [0, 0]]],
+		[[[0, 0], [0, 0]], [[0, 'araw'], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 8]]]
 	];
 
-	it("isEmptyMatrix is function", () => {
+	it('isEmptyMatrix is function', () => {
 		expect(typeof isEmptyMatrix).toEqual('function');
 	});
 
-	it("Check if matrix is empty (it is)", () => {
+	it('Check if matrix is empty (it is)', () => {
     expect(isEmptyMatrix(emptyMatrix)).toBe(true);
 	});
 	

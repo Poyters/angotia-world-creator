@@ -3,7 +3,7 @@ import { IDialog } from '../../interfaces/dialogs.interface';
 import charConfig from '../../assets/configs/char.config.json';
 
 
-describe("findConnectedDialog script", () => {
+describe('findConnectedDialog script', () => {
   const dataSet: IDialog[] = [
     {
       id: '1',

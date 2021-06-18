@@ -3,14 +3,14 @@ import { isEmptyMatrix } from '../validators/isEmptyMatrix';
 import { mapState } from '../../store/states/mapState';
 
 
-describe("generateEmptyMatrix script", () => {
+describe('generateEmptyMatrix script', () => {
   const newEmptyMatrix = generateEmptyMatrix();
 
-  it("is a function", () => {
+  it('is a function', () => {
     expect(typeof generateEmptyMatrix).toEqual('function');
 	});
 
-	it("Check generate empty matrix", () => {
+	it('Check generate empty matrix', () => {
     expect(isEmptyMatrix(newEmptyMatrix)).toBe(true);
     expect(newEmptyMatrix.length).toEqual(mapState.size.x);
     expect(newEmptyMatrix[0].length).toEqual(mapState.size.y);

@@ -2,7 +2,7 @@ import { deepCopy } from './deepCopy';
 
 
 // DeepCopy should support int, string, float
-describe("deepCopy script", () => {
+describe('deepCopy script', () => {
 	const nestedArrayInt: any[] = [
 		[[1,0], 1, 2],
 		[[[2],[1]], 1],
@@ -20,7 +20,7 @@ describe("deepCopy script", () => {
 	];
 
 	const nestedArrayString: any[] = [
-		['string array', `astingdrn`],
+		['string array', 'astingdrn'],
 		[[[[['itga']]]]]
 	];
 
@@ -29,7 +29,7 @@ describe("deepCopy script", () => {
 		[[[[[0.00000000000000001]]]]]
 	];
 
-	it("Create deep copy of nested array with ints", () => {
+	it('Create deep copy of nested array with ints', () => {
 		const copy = deepCopy(nestedArrayInt);
 		expect(copy).not.toBe(nestedArrayInt);
 		expect(copy).toEqual([
@@ -39,7 +39,7 @@ describe("deepCopy script", () => {
 		]);
 	});
 	
-	it("Create deep copy of nested array with mixed types", () => {
+	it('Create deep copy of nested array with mixed types', () => {
 		const copy = deepCopy(nestedArrayMix);
 		expect(copy).not.toBe(nestedArrayMix);
 		expect(copy).toEqual([
@@ -53,16 +53,16 @@ describe("deepCopy script", () => {
 		]);
 	});
 	
-	it("Create deep copy of nested array with strings", () => {
+	it('Create deep copy of nested array with strings', () => {
 		const copy = deepCopy(nestedArrayString);
 		expect(copy).not.toBe(nestedArrayString);
 		expect(copy).toEqual([
-			['string array', `astingdrn`],
+			['string array', 'astingdrn'],
 			[[[[['itga']]]]]
 		]);
 	});
 	
-	it("Create deep copy of nested array with strings", () => {
+	it('Create deep copy of nested array with strings', () => {
 		const copy = deepCopy(nestedArrayFloat);
 		expect(copy).not.toBe(nestedArrayFloat);
 		expect(copy).toEqual([
