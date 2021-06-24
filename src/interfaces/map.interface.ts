@@ -1,5 +1,8 @@
 import { IContentList } from './contentList.interface';
 import { IPoint } from './math.interface';
+import { IPassageLocation } from './passage.interface';
+import { IVertexWeight } from './vertex.interface';
+import { IInternalImageData } from './images.interface';
 
 export interface IMapSize {
 	x: number
@@ -27,7 +30,7 @@ export interface IExternalMap {
 	map_pic: string
 	block_matrix: IContentList[]
 	passage: {
-		locations: any[]
+		locations: IPassageLocation[]
 	},
 	building: IContentList[]
 	decoration: IContentList[]
@@ -36,8 +39,8 @@ export interface IExternalMap {
 	mob: IContentList[]
 	se: IContentList[]
 	vertex: {
-		weights: any[]
+		weights: IVertexWeight[]
 	}
 	visibility_range: number,
-	images: any
+	images: IInternalImageData[]
 }

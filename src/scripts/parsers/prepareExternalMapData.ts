@@ -9,7 +9,7 @@ import { IExternalMap } from '../../interfaces/map.interface';
 
 
 export const prepareExternalMapData = async (
-  mapData: IMapState | any, globalBlob?: string
+  mapData: IMapState, globalBlob?: string
 ): Promise<IExternalMap> => {
   log('PREPARING_EXTERNAL_MAP_DATA');
 
