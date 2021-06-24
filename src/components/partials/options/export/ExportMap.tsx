@@ -12,6 +12,7 @@ import { addNotification } from '../../../../scripts/utils/notifications';
 import { setMapDatabaseId } from '../../../../store/actions/mapActions';
 import { Notification } from '../../../../models/notification.model';
 import { useTranslation } from 'react-i18next';
+import { deepCopy } from '../../../../scripts/utils/deepCopy';
 
 interface IExportMap {
   isAccepted: boolean
@@ -40,7 +41,7 @@ export const ExportMap = ({ isAccepted }: IExportMap) => {
   }, [isAccepted]);
 
   const exportHandler = async () => {
-    const externalMapData = await prepareExternalMapData(mapData);
+    const externalMapData = deepCopy(await prepareExternalMapData(mapData));
 
     if (map.error) {
       addNotification(t('save:map.exportError'),
