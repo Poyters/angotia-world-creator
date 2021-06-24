@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SaveJsonOption } from './SaveJsonOption';
-import { ExportToProd } from './exportToProd/ExportToProd';
+import { Export } from './export/Export';
 import appConfig from '../../../assets/configs/app.config.json';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
@@ -29,7 +29,7 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 								/>
 							</li>
 							<li>
-								<ExportToProd
+								<Export
 									moduleType={moduleType}
 								/>
 							</li>
