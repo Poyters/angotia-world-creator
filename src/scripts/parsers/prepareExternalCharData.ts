@@ -3,9 +3,10 @@ import { deepCopy } from '../utils/deepCopy';
 import { camelCaseToUnderscore } from './camelCaseToUnderscore';
 import { getUserId } from '../user/getUserId';
 import { log } from '../utils/log';
+import { IExternalChar } from '../../interfaces/char.interface';
 
 
-export const prepareExternalCharData = (charData: ICharState) => {
+export const prepareExternalCharData = (charData: ICharState): IExternalChar => {
   log('PREPARING_EXTERNAL_CHAR_DATA');
 
   const userId = getUserId() ?? '';
@@ -17,7 +18,7 @@ export const prepareExternalCharData = (charData: ICharState) => {
   preparedCharData = camelCaseToUnderscore(preparedCharData);
   delete preparedCharData.id;
   preparedCharData.field_diameter = parseInt(preparedCharData.field_diameter);
-  Object.keys( preparedCharData.statistics).forEach(key => { 
+  Object.keys(preparedCharData.statistics).forEach(key => { 
     preparedCharData.statistics[key] = parseInt(preparedCharData.statistics[key]);
   });
 
@@ -46,5 +47,5 @@ export const prepareExternalCharData = (charData: ICharState) => {
 
   preparedCharData.author = userId;
 
-  return preparedCharData;
+  return preparedCharData as IExternalChar;
 };

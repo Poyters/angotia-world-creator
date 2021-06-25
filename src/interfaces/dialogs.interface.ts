@@ -10,7 +10,21 @@ export interface IDialog {
   clearValidator?: Function
 }
 
+export interface IExternalDialog {
+  _id: string
+  npc: string
+  player: IExternalPlayer[]
+}
+
 export interface IPlayer {
+  id: string
+  dialog: string
+  next: string
+  action: string
+  condition: string
+}
+
+interface IExternalPlayer {
   id: string
   dialog: string
   next: string
@@ -20,6 +34,11 @@ export interface IPlayer {
 
 export interface IMonolog {
   id: string
+  content: string
+}
+
+export interface IExternalMonolog {
+  _id: string
   content: string
 }
 

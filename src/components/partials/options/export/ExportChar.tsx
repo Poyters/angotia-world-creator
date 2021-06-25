@@ -12,6 +12,7 @@ import { addNotification } from '../../../../scripts/utils/notifications';
 import { setCharDatabaseId } from '../../../../store/actions/charActions';
 import { Notification } from '../../../../models/notification.model';
 import { useTranslation } from 'react-i18next';
+import { deepCopy } from '../../../../scripts/utils/deepCopy';
 
 
 interface IExportChar {
@@ -41,7 +42,7 @@ export const ExportChar = ({ isAccepted }: IExportChar) => {
   }, [isAccepted]);
 
   const exportHandler = async () => {
-    const externalCharData = prepareExternalCharData(charData);
+    const externalCharData = deepCopy(prepareExternalCharData(charData));
 
     if (char.error) {
       addNotification(t('save:char.exportError'),
