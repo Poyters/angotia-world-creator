@@ -1,5 +1,5 @@
 import { IMinMaxField } from './math.interface';
-import { IMonolog, IExternalMonolog, IDialog, IExternalDialog } from './dialogs.interface';
+import { IExternalMonolog, IExternalDialog } from './dialogs.interface';
 
 export interface ICharStatistic {
   level: number,
