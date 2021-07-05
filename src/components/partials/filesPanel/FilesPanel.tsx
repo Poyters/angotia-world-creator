@@ -50,10 +50,10 @@ export const FilesPanel: React.FC = () => {
 		height: `${mapConfig?.map?.fieldSize}px`
 	};
 	
-	const generateImages = (): any[] => {
+	const generateImages = () => {
 		const bookmarkImages: string[] = [];
 		let matrixTransformationMethod;
-		let sourceMatrix: any[];
+		let sourceMatrix;
 
 		switch(currBookmark) { 
 			case 'building':
@@ -102,7 +102,7 @@ export const FilesPanel: React.FC = () => {
 			break;
 		}
 
-		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
+		const imagesToRender = bookmarkImages.map((img: string) => {
 			return (
 				// TODO: tutaj powinienem nie wrzucać img do
 				// markSquare, a dodać blob do images store, i tu zamiast img id do bloba

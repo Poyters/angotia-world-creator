@@ -2,7 +2,7 @@ import mapConfig from '../../assets/configs/map.config.json';
 import { log } from '../utils/log';
 
 
-export const isValidExternalMapData = (data: any): boolean => {
+export const isValidExternalMapData = (data): boolean => {
   let result = true;
 
   if (

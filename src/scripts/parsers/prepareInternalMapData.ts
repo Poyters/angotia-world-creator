@@ -6,10 +6,10 @@ import camelcaseKeys from 'camelcase-keys';
 import { log } from '../utils/log';
 
 
-export const prepareInternalMapData = (mapData: any): IMapState => {
+export const prepareInternalMapData = (externalMapData): IMapState => {
   log('PREPARING_INTERNAL_MAP_DATA');
 
-  const dataCopy = deepCopy(mapData);
+  const dataCopy = deepCopy(externalMapData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;
 

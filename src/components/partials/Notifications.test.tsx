@@ -13,7 +13,7 @@ const mockedStore = mockStore(store);
 configure({ adapter: new Adapter() });
 
 describe('Notifications component', () => {
-  const notifications: any = shallow(
+  const notifications = shallow(
     <Provider store={mockedStore}>
       <Notifications />
     </Provider>

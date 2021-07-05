@@ -2,7 +2,7 @@ import { CharType } from '../../models/charType.model';
 import { log } from '../utils/log';
 
 
-export const isValidExternalCharData = (data: any): boolean => {
+export const isValidExternalCharData = (data): boolean => {
   let result = true;
 
   if (

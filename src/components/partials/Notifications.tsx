@@ -5,10 +5,10 @@ import uuid from 'uuid/v4';
 import { Notification } from '../../models/notification.model';
 
 
-export const Notifications: React.FC = () => {
+export const Notifications = () => {
 	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
-	const generateNotesList = (): any => {
+	const generateNotesList = () => {
 		if (!Array.isArray(actionNotes)) return [];
 		
 		const contentToRender = actionNotes?.map(note => {

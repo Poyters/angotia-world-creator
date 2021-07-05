@@ -48,11 +48,11 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
     setIsActiveAccount(true);
   };
 
-  const loadByJson = (evt: any) => {
-    const file = evt.target.files[0]; 
+  const loadByJson = (event) => {
+    const file = event.target.files[0]; 
     const reader = new FileReader();
 
-    reader.onload = (():any => {
+    reader.onload = (() => {
       return (e) => {
         let loadedData;
 

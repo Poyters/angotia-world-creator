@@ -2,19 +2,19 @@ import { countElementsInMatrix } from './countElementsInMatrix';
 
 
 describe('countElementsInMatrix script', () => {
-  const emptyMatrix: any[] = [
+  const emptyMatrix = [
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]]
   ];
   
-  const filledMatrix: any[] = [
+  const filledMatrix = [
 		[[[0, 1], [0, 0]], [[0, 0], [0, 0]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 2]], [[0, 'astrea'], [0, { grtsrt: 'fe' }]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 6]], [[0, 0], [0, 0]], [[0, -2], [0, 0]]]
   ];
   
-  const filledMatrix1: any[] = [
+  const filledMatrix1 = [
 		[[[5, 1], [0, undefined]], [[0, 1], [0, 6]], [[0, 0], [0, 0]]],
 		[[[3, null], [0, 2]], [[0, 'astrea'], [0, { grtsrt: 'fe' }]], [[0, 0], [0, 0]]],
 		[[[0, 0], [0, 6]], [[0, 0], [0, 0]], [[0, -2], [0, 0]]]

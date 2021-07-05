@@ -10,6 +10,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ### Version 1.3.0 (16 June 2021)
 - AWC-287, Rewrite and redesign Export to Angotia Admins option
 - AWC-288, Create Production Map Data interface
+- AWC-290, Replace any types by actual ones
 
 ### Version 1.2.0 (16 June 2021)
 - AWC-221, Rewrite current translation system to i18n

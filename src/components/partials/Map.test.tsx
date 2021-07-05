@@ -13,7 +13,7 @@ const mockedStore = mockStore(store);
 configure({ adapter: new Adapter() });
 
 describe('Map component', () => {
-  const map: any = shallow(
+  const map = shallow(
     <Provider store={mockedStore}>
       <Map />
     </Provider>

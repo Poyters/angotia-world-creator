@@ -12,7 +12,7 @@ export interface IActionInputField {
   inputValue?: string | number
   inputDisabled?: boolean,
   action?: Function,
-  payloadId?: any
+  payloadId?: string
 }
 
 export interface IChooseButtons {

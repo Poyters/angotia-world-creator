@@ -14,15 +14,15 @@ export const LoadPicBtn: React.FC<ILoadPicBtn> = ({
   };
   const dispatch = useDispatch();
 
-  const handleFileSelect = (evt: any) => {
-    const file = evt.target.files[0]; 
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0]; 
     const reader = new FileReader();
 
     if (!sizeGuard(file, mapConfig.maxPicsWeight.char)) {
       return;
     }
 
-    reader.onload = (():any => {
+    reader.onload = (() => {
       return e => {
         const path: string = e.target.result;
         dispatch(dispatchedClickEvent(path));
@@ -50,7 +50,7 @@ export const LoadPicBtn: React.FC<ILoadPicBtn> = ({
         type="file" 
         id="file" 
         name="files[]" 
-        onChange={evt => handleFileSelect(evt)}
+        onChange={event => handleFileSelect(event)}
       />
     </>
   );

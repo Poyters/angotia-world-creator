@@ -8,9 +8,9 @@ import { SelectType } from '../../models/selectType.model';
 
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
-  const map: any = document.getElementById('map');
-  let mapLeft: number = parseInt(map.style.left);
-  let mapTop: number = parseInt(map.style.top);
+  const map = document.getElementById('map');
+  let mapLeft = map ? parseInt(map.style.left) : 0;
+  let mapTop = map ? parseInt(map.style.top) : 0;
 
   if (isNaN(mapLeft)) mapLeft = 0;
   if (isNaN(mapTop)) mapTop = 0;
@@ -26,9 +26,9 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
 
 const selectField = (cursorPosition: IPoint) => {
   const storeData: IStore = store.getState();
-  const selectType: string = storeData.ui.select.type;
+  const selectType = storeData.ui.select.type;
   const selectMatrix: Array<[]> = [...storeData.ui.select.matrix];
-  const fieldSize: number = mapConfig.map.fieldSize;
+  const fieldSize = mapConfig.map.fieldSize;
   const mapNetsStatus = storeData.ui.net;
   let positionDelta: IPoint = {
     x: -1,
@@ -73,12 +73,12 @@ const selectField = (cursorPosition: IPoint) => {
 const colorChecked = (positionDelta: IPoint, type: string) => {
   const canvas: any = document.getElementById(Canvas.select);
   const ctx: any = canvas.getContext('2d');
-  let fieldSize: number = mapConfig.map.fieldSize;
+  let fieldSize = mapConfig.map.fieldSize;
 
   if (type === SelectType.square) fieldSize = fieldSize / 2;
   
-  const posX: number = positionDelta.x * fieldSize;
-  const posY: number = positionDelta.y * fieldSize;
+  const posX = positionDelta.x * fieldSize;
+  const posY = positionDelta.y * fieldSize;
 
   ctx.fillStyle = mapConfig.selectColor;
   ctx.fillRect(posX, posY, fieldSize, fieldSize);

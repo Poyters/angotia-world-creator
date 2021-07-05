@@ -3,12 +3,12 @@ import { deepCopy } from '../utils/deepCopy';
 import { log } from '../utils/log';
 
 
-export const matrixToIds = (matrix: any[]): ISquareData[] => {
+export const matrixToIds = (matrix): ISquareData[] => {
   if (!matrix || matrix.length === 0) return [];
 
   log('PARSING_MATRIX_TO_IDS');
 
-  const copyOfmatrix: Array<any> = deepCopy(matrix);
+  const copyOfmatrix = deepCopy(matrix);
   const squareIds: ISquareData[] = [];
 
   copyOfmatrix.forEach((yAxis: Array<number>, y: number) => {

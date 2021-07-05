@@ -4,10 +4,10 @@ import camelcaseKeys from 'camelcase-keys';
 import { log } from '../utils/log';
 
 
-export const prepareInternalCharData = (charData: any): ICharState => {
+export const prepareInternalCharData = (externalCharData): ICharState => {
   log('PREPARING_INTERNAL_CHAR_DATA');
 
-  const dataCopy = deepCopy(charData);
+  const dataCopy = deepCopy(externalCharData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;
 

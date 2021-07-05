@@ -38,10 +38,10 @@ export const colorBasedOnMatrix = (
         field[1][1]
       ];
 
-      squareMatrix.forEach((square: any, index: number) => {
+      squareMatrix.forEach((square: string | number, index: number) => {
         if (square !== 0 && square) {
-          const xDelta: number = index === 1 || index === 3 ? squareSize : 0;
-          const yDelta: number = index === 2 || index === 3 ? squareSize : 0;
+          const xDelta = index === 1 || index === 3 ? squareSize : 0;
+          const yDelta = index === 2 || index === 3 ? squareSize : 0;
           const drawStartX = x * fieldSize + xDelta;
           const drawStartY = y * fieldSize + yDelta;
 
@@ -67,10 +67,10 @@ export const colorBasedOnMatrix = (
                 image = foundImage[0].object;
               } else {
                 // square is path to image
-                image = makeImage(findPicBlob(square, internalImages) || ''); 
+                image = makeImage(findPicBlob(square.toString(), internalImages) || ''); 
                 image.onload = () => {
                   cachedImages.push({
-                    id: square,
+                    id: square.toString(),
                     object: image
                   });
                 }; 
@@ -133,7 +133,11 @@ export const colorBasedOnMatrix = (
 };
 
 const drawImage = (
-  image: HTMLImageElement, ctx: any, drawStartX: number, drawStartY: number, index?: number
+  image: HTMLImageElement, 
+  ctx: CanvasRenderingContext2D,
+  drawStartX: number,
+  drawStartY: number,
+  index?: number
 ) => {
   if (
     image.width <= (fieldSize / 2) &&
