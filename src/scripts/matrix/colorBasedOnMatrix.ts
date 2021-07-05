@@ -50,7 +50,7 @@ export const colorBasedOnMatrix = (
               drawCross(ctx, x * fieldSize + xDelta, y * fieldSize + yDelta);
               break;
             case MatrixFillColor.vertexWeight:
-              const vertexWeightColor: string = mapConfig.vertexWeight.color;
+              const vertexWeightColor = mapConfig.vertexWeight.color;
 
               drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
               ctx.fillStyle = '#fff';
