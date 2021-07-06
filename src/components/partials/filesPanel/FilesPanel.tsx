@@ -10,6 +10,7 @@ import test2 from '../../../assets/images/mapSources/decoration/test2.png';
 import test3 from '../../../assets/images/mapSources/mob/test3.png';
 import test4 from '../../../assets/images/mapSources/npc/test4.png';
 import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
+import tree1 from '../../../assets/images/mapSources/decoration/tree1.png';
 import { 
 	changeMapBuildingMatrix, 
 	changeMapDecorationMatrix, 
@@ -77,6 +78,7 @@ export const FilesPanel: React.FC = () => {
 				bookmarkImages.push(test2);
 				bookmarkImages.push(test2);
 				bookmarkImages.push(test2);
+				bookmarkImages.push(tree1);
 				matrixTransformationMethod = changeMapDecorationMatrix;
 				sourceMatrix = decorationMatrix;
 			break;
