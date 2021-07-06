@@ -14,7 +14,7 @@ export const createMapBlob = async () => {
   const bgImage = await createAnImageSafely(storeData.map.mapPic);
 
   const layersList = [
-    Canvas.subsoil,
+    Canvas.terrain,
     Canvas.building,
     Canvas.decoration
   ];

@@ -6,7 +6,7 @@
     "bookmarks": {
       "building": "buildings",
       "decoration": "decorations",
-      "subsoil": "terrain",
+      "terrain": "terrain",
       "npc": "NPC",
       "mob": "MOB",
       "se": "speaking environment"

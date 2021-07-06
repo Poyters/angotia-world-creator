@@ -5,7 +5,7 @@ export enum Canvas {
   passage = 'MAP_PASSAGE_CANVAS',
   building = 'MAP_BUILDING_CANVAS',
   decoration = 'MAP_DECORATION_CANVAS',
-  subsoil = 'MAP_SUBSOIL_CANVAS',
+  terrain = 'MAP_TERRAIN_CANVAS',
   npc = 'MAP_NPC_CANVAS',
   mob = 'MAP_MOB_CANVAS',
   se = 'MAP_SE_CANVAS',

@@ -34,7 +34,7 @@ export interface IExternalMap {
 	},
 	building: IContentList[]
 	decoration: IContentList[]
-	subsoil: IContentList[]
+	terrain: IContentList[]
 	npc: IContentList[]
 	mob: IContentList[]
 	se: IContentList[]

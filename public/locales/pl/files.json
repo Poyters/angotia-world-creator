@@ -6,7 +6,7 @@
     "bookmarks": {
       "building": "budynki",
       "decoration": "dekoracje",
-      "subsoil": "teren",
+      "terrain": "teren",
       "npc": "NPC",
       "mob": "potwory",
       "se": "interaktywne środowisko"

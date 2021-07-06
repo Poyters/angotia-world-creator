@@ -1,7 +1,7 @@
 export enum Bookmarks {
   building = 'BUILDING',
   decoration = 'DECORATION',
-  subsoil = 'SUBSOIL',
+  terrain = 'TERRAIN',
   npc = 'NPC',
   mob = 'MOB',
   se = 'SE'

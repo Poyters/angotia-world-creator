@@ -72,7 +72,7 @@ export const CreateMap: React.FC = () => {
     emptyMapState.passage.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.building.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.decoration.matrix = deepCopy(newEmptyMatrix);
-    emptyMapState.subsoil.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.terrain.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.npc.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.mob.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.se.matrix = deepCopy(newEmptyMatrix);

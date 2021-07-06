@@ -36,7 +36,7 @@ export const GET_REQ_MAP = gql`
           blob
         }
       }
-      subsoil {
+      terrain {
         items {
           value
           x

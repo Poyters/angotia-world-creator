@@ -42,7 +42,7 @@ export const ALL_REQ_MAPS = gql`
           blob
         }
       }
-      subsoil {
+      terrain {
         items {
           value
           x

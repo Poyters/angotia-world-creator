@@ -33,8 +33,8 @@ export const prepareExternalMapData = async (
   preparedMapData.decoration = matrixToContentList(
     preparedMapData.decoration.matrix, preparedMapData.images
   );
-  preparedMapData.subsoil = matrixToContentList(
-    preparedMapData.subsoil.matrix, preparedMapData.images
+  preparedMapData.terrain = matrixToContentList(
+    preparedMapData.terrain.matrix, preparedMapData.images
   );
   preparedMapData.npc = matrixToContentList(
     preparedMapData.npc.matrix, preparedMapData.images

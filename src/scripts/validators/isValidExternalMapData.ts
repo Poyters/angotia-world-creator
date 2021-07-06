@@ -29,7 +29,7 @@ export const isValidExternalMapData = (data): boolean => {
     data.passage === null ||
     data.building === null ||
     data.decoration === null ||
-    data.subsoil === null ||
+    data.terrain === null ||
     data.npc === null ||
     data.mob === null ||
     data.se === null ||

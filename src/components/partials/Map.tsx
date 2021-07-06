@@ -89,11 +89,11 @@ export const Map: React.FC = () => {
       > </canvas>
 
       <canvas 
-        className="map__canvas map__canvas--subsoil js-mapLayer" 
-        data-layername="subsoil" 
+        className="map__canvas map__canvas--terrain js-mapLayer" 
+        data-layername="terrain" 
         width={`${mapSize.x * fieldSize}`} 
         height={`${mapSize.y * fieldSize}`} 
-        id={Canvas.subsoil}
+        id={Canvas.terrain}
       > </canvas>
 
       <canvas 

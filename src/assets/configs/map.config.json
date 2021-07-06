@@ -35,8 +35,8 @@
 			"name": "decorations"
 		},
 		{
-			"type": "subsoil",
-			"name": "subsoils"
+			"type": "terrain",
+			"name": "terrains"
 		},
 		{
 			"type": "npc",

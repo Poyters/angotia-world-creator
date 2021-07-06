@@ -45,8 +45,8 @@ export const changeMapDecorationMatrix = (newMatrix: Array<any>) => ({
     newMatrix
 });
 
-export const changeMapSubsoilMatrix = (newMatrix: Array<any>) => ({
-    type: 'CHANGE_MAP_SUBSOIL_MATRIX',
+export const changeMapTerrainMatrix = (newMatrix: Array<any>) => ({
+    type: 'CHANGE_MAP_TERRAIN_MATRIX',
     newMatrix
 });
 

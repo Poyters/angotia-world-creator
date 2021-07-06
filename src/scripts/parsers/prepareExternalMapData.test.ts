@@ -4,7 +4,7 @@ import { isValidExternalMapData } from '../validators/isValidExternalMapData';
 import { MapPicData } from '../../models/mapPicData.model';
 
 
-describe("prepareExternalMapData script", () => {
+describe('prepareExternalMapData script', () => {
   const blockMatrix = [
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
@@ -142,7 +142,7 @@ describe("prepareExternalMapData script", () => {
     ]
   ];
 
-  const subsoilMatrix = [
+  const terrainMatrix = [
     [
       [[0,0],[0,0]],[[0,0],[0,0]],[[0,0],[0,0]]
     ],
@@ -173,11 +173,11 @@ describe("prepareExternalMapData script", () => {
 
   const validInternalMapData = {
     id: '9',
-    internalId: "05fe7586-f0dc-4265-ad9d-3fef4017a479",
-    mapName: "example-map",
+    internalId: '05fe7586-f0dc-4265-ad9d-3fef4017a479',
+    mapName: 'example-map',
     minEntryLevel: 0,
-    description: "example map desc",
-    mapPic: "map pic path",
+    description: 'example map desc',
+    mapPic: 'map pic path',
     visibilityRange: 8,
     size: {
       x: 3,
@@ -193,11 +193,11 @@ describe("prepareExternalMapData script", () => {
     decoration: {
       matrix: decorationMatrix
     },
-    subsoil: {
-      matrix: subsoilMatrix
+    terrain: {
+      matrix: terrainMatrix
     },
     npc: {
-      matrix: subsoilMatrix
+      matrix: terrainMatrix
     },
     mob: {
       matrix: mobMatrix
@@ -224,16 +224,16 @@ describe("prepareExternalMapData script", () => {
     ]
   };
 
-  it("is a function", () => {
+  it('is a function', () => {
 		expect(typeof prepareExternalMapData).toBe('function');
   });
 
-	it("Check valid data", async () => {
+	it('Check valid data', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
 		expect(isValidExternalMapData(externalData)).toBe(true);
   }, 6000);
 
-  it("Check valid data; block matrix", async () => {
+  it('Check valid data; block matrix', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     const renderedContentList = externalData.block_matrix;
 
@@ -250,55 +250,55 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList.items[0].value).toEqual('1');
   });
 
-  it("Check valid data; size", async () => {
+  it('Check valid data; size', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.size.x).toEqual(3);
     expect(externalData.size.y).toEqual(3);
   });
 
-  it("Check valid data; _id", async () => {
+  it('Check valid data; _id', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData._id).toEqual('05fe7586-f0dc-4265-ad9d-3fef4017a479');
   });
 
-  it("Check valid data; map name", async () => {
+  it('Check valid data; map name', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.map_name).toBe('example-map');
   });
 
-  it("Check valid data; map pic", async () => {
+  it('Check valid data; map pic', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.map_pic).toBe('map pic path');
   });
 
-  it("Check valid data; visibility range", async () => {
+  it('Check valid data; visibility range', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.visibility_range).toBe(8);
   });
 
-  it("Check valid data; description", async () => {
+  it('Check valid data; description', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.description).toBe('example map desc');
   });
 
-  it("Check valid data; min entry level", async () => {
+  it('Check valid data; min entry level', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.min_entry_level).toBe(0);
   });
 
-  it("Check valid data; se", async () => {  
+  it('Check valid data; se', async () => {  
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.se.items).toEqual(seContentList.items);
     expect(externalData.se.pics).toEqual(seContentList.pics);
   });
 
-  it("Check valid data; building", async () => {  
+  it('Check valid data; building', async () => {  
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     expect(externalData.building.items).toEqual(buildingContentList.items);
     expect(externalData.building.pics).toEqual(buildingContentList.pics);
   });
 
-  it("Check valid data; decoration", async () => {
+  it('Check valid data; decoration', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     const renderedContentList = externalData.decoration;
     const picItem = renderedContentList?.pics[0];
@@ -318,9 +318,9 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[1].value).toEqual(`picId=${picItem._id}`);
   });
 
-  it("Check valid data; subsoil", async () => {
+  it('Check valid data; terrain', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
-    const renderedContentList = externalData.subsoil;
+    const renderedContentList = externalData.terrain;
     const picItem = renderedContentList?.pics[0];
 
     expect(renderedContentList?.pics.length).toEqual(1);
@@ -333,7 +333,7 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
   });
 
-  it("Check valid data; npc", async () => {
+  it('Check valid data; npc', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     const renderedContentList = externalData.npc;
     const picItem = renderedContentList?.pics[0];
@@ -348,7 +348,7 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[0].value).toEqual(`picId=${picItem._id}`);
   });
 
-  it("Check valid data; mob ", async () => {
+  it('Check valid data; mob ', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
     const renderedContentList = externalData.mob;
     const picId1 = renderedContentList?.pics[0]._id;
@@ -408,7 +408,7 @@ describe("prepareExternalMapData script", () => {
     expect(renderedContentList?.items[7].value).toEqual(`picId=${picId2}`);
   });
 
-  it("Check if added author", async () => {
+  it('Check if added author', async () => {
     const externalData = await prepareExternalMapData(validInternalMapData, 'xxx');
 
     expect(typeof externalData.author).toBe('string');

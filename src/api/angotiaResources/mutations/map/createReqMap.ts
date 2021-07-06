@@ -15,7 +15,7 @@ export const CREATE_REQ_MAP = gql`
     $passage: InputRequestedPassage
     $building: InputRequestedBuilding
     $decoration: InputRequestedDecoration
-    $subsoil: InputRequestedSubsoil
+    $terrain: InputRequestedTerrain
     $se: InputRequestedSe
     $npc: InputRequestedNpc
     $mob: InputRequestedMob
@@ -34,7 +34,7 @@ export const CREATE_REQ_MAP = gql`
       passage: $passage,
       building: $building,
       decoration: $decoration,
-      subsoil: $subsoil,
+      terrain: $terrain,
       npc: $npc,
       mob: $mob,
       se: $se,
