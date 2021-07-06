@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { GET_MAP } from '../../../api/angotiaResources/queries/map/getMap';
 import { ALL_MAPS_BASE_INFO } from '../../../api/angotiaResources/queries/map/allMapsBaseInfo';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { prepareInternalMapData } from '../../../scripts/parsers/prepareInternalMapData';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { isValidExternalMapData } from '../../../scripts/validators/isValidExternalMapData';
@@ -16,12 +16,12 @@ import routesConfig from '../../../assets/configs/routes.config.json';
 
 export const ProductionMapList = () => {
   const map = useQuery(ALL_MAPS_BASE_INFO);
-  const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
   const [getMap, { called }] = useLazyQuery(GET_MAP, {
     onCompleted: data => loadFromDb(data.getMap)
   });
   const { t } = useTranslation(['load', 'common']);
+  const history = useHistory();
 
   if (map.loading) return <p> { t('load:map.loading') } </p>;
   if (map.error) return <p> { t('load:map.loadError') } </p>;
@@ -30,7 +30,7 @@ export const ProductionMapList = () => {
     if (isValidExternalMapData(loadedData)) {
       const internalMapData = prepareInternalMapData(loadedData);
       dispatch(loadMapData(internalMapData));
-      setRedirect(routesConfig.mapCreator);
+      history.push(routesConfig.mapCreator);
     } else {
       addNotification(t('load:map.invalidData'), Notification.error);
     }
@@ -45,24 +45,17 @@ export const ProductionMapList = () => {
   };
 
   return (
-    <>
-      {
-        redirect !== null ? (
-          <Redirect to={`/${redirect}`}/>
-        ) : null
+    <ul className="loadedDataList">
+      { 
+        map.data?.allMaps.map(mapData => {
+          return (
+            <li onClick={() => loadChoosedMap(mapData.id)} key={uuid()}> 
+              <span> { t('common:indernalId') }: </span>{ mapData._id }
+              <span> { t('common:name') }: </span>{ mapData.map_name }
+            </li>
+          );
+        })
       }
-      <ul className="loadedDataList">
-        { 
-          map.data?.allMaps.map(mapData => {
-            return (
-              <li onClick={() => loadChoosedMap(mapData.id)} key={uuid()}> 
-                <span> { t('common:indernalId') }: </span>{ mapData._id }
-                <span> { t('common:name') }: </span>{ mapData.map_name }
-              </li>
-            );
-          })
-        }
-      </ul>
-    </>
+    </ul>
   );
 };

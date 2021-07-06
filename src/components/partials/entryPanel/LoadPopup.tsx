@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Redirect } from 'react-router';
 import { loadCharData } from '../../../store/actions/charActions';
 import { loadMapData } from '../../../store/actions/mapActions';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
@@ -18,14 +17,15 @@ import { AccountCharList } from './AccountCharList';
 import { AccountMapList } from './AccountMapList' ;
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { useHistory } from 'react-router-dom';
 
 
 export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const dispatch = useDispatch();
-  const [redirect, setRedirect] = useState<null | string>(null);
   const [isActiveProduction, setIsActiveProduction] = useState(false);
   const [isActiveAccount, setIsActiveAccount] = useState(false);
   const { t } = useTranslation(['load']);
+  const history = useHistory();
 
   useEffect(() => {
     const keyPressHandler = (event) => {
@@ -68,7 +68,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalMapData(loadedData)) {
               const internalData = prepareInternalMapData(loadedData);
               dispatch(loadMapData(internalData));
-              setRedirect(routesConfig.mapCreator);
+              history.push(routesConfig.mapCreator);
             } else {
               addNotification(t('load:map.invalidData'), Notification.error);
             }
@@ -78,7 +78,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
             if (isValidExternalCharData(loadedData)) {
               const internalData = prepareInternalCharData(loadedData);
               dispatch(loadCharData(internalData));
-              setRedirect(routesConfig.charCreator);
+              history.push(routesConfig.charCreator);
             } else {
               addNotification(t('load:char.invalidData'), Notification.error);
             }
@@ -93,9 +93,8 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
     reader.readAsText(file);
   };
 
-  const content = redirect !== null ? (
-    <Redirect to={`/${redirect}`}/>
-  ) : (
+
+  return (
     <div className="g-container g-container--popup">
       <div role="alert" className="insertPopup">
         <div
@@ -157,9 +156,5 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
         }
       </div>
     </div>
-  );
-
-  return (
-    content
   );
 };
