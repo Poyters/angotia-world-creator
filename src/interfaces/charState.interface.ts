@@ -8,7 +8,7 @@ export interface ICharState {
     internalId: string
     fieldDiameter: number
     mobRange: string
-    type: string
+    moveType: string
     choosed: string
     monologs: IMonolog[]
     dialogs: IDialog[]

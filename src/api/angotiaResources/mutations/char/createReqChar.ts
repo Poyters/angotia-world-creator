@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 export const CREATE_REQ_CHAR = gql`
   mutation CreateChar(
     $name: String
-    $type: String
+    $moveType: String
     $author: String
     $choosed: String
     $monologs: [InputRequestedMonolog]
@@ -20,7 +20,7 @@ export const CREATE_REQ_CHAR = gql`
   ) {
     createRequestedChar(char: {
       name: $name,
-      type: $type,
+      moveType: $moveType,
       author: $author,
       choosed: $choosed,
       monologs: $monologs,

@@ -9,7 +9,7 @@ export const charState: ICharState = {
     id: '',
     internalId: uuid(),
     fieldDiameter: 0,
-    type: CharMoveType.static,
+    moveType: CharMoveType.static,
     choosed: CharType.npc,
     mobRange: '',
     monologs: [],

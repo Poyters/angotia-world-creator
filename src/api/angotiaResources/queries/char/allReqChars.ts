@@ -9,7 +9,7 @@ export const ALL_REQ_CHARS = gql`
       _id
       name
       field_diameter
-      type
+      moveType
       choosed
       has_visible_level
       char_pic

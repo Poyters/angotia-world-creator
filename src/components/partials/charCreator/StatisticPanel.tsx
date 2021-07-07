@@ -15,7 +15,7 @@ export const StatisticPanel: React.FC = () => {
 	const { t } = useTranslation(['char', 'common']);
 	const isOpen = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
 	const charType = useSelector((state: IStore) => state.char.choosed);
-	const charMoveType = useSelector((state: IStore) => state.char.type);
+	const charMoveType = useSelector((state: IStore) => state.char.moveType);
 	const charStatistics = useSelector((state: IStore) => state.char.statistics);
 	const isMobAggressive = useSelector((state: IStore) => state.char.isMobAggressive);
 	const dispatch = useDispatch();
