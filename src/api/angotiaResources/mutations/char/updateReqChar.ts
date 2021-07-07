@@ -6,7 +6,7 @@ export const UPDATE_REQ_CHAR = gql`
     $id: ID!,
     $name: String
     $moveType: String
-    $choosed: String
+    $type: String
     $monologs: [InputRequestedMonolog]
     $dialogs: [InputRequestedDialog]
     $statistics: InputRequestedStatistics
@@ -20,7 +20,7 @@ export const UPDATE_REQ_CHAR = gql`
     updateRequestedChar(id: $id, char: {
       name: $name,
       moveType: $moveType,
-      choosed: $choosed,
+      type: $type,
       monologs: $monologs,
       dialogs: $dialogs,
       statistics: $statistics,

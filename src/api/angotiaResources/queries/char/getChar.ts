@@ -8,7 +8,7 @@ export const GET_CHAR = gql`
       name
       field_diameter
       moveType
-      choosed
+      type
       has_visible_level
       char_pic
       mob_range

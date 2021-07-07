@@ -52,7 +52,7 @@ export const ProductionCharList: React.FC = () => {
             <li onClick={() => loadChoosedChar(char.id)} key={uuid()}> 
               <span> { t('common:indernalId') }: </span>{ char._id }
               <span> { t('common:name') }: </span>{ char.name }
-              <span> { t('common:type') }: </span>{ char.choosed }
+              <span> { t('common:type') }: </span>{ char.type }
             </li>
           );
         })

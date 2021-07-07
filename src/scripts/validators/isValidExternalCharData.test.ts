@@ -5,11 +5,11 @@ import { isValidExternalCharData } from './isValidExternalCharData';
 describe('isValidExternalCharData script', () => {
 	const validExternalData = {
     name: 'Example',
-    type: 'STATIC',
-    choosed: 'NPC',
+    move_type: 'STATIC',
+    type: 'NPC',
     monologs: [
       {
-        content: 'lubie cipqi',
+        content: 'lubie kafaw',
         _id: '74c44f4d-7c91-4d3b-ad6c-9d5c39c5e83f'
       }
     ],
@@ -81,13 +81,13 @@ describe('isValidExternalCharData script', () => {
     name: 'Grzesiek'
   };
   const invalidExternalData3 = {
-    type: 'STATIC',
+    moveType: 'STATIC',
     name: 'Grzesiek'
   };
   const invalidExternalData4 = {
-    type: 'STATIC',
+    moveType: 'STATIC',
     name: 'Grzesiek',
-    choosed: 'NPC'
+    type: 'NPC'
   };
   const invalidExternalData5 = {
     id: 'database id',
@@ -98,7 +98,7 @@ describe('isValidExternalCharData script', () => {
 		expect(typeof isValidExternalCharData).toEqual('function');
 	});
 
-	it('Check valid data', () => {
+	it('Check valid external char data', () => {
 		expect(isValidExternalCharData(validExternalData)).toBe(true);
   });
   
@@ -126,7 +126,7 @@ describe('isValidExternalCharData script', () => {
 		expect(isValidExternalCharData([])).toBe(false);
   });
   
-  it('Check invalida data; missing choosed', () => {
+  it('Check invalida data; missing type', () => {
 		expect(isValidExternalCharData(invalidExternalData3)).toBe(false);
   });
 

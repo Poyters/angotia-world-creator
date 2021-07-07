@@ -29,8 +29,8 @@ describe('prepareExternalMapData script', () => {
 		expect(internalData.field_diameter).toBe(undefined);
   });
 
-  it('has type', () => {
-		expect(internalData.type).toBe('STATIC');
+  it('has move type', () => {
+		expect(internalData.moveType).toBe('STATIC');
   });
 
   it('has hasVisibleLevel', () => {

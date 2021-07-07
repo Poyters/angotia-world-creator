@@ -7,7 +7,7 @@ export const GET__REQ_CHARS_BY_AUTHOR = gql`
       id
       _id
       name
-      choosed
+      type
     }
   }
 `;

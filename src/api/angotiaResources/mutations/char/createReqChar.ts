@@ -6,7 +6,7 @@ export const CREATE_REQ_CHAR = gql`
     $name: String
     $moveType: String
     $author: String
-    $choosed: String
+    $type: String
     $monologs: [InputRequestedMonolog]
     $dialogs: [InputRequestedDialog]
     $statistics: InputRequestedStatistics
@@ -22,7 +22,7 @@ export const CREATE_REQ_CHAR = gql`
       name: $name,
       moveType: $moveType,
       author: $author,
-      choosed: $choosed,
+      type: $type,
       monologs: $monologs,
       dialogs: $dialogs,
       statistics: $statistics,

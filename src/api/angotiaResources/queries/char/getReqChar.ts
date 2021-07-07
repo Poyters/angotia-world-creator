@@ -10,7 +10,7 @@ export const GET_REQ_CHAR = gql`
       name
       field_diameter
       moveType
-      choosed
+      type
       has_visible_level
       char_pic
       mob_range

@@ -7,7 +7,7 @@ export const ALL_CHARS_BASE_INFO = gql`
       _id
       id
       name
-      choosed
+      type
     }
   }
 `;

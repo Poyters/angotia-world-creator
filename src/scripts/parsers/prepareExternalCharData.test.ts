@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { prepareExternalCharData } from './prepareExternalCharData';
 import { isValidExternalCharData } from '../validators/isValidExternalCharData';
 
@@ -6,8 +7,8 @@ import { isValidExternalCharData } from '../validators/isValidExternalCharData';
 describe('prepareExternalCharData script', () => {
 	const validInternalData = {
     name: 'Example',
-    type: 'STATIC',
-    choosed: 'NPC',
+    moveType: 'STATIC',
+    type: 'NPC',
     monologs: [
       {
         content: 'i like juice',
@@ -60,17 +61,13 @@ describe('prepareExternalCharData script', () => {
     charPic: 'charpicblob'
   };
 
-  const externalData = prepareExternalCharData(validInternalData);
+  const externalData: any = prepareExternalCharData(validInternalData);
 
   it('is a function', () => {
 		expect(typeof prepareExternalCharData).toBe('function');
   });
 
 	it('Check valid data', () => {
-		expect(isValidExternalCharData(externalData)).toBe(true);
-  });
-
-  it('Check valid data', () => {
 		expect(isValidExternalCharData(externalData)).toBe(true);
   });
 

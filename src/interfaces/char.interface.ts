@@ -43,8 +43,8 @@ export interface IExternalChar {
     _id: string
     field_diameter: number
     mobRange: string
+    moveType: string
     type: string
-    choosed: string
     monologs: IExternalMonolog[]
     dialogs: IExternalDialog[]
     is_mob_aggressive: boolean

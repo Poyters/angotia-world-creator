@@ -1,4 +1,5 @@
 import { CharType } from '../../models/charType.model';
+import { CharMoveType } from '../../models/charMoveType.model';
 import { log } from '../utils/log';
 
 
@@ -8,16 +9,22 @@ export const isValidExternalCharData = (data): boolean => {
   if (
     Array.isArray(data) ||
     !data?.name ||
-    !data?.type || 
     (
       Object.keys(data).length === 0 && data.constructor === Object
     ) ||
     (
-      !data?.choosed ||
+      !data?.type ||
       (
-        data?.choosed !== CharType.npc &&
-        data?.choosed !== CharType.mob &&
-        data?.choosed !== CharType.se
+        data?.type !== CharType.npc &&
+        data?.type !== CharType.mob &&
+        data?.type !== CharType.se
+      )
+    ) ||
+    (
+      !data?.move_type ||
+      (
+        data?.move_type !== CharMoveType.static &&
+        data?.move_type !== CharMoveType.moving
       )
     ) ||
     !data?._id || 

@@ -7,7 +7,7 @@ import { CornerButton } from '../CornerButton';
 import { ChooseButtons } from '../ChooseButtons';
 import { Dialogs } from './dialogs/Dialogs';
 import { 
-  changeCharType, 
+  changeCharMoveType, 
   changeChar, 
   setIsMobAggressive,
   changeStatistics,
@@ -26,13 +26,12 @@ import { MobRange } from '../../../models/mobRange.model';
 
 export const CharCreatorForm: React.FC = () => {
   const { t } = useTranslation(['char', 'common']);
-  const charType = useSelector((state: IStore) => state.char.choosed);
+  const charType = useSelector((state: IStore) => state.char.type);
   const name = useSelector((state: IStore) => state.char.name);
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
   const charMoveType = useSelector((state: IStore) => state.char.moveType);
   const internalId = useSelector((state: IStore) => state.char.internalId);
   const isMobAggressive = useSelector((state: IStore) => state.char.isMobAggressive);
-  const charChoosed = useSelector((state: IStore) => state.char.choosed);
   const fieldDiameter = useSelector((state: IStore) => state.char.fieldDiameter);
   const actualMobRange = useSelector((state: IStore) => state.char.mobRange);
   const dispatch = useDispatch();
@@ -110,7 +109,7 @@ export const CharCreatorForm: React.FC = () => {
                 ]}
                 action={changeChar}
                 label={t('char:types.label')}
-                choosed={charChoosed}
+                choosed={charType}
               />
               
               { charType === CharType.mob ? (
@@ -177,7 +176,7 @@ export const CharCreatorForm: React.FC = () => {
                         label: t('char:moveType.moving')
                       }
                     ]}
-                    action={changeCharType}
+                    action={changeCharMoveType}
                     label={t('char:moveType.title')}
                     choosed={charMoveType}
                   />
