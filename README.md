@@ -15,6 +15,7 @@ To set up project on your personal computer you need to clone repository (`git c
 - AWC-288, Create Production Map Data interface
 - AWC-290, Replace any types by actual ones
 - AWC-284, Update React Router DOM
+- AWC-301, Fix a lack of passage destination
 
 ### Version 1.2.0 (16 June 2021)
 - AWC-221, Rewrite current translation system to i18n

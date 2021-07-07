@@ -15,10 +15,11 @@ import { useTranslation } from 'react-i18next';
 import { deepCopy } from '../../../../scripts/utils/deepCopy';
 
 interface IExportMap {
-  isAccepted: boolean
+  isAccepted: boolean,
+  setIsLicenseAccepted
 }
 
-export const ExportMap = ({ isAccepted }: IExportMap) => {
+export const ExportMap = ({ isAccepted, setIsLicenseAccepted }: IExportMap) => {
   const { t } = useTranslation(['save']);
   const dispatch = useDispatch();
   const [updateMap] = useMutation(UPDATE_REQ_MAP);
@@ -27,9 +28,11 @@ export const ExportMap = ({ isAccepted }: IExportMap) => {
   const [addMap] = useMutation(CREATE_REQ_MAP, {
     onCompleted({ createRequestedMap }) { // add database id to states
       dispatch(setMapDatabaseId(createRequestedMap.id));
-    }
+    },
+    fetchPolicy: 'no-cache'
   });
   const map = useQuery(GET_REQ_MAP, {
+    fetchPolicy: 'no-cache',
     variables: { id: mapData.id },
     skip: !mapData.id
   });
@@ -61,11 +64,13 @@ export const ExportMap = ({ isAccepted }: IExportMap) => {
       addMap({ variables: { ...externalMapData } });
       addNotification(t('save:map.exportAdd'));
     }
+
+    setIsLicenseAccepted(false);
   };
 
   return (
-    <span>
+    <>
       { t('save:exportTitle') }  
-    </span>
+    </>
   );
 };

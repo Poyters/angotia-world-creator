@@ -1,10 +1,10 @@
 {
   "map": {
     "success": "Successfully saved map",
-    "exportError": "Expected error during checking existing char",
-    "protectErrors": "Cannot export char with errors!",
-    "exportUpdate": "Succesfully updated character",
-    "exportAdd": "Succesfully added a new character to Angotia"
+    "exportError": "Expected error during checking existing map",
+    "protectErrors": "Cannot export map with errors!",
+    "exportUpdate": "Succesfully updated map",
+    "exportAdd": "Succesfully added a new map to Angotia"
   },
   "char": {
     "success": "Successfully saved character",

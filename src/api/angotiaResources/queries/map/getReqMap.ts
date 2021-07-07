@@ -4,6 +4,7 @@ export const GET_REQ_MAP = gql`
   query RequestedMap($id: ID!) {
     getRequestedMap(id: $id) {
       _id
+      id
       author
       description
       min_entry_level
@@ -21,6 +22,10 @@ export const GET_REQ_MAP = gql`
           xShift
           y
           yShift
+          destination {
+            map_target_cords
+            map_target_id
+          }
         }
       }
       building {

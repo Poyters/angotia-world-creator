@@ -17,9 +17,10 @@ import { deepCopy } from '../../../../scripts/utils/deepCopy';
 
 interface IExportChar {
   isAccepted: boolean
+  setIsLicenseAccepted
 }
 
-export const ExportChar = ({ isAccepted }: IExportChar) => {
+export const ExportChar = ({ isAccepted, setIsLicenseAccepted }: IExportChar) => {
   const { t } = useTranslation(['save']);
   const dispatch = useDispatch();
   const [updateChar] = useMutation(UPDATE_REQ_CHAR);
@@ -28,9 +29,11 @@ export const ExportChar = ({ isAccepted }: IExportChar) => {
   const [addChar] = useMutation(CREATE_REQ_CHAR, {
     onCompleted({ createRequestedChar }) { // add database id to states
       dispatch(setCharDatabaseId(createRequestedChar.id));
-    }
+    },
+    fetchPolicy: 'no-cache'
   });
   const char = useQuery(GET_REQ_CHAR, {
+    fetchPolicy: 'no-cache',
     variables: { id: charData.id },
     skip: !charData.id
   });
@@ -62,11 +65,13 @@ export const ExportChar = ({ isAccepted }: IExportChar) => {
       addChar({ variables: { ...externalCharData } });
       addNotification(t('save:char.exportAdd'));
     }
+
+    setIsLicenseAccepted(false);
   };
 
   return (
-    <span>
+    <>
       { t('save:exportTitle') }  
-    </span>
+    </>
   );
 };

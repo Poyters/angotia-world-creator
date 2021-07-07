@@ -15,9 +15,19 @@ export const Export = ({ moduleType }: IApp) => {
   const renderSwitch = () => {
     switch (moduleType) {
       case AppModules.char:
-        return <ExportChar isAccepted={isLicenseAccepted}/>;
+        return (
+            <ExportChar
+              isAccepted={isLicenseAccepted}
+              setIsLicenseAccepted={setIsLicenseAccepted}
+            />
+          );
       case AppModules.map:
-        return <ExportMap isAccepted={isLicenseAccepted}/>;
+        return (
+          <ExportMap
+            isAccepted={isLicenseAccepted}
+            setIsLicenseAccepted={setIsLicenseAccepted}
+          />
+        );
     }
   };
 
