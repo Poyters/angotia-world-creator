@@ -7,7 +7,7 @@ import { log } from '../utils/log';
 
 const fieldSize: number = mapConfig.map.fieldSize;
 
-export const drawMapNet = (ctx: any, type: number) => {
+export const drawMapNet = (ctx: CanvasRenderingContext2D, type: number) => {
   log('DRAWING_MAP_NET', { type });
 
   const storeData = store.getState() as IStore;

@@ -16,7 +16,7 @@ export const SettingsPanel: React.FC = () => {
 	const { t } = useTranslation(['common', 'char']);
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const charSettings = useSelector((state: IStore) => state.char.settings);
-	const charType = useSelector((state: IStore) => state.char.choosed);
+	const charType = useSelector((state: IStore) => state.char.type);
 	const hasVisibleLevel = useSelector((state: IStore) => state.char.hasVisibleLevel);
 
 	const settingsPanelStyles = {

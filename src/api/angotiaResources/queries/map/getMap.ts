@@ -21,6 +21,10 @@ export const GET_MAP = gql`
           xShift
           y
           yShift
+          destination {
+            map_target_cords
+            map_target_id
+          }
         }
       }
       building {
@@ -36,7 +40,7 @@ export const GET_MAP = gql`
           blob
         }
       }
-      subsoil {
+      terrain {
         items {
           value
           x

@@ -8,12 +8,12 @@ export interface ICharState {
     internalId: string
     fieldDiameter: number
     mobRange: string
+    moveType: string
     type: string
-    choosed: string
     monologs: IMonolog[]
     dialogs: IDialog[]
     temponaryPlayerDialogs?: IPlayer[]
-    isAgressiveMob: boolean
+    isMobAggressive: boolean
     hasVisibleLevel: boolean
     charPic: string
     statistics: ICharStatistic

@@ -7,12 +7,12 @@ export const GET_CHAR = gql`
       _id
       name
       field_diameter
+      move_type
       type
-      choosed
       has_visible_level
       char_pic
       mob_range
-      is_agressive_mob
+      is_mob_aggressive
       monologs {
         _id,
         content

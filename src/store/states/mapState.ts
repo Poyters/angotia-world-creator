@@ -24,7 +24,7 @@ export const mapState: IMapState = {
     decoration: {
         matrix: []
     },
-    subsoil: {
+    terrain: {
         matrix: []
     },
     npc: {

@@ -48,11 +48,11 @@ export const mapReducer = (state = deepCopy(mapState), action) => {
                     matrix: action.newMatrix
                 }
             };
-        case 'CHANGE_MAP_SUBSOIL_MATRIX':
+        case 'CHANGE_MAP_TERRAIN_MATRIX':
             return {
                 ...state,
-                subsoil: {
-                    ...state.subsoil,
+                terrain: {
+                    ...state.terrain,
                     matrix: action.newMatrix
                 }
             };

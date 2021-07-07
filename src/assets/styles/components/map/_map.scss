@@ -24,7 +24,7 @@
         &--passage,
         &--building,
         &--decoration,
-        &--subsoil,
+        &--terrain,
         &--npc,
         &--mob,
         &--vertexWeight,
@@ -32,7 +32,7 @@
             position: absolute;
         }
 
-        &--subsoil {
+        &--terrain {
             z-index: 8;
         }
 

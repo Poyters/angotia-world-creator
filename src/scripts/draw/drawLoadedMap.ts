@@ -19,7 +19,7 @@ export const drawLoadedMap = () => {
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
   const buildingMatrix = deepCopy(storeData.map.building.matrix);
   const decorationMatrix = deepCopy(storeData.map.decoration.matrix);
-  const subsoilMatrix = deepCopy(storeData.map.subsoil.matrix);
+  const terrainMatrix = deepCopy(storeData.map.terrain.matrix);
   const npcMatrix = deepCopy(storeData.map.npc.matrix);
   const mobMatrix = deepCopy(storeData.map.mob.matrix);
   const seMatrix = deepCopy(storeData.map.se.matrix);
@@ -57,10 +57,10 @@ export const drawLoadedMap = () => {
     MatrixFillColor.image
   );
 
-  // Draw subsoils
+  // Draw terrain
   colorBasedOnMatrix(
-    subsoilMatrix, 
-    Canvas.subsoil, 
+    terrainMatrix, 
+    Canvas.terrain, 
     '', 
     MatrixFillColor.image
   );

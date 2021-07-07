@@ -12,8 +12,8 @@ export const AddBgOption: React.FC = () => {
   const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
-  const handleFileSelect = (evt: any) => {
-    const file = evt.target.files[0]; 
+  const handleFileSelect = (event) => {
+    const file = event.target.files[0]; 
     const reader = new FileReader();
 
     // Pic is too weight
@@ -21,7 +21,7 @@ export const AddBgOption: React.FC = () => {
       return true;
     }
 
-    reader.onload = ((): any => {
+    reader.onload = (() => {
       return e => {
         const path: string = e.target.result;
         dispatch(setMapBg(path));
@@ -33,7 +33,7 @@ export const AddBgOption: React.FC = () => {
     addNotification(t('notifications:notes.background.add'));
   };
 
-  const optionOnOff: string = mapPic === '' ? 'option--off' : 'option--on';
+  const optionOnOff = mapPic === '' ? 'option--off' : 'option--on';
 
   return (
     <>

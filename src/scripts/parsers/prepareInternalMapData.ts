@@ -6,10 +6,10 @@ import camelcaseKeys from 'camelcase-keys';
 import { log } from '../utils/log';
 
 
-export const prepareInternalMapData = (mapData: any): IMapState => {
+export const prepareInternalMapData = (externalMapData): IMapState => {
   log('PREPARING_INTERNAL_MAP_DATA');
 
-  const dataCopy = deepCopy(mapData);
+  const dataCopy = deepCopy(externalMapData);
   dataCopy.internalId = dataCopy._id;
   delete dataCopy._id;
 
@@ -19,7 +19,7 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   internalData.blockMatrix = contentListToMatrix(internalData.blockMatrix, mapSize);
   internalData.building.matrix = contentListToMatrix(internalData.building, mapSize);
   internalData.decoration.matrix = contentListToMatrix(internalData.decoration, mapSize);
-  internalData.subsoil.matrix = contentListToMatrix(internalData.subsoil, mapSize);
+  internalData.terrain.matrix = contentListToMatrix(internalData.terrain, mapSize);
   internalData.npc.matrix = contentListToMatrix(internalData.npc, mapSize);
   internalData.mob.matrix = contentListToMatrix(internalData.mob, mapSize);
   internalData.se.matrix = contentListToMatrix(internalData.se, mapSize);
@@ -29,7 +29,7 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   internalData.images = [
     ...internalData.building.pics,
     ...internalData.decoration.pics,
-    ...internalData.subsoil.pics,
+    ...internalData.terrain.pics,
     ...internalData.npc.pics,
     ...internalData.mob.pics,
     ...internalData.se.pics
@@ -39,8 +39,8 @@ export const prepareInternalMapData = (mapData: any): IMapState => {
   delete internalData.building.pics;
   delete internalData.decoration.items;
   delete internalData.decoration.pics;
-  delete internalData.subsoil.items;
-  delete internalData.subsoil.pics;
+  delete internalData.terrain.items;
+  delete internalData.terrain.pics;
   delete internalData.npc.items;
   delete internalData.npc.pics;
   delete internalData.mob.items;

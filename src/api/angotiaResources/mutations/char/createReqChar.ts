@@ -4,9 +4,9 @@ import gql from 'graphql-tag';
 export const CREATE_REQ_CHAR = gql`
   mutation CreateChar(
     $name: String
-    $type: String
+    $move_type: String
     $author: String
-    $choosed: String
+    $type: String
     $monologs: [InputRequestedMonolog]
     $dialogs: [InputRequestedDialog]
     $statistics: InputRequestedStatistics
@@ -15,14 +15,14 @@ export const CREATE_REQ_CHAR = gql`
     $char_pic: String
     $_id: String
     $mob_range: String,
-    $is_agressive_mob: Boolean
+    $is_mob_aggressive: Boolean
     $settings: InputRequestedSettings
   ) {
     createRequestedChar(char: {
       name: $name,
-      type: $type,
+      move_type: $move_type,
       author: $author,
-      choosed: $choosed,
+      type: $type,
       monologs: $monologs,
       dialogs: $dialogs,
       statistics: $statistics,
@@ -31,7 +31,7 @@ export const CREATE_REQ_CHAR = gql`
       char_pic: $char_pic,
       _id: $_id,
       mob_range: $mob_range,
-      is_agressive_mob: $is_agressive_mob,
+      is_mob_aggressive: $is_mob_aggressive,
       settings: $settings
     }) {
       id

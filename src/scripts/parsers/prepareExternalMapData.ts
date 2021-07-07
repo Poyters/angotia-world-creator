@@ -5,9 +5,12 @@ import { matrixToContentList } from './matrixToContentList';
 import { getUserId } from '../user/getUserId';
 import { createMapBlob } from '../map/createMapBlob';
 import { log } from '../utils/log';
+import { IExternalMap } from '../../interfaces/map.interface';
 
 
-export const prepareExternalMapData = async (mapData: IMapState | any, globalBlob?: string) => {
+export const prepareExternalMapData = async (
+  mapData: IMapState, globalBlob?: string
+): Promise<IExternalMap> => {
   log('PREPARING_EXTERNAL_MAP_DATA');
 
   const userId = getUserId() ?? '';
@@ -30,8 +33,8 @@ export const prepareExternalMapData = async (mapData: IMapState | any, globalBlo
   preparedMapData.decoration = matrixToContentList(
     preparedMapData.decoration.matrix, preparedMapData.images
   );
-  preparedMapData.subsoil = matrixToContentList(
-    preparedMapData.subsoil.matrix, preparedMapData.images
+  preparedMapData.terrain = matrixToContentList(
+    preparedMapData.terrain.matrix, preparedMapData.images
   );
   preparedMapData.npc = matrixToContentList(
     preparedMapData.npc.matrix, preparedMapData.images

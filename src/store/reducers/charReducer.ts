@@ -4,15 +4,15 @@ import { charState } from '../states/charState';
 
 export const charReducer = (state = deepCopy(charState), action) => {
   switch(action.type) {
-    case 'CHANGE_CHAR_TYPE':
+    case 'CHANGE_CHAR_MOVE_TYPE':
       return {
         ...state,
-        type: action.charType
+        moveType: action.moveType
       };
     case 'CHANGE_CHAR':
       return {
         ...state,
-        choosed: action.char
+        type: action.char
       };
     case 'SET_CHAR_DATABASE_ID':
       return {
@@ -34,10 +34,10 @@ export const charReducer = (state = deepCopy(charState), action) => {
         ...state,
         temponaryPlayerDialogs: action.temponaryDialogs
       };
-    case 'IS_AGRESSIVE_MOB':
+    case 'IS_MOB_AGGRESSIVE':
       return {
         ...state,
-        isAgressiveMob: action.isAgressive
+        isMobAggressive: action.isAgressive
       };
     case 'SET_MOB_RANGE':
       return {

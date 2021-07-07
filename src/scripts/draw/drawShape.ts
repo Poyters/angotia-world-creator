@@ -3,7 +3,12 @@ import mapConfig from '../../assets/configs/map.config.json';
 
 const squareSize = mapConfig.map.fieldSize / 2;
 
-export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string) => {
+export const drawTriangle = (
+    ctx: CanvasRenderingContext2D,
+    x: number,
+    y: number,
+    fillColor: string
+) => {
     ctx.setLineDash([]);
     ctx.strokeStyle = fillColor;
     ctx.fillStyle = fillColor;
@@ -20,7 +25,7 @@ export const drawTriangle = (ctx: any, x: number, y: number, fillColor: string) 
 };
 
 
-export const drawCross = (ctx: any, x: number, y: number) => {
+export const drawCross = (ctx: CanvasRenderingContext2D, x: number, y: number) => {
     ctx.setLineDash([]);
     ctx.strokeStyle = mapConfig.blockSquareColor;
   

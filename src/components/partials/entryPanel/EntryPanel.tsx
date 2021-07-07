@@ -11,22 +11,22 @@ import routesConfig from '../../../assets/configs/routes.config.json';
 
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
-  const [loadedDataType, setLoadedDataType] = useState<any>('');
+  const [loadedDataType, setLoadedDataType] = useState<AppModules>(AppModules.map);
   const { t } = useTranslation(['entryPanel', 'common']);
 
-  const loadDataHandler = (moduleType: string) => {
+  const loadDataHandler = (moduleType: AppModules) => {
     setLoadedDataType(moduleType);
     setIsActiveLoadPopup(true);
   };
 
   const loadModules = () => {
-    const modules: any = [];
+    const modules: JSX.Element[] = [];
 
     for (const module in AppModules) {
       modules.push(
         <li 
           key={uuid()}
-          onClick={()=> loadDataHandler(module.toUpperCase())}
+          onClick={()=> loadDataHandler(module.toUpperCase() as AppModules)}
         > 
           { t(`common:${module}`) }
         </li>

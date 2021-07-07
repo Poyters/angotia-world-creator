@@ -1,7 +1,7 @@
 import { sizeGuard } from './sizeGuard';
 
 
-describe("sizeGuard script", () => {
+describe('sizeGuard script', () => {
   const fakeFile = {
     size: 500000 // bytes
   };
@@ -10,11 +10,11 @@ describe("sizeGuard script", () => {
     expect(typeof sizeGuard).toBe('function');
   });
 
-	it("Work without crashes", () => {
+	it('Work without crashes', () => {
     sizeGuard(fakeFile, 500);
   });
 
-  it("Allow add image", () => {
+  it('Allow add image', () => {
     expect(sizeGuard(fakeFile, 550)).toBe(true);
   });
 

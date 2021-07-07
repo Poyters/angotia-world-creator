@@ -14,10 +14,10 @@ import { CharType } from '../../../models/charType.model';
 export const StatisticPanel: React.FC = () => {
 	const { t } = useTranslation(['char', 'common']);
 	const isOpen = useSelector((state: IStore) => state.ui.statisticPanelIsOpen);
-	const charType = useSelector((state: IStore) => state.char.choosed);
-	const charMoveType = useSelector((state: IStore) => state.char.type);
+	const charType = useSelector((state: IStore) => state.char.type);
+	const charMoveType = useSelector((state: IStore) => state.char.moveType);
 	const charStatistics = useSelector((state: IStore) => state.char.statistics);
-	const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
+	const isMobAggressive = useSelector((state: IStore) => state.char.isMobAggressive);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
@@ -75,7 +75,7 @@ export const StatisticPanel: React.FC = () => {
 						/>) : null
 					}
 					{ charType === CharType.mob &&
-						isAgressiveMob ? (
+						isMobAggressive ? (
 							<ActionInputField
 								label={t('char:statistics.attackRange')}
 								inputValue={charStatistics.attackRange}

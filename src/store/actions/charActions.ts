@@ -5,9 +5,9 @@ import { IMinMaxField } from '../../interfaces/math.interface';
 import { ICharState } from '../../interfaces/charState.interface';
 
 
-export const changeCharType = (charType: string) => ({
-  type: 'CHANGE_CHAR_TYPE',
-  charType
+export const changeCharMoveType = (moveType: string) => ({
+  type: 'CHANGE_CHAR_MOVE_TYPE',
+  moveType
 });
 
 export const changeChar = (char: string) => ({
@@ -30,8 +30,8 @@ export const changeTemponaryPlayerDialogs = (temponaryDialogs: IPlayer[]) => ({
   temponaryDialogs
 });
 
-export const setIsAgressiveMob = (isAgressive: boolean) => ({
-  type: 'IS_AGRESSIVE_MOB',
+export const setIsMobAggressive = (isAgressive: boolean) => ({
+  type: 'IS_MOB_AGGRESSIVE',
   isAgressive
 });
 

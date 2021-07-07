@@ -23,7 +23,7 @@ export interface IMapState {
     decoration: {
         matrix: any[]
     }
-    subsoil: {
+    terrain: {
         matrix: any[]
     }
     npc: {

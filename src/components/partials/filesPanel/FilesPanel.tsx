@@ -9,11 +9,12 @@ import test1min from '../../../assets/images/mapSources/building/test1min.png';
 import test2 from '../../../assets/images/mapSources/decoration/test2.png';
 import test3 from '../../../assets/images/mapSources/mob/test3.png';
 import test4 from '../../../assets/images/mapSources/npc/test4.png';
-import test5 from '../../../assets/images/mapSources/subsoil/test3.png';
+import test5 from '../../../assets/images/mapSources/terrain/test3.png';
+import tree1 from '../../../assets/images/mapSources/decoration/tree1.png';
 import { 
 	changeMapBuildingMatrix, 
 	changeMapDecorationMatrix, 
-	changeMapSubsoilMatrix, 
+	changeMapTerrainMatrix, 
 	changeMapNpcMatrix, 
 	changeMapMobMatrix ,
 	changeMapSeMatrix
@@ -33,7 +34,7 @@ export const FilesPanel: React.FC = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const [currBookmark, setCurrBookmark] = useState<string>(bookmarks[0]);
 	const buildingMatrix = deepCopy(useSelector((state: IStore) => state.map.building.matrix));
-	const subsoilMatrix = deepCopy(useSelector((state: IStore) => state.map.subsoil.matrix));
+	const terrainMatrix = deepCopy(useSelector((state: IStore) => state.map.terrain.matrix));
 	const mobMatrix = deepCopy(useSelector((state: IStore) => state.map.mob.matrix));
 	const decorationMatrix = deepCopy(
 		useSelector((state: IStore) => state.map.decoration.matrix)
@@ -50,10 +51,10 @@ export const FilesPanel: React.FC = () => {
 		height: `${mapConfig?.map?.fieldSize}px`
 	};
 	
-	const generateImages = (): any[] => {
+	const generateImages = () => {
 		const bookmarkImages: string[] = [];
 		let matrixTransformationMethod;
-		let sourceMatrix: any[];
+		let sourceMatrix;
 
 		switch(currBookmark) { 
 			case 'building':
@@ -77,13 +78,14 @@ export const FilesPanel: React.FC = () => {
 				bookmarkImages.push(test2);
 				bookmarkImages.push(test2);
 				bookmarkImages.push(test2);
+				bookmarkImages.push(tree1);
 				matrixTransformationMethod = changeMapDecorationMatrix;
 				sourceMatrix = decorationMatrix;
 			break;
-			case 'subsoil':
+			case 'terrain':
 				bookmarkImages.push(test3);
-				matrixTransformationMethod = changeMapSubsoilMatrix;
-				sourceMatrix = subsoilMatrix;
+				matrixTransformationMethod = changeMapTerrainMatrix;
+				sourceMatrix = terrainMatrix;
 			break;
 			case 'mob':
 				bookmarkImages.push(test4);
@@ -102,7 +104,7 @@ export const FilesPanel: React.FC = () => {
 			break;
 		}
 
-		const imagesToRender: any[] = bookmarkImages.map((img: string) => {
+		const imagesToRender = bookmarkImages.map((img: string) => {
 			return (
 				// TODO: tutaj powinienem nie wrzucać img do
 				// markSquare, a dodać blob do images store, i tu zamiast img id do bloba

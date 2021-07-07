@@ -28,15 +28,15 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     };
   });
 
-  const handleFileSelect = (evt: any) => {
-    const file = evt.target.files[0];
+  const handleFileSelect = (event: any) => {
+    const file = event.target.files[0];
     const reader = new FileReader();
 
     if (!sizeGuard(file, mapConfig?.maxPicsWeight?.mapTile)) {
       return;
     }
 
-    reader.onload = ((): any => {
+    reader.onload = (() => {
       return (e) => {
         const path: string = e.target.result;
         setIsLoadedImage(true);

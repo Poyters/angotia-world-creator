@@ -10,8 +10,8 @@ import { Canvas } from '../../models/canvas.model';
 import { SelectType } from '../../models/selectType.model';
 
 
-let canvas: any;
-let ctx: any;
+let canvas;
+let ctx;
 const rect: IRect = {
   startX: 0,
   startY: 0,
@@ -31,11 +31,11 @@ export const mouseSelectFields = () => {
 };
 
 
-const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
+const mouseDown = (event: React.MouseEvent<HTMLElement>, map) => {
 	const storeData: IStore = store.getState();
-  const selectType: string = storeData.ui.select.type;
-  const mapLeft: number = parseInt(map.style.left) || 0;
-  const mapTop: number = parseInt(map.style.top) || 0;
+  const selectType = storeData.ui.select.type;
+  const mapLeft = parseInt(map.style.left) || 0;
+  const mapTop = parseInt(map.style.top) || 0;
 
 	if (selectType !== SelectType.mouse) return;
 
@@ -47,7 +47,7 @@ const mouseDown = (event: React.MouseEvent<HTMLElement>, map: any) => {
 
 const mouseUp = () => {
 	const storeData: IStore = store.getState();
-  const selectType: string = storeData.ui.select.type;
+  const selectType = storeData.ui.select.type;
 	
   if (selectType !== SelectType.mouse) return;
   
@@ -69,11 +69,11 @@ const mouseUp = () => {
 };
 
 
-const mouseMove = (event: React.MouseEvent<HTMLElement>, map: any) => {
+const mouseMove = (event: React.MouseEvent<HTMLElement>, map) => {
   const storeData: IStore = store.getState();
-  const selectType: string = storeData.ui.select.type;
-  const mapLeft: number = parseInt(map.style.left) || 0;
-  const mapTop: number = parseInt(map.style.top) || 0;
+  const selectType = storeData.ui.select.type;
+  const mapLeft = parseInt(map.style.left) || 0;
+  const mapTop = parseInt(map.style.top) || 0;
 	
 	if (selectType !== SelectType.mouse || !drag) return;
 
@@ -106,17 +106,17 @@ const colorSquares = async (rectanglePosition) => {
   };
 
   // We need to find out real topLeft and bottomRight corner (due to reverse drawing)
-  const xSmaller: number = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
+  const xSmaller = rectangleSquarePoints.topLeft.x < rectangleSquarePoints.bottomRight.x ? 
     rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const xBigger: number = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 
+  const xBigger = rectangleSquarePoints.topLeft.x > rectangleSquarePoints.bottomRight.x ? 
     rectangleSquarePoints.topLeft.x : rectangleSquarePoints.bottomRight.x;
-  const ySmaller: number = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? 
+  const ySmaller = rectangleSquarePoints.topLeft.y < rectangleSquarePoints.bottomRight.y ? 
     rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
-  const yBigger: number = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? 
+  const yBigger = rectangleSquarePoints.topLeft.y > rectangleSquarePoints.bottomRight.y ? 
     rectangleSquarePoints.topLeft.y : rectangleSquarePoints.bottomRight.y;
 
-  for (let x: number = xSmaller; x < xBigger + 1; x++) {
-    for (let y: number = ySmaller; y < yBigger + 1; y++) {
+  for (let x = xSmaller; x < xBigger + 1; x++) {
+    for (let y = ySmaller; y < yBigger + 1; y++) {
 
       const recSquarePoints: IPoint = {
         x,

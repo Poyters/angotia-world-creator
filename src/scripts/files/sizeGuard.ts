@@ -19,7 +19,6 @@ export const sizeGuard = (file: any, maxValue: number)  => {
     return true;
   } 
 
-  console.log('store', i18n.store);
   addNotification(i18n.t('files.tooWeight'), Notification.error);
   return false;
 };

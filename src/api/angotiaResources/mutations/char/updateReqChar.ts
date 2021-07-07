@@ -5,8 +5,8 @@ export const UPDATE_REQ_CHAR = gql`
   mutation updateRequestedChar(
     $id: ID!,
     $name: String
+    $move_type: String
     $type: String
-    $choosed: String
     $monologs: [InputRequestedMonolog]
     $dialogs: [InputRequestedDialog]
     $statistics: InputRequestedStatistics
@@ -14,13 +14,13 @@ export const UPDATE_REQ_CHAR = gql`
     $has_visible_level: Boolean
     $char_pic: String
     $mob_range: String,
-    $is_agressive_mob: Boolean
+    $is_mob_aggressive: Boolean
     $settings: InputRequestedSettings
   ) {
     updateRequestedChar(id: $id, char: {
       name: $name,
+      move_type: $move_type,
       type: $type,
-      choosed: $choosed,
       monologs: $monologs,
       dialogs: $dialogs,
       statistics: $statistics,
@@ -28,7 +28,7 @@ export const UPDATE_REQ_CHAR = gql`
       has_visible_level: $has_visible_level,
       char_pic: $char_pic,
       mob_range: $mob_range,
-      is_agressive_mob: $is_agressive_mob,
+      is_mob_aggressive: $is_mob_aggressive,
       settings: $settings
     }) {
       id,

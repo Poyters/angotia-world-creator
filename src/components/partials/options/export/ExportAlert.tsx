@@ -6,7 +6,7 @@ import routesConfig from '../../../../assets/configs/routes.config.json';
 import { useTranslation } from 'react-i18next';
 
 interface IExportAlert {
-  isAccepted: (...args: any[]) => void
+  isAccepted: (...args: boolean[]) => void
 }
 
 export const ExportAlert = ({ isActivePopup, isAccepted }: IExportAlert & IPopup) => {

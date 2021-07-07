@@ -3,7 +3,7 @@ import { IStore } from '../../interfaces/store.interface';
 import { SelectType } from '../../models/selectType.model';
 
 
-export const dragElement = (element: any) => {
+export const dragElement = element => {
   const positions: Array<number> = [0, 0, 0, 0];
   
   const dragMouseDown = (e: MouseEvent) => {
@@ -17,7 +17,7 @@ export const dragElement = (element: any) => {
 
   const elementDrag = (e: MouseEvent) => {
     const storeData: IStore = store.getState();
-    const selectType: string = storeData.ui.select.type;
+    const selectType = storeData.ui.select.type;
 
     if (selectType === SelectType.mouse) return;
     

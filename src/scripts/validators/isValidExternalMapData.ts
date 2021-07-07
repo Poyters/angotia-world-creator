@@ -2,7 +2,7 @@ import mapConfig from '../../assets/configs/map.config.json';
 import { log } from '../utils/log';
 
 
-export const isValidExternalMapData = (data: any): boolean => {
+export const isValidExternalMapData = (data): boolean => {
   let result = true;
 
   if (
@@ -29,7 +29,7 @@ export const isValidExternalMapData = (data: any): boolean => {
     data.passage === null ||
     data.building === null ||
     data.decoration === null ||
-    data.subsoil === null ||
+    data.terrain === null ||
     data.npc === null ||
     data.mob === null ||
     data.se === null ||

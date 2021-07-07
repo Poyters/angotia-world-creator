@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { ALL_CHARS_BASE_INFO } from '../../../api/angotiaResources/queries/char/allCharsBaseInfo';
 import { GET_CHAR } from '../../../api/angotiaResources/queries/char/getChar';
 import { loadCharData } from '../../../store/actions/charActions';
 import { useDispatch } from 'react-redux';
 import uuid from 'uuid/v4';
-import { Redirect } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { prepareInternalCharData } from '../../../scripts/parsers/prepareInternalCharData';
 import { isValidExternalCharData } from '../../../scripts/validators/isValidExternalCharData';
 import { addNotification } from '../../../scripts/utils/notifications';
@@ -16,12 +16,12 @@ import routesConfig from '../../../assets/configs/routes.config.json';
 
 export const ProductionCharList: React.FC = () => {
   const char = useQuery(ALL_CHARS_BASE_INFO);
-  const [redirect, setRedirect] = useState<null | string>(null);
   const dispatch = useDispatch();
   const [getChar, { called }] = useLazyQuery(GET_CHAR, {
     onCompleted: data => loadFromDb(data.getChar)
   });
   const { t } = useTranslation(['load', 'common']);
+  const history = useHistory();
 
   if (char?.loading) return <p> { t('load:char.loading') } </p>;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
@@ -30,7 +30,7 @@ export const ProductionCharList: React.FC = () => {
     if (isValidExternalCharData(loadedData)) {
       const internalCharData = prepareInternalCharData(loadedData);
       dispatch(loadCharData(internalCharData));
-      setRedirect(routesConfig.charCreator);
+      history.push(routesConfig.charCreator);
     } else {
       addNotification(t('load:char.invalidData'), Notification.error);
     }
@@ -45,25 +45,18 @@ export const ProductionCharList: React.FC = () => {
   };
 
   return (
-    <>
-      {
-        redirect !== null ? (
-          <Redirect to={`/${redirect}`}/>
-        ) : null
+    <ul className="loadedDataList">
+      { 
+        char.data?.allChars.map(char => {
+          return (
+            <li onClick={() => loadChoosedChar(char.id)} key={uuid()}> 
+              <span> { t('common:indernalId') }: </span>{ char._id }
+              <span> { t('common:name') }: </span>{ char.name }
+              <span> { t('common:type') }: </span>{ char.type }
+            </li>
+          );
+        })
       }
-      <ul className="loadedDataList">
-        { 
-          char.data?.allChars.map(char => {
-            return (
-              <li onClick={() => loadChoosedChar(char.id)} key={uuid()}> 
-                <span> { t('common:indernalId') }: </span>{ char._id }
-                <span> { t('common:name') }: </span>{ char.name }
-                <span> { t('common:type') }: </span>{ char.choosed }
-              </li>
-            );
-          })
-        }
-      </ul>
-    </>
+    </ul>
   );
 };

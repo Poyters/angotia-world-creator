@@ -8,7 +8,7 @@ import { addNotification } from '../../../scripts/utils/notifications';
 
 export const LayersOption: React.FC = () => {
     const { t } = useTranslation(['map', 'notifications']);
-    const [layersToRender, setLayersToRender] = useState<any>(null);
+    const [layersToRender, setLayersToRender] = useState<JSX.Element[] | null>(null);
     const mapBackgorund = useSelector((state: IStore) => state.map.mapPic);
 
 
@@ -35,13 +35,13 @@ export const LayersOption: React.FC = () => {
 
     let isBackgroundVisible = true;
     const toggleBackground = () => {
-        const map: any = document.getElementById('map');
-        const button: any = document.getElementById('backgroundBtn');
+        const map = document.getElementById('map');
+        const button = document.getElementById('backgroundBtn');
 
-        if (isBackgroundVisible) map.style.backgroundImage = '';
-        else map.style.backgroundImage = `url('${mapBackgorund}')`;
+        if (isBackgroundVisible && map) map.style.backgroundImage = '';
+        else if (map) map.style.backgroundImage = `url('${mapBackgorund}')`;
 
-        button.classList.toggle('disableLayer');
+        if (button) button.classList.toggle('disableLayer');
         isBackgroundVisible = !isBackgroundVisible;
     };
 
@@ -52,10 +52,10 @@ export const LayersOption: React.FC = () => {
             const name: string = layer?.dataset?.layername;
   
             if (name === layerName) {
-                const computedDisplay: string | null = getComputedStyle(layer).display;
-                const display: string = layer.style.display === '' ? 
+                const computedDisplay = getComputedStyle(layer).display;
+                const display = layer.style.display === '' ? 
                     computedDisplay : layer.style.display;
-                const button: any = document.getElementById(`${name}Btn`);
+                const button = document.getElementById(`${name}Btn`);
 
                 if (display === 'block') {
                     layer.style.display = 'none';
@@ -75,8 +75,7 @@ export const LayersOption: React.FC = () => {
                     );
                 }
 
-                button.classList.toggle('disableLayer');
- 
+                if (button) button.classList.toggle('disableLayer');
             }
         });
     };

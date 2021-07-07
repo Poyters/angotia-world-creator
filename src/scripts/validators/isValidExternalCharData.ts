@@ -1,23 +1,30 @@
 import { CharType } from '../../models/charType.model';
+import { CharMoveType } from '../../models/charMoveType.model';
 import { log } from '../utils/log';
 
 
-export const isValidExternalCharData = (data: any): boolean => {
+export const isValidExternalCharData = (data): boolean => {
   let result = true;
 
   if (
     Array.isArray(data) ||
     !data?.name ||
-    !data?.type || 
     (
       Object.keys(data).length === 0 && data.constructor === Object
     ) ||
     (
-      !data?.choosed ||
+      !data?.type ||
       (
-        data?.choosed !== CharType.npc &&
-        data?.choosed !== CharType.mob &&
-        data?.choosed !== CharType.se
+        data?.type !== CharType.npc &&
+        data?.type !== CharType.mob &&
+        data?.type !== CharType.se
+      )
+    ) ||
+    (
+      !data?.move_type ||
+      (
+        data?.move_type !== CharMoveType.static &&
+        data?.move_type !== CharMoveType.moving
       )
     ) ||
     !data?._id || 
@@ -26,8 +33,8 @@ export const isValidExternalCharData = (data: any): boolean => {
       data?.field_diameter === undefined
     ) ||
     (
-      data?.is_agressive_mob === null ||
-      data?.is_agressive_mob === undefined
+      data?.is_mob_aggressive === null ||
+      data?.is_mob_aggressive === undefined
     ) ||
     (
       data?.has_visible_level === null ||

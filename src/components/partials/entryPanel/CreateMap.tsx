@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import uuid from 'uuid/v4';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router';
 import { IStore } from '../../../interfaces/store.interface';
 import { MapSizeInput } from './MapSizeInput';
 import { mapState } from '../../../store/states/mapState';
@@ -13,9 +12,10 @@ import { IMapState } from '../../../interfaces/mapState.interface';
 import { generateEmptyMatrix } from '../../../scripts/matrix/generateEmptyMatrix';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router-dom';
+
 
 export const CreateMap: React.FC = () => {
-  const [redirect, setRedirect] = useState<null | string>(null);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const mapSize = useSelector((state: IStore) => state.map.size);
   const [mapX, setMapX] = useState<number>(mapSize.x);
@@ -24,6 +24,7 @@ export const CreateMap: React.FC = () => {
   const dispatch = useDispatch();
   const emptyMapState: IMapState = deepCopy(mapState);
   const { t } = useTranslation(['common', 'create']);
+  const history = useHistory();
 
   useEffect(() => {
     mapSizeValidation();
@@ -71,23 +72,19 @@ export const CreateMap: React.FC = () => {
     emptyMapState.passage.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.building.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.decoration.matrix = deepCopy(newEmptyMatrix);
-    emptyMapState.subsoil.matrix = deepCopy(newEmptyMatrix);
+    emptyMapState.terrain.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.npc.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.mob.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.se.matrix = deepCopy(newEmptyMatrix);
     emptyMapState.vertex.matrix = deepCopy(newEmptyMatrix);
 
     dispatch(loadMapData(emptyMapState));
-    setRedirect(routesConfig.mapCreator);
+
+    history.push(routesConfig.mapCreator);
   };
 
   return (
     <>
-      {
-        redirect !== null ? (
-          <Redirect to={`/${redirect}`}/>
-        ) : null
-      }
       { isOpenPopup ? ReactDOM.createPortal(
           <div className="g-container g-container--popup">
             <div role="alert" className="insertPopup">
