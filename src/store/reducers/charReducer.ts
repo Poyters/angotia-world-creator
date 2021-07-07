@@ -37,7 +37,7 @@ export const charReducer = (state = deepCopy(charState), action) => {
     case 'IS_AGRESSIVE_MOB':
       return {
         ...state,
-        isAgressiveMob: action.isAgressive
+        isMobAggressive: action.isAgressive
       };
     case 'SET_MOB_RANGE':
       return {

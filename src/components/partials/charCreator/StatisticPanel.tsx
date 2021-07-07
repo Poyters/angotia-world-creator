@@ -17,7 +17,7 @@ export const StatisticPanel: React.FC = () => {
 	const charType = useSelector((state: IStore) => state.char.choosed);
 	const charMoveType = useSelector((state: IStore) => state.char.type);
 	const charStatistics = useSelector((state: IStore) => state.char.statistics);
-	const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
+	const isMobAggressive = useSelector((state: IStore) => state.char.isMobAggressive);
 	const dispatch = useDispatch();
 
 	const statisticPanelStyles = {
@@ -75,7 +75,7 @@ export const StatisticPanel: React.FC = () => {
 						/>) : null
 					}
 					{ charType === CharType.mob &&
-						isAgressiveMob ? (
+						isMobAggressive ? (
 							<ActionInputField
 								label={t('char:statistics.attackRange')}
 								inputValue={charStatistics.attackRange}

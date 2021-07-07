@@ -13,7 +13,7 @@ export interface ICharState {
     monologs: IMonolog[]
     dialogs: IDialog[]
     temponaryPlayerDialogs?: IPlayer[]
-    isAgressiveMob: boolean
+    isMobAggressive: boolean
     hasVisibleLevel: boolean
     charPic: string
     statistics: ICharStatistic

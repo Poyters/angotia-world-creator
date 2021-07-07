@@ -9,7 +9,7 @@ import { Dialogs } from './dialogs/Dialogs';
 import { 
   changeCharType, 
   changeChar, 
-  setIsAgressiveMob,
+  setIsMobAggressive,
   changeStatistics,
   changeName,
   changeFieldDiameter,
@@ -31,7 +31,7 @@ export const CharCreatorForm: React.FC = () => {
   const charStatistics = useSelector((state: IStore) => state.char.statistics);
   const charMoveType = useSelector((state: IStore) => state.char.type);
   const internalId = useSelector((state: IStore) => state.char.internalId);
-  const isAgressiveMob = useSelector((state: IStore) => state.char.isAgressiveMob);
+  const isMobAggressive = useSelector((state: IStore) => state.char.isMobAggressive);
   const charChoosed = useSelector((state: IStore) => state.char.choosed);
   const fieldDiameter = useSelector((state: IStore) => state.char.fieldDiameter);
   const actualMobRange = useSelector((state: IStore) => state.char.mobRange);
@@ -126,10 +126,10 @@ export const CharCreatorForm: React.FC = () => {
                           label: t('common:no')
                         }
                       ]}
-                      action={setIsAgressiveMob}
+                      action={setIsMobAggressive}
                       label={t('char:creator.isMobAggressive')}
                       specialClass='chooseButtonsWrapper--smaller'
-                      choosed={isAgressiveMob}
+                      choosed={isMobAggressive}
                     />
 
                     <ChooseButtons 

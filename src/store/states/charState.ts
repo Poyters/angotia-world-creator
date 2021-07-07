@@ -15,7 +15,7 @@ export const charState: ICharState = {
     monologs: [],
     dialogs: [],
     temponaryPlayerDialogs: [],
-    isAgressiveMob: false,
+    isMobAggressive: false,
     hasVisibleLevel: true,
     charPic: '',
     statistics: {

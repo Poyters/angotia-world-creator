@@ -57,8 +57,8 @@ describe('prepareExternalMapData script', () => {
 		expect(internalData.mob_range).toBe(undefined);
   });
 
-  it('has isAgressiveMob', () => {
-		expect(internalData.isAgressiveMob).toBe(false);
+  it('has isMobAggressive', () => {
+		expect(internalData.isMobAggressive).toBe(false);
   });
 
   it('a lack of is_agressive_mob', () => {

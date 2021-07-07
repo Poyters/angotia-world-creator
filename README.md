@@ -8,6 +8,7 @@ To set up project on your personal computer you need to clone repository (`git c
 ## Changelog
 
 ### Version 1.3.0 (07 June 2021)
+- AWC-296, Fix some wrong specifements of chars
 - AWC-294, Rename subsoil to terrain
 - AWC-264, Add more unit tests to matrix transformations and user creation
 - AWC-287, Rewrite and redesign Export to Angotia Admins option
