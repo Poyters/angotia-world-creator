@@ -31,7 +31,7 @@ export const changeTemponaryPlayerDialogs = (temponaryDialogs: IPlayer[]) => ({
 });
 
 export const setIsMobAggressive = (isAgressive: boolean) => ({
-  type: 'IS_AGRESSIVE_MOB',
+  type: 'IS_MOB_AGGRESSIVE',
   isAgressive
 });
 

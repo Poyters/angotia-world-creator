@@ -14,7 +14,7 @@ export const GET_REQ_CHAR = gql`
       has_visible_level
       char_pic
       mob_range
-      is_agressive_mob
+      is_mob_aggressive
       monologs {
         _id,
         content

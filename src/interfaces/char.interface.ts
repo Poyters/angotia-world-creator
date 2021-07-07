@@ -47,7 +47,7 @@ export interface IExternalChar {
     choosed: string
     monologs: IExternalMonolog[]
     dialogs: IExternalDialog[]
-    is_agressive_mob: boolean
+    is_mob_aggressive: boolean
     has_visible_level: boolean
     char_pic: string
     statistics: IExternalCharStatistic

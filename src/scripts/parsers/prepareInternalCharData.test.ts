@@ -61,8 +61,8 @@ describe('prepareExternalMapData script', () => {
 		expect(internalData.isMobAggressive).toBe(false);
   });
 
-  it('a lack of is_agressive_mob', () => {
-		expect(internalData.is_agressive_mob).toBe(undefined);
+  it('a lack of is_mob_aggressive', () => {
+		expect(internalData.is_mob_aggressive).toBe(undefined);
   });
 
   it('has settings timeOfOccurance min', () => {

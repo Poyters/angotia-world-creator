@@ -15,7 +15,7 @@ export const CREATE_REQ_CHAR = gql`
     $char_pic: String
     $_id: String
     $mob_range: String,
-    $is_agressive_mob: Boolean
+    $is_mob_aggressive: Boolean
     $settings: InputRequestedSettings
   ) {
     createRequestedChar(char: {
@@ -31,7 +31,7 @@ export const CREATE_REQ_CHAR = gql`
       char_pic: $char_pic,
       _id: $_id,
       mob_range: $mob_range,
-      is_agressive_mob: $is_agressive_mob,
+      is_mob_aggressive: $is_mob_aggressive,
       settings: $settings
     }) {
       id

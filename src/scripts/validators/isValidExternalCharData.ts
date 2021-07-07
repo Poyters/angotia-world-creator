@@ -26,8 +26,8 @@ export const isValidExternalCharData = (data): boolean => {
       data?.field_diameter === undefined
     ) ||
     (
-      data?.is_agressive_mob === null ||
-      data?.is_agressive_mob === undefined
+      data?.is_mob_aggressive === null ||
+      data?.is_mob_aggressive === undefined
     ) ||
     (
       data?.has_visible_level === null ||

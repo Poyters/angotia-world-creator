@@ -34,7 +34,7 @@ export const charReducer = (state = deepCopy(charState), action) => {
         ...state,
         temponaryPlayerDialogs: action.temponaryDialogs
       };
-    case 'IS_AGRESSIVE_MOB':
+    case 'IS_MOB_AGGRESSIVE':
       return {
         ...state,
         isMobAggressive: action.isAgressive

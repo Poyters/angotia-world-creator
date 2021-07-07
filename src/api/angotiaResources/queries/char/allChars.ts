@@ -12,7 +12,7 @@ export const ALL_CHARS = gql`
       has_visible_level
       char_pic
       mob_range
-      is_agressive_mob
+      is_mob_aggressive
       monologs {
         _id,
         content

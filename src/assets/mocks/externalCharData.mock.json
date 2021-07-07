@@ -8,7 +8,7 @@
   "has_visible_level": true,
   "char_pic": "charblob",
   "mob_range": "king",
-  "is_agressive_mob": false,
+  "is_mob_aggressive": false,
   "monologs": [],
   "dialogs": [],
   "settings": {

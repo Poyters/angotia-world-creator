@@ -126,8 +126,8 @@ describe('prepareExternalCharData script', () => {
 		expect(externalData.has_visible_level).toBe(true);
   });
 
-  it('Check is_agressive_mob value', () => {
-		expect(externalData.is_agressive_mob).toBe(false);
+  it('Check is_mob_aggressive value', () => {
+		expect(externalData.is_mob_aggressive).toBe(false);
   });
 
   it('Check mob_range value', () => {
