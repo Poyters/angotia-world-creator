@@ -5,7 +5,7 @@ export const UPDATE_REQ_CHAR = gql`
   mutation updateRequestedChar(
     $id: ID!,
     $name: String
-    $moveType: String
+    $move_type: String
     $type: String
     $monologs: [InputRequestedMonolog]
     $dialogs: [InputRequestedDialog]
@@ -19,7 +19,7 @@ export const UPDATE_REQ_CHAR = gql`
   ) {
     updateRequestedChar(id: $id, char: {
       name: $name,
-      moveType: $moveType,
+      move_type: $move_type,
       type: $type,
       monologs: $monologs,
       dialogs: $dialogs,
