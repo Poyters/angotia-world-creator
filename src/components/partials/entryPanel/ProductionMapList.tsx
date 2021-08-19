@@ -12,18 +12,19 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { LoadingBar } from '../LoadingBar';
 
 
 export const ProductionMapList = () => {
   const map = useQuery(ALL_MAPS_BASE_INFO);
   const dispatch = useDispatch();
-  const [getMap, { called }] = useLazyQuery(GET_MAP, {
+  const [getMap, { called, loading }] = useLazyQuery(GET_MAP, {
     onCompleted: data => loadFromDb(data.getMap)
   });
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (map.loading) return <p> { t('load:map.loading') } </p>;
+  if (map.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
   if (map.error) return <p> { t('load:map.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

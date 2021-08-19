@@ -55,6 +55,11 @@ export const uiReducer = (state = deepCopy(uiState), action) => {
                 ...state,
                 charCreationErrors: action.errorList
             };
+        case 'TOGGLE_BLOCKING_LOADING':
+            return {
+                ...state,
+                blockingLoading: action.blockingLoading
+            };
         default:
             return state;
     }

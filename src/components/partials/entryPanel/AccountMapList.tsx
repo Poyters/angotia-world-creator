@@ -15,6 +15,7 @@ import { getUserId } from '../../../scripts/user/getUserId';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useHistory } from 'react-router-dom';
+import { LoadingBar } from '../LoadingBar';
 
 
 export const AccountMapList: React.FC = () => {
@@ -23,13 +24,13 @@ export const AccountMapList: React.FC = () => {
     variables: { author_id: userId }
   });
   const dispatch = useDispatch();
-  const [getReqMap, { called }] = useLazyQuery(GET_REQ_MAP, {
+  const [getReqMap, { called, loading }] = useLazyQuery(GET_REQ_MAP, {
     onCompleted: data => loadFromDb(data.getRequestedMap)
   });
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (map.loading) return <p> { t('load:map.loading') } </p>;
+  if (map.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
   if (map.error) return <p> { t('load:map.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

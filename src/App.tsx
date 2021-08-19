@@ -14,8 +14,7 @@ import { LoadRequestedMap } from './components/views/LoadRequestedMap';
 import { LoadRequestedChar } from './components/views/LoadRequestedChar';
 import routesConfig from './assets/configs/routes.config.json';
 
-
-export const App: React.FC = () => {
+export const App = () => {
   return (
     <>
       <Notifications />

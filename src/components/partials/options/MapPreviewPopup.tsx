@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IPopup } from '../../../interfaces/popup.interface';
 import { createMapBlob } from '../../../scripts/map/createMapBlob';
 import { useTranslation } from 'react-i18next';
+import { LoadingBar } from '../LoadingBar';
 
 export const MapPreviewPopup = ({ isActivePopup }: IPopup) => {
   const [mapBlob, setMapBlob] = useState<string>('');
@@ -29,8 +30,10 @@ export const MapPreviewPopup = ({ isActivePopup }: IPopup) => {
         <div className="insertPopup__imageContainer">
           {
             !mapBlob ? (
-              <p> { t('common:loading') } </p>
-            ): <img src={mapBlob} />
+              <LoadingBar isIcon={true} centeralized={true}/>
+            ): (
+              <img src={mapBlob} />
+            )
           }
         </div>
       </div>

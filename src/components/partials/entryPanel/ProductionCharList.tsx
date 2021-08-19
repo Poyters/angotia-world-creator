@@ -12,18 +12,24 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
+import { LoadingBar } from '../LoadingBar';
 
 
 export const ProductionCharList: React.FC = () => {
   const char = useQuery(ALL_CHARS_BASE_INFO);
   const dispatch = useDispatch();
-  const [getChar, { called }] = useLazyQuery(GET_CHAR, {
+  const [getChar, { called, loading }] = useLazyQuery(GET_CHAR, {
     onCompleted: data => loadFromDb(data.getChar)
   });
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (char?.loading) return <p> { t('load:char.loading') } </p>;
+  if (char?.loading) return (
+    <div className="listDataLoading">
+      <LoadingBar isIcon={true} />
+    </div>
+  );
+  if (loading) return <LoadingBar isIcon={true} page={true} />;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

@@ -15,6 +15,7 @@ import { getUserId } from '../../../scripts/user/getUserId';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useHistory } from 'react-router-dom';
+import { LoadingBar } from '../LoadingBar';
 
 
 export const AccountCharList: React.FC = () => {
@@ -23,13 +24,13 @@ export const AccountCharList: React.FC = () => {
     variables: { author_id: userId }
   });
   const dispatch = useDispatch();
-  const [getReqChar, { called }] = useLazyQuery(GET_REQ_CHAR, {
+  const [getReqChar, { called, loading }] = useLazyQuery(GET_REQ_CHAR, {
     onCompleted: data => loadFromDb(data.getRequestedChar)
   });
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (char?.loading) return <p> { t('load:char.loading') } </p>;
+  if (char?.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {
@@ -51,6 +52,7 @@ export const AccountCharList: React.FC = () => {
   };
 
   return (
+    <>
     <ul className="loadedDataList">
       { 
         char.data?.getRequestedCharsByAuthor.map(char => {
@@ -64,5 +66,6 @@ export const AccountCharList: React.FC = () => {
         })
       }
     </ul>
+    </>
   );
 };

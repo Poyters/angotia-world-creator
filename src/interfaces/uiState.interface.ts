@@ -15,4 +15,5 @@ export interface IUiState {
     errorPanelIsOpen: boolean
     mapCreationErrors: string[]
     charCreationErrors: string[]
+    blockingLoading: boolean
 }

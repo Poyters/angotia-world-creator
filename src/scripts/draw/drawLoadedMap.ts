@@ -6,6 +6,7 @@ import { IStore } from '../../interfaces/store.interface';
 import { Canvas } from '../../models/canvas.model';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
 import { log } from '../utils/log';
+import { toggleBlockingLoading } from '../../store/actions/uiActions';
 
 
 const blockSquaresColor = mapConfig.blockSquareColor;
@@ -14,6 +15,8 @@ export const drawLoadedMap = () => {
   log('DRAWING_LOADED_MAP');
 
   const storeData = store.getState() as IStore;
+  console.log('HERE1');
+  store.dispatch(toggleBlockingLoading(true));
   
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
@@ -97,5 +100,8 @@ export const drawLoadedMap = () => {
     MatrixFillColor.image
   );
 
+  setTimeout(() => {
+    store.dispatch(toggleBlockingLoading(false));
+  }, 100);
   log('DRAWED_LOADED_MAP');
 };

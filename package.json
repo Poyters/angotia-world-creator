@@ -12,6 +12,7 @@
     "apollo-boost": "^0.4.9",
     "camelcase-keys": "^6.2.2",
     "canvas": "^2.8.0",
+    "classnames": "^2.3.1",
     "global": "^4.3.2",
     "graphql": "^15.1.0",
     "i18next": "^20.3.1",

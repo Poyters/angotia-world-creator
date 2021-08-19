@@ -8,16 +8,16 @@
     z-index: 13;
     padding: 2px;
 
-    background-color: $decorationColor5;
+    background-color: $decorationColor2;
 
     &:before {
         border-width: 0 0 15px (210 - $filesPanelWrapperPadding*2 + px);
-        border-color: transparent transparent $decorationColor5 transparent;
+        border-color: transparent transparent $decorationColor2 transparent;
     }
 
     &:after {
         border-width: 0 (210 - $filesPanelWrapperPadding*2 + px) 15px 0;
-        border-color: transparent $decorationColor5 transparent transparent;
+        border-color: transparent $decorationColor2 transparent transparent;
     } 
 
     &__bookmarks {

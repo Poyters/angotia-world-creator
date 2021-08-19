@@ -46,3 +46,9 @@ export const changeCharCreationErrors = (errorList: string[]) => ({
     type: 'CHANGE_CHAR_CREATION_ERRORS',
     errorList
 });
+
+export const toggleBlockingLoading = (blockingLoading: boolean) => ({
+    type: 'TOGGLE_BLOCKING_LOADING',
+    blockingLoading
+});
+
