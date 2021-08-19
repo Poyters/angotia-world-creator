@@ -8,6 +8,7 @@ import { isValidExternalMapData } from '../../scripts/validators/isValidExternal
 import { prepareInternalMapData } from '../../scripts/parsers/prepareInternalMapData';
 import { NotFound } from './NotFound';
 import routesConfig from '../../assets/configs/routes.config.json';
+import { LoadingBar } from '../partials/LoadingBar';
 
 
 export const LoadRequestedMap = () => {
@@ -40,9 +41,7 @@ export const LoadRequestedMap = () => {
         )
       }
       {
-        map.loading && (
-          <span> Loading resource </span>
-        )
+        map.loading && <LoadingBar isIcon={true} page={true} />
       }
     </>
   );

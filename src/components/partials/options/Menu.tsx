@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SaveJsonOption } from './SaveJsonOption';
-import { Export } from './export/Export';
+import { Export } from '../export/Export';
 import appConfig from '../../../assets/configs/app.config.json';
 import { AppModules } from '../../../models/appModules.model';
 import { IApp } from '../../../interfaces/app.inteface';
-import { MapPreview } from './MapPreview';
+import { MapPreview } from '../map/MapPreview';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useTranslation } from 'react-i18next';
 

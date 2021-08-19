@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CreatorPanel } from '../partials/creatorPanel/CreatorPanel';
-import { FilesPanel } from '../partials/filesPanel/FilesPanel';
+import { CreatorPanel } from '../partials/map/creatorPanel/CreatorPanel';
+import { FilesPanel } from '../partials/map/filesPanel/FilesPanel';
 import { CreditsFooter } from '../partials/CreditsFooter';
-import { Map } from '../partials/Map';
+import { Map } from '../partials/map/Map';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
-import { MapSettingsPanel } from '../partials/creatorPanel/MapSettingsPanel';
+import { MapSettingsPanel } from '../partials/map/MapSettingsPanel';
 import { changeMapSelectMatrix } from '../../store/actions/uiActions';
 import { generateEmptyMatrix } from '../../scripts/matrix/generateEmptyMatrix';
 import { deepCopy } from '../../scripts/utils/deepCopy';

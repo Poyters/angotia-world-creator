@@ -1,10 +1,10 @@
 import React from 'react';
+import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
-import Adapter from 'enzyme-adapter-react-16';
-import { store } from '../../index';
-import { Map } from './map/Map';
+import { store } from '../../../../index';
+import { FilesPanel } from './FilesPanel';
 
 
 const mockStore = configureMockStore();
@@ -12,15 +12,14 @@ const mockedStore = mockStore(store);
 
 configure({ adapter: new Adapter() });
 
-describe('Map component', () => {
-  const map = shallow(
+describe('FilesPanel component', () => {
+  const filesPanel = shallow(
     <Provider store={mockedStore}>
-      <Map />
+      <FilesPanel />
     </Provider>
   );
-	
-	it('Render Map component without errors', () => {
-    expect(map.exists()).toBe(true);
-  });
 
+	it('Render FilesPanel component without errors', () => {
+    expect(filesPanel.exists()).toBe(true);
+  });
 });

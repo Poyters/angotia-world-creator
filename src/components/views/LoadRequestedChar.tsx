@@ -8,6 +8,7 @@ import { isValidExternalCharData } from '../../scripts/validators/isValidExterna
 import { loadCharData } from '../../store/actions/charActions';
 import { NotFound } from './NotFound';
 import routesConfig from '../../assets/configs/routes.config.json';
+import { LoadingBar } from '../partials/LoadingBar';
 
 export const LoadRequestedChar = () => {
   const dispatch = useDispatch();
@@ -39,9 +40,7 @@ export const LoadRequestedChar = () => {
         )
       }
       {
-        char.loading && (
-          <span> Loading resource </span>
-        )
+        char.loading && <LoadingBar isIcon={true} page={true} />
       }
     </>
   );

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CreditsFooter } from '../partials/CreditsFooter';
 import { VersionMark } from '../partials/VersionMark';
-import { NetOption } from '../partials/creatorPanel/NetOption';
-import { AddBgOption } from '../partials/creatorPanel/AddBgOption';
-import { BlockOption }from '../partials/creatorPanel/BlockOption';
+import { NetOption } from '../partials/map/creatorPanel/NetOption';
+import { AddBgOption } from '../partials/map/creatorPanel/AddBgOption';
+import { BlockOption }from '../partials/map/creatorPanel/BlockOption';
 import routesConfig from '../../assets/configs/routes.config.json';
 
 
