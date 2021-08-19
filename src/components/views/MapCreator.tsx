@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CreatorPanel } from '../partials/map/creatorPanel/CreatorPanel';
 import { FilesPanel } from '../partials/map/filesPanel/FilesPanel';
@@ -17,11 +17,13 @@ import { IMapState } from '../../interfaces/mapState.interface';
 import { ErrorMark } from '../partials/errorPanel/ErrorMark';
 import { AppModules } from '../../models/appModules.model';
 import { ErrorPanel } from '../partials/errorPanel/ErrorPanel';
+import { LoadingBar } from '../partials/LoadingBar';
 
 
 export const MapCreator: React.FC = () => {
   const dispatch = useDispatch();
   const mapState: IMapState = useSelector((state: IStore) => state.map);
+  const [loadingMap, setLoadingMap] = useState(true);
   
   useEffect(() => { // Create necessary empty matrix at the beginning
     const newEmptyMatrix = generateEmptyMatrix();
@@ -33,10 +35,14 @@ export const MapCreator: React.FC = () => {
 
   useEffect(() => {
     findMapErrors();
+    // setLoadingMap(false);
   }, [mapState]);
 
   return (
     <article className="creatorWrapper">
+      {
+        loadingMap ? <LoadingBar isIcon={true} page={true} /> : null
+      }
       <CreatorPanel />
       <FilesPanel />
       <MapSettingsPanel />

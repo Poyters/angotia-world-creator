@@ -25,7 +25,7 @@ export const colorBasedOnMatrix = (
 
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
   const canvas: any = document.getElementById(canvasId);
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas?.getContext('2d');
   const storeData = store.getState() as IStore;
   const internalImages = storeData.map.images;
 

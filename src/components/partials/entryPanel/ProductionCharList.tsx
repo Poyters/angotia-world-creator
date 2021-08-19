@@ -24,12 +24,7 @@ export const ProductionCharList: React.FC = () => {
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (char?.loading) return (
-    <div className="listDataLoading">
-      <LoadingBar isIcon={true} />
-    </div>
-  );
-  if (loading) return <LoadingBar isIcon={true} page={true} />;
+  if (char?.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

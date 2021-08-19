@@ -23,6 +23,10 @@
     height: 100%;
     box-sizing: border-box;
     padding: 20px;
+
+    & img {
+      width: 100%;
+    }
   }
 
   &__animation {
@@ -78,5 +82,3 @@
     transform: rotate(360deg);
   }
 }
-
-
