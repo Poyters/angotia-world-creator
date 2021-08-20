@@ -136,5 +136,11 @@
   },
   "PREPARED_INTERNAL_MAP_DATA": {
     "message": "Prepared internal map data"
+  },
+  "MAKING_AN_IMAGE": {
+    "message": "Making an image..."
+  },
+  "GETTING_IMAGE_CACHE_COLORING_MATRIX": {
+    "message": "Getting image from cache during coloring canvas based on matrix"
   }
 }

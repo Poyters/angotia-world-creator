@@ -64,6 +64,7 @@ export const colorBasedOnMatrix = (
               
               // Images are unique, we found max one image
               if (foundImage.length === 1) {
+                log('GETTING_IMAGE_CACHE_COLORING_MATRIX');
                 image = foundImage[0].object;
               } else {
                 // square is path to image
@@ -92,6 +93,7 @@ export const colorBasedOnMatrix = (
               
               // Images are unique, we found max one image
               if (foundPassage.length === 1) {
+                log('GETTING_IMAGE_CACHE_COLORING_MATRIX');
                 passagePic = foundPassage[0].object;
               } else {
                 passagePic = makeImage(passagePicPath); // square is path to image

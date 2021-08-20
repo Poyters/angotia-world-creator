@@ -1,6 +1,7 @@
 import { log } from '../utils/log';
 
 export const makeImage = (blob: string): HTMLImageElement => {
+  log('MAKING_AN_IMAGE');
   const image = new Image();
   image.src = blob;
 
