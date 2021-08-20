@@ -142,5 +142,11 @@
   },
   "GETTING_IMAGE_CACHE_COLORING_MATRIX": {
     "message": "Getting image from cache during coloring canvas based on matrix"
+  },
+  "PUSH_IMAGE_ELEMENTS_CACHE": {
+    "message": "Pushing a new element to image elements cache..."
+  },
+  "LOOKING_FOR_IMAGE_ELEMENTS_CACHE": {
+    "message": "Looking for a element in image elements cache..."
   }
 }

@@ -14,7 +14,6 @@ export const drawLoadedMap = () => {
   log('DRAWING_LOADED_MAP');
 
   const storeData = store.getState() as IStore;
-  console.log('HERE1');
   
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
