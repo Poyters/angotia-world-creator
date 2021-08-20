@@ -9,6 +9,7 @@ To set up project on your personal computer you need to clone repository (`git c
 
 ### Version 1.4.0 (planned December 2021)
 - AWC-303, Add LoadingBar
+- AWC-299, Crush ColorBasedOnMatrix to smaller functions
 ### Version 1.3.1 (07 June 2021)
 - AWC-301, Fix a lack of passage destination
 ### Version 1.3.0 (07 June 2021)

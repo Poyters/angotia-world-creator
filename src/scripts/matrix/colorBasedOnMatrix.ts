@@ -9,10 +9,10 @@ import { store } from '../../index';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
 import { ICachedImage } from '../../interfaces/images.interface';
 import { log } from '../utils/log';
+import { drawImage } from '../draw/drawImage';
 
-
-const fieldSize: number = mapConfig.map.fieldSize;
-const squareSize: number = mapConfig.map.fieldSize / 2;
+const fieldSize = mapConfig.map.fieldSize;
+const squareSize = mapConfig.map.fieldSize / 2;
 const cachedImages: ICachedImage[] = [];
 
 export const colorBasedOnMatrix = (
@@ -130,21 +130,4 @@ export const colorBasedOnMatrix = (
   });
 
   log('COLOR_BASED_ON_MATRIX_END', { canvasId });
-};
-
-const drawImage = (
-  image: HTMLImageElement, 
-  ctx: CanvasRenderingContext2D,
-  drawStartX: number,
-  drawStartY: number,
-  index?: number
-) => {
-  if (
-    image.width <= (fieldSize / 2) &&
-    image.height <= (fieldSize / 2)
-  ) {
-    ctx.drawImage(image, drawStartX, drawStartY);
-  } else if (index === 0) {
-    ctx.drawImage(image, drawStartX, drawStartY);
-  }
 };

@@ -35,7 +35,7 @@ export const MapCreator: React.FC = () => {
 
   useEffect(() => {
     findMapErrors();
-    // setLoadingMap(false);
+    setLoadingMap(false);
   }, [mapState]);
 
   return (
