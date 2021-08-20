@@ -1,4 +1,4 @@
-export interface ICachedImage {
+export interface ICachedImageElement {
   id: string
   object: HTMLImageElement
 }

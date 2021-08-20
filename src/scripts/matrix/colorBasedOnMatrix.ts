@@ -7,13 +7,12 @@ import { findPicBlob } from '../utils/findPicBlob';
 import { IStore } from '../../interfaces/store.interface';
 import { store } from '../../index';
 import { MatrixFillColor } from '../../models/matrixFillColor.model';
-import { ICachedImage } from '../../interfaces/images.interface';
 import { log } from '../utils/log';
 import { drawImage } from '../draw/drawImage';
+import { findCachedImage, pushToCache } from '../cache/imageElementsCache';
 
 const fieldSize = mapConfig.map.fieldSize;
 const squareSize = mapConfig.map.fieldSize / 2;
-const cachedImages: ICachedImage[] = [];
 
 export const colorBasedOnMatrix = (
   matrix: Array<[]>,
@@ -58,9 +57,7 @@ export const colorBasedOnMatrix = (
               break;
             case MatrixFillColor.image:
               let image: HTMLImageElement;
-              const foundImage = cachedImages.filter(imageData => {
-                return imageData.id === square;
-              });
+              const foundImage = findCachedImage(square.toString());
               
               // Images are unique, we found max one image
               if (foundImage.length === 1) {
@@ -70,7 +67,7 @@ export const colorBasedOnMatrix = (
                 // square is path to image
                 image = makeImage(findPicBlob(square.toString(), internalImages) || ''); 
                 image.onload = () => {
-                  cachedImages.push({
+                  pushToCache({
                     id: square.toString(),
                     object: image
                   });
@@ -87,9 +84,7 @@ export const colorBasedOnMatrix = (
               break;
             case MatrixFillColor.passage:
               let passagePic: HTMLImageElement;
-              const foundPassage = cachedImages.filter(imageData => {
-                return imageData.id === MatrixFillColor.passage;
-              });
+              const foundPassage = findCachedImage(MatrixFillColor.passage);
               
               // Images are unique, we found max one image
               if (foundPassage.length === 1) {
@@ -98,7 +93,7 @@ export const colorBasedOnMatrix = (
               } else {
                 passagePic = makeImage(passagePicPath); // square is path to image
                 passagePic.onload = () => {
-                  cachedImages.push({
+                  pushToCache({
                     id: MatrixFillColor.passage,
                     object: passagePic
                   });
