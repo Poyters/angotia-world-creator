@@ -17,7 +17,7 @@ import { IMapState } from '../../interfaces/mapState.interface';
 import { ErrorMark } from '../partials/errorPanel/ErrorMark';
 import { AppModules } from '../../models/appModules.model';
 import { ErrorPanel } from '../partials/errorPanel/ErrorPanel';
-import { LoadingBar } from '../partials/LoadingBar';
+import { LoadingSpinner, Size } from 'poyters-components';
 
 
 export const MapCreator: React.FC = () => {
@@ -35,13 +35,13 @@ export const MapCreator: React.FC = () => {
 
   useEffect(() => {
     findMapErrors();
-    // setLoadingMap(false);
+    setLoadingMap(false);
   }, [mapState]);
 
   return (
     <article className="creatorWrapper">
       {
-        loadingMap ? <LoadingBar isIcon={true} page={true} /> : null
+        loadingMap ? <LoadingSpinner defaultIcon={true} fullPage={true} size={Size.large} /> : null
       }
       <CreatorPanel />
       <FilesPanel />

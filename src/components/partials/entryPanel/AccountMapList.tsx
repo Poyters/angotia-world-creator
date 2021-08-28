@@ -15,7 +15,7 @@ import { getUserId } from '../../../scripts/user/getUserId';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useHistory } from 'react-router-dom';
-import { LoadingBar } from '../LoadingBar';
+import { LoadingSpinner } from 'poyters-components';
 
 
 export const AccountMapList: React.FC = () => {
@@ -30,7 +30,7 @@ export const AccountMapList: React.FC = () => {
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (map.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
+  if (map.loading || loading) return <LoadingSpinner defaultIcon={true} />;
   if (map.error) return <p> { t('load:map.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

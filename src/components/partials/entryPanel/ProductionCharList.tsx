@@ -12,7 +12,7 @@ import { addNotification } from '../../../scripts/utils/notifications';
 import { Notification } from '../../../models/notification.model';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
-import { LoadingBar } from '../LoadingBar';
+import { LoadingSpinner } from 'poyters-components';
 
 
 export const ProductionCharList: React.FC = () => {
@@ -24,7 +24,7 @@ export const ProductionCharList: React.FC = () => {
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (char?.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
+  if (char?.loading || loading) return <LoadingSpinner defaultIcon={true} />;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

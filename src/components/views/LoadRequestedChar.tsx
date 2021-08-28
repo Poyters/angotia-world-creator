@@ -8,7 +8,7 @@ import { isValidExternalCharData } from '../../scripts/validators/isValidExterna
 import { loadCharData } from '../../store/actions/charActions';
 import { NotFound } from './NotFound';
 import routesConfig from '../../assets/configs/routes.config.json';
-import { LoadingBar } from '../partials/LoadingBar';
+import { LoadingSpinner, Size } from 'poyters-components';
 
 export const LoadRequestedChar = () => {
   const dispatch = useDispatch();
@@ -40,7 +40,7 @@ export const LoadRequestedChar = () => {
         )
       }
       {
-        char.loading && <LoadingBar isIcon={true} page={true} />
+        char.loading && <LoadingSpinner defaultIcon={true} fullPage={true} size={Size.large} />
       }
     </>
   );

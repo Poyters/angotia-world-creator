@@ -15,7 +15,7 @@ import { getUserId } from '../../../scripts/user/getUserId';
 import { useTranslation } from 'react-i18next';
 import routesConfig from '../../../assets/configs/routes.config.json';
 import { useHistory } from 'react-router-dom';
-import { LoadingBar } from '../LoadingBar';
+import { LoadingSpinner } from 'poyters-components';
 
 
 export const AccountCharList: React.FC = () => {
@@ -30,7 +30,7 @@ export const AccountCharList: React.FC = () => {
   const { t } = useTranslation(['load', 'common']);
   const history = useHistory();
 
-  if (char?.loading || loading) return <LoadingBar isIcon={true} centeralized={true}/>;
+  if (char?.loading || loading) return <LoadingSpinner defaultIcon={true} />;
   if (char?.error) return <p> { t('load:char.loadError') } </p>;
 
   const loadFromDb = (loadedData) => {

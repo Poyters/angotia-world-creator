@@ -8,7 +8,7 @@ import { isValidExternalMapData } from '../../scripts/validators/isValidExternal
 import { prepareInternalMapData } from '../../scripts/parsers/prepareInternalMapData';
 import { NotFound } from './NotFound';
 import routesConfig from '../../assets/configs/routes.config.json';
-import { LoadingBar } from '../partials/LoadingBar';
+import { LoadingSpinner, Size } from 'poyters-components';
 
 
 export const LoadRequestedMap = () => {
@@ -41,7 +41,7 @@ export const LoadRequestedMap = () => {
         )
       }
       {
-        map.loading && <LoadingBar isIcon={true} page={true} />
+        map.loading && <LoadingSpinner defaultIcon={true} fullPage={true} size={Size.large} />
       }
     </>
   );
