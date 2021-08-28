@@ -32,7 +32,7 @@ export const MapPreviewPopup = ({ isActivePopup }: IPopup) => {
             !mapBlob ? (
               <LoadingBar isIcon={true} centeralized={true}/>
             ): (
-              <img src={mapBlob} />
+              <LoadingBar isIcon={true} centeralized={true}/>
             )
           }
         </div>
