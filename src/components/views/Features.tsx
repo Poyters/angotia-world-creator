@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
-import { CreditsFooter } from '../partials/CreditsFooter';
+import { CreditsFooter } from 'poyters-components';
 import { VersionMark } from '../partials/VersionMark';
 import { FullScreenOption } from '../partials/options/FullScreenOption';
 import { NetOption } from '../partials/map/creatorPanel/NetOption';
@@ -142,7 +142,7 @@ export const Features: React.FC = () => {
           </ul>
         </div>  
       </section>
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <VersionMark />
     </article>
   );

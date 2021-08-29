@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { CreditsFooter } from '../partials/CreditsFooter';
 import { SectionHeader } from '../partials/SectionHeader';
 import { EntryPanel } from '../partials/entryPanel/EntryPanel';
-
 import { LangMenu } from '../partials/LangMenu';
 import { forceGetUserId } from '../../scripts/user/forceGetUserId';
+import { CreditsFooter } from 'poyters-components';
 
 
 export const Home: React.FC = () => {
@@ -21,7 +20,7 @@ export const Home: React.FC = () => {
       <div role="presentation" className="g-wrapper">
         <EntryPanel />
       </div>
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <LangMenu />
     </div>
   );

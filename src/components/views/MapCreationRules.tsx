@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CreditsFooter } from '../partials/CreditsFooter';
+import { CreditsFooter } from 'poyters-components';
 import { VersionMark } from '../partials/VersionMark';
 import routesConfig from '../../assets/configs/routes.config.json';
 
@@ -59,7 +59,7 @@ export const MapCreationRules: React.FC = () => {
           </section>
         </div>
       </article>
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <VersionMark />
     </div>
   );

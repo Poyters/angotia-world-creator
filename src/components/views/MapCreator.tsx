@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CreatorPanel } from '../partials/map/creatorPanel/CreatorPanel';
 import { FilesPanel } from '../partials/map/filesPanel/FilesPanel';
-import { CreditsFooter } from '../partials/CreditsFooter';
+import { CreditsFooter } from 'poyters-components';
 import { Map } from '../partials/map/Map';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
@@ -47,7 +47,7 @@ export const MapCreator: React.FC = () => {
       <FilesPanel />
       <MapSettingsPanel />
       <Map />
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.map} />

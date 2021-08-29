@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { CharPanel } from '../partials/charPanel/CharPanel';
-import { CreditsFooter } from '../partials/CreditsFooter';
+import { CreditsFooter } from 'poyters-components';
 import { VersionMark } from '../partials/VersionMark';
 import { ReportIssue } from '../partials/ReportIssue';
 import { CharCreatorForm } from '../partials/char/CharCreatorForm';
@@ -28,7 +28,7 @@ export const CharCreator: React.FC = () => {
       <CharCreatorForm />
       <StatisticPanel />
       <SettingsPanel />
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.char} />

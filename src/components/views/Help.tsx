@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CreditsFooter } from '../partials/CreditsFooter';
+import { CreditsFooter } from 'poyters-components';
 import { VersionMark } from '../partials/VersionMark';
 import { NetOption } from '../partials/map/creatorPanel/NetOption';
 import { AddBgOption } from '../partials/map/creatorPanel/AddBgOption';
@@ -68,7 +68,7 @@ export const Help: React.FC = () => {
           </section>
         </div>
       </article>
-      <CreditsFooter />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
       <VersionMark />
     </div>
   );
