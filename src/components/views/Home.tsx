@@ -20,7 +20,7 @@ export const Home: React.FC = () => {
       <div role="presentation" className="g-wrapper">
         <EntryPanel />
       </div>
-      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} url="https://poyters.pl" />
       <LangMenu />
     </div>
   );

@@ -28,7 +28,7 @@ export const CharCreator: React.FC = () => {
       <CharCreatorForm />
       <StatisticPanel />
       <SettingsPanel />
-      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} url="https://poyters.pl" />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.char} />

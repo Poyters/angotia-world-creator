@@ -47,7 +47,7 @@ export const MapCreator: React.FC = () => {
       <FilesPanel />
       <MapSettingsPanel />
       <Map />
-      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} url="https://poyters.pl" />
       <VersionMark />
       <ReportIssue />
       <ErrorPanel moduleType={AppModules.map} />

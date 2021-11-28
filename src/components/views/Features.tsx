@@ -142,7 +142,7 @@ export const Features: React.FC = () => {
           </ul>
         </div>  
       </section>
-      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} url="https://poyters.pl" />
       <VersionMark />
     </article>
   );

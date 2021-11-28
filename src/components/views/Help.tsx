@@ -68,7 +68,7 @@ export const Help: React.FC = () => {
           </section>
         </div>
       </article>
-      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} />
+      <CreditsFooter startedYear={2018} author="Poyters" absolute={true} url="https://poyters.pl" />
       <VersionMark />
     </div>
   );
