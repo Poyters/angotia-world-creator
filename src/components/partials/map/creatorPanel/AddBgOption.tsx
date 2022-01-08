@@ -24,7 +24,13 @@ export const AddBgOption: React.FC = () => {
 
     reader.onload = (() => {
       return e => {
-        const path: string = e.target.result;
+        const path = e?.target?.result;
+
+        if (!path || typeof path !== 'string') {
+          // TODO: Add log here
+          return;
+        }
+
         dispatch(setMapBg(path));
       };
 

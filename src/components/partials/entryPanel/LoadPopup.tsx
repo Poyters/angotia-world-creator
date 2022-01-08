@@ -24,7 +24,7 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
   const dispatch = useDispatch();
   const [isActiveProduction, setIsActiveProduction] = useState(false);
   const [isActiveAccount, setIsActiveAccount] = useState(false);
-  const { t } = useTranslation(['load']);
+  const { t } = useTranslation(['load', 'error']);
   const history = useHistory();
 
   useEffect(() => {
@@ -48,16 +48,26 @@ export const LoadPopup = ({ isActivePopup, moduleType }: IPopup & IApp) => {
     setIsActiveAccount(true);
   };
 
-  const loadByJson = (event) => {
-    const file = event.target.files[0]; 
+  const loadByJson = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (!event?.target?.files) {
+      addNotification(t('error:generic'), Notification.error);
+      return;
+    }
+
+    const file = event?.target?.files[0]; 
     const reader = new FileReader();
 
     reader.onload = (() => {
-      return (e) => {
+      return (event) => {
         let loadedData;
 
+        if (typeof event?.target?.result !== 'string') {
+          addNotification(t('load:isNotJson'), Notification.error);
+          return;
+        }
+
         try {
-          loadedData = JSON.parse(e.target.result);
+          loadedData = JSON.parse(event.target.result);
         } catch {
           addNotification(t('load:isNotJson'), Notification.error);
           return;

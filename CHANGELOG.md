@@ -1,12 +1,13 @@
 ## Changelog
 
-### Version 1.4.0 (planned December 2021)
+### Version 1.4.0 (planned February 2022)
 - AWC-303, Add LoadingBar
+- AWC-308, 
 
-### Version 1.3.1 (07 June 2021)
+### Version 1.3.1 (07 July 2021)
 - AWC-301, Fix a lack of passage destination
 
-### Version 1.3.0 (07 June 2021)
+### Version 1.3.0 (07 July 2021)
 - AWC-296, Fix some wrong specifements of chars
 - AWC-294, Rename subsoil to terrain
 - AWC-264, Add more unit tests to matrix transformations and user creation
