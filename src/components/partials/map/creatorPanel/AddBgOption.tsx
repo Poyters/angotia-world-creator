@@ -5,10 +5,11 @@ import { addNotification } from '../../../../scripts/utils/notifications';
 import { sizeGuard } from '../../../../scripts/files/sizeGuard';
 import { IStore } from '../../../../interfaces/store.interface';
 import { useTranslation } from 'react-i18next';
+import mapConfig from '../../../../assets/configs/map.config.json';
 
 
 export const AddBgOption: React.FC = () => {
-  const { t } = useTranslation(['notifications']);
+  const { t } = useTranslation(['notifications', 'files']);
   const mapPic = useSelector((state: IStore) => state.map.mapPic);
   const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ export const AddBgOption: React.FC = () => {
     const reader = new FileReader();
 
     // Pic is too weight
-    if (!sizeGuard(file, 50)) {
+    if (!sizeGuard(file, mapConfig?.maxPicsWeight?.background, t)) {
       return true;
     }
 

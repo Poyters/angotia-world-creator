@@ -55,7 +55,7 @@ export const Menu: React.FC<IApp> = ({ moduleType }) => {
 				</li>
 				<li> 
 					<Link to={`/${routesConfig.features}`}>
-						{ t('menu:save') }
+						{ t('menu:features') }
 					</Link>
 				</li>
 				{

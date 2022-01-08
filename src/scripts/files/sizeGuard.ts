@@ -1,15 +1,13 @@
 import { addNotification } from '../utils/notifications';
 import { Notification } from '../../models/notification.model';
 import { log } from '../utils/log';
-import i18n from '../../i18n';
 
-
-export const sizeGuard = (file: any, maxValue: number)  => {
+export const sizeGuard = (file: any, maxValue: number, t?: (string, any?) => string)  => {
   log('CHECK_FILE_SIZE');
 
   if (!file || !file.size || !maxValue) {
     log('CHECK_FILE_SIZE_INVALID_FILE');
-    addNotification(i18n.t('files.invalidFile'), Notification.error);
+    if (t) addNotification(t('files.invalidFile'), Notification.error);
 
     return false;
   }
@@ -19,6 +17,7 @@ export const sizeGuard = (file: any, maxValue: number)  => {
     return true;
   } 
 
-  addNotification(i18n.t('files.tooWeight'), Notification.error);
+  if (t) addNotification(t('files.tooWeight', { max: maxValue }), Notification.error);
+
   return false;
 };

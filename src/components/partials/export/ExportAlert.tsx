@@ -28,7 +28,7 @@ export const ExportAlert = ({ isActivePopup, isAccepted }: IExportAlert & IPopup
           { t('save:exportAlert') }
         </header>
         <p>
-          { t('save:exportWarning') }
+          { t('save:exportWarning') } {' '}
           <Link to={`/${routesConfig.license}`} className="t-anhor1Bold"> 
             { t('save:licenseName') }
           </Link>

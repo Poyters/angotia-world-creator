@@ -1,5 +1,5 @@
 {
-  "tooWeight": "Too weight! Max pic weight is KB",
+  "tooWeight": "Too weight! Max pic weight is {{ max }} KB",
   "invalidFile": "Invalid file! Size cannot be checked",
   "panel": {
     "label": "Files Panel",

@@ -4,11 +4,13 @@ import mapConfig from '../../assets/configs/map.config.json';
 import { sizeGuard } from '../../scripts/files/sizeGuard';
 import { addNotification } from '../../scripts/utils/notifications';
 import { ILoadPicBtn } from '../../interfaces/button.interface';
+import { useTranslation } from 'react-i18next';
 
 
 export const LoadPicBtn: React.FC<ILoadPicBtn> = ({ 
   name, clickEvent, note
 }) => {
+  const { t } = useTranslation(['files']);
   const dispatchedClickEvent = clickEvent ? clickEvent : () => {
     // do nothing
   };
@@ -18,7 +20,7 @@ export const LoadPicBtn: React.FC<ILoadPicBtn> = ({
     const file = event.target.files[0]; 
     const reader = new FileReader();
 
-    if (!sizeGuard(file, mapConfig.maxPicsWeight.char)) {
+    if (!sizeGuard(file, mapConfig.maxPicsWeight.char, t)) {
       return;
     }
 

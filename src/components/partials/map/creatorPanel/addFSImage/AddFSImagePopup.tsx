@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 const bookmarks = Object.keys(Bookmarks);
 
 export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
-  const { t } = useTranslation(['common', 'map', 'notifications']);
+  const { t } = useTranslation(['common', 'map', 'notifications', 'files']);
   const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
   const [fileName, setFileName] = useState<string>('');
@@ -32,7 +32,7 @@ export const AddFSImagePopup: React.FC<IPopup> = ({ isActivePopup }) => {
     const file = event.target.files[0];
     const reader = new FileReader();
 
-    if (!sizeGuard(file, mapConfig?.maxPicsWeight?.mapTile)) {
+    if (!sizeGuard(file, mapConfig?.maxPicsWeight?.mapTile, t)) {
       return;
     }
 
