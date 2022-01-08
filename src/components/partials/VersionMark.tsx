@@ -1,6 +1,5 @@
-import React from 'react';
-import appConfig from '../../assets/configs/app.config.json';
-
+import React from "react";
+import appConfig from "../../assets/configs/app.config.json";
 
 export const VersionMark: React.FC = () => {
   return (

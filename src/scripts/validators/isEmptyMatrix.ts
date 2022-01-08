@@ -1,4 +1,4 @@
-import { log } from '../utils/log';
+import { log } from "../utils/log";
 
 export const isEmptyMatrix = (matrix: Array<[]>): boolean => {
   let result = true;
@@ -17,8 +17,8 @@ export const isEmptyMatrix = (matrix: Array<[]>): boolean => {
       });
     });
   });
-      
-  log('IS_EMPTY_MATRIX', { result });
-  
+
+  log("IS_EMPTY_MATRIX", { result });
+
   return result;
 };

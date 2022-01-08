@@ -1,18 +1,20 @@
-import React , { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { Link } from 'react-router-dom';
-import { AppModules } from '../../../models/appModules.model';
-import { LoadPopup } from './LoadPopup';
-import { CreateChar } from './CreateChar';
-import uuid from 'uuid/v4';
-import { CreateMap } from './CreateMap';
-import { useTranslation } from 'react-i18next';
-import routesConfig from '../../../assets/configs/routes.config.json';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
+import { AppModules } from "../../../models/appModules.model";
+import { LoadPopup } from "./LoadPopup";
+import { CreateChar } from "./CreateChar";
+import uuid from "uuid/v4";
+import { CreateMap } from "./CreateMap";
+import { useTranslation } from "react-i18next";
+import routesConfig from "../../../assets/configs/routes.config.json";
 
 export const EntryPanel: React.FC = () => {
   const [isActiveLoadPopup, setIsActiveLoadPopup] = useState<boolean>(false);
-  const [loadedDataType, setLoadedDataType] = useState<AppModules>(AppModules.map);
-  const { t } = useTranslation(['entryPanel', 'common']);
+  const [loadedDataType, setLoadedDataType] = useState<AppModules>(
+    AppModules.map
+  );
+  const { t } = useTranslation(["entryPanel", "common"]);
 
   const loadDataHandler = (moduleType: AppModules) => {
     setLoadedDataType(moduleType);
@@ -24,11 +26,11 @@ export const EntryPanel: React.FC = () => {
 
     for (const module in AppModules) {
       modules.push(
-        <li 
+        <li
           key={uuid()}
-          onClick={()=> loadDataHandler(module.toUpperCase() as AppModules)}
-        > 
-          { t(`common:${module}`) }
+          onClick={() => loadDataHandler(module.toUpperCase() as AppModules)}
+        >
+          {t(`common:${module}`)}
         </li>
       );
     }
@@ -38,40 +40,46 @@ export const EntryPanel: React.FC = () => {
 
   return (
     <>
-      { isActiveLoadPopup ? ReactDOM.createPortal(
-        <LoadPopup isActivePopup={setIsActiveLoadPopup} moduleType={loadedDataType}/>, document.body
-      ) : null}
-       <nav className="entryPanel">
+      {isActiveLoadPopup
+        ? ReactDOM.createPortal(
+            <LoadPopup
+              isActivePopup={setIsActiveLoadPopup}
+              moduleType={loadedDataType}
+            />,
+            document.body
+          )
+        : null}
+      <nav className="entryPanel">
         <ul className="entryPanel__menu">
           <li className="t-paragraph1MediumLight extendedItem">
-            <span> { t('entryPanel:create.label') } </span>
+            <span> {t("entryPanel:create.label")} </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
               <ul>
                 <CreateMap />
                 <CreateChar />
-                <li key={uuid()}> { t('entryPanel:create.item') } </li>
+                <li key={uuid()}> {t("entryPanel:create.item")} </li>
               </ul>
             </nav>
           </li>
           <li className="t-paragraph1MediumLight extendedItem">
-            <span> { t('entryPanel:load') } </span>
+            <span> {t("entryPanel:load")} </span>
             <nav className="extendedItem__submenu t-paragraph2Bold">
-              <ul>
-                { loadModules() }
-              </ul>
+              <ul>{loadModules()}</ul>
             </nav>
           </li>
           <li className="separatedItem t-paragraph1MediumLight">
-            <Link to={`/${routesConfig.license}`}> { t('entryPanel:license') } </Link>
+            <Link to={`/${routesConfig.license}`}>
+              {" "}
+              {t("entryPanel:license")}{" "}
+            </Link>
           </li>
           <li className="t-paragraph1MediumLight">
-            <Link to={`/${routesConfig.help}`}> { t('entryPanel:help') } </Link>
+            <Link to={`/${routesConfig.help}`}> {t("entryPanel:help")} </Link>
           </li>
           <li className="separatedItem">
-            <a href="https://poyters.pl/"> { t('entryPanel:exit') } </a>
+            <a href="https://poyters.pl/"> {t("entryPanel:exit")} </a>
           </li>
         </ul>
-
       </nav>
     </>
   );

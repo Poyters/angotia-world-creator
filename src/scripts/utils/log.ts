@@ -1,7 +1,7 @@
-import logsConfig from '../../assets/configs/logs.config.json';
-import { deepCopy } from './deepCopy';
-import { isEmptyObject } from './isEmptyObject';
-import { Log } from '../../models/log.model';
+import logsConfig from "../../assets/configs/logs.config.json";
+import { deepCopy } from "./deepCopy";
+import { isEmptyObject } from "./isEmptyObject";
+import { Log } from "../../models/log.model";
 
 export const log = (logId: string, additionalData = {}) => {
   if (process.env.REACT_APP_APPLICATION_LOGS !== Log.enabled) return;
@@ -11,7 +11,7 @@ export const log = (logId: string, additionalData = {}) => {
   if (!logsConfig?.[logId]) {
     const logIdCopy = deepCopy(logId);
 
-    logId = 'UNKNOWN_LOG';
+    logId = "UNKNOWN_LOG";
     additionalData = {
       invalidEventData: { ...additionalData },
       invalidLogId: logIdCopy
@@ -20,10 +20,12 @@ export const log = (logId: string, additionalData = {}) => {
 
   const date = new Date();
   const additionalInfo = isEmptyObject(additionalData)
-    ? ''
+    ? ""
     : `| ${JSON.stringify(additionalData)}`;
 
   console.log(
-    `${date.toLocaleString('pl-PL')} | ${logId} | ${logMessage} ${additionalInfo}`
+    `${date.toLocaleString(
+      "pl-PL"
+    )} | ${logId} | ${logMessage} ${additionalInfo}`
   );
 };

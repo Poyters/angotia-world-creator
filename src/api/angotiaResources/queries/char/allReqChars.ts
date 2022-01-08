@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const ALL_REQ_CHARS = gql`
   {
@@ -16,7 +15,7 @@ export const ALL_REQ_CHARS = gql`
       mob_range
       is_mob_aggressive
       monologs {
-        _id,
+        _id
         content
       }
       dialogs {

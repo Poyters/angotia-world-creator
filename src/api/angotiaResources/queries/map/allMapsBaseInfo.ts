@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const ALL_MAPS_BASE_INFO = gql`
   {

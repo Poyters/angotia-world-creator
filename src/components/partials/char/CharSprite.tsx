@@ -1,13 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { LoadPicBtn } from '../LoadPicBtn';
-import { setCharPic } from '../../../store/actions/charActions';
-import { IStore } from '../../../interfaces/store.interface';
-import { useTranslation } from 'react-i18next';
-
+import React from "react";
+import { useSelector } from "react-redux";
+import { LoadPicBtn } from "../LoadPicBtn";
+import { setCharPic } from "../../../store/actions/charActions";
+import { IStore } from "../../../interfaces/store.interface";
+import { useTranslation } from "react-i18next";
 
 export const CharSprite = () => {
-  const { t } = useTranslation(['char', 'common']);
+  const { t } = useTranslation(["char", "common"]);
   const charPicPath = useSelector((state: IStore) => state.char.charPic);
 
   const charPicStyles = {
@@ -16,23 +15,14 @@ export const CharSprite = () => {
 
   return (
     <>
-      <div 
-        className="charSprite t-paragraph5Bold"
-        style={charPicStyles}
-      >
-        {
-          !charPicPath && (
-            <span>
-              { t('char:sprite.error') }
-            </span>
-          ) 
-        }
+      <div className="charSprite t-paragraph5Bold" style={charPicStyles}>
+        {!charPicPath && <span>{t("char:sprite.error")}</span>}
       </div>
-      
-      <LoadPicBtn 
-        name={t('char:sprite.btn')}
+
+      <LoadPicBtn
+        name={t("char:sprite.btn")}
         clickEvent={setCharPic}
-        note={t('char:sprite.add')}
+        note={t("char:sprite.add")}
       />
     </>
   );

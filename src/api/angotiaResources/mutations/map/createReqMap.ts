@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const CREATE_REQ_MAP = gql`
   mutation CreateRequestedMap(
@@ -22,26 +21,28 @@ export const CREATE_REQ_MAP = gql`
     $block_matrix: InputRequestedBlock
     $vertex: InputRequestedVertex
   ) {
-    createRequestedMap(Map: {
-      description: $description,
-      min_entry_level: $min_entry_level,
-      author: $author,
-      map_name: $map_name,
-      map_pic: $map_pic,
-      visibility_range: $visibility_range,
-      size: $size,
-      _id: $_id,
-      passage: $passage,
-      building: $building,
-      decoration: $decoration,
-      terrain: $terrain,
-      npc: $npc,
-      mob: $mob,
-      se: $se,
-      block_matrix: $block_matrix,
-      vertex: $vertex,
-      combined_layers_blob: $combined_layers_blob
-    }) {
+    createRequestedMap(
+      Map: {
+        description: $description
+        min_entry_level: $min_entry_level
+        author: $author
+        map_name: $map_name
+        map_pic: $map_pic
+        visibility_range: $visibility_range
+        size: $size
+        _id: $_id
+        passage: $passage
+        building: $building
+        decoration: $decoration
+        terrain: $terrain
+        npc: $npc
+        mob: $mob
+        se: $se
+        block_matrix: $block_matrix
+        vertex: $vertex
+        combined_layers_blob: $combined_layers_blob
+      }
+    ) {
       id
     }
   }

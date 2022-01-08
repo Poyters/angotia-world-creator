@@ -1,20 +1,19 @@
-import React from 'react';
-import { FullScreenOption } from '../../options/FullScreenOption';
-import { NetOption } from './NetOption';
-import { SelectOption } from './SelectOption';
-import { AddBgOption } from './AddBgOption';
-import { ClearSelectedOption } from './ClearSelectedOption';
-import { BlockOption } from './BlockOption';
-import { LayersOption } from './LayersOption';
-import { PassageOption } from './passage/PassageOption';
-import { VertexWeightOption } from './vertexWeight/VertexWeightOption';
-import { DeleteBgOption } from './DeleteBgOption';
-import { AddFSImageOption } from './addFSImage/AddFSImageOption';
-import { VisibilityOption } from './visibility/VisibilityOption';
-import { Menu } from '../../options/Menu';
-import { AppModules } from '../../../../models/appModules.model';
-import logo24x24 from '../../../../assets/images/logo-24x24.png';
-
+import React from "react";
+import { FullScreenOption } from "../../options/FullScreenOption";
+import { NetOption } from "./NetOption";
+import { SelectOption } from "./SelectOption";
+import { AddBgOption } from "./AddBgOption";
+import { ClearSelectedOption } from "./ClearSelectedOption";
+import { BlockOption } from "./BlockOption";
+import { LayersOption } from "./LayersOption";
+import { PassageOption } from "./passage/PassageOption";
+import { VertexWeightOption } from "./vertexWeight/VertexWeightOption";
+import { DeleteBgOption } from "./DeleteBgOption";
+import { AddFSImageOption } from "./addFSImage/AddFSImageOption";
+import { VisibilityOption } from "./visibility/VisibilityOption";
+import { Menu } from "../../options/Menu";
+import { AppModules } from "../../../../models/appModules.model";
+import logo24x24 from "../../../../assets/images/logo-24x24.png";
 
 export const CreatorPanel: React.FC = () => {
   return (
@@ -39,20 +38,16 @@ export const CreatorPanel: React.FC = () => {
             <FullScreenOption />
           </li>
           <li>
-            <NetOption 
-              viewTypeQuantity={3}
-            />
+            <NetOption viewTypeQuantity={3} />
           </li>
           <li>
-            <SelectOption 
-              selectTypeQuantity={3}
-            />
+            <SelectOption selectTypeQuantity={3} />
           </li>
           <li>
             <ClearSelectedOption />
           </li>
           <li>
-            <BlockOption  />
+            <BlockOption />
           </li>
           <li>
             <PassageOption />

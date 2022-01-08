@@ -1,11 +1,10 @@
-import { ICharState } from '../../interfaces/charState.interface';
-import { deepCopy } from '../utils/deepCopy';
-import camelcaseKeys from 'camelcase-keys';
-import { log } from '../utils/log';
-
+import { ICharState } from "../../interfaces/charState.interface";
+import { deepCopy } from "../utils/deepCopy";
+import camelcaseKeys from "camelcase-keys";
+import { log } from "../utils/log";
 
 export const prepareInternalCharData = (externalCharData): ICharState => {
-  log('PREPARING_INTERNAL_CHAR_DATA');
+  log("PREPARING_INTERNAL_CHAR_DATA");
 
   const dataCopy = deepCopy(externalCharData);
   dataCopy.internalId = dataCopy._id;

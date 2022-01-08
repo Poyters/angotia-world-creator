@@ -1,12 +1,11 @@
-import { deepCopy } from '../utils/deepCopy';
+import { deepCopy } from "../utils/deepCopy";
 
-
-export const camelCaseToUnderscore = (obj) => {
-  if (typeof obj !== 'object') return obj;
+export const camelCaseToUnderscore = obj => {
+  if (typeof obj !== "object") return obj;
 
   const objCopy = deepCopy(obj);
 
-  for (const oldName in objCopy){
+  for (const oldName in objCopy) {
     const newName = oldName.replace(/([A-Z])/g, key => `_${key.toLowerCase()}`);
 
     if (newName !== oldName) {
@@ -16,7 +15,7 @@ export const camelCaseToUnderscore = (obj) => {
       }
     }
 
-    if (typeof objCopy[newName] === 'object') {
+    if (typeof objCopy[newName] === "object") {
       objCopy[newName] = camelCaseToUnderscore(objCopy[newName]);
     }
   }

@@ -1,15 +1,16 @@
-import { ICharState } from '../../interfaces/charState.interface';
-import { deepCopy } from '../utils/deepCopy';
-import { camelCaseToUnderscore } from './camelCaseToUnderscore';
-import { getUserId } from '../user/getUserId';
-import { log } from '../utils/log';
-import { IExternalChar } from '../../interfaces/char.interface';
+import { ICharState } from "../../interfaces/charState.interface";
+import { deepCopy } from "../utils/deepCopy";
+import { camelCaseToUnderscore } from "./camelCaseToUnderscore";
+import { getUserId } from "../user/getUserId";
+import { log } from "../utils/log";
+import { IExternalChar } from "../../interfaces/char.interface";
 
+export const prepareExternalCharData = (
+  charData: ICharState
+): IExternalChar => {
+  log("PREPARING_EXTERNAL_CHAR_DATA");
 
-export const prepareExternalCharData = (charData: ICharState): IExternalChar => {
-  log('PREPARING_EXTERNAL_CHAR_DATA');
-
-  const userId = getUserId() ?? '';
+  const userId = getUserId() ?? "";
   let preparedCharData = deepCopy(charData);
 
   delete preparedCharData.temponaryPlayerDialogs;
@@ -18,8 +19,10 @@ export const prepareExternalCharData = (charData: ICharState): IExternalChar => 
   preparedCharData = camelCaseToUnderscore(preparedCharData);
   delete preparedCharData.id;
   preparedCharData.field_diameter = parseInt(preparedCharData.field_diameter);
-  Object.keys(preparedCharData.statistics).forEach(key => { 
-    preparedCharData.statistics[key] = parseInt(preparedCharData.statistics[key]);
+  Object.keys(preparedCharData.statistics).forEach(key => {
+    preparedCharData.statistics[key] = parseInt(
+      preparedCharData.statistics[key]
+    );
   });
 
   preparedCharData.monologs = preparedCharData.monologs?.map(monolog => {

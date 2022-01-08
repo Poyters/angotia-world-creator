@@ -1,75 +1,74 @@
-import { deepCopy } from '../../scripts/utils/deepCopy';
-import { charState } from '../states/charState';
-
+import { deepCopy } from "../../scripts/utils/deepCopy";
+import { charState } from "../states/charState";
 
 export const charReducer = (state = deepCopy(charState), action) => {
-  switch(action.type) {
-    case 'CHANGE_CHAR_MOVE_TYPE':
+  switch (action.type) {
+    case "CHANGE_CHAR_MOVE_TYPE":
       return {
         ...state,
         moveType: action.moveType
       };
-    case 'CHANGE_CHAR':
+    case "CHANGE_CHAR":
       return {
         ...state,
         type: action.char
       };
-    case 'SET_CHAR_DATABASE_ID':
+    case "SET_CHAR_DATABASE_ID":
       return {
-          ...state,
-          id: action.dbId
+        ...state,
+        id: action.dbId
       };
-    case 'CHANGE_MONOLOGS':
+    case "CHANGE_MONOLOGS":
       return {
         ...state,
         monologs: action.monologs
       };
-    case 'CHANGE_DIALOGS':
+    case "CHANGE_DIALOGS":
       return {
         ...state,
         dialogs: action.dialogs
       };
-    case 'CHANGE_TEMPONARY_PLAYER_DIALOGS':
+    case "CHANGE_TEMPONARY_PLAYER_DIALOGS":
       return {
         ...state,
         temponaryPlayerDialogs: action.temponaryDialogs
       };
-    case 'IS_MOB_AGGRESSIVE':
+    case "IS_MOB_AGGRESSIVE":
       return {
         ...state,
         isMobAggressive: action.isAgressive
       };
-    case 'SET_MOB_RANGE':
+    case "SET_MOB_RANGE":
       return {
         ...state,
         mobRange: action.range
       };
-    case 'SET_CHAR_PIC':
+    case "SET_CHAR_PIC":
       return {
         ...state,
         charPic: action.picPath
       };
-    case 'CHANGE_STATISTICS':
+    case "CHANGE_STATISTICS":
       return {
         ...state,
         statistics: action.newStats
       };
-    case 'CHANGE_NAME':
+    case "CHANGE_NAME":
       return {
         ...state,
         name: action.newName
       };
-    case 'CHANGE_FIELD_DIAMETER':
+    case "CHANGE_FIELD_DIAMETER":
       return {
         ...state,
         fieldDiameter: action.newDiameter
       };
-    case 'SET_VISIBLE_LEVEL':
+    case "SET_VISIBLE_LEVEL":
       return {
         ...state,
         hasVisibleLevel: action.isVisible
       };
-    case 'SET_TIME_OF_OCCURANCE':
+    case "SET_TIME_OF_OCCURANCE":
       return {
         ...state,
         settings: {
@@ -77,7 +76,7 @@ export const charReducer = (state = deepCopy(charState), action) => {
           timeOfOccurance: action.times
         }
       };
-    case 'SET_RESPAWN_TIME':
+    case "SET_RESPAWN_TIME":
       return {
         ...state,
         settings: {
@@ -85,7 +84,7 @@ export const charReducer = (state = deepCopy(charState), action) => {
           respTime: action.times
         }
       };
-    case 'LOAD_CHAR_DATA':
+    case "LOAD_CHAR_DATA":
       return {
         ...action.data
       };

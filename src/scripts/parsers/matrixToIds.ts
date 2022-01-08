@@ -1,12 +1,11 @@
-import { ISquareData } from '../../interfaces/square.interface';
-import { deepCopy } from '../utils/deepCopy';
-import { log } from '../utils/log';
-
+import { ISquareData } from "../../interfaces/square.interface";
+import { deepCopy } from "../utils/deepCopy";
+import { log } from "../utils/log";
 
 export const matrixToIds = (matrix): ISquareData[] => {
   if (!matrix || matrix.length === 0) return [];
 
-  log('PARSING_MATRIX_TO_IDS');
+  log("PARSING_MATRIX_TO_IDS");
 
   const copyOfmatrix = deepCopy(matrix);
   const squareIds: ISquareData[] = [];
@@ -22,7 +21,7 @@ export const matrixToIds = (matrix): ISquareData[] => {
 
       squareMatrix.forEach((square: number | string, index: number) => {
         // Dont check type
-        if (square === 1 || square === '1') {
+        if (square === 1 || square === "1") {
           const xShift: number = index === 1 || index === 3 ? 1 : 0;
           const yShift: number = index === 2 || index === 3 ? 1 : 0;
           const squareId: ISquareData = {
@@ -36,7 +35,6 @@ export const matrixToIds = (matrix): ISquareData[] => {
           squareIds.push(squareId);
         }
       });
-
     });
   });
 

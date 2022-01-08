@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const GET_REQ_CHAR = gql`
   query RequestedChar($id: ID!) {
@@ -16,7 +15,7 @@ export const GET_REQ_CHAR = gql`
       mob_range
       is_mob_aggressive
       monologs {
-        _id,
+        _id
         content
       }
       dialogs {

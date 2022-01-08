@@ -1,9 +1,8 @@
-import { store } from '../../index';
-import { setNotification } from '../../store/actions/uiActions';
-import appConfig from '../../assets/configs/app.config.json';
-import { deepCopy } from './deepCopy';
-import { INote } from '../../interfaces/notifications.interface';
-
+import { store } from "../../index";
+import { setNotification } from "../../store/actions/uiActions";
+import appConfig from "../../assets/configs/app.config.json";
+import { deepCopy } from "./deepCopy";
+import { INote } from "../../interfaces/notifications.interface";
 
 export const addNotification = (note: string, messageType?: string) => {
   const activeNotes: INote[] = deepCopy(store.getState().ui.actionNote);
@@ -21,7 +20,7 @@ export const addNotification = (note: string, messageType?: string) => {
   setTimeout(deleteNote, appConfig.notificationTime);
 };
 
-function deleteNote () {
+function deleteNote() {
   const activeNotes: INote[] = deepCopy(store.getState().ui.actionNote);
   activeNotes.pop();
 

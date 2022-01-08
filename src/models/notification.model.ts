@@ -1,4 +1,4 @@
 export enum Notification {
-  error = 'ERROR',
-  warning = 'WARNING'
+  error = "ERROR",
+  warning = "WARNING"
 }

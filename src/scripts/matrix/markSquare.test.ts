@@ -1,13 +1,11 @@
-import { markSquare } from './markSquare';
+import { markSquare } from "./markSquare";
 
+describe("markSquare script", () => {
+  it("markSquare is function", () => {
+    expect(typeof markSquare).toEqual("function");
+  });
 
-describe('markSquare script', () => {
-	it('markSquare is function', () => {
-    expect(typeof markSquare).toEqual('function');
-	});
-
-	it('markSquare catch empty matrix error', () => {
-		expect(markSquare).toThrow(Error);
-	});
-
+  it("markSquare catch empty matrix error", () => {
+    expect(markSquare).toThrow(Error);
+  });
 });

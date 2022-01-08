@@ -1,33 +1,32 @@
 /* eslint-disable max-lines */
-import { prepareExternalCharData } from './prepareExternalCharData';
-import { isValidExternalCharData } from '../validators/isValidExternalCharData';
-
+import { prepareExternalCharData } from "./prepareExternalCharData";
+import { isValidExternalCharData } from "../validators/isValidExternalCharData";
 
 // DeepCopy should support int, string, float
-describe('prepareExternalCharData script', () => {
-	const validInternalData = {
-    name: 'Example',
-    moveType: 'STATIC',
-    type: 'NPC',
+describe("prepareExternalCharData script", () => {
+  const validInternalData = {
+    name: "Example",
+    moveType: "STATIC",
+    type: "NPC",
     monologs: [
       {
-        content: 'i like juice',
-        id: '74c44f4d-7c91-4d3b-ad6c-9d5c39c5e83f'
+        content: "i like juice",
+        id: "74c44f4d-7c91-4d3b-ad6c-9d5c39c5e83f"
       }
     ],
     dialogs: [
       {
-        npc: 'xd',
+        npc: "xd",
         player: [
           {
-            dialog: 'fawaf',
-            next: '623eae8f-cf4f-4a2a-b77a-ea8442c56687',
-            action: 'ada',
-            condition: '',
-            id: '730430d2-534d-4694-9cf3-5bbb90e27407'
+            dialog: "fawaf",
+            next: "623eae8f-cf4f-4a2a-b77a-ea8442c56687",
+            action: "ada",
+            condition: "",
+            id: "730430d2-534d-4694-9cf3-5bbb90e27407"
           }
         ],
-        id: '83766837-c8f7-44ee-867b-139f9e22d112'
+        id: "83766837-c8f7-44ee-867b-139f9e22d112"
       }
     ],
     statistics: {
@@ -53,178 +52,178 @@ describe('prepareExternalCharData script', () => {
         max: 130
       }
     },
-    internalId: '58cc2998-9dfa-4905-b6e3-d12fa14af3f6',
+    internalId: "58cc2998-9dfa-4905-b6e3-d12fa14af3f6",
     fieldDiameter: 0,
-    mobRange: '',
+    mobRange: "",
     isMobAggressive: false,
     hasVisibleLevel: true,
-    charPic: 'charpicblob'
+    charPic: "charpicblob"
   };
 
   const externalData: any = prepareExternalCharData(validInternalData);
 
-  it('is a function', () => {
-		expect(typeof prepareExternalCharData).toBe('function');
+  it("is a function", () => {
+    expect(typeof prepareExternalCharData).toBe("function");
   });
 
-	it('Check valid data', () => {
-		expect(isValidExternalCharData(externalData)).toBe(true);
+  it("Check valid data", () => {
+    expect(isValidExternalCharData(externalData)).toBe(true);
   });
 
-  it('Check a lack of attackRange', () => {
-		expect(externalData.statistics.attackRange).toBe(undefined);
+  it("Check a lack of attackRange", () => {
+    expect(externalData.statistics.attackRange).toBe(undefined);
   });
 
-  it('Check a lack of attackSpeed', () => {
-		expect(externalData.statistics.attackSpeed).toBe(undefined);
+  it("Check a lack of attackSpeed", () => {
+    expect(externalData.statistics.attackSpeed).toBe(undefined);
   });
 
-  it('Check a lack of timeOfOccurance', () => {
-		expect(externalData.settings.timeOfOccurance).toBe(undefined);
+  it("Check a lack of timeOfOccurance", () => {
+    expect(externalData.settings.timeOfOccurance).toBe(undefined);
   });
 
-  it('Check a lack of respTime', () => {
-		expect(externalData.settings.respTime).toBe(undefined);
+  it("Check a lack of respTime", () => {
+    expect(externalData.settings.respTime).toBe(undefined);
   });
 
-  it('Check a lack of internalId', () => {
-		expect(externalData.internalId).toBe(undefined);
+  it("Check a lack of internalId", () => {
+    expect(externalData.internalId).toBe(undefined);
   });
 
-  it('Check a lack of fieldDiameter', () => {
-		expect(externalData.fieldDiameter).toBe(undefined);
+  it("Check a lack of fieldDiameter", () => {
+    expect(externalData.fieldDiameter).toBe(undefined);
   });
 
-  it('Check a lack of mobRange', () => {
-		expect(externalData.mobRange).toBe(undefined);
+  it("Check a lack of mobRange", () => {
+    expect(externalData.mobRange).toBe(undefined);
   });
 
-  it('Check a lack of isMobAggressive', () => {
-		expect(externalData.isMobAggressive).toBe(undefined);
+  it("Check a lack of isMobAggressive", () => {
+    expect(externalData.isMobAggressive).toBe(undefined);
   });
 
-  it('Check a lack of hasVisibleLevel', () => {
-		expect(externalData.hasVisibleLevel).toBe(undefined);
+  it("Check a lack of hasVisibleLevel", () => {
+    expect(externalData.hasVisibleLevel).toBe(undefined);
   });
 
-  it('Check a lack of charPic', () => {
-		expect(externalData.charPic).toBe(undefined);
+  it("Check a lack of charPic", () => {
+    expect(externalData.charPic).toBe(undefined);
   });
 
-  it('Check a lack of charPic', () => {
-		expect(externalData.charPic).toBe(undefined);
+  it("Check a lack of charPic", () => {
+    expect(externalData.charPic).toBe(undefined);
   });
 
-  it('Check char_pic value', () => {
-		expect(externalData.char_pic).toBe('charpicblob');
+  it("Check char_pic value", () => {
+    expect(externalData.char_pic).toBe("charpicblob");
   });
 
-  it('Check has_visible_level value', () => {
-		expect(externalData.has_visible_level).toBe(true);
+  it("Check has_visible_level value", () => {
+    expect(externalData.has_visible_level).toBe(true);
   });
 
-  it('Check is_mob_aggressive value', () => {
-		expect(externalData.is_mob_aggressive).toBe(false);
+  it("Check is_mob_aggressive value", () => {
+    expect(externalData.is_mob_aggressive).toBe(false);
   });
 
-  it('Check mob_range value', () => {
-		expect(externalData.mob_range).toBe('');
+  it("Check mob_range value", () => {
+    expect(externalData.mob_range).toBe("");
   });
 
-  it('Check field_diameter value', () => {
-		expect(externalData.field_diameter).toBe(0);
+  it("Check field_diameter value", () => {
+    expect(externalData.field_diameter).toBe(0);
   });
 
-  it('Check _id value', () => {
-		expect(externalData._id).toBe('58cc2998-9dfa-4905-b6e3-d12fa14af3f6');
+  it("Check _id value", () => {
+    expect(externalData._id).toBe("58cc2998-9dfa-4905-b6e3-d12fa14af3f6");
   });
 
-  it('Check time_of_occurance value', () => {
-		expect(externalData.settings.time_of_occurance).toEqual({
-      'min': 0,
-      'max': 24
+  it("Check time_of_occurance value", () => {
+    expect(externalData.settings.time_of_occurance).toEqual({
+      min: 0,
+      max: 24
     });
   });
 
-  it('Check resp_time value', () => {
-		expect(externalData.settings.resp_time).toEqual({
-      'min': 60,
-      'max': 130
+  it("Check resp_time value", () => {
+    expect(externalData.settings.resp_time).toEqual({
+      min: 60,
+      max: 130
     });
   });
 
-  it('Check level value', () => {
-		expect(externalData.statistics.level).toBe(1);
+  it("Check level value", () => {
+    expect(externalData.statistics.level).toBe(1);
   });
 
-  it('Check health value', () => {
-		expect(externalData.statistics.health).toBe(1000);
+  it("Check health value", () => {
+    expect(externalData.statistics.health).toBe(1000);
   });
 
-  it('Check attack value', () => {
-		expect(externalData.statistics.attack).toBe(0);
+  it("Check attack value", () => {
+    expect(externalData.statistics.attack).toBe(0);
   });
 
-  it('Check defence value', () => {
-		expect(externalData.statistics.defence).toBe(0);
+  it("Check defence value", () => {
+    expect(externalData.statistics.defence).toBe(0);
   });
 
-  it('Check strength value', () => {
-		expect(externalData.statistics.strength).toBe(0);
+  it("Check strength value", () => {
+    expect(externalData.statistics.strength).toBe(0);
   });
 
-  it('Check dexterity value', () => {
-		expect(externalData.statistics.dexterity).toBe(0);
+  it("Check dexterity value", () => {
+    expect(externalData.statistics.dexterity).toBe(0);
   });
 
-  it('Check inteligence value', () => {
-		expect(externalData.statistics.inteligence).toBe(0);
+  it("Check inteligence value", () => {
+    expect(externalData.statistics.inteligence).toBe(0);
   });
 
-  it('Check jink value', () => {
-		expect(externalData.statistics.jink).toBe(0);
+  it("Check jink value", () => {
+    expect(externalData.statistics.jink).toBe(0);
   });
 
-  it('Check speed value', () => {
-		expect(externalData.statistics.speed).toBe(0);
+  it("Check speed value", () => {
+    expect(externalData.statistics.speed).toBe(0);
   });
 
-  it('Check attack_range value', () => {
-		expect(externalData.statistics.attack_range).toBe(0);
+  it("Check attack_range value", () => {
+    expect(externalData.statistics.attack_range).toBe(0);
   });
 
-  it('Check attack_speed value', () => {
-		expect(externalData.statistics.attack_speed).toBe(100);
+  it("Check attack_speed value", () => {
+    expect(externalData.statistics.attack_speed).toBe(100);
   });
 
-  it('Check dialogs value', () => {
-		expect(externalData.dialogs).toEqual([
+  it("Check dialogs value", () => {
+    expect(externalData.dialogs).toEqual([
       {
-        npc: 'xd',
+        npc: "xd",
         player: [
           {
-            dialog: 'fawaf',
-            next: '623eae8f-cf4f-4a2a-b77a-ea8442c56687',
-            action: 'ada',
-            condition: '',
-            _id: '730430d2-534d-4694-9cf3-5bbb90e27407'
+            dialog: "fawaf",
+            next: "623eae8f-cf4f-4a2a-b77a-ea8442c56687",
+            action: "ada",
+            condition: "",
+            _id: "730430d2-534d-4694-9cf3-5bbb90e27407"
           }
         ],
-        _id: '83766837-c8f7-44ee-867b-139f9e22d112'
+        _id: "83766837-c8f7-44ee-867b-139f9e22d112"
       }
     ]);
   });
 
-  it('Check monologs value', () => {
-		expect(externalData.monologs).toEqual([
+  it("Check monologs value", () => {
+    expect(externalData.monologs).toEqual([
       {
-        content: 'i like juice',
-        _id: '74c44f4d-7c91-4d3b-ad6c-9d5c39c5e83f'
+        content: "i like juice",
+        _id: "74c44f4d-7c91-4d3b-ad6c-9d5c39c5e83f"
       }
     ]);
   });
 
-  it('Check if added author', () => {
-    expect(typeof externalData.author).toBe('string');
+  it("Check if added author", () => {
+    expect(typeof externalData.author).toBe("string");
   });
 });

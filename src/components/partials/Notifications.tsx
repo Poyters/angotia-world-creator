@@ -1,36 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { IStore } from '../../interfaces/store.interface';
-import uuid from 'uuid/v4';
-import { Notification } from '../../models/notification.model';
-
+import React from "react";
+import { useSelector } from "react-redux";
+import { IStore } from "../../interfaces/store.interface";
+import uuid from "uuid/v4";
+import { Notification } from "../../models/notification.model";
 
 export const Notifications = () => {
-	const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
+  const actionNotes = useSelector((state: IStore) => state.ui.actionNote);
 
-	const generateNotesList = () => {
-		if (!Array.isArray(actionNotes)) return [];
-		
-		const contentToRender = actionNotes?.map(note => {
-			const specialClass = note.type === Notification.error ? 
-				'notifications__note--error' : '';
+  const generateNotesList = () => {
+    if (!Array.isArray(actionNotes)) return [];
 
-			return (
-				<li 
-					key={uuid()}
-					className={`notifications__note ${specialClass}`}
-				>
-					{ note.text }
-				</li>				
-			);
-		});
+    const contentToRender = actionNotes?.map(note => {
+      const specialClass =
+        note.type === Notification.error ? "notifications__note--error" : "";
 
-		return contentToRender;
-	};
+      return (
+        <li key={uuid()} className={`notifications__note ${specialClass}`}>
+          {note.text}
+        </li>
+      );
+    });
 
-	return (
-		<ul className="notifications">
-			{ generateNotesList() }
-		</ul>
-	);
+    return contentToRender;
+  };
+
+  return <ul className="notifications">{generateNotesList()}</ul>;
 };

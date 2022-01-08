@@ -1,14 +1,13 @@
-import { store } from '../../index';
-import mapConfig from '../../assets/configs/map.config.json';
-import { changeMapSelectMatrix } from '../../store/actions/uiActions';
-import { IPoint } from '../../interfaces/math.interface';
-import { IStore } from '../../interfaces/store.interface';
-import { Canvas } from '../../models/canvas.model';
-import { SelectType } from '../../models/selectType.model';
-
+import { store } from "../../index";
+import mapConfig from "../../assets/configs/map.config.json";
+import { changeMapSelectMatrix } from "../../store/actions/uiActions";
+import { IPoint } from "../../interfaces/math.interface";
+import { IStore } from "../../interfaces/store.interface";
+import { Canvas } from "../../models/canvas.model";
+import { SelectType } from "../../models/selectType.model";
 
 export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
-  const map = document.getElementById('map');
+  const map = document.getElementById("map");
   let mapLeft = map ? parseInt(map.style.left) : 0;
   let mapTop = map ? parseInt(map.style.top) : 0;
 
@@ -16,13 +15,12 @@ export const selectFieldsHandler = (event: React.MouseEvent<HTMLElement>) => {
   if (isNaN(mapTop)) mapTop = 0;
 
   const cursorPosition: IPoint = {
-    x: event.clientX - mapLeft, 
+    x: event.clientX - mapLeft,
     y: event.clientY - mapTop
   };
 
   selectField(cursorPosition);
 };
-
 
 const selectField = (cursorPosition: IPoint) => {
   const storeData: IStore = store.getState();
@@ -36,13 +34,12 @@ const selectField = (cursorPosition: IPoint) => {
   };
 
   if (
-    (!mapNetsStatus.field && 
-    !mapNetsStatus.square) || 
+    (!mapNetsStatus.field && !mapNetsStatus.square) ||
     selectType === SelectType.none
-  ) return; // no nets, no select
+  )
+    return; // no nets, no select
 
-
-  switch(selectType) {
+  switch (selectType) {
     case SelectType.field:
       positionDelta = {
         x: Math.floor(cursorPosition.x / fieldSize),
@@ -50,7 +47,7 @@ const selectField = (cursorPosition: IPoint) => {
       };
 
       selectCanvasField(selectMatrix, positionDelta);
-    break;
+      break;
     case SelectType.square:
       positionDelta = {
         x: Math.floor(cursorPosition.x / (fieldSize / 2)),
@@ -58,25 +55,24 @@ const selectField = (cursorPosition: IPoint) => {
       };
 
       selectCanvasSquare(selectMatrix, positionDelta);
-    break;
+      break;
     case SelectType.mouse:
       return; // Listener are applied on Map component initialization
     default:
-      throw new Error('Invalid select map type.');
+      throw new Error("Invalid select map type.");
   }
 
   store.dispatch(changeMapSelectMatrix(selectMatrix));
   colorChecked(positionDelta, selectType);
 };
 
-
 const colorChecked = (positionDelta: IPoint, type: string) => {
   const canvas: any = document.getElementById(Canvas.select);
-  const ctx: any = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
   let fieldSize = mapConfig.map.fieldSize;
 
   if (type === SelectType.square) fieldSize = fieldSize / 2;
-  
+
   const posX = positionDelta.x * fieldSize;
   const posY = positionDelta.y * fieldSize;
 
@@ -86,13 +82,13 @@ const colorChecked = (positionDelta: IPoint, type: string) => {
   ctx.stroke();
 };
 
-
 export const selectCanvasSquare = (
-  selectMatrix: Array<any>, squarePosition: IPoint
+  selectMatrix: number[][][][],
+  squarePosition: IPoint
 ) => {
-  // squarePosition determines x and y axis 
+  // squarePosition determines x and y axis
   // of squares, eg. x: 2, y: 4 and it fill to field x: 1, y: 2
-  
+
   const fieldPosition: IPoint = {
     x: Math.floor(squarePosition.x / 2),
     y: Math.floor(squarePosition.y / 2)
@@ -103,11 +99,15 @@ export const selectCanvasSquare = (
     y: Math.floor(squarePosition.y % 2)
   };
 
-  selectMatrix[fieldPosition.y][fieldPosition.x][squareDelta.y][squareDelta.x] = 1;
+  selectMatrix[fieldPosition.y][fieldPosition.x][squareDelta.y][
+    squareDelta.x
+  ] = 1;
 };
 
-
-export const selectCanvasField = (selectMatrix: Array<any>, fieldPosition: IPoint) => {
+export const selectCanvasField = (
+  selectMatrix: number[][][][],
+  fieldPosition: IPoint
+) => {
   selectMatrix[fieldPosition.y][fieldPosition.x] = [
     [1, 1],
     [1, 1]
