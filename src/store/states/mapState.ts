@@ -1,4 +1,4 @@
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { IMapState } from "../../interfaces/mapState.interface";
 
 export const mapState: IMapState = {

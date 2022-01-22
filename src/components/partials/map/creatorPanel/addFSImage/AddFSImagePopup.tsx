@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import mapConfig from "../../../../../assets/configs/map.config.json";
 import { sizeGuard } from "../../../../../scripts/files/sizeGuard";
 import { IPopup } from "../../../../../interfaces/popup.interface";

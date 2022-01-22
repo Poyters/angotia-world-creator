@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { IStore } from "../../interfaces/store.interface";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { Notification } from "../../models/notification.model";
 
 export const Notifications = () => {

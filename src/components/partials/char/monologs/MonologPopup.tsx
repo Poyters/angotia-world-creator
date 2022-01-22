@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { ActionInputField } from "../../ActionInputField";
 import { changeMonologs } from "../../../../store/actions/charActions";
 import { addNotification } from "../../../../scripts/utils/notifications";

@@ -1,6 +1,6 @@
 import React, { useState, CSSProperties } from "react";
 import { useSelector } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import mapConfig from "../../../../assets/configs/map.config.json";
 import { markSquare } from "../../../../scripts/matrix/markSquare";
 import { deepCopy } from "../../../../scripts/utils/deepCopy";

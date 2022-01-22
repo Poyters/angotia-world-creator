@@ -6,7 +6,7 @@ import { findConnectedDialog } from "../../../../scripts/dialogs/findConnectedDi
 import { DialogPopup } from "./DialogPopup";
 import { IDialog } from "../../../../interfaces/dialogs.interface";
 import { IStore } from "../../../../interfaces/store.interface";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { useTranslation } from "react-i18next";
 
 export const Dialogs = () => {

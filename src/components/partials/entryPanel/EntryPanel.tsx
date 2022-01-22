@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AppModules } from "../../../models/appModules.model";
 import { LoadPopup } from "./LoadPopup";
 import { CreateChar } from "./CreateChar";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { CreateMap } from "./CreateMap";
 import { useTranslation } from "react-i18next";
 import routesConfig from "../../../assets/configs/routes.config.json";

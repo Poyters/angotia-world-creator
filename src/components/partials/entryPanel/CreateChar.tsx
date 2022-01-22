@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { loadCharData } from "../../../store/actions/charActions";
 import { charState } from "../../../store/states/charState";
 import { deepCopy } from "../../../scripts/utils/deepCopy";

@@ -4,7 +4,7 @@ import { ALL_CHARS_BASE_INFO } from "../../../api/angotiaResources/queries/char/
 import { GET_CHAR } from "../../../api/angotiaResources/queries/char/getChar";
 import { loadCharData } from "../../../store/actions/charActions";
 import { useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { useHistory } from "react-router-dom";
 import { prepareInternalCharData } from "../../../scripts/parsers/prepareInternalCharData";
 import { isValidExternalCharData } from "../../../scripts/validators/isValidExternalCharData";

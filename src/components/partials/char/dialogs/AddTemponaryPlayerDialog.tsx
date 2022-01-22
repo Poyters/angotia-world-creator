@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { PlayerDialog } from "./PlayerDialog";
 import { changeTemponaryPlayerDialogs } from "../../../../store/actions/charActions";
 import { IPlayer } from "../../../../interfaces/dialogs.interface";

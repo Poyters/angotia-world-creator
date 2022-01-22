@@ -3,7 +3,7 @@ import { useQuery, useLazyQuery } from "@apollo/react-hooks";
 import { GET__REQ_MAPS_BY_AUTHOR } from "../../../api/angotiaResources/queries/map/getReqMapsByAuthor";
 import { GET_REQ_MAP } from "../../../api/angotiaResources/queries/map/getReqMap";
 import { useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { prepareInternalMapData } from "../../../scripts/parsers/prepareInternalMapData";
 import { loadMapData } from "../../../store/actions/mapActions";
 import { isValidExternalMapData } from "../../../scripts/validators/isValidExternalMapData";

@@ -1,4 +1,4 @@
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { ICharState } from "../../interfaces/charState.interface";
 import { CharType } from "../../models/charType.model";
 import { CharMoveType } from "../../models/charMoveType.model";

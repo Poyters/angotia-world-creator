@@ -1,7 +1,7 @@
 import { store } from "../../index";
 import { changeInternalImagesData } from "../../store/actions/mapActions";
 import { deepCopy } from "./../utils/deepCopy";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { IStore } from "../../interfaces/store.interface";
 import { IInternalImageData } from "../../interfaces/images.interface";
 import { MapPicData } from "../../models/mapPicData.model";

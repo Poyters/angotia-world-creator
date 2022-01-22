@@ -4,7 +4,7 @@ import { GET__REQ_CHARS_BY_AUTHOR } from "../../../api/angotiaResources/queries/
 import { GET_REQ_CHAR } from "../../../api/angotiaResources/queries/char/getReqChar";
 import { loadCharData } from "../../../store/actions/charActions";
 import { useDispatch } from "react-redux";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { prepareInternalCharData } from "../../../scripts/parsers/prepareInternalCharData";
 import { isValidExternalCharData } from "../../../scripts/validators/isValidExternalCharData";
 import { addNotification } from "../../../scripts/utils/notifications";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import uuid from "uuid/v4";
+import { v4 as uuid } from "uuid";
 import { useSelector, useDispatch } from "react-redux";
 import { IStore } from "../../../interfaces/store.interface";
 import { MapSizeInput } from "./MapSizeInput";
