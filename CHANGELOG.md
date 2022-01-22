@@ -1,13 +1,16 @@
 ## Changelog
 
 ### Version 1.4.0 (planned February 2022)
+
 - AWC-303, Add LoadingBar
-- AWC-308, 
+- AWC-308, Update npm packages
 
 ### Version 1.3.1 (07 July 2021)
+
 - AWC-301, Fix a lack of passage destination
 
 ### Version 1.3.0 (07 July 2021)
+
 - AWC-296, Fix some wrong specifements of chars
 - AWC-294, Rename subsoil to terrain
 - AWC-264, Add more unit tests to matrix transformations and user creation
@@ -17,6 +20,7 @@
 - AWC-284, Update React Router DOM
 
 ### Version 1.2.0 (16 June 2021)
+
 - AWC-221, Rewrite current translation system to i18n
 - AWC-219, Add more EsLint rules
 - AWC-291, Delete adding blobs to internal images cache during transforming content list to matrix (make loading map faster about 70%)
@@ -45,6 +49,7 @@
 - Switch from production to requested data type in Angotia Catalogs API
 
 ### Version 1.1.0 (24 September 2020)
+
 - Rename Angotia Map Creator to Angotia World Creator
 - Fix go to features menu item in help view
 - Delete express api
@@ -59,8 +64,8 @@
 - Validate Locations (passage and weight vertex) during parsing process
 - Delete explicit image blobs in matrices (internal map data) and keep only one copy of each blob with internal Ids. It makes updation matrices faster about 20% and decrease weight of internal map data about 50%
 
-
 ### Version 1.0.0 (17 July 2020)
+
 - Add multiple options to save maps and chars (production DB or local json)
 - Add possibility to update production chars and maps
 - User can accept popups by press `Enter` button on keyboard
@@ -82,8 +87,8 @@
 - Create guard for max size added images
 - Create SE map layer
 
-
 ### Version beta 1.0.0 (10 March 2020)
+
 - Add conditionally dialogs
 - User can add actions to player or dialog
 - User can create, edit and delete a whole dialog or only player response
@@ -110,9 +115,9 @@
 - User can save map to JSON file
 - User can add background image
 
-
 ### Version alpha 1.0.0 (8 September 2019)
-- Switch to web app 
+
+- Switch to web app
 - Switch map visualization from divs to canvas
 - Add vertex weights
 - Shows alt messages on menu items
@@ -132,9 +137,9 @@
 - Create three ways select option
 - Create layers system
 
-
 ### Prototype 1.0.0 (30 December 2018)
-- Create entry panel 
+
+- Create entry panel
 - Create base routing to /creator
 - Add menu bar
 - Generate map by divs
