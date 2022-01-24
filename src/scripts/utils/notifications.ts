@@ -2,7 +2,7 @@ import { store } from "../../index";
 import { setNotification } from "../../store/actions/uiActions";
 import appConfig from "../../assets/configs/app.config.json";
 import { deepCopy } from "./deepCopy";
-import { INote } from "../../interfaces/notifications.interface";
+import { INote } from "../../interfaces/note.interface";
 
 export const addNotification = (note: string, messageType?: string) => {
   const activeNotes: INote[] = deepCopy(store.getState().ui.actionNote);
@@ -12,7 +12,7 @@ export const addNotification = (note: string, messageType?: string) => {
 
   activeNotes.unshift({
     text: note,
-    type: messageType ? messageType : undefined
+    type: messageType ? messageType : ""
   });
 
   store.dispatch(setNotification(activeNotes));

@@ -1,6 +1,5 @@
-import { ISquareData } from './square.interface';
-
+import { ISquareData } from "./square.interface";
 
 export interface IVertexWeight extends ISquareData {
-    weight: number
+  weight: number;
 }

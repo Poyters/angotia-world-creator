@@ -1,5 +1,5 @@
 import { IMapNetStatus } from "../../interfaces/map.interface";
-import { INote } from "../../interfaces/notifications.interface";
+import { INote } from "../../interfaces/note.interface";
 
 export const setNotification = (notifications: INote[]) => ({
   type: "CHANGE_ACTION_NOTIFICATION",
