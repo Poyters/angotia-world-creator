@@ -46,4 +46,5 @@ export interface IExternalMap {
   };
   visibility_range: number;
   images: IInternalImageData[];
+  author: string;
 }
