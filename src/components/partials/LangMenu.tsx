@@ -1,13 +1,12 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export const LangMenu = () => {
   const { i18n } = useTranslation();
 
   const getLanguage = () => i18n.language || window.localStorage.i18nextLng;
 
-  const changeLanguage = (lng) => {
+  const changeLanguage = lng => {
     i18n.changeLanguage(lng);
   };
 
@@ -15,22 +14,22 @@ export const LangMenu = () => {
     <aside className="labelMark labelMark--langs t-paragraph5Normal">
       <button
         type="button"
-        onClick={() => changeLanguage('en')}
-        className={getLanguage() === 'en' ?'labelMark--lang' : ''}
+        onClick={() => changeLanguage("en")}
+        className={getLanguage() === "en" ? "labelMark--lang" : ""}
       >
         en
       </button>
-      <button 
+      <button
         type="button"
-        onClick={() => changeLanguage('pl')}
-        className={getLanguage() === 'pl' ?'labelMark--lang' : ''}
+        onClick={() => changeLanguage("pl")}
+        className={getLanguage() === "pl" ? "labelMark--lang" : ""}
       >
         pl
       </button>
-      <button 
+      <button
         type="button"
-        onClick={() => changeLanguage('fr')}
-        className={getLanguage() === 'fr' ?'labelMark--lang' : ''}
+        onClick={() => changeLanguage("fr")}
+        className={getLanguage() === "fr" ? "labelMark--lang" : ""}
       >
         fr
       </button>

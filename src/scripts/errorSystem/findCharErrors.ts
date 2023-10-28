@@ -1,14 +1,13 @@
-import { store } from '../../index';
-import { IStore } from '../../interfaces/store.interface';
-import { ICharState } from '../../interfaces/charState.interface';
-import errorSystemConfig from '../../assets/configs/errorSystem.config.json';
-import { CharCreationError } from '../../models/charCreationError.model';
-import { changeCharCreationErrors } from '../../store/actions/uiActions';
-import { log } from '../utils/log';
-
+import { store } from "../../index";
+import { IStore } from "../../interfaces/store.interface";
+import { ICharState } from "../../interfaces/charState.interface";
+import errorSystemConfig from "../../assets/configs/errorSystem.config.json";
+import { CharCreationError } from "../../models/charCreationError.model";
+import { changeCharCreationErrors } from "../../store/actions/uiActions";
+import { log } from "../utils/log";
 
 export const findCharErrors = () => {
-  log('FIND_CHAR_ERRORS');
+  log("FIND_CHAR_ERRORS");
 
   const storeData = store.getState() as IStore;
   const charState: ICharState = storeData.char;
@@ -19,7 +18,7 @@ export const findCharErrors = () => {
     occuredErrors.push(CharCreationError.minNameLength);
   } else if (charState.name.length > rules.name.length.max) {
     occuredErrors.push(CharCreationError.maxNameLength);
-  } else if (!charState.charPic || charState.charPic === '') {
+  } else if (!charState.charPic || charState.charPic === "") {
     occuredErrors.push(CharCreationError.isCharPic);
   }
 
@@ -97,13 +96,22 @@ export const findCharErrors = () => {
 
   if (charState.settings.timeOfOccurance.min < rules.timeOfOccurance.min) {
     occuredErrors.push(CharCreationError.minTimeOfOccuranceMin);
-  } else if (charState.settings.timeOfOccurance.min > rules.timeOfOccurance.max) {
+  } else if (
+    charState.settings.timeOfOccurance.min > rules.timeOfOccurance.max
+  ) {
     occuredErrors.push(CharCreationError.maxTimeOfOccuranceMin);
-  } else if (charState.settings.timeOfOccurance.max < rules.timeOfOccurance.min) {
+  } else if (
+    charState.settings.timeOfOccurance.max < rules.timeOfOccurance.min
+  ) {
     occuredErrors.push(CharCreationError.minTimeOfOccuranceMax);
-  } else if (charState.settings.timeOfOccurance.max > rules.timeOfOccurance.max) {
+  } else if (
+    charState.settings.timeOfOccurance.max > rules.timeOfOccurance.max
+  ) {
     occuredErrors.push(CharCreationError.maxTimeOfOccuranceMax);
-  } else if (charState.settings.timeOfOccurance.min >= charState.settings.timeOfOccurance.max) {
+  } else if (
+    charState.settings.timeOfOccurance.min >=
+    charState.settings.timeOfOccurance.max
+  ) {
     occuredErrors.push(CharCreationError.minMaxTimeOfOccurance);
   } else if (!Number.isInteger(+charState.settings.timeOfOccurance.min)) {
     occuredErrors.push(CharCreationError.isIntegerTimeOfOccuranceMin);
@@ -119,7 +127,9 @@ export const findCharErrors = () => {
     occuredErrors.push(CharCreationError.minRespTimeMax);
   } else if (charState.settings.respTime.max > rules.respTime.max) {
     occuredErrors.push(CharCreationError.maxRespTimeMax);
-  } else if (charState.settings.respTime.min >= charState.settings.respTime.max) {
+  } else if (
+    charState.settings.respTime.min >= charState.settings.respTime.max
+  ) {
     occuredErrors.push(CharCreationError.minMaxRespTime);
   } else if (!Number.isInteger(+charState.settings.respTime.min)) {
     occuredErrors.push(CharCreationError.isIntegerRespTimeMin);

@@ -1,4 +1,4 @@
 export enum CharMoveType {
-  static = 'STATIC',
-  moving = 'MOVING'
+  static = "STATIC",
+  moving = "MOVING"
 }

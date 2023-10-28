@@ -1,20 +1,22 @@
-import { store } from '../../index';
-import mapConfig from '../../assets/configs/map.config.json';
-import { colorBasedOnMatrix } from '../matrix/colorBasedOnMatrix';
-import { deepCopy } from '../utils/deepCopy';
-import { IStore } from '../../interfaces/store.interface';
-import { Canvas } from '../../models/canvas.model';
-import { MatrixFillColor } from '../../models/matrixFillColor.model';
-import { log } from '../utils/log';
-
+import { store } from "../../index";
+import mapConfig from "../../assets/configs/map.config.json";
+import { colorBasedOnMatrix } from "../matrix/colorBasedOnMatrix";
+import { deepCopy } from "../utils/deepCopy";
+import { IStore } from "../../interfaces/store.interface";
+import { Canvas } from "../../models/canvas.model";
+import { MatrixFillColor } from "../../models/matrixFillColor.model";
+import { log } from "../utils/log";
+import { toggleBlockingLoading } from "../../store/actions/uiActions";
 
 const blockSquaresColor = mapConfig.blockSquareColor;
 
 export const drawLoadedMap = () => {
-  log('DRAWING_LOADED_MAP');
+  log("DRAWING_LOADED_MAP");
 
   const storeData = store.getState() as IStore;
-  
+  console.log("HERE1");
+  store.dispatch(toggleBlockingLoading(true));
+
   const blockMatrix = deepCopy(storeData.map.blockMatrix);
   const passageMatrix = deepCopy(storeData.map.passage.matrix);
   const buildingMatrix = deepCopy(storeData.map.building.matrix);
@@ -27,75 +29,58 @@ export const drawLoadedMap = () => {
 
   // Draw block fields
   colorBasedOnMatrix(
-    blockMatrix, 
-    Canvas.block, 
-    blockSquaresColor, 
+    blockMatrix,
+    Canvas.block,
+    blockSquaresColor,
     MatrixFillColor.barrier
   );
 
   // Draw passages
   colorBasedOnMatrix(
-    passageMatrix, 
-    Canvas.passage, 
-    '', 
+    passageMatrix,
+    Canvas.passage,
+    "",
     MatrixFillColor.passage
   );
 
   // Draw buildings
   colorBasedOnMatrix(
-    buildingMatrix, 
-    Canvas.building, 
-    '', 
+    buildingMatrix,
+    Canvas.building,
+    "",
     MatrixFillColor.image
   );
 
   // Draw decorations
   colorBasedOnMatrix(
-    decorationMatrix, 
-    Canvas.decoration, 
-    '', 
+    decorationMatrix,
+    Canvas.decoration,
+    "",
     MatrixFillColor.image
   );
 
   // Draw terrain
-  colorBasedOnMatrix(
-    terrainMatrix, 
-    Canvas.terrain, 
-    '', 
-    MatrixFillColor.image
-  );
+  colorBasedOnMatrix(terrainMatrix, Canvas.terrain, "", MatrixFillColor.image);
 
   // Draw NPCs
-  colorBasedOnMatrix(
-    npcMatrix, 
-    Canvas.npc, 
-    '', 
-    MatrixFillColor.image
-  );
+  colorBasedOnMatrix(npcMatrix, Canvas.npc, "", MatrixFillColor.image);
 
   // Draw MOBs
-  colorBasedOnMatrix(
-    mobMatrix, 
-    Canvas.mob, 
-    '', 
-    MatrixFillColor.image
-  );
+  colorBasedOnMatrix(mobMatrix, Canvas.mob, "", MatrixFillColor.image);
 
   // Draw vertex weights
   colorBasedOnMatrix(
-    vertexWeightMatrix, 
+    vertexWeightMatrix,
     Canvas.vertexWeight,
-    '', 
+    "",
     MatrixFillColor.vertexWeight
   );
 
   // Draw se
-  colorBasedOnMatrix(
-    seMatrix, 
-    Canvas.se,
-    '', 
-    MatrixFillColor.image
-  );
+  colorBasedOnMatrix(seMatrix, Canvas.se, "", MatrixFillColor.image);
 
-  log('DRAWED_LOADED_MAP');
+  setTimeout(() => {
+    store.dispatch(toggleBlockingLoading(false));
+  }, 100);
+  log("DRAWED_LOADED_MAP");
 };

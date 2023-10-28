@@ -1,3 +1,3 @@
 export interface IPopup {
-  isActivePopup: Function
+  isActivePopup: Function;
 }

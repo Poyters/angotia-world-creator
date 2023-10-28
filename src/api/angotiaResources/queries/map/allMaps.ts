@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const ALL_MAPS = gql`
   {
@@ -129,6 +128,5 @@ export const ALL_MAPS = gql`
         }
       }
     }
-
   }
 `;

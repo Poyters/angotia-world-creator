@@ -1,15 +1,15 @@
-import mapConfig from '../../assets/configs/map.config.json';
-import { deepCopy } from '../utils/deepCopy';
-import { drawCross, drawTriangle } from '../draw/drawShape';
-import { makeImage } from '../draw/makeImage';
-import passagePicPath from '../../assets/images/passage.png';
-import { findPicBlob } from '../utils/findPicBlob';
-import { IStore } from '../../interfaces/store.interface';
-import { store } from '../../index';
-import { MatrixFillColor } from '../../models/matrixFillColor.model';
-import { ICachedImage } from '../../interfaces/images.interface';
-import { log } from '../utils/log';
-
+/* eslint-disable no-case-declarations */
+import mapConfig from "../../assets/configs/map.config.json";
+import { deepCopy } from "../utils/deepCopy";
+import { drawCross, drawTriangle } from "../draw/drawShape";
+import { makeImage } from "../draw/makeImage";
+import passagePicPath from "../../assets/images/passage.png";
+import { findPicBlob } from "../utils/findPicBlob";
+import { IStore } from "../../interfaces/store.interface";
+import { store } from "../../index";
+import { MatrixFillColor } from "../../models/matrixFillColor.model";
+import { ICachedImage } from "../../interfaces/images.interface";
+import { log } from "../utils/log";
 
 const fieldSize: number = mapConfig.map.fieldSize;
 const squareSize: number = mapConfig.map.fieldSize / 2;
@@ -21,11 +21,11 @@ export const colorBasedOnMatrix = (
   color: string,
   specialView?: string
 ) => {
-  log('COLOR_BASED_ON_MATRIX_START', { canvasId });
+  log("COLOR_BASED_ON_MATRIX_START", { canvasId });
 
   const copyOfmatrix: Array<[]> = deepCopy(matrix);
   const canvas: any = document.getElementById(canvasId);
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas?.getContext("2d");
   const storeData = store.getState() as IStore;
   const internalImages = storeData.map.images;
 
@@ -53,7 +53,7 @@ export const colorBasedOnMatrix = (
               const vertexWeightColor = mapConfig.vertexWeight.color;
 
               drawTriangle(ctx, drawStartX, drawStartY, vertexWeightColor);
-              ctx.fillStyle = '#fff';
+              ctx.fillStyle = "#fff";
               ctx.fillText(square, drawStartX + 10, drawStartY + 18);
               break;
             case MatrixFillColor.image:
@@ -61,19 +61,21 @@ export const colorBasedOnMatrix = (
               const foundImage = cachedImages.filter(imageData => {
                 return imageData.id === square;
               });
-              
+
               // Images are unique, we found max one image
               if (foundImage.length === 1) {
                 image = foundImage[0].object;
               } else {
                 // square is path to image
-                image = makeImage(findPicBlob(square.toString(), internalImages) || ''); 
+                image = makeImage(
+                  findPicBlob(square.toString(), internalImages) || ""
+                );
                 image.onload = () => {
                   cachedImages.push({
                     id: square.toString(),
                     object: image
                   });
-                }; 
+                };
               }
 
               if (image.complete) {
@@ -89,7 +91,7 @@ export const colorBasedOnMatrix = (
               const foundPassage = cachedImages.filter(imageData => {
                 return imageData.id === MatrixFillColor.passage;
               });
-              
+
               // Images are unique, we found max one image
               if (foundPassage.length === 1) {
                 passagePic = foundPassage[0].object;
@@ -100,7 +102,7 @@ export const colorBasedOnMatrix = (
                     id: MatrixFillColor.passage,
                     object: passagePic
                   });
-                }; 
+                };
               }
 
               if (passagePic.complete) {
@@ -125,24 +127,20 @@ export const colorBasedOnMatrix = (
           }
         }
       });
-
     });
   });
 
-  log('COLOR_BASED_ON_MATRIX_END', { canvasId });
+  log("COLOR_BASED_ON_MATRIX_END", { canvasId });
 };
 
 const drawImage = (
-  image: HTMLImageElement, 
+  image: HTMLImageElement,
   ctx: CanvasRenderingContext2D,
   drawStartX: number,
   drawStartY: number,
   index?: number
 ) => {
-  if (
-    image.width <= (fieldSize / 2) &&
-    image.height <= (fieldSize / 2)
-  ) {
+  if (image.width <= fieldSize / 2 && image.height <= fieldSize / 2) {
     ctx.drawImage(image, drawStartX, drawStartY);
   } else if (index === 0) {
     ctx.drawImage(image, drawStartX, drawStartY);

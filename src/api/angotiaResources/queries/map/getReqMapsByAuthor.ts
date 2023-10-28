@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const GET__REQ_MAPS_BY_AUTHOR = gql`
   query RequestedMap($author_id: String!) {

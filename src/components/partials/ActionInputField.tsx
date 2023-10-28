@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { IActionInputField } from '../../interfaces/form.interface';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { IActionInputField } from "../../interfaces/form.interface";
 
-
-export const ActionInputField: React.FC<IActionInputField> = (
-  { label, inputType='text', inputValue='', inputDisabled=false, action, payloadId }
-) => {
+export const ActionInputField: React.FC<IActionInputField> = ({
+  label,
+  inputType = "text",
+  inputValue = "",
+  inputDisabled = false,
+  action,
+  payloadId
+}) => {
   const [currValue, setCurrValue] = useState<string | number>(inputValue);
   const dispatch = useDispatch();
 
@@ -22,11 +26,11 @@ export const ActionInputField: React.FC<IActionInputField> = (
   return (
     <div className="actionInputField">
       <label className="actionInputField__label t-paragraph6Light">
-        { label }
+        {label}
       </label>
-      <input 
-        className="actionInputField__input" 
-        type={inputType} 
+      <input
+        className="actionInputField__input"
+        type={inputType}
         value={currValue}
         disabled={inputDisabled}
         onChange={e => setCurrValue(e.target.value)}

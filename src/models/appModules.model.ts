@@ -1,5 +1,5 @@
 export enum AppModules {
-  map = 'MAP',
-  char = 'CHAR',
-  item = 'ITEM'
+  map = "MAP",
+  char = "CHAR",
+  item = "ITEM"
 }

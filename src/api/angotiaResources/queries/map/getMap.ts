@@ -1,5 +1,4 @@
-import gql from 'graphql-tag';
-
+import gql from "graphql-tag";
 
 export const GET_MAP = gql`
   query Map($id: ID!) {

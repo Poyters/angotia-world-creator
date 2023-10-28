@@ -1,15 +1,14 @@
-import { store } from '../../index';
-import { IStore } from '../../interfaces/store.interface';
-import { IMapState } from '../../interfaces/mapState.interface';
-import errorSystemConfig from '../../assets/configs/errorSystem.config.json';
-import { MapCreationError } from '../../models/mapCreationError.model';
-import { changeMapCreationErrors } from '../../store/actions/uiActions';
-import { countElementsInMatrix } from '../matrix/countElementsInMatrix';
-import { log } from '../utils/log';
-
+import { store } from "../../index";
+import { IStore } from "../../interfaces/store.interface";
+import { IMapState } from "../../interfaces/mapState.interface";
+import errorSystemConfig from "../../assets/configs/errorSystem.config.json";
+import { MapCreationError } from "../../models/mapCreationError.model";
+import { changeMapCreationErrors } from "../../store/actions/uiActions";
+import { countElementsInMatrix } from "../matrix/countElementsInMatrix";
+import { log } from "../utils/log";
 
 export const findMapErrors = () => {
-  log('FIND_MAP_ERRORS');
+  log("FIND_MAP_ERRORS");
 
   const storeData = store.getState() as IStore;
   const mapState: IMapState = storeData.map;
@@ -36,29 +35,34 @@ export const findMapErrors = () => {
   }
 
   if (
-    countElementsInMatrix(mapState.blockMatrix) > 
-    (squareQuantity / rules.block.quantity.max)
-  ) occuredErrors.push(MapCreationError.maxBlockQuantity);
+    countElementsInMatrix(mapState.blockMatrix) >
+    squareQuantity / rules.block.quantity.max
+  )
+    occuredErrors.push(MapCreationError.maxBlockQuantity);
 
   if (
-    countElementsInMatrix(mapState.passage.matrix) > 
-    (squareQuantity / rules.passage.quantity.max)
-  ) occuredErrors.push(MapCreationError.maxPassageQuantity);
+    countElementsInMatrix(mapState.passage.matrix) >
+    squareQuantity / rules.passage.quantity.max
+  )
+    occuredErrors.push(MapCreationError.maxPassageQuantity);
 
   if (
-    countElementsInMatrix(mapState.se.matrix) > 
-    (squareQuantity / rules.se.quantity.max)
-  ) occuredErrors.push(MapCreationError.maxSeQuantity);
+    countElementsInMatrix(mapState.se.matrix) >
+    squareQuantity / rules.se.quantity.max
+  )
+    occuredErrors.push(MapCreationError.maxSeQuantity);
 
   if (
-    countElementsInMatrix(mapState.npc.matrix) > 
-    (squareQuantity / rules.npc.quantity.max)
-  ) occuredErrors.push(MapCreationError.maxNpcQuantity);
+    countElementsInMatrix(mapState.npc.matrix) >
+    squareQuantity / rules.npc.quantity.max
+  )
+    occuredErrors.push(MapCreationError.maxNpcQuantity);
 
   if (
-    countElementsInMatrix(mapState.mob.matrix) > 
-    (squareQuantity / rules.mob.quantity.max)
-  ) occuredErrors.push(MapCreationError.maxMobQuantity);
+    countElementsInMatrix(mapState.mob.matrix) >
+    squareQuantity / rules.mob.quantity.max
+  )
+    occuredErrors.push(MapCreationError.maxMobQuantity);
 
   store.dispatch(changeMapCreationErrors(occuredErrors));
 };

@@ -1,4 +1,4 @@
 export interface INote {
-    text: string
-    type?: string
+  text: string;
+  type?: string;
 }

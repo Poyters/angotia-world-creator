@@ -1,11 +1,11 @@
-import React from 'react';
-import { IMapSizeInput } from '../../../interfaces/map.interface';
-
+import React from "react";
+import { IMapSizeInput } from "../../../interfaces/map.interface";
 
 export const MapSizeInput: React.FC<IMapSizeInput> = ({
-  id, currValue, changeValue
+  id,
+  currValue,
+  changeValue
 }) => {
-
   return (
     <input
       type="text"

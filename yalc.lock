@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "poyters-components": {
+      "signature": "0ae449921a63a3012cb7fe22c23fc16c",
+      "file": true
+    }
+  }
+}
