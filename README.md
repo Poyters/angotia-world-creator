@@ -39,7 +39,41 @@ AWS provides the interface in the following languages:
 
 ## Core concepts of Angotia World Creator
 
+### Modules
+According to DDD rules I divided the code of Angotia World Creator into a three smaller modules: *Map, Char, Item*. Thanks to that, each module has it's own context, design and specific rules.
+
+### Drawing on the screen
+Drawing and rendering the map is based on matrix data structures and is built into HTML5 Canvas. The map is divided into several layers (transitions, blocked fields, characters, etc.). Each layer has its representation in a multidimensional array (matrix), for example a 3x3 map:
+
+```
+[
+    [
+        [],[],[],
+    ],
+    [
+        [],[],[],
+    ],
+    [
+        [],[],[],
+    ]
+]
+```
+
+Each cell represents a one space on the map which is also constructed of 4 smaller fields. Such field can contain information about current source. To keep the data structure lighter, the cell contains only id to specific resource.
+
+To do some operations on layers/maps, the program takes an advantage of base Matrix Math like: adding, multiplication etc.
+
+### Exporting and data compression
+Finally, each layer is merged and the programme creates a map file that contains a shorter version of the map representation (to keep the files lighter). In addition, some layers are merged into one and, based on this, we render only one image.
+
+In the end, we get a map built from several images (merged layers) and the required data, such as blocked spaces, transitions and character positions. This allows the largest maps, such as 5000x5000 pixels, to weigh around **30-50 kilobytes**.
+
 ### Saving & approving new products flow
+Any user can propose their own map, character or item. To accomplish this, the user can upload and save the map locally *(a txt file on their device)* or, by logging into a Poyters account (Keycloak service), upload the proposed item to the Angotia ecosystem for further approval by an Angotia Administrator.
+
+All of the proposed data need to be reviewed and then approved or rejected by Angotia Administrator in Angotia Resources Admin Panel.
+
+The new product before sending to AR automatically rewieved, so it does not contain any map errors, illegal map collisions and so on. Also, user before pushing the product to approve, can see a final preview of the map.
 
 ![alt text](./docs/images/AWC-and-AQM-saving-process.png)
 
