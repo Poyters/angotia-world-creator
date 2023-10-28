@@ -1,6 +1,6 @@
 ## Changelog
 
-### Version 1.4.0 (planned February 2022)
+### Version 1.4.0 (28 October 2023)
 
 - AWC-303, Add LoadingBar
 - AWC-308, Update npm packages
