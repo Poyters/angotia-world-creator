@@ -77,6 +77,16 @@ The new product before sending to AR automatically rewieved, so it does not cont
 
 ![alt text](./docs/images/AWC-and-AQM-saving-process.png)
 
+In AWC we have a three saving process: *production, json, account*.
+
+#### Production
+During creation of map, char and items user has an ability to export product to Angotia Admins for accept. If they accept a result product they came in Angotia game at the same time; without any game breaks *(hotreloads)*.
+
+#### Json (locally)
+Each product can be saved to json file on user personal computer. Also can be loaded from json file and than, for instance exported to Angotia Admins.
+
+#### Account
+Option allows user add own images and save them on his account *(or in browser memory - IndexDB)*, then export product to Angotia Admins or save to JSON. Added user images will not be able to be used by other users until the product is approved by Angotia administrators *(transition to a production environment)*.
 
 ## Set up
 1. Clone repository
