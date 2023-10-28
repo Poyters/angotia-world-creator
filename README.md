@@ -91,6 +91,6 @@ Option allows user add own images and save them on his account *(or in browser m
 ## Set up
 1. Clone repository
 2. `npm i` in root directory
-3. Publish all local packages (e.g poyters-components)
+3. Publish all local packages (e.g poyters-components and angotia-sdk)
 4. `npm run yalc:add` to connect pull Angotia SDK from yalc sources
 
