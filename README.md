@@ -7,7 +7,7 @@ Angotia World Creator *(AWC)* is tool for game developers or World Creators to c
 2. Each resource in AWC can be prompt to be added to production environemt of the game. It creates the feel of "living game", where a new maps and another sources are added in the meantime. Also it build a confident around the players that they are making the game
 
 ## Run everywhere
-AWS works in the most modern browsers, like:
+AWC works in the most modern browsers, like:
 1. Google Chrome
 2. Mozilla Firefox
 3. Safari
@@ -15,7 +15,7 @@ AWS works in the most modern browsers, like:
 5. Opera
 
 ## Multi language
-AWS provides the interface in the following languages:
+AWC provides the interface in the following languages:
 1. English
 2. Polish
 3. French *(partial)*
